@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Crossplay on Brian Hockenmaier&#39;s Homepage</title>
+    <link>http://localhost:1313/tags/crossplay/</link>
+    <description>Recent content in Crossplay on Brian Hockenmaier&#39;s Homepage</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 12 Jan 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/crossplay/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Treekeepers VR</title>
+      <link>http://localhost:1313/treekeepersvr/</link>
+      <pubDate>Sun, 12 Jan 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/treekeepersvr/</guid>
+      <description>&lt;h2 id=&#34;the-treekeepers-puddle-jumper&#34;&gt;The Treekeepers Puddle Jumper&lt;/h2&gt;&#xA;&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/treekeepers/treekeepers-moonlight.png&#34; alt=&#34;The Treekeepers Puddle Jumper&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;Treekeepers VR is a networked VR game where up to 4 players can cooperate to navigate an oversized world and save a giant tree.&lt;/p&gt;&#xA;&lt;p&gt;Treekeepers is in production on both Quest (standalone VR) and Steam (PC VR) with full cross-play functionality. See the &lt;a href=&#34;https://togetheragainstudios.com/treekeepersvr/&#34;&gt;Treekeepers VR Website&lt;/a&gt; for links to all storefronts and more detail about the game.&lt;/p&gt;&#xA;&lt;hr&gt;&#xA;&lt;h2 id=&#34;development&#34;&gt;Development&lt;/h2&gt;&#xA;&lt;p&gt;I began working on Treekeepers in June 2021, and my primary goal was to go significantly deeper into Unity and make a fully networked game. Very few co-op games existed in VR at the time (the area is still lacking), and my intention was to answer this need and create a game that 4 players could cooperate in within a static frame of reference (players move within a ship, and the ship moves through the world) while having to solve coordination challenges together.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

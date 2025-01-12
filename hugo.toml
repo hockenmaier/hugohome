@@ -1,0 +1,4 @@
+baseURL = 'https://example.org/'
+languageCode = 'en-us'
+title = "Brian Hockenmaier's Homepage"
+theme = 'ananke'
