@@ -1,6 +1,6 @@
 ---
 title: "Human Joystick VR"
-date: 2025-01-14
+date: 2020-01-01
 categories: ["project overview"]
 personal: "Y"
 stack: ["Unity", "C#", "SteamVR SDK"]

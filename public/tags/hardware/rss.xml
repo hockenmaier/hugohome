@@ -1,0 +1,153 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+        
+    
+
+    
+        
+    
+
+
+
+
+
+
+
+    
+
+    
+
+
+
+
+
+
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0"  xml:lang="en-us"  xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        
+            
+
+            
+                
+            
+
+            
+                <link href="http://localhost:1313/tags/hardware/" rel="self" type="text/html"/>
+            
+        
+            
+
+            
+
+            
+                <link href="http://localhost:1313/tags/hardware/rss.xml" rel="alternate" type="application/rss+xml"/>
+            
+        
+
+        
+
+        
+
+        <description>Recent content</description>
+
+        
+            <language>en-us</language>
+        
+
+        
+            <lastBuildDate>2016-01-01 00:00:00 +0000 UTC</lastBuildDate>
+        
+
+        <link>http://localhost:1313/tags/hardware/</link>
+
+        
+
+        <title>Hardware · Tags · Home</title>
+
+        
+
+        
+            <item>
+                
+                
+                
+                
+                
+                
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+                
+
+                
+
+                
+
+                
+                    <description><![CDATA[<p><strong>Raspberry Pi Control Panel</strong> is a hardware project designed to manage home automation systems. The project involved designing a custom 3D-printed case for a Raspberry Pi microcomputer with a touchscreen interface.</p>
+<p>Links:</p>
+<ul>
+<li><a href="https://github.com/hockenmaier/RaspberryPiControlPanel">GitHub</a></li>
+<li><a href="https://www.thingiverse.com/thing:2524560">Thingiverse</a></li>
+</ul>
+<hr>
+<p>This project was primarily a hardware initiative. The panel was mounted to a wall and connected to SaaS home automation systems. A custom HTML wrapper was created to control the orientation and settings of the interface.</p>
+<hr>
+<h2 id="demonstration">Demonstration</h2>
+<p>Watch the panel in action:</p>
+
+    <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+      <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/iFGmm-ijJvE?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"></iframe>
+    </div>
+
+<hr>
+<h2 id="features">Features</h2>
+<ul>
+<li><strong>3D-printed enclosure</strong>: Designed in Solidworks and printed for a sleek, wall-mountable finish.</li>
+<li><strong>Custom HTML/CSS</strong>: Ensured the touchscreen interface was user-friendly and customizable.</li>
+<li><strong>Home automation integration</strong>: Controlled various systems within a studio apartment.</li>
+</ul>
+<hr>
+<p>Feel free to explore the linked repositories for schematics and source code.</p>
+]]></description>
+                
+
+                <guid isPermaLink="false">tag:localhost:1313,2016-01-01:/raspberry-pi-panel/</guid>
+
+                
+                    <link>http://localhost:1313/raspberry-pi-panel/</link>
+                
+
+                
+                    <pubDate>Fri, 01 Jan 2016 00:00:00 UTC</pubDate>
+                
+
+                
+                    <title>Raspberry Pi Control Panel</title>
+                
+            </item>
+        
+    </channel>
+</rss>

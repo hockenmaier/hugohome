@@ -2,53 +2,38 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>http://localhost:1313/categories/</loc>
-    <lastmod>2025-01-14T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/tags/experimental/</loc>
-    <lastmod>2025-01-14T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/tags/hardware/</loc>
-    <lastmod>2025-01-14T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/tags/home-automation/</loc>
-    <lastmod>2025-01-14T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/human-joystick/</loc>
-    <lastmod>2025-01-14T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/tags/locomotion/</loc>
-    <lastmod>2025-01-14T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/categories/project-overview/</loc>
-    <lastmod>2025-01-14T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/tags/raspberry-pi/</loc>
-    <lastmod>2025-01-14T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/raspberry-pi-panel/</loc>
-    <lastmod>2025-01-14T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/tags/</loc>
-    <lastmod>2025-01-14T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/tags/vr/</loc>
-    <lastmod>2025-01-14T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>http://localhost:1313/</loc>
     <lastmod>2025-01-12T12:28:01-08:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/indie/</loc>
-    <lastmod>2024-03-01T00:00:00+00:00</lastmod>
+    <loc>http://localhost:1313/categories/</loc>
+    <lastmod>2024-02-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/land-war/</loc>
-    <lastmod>2024-03-01T00:00:00+00:00</lastmod>
+    <loc>http://localhost:1313/categories/essay/</loc>
+    <lastmod>2024-02-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/multiplayer/</loc>
-    <lastmod>2024-03-01T00:00:00+00:00</lastmod>
+    <loc>http://localhost:1313/tags/happiness/</loc>
+    <lastmod>2024-02-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/strategy/</loc>
-    <lastmod>2024-03-01T00:00:00+00:00</lastmod>
+    <loc>http://localhost:1313/tags/hedonic-treadmill/</loc>
+    <lastmod>2024-02-01T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/hedonic-treadmill/</loc>
+    <lastmod>2024-02-01T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/personal/</loc>
+    <lastmod>2024-02-01T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/</loc>
+    <lastmod>2024-02-01T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/wealth/</loc>
+    <lastmod>2024-02-01T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/work-life-balance/</loc>
+    <lastmod>2024-02-01T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/personal/y/</loc>
+    <lastmod>2024-02-01T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/tags/co-op/</loc>
     <lastmod>2022-10-01T00:00:00+00:00</lastmod>
@@ -56,11 +41,29 @@
     <loc>http://localhost:1313/tags/crossplay/</loc>
     <lastmod>2022-10-01T00:00:00+00:00</lastmod>
   </url><url>
+    <loc>http://localhost:1313/tags/multiplayer/</loc>
+    <lastmod>2022-10-01T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>http://localhost:1313/tags/networking/</loc>
+    <lastmod>2022-10-01T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/categories/project-overview/</loc>
     <lastmod>2022-10-01T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/treekeepers-vr/</loc>
     <lastmod>2022-10-01T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/vr/</loc>
+    <lastmod>2022-10-01T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/experimental/</loc>
+    <lastmod>2020-01-01T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/human-joystick/</loc>
+    <lastmod>2020-01-01T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/locomotion/</loc>
+    <lastmod>2020-01-01T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/tags/data-analytics/</loc>
     <lastmod>2019-07-03T00:00:00+00:00</lastmod>
@@ -74,6 +77,15 @@
     <loc>http://localhost:1313/answering-machine/</loc>
     <lastmod>2019-07-03T00:00:00+00:00</lastmod>
   </url><url>
+    <loc>http://localhost:1313/tags/indie/</loc>
+    <lastmod>2019-03-01T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/land-war/</loc>
+    <lastmod>2019-03-01T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/strategy/</loc>
+    <lastmod>2019-03-01T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>http://localhost:1313/tags/education/</loc>
     <lastmod>2018-05-19T00:00:00+00:00</lastmod>
   </url><url>
@@ -85,5 +97,19 @@
   </url><url>
     <loc>http://localhost:1313/tags/vui/</loc>
     <lastmod>2018-05-19T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/hardware/</loc>
+    <lastmod>2016-01-01T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/home-automation/</loc>
+    <lastmod>2016-01-01T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/raspberry-pi/</loc>
+    <lastmod>2016-01-01T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/raspberry-pi-panel/</loc>
+    <lastmod>2016-01-01T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/stacks/</loc>
   </url>
 </urlset>

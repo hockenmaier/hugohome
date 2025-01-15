@@ -1,6 +1,6 @@
 ---
 title: "Raspberry Pi Control Panel"
-date: 2025-01-14
+date: 2016-01-01
 categories: ["project overview"]
 personal: "Y"
 stack: ["HTML/CSS", "Solidworks"]

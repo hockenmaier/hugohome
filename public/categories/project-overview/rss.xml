@@ -1,0 +1,554 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+        
+    
+
+    
+        
+    
+
+    
+
+    
+        
+    
+
+    
+
+    
+        
+    
+
+    
+
+    
+        
+    
+
+    
+
+    
+        
+    
+
+    
+
+    
+        
+    
+
+
+
+
+
+
+
+    
+
+    
+
+
+
+
+
+
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0"  xml:lang="en-us"  xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        
+            
+
+            
+                
+            
+
+            
+                <link href="http://localhost:1313/categories/project-overview/" rel="self" type="text/html"/>
+            
+        
+            
+
+            
+
+            
+                <link href="http://localhost:1313/categories/project-overview/rss.xml" rel="alternate" type="application/rss+xml"/>
+            
+        
+
+        
+
+        
+
+        <description>Recent content</description>
+
+        
+            <language>en-us</language>
+        
+
+        
+            <lastBuildDate>2022-10-01 00:00:00 +0000 UTC</lastBuildDate>
+        
+
+        <link>http://localhost:1313/categories/project-overview/</link>
+
+        
+
+        <title>Project Overview · Categories · Home</title>
+
+        
+
+        
+            <item>
+                
+                
+                
+                
+                
+                
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+                
+
+                
+
+                
+
+                
+                    <description><![CDATA[<p><img src="/images/treekeepers_moonlight.png" alt="The Treekeepers Puddle Jumper"></p>
+<p>Treekeepers VR is a networked VR game where up to 4 players can cooperate to navigate an oversized world and save a giant tree.</p>
+<p>Treekeepers is in production on both Quest (standalone VR) and Steam (PC VR) with full cross-play functionality. See the <a href="https://togetheragainstudios.com/treekeepersvr/">Treekeepers VR Website</a> for links to all storefronts and more detail about the game.</p>
+<hr>
+<h2 id="development">Development</h2>
+<p>I began working on Treekeepers in June 2021, and my primary goal was to go significantly deeper into Unity and make a fully networked game. Very few co-op games existed in VR at the time (the area is still lacking), and my intention was to answer this need and create a game that 4 players could cooperate in within a static frame of reference (players move within a ship, and the ship moves through the world) while having to solve coordination challenges together.</p>
+<p>I initially designed the project for SteamVR only using the SteamVR SDK but quickly realized that a VR game released only on PC would miss the majority of the userbase, as the (then Oculus) Quest 2 was quickly dominating the market. Treekeepers was a good fit for a mobile platform with its simple low-poly cel-shaded design, so I pivoted to using OpenXR about two months into the project to support VR interactions on both PC and mobile (Android) devices like the Quest 2.</p>
+<p>By summer 2022, I had a releasable product, albeit only with one “world” available. I decided to push the game to early access to gather rapid feedback from real players, and after getting approved for both storefronts, Treekeepers released to early access on September 30, 2022.</p>
+]]></description>
+                
+
+                <guid isPermaLink="false">tag:localhost:1313,2022-10-01:/treekeepers-vr/</guid>
+
+                
+                    <link>http://localhost:1313/treekeepers-vr/</link>
+                
+
+                
+                    <pubDate>Sat, 01 Oct 2022 00:00:00 UTC</pubDate>
+                
+
+                
+                    <title>Treekeepers VR</title>
+                
+            </item>
+        
+            <item>
+                
+                
+                
+                
+                
+                
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+                
+
+                
+
+                
+
+                
+                    <description><![CDATA[<p><img src="/images/human_joystick_centered.jpg" alt="Human Joystick centered"></p>
+<p><strong>Human Joystick VR</strong> explores a hybrid locomotion system where players move through a virtual environment by physically changing their position within their VR playspace.</p>
+<p>Link to the project: <a href="https://github.com/hockenmaier/humanjoystick">Human Joystick on Github</a></p>
+<hr>
+<h2 id="concept">Concept</h2>
+<p>The &ldquo;Human Joystick&rdquo; solves a common VR problem: providing natural movement in large virtual environments. Players can physically move within a playspace, but once they approach the edge, the system detects the movement vector and shifts the playspace accordingly.</p>
+<p>This allows players to explore vast virtual spaces while maintaining immersion and reducing nausea.</p>
+<hr>
+<h2 id="development">Development</h2>
+<p>This project was my first VR experience, designed to address virtual movement challenges. Inspired by consumer VR’s limitations in 2016, I aimed to merge physical and artificial locomotion for a more natural experience.</p>
+<h3 id="key-features">Key Features:</h3>
+<ol>
+<li>
+<p><strong>Deadzone and active zone</strong>:</p>
+<ul>
+<li>Players remain stationary when in the center (deadzone).</li>
+<li>Movement starts when stepping into the active zone.</li>
+</ul>
+</li>
+<li>
+<p><strong>Adjustable speed and direction</strong>:</p>
+<ul>
+<li>Speed scales with distance from the center.</li>
+<li>Supports smooth transitions between directions.</li>
+</ul>
+</li>
+</ol>
+<hr>
+<h2 id="challenges">Challenges</h2>
+<p>Despite achieving basic functionality, there were usability issues:</p>
+<ul>
+<li><strong>Recentering difficulty</strong>: Players struggled to naturally return to the center without visual aids.</li>
+<li><strong>Directional accuracy</strong>: Switching movement directions without recentralizing was less intuitive than expected.</li>
+</ul>
+<hr>
+<h2 id="demonstration">Demonstration</h2>
+<p>Watch the system in action:</p>
+
+    <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+      <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/q_1itpdiPb4?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"></iframe>
+    </div>
+
+<p><img src="/images/human_joystick_centered.jpg" alt="Deadzone view"><br>
+<em>View from the player&rsquo;s perspective in the deadzone.</em></p>
+<p><img src="/images/human_joystick_moving.jpg" alt="Active zone movement"><br>
+<em>Moving forward and left in the active zone at half max speed.</em></p>
+<hr>
+<h2 id="conclusion">Conclusion</h2>
+<p>Though the project remains a prototype, the system demonstrates the potential of combining physical and artificial movement for immersive VR. The code is available for download and experimentation on GitHub.</p>
+]]></description>
+                
+
+                <guid isPermaLink="false">tag:localhost:1313,2020-01-01:/human-joystick/</guid>
+
+                
+                    <link>http://localhost:1313/human-joystick/</link>
+                
+
+                
+                    <pubDate>Wed, 01 Jan 2020 00:00:00 UTC</pubDate>
+                
+
+                
+                    <title>Human Joystick VR</title>
+                
+            </item>
+        
+            <item>
+                
+                
+                
+                
+                
+                
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+                
+
+                
+
+                
+
+                
+                    <description><![CDATA[<p><strong>The Answering Machine</strong> is a proof-of-concept system that uses natural language processing (NLP) to produce answers to questions asked about data in plain English.</p>
+<p><strong>Try it here:</strong> <a href="http://voicequery-dev.s3-website-us-west-2.amazonaws.com/">http://voicequery-dev.s3-website-us-west-2.amazonaws.com/</a>
+<strong>Github:</strong> <a href="https://github.com/hockenmaier/voicequery">https://github.com/hockenmaier/voicequery</a></p>
+<p><img src="/images/answering_machine_uploads.png" alt="Answering Machine homepage"></p>
+<p>It is designed with simplicity in mind — upload any columnar dataset and start asking questions. Advanced NLP algorithms interpret your queries and assumptions, providing answers. You can even correct these assumptions for better follow-up queries.</p>
+<hr>
+<h2 id="features">Features</h2>
+<ul>
+<li><strong>Upload any dataset</strong>: Users can upload columnar datasets (CSV format) and start querying.</li>
+<li><strong>Real-time responses</strong>: Questions are answered instantly, with NLP driving the interpretation and response generation.</li>
+<li><strong>Serverless architecture</strong>: The system incurs no hosting costs apart from traffic-based expenses.</li>
+</ul>
+<hr>
+<h2 id="how-to">How-to</h2>
+<p>On a desktop or tablet, click the link above to navigate to <strong>The Answering Machine</strong>. Currently, it is not optimized for smartphones.</p>
+<p>To use the system:</p>
+<ol>
+<li>
+<p><strong>Upload a dataset</strong>: Drag and drop a CSV file or use the upload button.</p>
+<ul>
+<li>Example files like &ldquo;HR Activity Sample&rdquo; are available for testing.</li>
+</ul>
+</li>
+<li>
+<p><strong>Start querying</strong>: Select a dataset and type your question in the query bar.</p>
+</li>
+</ol>
+<p><img src="/images/answering_machine_hr.png" alt="HR dataset view"></p>
+<ol start="3">
+<li>Use the <strong>information panel</strong> to understand dataset fields, data types, and sample values. This helps formulate more specific questions.</li>
+</ol>
+<p><img src="/images/answering_machine_info.png" alt="Info panel"></p>
+<hr>
+<h2 id="query-types">Query Types</h2>
+<p>The system currently supports:</p>
+<ul>
+<li><strong>Counts</strong>: “How many employees joined in 2020?”</li>
+<li><strong>Mathematical questions</strong>: Averages, medians, maximums, and minimums.</li>
+<li><strong>Filters</strong>: Combine conditions like “What’s the average salary of engineers in 2019?”</li>
+</ul>
+<hr>
+<h2 id="concept-matching">Concept Matching</h2>
+<p>If the NLP system misinterprets a query, users can create <strong>concepts</strong> to align query terms with dataset fields.</p>
+<p><img src="/images/answering_machine_query.png" alt="Answering Machine query bar"></p>
+<p>Concepts override the system’s auto-matching logic, ensuring accurate data interpretation.</p>
+<p><img src="/images/answering_machine_concept.png" alt="Concept creation"></p>
+<hr>
+<h2 id="architecture">Architecture</h2>
+<p><strong>The Answering Machine</strong> is a purely serverless application. Its backend consists of AWS Lambda functions, API Gateway, and other serverless components.</p>
+<p><img src="/images/answering_machine_architecture.png" alt="Serverless architecture"></p>
+<p>For more details, check out <a href="https://martinfowler.com/articles/serverless.html">Martin Fowler&rsquo;s article on serverless computing</a>.</p>
+<hr>
+<p>Feel free to explore the tool and test various datasets. Remember, this is a proof-of-concept system with no user accounts, so avoid uploading sensitive data.</p>
+]]></description>
+                
+
+                <guid isPermaLink="false">tag:localhost:1313,2019-07-03:/answering-machine/</guid>
+
+                
+                    <link>http://localhost:1313/answering-machine/</link>
+                
+
+                
+                    <pubDate>Wed, 03 Jul 2019 00:00:00 UTC</pubDate>
+                
+
+                
+                    <title>The Answering Machine</title>
+                
+            </item>
+        
+            <item>
+                
+                
+                
+                
+                
+                
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+                
+
+                
+
+                
+
+                
+                    <description><![CDATA[<p><img src="/images/land_war_mvp.gif" alt="Land War 4-day MVP"></p>
+<p><strong>Land War</strong> is an 8-player real-time-strategy game that combines minimalistic graphics with deep strategic gameplay. Players grow their territories and face off against each other in a battle for dominance.</p>
+<p>Link to the project: <a href="https://store.steampowered.com/app/1030960/Land_War/">Land War on Steam</a></p>
+<hr>
+<h2 id="gameplay">Gameplay</h2>
+<p>The core concept of Land War is an ultra-simplified RTS. Players expand their territories and strategically decide which side of their land to defend or sacrifice when encountering opponents. By leveraging the map structure and coordinating with others, players aim to outlast their opponents.</p>
+<p><img src="/images/land_war_settings.png" alt="Settings menu"></p>
+<hr>
+<h2 id="development">Development</h2>
+<p>Land War was developed over 7 months and 400 hours using Unity and C#. Despite its simple art requirements, the project involved producing hundreds of static graphics and gifs. Custom music was commissioned for menus and gameplay.</p>
+<p>From the outset, the focus was on refining the core gameplay. A functional prototype was created within 5 days, tested with 8 players using Nintendo Joy-Cons.</p>
+<p><img src="/images/land_war_mvp.gif" alt="4-day MVP gameplay"><br>
+<em>4-player game with Nintendo Joy-Cons, 5 days into development.</em></p>
+<hr>
+<h2 id="features">Features</h2>
+<ul>
+<li><strong>Dynamic map generator</strong>: Offers varied strategic environments.</li>
+<li><strong>Controller support</strong>: Compatible with hundreds of controller types.</li>
+<li><strong>Game modes and settings</strong>: Includes tutorial, score systems, and unique play modes.</li>
+</ul>
+<p><img src="/images/land_war_player_select.png" alt="Player select screen"><br>
+<em>Player Select screen with multi-controller support.</em></p>
+<hr>
+<h2 id="release">Release</h2>
+<p>Land War was released on Steam in March 2019 with limited marketing. Despite this, it received positive reviews and several hundred purchases. Marketing efforts included Reddit posts and distributing Steam keys at E3.</p>
+<p><img src="/images/land_war_e3.png" alt="E3 marketing material"><br>
+<em>Steam keys handed out during E3 2019.</em></p>
+<hr>
+<h2 id="trailer">Trailer</h2>
+<p>Watch the official Steam release trailer:</p>
+
+    <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+      <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/BylKEPF4EeU?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"></iframe>
+    </div>
+
+]]></description>
+                
+
+                <guid isPermaLink="false">tag:localhost:1313,2019-03-01:/land-war/</guid>
+
+                
+                    <link>http://localhost:1313/land-war/</link>
+                
+
+                
+                    <pubDate>Fri, 01 Mar 2019 00:00:00 UTC</pubDate>
+                
+
+                
+                    <title>Land War</title>
+                
+            </item>
+        
+            <item>
+                
+                
+                
+                
+                
+                
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+                
+
+                
+
+                
+
+                
+                    <description><![CDATA[<p><strong>First Ten</strong> is an educational app that provides information about the U.S. Bill of Rights. It’s a voice-only experience, available through Google devices and smart speakers.</p>
+<p><strong>Try it here:</strong> <a href="https://assistant.google.com/services/a/uid/00000036f6a580ed">https://assistant.google.com/services/a/uid/00000036f6a580ed</a>
+<strong>Github:</strong> <a href="https://github.com/hockenmaier/billofrights">https://github.com/hockenmaier/billofrights</a></p>
+<p><img src="/images/first_ten_architecture.png" alt="Serverless Architecture of the First Ten app"></p>
+<p>To try it, simply ask your Google Home or Android device, “Can I speak to First Ten?”</p>
+<p>Try it out on</p>
+<hr>
+<h2 id="development">Development</h2>
+<p>First Ten is powered by a serverless backend built on AWS Lambda and DynamoDB. The voice input is processed by Google&rsquo;s Dialogflow, which extracts user intents and parameters to guide interactions.</p>
+<p>This project leverages the potential of Voice User Interfaces (VUI), offering a hands-free way to learn about the U.S. Bill of Rights, similar to Alexa Skills. Users can interact with the app by asking natural-language questions or commands.</p>
+<hr>
+]]></description>
+                
+
+                <guid isPermaLink="false">tag:localhost:1313,2018-05-19:/first-ten/</guid>
+
+                
+                    <link>http://localhost:1313/first-ten/</link>
+                
+
+                
+                    <pubDate>Sat, 19 May 2018 00:00:00 UTC</pubDate>
+                
+
+                
+                    <title>First Ten</title>
+                
+            </item>
+        
+            <item>
+                
+                
+                
+                
+                
+                
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+                
+
+                
+
+                
+
+                
+                    <description><![CDATA[<p><strong>Raspberry Pi Control Panel</strong> is a hardware project designed to manage home automation systems. The project involved designing a custom 3D-printed case for a Raspberry Pi microcomputer with a touchscreen interface.</p>
+<p>Links:</p>
+<ul>
+<li><a href="https://github.com/hockenmaier/RaspberryPiControlPanel">GitHub</a></li>
+<li><a href="https://www.thingiverse.com/thing:2524560">Thingiverse</a></li>
+</ul>
+<hr>
+<p>This project was primarily a hardware initiative. The panel was mounted to a wall and connected to SaaS home automation systems. A custom HTML wrapper was created to control the orientation and settings of the interface.</p>
+<hr>
+<h2 id="demonstration">Demonstration</h2>
+<p>Watch the panel in action:</p>
+
+    <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+      <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/iFGmm-ijJvE?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"></iframe>
+    </div>
+
+<hr>
+<h2 id="features">Features</h2>
+<ul>
+<li><strong>3D-printed enclosure</strong>: Designed in Solidworks and printed for a sleek, wall-mountable finish.</li>
+<li><strong>Custom HTML/CSS</strong>: Ensured the touchscreen interface was user-friendly and customizable.</li>
+<li><strong>Home automation integration</strong>: Controlled various systems within a studio apartment.</li>
+</ul>
+<hr>
+<p>Feel free to explore the linked repositories for schematics and source code.</p>
+]]></description>
+                
+
+                <guid isPermaLink="false">tag:localhost:1313,2016-01-01:/raspberry-pi-panel/</guid>
+
+                
+                    <link>http://localhost:1313/raspberry-pi-panel/</link>
+                
+
+                
+                    <pubDate>Fri, 01 Jan 2016 00:00:00 UTC</pubDate>
+                
+
+                
+                    <title>Raspberry Pi Control Panel</title>
+                
+            </item>
+        
+    </channel>
+</rss>

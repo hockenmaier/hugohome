@@ -1,19 +1,16 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<rss version="2.0" xmlns:media="http://search.yahoo.com/mrss/" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Voice Interface on Brian Hockenmaier&#39;s Homepage</title>
     <link>http://localhost:1313/tags/voice-interface/</link>
     <description>Recent content in Voice Interface on Brian Hockenmaier&#39;s Homepage</description>
-    <generator>Hugo</generator>
+    <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 19 May 2018 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/voice-interface/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 19 May 2018 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/voice-interface/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>First Ten</title>
       <link>http://localhost:1313/first-ten/</link>
       <pubDate>Sat, 19 May 2018 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/first-ten/</guid>
-      <description>&lt;p&gt;&lt;strong&gt;First Ten&lt;/strong&gt; is an educational app that provides information about the U.S. Bill of Rights. It’s a voice-only experience, available through Google devices and smart speakers.&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;Try it here:&lt;/strong&gt; &lt;a href=&#34;https://assistant.google.com/services/a/uid/00000036f6a580ed&#34;&gt;https://assistant.google.com/services/a/uid/00000036f6a580ed&lt;/a&gt;&#xA;&lt;strong&gt;Github:&lt;/strong&gt; &lt;a href=&#34;https://github.com/hockenmaier/billofrights&#34;&gt;https://github.com/hockenmaier/billofrights&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/first_ten_architecture.png&#34; alt=&#34;Serverless Architecture of the First Ten app&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;To try it, simply ask your Google Home or Android device, “Can I speak to First Ten?”&lt;/p&gt;&#xA;&lt;p&gt;Try it out on&lt;/p&gt;&#xA;&lt;hr&gt;&#xA;&lt;h2 id=&#34;development&#34;&gt;Development&lt;/h2&gt;&#xA;&lt;p&gt;First Ten is powered by a serverless backend built on AWS Lambda and DynamoDB. The voice input is processed by Google&amp;rsquo;s Dialogflow, which extracts user intents and parameters to guide interactions.&lt;/p&gt;</description>
-    </item>
+      <guid>http://localhost:1313/first-ten/</guid><description>&lt;no value&gt;</description></item>
   </channel>
 </rss>

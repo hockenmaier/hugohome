@@ -1,6 +1,6 @@
 ---
 title: "Land War"
-date: 2024-03-01
+date: 2019-03-01
 categories: ["project overview"]
 personal: "Y"
 stack: ["Unity", "C#"]

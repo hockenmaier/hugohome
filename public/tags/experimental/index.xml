@@ -1,19 +1,16 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<rss version="2.0" xmlns:media="http://search.yahoo.com/mrss/" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Experimental on Brian Hockenmaier&#39;s Homepage</title>
     <link>http://localhost:1313/tags/experimental/</link>
     <description>Recent content in Experimental on Brian Hockenmaier&#39;s Homepage</description>
-    <generator>Hugo</generator>
+    <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 14 Jan 2025 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/experimental/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 14 Jan 2025 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/experimental/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Human Joystick VR</title>
       <link>http://localhost:1313/human-joystick/</link>
       <pubDate>Tue, 14 Jan 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/human-joystick/</guid>
-      <description>&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/human_joystick_centered.jpg&#34; alt=&#34;Human Joystick centered&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;Human Joystick VR&lt;/strong&gt; explores a hybrid locomotion system where players move through a virtual environment by physically changing their position within their VR playspace.&lt;/p&gt;&#xA;&lt;p&gt;Link to the project: &lt;a href=&#34;https://github.com/hockenmaier/humanjoystick&#34;&gt;Human Joystick on Github&lt;/a&gt;&lt;/p&gt;&#xA;&lt;hr&gt;&#xA;&lt;h2 id=&#34;concept&#34;&gt;Concept&lt;/h2&gt;&#xA;&lt;p&gt;The &amp;ldquo;Human Joystick&amp;rdquo; solves a common VR problem: providing natural movement in large virtual environments. Players can physically move within a playspace, but once they approach the edge, the system detects the movement vector and shifts the playspace accordingly.&lt;/p&gt;</description>
-    </item>
+      <guid>http://localhost:1313/human-joystick/</guid><description>&lt;no value&gt;</description></item>
   </channel>
 </rss>

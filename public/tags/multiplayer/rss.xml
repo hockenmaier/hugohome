@@ -1,0 +1,220 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+        
+    
+
+    
+        
+    
+
+    
+
+    
+        
+    
+
+
+
+
+
+
+
+    
+
+    
+
+
+
+
+
+
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0"  xml:lang="en-us"  xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        
+            
+
+            
+                
+            
+
+            
+                <link href="http://localhost:1313/tags/multiplayer/" rel="self" type="text/html"/>
+            
+        
+            
+
+            
+
+            
+                <link href="http://localhost:1313/tags/multiplayer/rss.xml" rel="alternate" type="application/rss+xml"/>
+            
+        
+
+        
+
+        
+
+        <description>Recent content</description>
+
+        
+            <language>en-us</language>
+        
+
+        
+            <lastBuildDate>2022-10-01 00:00:00 +0000 UTC</lastBuildDate>
+        
+
+        <link>http://localhost:1313/tags/multiplayer/</link>
+
+        
+
+        <title>Multiplayer · Tags · Home</title>
+
+        
+
+        
+            <item>
+                
+                
+                
+                
+                
+                
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+                
+
+                
+
+                
+
+                
+                    <description><![CDATA[<p><img src="/images/treekeepers_moonlight.png" alt="The Treekeepers Puddle Jumper"></p>
+<p>Treekeepers VR is a networked VR game where up to 4 players can cooperate to navigate an oversized world and save a giant tree.</p>
+<p>Treekeepers is in production on both Quest (standalone VR) and Steam (PC VR) with full cross-play functionality. See the <a href="https://togetheragainstudios.com/treekeepersvr/">Treekeepers VR Website</a> for links to all storefronts and more detail about the game.</p>
+<hr>
+<h2 id="development">Development</h2>
+<p>I began working on Treekeepers in June 2021, and my primary goal was to go significantly deeper into Unity and make a fully networked game. Very few co-op games existed in VR at the time (the area is still lacking), and my intention was to answer this need and create a game that 4 players could cooperate in within a static frame of reference (players move within a ship, and the ship moves through the world) while having to solve coordination challenges together.</p>
+<p>I initially designed the project for SteamVR only using the SteamVR SDK but quickly realized that a VR game released only on PC would miss the majority of the userbase, as the (then Oculus) Quest 2 was quickly dominating the market. Treekeepers was a good fit for a mobile platform with its simple low-poly cel-shaded design, so I pivoted to using OpenXR about two months into the project to support VR interactions on both PC and mobile (Android) devices like the Quest 2.</p>
+<p>By summer 2022, I had a releasable product, albeit only with one “world” available. I decided to push the game to early access to gather rapid feedback from real players, and after getting approved for both storefronts, Treekeepers released to early access on September 30, 2022.</p>
+]]></description>
+                
+
+                <guid isPermaLink="false">tag:localhost:1313,2022-10-01:/treekeepers-vr/</guid>
+
+                
+                    <link>http://localhost:1313/treekeepers-vr/</link>
+                
+
+                
+                    <pubDate>Sat, 01 Oct 2022 00:00:00 UTC</pubDate>
+                
+
+                
+                    <title>Treekeepers VR</title>
+                
+            </item>
+        
+            <item>
+                
+                
+                
+                
+                
+                
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+                
+
+                
+
+                
+
+                
+                    <description><![CDATA[<p><img src="/images/land_war_mvp.gif" alt="Land War 4-day MVP"></p>
+<p><strong>Land War</strong> is an 8-player real-time-strategy game that combines minimalistic graphics with deep strategic gameplay. Players grow their territories and face off against each other in a battle for dominance.</p>
+<p>Link to the project: <a href="https://store.steampowered.com/app/1030960/Land_War/">Land War on Steam</a></p>
+<hr>
+<h2 id="gameplay">Gameplay</h2>
+<p>The core concept of Land War is an ultra-simplified RTS. Players expand their territories and strategically decide which side of their land to defend or sacrifice when encountering opponents. By leveraging the map structure and coordinating with others, players aim to outlast their opponents.</p>
+<p><img src="/images/land_war_settings.png" alt="Settings menu"></p>
+<hr>
+<h2 id="development">Development</h2>
+<p>Land War was developed over 7 months and 400 hours using Unity and C#. Despite its simple art requirements, the project involved producing hundreds of static graphics and gifs. Custom music was commissioned for menus and gameplay.</p>
+<p>From the outset, the focus was on refining the core gameplay. A functional prototype was created within 5 days, tested with 8 players using Nintendo Joy-Cons.</p>
+<p><img src="/images/land_war_mvp.gif" alt="4-day MVP gameplay"><br>
+<em>4-player game with Nintendo Joy-Cons, 5 days into development.</em></p>
+<hr>
+<h2 id="features">Features</h2>
+<ul>
+<li><strong>Dynamic map generator</strong>: Offers varied strategic environments.</li>
+<li><strong>Controller support</strong>: Compatible with hundreds of controller types.</li>
+<li><strong>Game modes and settings</strong>: Includes tutorial, score systems, and unique play modes.</li>
+</ul>
+<p><img src="/images/land_war_player_select.png" alt="Player select screen"><br>
+<em>Player Select screen with multi-controller support.</em></p>
+<hr>
+<h2 id="release">Release</h2>
+<p>Land War was released on Steam in March 2019 with limited marketing. Despite this, it received positive reviews and several hundred purchases. Marketing efforts included Reddit posts and distributing Steam keys at E3.</p>
+<p><img src="/images/land_war_e3.png" alt="E3 marketing material"><br>
+<em>Steam keys handed out during E3 2019.</em></p>
+<hr>
+<h2 id="trailer">Trailer</h2>
+<p>Watch the official Steam release trailer:</p>
+
+    <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+      <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/BylKEPF4EeU?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"></iframe>
+    </div>
+
+]]></description>
+                
+
+                <guid isPermaLink="false">tag:localhost:1313,2019-03-01:/land-war/</guid>
+
+                
+                    <link>http://localhost:1313/land-war/</link>
+                
+
+                
+                    <pubDate>Fri, 01 Mar 2019 00:00:00 UTC</pubDate>
+                
+
+                
+                    <title>Land War</title>
+                
+            </item>
+        
+    </channel>
+</rss>
