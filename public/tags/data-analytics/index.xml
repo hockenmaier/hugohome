@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Data Analytics on Brian Hockenmaier&#39;s Homepage</title>
+    <link>http://localhost:1313/tags/data-analytics/</link>
+    <description>Recent content in Data Analytics on Brian Hockenmaier&#39;s Homepage</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 03 Jul 2019 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/data-analytics/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>The Answering Machine</title>
+      <link>http://localhost:1313/answering-machine/</link>
+      <pubDate>Wed, 03 Jul 2019 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/answering-machine/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;The Answering Machine&lt;/strong&gt; is a proof-of-concept system that uses natural language processing (NLP) to produce answers to questions asked about data in plain English.&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;Try it here:&lt;/strong&gt; &lt;a href=&#34;http://voicequery-dev.s3-website-us-west-2.amazonaws.com/&#34;&gt;http://voicequery-dev.s3-website-us-west-2.amazonaws.com/&lt;/a&gt;&#xA;&lt;strong&gt;Github:&lt;/strong&gt; &lt;a href=&#34;https://github.com/hockenmaier/voicequery&#34;&gt;https://github.com/hockenmaier/voicequery&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/answering_machine_uploads.png&#34; alt=&#34;Answering Machine homepage&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;It is designed with simplicity in mind — upload any columnar dataset and start asking questions. Advanced NLP algorithms interpret your queries and assumptions, providing answers. You can even correct these assumptions for better follow-up queries.&lt;/p&gt;&#xA;&lt;hr&gt;&#xA;&lt;h2 id=&#34;features&#34;&gt;Features&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;Upload any dataset&lt;/strong&gt;: Users can upload columnar datasets (CSV format) and start querying.&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Real-time responses&lt;/strong&gt;: Questions are answered instantly, with NLP driving the interpretation and response generation.&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Serverless architecture&lt;/strong&gt;: The system incurs no hosting costs apart from traffic-based expenses.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;hr&gt;&#xA;&lt;h2 id=&#34;how-to&#34;&gt;How-to&lt;/h2&gt;&#xA;&lt;p&gt;On a desktop or tablet, click the link above to navigate to &lt;strong&gt;The Answering Machine&lt;/strong&gt;. Currently, it is not optimized for smartphones.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

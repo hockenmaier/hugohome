@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Indie on Brian Hockenmaier&#39;s Homepage</title>
+    <link>http://localhost:1313/tags/indie/</link>
+    <description>Recent content in Indie on Brian Hockenmaier&#39;s Homepage</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 01 Mar 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/indie/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Land War</title>
+      <link>http://localhost:1313/land-war/</link>
+      <pubDate>Fri, 01 Mar 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/land-war/</guid>
+      <description>&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/land_war_mvp.gif&#34; alt=&#34;Land War 4-day MVP&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;Land War&lt;/strong&gt; is an 8-player real-time-strategy game that combines minimalistic graphics with deep strategic gameplay. Players grow their territories and face off against each other in a battle for dominance.&lt;/p&gt;&#xA;&lt;p&gt;Link to the project: &lt;a href=&#34;https://store.steampowered.com/app/1030960/Land_War/&#34;&gt;Land War on Steam&lt;/a&gt;&lt;/p&gt;&#xA;&lt;hr&gt;&#xA;&lt;h2 id=&#34;gameplay&#34;&gt;Gameplay&lt;/h2&gt;&#xA;&lt;p&gt;The core concept of Land War is an ultra-simplified RTS. Players expand their territories and strategically decide which side of their land to defend or sacrifice when encountering opponents. By leveraging the map structure and coordinating with others, players aim to outlast their opponents.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Raspberry Pi on Brian Hockenmaier&#39;s Homepage</title>
+    <link>http://localhost:1313/tags/raspberry-pi/</link>
+    <description>Recent content in Raspberry Pi on Brian Hockenmaier&#39;s Homepage</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 14 Jan 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/raspberry-pi/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Raspberry Pi Control Panel</title>
+      <link>http://localhost:1313/raspberry-pi-panel/</link>
+      <pubDate>Tue, 14 Jan 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/raspberry-pi-panel/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;Raspberry Pi Control Panel&lt;/strong&gt; is a hardware project designed to manage home automation systems. The project involved designing a custom 3D-printed case for a Raspberry Pi microcomputer with a touchscreen interface.&lt;/p&gt;&#xA;&lt;p&gt;Links:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://github.com/hockenmaier/RaspberryPiControlPanel&#34;&gt;GitHub&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://www.thingiverse.com/thing:2524560&#34;&gt;Thingiverse&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;hr&gt;&#xA;&lt;h2 id=&#34;overview&#34;&gt;Overview&lt;/h2&gt;&#xA;&lt;p&gt;This project was primarily a hardware initiative. The panel was mounted to a wall and connected to SaaS home automation systems. A custom HTML wrapper was created to control the orientation and settings of the interface.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>
