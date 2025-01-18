@@ -41,7 +41,7 @@
 
 
 
-    <meta content="indie, multiplayer, project overview, strategy" name="keywords">
+    <meta content="C#, Game Development, Indie Games, Local Multiplayer, Multiplayer, Procedural Generation, project overview, Strategy, System Design, Unity, Video Games" name="keywords">
 
 
 <meta content="#0d1213" name="msapplication-TileColor">
@@ -57,23 +57,26 @@
 <meta property="og:url" content="http://localhost:1313/land-war/">
   <meta property="og:site_name" content="HockenHome">
   <meta property="og:title" content="Land War">
-  <meta property="og:description" content="Land War is an 8-player real-time-strategy game that combines minimalistic graphics with deep strategic gameplay. Players grow their territories and face off against each other in a battle for dominance.
-Link to the project: Land War on Steam
-Gameplay The core concept of Land War is an ultra-simplified RTS. Players expand their territories and strategically decide which side of their land to defend or sacrifice when encountering opponents. By leveraging the map structure and coordinating with others, players aim to outlast their opponents.">
+  <meta property="og:description" content="Land War is an 8-player strategy game I developed as a solo project and released to Steam in March of 2019.
+This game was intended to have low art requirements and simple interaction rules that result in deep strategic gameplay.
+The core concept is that of an ultra-simplified real-time-strategy game. Each player is represented by a color and can grow their territory by moving in any direction. The strategic elements occur when players encounter other players and have to make choices about which side of their land to defend or give up. Players can use the structure of the map and the coordinated action of other players to gain defensible footholds in order to take more area and eventually be the last player on the board.">
   <meta property="og:locale" content="en_us">
   <meta property="og:type" content="article">
     <meta property="article:published_time" content="2019-03-01T00:00:00+00:00">
     <meta property="article:modified_time" content="2019-03-01T00:00:00+00:00">
+    <meta property="article:tag" content="Game Development">
+    <meta property="article:tag" content="Local Multiplayer">
     <meta property="article:tag" content="Strategy">
-    <meta property="article:tag" content="Multiplayer">
-    <meta property="article:tag" content="Indie">
+    <meta property="article:tag" content="Unity">
+    <meta property="article:tag" content="C#">
+    <meta property="article:tag" content="Indie Games">
 
 
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Land War">
-  <meta name="twitter:description" content="Land War is an 8-player real-time-strategy game that combines minimalistic graphics with deep strategic gameplay. Players grow their territories and face off against each other in a battle for dominance.
-Link to the project: Land War on Steam
-Gameplay The core concept of Land War is an ultra-simplified RTS. Players expand their territories and strategically decide which side of their land to defend or sacrifice when encountering opponents. By leveraging the map structure and coordinating with others, players aim to outlast their opponents.">
+  <meta name="twitter:description" content="Land War is an 8-player strategy game I developed as a solo project and released to Steam in March of 2019.
+This game was intended to have low art requirements and simple interaction rules that result in deep strategic gameplay.
+The core concept is that of an ultra-simplified real-time-strategy game. Each player is represented by a color and can grow their territory by moving in any direction. The strategic elements occur when players encounter other players and have to make choices about which side of their land to defend or give up. Players can use the structure of the map and the coordinated action of other players to gain defensible footholds in order to take more area and eventually be the last player on the board.">
 
 
 
@@ -596,7 +599,7 @@ table {
                 <div id="paige-metadata">
                     
                         <p class=" paige-row-narrow  text-center  text-secondary " id="paige-keywords">
-                            <a class="link-secondary paige-keyword paige-keyword-tag" href="/tags/indie/">Indie</a> · <a class="link-secondary paige-keyword paige-keyword-tag" href="/tags/multiplayer/">Multiplayer</a> · <a class="link-secondary paige-keyword paige-keyword-category" href="/categories/project-overview/">Project Overview</a> · <a class="link-secondary paige-keyword paige-keyword-tag" href="/tags/strategy/">Strategy</a>
+                            <a class="link-secondary paige-keyword paige-keyword-tag" href="/tags/c%23/">C#</a> · <a class="link-secondary paige-keyword paige-keyword-tag" href="/tags/game-development/">Game Development</a> · <a class="link-secondary paige-keyword paige-keyword-tag" href="/tags/indie-games/">Indie Games</a> · <a class="link-secondary paige-keyword paige-keyword-tag" href="/tags/local-multiplayer/">Local Multiplayer</a> · <a class="link-secondary paige-keyword paige-keyword-tag" href="/tags/multiplayer/">Multiplayer</a> · <a class="link-secondary paige-keyword paige-keyword-tag" href="/tags/procedural-generation/">Procedural Generation</a> · <a class="link-secondary paige-keyword paige-keyword-category" href="/categories/project-overview/">Project Overview</a> · <a class="link-secondary paige-keyword paige-keyword-tag" href="/tags/strategy/">Strategy</a> · <a class="link-secondary paige-keyword paige-keyword-tag" href="/tags/system-design/">System Design</a> · <a class="link-secondary paige-keyword paige-keyword-tag" href="/tags/unity/">Unity</a> · <a class="link-secondary paige-keyword paige-keyword-tag" href="/tags/video-games/">Video Games</a>
                         </p>
                     
 
@@ -621,11 +624,11 @@ table {
                     <div class="border pe-3 ps-3 pt-3 rounded">
                         <nav id="TableOfContents">
   <ul>
-    <li><a href="#gameplay">Gameplay</a></li>
-    <li><a href="#development">Development</a></li>
-    <li><a href="#features">Features</a></li>
-    <li><a href="#release">Release</a></li>
-    <li><a href="#trailer">Trailer</a></li>
+    <li>
+      <ul>
+        <li><a href="#development">Development</a></li>
+      </ul>
+    </li>
   </ul>
 </nav>
                     </div>
@@ -639,41 +642,524 @@ table {
 
 
         
-            <main class="mw-100" id="paige-content"><p><img src="/images/land_war_mvp.gif" alt="Land War 4-day MVP"></p>
-<p><strong>Land War</strong> is an 8-player real-time-strategy game that combines minimalistic graphics with deep strategic gameplay. Players grow their territories and face off against each other in a battle for dominance.</p>
-<p>Link to the project: <a href="https://store.steampowered.com/app/1030960/Land_War/">Land War on Steam</a></p>
-<hr>
-<h2 id="gameplay">Gameplay<a aria-label="Link to this section" class="paige-header-link" href="#gameplay"></a></h2>
-<p>The core concept of Land War is an ultra-simplified RTS. Players expand their territories and strategically decide which side of their land to defend or sacrifice when encountering opponents. By leveraging the map structure and coordinating with others, players aim to outlast their opponents.</p>
-<p><img src="/images/land_war_settings.png" alt="Settings menu"></p>
-<hr>
-<h2 id="development">Development<a aria-label="Link to this section" class="paige-header-link" href="#development"></a></h2>
-<p>Land War was developed over 7 months and 400 hours using Unity and C#. Despite its simple art requirements, the project involved producing hundreds of static graphics and gifs. Custom music was commissioned for menus and gameplay.</p>
-<p>From the outset, the focus was on refining the core gameplay. A functional prototype was created within 5 days, tested with 8 players using Nintendo Joy-Cons.</p>
-<p><img src="/images/land_war_mvp.gif" alt="4-day MVP gameplay"><br>
-<em>4-player game with Nintendo Joy-Cons, 5 days into development.</em></p>
-<hr>
-<h2 id="features">Features<a aria-label="Link to this section" class="paige-header-link" href="#features"></a></h2>
-<ul>
-<li><strong>Dynamic map generator</strong>: Offers varied strategic environments.</li>
-<li><strong>Controller support</strong>: Compatible with hundreds of controller types.</li>
-<li><strong>Game modes and settings</strong>: Includes tutorial, score systems, and unique play modes.</li>
-</ul>
-<p><img src="/images/land_war_player_select.png" alt="Player select screen"><br>
-<em>Player Select screen with multi-controller support.</em></p>
-<hr>
-<h2 id="release">Release<a aria-label="Link to this section" class="paige-header-link" href="#release"></a></h2>
-<p>Land War was released on Steam in March 2019 with limited marketing. Despite this, it received positive reviews and several hundred purchases. Marketing efforts included Reddit posts and distributing Steam keys at E3.</p>
-<p><img src="/images/land_war_e3.png" alt="E3 marketing material"><br>
-<em>Steam keys handed out during E3 2019.</em></p>
-<hr>
-<h2 id="trailer">Trailer<a aria-label="Link to this section" class="paige-header-link" href="#trailer"></a></h2>
-<p>Watch the official Steam release trailer:</p>
+            <main class="mw-100" id="paige-content"><hr>
+<p>Land War is an 8-player strategy game I developed as a solo project and released to Steam in March of 2019.<br>
+This game was intended to have low art requirements and simple interaction rules that result in deep strategic gameplay.</p>
+<p>The core concept is that of an ultra-simplified real-time-strategy game. Each player is represented by a color and can grow their territory by moving in any direction. The strategic elements occur when players encounter other players and have to make choices about which side of their land to defend or give up. Players can use the structure of the map and the coordinated action of other players to gain defensible footholds in order to take more area and eventually be the last player on the board.</p>
+
+    <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+      <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/5Q8PAuWcmQc?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"></iframe>
+    </div>
+
+<p>A full game of the final product released on Steam played on a Windows computer.</p>
+<h3 id="development">Development<a aria-label="Link to this section" class="paige-header-link" href="#development"></a></h3>
+<p>I built Land War over the course of 7 months and 400 hours of work using Unity with C#. Though art requirements were intentionally low for a video game, I still had to produce several hundred static graphics and GIFs, and commissioned custom music for the menu and gameplay.</p>
+<p>This project is one of my favorite examples of what can be done in relatively little time with a focused vision and a constant eye on scope creep. From the very start, I knew that a key to making compelling software was to flesh out the core concept before all else. This is why I started on the most fundamental strategic interaction of the players and built an MVP version of the game without a menu, sound, art, or even a win condition.</p>
+<p>I started the project on a Memorial Day Monday, and by Friday had a rudimentary prototype playable with 8 players on Nintendo Joy-Con controllers paired to a Windows machine via Bluetooth.<br>
+This is what the project looked like for my first play-test with other people 5 days in:</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="paige-image">
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+    
+
+    
+        
+
+        
+
+        
+    
+        
+
+        
+
+        
+    
+        
+
+        
+            
+
+    
+
+
+
+    
+
+
+
+
+
+
+
+    
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<img  alt="Land War 4-day MVP"   class="img-fluid "  crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/land_war_mvp.gif"   style="display:block; height: auto; margin:0 auto; width: 50%"   >
+
+
+</div>
+
+<p><em>4-player game played with Nintendo Joy-Cons on a build of the game from 5 days into development.</em></p>
+<p>From there, I continued to work on depth and full feature functionality including menus, a tutorial, a map generator, a dynamic scoring and round system, better sound and sprite graphics, different play modes and settings, and support for many controllers. I released the game with very little marketing aside from some Reddit posts and a physical handout at E3 but was happy to receive positive reviews and several hundred purchases of the game.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="paige-image">
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+    
+
+    
+        
+
+        
+
+        
+    
+        
+
+        
+
+        
+    
+        
+
+        
+            
+
+    
+
+
+
+    
+
+
+
+
+
+
+
+    
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<img  alt="Player Select screen"   class="img-fluid "  crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/land_war_player_select.png"   style="display:block; height: auto; margin:0 auto; width: 50%"   >
+
+
+</div>
+
+<p><em>Player Select screen. Supporting menu and player controls across hundreds of controller types was one of the largest unforeseen challenges in developing Land War.</em></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="paige-image">
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+    
+
+    
+        
+
+        
+
+        
+    
+        
+
+        
+
+        
+    
+        
+
+        
+            
+
+    
+
+
+
+    
+
+
+
+
+
+
+
+    
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<img  alt="Settings menu"   class="img-fluid "  crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/land_war_settings.png"   style="display:block; height: auto; margin:0 auto; width: 50%"   >
+
+
+</div>
+
+<p><em>Settings menu. Most interesting mechanics I found while developing the game were added as options to keep the game interesting here.</em></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="paige-image">
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+    
+
+    
+        
+
+        
+
+        
+    
+        
+
+        
+
+        
+    
+        
+
+        
+            
+
+    
+
+
+
+    
+
+
+
+
+
+
+
+    
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<img  alt="E3 marketing material"   class="img-fluid "  crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/land_war_e3.png"   style="display:block; height: auto; margin:0 auto; width: 50%"   >
+
+
+</div>
+
+<p><em>The only physical marketing material developed for Land War. Several hundred Steam keys (copies of the game) were handed out during the E3 convention in 2019.</em></p>
 
     <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
       <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/BylKEPF4EeU?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"></iframe>
     </div>
 
+<p><em>Land War&rsquo;s Steam release announcement trailer.</em></p>
 </main>
         
 

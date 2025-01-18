@@ -1,0 +1,181 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+        
+    
+
+    
+        
+    
+
+
+
+
+
+
+
+    
+
+    
+
+
+
+
+
+
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0"  xml:lang="en-us"  xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        
+            
+
+            
+                
+            
+
+            
+                <link href="http://localhost:1313/tags/ai/" rel="self" type="text/html"/>
+            
+        
+            
+
+            
+
+            
+                <link href="http://localhost:1313/tags/ai/rss.xml" rel="alternate" type="application/rss+xml"/>
+            
+        
+
+        
+
+        
+
+        <description>Recent content</description>
+
+        
+            <language>en-us</language>
+        
+
+        
+            <lastBuildDate>2019-07-03 00:00:00 +0000 UTC</lastBuildDate>
+        
+
+        <link>http://localhost:1313/tags/ai/</link>
+
+        
+
+        <title>AI · Tags · Home</title>
+
+        
+
+        
+            <item>
+                
+                
+                
+                
+                
+                
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+                
+
+                
+
+                
+
+                
+                    <description><![CDATA[<p><strong>The Answering Machine</strong> is a proof-of-concept system that uses natural language processing (NLP) to produce answers to questions asked about data in plain English.</p>
+<p><strong>Try it here:</strong> <a href="http://voicequery-dev.s3-website-us-west-2.amazonaws.com/">http://voicequery-dev.s3-website-us-west-2.amazonaws.com/</a>
+<strong>Github:</strong> <a href="https://github.com/hockenmaier/voicequery">https://github.com/hockenmaier/voicequery</a></p>
+<p><img src="/images/answering_machine_uploads.png" alt="Answering Machine homepage"></p>
+<p>It is designed with simplicity in mind — upload any columnar dataset and start asking questions. Advanced NLP algorithms interpret your queries and assumptions, providing answers. You can even correct these assumptions for better follow-up queries.</p>
+<hr>
+<h2 id="features">Features</h2>
+<ul>
+<li><strong>Upload any dataset</strong>: Users can upload columnar datasets (CSV format) and start querying.</li>
+<li><strong>Real-time responses</strong>: Questions are answered instantly, with NLP driving the interpretation and response generation.</li>
+<li><strong>Serverless architecture</strong>: The system incurs no hosting costs apart from traffic-based expenses.</li>
+</ul>
+<hr>
+<h2 id="how-to">How-to</h2>
+<p>On a desktop or tablet, click the link above to navigate to <strong>The Answering Machine</strong>. Currently, it is not optimized for smartphones.</p>
+<p>To use the system:</p>
+<ol>
+<li>
+<p><strong>Upload a dataset</strong>: Drag and drop a CSV file or use the upload button.</p>
+<ul>
+<li>Example files like &ldquo;HR Activity Sample&rdquo; are available for testing.</li>
+</ul>
+</li>
+<li>
+<p><strong>Start querying</strong>: Select a dataset and type your question in the query bar.</p>
+</li>
+</ol>
+<p><img src="/images/answering_machine_hr.png" alt="HR dataset view"></p>
+<ol start="3">
+<li>Use the <strong>information panel</strong> to understand dataset fields, data types, and sample values. This helps formulate more specific questions.</li>
+</ol>
+<p><img src="/images/answering_machine_info.png" alt="Info panel"></p>
+<hr>
+<h2 id="query-types">Query Types</h2>
+<p>The system currently supports:</p>
+<ul>
+<li><strong>Counts</strong>: “How many employees joined in 2020?”</li>
+<li><strong>Mathematical questions</strong>: Averages, medians, maximums, and minimums.</li>
+<li><strong>Filters</strong>: Combine conditions like “What’s the average salary of engineers in 2019?”</li>
+</ul>
+<hr>
+<h2 id="concept-matching">Concept Matching</h2>
+<p>If the NLP system misinterprets a query, users can create <strong>concepts</strong> to align query terms with dataset fields.</p>
+<p><img src="/images/answering_machine_query.png" alt="Answering Machine query bar"></p>
+<p>Concepts override the system’s auto-matching logic, ensuring accurate data interpretation.</p>
+<p><img src="/images/answering_machine_concept.png" alt="Concept creation"></p>
+<hr>
+<h2 id="architecture">Architecture</h2>
+<p><strong>The Answering Machine</strong> is a purely serverless application. Its backend consists of AWS Lambda functions, API Gateway, and other serverless components.</p>
+<p><img src="/images/answering_machine_architecture.png" alt="Serverless architecture"></p>
+<p>For more details, check out <a href="https://martinfowler.com/articles/serverless.html">Martin Fowler&rsquo;s article on serverless computing</a>.</p>
+<hr>
+<p>Feel free to explore the tool and test various datasets. Remember, this is a proof-of-concept system with no user accounts, so avoid uploading sensitive data.</p>
+]]></description>
+                
+
+                <guid isPermaLink="false">tag:localhost:1313,2019-07-03:/answering-machine/</guid>
+
+                
+                    <link>http://localhost:1313/answering-machine/</link>
+                
+
+                
+                    <pubDate>Wed, 03 Jul 2019 00:00:00 UTC</pubDate>
+                
+
+                
+                    <title>The Answering Machine</title>
+                
+            </item>
+        
+    </channel>
+</rss>

@@ -7,7 +7,8 @@ stack: ["Unity", "C#", "Photon Networking", "XR Toolkit"]
 project_link: "https://togetheragainstudios.com/treekeepersvr/"
 github_link: ""
 short_description: "A Co-op Networked VR Experience with Crossplay on Meta Quest and SteamVR"
-tags: ["VR", "networking", "co-op", "crossplay", "multiplayer"]
+tags: ["VR", "Multiplayer", "Networking", "Crossplay", "Game Development", "Indie Games", "Unity", "C#", "Co-Op", "Procedural Generation", "Video Games"]
+
 ---
  
 ![The Treekeepers Puddle Jumper](/images/treekeepers_moonlight.png)

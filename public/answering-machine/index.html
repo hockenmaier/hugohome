@@ -41,7 +41,7 @@
 
 
 
-    <meta content="data analytics, NLP, project overview, serverless" name="keywords">
+    <meta content="AI, Analytics, AWS Lambda, Data Visualization, NLP, project overview, Python, Rapid Prototyping, React, Serverless, System Design" name="keywords">
 
 
 <meta content="#0d1213" name="msapplication-TileColor">
@@ -57,25 +57,24 @@
 <meta property="og:url" content="http://localhost:1313/answering-machine/">
   <meta property="og:site_name" content="HockenHome">
   <meta property="og:title" content="The Answering Machine">
-  <meta property="og:description" content="The Answering Machine is a proof-of-concept system that uses natural language processing (NLP) to produce answers to questions asked about data in plain English.
-Try it here: http://voicequery-dev.s3-website-us-west-2.amazonaws.com/ Github: https://github.com/hockenmaier/voicequery
-It is designed with simplicity in mind — upload any columnar dataset and start asking questions. Advanced NLP algorithms interpret your queries and assumptions, providing answers. You can even correct these assumptions for better follow-up queries.
-Features Upload any dataset: Users can upload columnar datasets (CSV format) and start querying. Real-time responses: Questions are answered instantly, with NLP driving the interpretation and response generation. Serverless architecture: The system incurs no hosting costs apart from traffic-based expenses. How-to On a desktop or tablet, click the link above to navigate to The Answering Machine. Currently, it is not optimized for smartphones.">
+  <meta property="og:description" content="Note from 2025: The Answering Machine is a proof-of-concept system that I built using pre-LLM natural language processing (NLP), specifically NLTK, to produce answers to questions asked about data in plain English.
+Looking back, this project was a great insight into what LLMs immediately allowed that was incredibly difficult before. This project was several months of work that the openAI sdk would probably have allowed in a few weeks - and that few weeks would have been mostly frontend design and a bit of prompting.">
   <meta property="og:locale" content="en_us">
   <meta property="og:type" content="article">
     <meta property="article:published_time" content="2019-07-03T00:00:00+00:00">
     <meta property="article:modified_time" content="2019-07-03T00:00:00+00:00">
+    <meta property="article:tag" content="AI">
     <meta property="article:tag" content="NLP">
+    <meta property="article:tag" content="Analytics">
+    <meta property="article:tag" content="Data Visualization">
     <meta property="article:tag" content="Serverless">
-    <meta property="article:tag" content="Data Analytics">
+    <meta property="article:tag" content="Python">
 
 
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="The Answering Machine">
-  <meta name="twitter:description" content="The Answering Machine is a proof-of-concept system that uses natural language processing (NLP) to produce answers to questions asked about data in plain English.
-Try it here: http://voicequery-dev.s3-website-us-west-2.amazonaws.com/ Github: https://github.com/hockenmaier/voicequery
-It is designed with simplicity in mind — upload any columnar dataset and start asking questions. Advanced NLP algorithms interpret your queries and assumptions, providing answers. You can even correct these assumptions for better follow-up queries.
-Features Upload any dataset: Users can upload columnar datasets (CSV format) and start querying. Real-time responses: Questions are answered instantly, with NLP driving the interpretation and response generation. Serverless architecture: The system incurs no hosting costs apart from traffic-based expenses. How-to On a desktop or tablet, click the link above to navigate to The Answering Machine. Currently, it is not optimized for smartphones.">
+  <meta name="twitter:description" content="Note from 2025: The Answering Machine is a proof-of-concept system that I built using pre-LLM natural language processing (NLP), specifically NLTK, to produce answers to questions asked about data in plain English.
+Looking back, this project was a great insight into what LLMs immediately allowed that was incredibly difficult before. This project was several months of work that the openAI sdk would probably have allowed in a few weeks - and that few weeks would have been mostly frontend design and a bit of prompting.">
 
 
 
@@ -598,7 +597,7 @@ table {
                 <div id="paige-metadata">
                     
                         <p class=" paige-row-narrow  text-center  text-secondary " id="paige-keywords">
-                            <a class="link-secondary paige-keyword paige-keyword-tag" href="/tags/data-analytics/">Data Analytics</a> · <a class="link-secondary paige-keyword paige-keyword-tag" href="/tags/nlp/">NLP</a> · <a class="link-secondary paige-keyword paige-keyword-category" href="/categories/project-overview/">Project Overview</a> · <a class="link-secondary paige-keyword paige-keyword-tag" href="/tags/serverless/">Serverless</a>
+                            <a class="link-secondary paige-keyword paige-keyword-tag" href="/tags/ai/">AI</a> · <a class="link-secondary paige-keyword paige-keyword-tag" href="/tags/analytics/">Analytics</a> · <a class="link-secondary paige-keyword paige-keyword-tag" href="/tags/aws-lambda/">AWS Lambda</a> · <a class="link-secondary paige-keyword paige-keyword-tag" href="/tags/data-visualization/">Data Visualization</a> · <a class="link-secondary paige-keyword paige-keyword-tag" href="/tags/nlp/">NLP</a> · <a class="link-secondary paige-keyword paige-keyword-category" href="/categories/project-overview/">Project Overview</a> · <a class="link-secondary paige-keyword paige-keyword-tag" href="/tags/python/">Python</a> · <a class="link-secondary paige-keyword paige-keyword-tag" href="/tags/rapid-prototyping/">Rapid Prototyping</a> · <a class="link-secondary paige-keyword paige-keyword-tag" href="/tags/react/">React</a> · <a class="link-secondary paige-keyword paige-keyword-tag" href="/tags/serverless/">Serverless</a> · <a class="link-secondary paige-keyword paige-keyword-tag" href="/tags/system-design/">System Design</a>
                         </p>
                     
 
@@ -623,11 +622,17 @@ table {
                     <div class="border pe-3 ps-3 pt-3 rounded">
                         <nav id="TableOfContents">
   <ul>
+    <li>
+      <ul>
+        <li><a href="#how-to">How-to</a></li>
+        <li><a href="#architecture">Architecture</a></li>
+      </ul>
+    </li>
     <li><a href="#features">Features</a></li>
-    <li><a href="#how-to">How-to</a></li>
+    <li><a href="#how-to-1">How-to</a></li>
     <li><a href="#query-types">Query Types</a></li>
     <li><a href="#concept-matching">Concept Matching</a></li>
-    <li><a href="#architecture">Architecture</a></li>
+    <li><a href="#architecture-1">Architecture</a></li>
   </ul>
 </nav>
                     </div>
@@ -641,11 +646,46 @@ table {
 
 
         
-            <main class="mw-100" id="paige-content"><p><strong>The Answering Machine</strong> is a proof-of-concept system that uses natural language processing (NLP) to produce answers to questions asked about data in plain English.</p>
+            <main class="mw-100" id="paige-content"><p>Note from 2025: The Answering Machine is a proof-of-concept system that I built using pre-LLM natural language processing (NLP), specifically NLTK, to produce answers to questions asked about data in plain English.</p>
+<p>Looking back, this project was a great insight into what LLMs immediately allowed that was incredibly difficult before.  This project was several months of work that the openAI sdk would probably have allowed in a few weeks - and that few weeks would have been mostly frontend design and a bit of prompting.</p>
 <p><strong>Try it here:</strong> <a href="http://voicequery-dev.s3-website-us-west-2.amazonaws.com/">http://voicequery-dev.s3-website-us-west-2.amazonaws.com/</a>
 <strong>Github:</strong> <a href="https://github.com/hockenmaier/voicequery">https://github.com/hockenmaier/voicequery</a></p>
 <p><img src="/images/answering_machine_uploads.png" alt="Answering Machine homepage"></p>
-<p>It is designed with simplicity in mind — upload any columnar dataset and start asking questions. Advanced NLP algorithms interpret your queries and assumptions, providing answers. You can even correct these assumptions for better follow-up queries.</p>
+<p>This proof-of-concept system uses natural language processing (NLP) to produce answers to questions asked about data in plain english.</p>
+<p>It is designed with simplicity in mind - upload any columnar dataset and start asking questions and getting answers. It uses some advanced NLP algorithms to make assumptions about what data you&rsquo;re asking about, and will let you correct those assumptions for follow-up questions if they&rsquo;re wrong.</p>
+<p>It is built entirely out of serverless components, which means there is no cost to maintain or run it other than the traffic the system receives.</p>
+<hr>
+<h3 id="how-to">How-to<a aria-label="Link to this section" class="paige-header-link" href="#how-to"></a></h3>
+<p>On a desktop or tablet, click the link in the header to navigate to the answering machine. For now it isn&rsquo;t optimized for smartphone-sized screens.</p>
+<p>In order to use the answering machine, you can either select one of the existing data sets such as &ldquo;HR Activity Sample&rdquo; or upload one of your own using the homepage of the site:</p>
+<p><img src="/images/answering_machine_uploads.png" alt="Answering Machine homepage"></p>
+<p>To upload your own, click in the upload area or just drag a file straight from your desktop. For now, use csv data files. Excel and other spreadsheet programs can easily save data in the csv format using the &ldquo;File &gt; Save As&rdquo; or similar option in the menu. Each file needs a unique name.</p>
+<p>When you hit the upload button, the site may not appear to change until the file is uploaded, at which point you&rsquo;ll see it appear in the box labeled &ldquo;Ask Your Data Anything&rdquo; below. Click on your file to start using it with the answering machine, or click the red trash can icon to delete it.</p>
+<p>There are no user accounts in this system yet, so the data you upload might be seen by other users using the system. Try not to use sensitive data for now.</p>
+<p>When you enter a dataset, you&rsquo;ll see a view that presents you with a quite a bit of information:</p>
+<p><img src="/images/answering_machine_hr.png" alt="Main view of Answering Machine"></p>
+<p>The only part you need to focus on right now is the information panel. This panel lists out all of the fields (columns), data types of those fields, and some sample data from a few records in your data set:</p>
+<p><img src="/images/answering_machine_info.png" alt="Answering Machine info panel"></p>
+<p>You can use this panel to start to formulate questions you might have about the data. If you see number values, you might ask about averages, maximums, or other math that might otherwise take some time to calculate. If you see a date, you can ask questions about the data in certain time periods.</p>
+<p>Many datasets also contain fields that only have a few specific allowed values. When the answering machine sees less than 15 unique values in any field, the data type will be a &ldquo;List&rdquo; and it lists them right out under the sample values table. You can use this type of value to ask questions about records containing those specific values. For example in the HR data set, you might only be interested in data where the &ldquo;Education&rdquo; field&rsquo;s value is &ldquo;High School&rdquo;.</p>
+<p>Now look to the query bar to start asking your data questions:</p>
+<p><img src="/images/answering_machine_query.png" alt="Answering Machine query bar"></p>
+<p>The types of questions that will currently be automatically detected and answered are:</p>
+<ul>
+<li>Counts of records where certain conditions are true</li>
+<li>Math questions such as averages, medians, maximums, and minimums</li>
+</ul>
+<p>These types of questions can be made specific by using qualifying statements with prepositional phrases like &ldquo;in 2019&rdquo; or adjective phrases like &ldquo;male&rdquo; or &ldquo;entry-level.&rdquo;</p>
+<p>Combining these two ideas, you can ask specific questions with any number of qualifiers, such as: &ldquo;What was the median salary of male employees in the engineering department 5 years ago?&rdquo;</p>
+<p>Upon hitting the &ldquo;ask&rdquo; button (or hitting Enter), the answering machine will do its best to answer your question, and will show you all of its work in this format:</p>
+<p><img src="/images/answering_machine_answer.png" alt="Answering Machine response"></p>
+<hr>
+<h3 id="architecture">Architecture<a aria-label="Link to this section" class="paige-header-link" href="#architecture"></a></h3>
+<p>The Answering Machine is a purely &ldquo;serverless&rdquo; application, meaning that there is no server hosting the various components of the application until those components are needed by a user. This is true for the database, the file storage, the static website, the backend compute, and the API orchestration.</p>
+<p>For the cloud nerds out there, <a href="https://martinfowler.com/articles/serverless.html">here is a great article</a> by Martin Fowler on what exactly &ldquo;serverless&rdquo; means, especially in terms of the backend compute portion which is arguably the most valuable part of the application to be serverless. For reference, I am using Martin&rsquo;s 2nd definition of &ldquo;serverless&rdquo; here.</p>
+<p>This is a high-level map of all of the components that make the answering machine work in its current (June 2020) state. The API gateways, cloudwatch events, and some triggers &ldquo;given for free&rdquo; by AWS are left out of this for readability:</p>
+<p><img src="/images/answering_machine_architecture.png" alt="Serverless Architecture of the Answering Machine app"></p>
+<p>The full suite of lambdas and persistent storage services that make up the answering machine.</p>
 <hr>
 <h2 id="features">Features<a aria-label="Link to this section" class="paige-header-link" href="#features"></a></h2>
 <ul>
@@ -654,7 +694,7 @@ table {
 <li><strong>Serverless architecture</strong>: The system incurs no hosting costs apart from traffic-based expenses.</li>
 </ul>
 <hr>
-<h2 id="how-to">How-to<a aria-label="Link to this section" class="paige-header-link" href="#how-to"></a></h2>
+<h2 id="how-to-1">How-to<a aria-label="Link to this section" class="paige-header-link" href="#how-to-1"></a></h2>
 <p>On a desktop or tablet, click the link above to navigate to <strong>The Answering Machine</strong>. Currently, it is not optimized for smartphones.</p>
 <p>To use the system:</p>
 <ol>
@@ -688,7 +728,7 @@ table {
 <p>Concepts override the system’s auto-matching logic, ensuring accurate data interpretation.</p>
 <p><img src="/images/answering_machine_concept.png" alt="Concept creation"></p>
 <hr>
-<h2 id="architecture">Architecture<a aria-label="Link to this section" class="paige-header-link" href="#architecture"></a></h2>
+<h2 id="architecture-1">Architecture<a aria-label="Link to this section" class="paige-header-link" href="#architecture-1"></a></h2>
 <p><strong>The Answering Machine</strong> is a purely serverless application. Its backend consists of AWS Lambda functions, API Gateway, and other serverless components.</p>
 <p><img src="/images/answering_machine_architecture.png" alt="Serverless architecture"></p>
 <p>For more details, check out <a href="https://martinfowler.com/articles/serverless.html">Martin Fowler&rsquo;s article on serverless computing</a>.</p>

@@ -41,7 +41,7 @@
 
 
 
-    <meta content="experimental, locomotion, project overview, VR" name="keywords">
+    <meta content="3D Printing, AI, Experimental, Game Development, project overview, Prototyping, SteamVR SDK, Unity, User Experience, Video Games, VR" name="keywords">
 
 
 <meta content="#0d1213" name="msapplication-TileColor">
@@ -57,23 +57,24 @@
 <meta property="og:url" content="http://localhost:1313/human-joystick/">
   <meta property="og:site_name" content="HockenHome">
   <meta property="og:title" content="Human Joystick VR">
-  <meta property="og:description" content="Human Joystick VR explores a hybrid locomotion system where players move through a virtual environment by physically changing their position within their VR playspace.
-Link to the project: Human Joystick on Github
-Concept The “Human Joystick” solves a common VR problem: providing natural movement in large virtual environments. Players can physically move within a playspace, but once they approach the edge, the system detects the movement vector and shifts the playspace accordingly.">
+  <meta property="og:description" content="The “Human Joystick” is an experimental VR movement system in which the player moves through the virtual environment by changing their physical location within their VR “playspace”.
+A demo of the human joystick movement system, showing how the system can work on flat surfaces or terrain.">
   <meta property="og:locale" content="en_us">
   <meta property="og:type" content="article">
     <meta property="article:published_time" content="2020-01-01T00:00:00+00:00">
     <meta property="article:modified_time" content="2020-01-01T00:00:00+00:00">
     <meta property="article:tag" content="VR">
-    <meta property="article:tag" content="Locomotion">
     <meta property="article:tag" content="Experimental">
+    <meta property="article:tag" content="Game Development">
+    <meta property="article:tag" content="Unity">
+    <meta property="article:tag" content="SteamVR SDK">
+    <meta property="article:tag" content="3D Printing">
 
 
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Human Joystick VR">
-  <meta name="twitter:description" content="Human Joystick VR explores a hybrid locomotion system where players move through a virtual environment by physically changing their position within their VR playspace.
-Link to the project: Human Joystick on Github
-Concept The “Human Joystick” solves a common VR problem: providing natural movement in large virtual environments. Players can physically move within a playspace, but once they approach the edge, the system detects the movement vector and shifts the playspace accordingly.">
+  <meta name="twitter:description" content="The “Human Joystick” is an experimental VR movement system in which the player moves through the virtual environment by changing their physical location within their VR “playspace”.
+A demo of the human joystick movement system, showing how the system can work on flat surfaces or terrain.">
 
 
 
@@ -596,7 +597,7 @@ table {
                 <div id="paige-metadata">
                     
                         <p class=" paige-row-narrow  text-center  text-secondary " id="paige-keywords">
-                            <a class="link-secondary paige-keyword paige-keyword-tag" href="/tags/experimental/">Experimental</a> · <a class="link-secondary paige-keyword paige-keyword-tag" href="/tags/locomotion/">Locomotion</a> · <a class="link-secondary paige-keyword paige-keyword-category" href="/categories/project-overview/">Project Overview</a> · <a class="link-secondary paige-keyword paige-keyword-tag" href="/tags/vr/">VR</a>
+                            <a class="link-secondary paige-keyword paige-keyword-tag" href="/tags/3d-printing/">3D Printing</a> · <a class="link-secondary paige-keyword paige-keyword-tag" href="/tags/ai/">AI</a> · <a class="link-secondary paige-keyword paige-keyword-tag" href="/tags/experimental/">Experimental</a> · <a class="link-secondary paige-keyword paige-keyword-tag" href="/tags/game-development/">Game Development</a> · <a class="link-secondary paige-keyword paige-keyword-category" href="/categories/project-overview/">Project Overview</a> · <a class="link-secondary paige-keyword paige-keyword-tag" href="/tags/prototyping/">Prototyping</a> · <a class="link-secondary paige-keyword paige-keyword-tag" href="/tags/steamvr-sdk/">SteamVR SDK</a> · <a class="link-secondary paige-keyword paige-keyword-tag" href="/tags/unity/">Unity</a> · <a class="link-secondary paige-keyword paige-keyword-tag" href="/tags/user-experience/">User Experience</a> · <a class="link-secondary paige-keyword paige-keyword-tag" href="/tags/video-games/">Video Games</a> · <a class="link-secondary paige-keyword paige-keyword-tag" href="/tags/vr/">VR</a>
                         </p>
                     
 
@@ -617,24 +618,6 @@ table {
             
 
             
-                <div class="paige-row-wide" id="paige-toc">
-                    <div class="border pe-3 ps-3 pt-3 rounded">
-                        <nav id="TableOfContents">
-  <ul>
-    <li><a href="#concept">Concept</a></li>
-    <li><a href="#development">Development</a>
-      <ul>
-        <li><a href="#key-features">Key Features:</a></li>
-      </ul>
-    </li>
-    <li><a href="#challenges">Challenges</a></li>
-    <li><a href="#demonstration">Demonstration</a></li>
-    <li><a href="#conclusion">Conclusion</a></li>
-  </ul>
-</nav>
-                    </div>
-                </div>
-            
 
             
         </div>
@@ -643,55 +626,282 @@ table {
 
 
         
-            <main class="mw-100" id="paige-content"><p><img src="/images/human_joystick_centered.jpg" alt="Human Joystick centered"></p>
-<p><strong>Human Joystick VR</strong> explores a hybrid locomotion system where players move through a virtual environment by physically changing their position within their VR playspace.</p>
-<p>Link to the project: <a href="https://github.com/hockenmaier/humanjoystick">Human Joystick on Github</a></p>
-<hr>
-<h2 id="concept">Concept<a aria-label="Link to this section" class="paige-header-link" href="#concept"></a></h2>
-<p>The &ldquo;Human Joystick&rdquo; solves a common VR problem: providing natural movement in large virtual environments. Players can physically move within a playspace, but once they approach the edge, the system detects the movement vector and shifts the playspace accordingly.</p>
-<p>This allows players to explore vast virtual spaces while maintaining immersion and reducing nausea.</p>
-<hr>
-<h2 id="development">Development<a aria-label="Link to this section" class="paige-header-link" href="#development"></a></h2>
-<p>This project was my first VR experience, designed to address virtual movement challenges. Inspired by consumer VR’s limitations in 2016, I aimed to merge physical and artificial locomotion for a more natural experience.</p>
-<h3 id="key-features">Key Features:<a aria-label="Link to this section" class="paige-header-link" href="#key-features"></a></h3>
-<ol>
-<li>
-<p><strong>Deadzone and active zone</strong>:</p>
-<ul>
-<li>Players remain stationary when in the center (deadzone).</li>
-<li>Movement starts when stepping into the active zone.</li>
-</ul>
-</li>
-<li>
-<p><strong>Adjustable speed and direction</strong>:</p>
-<ul>
-<li>Speed scales with distance from the center.</li>
-<li>Supports smooth transitions between directions.</li>
-</ul>
-</li>
-</ol>
-<hr>
-<h2 id="challenges">Challenges<a aria-label="Link to this section" class="paige-header-link" href="#challenges"></a></h2>
-<p>Despite achieving basic functionality, there were usability issues:</p>
-<ul>
-<li><strong>Recentering difficulty</strong>: Players struggled to naturally return to the center without visual aids.</li>
-<li><strong>Directional accuracy</strong>: Switching movement directions without recentralizing was less intuitive than expected.</li>
-</ul>
-<hr>
-<h2 id="demonstration">Demonstration<a aria-label="Link to this section" class="paige-header-link" href="#demonstration"></a></h2>
-<p>Watch the system in action:</p>
-
+            <main class="mw-100" id="paige-content">
     <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
       <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/q_1itpdiPb4?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"></iframe>
     </div>
 
-<p><img src="/images/human_joystick_centered.jpg" alt="Deadzone view"><br>
-<em>View from the player&rsquo;s perspective in the deadzone.</em></p>
-<p><img src="/images/human_joystick_moving.jpg" alt="Active zone movement"><br>
-<em>Moving forward and left in the active zone at half max speed.</em></p>
+<p>The &ldquo;Human Joystick&rdquo; is an experimental VR movement system in which the player moves through the virtual environment by changing their physical location within their VR &ldquo;playspace&rdquo;.</p>
+<p>A demo of the human joystick movement system, showing how the system can work on flat surfaces or terrain.</p>
+<p>This was my first barebones VR project. Though I knew Unity going in, VR and 3D games in general have a lot of unique aspects that I wanted to learn about while trying to solve an actual problem, rather than following tutorials or demos online.</p>
+<p>VR has some adoption problems in its current state. We all know of some of the main problems- the clunky headset, the nausea issues, and of course the pricetag. But one major problem that you don&rsquo;t really notice until you get into it, is the lack of a good solution for virtual movement.</p>
+<p>I had been wondering about &ldquo;the human joystick&rdquo; as a potential a solution to this particular problem ever since getting into consumer VR in 2016.</p>
+<p>In most modern VR systems, the player can move physically around the room if they choose. Some applications and games depend on this - they put you in a small space and rely on your physical movement in order to reach different areas and interact with things. But games that provide a more traditional sense of scale and allow players to move through large worlds cannot rely on physical motion, because their users are constrained by physical space. Because of this, you see all kinds of &ldquo;artificial&rdquo; locomotion systems in order to let people move around - some just like traditional 2D games that let users &ldquo;slide&rdquo; their playspaces around the world using a joystick, and others that adopt teleportation mechanics. Neither feel very natural as compared to actually walking, and some can be downright sickening.</p>
+<p>My goal with this project was to solve this problem with a mixture of physical and artificial movement.</p>
+<p>It works like this: When the player is standing near the center of their playspace, physical VR movement applies. The player can move around and interact with things with their actual bodies. But once the player moves further from the center, the plaspace starts to move with them in the same direction as the vector from the center of the player&rsquo;s space to their current position. This allows for some of the benefits that physical movement experiences have, while allowing the players to more naturally move through an infinite amount of space.</p>
+<p>I experimented with several speeds, both static and scaling with the distance between the center and the player. I also experimented with the size of the physical movement &ldquo;deadzone&rdquo; and with vertical and constrained movement across hills, valleys, and buildings.</p>
 <hr>
-<h2 id="conclusion">Conclusion<a aria-label="Link to this section" class="paige-header-link" href="#conclusion"></a></h2>
-<p>Though the project remains a prototype, the system demonstrates the potential of combining physical and artificial movement for immersive VR. The code is available for download and experimentation on GitHub.</p>
+<table>
+  <thead>
+      <tr>
+          <th style="text-align: center">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="paige-image">
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+    
+
+    
+        
+
+        
+
+        
+    
+        
+
+        
+
+        
+    
+        
+
+        
+            
+
+    
+
+
+
+    
+
+
+
+
+
+
+
+    
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<img   class="img-fluid "  crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/human_joystick_centered.jpg"   style="display:block; height: auto; margin:0 auto; width: 60%"   >
+
+
+</div>
+</th>
+          <th style="text-align: left"><em>View from the player&rsquo;s perspective looking at the guides at his feet. With the white dot in the red deadzone, the player isn&rsquo;t moving.</em></th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: center">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="paige-image">
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+    
+
+    
+        
+
+        
+
+        
+    
+        
+
+        
+
+        
+    
+        
+
+        
+            
+
+    
+
+
+
+    
+
+
+
+
+
+
+
+    
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<img   class="img-fluid "  crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/human_joystick_moving.jpg"   style="display:block; height: auto; margin:0 auto; width: 60%"   >
+
+
+</div>
+</td>
+          <td style="text-align: left"><strong><em>When the white dot is in the green area, the player moves in that direction. Here I am moving forward and left at about half of max speed.</em></strong></td>
+      </tr>
+  </tbody>
+</table>
+<hr>
+<p>Eventually I found some good default values and the system worked, but there were some unforeseen problems: First, it was more difficult to center yourself within the playspace without looking at the visible guides I put at the player&rsquo;s feet than I expected. Second and more importantly, when you were already moving in one direction, it was not as simple as I thought to start moving in another direction accurately without fully returning to center, which was an immersion breaker.</p>
+<p>Ultimately I put the project up for others to view but have not expanded it into a full experience or released it on any marketplaces. Feel free to download the Unity project and try it on your own VR setup if you&rsquo;re curious.</p>
 </main>
         
 
