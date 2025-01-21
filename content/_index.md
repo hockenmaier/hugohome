@@ -4,9 +4,15 @@ draft = false
 title = "Home"
 +++
 
-# Hi, I'm Brian
+{{< image-with-side-caption
+    src="/images/brian_portrait.png"
+    alt="Alt text"
+    width="18%"
+    style="display: block;"
+    caption="←me" >}}
 
-I build things, and I develop obsessions with emerging tech especially in VR/AR and NLP/AI.
+
+I build things, and I sometimes obsess over games, VR/AR and AI.
 
 I’ve been at one company for a long time.  I have led lots of different builds, in lots of different software domains.  Lots of back-office stuff including billing systems, TV scheduling systems, IP rights management systems, and most recently some very exciting work building agentic AI systems for the mundane work people at my company have to do!
 
