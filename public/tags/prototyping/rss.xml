@@ -120,18 +120,268 @@
 <p>My goal with this project was to solve this problem with a mixture of physical and artificial movement.</p>
 <p>It works like this: When the player is standing near the center of their playspace, physical VR movement applies. The player can move around and interact with things with their actual bodies. But once the player moves further from the center, the plaspace starts to move with them in the same direction as the vector from the center of the player&rsquo;s space to their current position. This allows for some of the benefits that physical movement experiences have, while allowing the players to more naturally move through an infinite amount of space.</p>
 <p>I experimented with several speeds, both static and scaling with the distance between the center and the player. I also experimented with the size of the physical movement &ldquo;deadzone&rdquo; and with vertical and constrained movement across hills, valleys, and buildings.</p>
-<p>View from the player&rsquo;s perspective looking at the guides at his feet.  With the white dot in the red deadzone the player isn&rsquo;t moving.
-<img src="/images/human_joystick_centered.jpg" alt="Deadzone view"><br>
-<em>View from the player&rsquo;s perspective in the deadzone.</em>
-When the white dot is in the green area, the player moves in that direction.  Here I am moving forward and left at about half of max speed.
-<img src="/images/human_joystick_moving.jpg" alt="Active zone movement"><br>
-<em>Moving forward and left in the active zone at half max speed.</em></p>
-<p>Eventually I found some good default values and the system worked, but there were some unforeseen problems: First, it was more difficult to center yourself within the playspace without looking at the visible guides I put at the player&rsquo;s feet than I expected. Second and more importantly, when you were already moving in one direction, it was not as simple as I thought to start moving in another direction accurately without fully returning to center, which was an immersion breaker.</p>
-<p>[video link]</p>
-<p>Ultimately I put the project up for others to view but have not expanded it into a full experience or released it on any marketplaces. Feel free to download the Unity project and try it on your own VR setup if you&rsquo;re curious.</p>
 <hr>
-<h2 id="conclusion">Conclusion</h2>
-<p>Though the project remains a prototype, the system demonstrates the potential of combining physical and artificial movement for immersive VR. The code is available for download and experimentation on GitHub.</p>
+<table>
+  <thead>
+      <tr>
+          <th style="text-align: center">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="paige-image">
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+    
+
+    
+        
+
+        
+
+        
+    
+        
+
+        
+
+        
+    
+        
+
+        
+            
+
+    
+
+
+
+    
+
+
+
+
+
+
+
+    
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<img   class="img-fluid "  crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/human_joystick_centered.jpg"   style="display:block; height: auto; margin:0 auto; width: 60%"   >
+
+
+</div>
+</th>
+          <th style="text-align: left"><em>View from the player&rsquo;s perspective looking at the guides at his feet. With the white dot in the red deadzone, the player isn&rsquo;t moving.</em></th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: center">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="paige-image">
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+    
+
+    
+        
+
+        
+
+        
+    
+        
+
+        
+
+        
+    
+        
+
+        
+            
+
+    
+
+
+
+    
+
+
+
+
+
+
+
+    
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<img   class="img-fluid "  crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/human_joystick_moving.jpg"   style="display:block; height: auto; margin:0 auto; width: 60%"   >
+
+
+</div>
+</td>
+          <td style="text-align: left"><strong><em>When the white dot is in the green area, the player moves in that direction. Here I am moving forward and left at about half of max speed.</em></strong></td>
+      </tr>
+  </tbody>
+</table>
+<hr>
+<p>Eventually I found some good default values and the system worked, but there were some unforeseen problems: First, it was more difficult to center yourself within the playspace without looking at the visible guides I put at the player&rsquo;s feet than I expected. Second and more importantly, when you were already moving in one direction, it was not as simple as I thought to start moving in another direction accurately without fully returning to center, which was an immersion breaker.</p>
+<p>Ultimately I put the project up for others to view but have not expanded it into a full experience or released it on any marketplaces. Feel free to download the Unity project and try it on your own VR setup if you&rsquo;re curious.</p>
 ]]></description>
                 
 
