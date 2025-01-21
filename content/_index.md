@@ -7,7 +7,7 @@ title = "Home"
 {{< image-with-side-caption
     src="/images/brian_portrait.png"
     alt="Alt text"
-    width="18%"
+    maxwidth=200px
     style="display: block;"
     caption="←me" >}}
 
