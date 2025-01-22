@@ -11,7 +11,7 @@ tags: ["AI", "NLP", "Analytics", "Data Visualization", "Serverless", "Python", "
 
 ---
 
-Note from 2025: The Answering Machine is a proof-of-concept system that I built using pre-LLM natural language processing (NLP), specifically NLTK, to produce answers to questions asked about data in plain English.
+The Answering Machine is a proof-of-concept system that I built using **pre-LLM** natural language processing (NLP), specifically NLTK, to produce answers to questions asked about data in plain English.
 
 Looking back, this project was a great insight into what LLMs immediately allowed that was incredibly difficult before.  This project was several months of work that the openAI sdk would probably have allowed in a few weeks - and that few weeks would have been mostly frontend design and a bit of prompting.
 

@@ -136,7 +136,93 @@
                 
 
                 
-                    <description><![CDATA[<p><img src="/images/treekeepers_moonlight.png" alt="The Treekeepers Puddle Jumper"></p>
+                    <description><![CDATA[<div style="text-align: center; margin-bottom: 1rem;">
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+    
+
+
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<img  alt="The Treekeepers Puddle Jumper"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/treekeepers_moonlight.png"   style="height: auto; max-width: 100%"   >
+
+
+    
+        <span style="font-style: italic; margin-top: 0.5rem;">The Treekeepers Puddle Jumper</span>
+    
+</div>
+
 <p>Treekeepers VR is a networked VR game where up to 4 players can cooperate to navigate an oversized world and save a giant tree.</p>
 <p>Treekeepers is in production on both Quest (standalone VR) and Steam (PC VR) with full cross-play functionality. See the <a href="https://togetheragainstudios.com/treekeepersvr/">Treekeepers VR Website</a> for links to all storefronts and more detail about the game.</p>
 <hr>
@@ -506,7 +592,7 @@
                 
 
                 
-                    <description><![CDATA[<p>Note from 2025: The Answering Machine is a proof-of-concept system that I built using pre-LLM natural language processing (NLP), specifically NLTK, to produce answers to questions asked about data in plain English.</p>
+                    <description><![CDATA[<p>The Answering Machine is a proof-of-concept system that I built using <strong>pre-LLM</strong> natural language processing (NLP), specifically NLTK, to produce answers to questions asked about data in plain English.</p>
 <p>Looking back, this project was a great insight into what LLMs immediately allowed that was incredibly difficult before.  This project was several months of work that the openAI sdk would probably have allowed in a few weeks - and that few weeks would have been mostly frontend design and a bit of prompting.</p>
 <p><strong>Try it here:</strong> <a href="http://voicequery-dev.s3-website-us-west-2.amazonaws.com/">http://voicequery-dev.s3-website-us-west-2.amazonaws.com/</a>
 <strong>Github:</strong> <a href="https://github.com/hockenmaier/voicequery">https://github.com/hockenmaier/voicequery</a></p>
@@ -652,26 +738,7 @@ This game was intended to have low art requirements and simple interaction rules
 <p>This project is one of my favorite examples of what can be done in relatively little time with a focused vision and a constant eye on scope creep. From the very start, I knew that a key to making compelling software was to flesh out the core concept before all else. This is why I started on the most fundamental strategic interaction of the players and built an MVP version of the game without a menu, sound, art, or even a win condition.</p>
 <p>I started the project on a Memorial Day Monday, and by Friday had a rudimentary prototype playable with 8 players on Nintendo Joy-Con controllers paired to a Windows machine via Bluetooth.<br>
 This is what the project looked like for my first play-test with other people 5 days in:</p>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div class="paige-image">
+<div style="text-align: center; margin-bottom: 1rem;">
     
 
 
@@ -707,26 +774,6 @@ This is what the project looked like for my first play-test with other people 5 
 
     
 
-    
-        
-
-        
-
-        
-    
-        
-
-        
-
-        
-    
-        
-
-        
-            
-
-    
-
 
 
     
@@ -734,6 +781,8 @@ This is what the project looked like for my first play-test with other people 5 
 
 
 
+
+    
 
 
 
@@ -770,33 +819,16 @@ This is what the project looked like for my first play-test with other people 5 
 
 
 
-<img  alt="Land War 4-day MVP"   class="img-fluid "  crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/land_war_mvp.gif"   style="display:block; height: auto; margin:0 auto; width: 50%"   >
+<img  alt="Land War 4-day MVP"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/land_war_mvp.gif"   style="height: auto; max-width: 100%; width: 100%"   >
 
 
+    
+        <span style="display: block; font-style: italic; margin-top: 0.5rem;">4-player game played with Nintendo Joy-Cons on a build of the game from 5 days into development.</span>
+    
 </div>
 
-<p><em>4-player game played with Nintendo Joy-Cons on a build of the game from 5 days into development.</em></p>
 <p>From there, I continued to work on depth and full feature functionality including menus, a tutorial, a map generator, a dynamic scoring and round system, better sound and sprite graphics, different play modes and settings, and support for many controllers. I released the game with very little marketing aside from some Reddit posts and a physical handout at E3 but was happy to receive positive reviews and several hundred purchases of the game.</p>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div class="paige-image">
+<div style="text-align: center; margin-bottom: 1rem;">
     
 
 
@@ -832,26 +864,6 @@ This is what the project looked like for my first play-test with other people 5 
 
     
 
-    
-        
-
-        
-
-        
-    
-        
-
-        
-
-        
-    
-        
-
-        
-            
-
-    
-
 
 
     
@@ -859,6 +871,8 @@ This is what the project looked like for my first play-test with other people 5 
 
 
 
+
+    
 
 
 
@@ -895,32 +909,15 @@ This is what the project looked like for my first play-test with other people 5 
 
 
 
-<img  alt="Player Select screen"   class="img-fluid "  crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/land_war_player_select.png"   style="display:block; height: auto; margin:0 auto; width: 50%"   >
+<img  alt="Player Select screen"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/land_war_player_select.png"   style="height: auto; max-width: 100%; width: 100%"   >
 
 
+    
+        <span style="display: block; font-style: italic; margin-top: 0.5rem;">Player Select screen. Supporting menu and player controls across hundreds of controller types was one of the largest unforeseen challenges in developing Land War.</span>
+    
 </div>
 
-<p><em>Player Select screen. Supporting menu and player controls across hundreds of controller types was one of the largest unforeseen challenges in developing Land War.</em></p>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div class="paige-image">
+<div style="text-align: center; margin-bottom: 1rem;">
     
 
 
@@ -956,26 +953,6 @@ This is what the project looked like for my first play-test with other people 5 
 
     
 
-    
-        
-
-        
-
-        
-    
-        
-
-        
-
-        
-    
-        
-
-        
-            
-
-    
-
 
 
     
@@ -983,6 +960,8 @@ This is what the project looked like for my first play-test with other people 5 
 
 
 
+
+    
 
 
 
@@ -1019,32 +998,15 @@ This is what the project looked like for my first play-test with other people 5 
 
 
 
-<img  alt="Settings menu"   class="img-fluid "  crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/land_war_settings.png"   style="display:block; height: auto; margin:0 auto; width: 50%"   >
+<img  alt="Settings menu"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/land_war_settings.png"   style="height: auto; max-width: 100%; width: 100%"   >
 
 
+    
+        <span style="display: block; font-style: italic; margin-top: 0.5rem;">Settings menu. Most interesting mechanics I found while developing the game were added as options to keep the game interesting here.</span>
+    
 </div>
 
-<p><em>Settings menu. Most interesting mechanics I found while developing the game were added as options to keep the game interesting here.</em></p>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div class="paige-image">
+<div style="text-align: center; margin-bottom: 1rem;">
     
 
 
@@ -1080,26 +1042,6 @@ This is what the project looked like for my first play-test with other people 5 
 
     
 
-    
-        
-
-        
-
-        
-    
-        
-
-        
-
-        
-    
-        
-
-        
-            
-
-    
-
 
 
     
@@ -1107,6 +1049,8 @@ This is what the project looked like for my first play-test with other people 5 
 
 
 
+
+    
 
 
 
@@ -1143,12 +1087,14 @@ This is what the project looked like for my first play-test with other people 5 
 
 
 
-<img  alt="E3 marketing material"   class="img-fluid "  crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/land_war_e3.png"   style="display:block; height: auto; margin:0 auto; width: 50%"   >
+<img  alt="E3 marketing material"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/land_war_e3.png"   style="height: auto; max-width: 100%; width: 100%"   >
 
 
+    
+        <span style="display: block; font-style: italic; margin-top: 0.5rem;">The only physical marketing material developed for Land War. Several hundred Steam keys (copies of the game) were handed out during the E3 convention in 2019.</span>
+    
 </div>
 
-<p><em>The only physical marketing material developed for Land War. Several hundred Steam keys (copies of the game) were handed out during the E3 convention in 2019.</em></p>
 
     <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
       <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/BylKEPF4EeU?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"></iframe>
@@ -1259,7 +1205,7 @@ This is what the project looked like for my first play-test with other people 5 
 <p>I created this panel display in 2026 to control much of the home automation I used in my Studio City apartment. Mainly a hardware project, I designed and 3D-printed a case and frame for the touchscreen and raspberry pi microcomputer in order to mount them to the wall. The software running the control panel is SaaS, but I did write a custom html wrapper to control the orientation and settings of the site, which is available on the github linked above.</p>
 <p>Update in 2025: This panel is still my main view into my home automation in my new house in Sherman Oaks, almost 10 years in with no modification!</p>
 <p>Here&rsquo;s a video to see the panel in action:</p>
-<h2 id="hahahugoshortcode7s0hbhb">
+<h2 id="hahahugoshortcode484s0hbhb">
     <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
       <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/iFGmm-ijJvE?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"></iframe>
     </div>

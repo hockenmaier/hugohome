@@ -8,10 +8,13 @@ project_link: "https://togetheragainstudios.com/treekeepersvr/"
 github_link: ""
 short_description: "A Co-op Networked VR Experience with Crossplay on Meta Quest and SteamVR"
 tags: ["VR", "Multiplayer", "Networking", "Crossplay", "Game Development", "Indie Games", "Unity", "C#", "Co-Op", "Procedural Generation", "Video Games"]
-
 ---
- 
-![The Treekeepers Puddle Jumper](/images/treekeepers_moonlight.png)
+
+{{< image-with-bottom-caption
+    src="/images/treekeepers_moonlight.png"
+    alt="The Treekeepers Puddle Jumper"
+    maxwidth=100%
+    caption="The Treekeepers Puddle Jumper" >}}
 
 Treekeepers VR is a networked VR game where up to 4 players can cooperate to navigate an oversized world and save a giant tree.  
 

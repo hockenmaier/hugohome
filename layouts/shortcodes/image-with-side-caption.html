@@ -1,4 +1,11 @@
 <div style="display: flex; align-items: center; justify-content: center; gap: 10px; margin-bottom: 1rem;">
-    {{ partial "paige/image" (dict "src" (.Get "src") "alt" (.Get "alt") "width" (.Get "width") "maxwidth" (.Get "maxwidth") "style" (.Get "style")) }}
-    <span style="font-style: italic;">{{ .Get "caption" }}</span>
+    {{ partial "paige/image" (dict 
+        "src" (.Get "src") 
+        "alt" (.Get "alt" | default "Image description") 
+        "width" (.Get "width") 
+        "maxwidth" (.Get "maxwidth")) 
+    }}
+    {{ with .Get "caption" }}
+        <span style="font-style: italic;">{{ . }}</span>
+    {{ end }}
 </div>

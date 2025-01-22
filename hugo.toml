@@ -6,7 +6,7 @@ theme = 'paige'
 
 [taxonomies]
 category = "categories"      # For post types like project overview, project update, essay, thought, etc.
-personal = "personal"        # Binary for personal vs professional projects: personal-Y or personal-N
+#personal = "personal"        # Binary for personal vs professional projects: personal-Y or personal-N
 stack = "stacks"             # Technology stack used
 tags = "tags"                # Still optional, for very specific filters like "AI ethics"
 
@@ -21,6 +21,7 @@ menu_style = "pills" # Can be "links", "pills", "tabs", or "underline"
 
 [params.paige.list_page]
 disable_reading_time = false
+disable_summary = true
 
 [params.paige.page]
 disable_reading_time = true

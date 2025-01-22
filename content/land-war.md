@@ -30,39 +30,27 @@ This project is one of my favorite examples of what can be done in relatively li
 I started the project on a Memorial Day Monday, and by Friday had a rudimentary prototype playable with 8 players on Nintendo Joy-Con controllers paired to a Windows machine via Bluetooth.  
 This is what the project looked like for my first play-test with other people 5 days in:
 
-{{< paige/image
+{{< image-standard
     src="/images/land_war_mvp.gif"
     alt="Land War 4-day MVP"
-    width="50%"
-    style="display:block; margin:0 auto;" >}}
-
-_4-player game played with Nintendo Joy-Cons on a build of the game from 5 days into development._
+    caption="4-player game played with Nintendo Joy-Cons on a build of the game from 5 days into development." >}}
 
 From there, I continued to work on depth and full feature functionality including menus, a tutorial, a map generator, a dynamic scoring and round system, better sound and sprite graphics, different play modes and settings, and support for many controllers. I released the game with very little marketing aside from some Reddit posts and a physical handout at E3 but was happy to receive positive reviews and several hundred purchases of the game.
 
-{{< paige/image
+{{< image-standard
     src="/images/land_war_player_select.png"
     alt="Player Select screen"
-    width="50%"
-    style="display:block; margin:0 auto;" >}}
+    caption="Player Select screen. Supporting menu and player controls across hundreds of controller types was one of the largest unforeseen challenges in developing Land War." >}}
 
-_Player Select screen. Supporting menu and player controls across hundreds of controller types was one of the largest unforeseen challenges in developing Land War._
-
-{{< paige/image
+{{< image-standard
     src="/images/land_war_settings.png"
     alt="Settings menu"
-    width="50%"
-    style="display:block; margin:0 auto;" >}}
+    caption="Settings menu. Most interesting mechanics I found while developing the game were added as options to keep the game interesting here." >}}
 
-_Settings menu. Most interesting mechanics I found while developing the game were added as options to keep the game interesting here._
-
-{{< paige/image
+{{< image-standard
     src="/images/land_war_e3.png"
     alt="E3 marketing material"
-    width="50%"
-    style="display:block; margin:0 auto;" >}}
-
-_The only physical marketing material developed for Land War. Several hundred Steam keys (copies of the game) were handed out during the E3 convention in 2019._
+    caption="The only physical marketing material developed for Land War. Several hundred Steam keys (copies of the game) were handed out during the E3 convention in 2019." >}}
 
 {{< youtube BylKEPF4EeU >}}
 
