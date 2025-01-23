@@ -21,8 +21,10 @@ Like Alexa skills, Google actions can be accessed through search or by simply as
 ### Architecture
 
 First Ten's backend is built in the serverless AWS services Lambda and DynamoDB, and its frontend—the engine that parses your voice into different "intents" and parameters—is built on Google's Dialogflow.
-
-![Serverless Architecture of the First Ten app](/images/first_ten_architecture.png)
+{{< image-medium
+    src="/images/first_ten_architecture.png"
+    alt="Serverless Architecture of the First Ten app"
+    caption="" >}}
 
 
 ---

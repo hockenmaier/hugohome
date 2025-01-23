@@ -574,8 +574,7 @@
                 
 
                 
-                    <description><![CDATA[<hr>
-<p>Land War is an 8-player strategy game I developed as a solo project and released to Steam in March of 2019.<br>
+                    <description><![CDATA[<p>Land War is an 8-player strategy game I developed as a solo project and released to Steam in March of 2019.<br>
 This game was intended to have low art requirements and simple interaction rules that result in deep strategic gameplay.</p>
 <p>The core concept is that of an ultra-simplified real-time-strategy game. Each player is represented by a color and can grow their territory by moving in any direction. The strategic elements occur when players encounter other players and have to make choices about which side of their land to defend or give up. Players can use the structure of the map and the coordinated action of other players to gain defensible footholds in order to take more area and eventually be the last player on the board.</p>
 
@@ -589,26 +588,7 @@ This game was intended to have low art requirements and simple interaction rules
 <p>This project is one of my favorite examples of what can be done in relatively little time with a focused vision and a constant eye on scope creep. From the very start, I knew that a key to making compelling software was to flesh out the core concept before all else. This is why I started on the most fundamental strategic interaction of the players and built an MVP version of the game without a menu, sound, art, or even a win condition.</p>
 <p>I started the project on a Memorial Day Monday, and by Friday had a rudimentary prototype playable with 8 players on Nintendo Joy-Con controllers paired to a Windows machine via Bluetooth.<br>
 This is what the project looked like for my first play-test with other people 5 days in:</p>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div class="paige-image">
+<div style="text-align: center; margin-bottom: 1rem;">
     
 
 
@@ -641,26 +621,6 @@ This is what the project looked like for my first play-test with other people 5 
     
 
 
-
-    
-
-    
-        
-
-        
-
-        
-    
-        
-
-        
-
-        
-    
-        
-
-        
-            
 
     
 
@@ -707,33 +667,16 @@ This is what the project looked like for my first play-test with other people 5 
 
 
 
-<img  alt="Land War 4-day MVP"   class="img-fluid "  crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/land_war_mvp.gif"   style="display:block; height: auto; margin:0 auto; width: 50%"   >
+<img  alt="Land War 4-day MVP"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/land_war_mvp.gif"   style="height: auto; width: 100%"   >
 
 
+    
+        <span style="display: block; font-style: italic; margin-top: 0.5rem;">4-player game played with Nintendo Joy-Cons on a build of the game from 5 days into development.</span>
+    
 </div>
 
-<p><em>4-player game played with Nintendo Joy-Cons on a build of the game from 5 days into development.</em></p>
 <p>From there, I continued to work on depth and full feature functionality including menus, a tutorial, a map generator, a dynamic scoring and round system, better sound and sprite graphics, different play modes and settings, and support for many controllers. I released the game with very little marketing aside from some Reddit posts and a physical handout at E3 but was happy to receive positive reviews and several hundred purchases of the game.</p>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div class="paige-image">
+<div style="text-align: center; margin-bottom: 1rem;">
     
 
 
@@ -766,26 +709,6 @@ This is what the project looked like for my first play-test with other people 5 
     
 
 
-
-    
-
-    
-        
-
-        
-
-        
-    
-        
-
-        
-
-        
-    
-        
-
-        
-            
 
     
 
@@ -832,32 +755,15 @@ This is what the project looked like for my first play-test with other people 5 
 
 
 
-<img  alt="Player Select screen"   class="img-fluid "  crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/land_war_player_select.png"   style="display:block; height: auto; margin:0 auto; width: 50%"   >
+<img  alt="Player Select screen"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/land_war_player_select.png"   style="height: auto; width: 100%"   >
 
 
+    
+        <span style="display: block; font-style: italic; margin-top: 0.5rem;">Player Select screen. Supporting menu and player controls across hundreds of controller types was one of the largest unforeseen challenges in developing Land War.</span>
+    
 </div>
 
-<p><em>Player Select screen. Supporting menu and player controls across hundreds of controller types was one of the largest unforeseen challenges in developing Land War.</em></p>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div class="paige-image">
+<div style="text-align: center; margin-bottom: 1rem;">
     
 
 
@@ -890,26 +796,6 @@ This is what the project looked like for my first play-test with other people 5 
     
 
 
-
-    
-
-    
-        
-
-        
-
-        
-    
-        
-
-        
-
-        
-    
-        
-
-        
-            
 
     
 
@@ -956,32 +842,15 @@ This is what the project looked like for my first play-test with other people 5 
 
 
 
-<img  alt="Settings menu"   class="img-fluid "  crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/land_war_settings.png"   style="display:block; height: auto; margin:0 auto; width: 50%"   >
+<img  alt="Settings menu"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/land_war_settings.png"   style="height: auto; width: 100%"   >
 
 
+    
+        <span style="display: block; font-style: italic; margin-top: 0.5rem;">Settings menu. Most interesting mechanics I found while developing the game were added as options to keep the game interesting here.</span>
+    
 </div>
 
-<p><em>Settings menu. Most interesting mechanics I found while developing the game were added as options to keep the game interesting here.</em></p>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div class="paige-image">
+<div style="text-align: center; margin-bottom: 1rem;">
     
 
 
@@ -1017,26 +886,6 @@ This is what the project looked like for my first play-test with other people 5 
 
     
 
-    
-        
-
-        
-
-        
-    
-        
-
-        
-
-        
-    
-        
-
-        
-            
-
-    
-
 
 
     
@@ -1045,9 +894,9 @@ This is what the project looked like for my first play-test with other people 5 
 
 
 
-
-
     
+
+
 
 
 
@@ -1080,12 +929,14 @@ This is what the project looked like for my first play-test with other people 5 
 
 
 
-<img  alt="E3 marketing material"   class="img-fluid "  crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/land_war_e3.png"   style="display:block; height: auto; margin:0 auto; width: 50%"   >
+<img  alt="E3 marketing material"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/land_war_e3.png"   style="height: auto; max-width: calc(var(720px) * .35)"   >
 
 
+    
+        <span style="display: block; font-style: italic; margin-top: 0.5rem;">The only physical marketing material developed for Land War. Several hundred Steam keys (copies of the game) were handed out during the E3 convention in 2019.</span>
+    
 </div>
 
-<p><em>The only physical marketing material developed for Land War. Several hundred Steam keys (copies of the game) were handed out during the E3 convention in 2019.</em></p>
 
     <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
       <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/BylKEPF4EeU?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"></iframe>

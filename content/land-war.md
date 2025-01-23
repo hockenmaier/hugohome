@@ -10,7 +10,6 @@ short_description: "An 8-player real-time-strategy game with minimalistic art an
 tags: ["Game Development", "Local Multiplayer", "Strategy", "Unity", "C#", "Indie Games", "Procedural Generation", "Video Games", "System Design", "Multiplayer"]
 
 ---
----
 
 Land War is an 8-player strategy game I developed as a solo project and released to Steam in March of 2019.  
 This game was intended to have low art requirements and simple interaction rules that result in deep strategic gameplay.
@@ -30,24 +29,24 @@ This project is one of my favorite examples of what can be done in relatively li
 I started the project on a Memorial Day Monday, and by Friday had a rudimentary prototype playable with 8 players on Nintendo Joy-Con controllers paired to a Windows machine via Bluetooth.  
 This is what the project looked like for my first play-test with other people 5 days in:
 
-{{< image-standard
+{{< image-large
     src="/images/land_war_mvp.gif"
     alt="Land War 4-day MVP"
     caption="4-player game played with Nintendo Joy-Cons on a build of the game from 5 days into development." >}}
 
 From there, I continued to work on depth and full feature functionality including menus, a tutorial, a map generator, a dynamic scoring and round system, better sound and sprite graphics, different play modes and settings, and support for many controllers. I released the game with very little marketing aside from some Reddit posts and a physical handout at E3 but was happy to receive positive reviews and several hundred purchases of the game.
 
-{{< image-standard
+{{< image-large
     src="/images/land_war_player_select.png"
     alt="Player Select screen"
     caption="Player Select screen. Supporting menu and player controls across hundreds of controller types was one of the largest unforeseen challenges in developing Land War." >}}
 
-{{< image-standard
+{{< image-large
     src="/images/land_war_settings.png"
     alt="Settings menu"
     caption="Settings menu. Most interesting mechanics I found while developing the game were added as options to keep the game interesting here." >}}
 
-{{< image-standard
+{{< image-small
     src="/images/land_war_e3.png"
     alt="E3 marketing material"
     caption="The only physical marketing material developed for Land War. Several hundred Steam keys (copies of the game) were handed out during the E3 convention in 2019." >}}

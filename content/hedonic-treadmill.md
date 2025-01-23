@@ -24,12 +24,10 @@ There’s an often misquoted study from ~2010 that personal income beyond about 
 
 But whatever the proper measure of happiness or satisfaction is, there is a great deal of logic to thinking its relationship with income looks like this:
 
-{{< paige/image
+{{< image-medium
     src="/images/treadmill-graph.png"
-    alt="Alt text"
-    width="50%"
-    style="display:block; margin:0 auto;" >}}
-
+    alt="happiness income curve"
+    caption="" >}}
 
 As in: there are diminishing returns to incremental income. Not a revolutionary idea. It’s obvious. But it also means that somewhere along this curve is the often-quoted $75K, and somewhere far to the right is OP’s $800K. And the curve between those points is probably pretty flat.
 
