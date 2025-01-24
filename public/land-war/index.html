@@ -1321,6 +1321,8 @@ This is what the project looked like for my first play-test with other people 5 
       });
     }
     addMediaColliders();
+
+    
   
     
     const spawnX = window.scrollX + (window.innerWidth / 2);
@@ -1499,6 +1501,7 @@ This is what the project looked like for my first play-test with other people 5 
   
     let firstClick = null;
   
+    
     function isNonInteractable(target) {
       const clickableTags = ['A','BUTTON','INPUT','TEXTAREA','SELECT','LABEL'];
       return !clickableTags.includes(target.tagName);
@@ -1506,23 +1509,34 @@ This is what the project looked like for my first play-test with other people 5 
   
     document.addEventListener('click', e => {
       if (!isNonInteractable(e.target)) {
-        return; 
+        return;
       }
+  
+      
+      const clickX = e.pageX - window.scrollX;
+      const clickY = e.pageY - window.scrollY;
+  
       if (!firstClick) {
-        firstClick = { x: e.pageX, y: e.pageY };
+        firstClick = { x: clickX, y: clickY };
       } else {
-        const dx = e.pageX - firstClick.x;
-        const dy = e.pageY - firstClick.y;
+        const dx = clickX - firstClick.x;
+        const dy = clickY - firstClick.y;
         const length = Math.sqrt(dx*dx + dy*dy);
         const angle = Math.atan2(dy, dx);
-        const midX = (firstClick.x + e.pageX) / 2;
-        const midY = (firstClick.y + e.pageY) / 2;
+        const midX = (firstClick.x + clickX) / 2;
+        const midY = (firstClick.y + clickY) / 2;
+  
         firstClick = null;
   
+        
         const lineBody = Bodies.rectangle(midX, midY, length, 2, {
           isStatic: true,
           angle: angle,
-          render: { visible: false }
+          render: {
+            fillStyle: '#956eff',
+            strokeStyle: '#956eff',
+            lineWidth: 1
+          }
         });
         World.add(world, lineBody);
       }

@@ -1395,6 +1395,7 @@ table {
   
     document.addEventListener('click', e => {
       if (!isNonInteractable(e.target)) {
+        
         return; 
       }
       if (!firstClick) {
@@ -1408,10 +1409,15 @@ table {
         const midY = (firstClick.y + e.pageY) / 2;
         firstClick = null;
   
+        
         const lineBody = Bodies.rectangle(midX, midY, length, 2, {
           isStatic: true,
           angle: angle,
-          render: { visible: false }
+          render: {
+            fillStyle: '#956eff',  
+            strokeStyle: '#956eff',
+            lineWidth: 1
+          }
         });
         World.add(world, lineBody);
       }

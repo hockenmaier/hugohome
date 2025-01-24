@@ -651,8 +651,9 @@ table {
   
   <script src="/js/matter.min.js"></script>
   <script src="/js/matter-wrap.min.js"></script>
+  
   <script>
-  (function() {
+  window.addEventListener('load', function() {
     const Engine = Matter.Engine,
           Render = Matter.Render,
           Runner = Matter.Runner,
@@ -663,10 +664,8 @@ table {
   
     Matter.use('matter-wrap');
   
-    
     window.BallFall = {};
   
-    
     const engine = Engine.create();
     engine.world.gravity.y = 1; 
     window.BallFall.engine = engine;
@@ -751,18 +750,20 @@ table {
       event.pairs.forEach(pair => {
         [pair.bodyA, pair.bodyB].forEach(b => {
           if (b.elRef && b.elRef.tagName !== 'SPAN') {
-            
             b.elRef.style.border = '1px dotted #6eff94';
           }
         });
       });
     });
-  })();
+  
+    
+    window.dispatchEvent(new Event('BallFallBaseReady'));
+  });
   </script>
   
         
 <script>
-    (function() {
+    window.addEventListener('BallFallBaseReady', function() {
       const {
         engine,
         world
@@ -774,7 +775,6 @@ table {
             World  = Matter.World,
             Events = Matter.Events;
     
-      
       function approximateConvexHull(points) {
         points.sort((a, b) => (a.x - b.x) || (a.y - b.y));
         function cross(o, a, b) {
@@ -801,7 +801,6 @@ table {
       }
     
       
-      
       function wrapTextNodes(root) {
         const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, null, false);
         const textNodes = [];
@@ -812,7 +811,6 @@ table {
           const text = node.nodeValue;
           if (!text.trim()) return; 
           const parent = node.parentNode;
-          
           if (['SCRIPT','STYLE'].includes(parent.tagName)) return;
           const frag = document.createDocumentFragment();
           for (let char of text) {
@@ -831,7 +829,6 @@ table {
         const rect = letterEl.getBoundingClientRect();
         if (rect.width < 1 || rect.height < 1) return null;
     
-        
         const off = document.createElement('canvas');
         off.width = rect.width;
         off.height = rect.height;
@@ -842,12 +839,12 @@ table {
         ctx.textBaseline = 'top';
         ctx.fillText(letterEl.textContent, 0, 0);
     
-        const imgData = ctx.getImageData(0, 0, off.width, off.height).data;
+        const data = ctx.getImageData(0, 0, off.width, off.height).data;
         const pts = [];
         for (let y = 0; y < off.height; y++) {
           for (let x = 0; x < off.width; x++) {
             const idx = (y * off.width + x) * 4;
-            if (imgData[idx + 3] > 50) {
+            if (data[idx + 3] > 50) {
               pts.push({ x, y });
             }
           }
@@ -863,16 +860,14 @@ table {
           isStatic: true,
           render: { visible: false }
         }, true);
-    
         if (body) {
           body.elRef = letterEl;
         }
         return body;
       }
     
-      
-      const letterSpans = document.body.querySelectorAll('span');
-      letterSpans.forEach(span => {
+      const spans = document.body.querySelectorAll('span');
+      spans.forEach(span => {
         const body = letterToBody(span);
         if (body) {
           World.add(world, body);
@@ -890,62 +885,61 @@ table {
         });
       });
     
-    })();
+      
+      window.dispatchEvent(new Event('BallFallTextReady'));
+    });
     </script>
     
         
 <script>
-    (function() {
-      const {
-        engine,
-        world
-      } = window.BallFall || {};
-    
-      if (!engine || !world) return;
-    
-      const Bodies = Matter.Bodies,
-            World  = Matter.World;
-    
-      let firstClick = null;
-    
-      function isNonInteractable(target) {
+  window.addEventListener('BallFallTextReady', function() {
+    const {
+      engine,
+      world
+    } = window.BallFall || {};
+    if (!engine || !world) return;
+  
+    const Bodies = Matter.Bodies,
+          World  = Matter.World;
+  
+    let firstClick = null;
+  
+    function isNonInteractable(target) {
+      const clickableTags = ['A','BUTTON','INPUT','TEXTAREA','SELECT','LABEL'];
+      return !clickableTags.includes(target.tagName);
+    }
+  
+    document.addEventListener('click', e => {
+      if (!isNonInteractable(e.target)) {
         
-        const clickableTags = ['A','BUTTON','INPUT','TEXTAREA','SELECT','LABEL'];
-        return !clickableTags.includes(target.tagName);
+        return; 
       }
-    
-      document.addEventListener('click', e => {
-        if (!isNonInteractable(e.target)) {
-          
-          return;
-        }
-        if (!firstClick) {
-          
-          firstClick = { x: e.pageX, y: e.pageY };
-        } else {
-          
-          const start = firstClick;
-          const end = { x: e.pageX, y: e.pageY };
-          firstClick = null;
-    
-          const dx = end.x - start.x;
-          const dy = end.y - start.y;
-          const length = Math.sqrt(dx * dx + dy * dy);
-          const angle = Math.atan2(dy, dx);
-          const midX = (start.x + end.x) / 2;
-          const midY = (start.y + end.y) / 2;
-    
-          
-          const lineBody = Bodies.rectangle(midX, midY, length, 2, {
-            isStatic: true,
-            angle,
-            render: { visible: false }
-          });
-          World.add(world, lineBody);
-        }
-      });
-    })();
-    </script>
-    
+      if (!firstClick) {
+        firstClick = { x: e.pageX, y: e.pageY };
+      } else {
+        const dx = e.pageX - firstClick.x;
+        const dy = e.pageY - firstClick.y;
+        const length = Math.sqrt(dx*dx + dy*dy);
+        const angle = Math.atan2(dy, dx);
+        const midX = (firstClick.x + e.pageX) / 2;
+        const midY = (firstClick.y + e.pageY) / 2;
+        firstClick = null;
+  
+        
+        const lineBody = Bodies.rectangle(midX, midY, length, 2, {
+          isStatic: true,
+          angle: angle,
+          render: {
+            fillStyle: '#956eff',  
+            strokeStyle: '#956eff',
+            lineWidth: 1
+          }
+        });
+        World.add(world, lineBody);
+      }
+    });
+  });
+  </script>
+  
     </body>
 </html>
