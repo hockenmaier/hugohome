@@ -163,6 +163,8 @@
 
 
 
+    
+
 
 
 
@@ -194,7 +196,7 @@
 
 
 
-<img  alt="happiness income curve"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/treadmill-graph.png"   style="height: auto; max-width: calc(var(720px) * .35)"   >
+<img  alt="happiness income curve"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/treadmill-graph.png"   style="height: auto; max-width: 720px; width: 100%"   >
 
 
     

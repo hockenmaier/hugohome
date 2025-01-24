@@ -111,8 +111,94 @@
 <strong>Github:</strong> <a href="https://github.com/hockenmaier/billofrights">https://github.com/hockenmaier/billofrights</a></p>
 <p>Like Alexa skills, Google actions can be accessed through search or by simply asking for their names in Google Home smart speakers. Ask your Google Home or Android device, &ldquo;Can I speak to First Ten?&rdquo; in order to try it.</p>
 <h3 id="architecture">Architecture</h3>
-<p>First Ten&rsquo;s backend is built in the serverless AWS services Lambda and DynamoDB, and its frontend—the engine that parses your voice into different &ldquo;intents&rdquo; and parameters—is built on Google&rsquo;s Dialogflow.</p>
-<p><img src="/images/first_ten_architecture.png" alt="Serverless Architecture of the First Ten app"></p>
+<p>First Ten&rsquo;s backend is built in the serverless AWS services Lambda and DynamoDB, and its frontend—the engine that parses your voice into different &ldquo;intents&rdquo; and parameters—is built on Google&rsquo;s Dialogflow.
+<div style="text-align: center; margin-bottom: 1rem;">
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<img  alt="Serverless Architecture of the First Ten app"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/first_ten_architecture.png"   style="height: auto; max-width: 720px; width: 100%"   >
+
+
+    
+</div>
+</p>
 <hr>
 ]]></description>
                 

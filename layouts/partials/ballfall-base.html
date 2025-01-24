@@ -1,0 +1,123 @@
+<!-- layouts/partials/ballfall-base.html -->
+<style>
+    #ballfallCanvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 9999;
+      pointer-events: none;
+    }
+  </style>
+  
+  <script src="/js/matter.min.js"></script>
+  <script src="/js/matter-wrap.min.js"></script>
+  
+  <script>
+  window.addEventListener('load', function() {
+    const Engine = Matter.Engine,
+          Render = Matter.Render,
+          Runner = Matter.Runner,
+          World  = Matter.World,
+          Bodies = Matter.Bodies,
+          Composite = Matter.Composite,
+          Events = Matter.Events;
+  
+    Matter.use('matter-wrap');
+  
+    window.BallFall = {};
+  
+    const engine = Engine.create();
+    engine.world.gravity.y = 1; 
+    window.BallFall.engine = engine;
+    window.BallFall.world = engine.world;
+  
+    // Canvas & renderer
+    const canvasEl = document.createElement('canvas');
+    canvasEl.id = "ballfallCanvas";
+    document.body.appendChild(canvasEl);
+  
+    const render = Render.create({
+      engine: engine,
+      canvas: canvasEl,
+      options: {
+        width: window.innerWidth,
+        height: window.innerHeight,
+        background: 'transparent',
+        wireframes: false,
+        pixelRatio: 1
+      }
+    });
+    window.BallFall.render = render;
+    Render.run(render);
+  
+    const runner = Runner.create();
+    Runner.run(runner, engine);
+  
+    function resize() {
+      render.options.width = window.innerWidth;
+      render.options.height = window.innerHeight;
+      canvasEl.width = window.innerWidth;
+      canvasEl.height = window.innerHeight;
+    }
+    window.addEventListener('resize', resize);
+    resize();
+  
+    // Scroll-based shift
+    let lastScrollY = window.scrollY;
+    window.addEventListener('scroll', () => {
+      const dy = window.scrollY - lastScrollY;
+      Composite.translate(engine.world, { x: 0, y: -dy });
+      lastScrollY = window.scrollY;
+    });
+  
+    // Bounding boxes for images & iframes
+    function addMediaColliders() {
+      document.querySelectorAll('img, iframe').forEach(el => {
+        const rect = el.getBoundingClientRect();
+        if (rect.width < 1 || rect.height < 1) return;
+        const cx = rect.left + rect.width / 2 + window.scrollX;
+        const cy = rect.top + rect.height / 2 + window.scrollY;
+        const box = Bodies.rectangle(cx, cy, rect.width, rect.height, {
+          isStatic: true,
+          render: { visible: false }
+        });
+        box.elRef = el;
+        World.add(engine.world, box);
+      });
+    }
+    addMediaColliders();
+  
+    // Spawn ball at top-center
+    const spawnX = window.scrollX + (window.innerWidth / 2);
+    const spawnY = 0;
+    const ballRadius = 7;
+    const ball = Bodies.circle(spawnX, spawnY, ballRadius, {
+      restitution: 1,
+      friction: 0,
+      frictionAir: 0,
+      render: { fillStyle: '#e6e6e6' },
+      plugin: {
+        wrap: {
+          min: { x: 0, y: -999999 },
+          max: { x: document.body.scrollWidth, y: 999999 }
+        }
+      }
+    });
+    World.add(engine.world, ball);
+  
+    // Collisions with media => dotted border
+    Events.on(engine, 'collisionStart', event => {
+      event.pairs.forEach(pair => {
+        [pair.bodyA, pair.bodyB].forEach(b => {
+          if (b.elRef && b.elRef.tagName !== 'SPAN') {
+            b.elRef.style.border = '1px dotted #6eff94';
+          }
+        });
+      });
+    });
+  
+    // Signal that base setup is done
+    window.dispatchEvent(new Event('BallFallBaseReady'));
+  });
+  </script>
+  

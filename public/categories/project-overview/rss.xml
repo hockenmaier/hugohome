@@ -650,6 +650,8 @@
 
 
 
+    
+
 
 
 
@@ -681,7 +683,7 @@
 
 
 
-<img  alt="Answering Machine homepage"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/answering_machine_uploads.png"   style="height: auto; max-width: calc(var(720px) * .35)"   >
+<img  alt="Answering Machine homepage"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/answering_machine_uploads.png"   style="height: auto; max-width: 720px; width: 100%"   >
 
 
     
@@ -825,6 +827,8 @@
 
 
 
+    
+
 
 
 
@@ -856,7 +860,7 @@
 
 
 
-<img  alt="Answering Machine info panel"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/answering_machine_info.png"   style="height: auto; max-width: calc(var(720px) * .35)"   >
+<img  alt="Answering Machine info panel"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/answering_machine_info.png"   style="height: auto; max-width: 720px; width: 100%"   >
 
 
     
@@ -913,6 +917,8 @@
 
 
 
+    
+
 
 
 
@@ -944,7 +950,7 @@
 
 
 
-<img  alt="Answering Machine query bar"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/answering_machine_query.png"   style="height: auto; max-width: calc(var(720px) * .35)"   >
+<img  alt="Answering Machine query bar"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/answering_machine_query.png"   style="height: auto; max-width: 720px; width: 100%"   >
 
 
     
@@ -1007,6 +1013,8 @@
 
 
 
+    
+
 
 
 
@@ -1038,7 +1046,7 @@
 
 
 
-<img  alt="Answering Machine response"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/answering_machine_answer.png"   style="height: auto; max-width: calc(var(720px) * .35)"   >
+<img  alt="Answering Machine response"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/answering_machine_answer.png"   style="height: auto; max-width: 720px; width: 100%"   >
 
 
     
@@ -1100,6 +1108,8 @@
 
 
 
+    
+
 
 
 
@@ -1131,7 +1141,7 @@
 
 
 
-<img  alt="Answering Machine subjects and conditions"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/answering_machine_lexicon.png"   style="height: auto; max-width: calc(var(720px) * .35)"   >
+<img  alt="Answering Machine subjects and conditions"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/answering_machine_lexicon.png"   style="height: auto; max-width: 400px; width: 100%"   >
 
 
     
@@ -1187,6 +1197,8 @@
 
 
 
+    
+
 
 
 
@@ -1218,7 +1230,7 @@
 
 
 
-<img  alt="Answering Machine concept"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/answering_machine_concept.png"   style="height: auto; max-width: calc(var(720px) * .25)"   >
+<img  alt="Answering Machine concept"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/answering_machine_concept.png"   style="height: auto; max-width: 200px; width: 100%"   >
 
 
     
@@ -1280,6 +1292,8 @@
 
 
 
+    
+
 
 
 
@@ -1311,7 +1325,7 @@
 
 
 
-<img  alt="Serverless Architecture of the Answering Machine app"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/answering_machine_architecture.png"   style="height: auto; max-width: calc(var(720px) * .35)"   >
+<img  alt="Serverless Architecture of the Answering Machine app"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/answering_machine_architecture.png"   style="height: auto; max-width: 720px; width: 100%"   >
 
 
     
@@ -1685,6 +1699,8 @@ This is what the project looked like for my first play-test with other people 5 
 
 
 
+    
+
 
 
 
@@ -1716,7 +1732,7 @@ This is what the project looked like for my first play-test with other people 5 
 
 
 
-<img  alt="E3 marketing material"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/land_war_e3.png"   style="height: auto; max-width: calc(var(720px) * .35)"   >
+<img  alt="E3 marketing material"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/land_war_e3.png"   style="height: auto; max-width: 400px; width: 100%"   >
 
 
     
@@ -1778,8 +1794,94 @@ This is what the project looked like for my first play-test with other people 5 
 <strong>Github:</strong> <a href="https://github.com/hockenmaier/billofrights">https://github.com/hockenmaier/billofrights</a></p>
 <p>Like Alexa skills, Google actions can be accessed through search or by simply asking for their names in Google Home smart speakers. Ask your Google Home or Android device, &ldquo;Can I speak to First Ten?&rdquo; in order to try it.</p>
 <h3 id="architecture">Architecture</h3>
-<p>First Ten&rsquo;s backend is built in the serverless AWS services Lambda and DynamoDB, and its frontend—the engine that parses your voice into different &ldquo;intents&rdquo; and parameters—is built on Google&rsquo;s Dialogflow.</p>
-<p><img src="/images/first_ten_architecture.png" alt="Serverless Architecture of the First Ten app"></p>
+<p>First Ten&rsquo;s backend is built in the serverless AWS services Lambda and DynamoDB, and its frontend—the engine that parses your voice into different &ldquo;intents&rdquo; and parameters—is built on Google&rsquo;s Dialogflow.
+<div style="text-align: center; margin-bottom: 1rem;">
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<img  alt="Serverless Architecture of the First Ten app"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/first_ten_architecture.png"   style="height: auto; max-width: 720px; width: 100%"   >
+
+
+    
+</div>
+</p>
 <hr>
 ]]></description>
                 
@@ -1834,7 +1936,7 @@ This is what the project looked like for my first play-test with other people 5 
 <p>I created this panel display in 2026 to control much of the home automation I used in my Studio City apartment. Mainly a hardware project, I designed and 3D-printed a case and frame for the touchscreen and raspberry pi microcomputer in order to mount them to the wall. The software running the control panel is SaaS, but I did write a custom html wrapper to control the orientation and settings of the site, which is available on the github linked above.</p>
 <p>Update in 2025: This panel is still my main view into my home automation in my new house in Sherman Oaks, almost 10 years in with no modification!</p>
 <p>Here&rsquo;s a video to see the panel in action:</p>
-<h2 id="hahahugoshortcode7s0hbhb">
+<h2 id="hahahugoshortcode62s0hbhb">
     <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
       <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/iFGmm-ijJvE?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"></iframe>
     </div>

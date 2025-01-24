@@ -1,0 +1,129 @@
+<!-- layouts/partials/ballfall-text.html -->
+<script>
+    window.addEventListener('BallFallBaseReady', function() {
+      const {
+        engine,
+        world
+      } = window.BallFall || {};
+    
+      if (!engine || !world) return;
+    
+      const Bodies = Matter.Bodies,
+            World  = Matter.World,
+            Events = Matter.Events;
+    
+      function approximateConvexHull(points) {
+        points.sort((a, b) => (a.x - b.x) || (a.y - b.y));
+        function cross(o, a, b) {
+          return (a.x - o.x) * (b.y - o.y) - (a.y - o.y) * (b.x - o.x);
+        }
+        let lower = [];
+        for (let p of points) {
+          while (lower.length >= 2 && cross(lower[lower.length - 2], lower[lower.length - 1], p) <= 0) {
+            lower.pop();
+          }
+          lower.push(p);
+        }
+        let upper = [];
+        for (let i = points.length - 1; i >= 0; i--) {
+          let p = points[i];
+          while (upper.length >= 2 && cross(upper[upper.length - 2], upper[upper.length - 1], p) <= 0) {
+            upper.pop();
+          }
+          upper.push(p);
+        }
+        upper.pop();
+        lower.pop();
+        return lower.concat(upper);
+      }
+    
+      // Turn every text node into <span> so we can do letter-level collisions
+      function wrapTextNodes(root) {
+        const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, null, false);
+        const textNodes = [];
+        while (walker.nextNode()) {
+          textNodes.push(walker.currentNode);
+        }
+        textNodes.forEach(node => {
+          const text = node.nodeValue;
+          if (!text.trim()) return; 
+          const parent = node.parentNode;
+          if (['SCRIPT','STYLE'].includes(parent.tagName)) return;
+          const frag = document.createDocumentFragment();
+          for (let char of text) {
+            const span = document.createElement('span');
+            span.textContent = char;
+            frag.appendChild(span);
+          }
+          parent.replaceChild(frag, node);
+        });
+      }
+    
+      wrapTextNodes(document.body);
+    
+      // Build polygon bodies for each letter span
+      function letterToBody(letterEl) {
+        const rect = letterEl.getBoundingClientRect();
+        if (rect.width < 1 || rect.height < 1) return null;
+    
+        const off = document.createElement('canvas');
+        off.width = rect.width;
+        off.height = rect.height;
+        const ctx = off.getContext('2d');
+    
+        ctx.font = window.getComputedStyle(letterEl).font;
+        ctx.fillStyle = '#000';
+        ctx.textBaseline = 'top';
+        ctx.fillText(letterEl.textContent, 0, 0);
+    
+        const data = ctx.getImageData(0, 0, off.width, off.height).data;
+        const pts = [];
+        for (let y = 0; y < off.height; y++) {
+          for (let x = 0; x < off.width; x++) {
+            const idx = (y * off.width + x) * 4;
+            if (data[idx + 3] > 50) {
+              pts.push({ x, y });
+            }
+          }
+        }
+        if (!pts.length) return null;
+    
+        const hull = approximateConvexHull(pts);
+        const docX = rect.left + window.scrollX;
+        const docY = rect.top + window.scrollY;
+        const shifted = hull.map(p => ({ x: p.x + docX, y: p.y + docY }));
+    
+        const body = Bodies.fromVertices(shifted[0].x, shifted[0].y, [shifted], {
+          isStatic: true,
+          render: { visible: false }
+        }, true);
+        if (body) {
+          body.elRef = letterEl;
+        }
+        return body;
+      }
+    
+      const spans = document.body.querySelectorAll('span');
+      spans.forEach(span => {
+        const body = letterToBody(span);
+        if (body) {
+          World.add(world, body);
+        }
+      });
+    
+      // Collision => color letters
+      Events.on(engine, 'collisionStart', evt => {
+        evt.pairs.forEach(pair => {
+          [pair.bodyA, pair.bodyB].forEach(b => {
+            if (b.elRef && b.elRef.tagName === 'SPAN') {
+              b.elRef.style.color = '#6eff94';
+            }
+          });
+        });
+      });
+    
+      // Let the next partial know text collisions are ready
+      window.dispatchEvent(new Event('BallFallTextReady'));
+    });
+    </script>
+    

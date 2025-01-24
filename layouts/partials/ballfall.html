@@ -1,0 +1,258 @@
+<!-- layouts/partials/ballfall.html -->
+<style>
+  #ballfallCanvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 9999;
+    pointer-events: none; /* ensure clicks pass through the canvas */
+  }
+</style>
+
+<script src="/js/matter.min.js"></script>
+<script src="/js/matter-wrap.min.js"></script>
+<script>
+(function() {
+  // Matter alias
+  const Engine     = Matter.Engine,
+        Render     = Matter.Render,
+        Runner     = Matter.Runner,
+        Bodies     = Matter.Bodies,
+        Body       = Matter.Body,
+        Composite  = Matter.Composite,
+        World      = Matter.World,
+        Events     = Matter.Events;
+
+  Matter.use('matter-wrap');
+
+  const engine = Engine.create();
+  const world = engine.world;
+  // 100% bounce, no friction or air drag
+  world.gravity.y = 1;
+
+  // Canvas for rendering
+  const canvasEl = document.createElement('canvas');
+  canvasEl.id = "ballfallCanvas";
+  document.body.appendChild(canvasEl);
+
+  const render = Render.create({
+    engine: engine,
+    canvas: canvasEl,
+    options: {
+      width: window.innerWidth,
+      height: window.innerHeight,
+      background: 'transparent',
+      wireframes: false,
+      pixelRatio: 1
+    }
+  });
+  Render.run(render);
+
+  const runner = Runner.create();
+  Runner.run(runner, engine);
+
+  function resize() {
+    render.options.width = window.innerWidth;
+    render.options.height = window.innerHeight;
+    canvasEl.width = window.innerWidth;
+    canvasEl.height = window.innerHeight;
+  }
+  window.addEventListener('resize', resize);
+  resize();
+
+  // Minimal convex hull
+  function approximateConvexHull(points) {
+    points.sort((a, b) => (a.x - b.x) || (a.y - b.y));
+    function cross(o, a, b) {
+      return (a.x - o.x) * (b.y - o.y) - (a.y - o.y) * (b.x - o.x);
+    }
+    let lower = [];
+    for (let p of points) {
+      while (lower.length >= 2 && cross(lower[lower.length - 2], lower[lower.length - 1], p) <= 0) {
+        lower.pop();
+      }
+      lower.push(p);
+    }
+    let upper = [];
+    for (let i = points.length - 1; i >= 0; i--) {
+      let p = points[i];
+      while (upper.length >= 2 && cross(upper[upper.length - 2], upper[upper.length - 1], p) <= 0) {
+        upper.pop();
+      }
+      upper.push(p);
+    }
+    upper.pop();
+    lower.pop();
+    return lower.concat(upper);
+  }
+
+  // Break text into single-character spans so we can do character collisions
+  function wrapTextNodes(rootEl) {
+    const walker = document.createTreeWalker(rootEl, NodeFilter.SHOW_TEXT, null, false);
+    const textNodes = [];
+    while(walker.nextNode()) {
+      textNodes.push(walker.currentNode);
+    }
+    textNodes.forEach(node => {
+      const text = node.nodeValue;
+      if (!text.trim()) return;
+      const fragment = document.createDocumentFragment();
+      for (let char of text) {
+        const span = document.createElement('span');
+        span.textContent = char;
+        fragment.appendChild(span);
+      }
+      node.parentNode.replaceChild(fragment, node);
+    });
+  }
+
+  // Convert a single letter span to a polygon body
+  function letterToBody(letterEl) {
+    const rect = letterEl.getBoundingClientRect();
+    if (rect.width < 1 || rect.height < 1) return null;
+
+    const off = document.createElement('canvas');
+    off.width = rect.width;
+    off.height = rect.height;
+    const ctx = off.getContext('2d');
+
+    ctx.font = window.getComputedStyle(letterEl).font;
+    ctx.fillStyle = '#000';
+    ctx.textBaseline = 'top';
+    ctx.fillText(letterEl.textContent, 0, 0);
+
+    const imgData = ctx.getImageData(0, 0, off.width, off.height).data;
+    const points = [];
+    for (let y = 0; y < off.height; y++) {
+      for (let x = 0; x < off.width; x++) {
+        const idx = (y * off.width + x) * 4;
+        const alpha = imgData[idx + 3];
+        if (alpha > 50) {
+          points.push({ x, y });
+        }
+      }
+    }
+    if (!points.length) return null;
+
+    const hull = approximateConvexHull(points);
+    const docX = rect.left + window.scrollX;
+    const docY = rect.top + window.scrollY;
+    const shifted = hull.map(p => ({ x: p.x + docX, y: p.y + docY }));
+
+    const body = Bodies.fromVertices(shifted[0].x, shifted[0].y, [shifted], {
+      isStatic: true,
+      render: { visible: false }
+    }, true);
+    if (body) {
+      body.elRef = letterEl;
+    }
+    return body;
+  }
+
+  // For textual elements, wrap them into spans, then build polygon bodies
+  const textSelectors = 'p, h1, h2, h3, h4, h5, h6, li, blockquote';
+  document.querySelectorAll(textSelectors).forEach(el => {
+    wrapTextNodes(el);
+  });
+  // Now gather all newly inserted spans
+  document.querySelectorAll(textSelectors + ' > span').forEach(letter => {
+    const body = letterToBody(letter);
+    if (body) {
+      World.add(world, body);
+    }
+  });
+
+  // Create bounding boxes for images/iframes
+  document.querySelectorAll('img, iframe').forEach(el => {
+    const rect = el.getBoundingClientRect();
+    if (rect.width < 1 || rect.height < 1) return;
+    const x = rect.left + rect.width / 2 + window.scrollX;
+    const y = rect.top + rect.height / 2 + window.scrollY;
+    const box = Bodies.rectangle(x, y, rect.width, rect.height, {
+      isStatic: true,
+      render: { visible: false }
+    });
+    box.elRef = el;
+    World.add(world, box);
+  });
+
+  // Spawn ball at top-center of the entire page
+  const spawnX = (window.innerWidth / 2) + window.scrollX;
+  const spawnY = 0;
+  const ballRadius = 7;
+  const ball = Bodies.circle(spawnX, spawnY, ballRadius, {
+    restitution: 1,
+    friction: 0,
+    frictionAir: 0,
+    render: { fillStyle: '#e6e6e6' },
+    plugin: {
+      wrap: {
+        min: { x: 0, y: -999999 },
+        max: { x: document.body.scrollWidth, y: 999999 }
+      }
+    }
+  });
+  World.add(world, ball);
+
+  // Keep track of previous scroll to move the entire physics world
+  let lastScrollY = window.scrollY;
+  window.addEventListener('scroll', () => {
+    const dy = window.scrollY - lastScrollY;
+    Composite.translate(world, { x: 0, y: -dy });
+    lastScrollY = window.scrollY;
+  });
+
+  // Collision highlighting
+  Events.on(engine, 'collisionStart', event => {
+    event.pairs.forEach(pair => {
+      [pair.bodyA, pair.bodyB].forEach(b => {
+        if (b.elRef) {
+          if (b.elRef.tagName === 'SPAN') {
+            b.elRef.style.color = '#6eff94'; // highlight the letter
+          } else {
+            // For images or iframes
+            b.elRef.style.border = '1px dotted #6eff94';
+          }
+        }
+      });
+    });
+  });
+
+  // Two-click line creation
+  let firstClick = null;
+  function isNonInteractable(target) {
+    const clickableTags = ['A','BUTTON','INPUT','TEXTAREA','SELECT','LABEL'];
+    return !clickableTags.includes(target.tagName);
+  }
+
+  document.addEventListener('click', e => {
+    if (!isNonInteractable(e.target)) {
+      // If user clicks a link/button, ignore
+      return;
+    }
+    if (!firstClick) {
+      // Set first click
+      firstClick = { x: e.pageX, y: e.pageY };
+    } else {
+      // second click => create line
+      const start = firstClick;
+      const end = { x: e.pageX, y: e.pageY };
+      firstClick = null;
+
+      const dx = end.x - start.x;
+      const dy = end.y - start.y;
+      const length = Math.sqrt(dx * dx + dy * dy);
+      const angle = Math.atan2(dy, dx);
+      const midX = (start.x + end.x) / 2;
+      const midY = (start.y + end.y) / 2;
+
+      const lineBody = Bodies.rectangle(midX, midY, length, 2, {
+        isStatic: true,
+        angle,
+        render: { visible: false }
+      });
+      World.add(world, lineBody);
+    }
+  });
+})();
+</script>
