@@ -1,6 +1,6 @@
 baseURL = 'https://bhock.net/'
 languageCode = 'en-us'
-title = ".."
+title = "HockenHome"
 theme = 'paige'
 
 

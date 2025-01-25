@@ -55,7 +55,7 @@
 <meta content="width=device-width, initial-scale=1" name="viewport">
 
 <meta property="og:url" content="http://localhost:1313/land-war/">
-  <meta property="og:site_name" content="..">
+  <meta property="og:site_name" content="HockenHome">
   <meta property="og:title" content="Land War">
   <meta property="og:description" content="Land War is an 8-player strategy game I developed as a solo project and released to Steam in March of 2019.
 This game was intended to have low art requirements and simple interaction rules that result in deep strategic gameplay.
@@ -429,7 +429,7 @@ table {
         
 
         
-            <div class="display-1 fw-bold  mb-2  paige-row-wide text-center" id="paige-site-title">..</div>
+            <div class="display-1 fw-bold  mb-2  paige-row-wide text-center" id="paige-site-title">HockenHome</div>
         
 
         
@@ -1330,7 +1330,7 @@ This is what the project looked like for my first play-test with other people 5 
     const ballRadius = 7;
     const ball = Bodies.circle(spawnX, spawnY, ballRadius, {
       restitution: 1,
-      friction: 0,
+      friction: 0.002,
       frictionAir: 0,
       render: { fillStyle: '#e6e6e6' },
       plugin: {
@@ -1470,7 +1470,7 @@ This is what the project looked like for my first play-test with other people 5 
         
         const localEdges = edges.map(pt => ({ x: pt.x - centerX, y: pt.y - centerY }));
         
-        const shrunk = shrinkEdges(localEdges, 3);
+        const shrunk = shrinkEdges(localEdges, 4);
   
         const body = Bodies.fromVertices(centerX, centerY, [shrunk], {
           isStatic: true,

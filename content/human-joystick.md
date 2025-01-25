@@ -34,7 +34,6 @@ It works like this: When the player is standing near the center of their playspa
 I experimented with several speeds, both static and scaling with the distance between the center and the player. I also experimented with the size of the physical movement "deadzone" and with vertical and constrained movement across hills, valleys, and buildings.
 
 ---
-
 | {{< paige/image src="/images/human_joystick_centered.jpg" width="60%" style="display:block; margin:0 auto;" >}} | _View from the player's perspective looking at the guides at his feet. With the white dot in the red deadzone, the player isn't moving._ |
 |:----------------------------------------------------------------------------------------------------------------:|:-------------------------------------------------------------------------------------------------------------|
 | {{< paige/image src="/images/human_joystick_moving.jpg" width="60%" style="display:block; margin:0 auto;" >}}    | **_When the white dot is in the green area, the player moves in that direction. Here I am moving forward and left at about half of max speed._** |

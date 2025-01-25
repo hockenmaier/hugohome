@@ -59,7 +59,7 @@
 <meta content="width=device-width, initial-scale=1" name="viewport">
 
 <meta property="og:url" content="http://localhost:1313/tags/happiness/">
-  <meta property="og:site_name" content="..">
+  <meta property="og:site_name" content="HockenHome">
   <meta property="og:title" content="Happiness">
   <meta property="og:locale" content="en_us">
   <meta property="og:type" content="website">
@@ -421,7 +421,7 @@ table {
         
 
         
-            <div class="display-1 fw-bold  mb-2  paige-row-wide text-center" id="paige-site-title">..</div>
+            <div class="display-1 fw-bold  mb-2  paige-row-wide text-center" id="paige-site-title">HockenHome</div>
         
 
         
@@ -934,7 +934,7 @@ table {
     window.BallFall = {};
   
     const engine = Engine.create();
-    engine.world.gravity.y = 1; 
+    engine.world.gravity.y = .75; 
     window.BallFall.engine = engine;
     window.BallFall.world = engine.world;
   
@@ -954,11 +954,12 @@ table {
         pixelRatio: 1
       }
     });
+    engine.timing.timeScale = 0.3; 
     window.BallFall.render = render;
     Render.run(render);
   
-    const runner = Runner.create();
-    Runner.run(runner, engine);
+    const runner = Runner.create({ isFixed: true, delta: 1000 / 60 });
+Runner.run(runner, engine);
   
     function resize() {
       render.options.width = window.innerWidth;
@@ -997,11 +998,11 @@ table {
     
   
     
-    const spawnX = window.scrollX + (window.innerWidth / 2);
+    const spawnX = window.scrollX + (window.innerWidth / 7);  
     const spawnY = 0;
     const ballRadius = 7;
     const ball = Bodies.circle(spawnX, spawnY, ballRadius, {
-      restitution: 1,
+      restitution: .95,
       friction: 0.002,
       frictionAir: 0,
       render: { fillStyle: '#e6e6e6' },
@@ -1173,7 +1174,9 @@ table {
     });
   </script>
   
-        
+        # The purpose
+
+
 <script>
   window.addEventListener('BallFallTextReady', function() {
     const {

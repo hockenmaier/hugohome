@@ -27,7 +27,7 @@
     window.BallFall = {};
   
     const engine = Engine.create();
-    engine.world.gravity.y = 1; 
+    engine.world.gravity.y = .75; // Gravity
     window.BallFall.engine = engine;
     window.BallFall.world = engine.world;
   
@@ -47,11 +47,12 @@
         pixelRatio: 1
       }
     });
+    engine.timing.timeScale = 0.3; // Timescale 0.5
     window.BallFall.render = render;
     Render.run(render);
   
-    const runner = Runner.create();
-    Runner.run(runner, engine);
+    const runner = Runner.create({ isFixed: true, delta: 1000 / 60 });
+Runner.run(runner, engine);
   
     function resize() {
       render.options.width = window.innerWidth;
@@ -90,11 +91,11 @@
     
   
     // Spawn ball at top-center
-    const spawnX = window.scrollX + (window.innerWidth / 2);
+    const spawnX = window.scrollX + (window.innerWidth / 7);  // Spawn 1/7 the way through the screen from the left, at the top
     const spawnY = 0;
     const ballRadius = 7;
     const ball = Bodies.circle(spawnX, spawnY, ballRadius, {
-      restitution: 1,
+      restitution: .95,
       friction: 0.002,
       frictionAir: 0,
       render: { fillStyle: '#e6e6e6' },
