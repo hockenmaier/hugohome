@@ -95,7 +95,7 @@
     const ballRadius = 7;
     const ball = Bodies.circle(spawnX, spawnY, ballRadius, {
       restitution: 1,
-      friction: 0,
+      friction: 0.002,
       frictionAir: 0,
       render: { fillStyle: '#e6e6e6' },
       plugin: {
