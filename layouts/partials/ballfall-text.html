@@ -1,6 +1,15 @@
+{{/* This script creates colliders dynamically for all text */}}
+
 <!-- layouts/partials/ballfall-text.html -->
 <script>
     window.addEventListener('BallFallBaseReady', function() {
+      
+      if (window.innerWidth < 720) {  // We don't build colliders for text on mobile, because there isn't enough width regardless of having enough resources
+            // Still fire the event, even on mobile
+            window.dispatchEvent(new Event('BallFallTextReady'));
+            return;
+        }
+
       const { engine, world } = window.BallFall || {};
       if (!engine || !world) return;
   

@@ -569,6 +569,8 @@ table {
 
 
 
+
+
     <header class="mw-100" id="paige-page-header">
         <div class="align-items-center d-flex flex-column">
             
@@ -578,7 +580,6 @@ table {
                     <h1 class="fw-bold" id="paige-page-title">The Answering Machine</h1>
                 
             
-
 
             
 
@@ -611,12 +612,13 @@ table {
                     <div class="border pe-3 ps-3 pt-3 rounded">
                         <nav id="TableOfContents">
   <ul>
-    <li>
+    <li><a href="#how-to">How-to</a>
       <ul>
-        <li><a href="#how-to">How-to</a></li>
-        <li><a href="#architecture">Architecture</a></li>
+        <li><a href="#asking-questions">Asking questions</a></li>
+        <li><a href="#forming-concepts">Forming Concepts</a></li>
       </ul>
     </li>
+    <li><a href="#architecture">Architecture</a></li>
   </ul>
 </nav>
                     </div>
@@ -637,7 +639,7 @@ table {
 <p>The system uses natural language processing (NLP) to produce answers to questions asked about data in plain English.</p>
 <p>It is designed with simplicity in mind—upload any columnar dataset and start asking questions and getting answers. It uses advanced NLP algorithms to make assumptions about what data you&rsquo;re asking about and lets you correct those assumptions for follow-up questions if they&rsquo;re wrong.</p>
 <p>It is built entirely out of serverless components, which means there is no cost to maintain or run it other than the traffic the system receives.</p>
-<h3 id="how-to">How-to<a aria-label="Link to this section" class="paige-header-link" href="#how-to"></a></h3>
+<h2 id="how-to">How-to<a aria-label="Link to this section" class="paige-header-link" href="#how-to"></a></h2>
 <p>On a desktop or tablet, click the link in the header to navigate to the Answering Machine. For now, it isn&rsquo;t optimized for smartphone-sized screens.</p>
 <p>In order to use the Answering Machine, you can either select one of the existing datasets, such as &ldquo;HR Activity Sample,&rdquo; or upload one of your own using the homepage of the site:</p>
 <div style="text-align: center; margin-bottom: 1rem;">
@@ -730,6 +732,7 @@ table {
 <p>To upload your own, click in the upload area or just drag a file straight from your desktop. For now, use CSV data files. Excel and other spreadsheet programs can easily save data in the CSV format using the &ldquo;File &gt; Save As&rdquo; or similar option in the menu. Each file needs a unique name.</p>
 <p>When you hit the upload button, the site may not appear to change until the file is uploaded, at which point you&rsquo;ll see it appear in the box labeled &ldquo;Ask Your Data Anything&rdquo; below. Click on your file to start using it with the Answering Machine, or click the red trash can icon to delete it.</p>
 <p>There are no user accounts in this system yet, so the data you upload might be seen by other users using the system. Try not to use sensitive data for now.</p>
+<h3 id="asking-questions">Asking questions<a aria-label="Link to this section" class="paige-header-link" href="#asking-questions"></a></h3>
 <p>When you enter a dataset, you&rsquo;ll see a view that presents you with quite a bit of information:</p>
 <div style="text-align: center; margin-bottom: 1rem;">
     
@@ -1185,6 +1188,7 @@ table {
     
 </div>
 
+<h3 id="forming-concepts">Forming Concepts<a aria-label="Link to this section" class="paige-header-link" href="#forming-concepts"></a></h3>
 <p>If the Answering Machine already understood what you were asking and successfully matched it to fields and values in your data, you don&rsquo;t have to do anything with these. But often you will be using domain-specific lexicon, or the auto-matching algorithm simply won&rsquo;t pick the correct value. These situations are what concepts are for.</p>
 <p>To create a concept, click and drag on the green or purple &ldquo;lexicon&rdquo; bubble and move it out into the blank middle area of the screen. Then click and drag the field or field value from the info-panel at the top of the screen and drop it right on top of that bubble. You&rsquo;ll see both the data bubble and the lexicon bubble included in a larger gray bubble, which represents the concept:</p>
 <div style="text-align: center; margin-bottom: 1rem;">
@@ -1278,7 +1282,7 @@ table {
 <p>Concepts override the Answering Machine&rsquo;s auto-matching logic. If you ask another question containing a subject or condition that is now matched by a user to a data value, that data value will be used instead of the auto-match. If the concept isn&rsquo;t working well, you can delete it by dragging all of the nested bubbles out of it either into the blank middle area or into the colored panel they originally came from.</p>
 <p>Feel free to play around with new datasets and questions, and use the contact section of this site if you have comments or questions. When you ask questions or create/modify concepts, that data will automatically be saved to the server in real-time. You can close the page anytime and come back to your dataset to keep asking questions.</p>
 <p>Remember that there are no user accounts, meaning you can share your dataset and work in tandem with others! But again, please do not upload sensitive data to this proof-of-concept tool as it will be available for other users to see and query.</p>
-<h3 id="architecture">Architecture<a aria-label="Link to this section" class="paige-header-link" href="#architecture"></a></h3>
+<h2 id="architecture">Architecture<a aria-label="Link to this section" class="paige-header-link" href="#architecture"></a></h2>
 <p>The Answering Machine is a purely &ldquo;serverless&rdquo; application, meaning that there is no server hosting the various components of the application until those components are needed by a user. This is true for the database, the file storage, the static website, the backend compute, and the API orchestration.</p>
 <p>For the cloud nerds out there, <a href="https://martinfowler.com/articles/serverless.html">here is a great article</a> by Martin Fowler on what exactly &ldquo;serverless&rdquo; means, especially in terms of the backend compute portion, which is arguably the most valuable part of the application to be serverless. For reference, I am using Martin&rsquo;s 2nd definition of &ldquo;serverless&rdquo; here.</p>
 <p>This is a high-level map of all of the components that make the Answering Machine work in its current (June 2020) state. The API gateways, CloudWatch events, and some triggers &ldquo;given for free&rdquo; by AWS are left out of this for readability:</p>
@@ -1602,6 +1606,8 @@ table {
 
         
         
+
+
 <style>
     #ballfallCanvas {
       position: fixed;
@@ -1699,7 +1705,7 @@ Runner.run(runner, engine);
     const ballRadius = 7;
     const ball = Bodies.circle(spawnX, spawnY, ballRadius, {
       restitution: .95,
-      friction: 0.002,
+      friction: 0.000,
       frictionAir: 0,
       render: { fillStyle: '#e6e6e6' },
       plugin: {
@@ -1728,8 +1734,17 @@ Runner.run(runner, engine);
   </script>
   
         
+
+
 <script>
     window.addEventListener('BallFallBaseReady', function() {
+      
+      if (window.innerWidth < 720) {  
+            
+            window.dispatchEvent(new Event('BallFallTextReady'));
+            return;
+        }
+
       const { engine, world } = window.BallFall || {};
       if (!engine || !world) return;
   
@@ -1870,7 +1885,7 @@ Runner.run(runner, engine);
     });
   </script>
   
-        # The purpose
+        
 
 
 <script>

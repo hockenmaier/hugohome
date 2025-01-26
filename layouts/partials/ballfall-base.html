@@ -1,3 +1,5 @@
+{{/* Base script of the falling ball game */}}
+
 <!-- layouts/partials/ballfall-base.html -->
 <style>
     #ballfallCanvas {
@@ -96,7 +98,7 @@ Runner.run(runner, engine);
     const ballRadius = 7;
     const ball = Bodies.circle(spawnX, spawnY, ballRadius, {
       restitution: .95,
-      friction: 0.002,
+      friction: 0.000,
       frictionAir: 0,
       render: { fillStyle: '#e6e6e6' },
       plugin: {

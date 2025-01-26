@@ -25,7 +25,7 @@ It is designed with simplicity in mind—upload any columnar dataset and start a
 
 It is built entirely out of serverless components, which means there is no cost to maintain or run it other than the traffic the system receives.
 
-### How-to
+## How-to
 
 On a desktop or tablet, click the link in the header to navigate to the Answering Machine. For now, it isn't optimized for smartphone-sized screens.
 
@@ -38,6 +38,8 @@ To upload your own, click in the upload area or just drag a file straight from y
 When you hit the upload button, the site may not appear to change until the file is uploaded, at which point you'll see it appear in the box labeled "Ask Your Data Anything" below. Click on your file to start using it with the Answering Machine, or click the red trash can icon to delete it.
 
 There are no user accounts in this system yet, so the data you upload might be seen by other users using the system. Try not to use sensitive data for now.
+
+### Asking questions
 
 When you enter a dataset, you'll see a view that presents you with quite a bit of information:
 
@@ -82,6 +84,8 @@ Now that your question is answered, you might notice that some new green and pur
 
 {{< image-small src="/images/answering_machine_lexicon.png" alt="Answering Machine subjects and conditions" >}}
 
+### Forming Concepts
+
 If the Answering Machine already understood what you were asking and successfully matched it to fields and values in your data, you don't have to do anything with these. But often you will be using domain-specific lexicon, or the auto-matching algorithm simply won't pick the correct value. These situations are what concepts are for.
 
 To create a concept, click and drag on the green or purple "lexicon" bubble and move it out into the blank middle area of the screen. Then click and drag the field or field value from the info-panel at the top of the screen and drop it right on top of that bubble. You'll see both the data bubble and the lexicon bubble included in a larger gray bubble, which represents the concept:
@@ -96,7 +100,7 @@ Feel free to play around with new datasets and questions, and use the contact se
 
 Remember that there are no user accounts, meaning you can share your dataset and work in tandem with others! But again, please do not upload sensitive data to this proof-of-concept tool as it will be available for other users to see and query.
 
-### Architecture
+## Architecture
 
 The Answering Machine is a purely "serverless" application, meaning that there is no server hosting the various components of the application until those components are needed by a user. This is true for the database, the file storage, the static website, the backend compute, and the API orchestration.
 

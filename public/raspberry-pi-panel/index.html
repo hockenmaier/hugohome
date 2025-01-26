@@ -571,6 +571,8 @@ table {
 
 
 
+
+
     <header class="mw-100" id="paige-page-header">
         <div class="align-items-center d-flex flex-column">
             
@@ -580,7 +582,6 @@ table {
                     <h1 class="fw-bold" id="paige-page-title">Raspberry Pi Control Panel</h1>
                 
             
-
 
             
 
@@ -609,16 +610,6 @@ table {
             
 
             
-                <div class="paige-row-wide" id="paige-toc">
-                    <div class="border pe-3 ps-3 pt-3 rounded">
-                        <nav id="TableOfContents">
-  <ul>
-    <li><a href="#hahahugoshortcode62s0hbhb">HAHAHUGOSHORTCODE62s0HBHB</a></li>
-  </ul>
-</nav>
-                    </div>
-                </div>
-            
 
             
         </div>
@@ -637,7 +628,7 @@ table {
 <p>I created this panel display in 2026 to control much of the home automation I used in my Studio City apartment. Mainly a hardware project, I designed and 3D-printed a case and frame for the touchscreen and raspberry pi microcomputer in order to mount them to the wall. The software running the control panel is SaaS, but I did write a custom html wrapper to control the orientation and settings of the site, which is available on the github linked above.</p>
 <p>Update in 2025: This panel is still my main view into my home automation in my new house in Sherman Oaks, almost 10 years in with no modification!</p>
 <p>Here&rsquo;s a video to see the panel in action:</p>
-<h2 id="hahahugoshortcode62s0hbhb">
+<h2 id="hahahugoshortcode82s0hbhb">
     <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
       <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/iFGmm-ijJvE?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"></iframe>
     </div>
@@ -873,6 +864,8 @@ table {
 
         
         
+
+
 <style>
     #ballfallCanvas {
       position: fixed;
@@ -901,7 +894,7 @@ table {
     window.BallFall = {};
   
     const engine = Engine.create();
-    engine.world.gravity.y = 1; 
+    engine.world.gravity.y = .75; 
     window.BallFall.engine = engine;
     window.BallFall.world = engine.world;
   
@@ -921,11 +914,12 @@ table {
         pixelRatio: 1
       }
     });
+    engine.timing.timeScale = 0.3; 
     window.BallFall.render = render;
     Render.run(render);
   
-    const runner = Runner.create();
-    Runner.run(runner, engine);
+    const runner = Runner.create({ isFixed: true, delta: 1000 / 60 });
+Runner.run(runner, engine);
   
     function resize() {
       render.options.width = window.innerWidth;
@@ -964,12 +958,12 @@ table {
     
   
     
-    const spawnX = window.scrollX + (window.innerWidth / 2);
+    const spawnX = window.scrollX + (window.innerWidth / 7);  
     const spawnY = 0;
     const ballRadius = 7;
     const ball = Bodies.circle(spawnX, spawnY, ballRadius, {
-      restitution: 1,
-      friction: 0.002,
+      restitution: .95,
+      friction: 0.000,
       frictionAir: 0,
       render: { fillStyle: '#e6e6e6' },
       plugin: {
@@ -998,8 +992,17 @@ table {
   </script>
   
         
+
+
 <script>
     window.addEventListener('BallFallBaseReady', function() {
+      
+      if (window.innerWidth < 720) {  
+            
+            window.dispatchEvent(new Event('BallFallTextReady'));
+            return;
+        }
+
       const { engine, world } = window.BallFall || {};
       if (!engine || !world) return;
   
@@ -1141,6 +1144,8 @@ table {
   </script>
   
         
+
+
 <script>
   window.addEventListener('BallFallTextReady', function() {
     const {

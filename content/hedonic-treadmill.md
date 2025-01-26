@@ -3,7 +3,7 @@ title: "The Treadmill"
 date: 2024-02-01
 categories: ["essay"]
 personal: "Y"
-tags: ["work-life balance", "hedonic treadmill", "happiness", "wealth"]
+tags: ["work-life balance", "happiness", "wealth", "singularity", "AI"]
 ---
 
 I came across this tweet today that was surprisingly contentious. Maybe not so surprising given the state of Twitter, but still:
@@ -18,7 +18,7 @@ But there is a difference between founding a company you’re passionate about, 
 
 I propose this core question for this type of person: Is this large income worth doing a job you find boring, or working with people you feel are toxic? I would say no. Absolutely not. OP is clearly regretting how he’s spending his time at work. He should look for something to do that he values, even if it pays a quarter as much as he gets now. Or less!
 
-### The Hedonic Treadmill
+## The Hedonic Treadmill
 
 There’s an often misquoted study from ~2010 that personal income beyond about $75K (presumed to cover basic necessities with a comfortable overhead) does not equate to further happiness. This number is actually about right when it comes to simple reported happiness, which has more to do with the hedonic treadmill than anything else. But the study in question was also measuring reported “life satisfaction” as surveyed, which did not stop increasing with income. Of course, “life satisfaction” is a fraught survey metric as well, as it might actually measure a perceived comparative number with one’s neighbors (we’ll get to this later).
 
@@ -38,7 +38,7 @@ This is where the real paradox comes in. Gaining wealth is supposed to make your
 Maybe they aren’t prioritizing happiness at all.
 
 
-### Keeping up with the Joneses
+## Keeping up with the Joneses
 
 My argument so far would be absolute blasphemy to most of the $500K+ salary people who don’t have much fun at work. Let’s talk about their two most common counterarguments:
 
@@ -63,7 +63,7 @@ Now this is a good argument! You could indeed retire in 5 years after making $80
 
 What’s actually happening? Lifestyle creep. I think this is 90% of why people feel they could never work on something more fun or meaningful for less money. They’ve already started to spend their new money, and now losing those things would hurt more than gaining them felt good. That damn hedonic treadmill.
 
-### Where we go from here
+## Where we go from here
 
 What am I saying? I’m asking you to think deeply about what you value. Money isn’t a core value. Value your own time as much as your spending habits suggest you do. This is the right logic for your well-being, even if the world stays as it is. Now for my last thought:
 

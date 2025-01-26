@@ -1,0 +1,1189 @@
+
+
+<!doctype html>
+
+
+
+
+
+
+<html  data-bs-theme="dark"  data-paige="Paige theme from https://github.com/willfaught/paige"   lang="en-us" >
+
+    
+
+
+
+
+
+
+
+
+
+
+    
+
+    
+
+    
+
+
+
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    
+
+    
+
+<meta charset="utf-8">
+
+
+
+
+
+
+    <meta content="C#, Co-Op, Crossplay, Game Development, Indie Games, Multiplayer, Networking, Procedural Generation, project overview, SteamVR SDK, Unity, Video Games, VR" name="keywords">
+
+
+<meta content="#0d1213" name="msapplication-TileColor">
+
+
+    <meta content="/browserconfig.xml" name="msapplication-config">
+
+
+<meta content="https://github.com/willfaught/paige" name="theme">
+<meta content="#0d1213" name="theme-color">
+<meta content="width=device-width, initial-scale=1" name="viewport">
+
+<meta property="og:url" content="http://localhost:1313/the-flapper/">
+  <meta property="og:site_name" content="HockenHome">
+  <meta property="og:title" content="The Flapper">
+  <meta property="og:description" content="The Flapper">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:published_time" content="2023-01-01T00:00:00+00:00">
+    <meta property="article:modified_time" content="2023-01-01T00:00:00+00:00">
+    <meta property="article:tag" content="VR">
+    <meta property="article:tag" content="Multiplayer">
+    <meta property="article:tag" content="Networking">
+    <meta property="article:tag" content="Crossplay">
+    <meta property="article:tag" content="Game Development">
+    <meta property="article:tag" content="Indie Games">
+
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="The Flapper">
+  <meta name="twitter:description" content="The Flapper">
+
+
+
+    
+        <title>The Flapper · Home</title>
+    
+
+    
+
+
+    <link href="/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180">
+
+
+
+    <link href="/favicon.ico" rel="shortcut icon">
+
+
+
+    <link href="/favicon.png" rel="icon" type="image/png">
+
+
+
+    <link href="/favicon.svg" rel="icon" type="image/svg+xml">
+
+
+
+    <link href="/favicon-16x16.png" rel="icon" sizes="16x16" type="image/png">
+
+
+
+    <link href="/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png">
+
+
+
+    <link color="#0d1213" href="/safari-pinned-tab.svg" rel="mask-icon">
+
+
+
+    <link href="/site.webmanifest" rel="manifest">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+    
+        
+        
+        
+    
+
+    
+        
+    
+
+    
+    
+    
+
+
+<link  crossorigin="anonymous"  href="/css/paige/bootstrap/14cce8f10c43f734971f8d33cd5a57c329fab6fd-paige.min.d48aec4dfdd56584d47efc388224a845a56c407947408528bf4c65a621fb3ed0.css"  integrity="sha256-1IrsTf3VZYTUfvw4giSoRaVsQHlHQIUov0xlpiH7PtA="   referrerpolicy="no-referrer"  rel="stylesheet">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+    
+
+    
+
+    
+    
+    
+
+
+<link  crossorigin="anonymous"  href="/css/paige/bootstrap-icons/bootstrap-icons.min.540116b7267d4b2410c74086ae6497566928c6d5715900be7ce7279ad45addcd.css"  integrity="sha256-VAEWtyZ9SyQQx0CGrmSXVmkoxtVxWQC&#43;fOcnmtRa3c0="   referrerpolicy="no-referrer"  rel="stylesheet">
+
+
+
+
+
+
+    
+
+<style>
+
+
+.paige-figure-numbered {
+    counter-increment: paige-figure-numbered;
+}
+
+.paige-figure-numbered > div > figure > figcaption::before {
+    content: "Figure " counter(paige-figure-numbered) ": ";
+}
+
+.paige-figure-numbered > div > figure > figcaption:empty::before {
+    content: "Figure " counter(paige-figure-numbered);
+}
+
+.paige-header-link {
+    opacity: 0;
+    margin-left: 0.5rem;
+    position: absolute;
+    transition: color 0.15s ease-in-out, opacity 0.15s ease-in-out;
+}
+
+.paige-header-link::after {
+    content: "#";
+}
+
+.paige-quote .blockquote-footer {
+    margin-top: 0;
+}
+
+.paige-quote blockquote {
+    border-left: 0;
+    border-right: 0;
+    margin-bottom: 0;
+    padding: 0;
+}
+
+blockquote {
+    padding: 0.5rem 1rem;
+    border-left: 0.25rem solid var(--bs-border-color);
+    border-right: 0.25rem solid var(--bs-body-bg);
+}
+
+td,
+th {
+    padding: 0.25rem;
+}
+
+.highlight .chroma .hl,
+.highlight .chroma .lnt {
+    display: flex;
+}
+
+.paige-row-narrow:not(:last-child),
+.paige-figure .paige-quote,
+.paige-figure .paige-video,
+.paige-figure .highlight pre.chroma,
+.paige-figure .highlight .chroma pre,
+.paige-figure .paige-quote blockquote,
+.paige-figure figure > div > :last-child,
+.paige-gallery .paige-figure,
+.paige-gallery .paige-image,
+blockquote > p:last-of-type {
+    margin-bottom: 0;
+}
+
+.paige-figure,
+.paige-gallery,
+.paige-image,
+.paige-quote,
+.paige-row-narrow:last-child,
+.paige-row-wide,
+.paige-video,
+#paige-content > *,
+table {
+    margin-bottom: 1rem;
+}
+
+.paige-header-link:focus,
+.paige-header-link:hover,
+:hover > .paige-header-link,
+:target > .paige-header-link {
+    opacity: 1;
+}
+
+
+
+
+    /* Background */ .bg { color: #c9d1d9; background-color: var(--bs-body-bg); }
+/* PreWrapper */ .chroma { color: #c9d1d9; background-color: var(--bs-body-bg); }
+/* Other */ .chroma .x {  }
+/* Error */ .chroma .err { color: #f85149 }
+/* CodeLine */ .chroma .cl {  }
+/* LineLink */ .chroma .lnlinks { outline: none; text-decoration: none; color: inherit }
+/* LineTableTD */ .chroma .lntd { vertical-align: top; padding: 0; margin: 0; border: 0; }
+/* LineTable */ .chroma .lntable { border-spacing: 0; padding: 0; margin: 0; border: 0; }
+/* LineHighlight */ .chroma .hl { background-color: #4f4f4d }
+/* LineNumbersTable */ .chroma .lnt { white-space: pre; user-select: none; margin-right: 0.4em; padding: 0 0.4em 0 0.4em;color: #64686c }
+/* LineNumbers */ .chroma .ln { white-space: pre; user-select: none; margin-right: 0.4em; padding: 0 0.4em 0 0.4em;color: #6e7681 }
+/* Line */ .chroma .line { display: flex; }
+/* Keyword */ .chroma .k { color: #ff7b72 }
+/* KeywordConstant */ .chroma .kc { color: #79c0ff }
+/* KeywordDeclaration */ .chroma .kd { color: #ff7b72 }
+/* KeywordNamespace */ .chroma .kn { color: #ff7b72 }
+/* KeywordPseudo */ .chroma .kp { color: #79c0ff }
+/* KeywordReserved */ .chroma .kr { color: #ff7b72 }
+/* KeywordType */ .chroma .kt { color: #ff7b72 }
+/* Name */ .chroma .n {  }
+/* NameAttribute */ .chroma .na {  }
+/* NameBuiltin */ .chroma .nb {  }
+/* NameBuiltinPseudo */ .chroma .bp {  }
+/* NameClass */ .chroma .nc { color: #f0883e; font-weight: bold }
+/* NameConstant */ .chroma .no { color: #79c0ff; font-weight: bold }
+/* NameDecorator */ .chroma .nd { color: #d2a8ff; font-weight: bold }
+/* NameEntity */ .chroma .ni { color: #ffa657 }
+/* NameException */ .chroma .ne { color: #f0883e; font-weight: bold }
+/* NameFunction */ .chroma .nf { color: #d2a8ff; font-weight: bold }
+/* NameFunctionMagic */ .chroma .fm {  }
+/* NameLabel */ .chroma .nl { color: #79c0ff; font-weight: bold }
+/* NameNamespace */ .chroma .nn { color: #ff7b72 }
+/* NameOther */ .chroma .nx {  }
+/* NameProperty */ .chroma .py { color: #79c0ff }
+/* NameTag */ .chroma .nt { color: #7ee787 }
+/* NameVariable */ .chroma .nv { color: #79c0ff }
+/* NameVariableClass */ .chroma .vc {  }
+/* NameVariableGlobal */ .chroma .vg {  }
+/* NameVariableInstance */ .chroma .vi {  }
+/* NameVariableMagic */ .chroma .vm {  }
+/* Literal */ .chroma .l { color: #a5d6ff }
+/* LiteralDate */ .chroma .ld { color: #79c0ff }
+/* LiteralString */ .chroma .s { color: #a5d6ff }
+/* LiteralStringAffix */ .chroma .sa { color: #79c0ff }
+/* LiteralStringBacktick */ .chroma .sb { color: #a5d6ff }
+/* LiteralStringChar */ .chroma .sc { color: #a5d6ff }
+/* LiteralStringDelimiter */ .chroma .dl { color: #79c0ff }
+/* LiteralStringDoc */ .chroma .sd { color: #a5d6ff }
+/* LiteralStringDouble */ .chroma .s2 { color: #a5d6ff }
+/* LiteralStringEscape */ .chroma .se { color: #79c0ff }
+/* LiteralStringHeredoc */ .chroma .sh { color: #79c0ff }
+/* LiteralStringInterpol */ .chroma .si { color: #a5d6ff }
+/* LiteralStringOther */ .chroma .sx { color: #a5d6ff }
+/* LiteralStringRegex */ .chroma .sr { color: #79c0ff }
+/* LiteralStringSingle */ .chroma .s1 { color: #a5d6ff }
+/* LiteralStringSymbol */ .chroma .ss { color: #a5d6ff }
+/* LiteralNumber */ .chroma .m { color: #a5d6ff }
+/* LiteralNumberBin */ .chroma .mb { color: #a5d6ff }
+/* LiteralNumberFloat */ .chroma .mf { color: #a5d6ff }
+/* LiteralNumberHex */ .chroma .mh { color: #a5d6ff }
+/* LiteralNumberInteger */ .chroma .mi { color: #a5d6ff }
+/* LiteralNumberIntegerLong */ .chroma .il { color: #a5d6ff }
+/* LiteralNumberOct */ .chroma .mo { color: #a5d6ff }
+/* Operator */ .chroma .o { color: #ff7b72; font-weight: bold }
+/* OperatorWord */ .chroma .ow { color: #ff7b72; font-weight: bold }
+/* Punctuation */ .chroma .p {  }
+/* Comment */ .chroma .c { color: #8b949e; font-style: italic }
+/* CommentHashbang */ .chroma .ch { color: #8b949e; font-style: italic }
+/* CommentMultiline */ .chroma .cm { color: #8b949e; font-style: italic }
+/* CommentSingle */ .chroma .c1 { color: #8b949e; font-style: italic }
+/* CommentSpecial */ .chroma .cs { color: #8b949e; font-weight: bold; font-style: italic }
+/* CommentPreproc */ .chroma .cp { color: #8b949e; font-weight: bold; font-style: italic }
+/* CommentPreprocFile */ .chroma .cpf { color: #8b949e; font-weight: bold; font-style: italic }
+/* Generic */ .chroma .g {  }
+/* GenericDeleted */ .chroma .gd { color: #ffa198; background-color: #490202 }
+/* GenericEmph */ .chroma .ge { font-style: italic }
+/* GenericError */ .chroma .gr { color: #ffa198 }
+/* GenericHeading */ .chroma .gh { color: #79c0ff; font-weight: bold }
+/* GenericInserted */ .chroma .gi { color: #56d364; background-color: #0f5323 }
+/* GenericOutput */ .chroma .go { color: #8b949e }
+/* GenericPrompt */ .chroma .gp { color: #8b949e }
+/* GenericStrong */ .chroma .gs { font-weight: bold }
+/* GenericSubheading */ .chroma .gu { color: #79c0ff }
+/* GenericTraceback */ .chroma .gt { color: #ff7b72 }
+/* GenericUnderline */ .chroma .gl { text-decoration: underline }
+/* TextWhitespace */ .chroma .w { color: #6e7681 }
+
+
+
+@media (prefers-reduced-motion: reduce) {
+    .paige-header-link {
+        transition: none;
+    }
+}
+
+
+
+
+</style>
+
+
+    
+</head>
+
+    <body>
+
+        
+
+        <div class="container">
+            <div class="row">
+                <div class="col mt-3" id="paige-site">
+                    
+
+                    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+
+
+    
+        
+    
+
+
+
+    <header id="paige-site-header">
+        
+
+        
+            <div class="display-1 fw-bold  mb-2  paige-row-wide text-center" id="paige-site-title">HockenHome</div>
+        
+
+        
+            <div class="lead paige-row-wide text-center" id="paige-site-description">Welcome to HockenHome, Brian&rsquo;s site for project updates, writings, and ideas.</div>
+        
+
+        
+            
+                
+
+                
+                    
+                        
+                    
+                
+                    
+                
+                    
+                        
+                    
+                
+
+                
+
+                <nav aria-label="Menu" class="paige-row-wide" id="paige-menu">
+                    <ul class="align-items-center justify-content-center nav  nav-pills ">
+                        
+                            
+                            
+                            
+                            
+                            
+
+                            <li class="nav-item">
+                                <a  class=" nav-link " href="/categories/" >Categories</a>
+                            </li>
+                        
+                            
+                            
+                            
+                            
+                            
+
+                            <li class="nav-item">
+                                <a  class=" nav-link " href="/" >Home</a>
+                            </li>
+                        
+                            
+                            
+                            
+                            
+                            
+
+                            <li class="nav-item">
+                                <a  class=" nav-link " href="/tags/" >Tags</a>
+                            </li>
+                        
+                    </ul>
+                </nav>
+            
+        
+
+        
+            <nav aria-label="Breadcrumbs" class="paige-row-wide" id="paige-breadcrumbs">
+                <div class="d-flex justify-content-center">
+                    <ol class="breadcrumb mb-0">
+                        
+
+                        
+
+                        
+                            
+
+                            
+
+                            <li class="breadcrumb-item"><a href="/">Home</a></li>
+                        
+                    </ol>
+                </div>
+            </nav>
+        
+
+        
+    </header>
+
+
+                    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+    
+        
+    
+
+
+
+
+<article class="paige-kind-page paige-published" id="paige-page">
+    <div class="align-items-center d-flex flex-column">
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <header class="mw-100" id="paige-page-header">
+        <div class="align-items-center d-flex flex-column">
+            
+
+            
+                
+                    <h1 class="fw-bold" id="paige-page-title">The Flapper</h1>
+                
+            
+
+            
+
+            
+                <div id="paige-metadata">
+                    
+                        <p class=" paige-row-narrow  text-center  text-secondary " id="paige-keywords">
+                            <a class="link-secondary paige-keyword paige-keyword-tag" href="/tags/c%23/">C#</a> · <a class="link-secondary paige-keyword paige-keyword-tag" href="/tags/co-op/">Co-Op</a> · <a class="link-secondary paige-keyword paige-keyword-tag" href="/tags/crossplay/">Crossplay</a> · <a class="link-secondary paige-keyword paige-keyword-tag" href="/tags/game-development/">Game Development</a> · <a class="link-secondary paige-keyword paige-keyword-tag" href="/tags/indie-games/">Indie Games</a> · <a class="link-secondary paige-keyword paige-keyword-tag" href="/tags/multiplayer/">Multiplayer</a> · <a class="link-secondary paige-keyword paige-keyword-tag" href="/tags/networking/">Networking</a> · <a class="link-secondary paige-keyword paige-keyword-tag" href="/tags/procedural-generation/">Procedural Generation</a> · <a class="link-secondary paige-keyword paige-keyword-category" href="/categories/project-overview/">Project Overview</a> · <a class="link-secondary paige-keyword paige-keyword-tag" href="/tags/steamvr-sdk/">SteamVR SDK</a> · <a class="link-secondary paige-keyword paige-keyword-tag" href="/tags/unity/">Unity</a> · <a class="link-secondary paige-keyword paige-keyword-tag" href="/tags/video-games/">Video Games</a> · <a class="link-secondary paige-keyword paige-keyword-tag" href="/tags/vr/">VR</a>
+                        </p>
+                    
+
+                    
+
+                    
+
+                    
+                        <p class="paige-row-narrow text-center text-secondary" id="paige-date">
+                            <time datetime="2023-01-01">January 1, 2023</time>
+                        </p>
+                    
+
+                    
+                </div>
+            
+
+            
+
+            
+
+            
+        </div>
+    </header>
+
+
+
+        
+            <main class="mw-100" id="paige-content"><p>The Flapper</p>
+</main>
+        
+
+        
+
+
+
+
+
+
+
+
+
+    
+
+    
+
+
+
+    <footer class="mw-100" id="paige-page-footer">
+        
+
+        
+
+        
+            <div id="paige-siblings">
+                
+                    <div class="paige-row-narrow text-center text-secondary" id="paige-next"><a class="link-secondary" href="http://localhost:1313/treekeepers-vr/">Treekeepers VR</a> &rsaquo;</div>
+                
+
+                
+                    <div class="paige-row-narrow text-center text-secondary" id="paige-prev">&lsaquo; <a class="link-secondary" href="http://localhost:1313/hedonic-treadmill/">The Treadmill</a></div>
+                
+            </div>
+        
+
+        
+    </footer>
+
+
+    </div>
+</article>
+
+
+
+
+
+
+
+
+
+
+    
+    
+
+
+
+    
+
+
+
+    
+
+
+
+    
+
+
+
+    
+
+
+
+    
+
+
+
+    
+
+
+
+    
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+
+                    
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+
+
+    <footer id="paige-site-footer">
+        
+
+        
+
+        
+
+        
+            <p class="paige-row-narrow text-center text-secondary" id="paige-credit">© 2025 Brian Hockenmaier. All rights reserved.</p>
+        
+
+        
+    </footer>
+
+
+
+                    
+                </div>
+            </div>
+        </div>
+
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+    
+
+
+<script  crossorigin="anonymous"   defer  integrity="sha256-lX&#43;ULWAvPVhH6ZIQfjfpD61jOifETLc9RAMCMqtgfeQ="   referrerpolicy="no-referrer"  src="/js/paige/bootstrap/bootstrap.bundle.min.957f942d602f3d5847e992107e37e90fad633a27c44cb73d44030232ab607de4.js" ></script>
+
+
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+    
+
+
+
+    
+
+
+
+    
+
+
+
+    
+
+
+
+    
+
+
+
+    
+
+
+
+    
+
+
+
+    
+
+
+
+    
+
+
+
+    
+
+
+
+    
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+<noscript>JavaScript is required</noscript>
+
+
+        
+        
+
+
+<style>
+    #ballfallCanvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 9999;
+      pointer-events: none;
+    }
+  </style>
+  
+  <script src="/js/matter.min.js"></script>
+  <script src="/js/matter-wrap.min.js"></script>
+  
+  <script>
+  window.addEventListener('load', function() {
+    const Engine = Matter.Engine,
+          Render = Matter.Render,
+          Runner = Matter.Runner,
+          World  = Matter.World,
+          Bodies = Matter.Bodies,
+          Composite = Matter.Composite,
+          Events = Matter.Events;
+  
+    Matter.use('matter-wrap');
+  
+    window.BallFall = {};
+  
+    const engine = Engine.create();
+    engine.world.gravity.y = .75; 
+    window.BallFall.engine = engine;
+    window.BallFall.world = engine.world;
+  
+    
+    const canvasEl = document.createElement('canvas');
+    canvasEl.id = "ballfallCanvas";
+    document.body.appendChild(canvasEl);
+  
+    const render = Render.create({
+      engine: engine,
+      canvas: canvasEl,
+      options: {
+        width: window.innerWidth,
+        height: window.innerHeight,
+        background: 'transparent',
+        wireframes: false,
+        pixelRatio: 1
+      }
+    });
+    engine.timing.timeScale = 0.3; 
+    window.BallFall.render = render;
+    Render.run(render);
+  
+    const runner = Runner.create({ isFixed: true, delta: 1000 / 60 });
+Runner.run(runner, engine);
+  
+    function resize() {
+      render.options.width = window.innerWidth;
+      render.options.height = window.innerHeight;
+      canvasEl.width = window.innerWidth;
+      canvasEl.height = window.innerHeight;
+    }
+    window.addEventListener('resize', resize);
+    resize();
+  
+    
+    let lastScrollY = window.scrollY;
+    window.addEventListener('scroll', () => {
+      const dy = window.scrollY - lastScrollY;
+      Composite.translate(engine.world, { x: 0, y: -dy });
+      lastScrollY = window.scrollY;
+    });
+  
+    
+    function addMediaColliders() {
+      document.querySelectorAll('img, iframe').forEach(el => {
+        const rect = el.getBoundingClientRect();
+        if (rect.width < 1 || rect.height < 1) return;
+        const cx = rect.left + rect.width / 2 + window.scrollX;
+        const cy = rect.top + rect.height / 2 + window.scrollY;
+        const box = Bodies.rectangle(cx, cy, rect.width, rect.height, {
+          isStatic: true,
+          render: { visible: false }
+        });
+        box.elRef = el;
+        World.add(engine.world, box);
+      });
+    }
+    addMediaColliders();
+
+    
+  
+    
+    const spawnX = window.scrollX + (window.innerWidth / 7);  
+    const spawnY = 0;
+    const ballRadius = 7;
+    const ball = Bodies.circle(spawnX, spawnY, ballRadius, {
+      restitution: .95,
+      friction: 0.000,
+      frictionAir: 0,
+      render: { fillStyle: '#e6e6e6' },
+      plugin: {
+        wrap: {
+          min: { x: 0, y: -999999 },
+          max: { x: document.body.scrollWidth, y: 999999 }
+        }
+      }
+    });
+    World.add(engine.world, ball);
+  
+    
+    Events.on(engine, 'collisionStart', event => {
+      event.pairs.forEach(pair => {
+        [pair.bodyA, pair.bodyB].forEach(b => {
+          if (b.elRef && b.elRef.tagName !== 'SPAN') {
+            b.elRef.style.border = '1px dotted #6eff94';
+          }
+        });
+      });
+    });
+  
+    
+    window.dispatchEvent(new Event('BallFallBaseReady'));
+  });
+  </script>
+  
+        
+
+
+<script>
+    window.addEventListener('BallFallBaseReady', function() {
+      
+      if (window.innerWidth < 720) {  
+            
+            window.dispatchEvent(new Event('BallFallTextReady'));
+            return;
+        }
+
+      const { engine, world } = window.BallFall || {};
+      if (!engine || !world) return;
+  
+      const Bodies = Matter.Bodies;
+      const World = Matter.World;
+      const Events = Matter.Events;
+  
+      function traceOutline(alphaData, w, h) {
+        const edges = [];
+        function alphaAt(x, y) {
+          if (x < 0 || y < 0 || x >= w || y >= h) return 0;
+          return alphaData[y * w + x];
+        }
+        for (let y = 0; y < h; y++) {
+          for (let x = 0; x < w; x++) {
+            const topLeft     = alphaAt(x,   y);
+            const topRight    = alphaAt(x+1, y);
+            const bottomLeft  = alphaAt(x,   y+1);
+            const bottomRight = alphaAt(x+1, y+1);
+            const squareIdx = (topLeft > 0 ? 8 : 0)
+                            + (topRight > 0 ? 4 : 0)
+                            + (bottomRight > 0 ? 2 : 0)
+                            + (bottomLeft > 0 ? 1 : 0);
+  
+            
+            if      (squareIdx === 1  || squareIdx === 14) edges.push({x,     y: y+0.5},{x: x+0.5, y: y+1});
+            else if (squareIdx === 2  || squareIdx === 13) edges.push({x: x+0.5, y: y+1},{x: x+1,   y: y+0.5});
+            else if (squareIdx === 4  || squareIdx === 11) edges.push({x: x+0.5, y},{x: x+1,   y: y+0.5});
+            else if (squareIdx === 8  || squareIdx === 7)  edges.push({x,     y: y+0.5},{x: x+0.5, y});
+            else if (squareIdx === 3  || squareIdx === 12) edges.push({x,     y: y+0.5},{x: x+1,   y: y+0.5});
+            else if (squareIdx === 6  || squareIdx === 9)  edges.push({x: x+0.5, y},{x: x+0.5, y: y+1});
+          }
+        }
+        return edges;
+      }
+  
+      
+      function shrinkEdges(localPts, dist) {
+        return localPts.map(pt => {
+          const length = Math.hypot(pt.x, pt.y);
+          if (length <= dist) {
+            
+            return { x: 0, y: 0 };
+          }
+          const s = (length - dist) / length;
+          return { x: pt.x * s, y: pt.y * s };
+        });
+      }
+  
+      function wrapTextNodes(root) {
+        const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, null, false);
+        const textNodes = [];
+        while (walker.nextNode()) textNodes.push(walker.currentNode);
+        textNodes.forEach(node => {
+          const text = node.nodeValue;
+          if (!text.trim()) return;
+          const parent = node.parentNode;
+          if (!parent || ['SCRIPT','STYLE'].includes(parent.tagName)) return;
+          const frag = document.createDocumentFragment();
+          for (let char of text) {
+            const span = document.createElement('span');
+            span.textContent = char;
+            frag.appendChild(span);
+          }
+          parent.replaceChild(frag, node);
+        });
+      }
+      wrapTextNodes(document.body);
+  
+      function letterToBody(letterEl) {
+        const rect = letterEl.getBoundingClientRect();
+        if (rect.width < 1 || rect.height < 1) return null;
+  
+        const off = document.createElement('canvas');
+        off.width = Math.ceil(rect.width);
+        off.height = Math.ceil(rect.height);
+        const ctx = off.getContext('2d');
+  
+        ctx.font = window.getComputedStyle(letterEl).font;
+        ctx.fillStyle = '#000';
+        ctx.textBaseline = 'top';
+        ctx.fillText(letterEl.textContent, 0, 0);
+  
+        const imgData = ctx.getImageData(0, 0, off.width, off.height).data;
+        const alphaData = [];
+        for (let i = 3; i < imgData.length; i += 4) {
+          alphaData.push(imgData[i]);
+        }
+  
+        const edges = traceOutline(alphaData, off.width, off.height);
+        if (!edges.length) return null;
+  
+        const shiftX = rect.left + window.scrollX;
+        const shiftY = rect.top + window.scrollY;
+        edges.forEach(pt => {
+          pt.x += shiftX;
+          pt.y += shiftY;
+        });
+  
+        const minX = Math.min(...edges.map(pt => pt.x));
+        const minY = Math.min(...edges.map(pt => pt.y));
+        const maxX = Math.max(...edges.map(pt => pt.x));
+        const maxY = Math.max(...edges.map(pt => pt.y));
+        const centerX = (minX + maxX) / 2;
+        const centerY = (minY + maxY) / 2;
+  
+        
+        const localEdges = edges.map(pt => ({ x: pt.x - centerX, y: pt.y - centerY }));
+        
+        const shrunk = shrinkEdges(localEdges, 4);
+  
+        const body = Bodies.fromVertices(centerX, centerY, [shrunk], {
+          isStatic: true,
+          render: { visible: false }
+        }, true);
+  
+        if (body) body.elRef = letterEl;
+        return body;
+      }
+  
+      const spans = document.querySelectorAll('span');
+      spans.forEach(span => {
+        const body = letterToBody(span);
+        if (body) World.add(world, body);
+      });
+  
+      Events.on(engine, 'collisionStart', evt => {
+        evt.pairs.forEach(pair => {
+          [pair.bodyA, pair.bodyB].forEach(b => {
+            if (b.elRef && b.elRef.tagName === 'SPAN') {
+              b.elRef.style.color = '#6eff94';
+            }
+          });
+        });
+      });
+  
+      window.dispatchEvent(new Event('BallFallTextReady'));
+    });
+  </script>
+  
+        
+
+
+<script>
+  window.addEventListener('BallFallTextReady', function() {
+    const {
+      engine,
+      world
+    } = window.BallFall || {};
+    if (!engine || !world) return;
+  
+    const Bodies = Matter.Bodies,
+          World  = Matter.World;
+  
+    let firstClick = null;
+  
+    
+    function isNonInteractable(target) {
+      const clickableTags = ['A','BUTTON','INPUT','TEXTAREA','SELECT','LABEL'];
+      return !clickableTags.includes(target.tagName);
+    }
+  
+    document.addEventListener('click', e => {
+      if (!isNonInteractable(e.target)) {
+        return;
+      }
+  
+      
+      const clickX = e.pageX - window.scrollX;
+      const clickY = e.pageY - window.scrollY;
+  
+      if (!firstClick) {
+        firstClick = { x: clickX, y: clickY };
+      } else {
+        const dx = clickX - firstClick.x;
+        const dy = clickY - firstClick.y;
+        const length = Math.sqrt(dx*dx + dy*dy);
+        const angle = Math.atan2(dy, dx);
+        const midX = (firstClick.x + clickX) / 2;
+        const midY = (firstClick.y + clickY) / 2;
+  
+        firstClick = null;
+  
+        
+        const lineBody = Bodies.rectangle(midX, midY, length, 2, {
+          isStatic: true,
+          angle: angle,
+          render: {
+            fillStyle: '#956eff',
+            strokeStyle: '#956eff',
+            lineWidth: 1
+          }
+        });
+        World.add(world, lineBody);
+      }
+    });
+  });
+  </script>
+  
+    </body>
+</html>
