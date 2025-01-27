@@ -161,7 +161,8 @@
 <p>I started calling the sheets my &ldquo;ball machines&rdquo;.  I wish I still had some of these drawings.  I remember them being quite intricate.. I must have reserved English class for them.</p>
 <p>So, to honor kid Brian, I am making my website a permanent ball machine.  I hope you have fun with it, and that it&rsquo;s not too annoying if you&rsquo;re trying to read.</p>
 <h2 id="how-to-play">How to Play</h2>
-<p>The ball machine on this site has been a little bit more gamified than my graph paper drawings as a kid.  Each time you load a page, you&rsquo;ll find a net somewhere on the page.  Your goal is to get the ball in the net, which will disappear and reappear.  This might get more and more challenging as your drawings take up more of the screen.  You get a point each time you get the ball in the net.  Each post will be a slightly different game!</p>
+<p>The ball machine on this site has been a bit more gamified than my graph paper drawings were as a kid.  Each time you load a page, you&rsquo;ll find a hoop somewhere on the page.  Your goal is to get the ball to go through the hoop.  Every time you do, another one will appear.  Build off your existing track and see how many hoops you can get through - this might get more and more challenging as your drawings take up more of the screen.  You get a point each time you get the ball through another hoop.  Each post will be a slightly different game!</p>
+<h2 id="how-its-made">How it&rsquo;s made</h2>
 ]]></description>
                 
 
@@ -2237,7 +2238,7 @@ This is what the project looked like for my first play-test with other people 5 
 <p>I created this panel display in 2026 to control much of the home automation I used in my Studio City apartment. Mainly a hardware project, I designed and 3D-printed a case and frame for the touchscreen and raspberry pi microcomputer in order to mount them to the wall. The software running the control panel is SaaS, but I did write a custom html wrapper to control the orientation and settings of the site, which is available on the github linked above.</p>
 <p>Update in 2025: This panel is still my main view into my home automation in my new house in Sherman Oaks, almost 10 years in with no modification!</p>
 <p>Here&rsquo;s a video to see the panel in action:</p>
-<h2 id="hahahugoshortcode82s0hbhb">
+<h2 id="hahahugoshortcode7s0hbhb">
     <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
       <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/iFGmm-ijJvE?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"></iframe>
     </div>

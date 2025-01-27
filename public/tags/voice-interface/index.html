@@ -569,6 +569,8 @@ table {
 
 
 
+
+
     <header class="mw-100" id="paige-page-header">
         <div class="align-items-center d-flex flex-column">
             
@@ -578,7 +580,6 @@ table {
                     <h1 class="fw-bold" id="paige-page-title">Voice Interface</h1>
                 
             
-
 
             
 
@@ -906,6 +907,8 @@ table {
 
         
         
+
+
 <style>
     #ballfallCanvas {
       position: fixed;
@@ -1003,7 +1006,7 @@ Runner.run(runner, engine);
     const ballRadius = 7;
     const ball = Bodies.circle(spawnX, spawnY, ballRadius, {
       restitution: .95,
-      friction: 0.002,
+      friction: 0.000,
       frictionAir: 0,
       render: { fillStyle: '#e6e6e6' },
       plugin: {
@@ -1032,8 +1035,17 @@ Runner.run(runner, engine);
   </script>
   
         
+
+
 <script>
     window.addEventListener('BallFallBaseReady', function() {
+      
+      if (window.innerWidth < 720) {  
+            
+            window.dispatchEvent(new Event('BallFallTextReady'));
+            return;
+        }
+
       const { engine, world } = window.BallFall || {};
       if (!engine || !world) return;
   
@@ -1174,11 +1186,11 @@ Runner.run(runner, engine);
     });
   </script>
   
-        # The purpose
+        
 
 
 <script>
-  window.addEventListener('BallFallTextReady', function() {
+  window.addEventListener('BallFallBaseReady', function() {
     const {
       engine,
       world

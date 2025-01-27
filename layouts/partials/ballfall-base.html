@@ -90,25 +90,30 @@ Runner.run(runner, engine);
     }
     addMediaColliders();
 
-    
-  
-    // Spawn ball at top-center
-    const spawnX = window.scrollX + (window.innerWidth / 7);  // Spawn 1/7 the way through the screen from the left, at the top
-    const spawnY = 0;
-    const ballRadius = 7;
-    const ball = Bodies.circle(spawnX, spawnY, ballRadius, {
-      restitution: .95,
-      friction: 0.000,
-      frictionAir: 0,
-      render: { fillStyle: '#e6e6e6' },
-      plugin: {
-        wrap: {
-          min: { x: 0, y: -999999 },
-          max: { x: document.body.scrollWidth, y: 999999 }
+    function spawnBall() {
+      // Spawn ball at top-center of the page
+      const spawnX = window.scrollX + (window.innerWidth / 7); // Spawn 1/7 the way through the screen from the left
+      const spawnY = -window.scrollY; // Offset by negative scroll position to align with the absolute top of the page
+      const ballRadius = 7;
+      const ball = Bodies.circle(spawnX, spawnY, ballRadius, {
+        restitution: 0.95,
+        friction: 0.000,
+        frictionAir: 0,
+        render: { fillStyle: '#e6e6e6' },
+        plugin: {
+          wrap: {
+            min: { x: 0, y: -999999 },
+            max: { x: document.body.scrollWidth, y: 999999 }
+          }
         }
-      }
-    });
-    World.add(engine.world, ball);
+      });
+      World.add(engine.world, ball);
+    }
+
+
+
+    setInterval(spawnBall, 5000);  
+    
   
     // Collisions with media => dotted border
     Events.on(engine, 'collisionStart', event => {
@@ -120,6 +125,8 @@ Runner.run(runner, engine);
         });
       });
     });
+
+    
   
     // Signal that base setup is done
     window.dispatchEvent(new Event('BallFallBaseReady'));

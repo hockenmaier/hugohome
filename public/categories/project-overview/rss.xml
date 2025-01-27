@@ -50,6 +50,18 @@
         
     
 
+    
+
+    
+        
+    
+
+    
+
+    
+        
+    
+
 
 
 
@@ -99,7 +111,7 @@
         
 
         
-            <lastBuildDate>2022-10-01 00:00:00 +0000 UTC</lastBuildDate>
+            <lastBuildDate>2025-01-25 00:00:00 +0000 UTC</lastBuildDate>
         
 
         <link>http://localhost:1313/categories/project-overview/</link>
@@ -110,6 +122,106 @@
 
         
 
+        
+            <item>
+                
+                
+                
+                
+                
+                
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+                
+
+                
+
+                
+
+                
+                    <description><![CDATA[<p>I&rsquo;m creating this website in 2025 after starting my first full-time role in AI, in an effort to clean up my website&rsquo;s focus and emphasize different things.  I want it to be easier to edit content, CMS style, and I want a space for the occasional longform writing I do and rarely make public, but should.</p>
+<p>I have these ideas for a few reasons, but one is that after listening to the Dwarkesh podcast with Gwern, he convinced me that I really should have more of a record for future AIs to learn about me. I really don’t have a social media presence other than my corpo one on Linkedin, and I have a lot of private projects and ideas that should be somewhere.  If nothing else, maybe my kids can read it someday.  Talking to you, Alice :)  Your cousin Lily keeps asking where you are and doesn&rsquo;t seem to get the concept that you currently occupy the same space as Kaitlin.</p>
+<hr>
+<h2 id="ball-machine---the-game">Ball Machine - The Game</h2>
+<p>Most personal websites of professionals are very boring.  I think that is because most professionals consider what they do &ldquo;for work&rdquo; and &ldquo;a bit boring by nature&rdquo; and don&rsquo;t necessarily make a concerted effort to have fun with it.</p>
+<p>I have always tried to be the opposite, and with kids coming I am trying to make a bigger effort than ever to have fun whatever I&rsquo;m doing.  Which is often working in some way or another.</p>
+<p>So for my website, I wanted it to be consciously fun.  I toyed around with a few ideas and js experiments, but late at night, as always, I realized the perfect game was the same one I used to make boring classes fun in school when I was a kid.  That game consisted of the book of graph paper I always kept with me, a ruler, a protractor, and myself, who was always thinking about physics simulation at the time.  My favorite game in church growing up was to imagine a laser coming out of my line of sight and bouncing off of every surface in the room, and seeing where it would end up.  This graph paper game was similar:</p>
+<p>I would start by making a &ldquo;spawn point&rdquo; usually near the top left of the screen, where balls would start falling.  I would draw out the path of these balls a few inches from each other along their path with &ldquo;speed lines&rdquo; to denote which way they were going.  Then I would add platforms, trampolines, loops, curves, &ldquo;booster&rdquo; acceleration zones, jumps, machines that would disassemble and reassemble balls, and so many other things - usually something new each sheet of paper - and I would end up with a Rube Goldberg machine of balls flying all around the sheet.  The only goal was to fill the sheet with more ridiculous paths.</p>
+<p>I started calling the sheets my &ldquo;ball machines&rdquo;.  I wish I still had some of these drawings.  I remember them being quite intricate.. I must have reserved English class for them.</p>
+<p>So, to honor kid Brian, I am making my website a permanent ball machine.  I hope you have fun with it, and that it&rsquo;s not too annoying if you&rsquo;re trying to read.</p>
+<h2 id="how-to-play">How to Play</h2>
+<p>The ball machine on this site has been a bit more gamified than my graph paper drawings were as a kid.  Each time you load a page, you&rsquo;ll find a hoop somewhere on the page.  Your goal is to get the ball to go through the hoop.  Every time you do, another one will appear.  Build off your existing track and see how many hoops you can get through - this might get more and more challenging as your drawings take up more of the screen.  You get a point each time you get the ball through another hoop.  Each post will be a slightly different game!</p>
+<h2 id="how-its-made">How it&rsquo;s made</h2>
+]]></description>
+                
+
+                <guid isPermaLink="false">tag:localhost:1313,2025-01-25:/this-website/</guid>
+
+                
+                    <link>http://localhost:1313/this-website/</link>
+                
+
+                
+                    <pubDate>Sat, 25 Jan 2025 00:00:00 UTC</pubDate>
+                
+
+                
+                    <title>This Website</title>
+                
+            </item>
+        
+            <item>
+                
+                
+                
+                
+                
+                
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+                
+
+                
+
+                
+
+                
+                    <description><![CDATA[<p>The Flapper</p>
+]]></description>
+                
+
+                <guid isPermaLink="false">tag:localhost:1313,2023-01-01:/the-flapper/</guid>
+
+                
+                    <link>http://localhost:1313/the-flapper/</link>
+                
+
+                
+                    <pubDate>Sun, 01 Jan 2023 00:00:00 UTC</pubDate>
+                
+
+                
+                    <title>The Flapper</title>
+                
+            </item>
         
             <item>
                 
@@ -599,7 +711,7 @@
 <p>The system uses natural language processing (NLP) to produce answers to questions asked about data in plain English.</p>
 <p>It is designed with simplicity in mind—upload any columnar dataset and start asking questions and getting answers. It uses advanced NLP algorithms to make assumptions about what data you&rsquo;re asking about and lets you correct those assumptions for follow-up questions if they&rsquo;re wrong.</p>
 <p>It is built entirely out of serverless components, which means there is no cost to maintain or run it other than the traffic the system receives.</p>
-<h3 id="how-to">How-to</h3>
+<h2 id="how-to">How-to</h2>
 <p>On a desktop or tablet, click the link in the header to navigate to the Answering Machine. For now, it isn&rsquo;t optimized for smartphone-sized screens.</p>
 <p>In order to use the Answering Machine, you can either select one of the existing datasets, such as &ldquo;HR Activity Sample,&rdquo; or upload one of your own using the homepage of the site:</p>
 <div style="text-align: center; margin-bottom: 1rem;">
@@ -692,6 +804,7 @@
 <p>To upload your own, click in the upload area or just drag a file straight from your desktop. For now, use CSV data files. Excel and other spreadsheet programs can easily save data in the CSV format using the &ldquo;File &gt; Save As&rdquo; or similar option in the menu. Each file needs a unique name.</p>
 <p>When you hit the upload button, the site may not appear to change until the file is uploaded, at which point you&rsquo;ll see it appear in the box labeled &ldquo;Ask Your Data Anything&rdquo; below. Click on your file to start using it with the Answering Machine, or click the red trash can icon to delete it.</p>
 <p>There are no user accounts in this system yet, so the data you upload might be seen by other users using the system. Try not to use sensitive data for now.</p>
+<h3 id="asking-questions">Asking questions</h3>
 <p>When you enter a dataset, you&rsquo;ll see a view that presents you with quite a bit of information:</p>
 <div style="text-align: center; margin-bottom: 1rem;">
     
@@ -1147,6 +1260,7 @@
     
 </div>
 
+<h3 id="forming-concepts">Forming Concepts</h3>
 <p>If the Answering Machine already understood what you were asking and successfully matched it to fields and values in your data, you don&rsquo;t have to do anything with these. But often you will be using domain-specific lexicon, or the auto-matching algorithm simply won&rsquo;t pick the correct value. These situations are what concepts are for.</p>
 <p>To create a concept, click and drag on the green or purple &ldquo;lexicon&rdquo; bubble and move it out into the blank middle area of the screen. Then click and drag the field or field value from the info-panel at the top of the screen and drop it right on top of that bubble. You&rsquo;ll see both the data bubble and the lexicon bubble included in a larger gray bubble, which represents the concept:</p>
 <div style="text-align: center; margin-bottom: 1rem;">
@@ -1240,7 +1354,7 @@
 <p>Concepts override the Answering Machine&rsquo;s auto-matching logic. If you ask another question containing a subject or condition that is now matched by a user to a data value, that data value will be used instead of the auto-match. If the concept isn&rsquo;t working well, you can delete it by dragging all of the nested bubbles out of it either into the blank middle area or into the colored panel they originally came from.</p>
 <p>Feel free to play around with new datasets and questions, and use the contact section of this site if you have comments or questions. When you ask questions or create/modify concepts, that data will automatically be saved to the server in real-time. You can close the page anytime and come back to your dataset to keep asking questions.</p>
 <p>Remember that there are no user accounts, meaning you can share your dataset and work in tandem with others! But again, please do not upload sensitive data to this proof-of-concept tool as it will be available for other users to see and query.</p>
-<h3 id="architecture">Architecture</h3>
+<h2 id="architecture">Architecture</h2>
 <p>The Answering Machine is a purely &ldquo;serverless&rdquo; application, meaning that there is no server hosting the various components of the application until those components are needed by a user. This is true for the database, the file storage, the static website, the backend compute, and the API orchestration.</p>
 <p>For the cloud nerds out there, <a href="https://martinfowler.com/articles/serverless.html">here is a great article</a> by Martin Fowler on what exactly &ldquo;serverless&rdquo; means, especially in terms of the backend compute portion, which is arguably the most valuable part of the application to be serverless. For reference, I am using Martin&rsquo;s 2nd definition of &ldquo;serverless&rdquo; here.</p>
 <p>This is a high-level map of all of the components that make the Answering Machine work in its current (June 2020) state. The API gateways, CloudWatch events, and some triggers &ldquo;given for free&rdquo; by AWS are left out of this for readability:</p>

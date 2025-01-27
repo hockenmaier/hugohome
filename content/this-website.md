@@ -31,4 +31,7 @@ So, to honor kid Brian, I am making my website a permanent ball machine.  I hope
 
 ## How to Play
 
-The ball machine on this site has been a little bit more gamified than my graph paper drawings as a kid.  Each time you load a page, you'll find a net somewhere on the page.  Your goal is to get the ball in the net, which will disappear and reappear.  This might get more and more challenging as your drawings take up more of the screen.  You get a point each time you get the ball in the net.  Each post will be a slightly different game!
+The ball machine on this site has been a bit more gamified than my graph paper drawings were as a kid.  Each time you load a page, you'll find a hoop somewhere on the page.  Your goal is to get the ball to go through the hoop.  Every time you do, another one will appear.  Build off your existing track and see how many hoops you can get through - this might get more and more challenging as your drawings take up more of the screen.  You get a point each time you get the ball through another hoop.  Each post will be a slightly different game!
+
+
+## How it's made
