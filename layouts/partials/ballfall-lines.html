@@ -3,6 +3,7 @@
 <!-- layouts/partials/ballfall-lines.html -->
 <script>
   window.addEventListener('BallFallBaseReady', function() {
+    const linesList = [];
     const {
       engine,
       world
@@ -19,6 +20,13 @@
       const clickableTags = ['A','BUTTON','INPUT','TEXTAREA','SELECT','LABEL'];
       return !clickableTags.includes(target.tagName);
     }
+
+    window.BallFall.clearLines = () => {
+      linesList.forEach(body => {
+        Matter.World.remove(world, body);
+      });
+      linesList.length = 0;
+    };
   
     document.addEventListener('click', e => {
       if (!isNonInteractable(e.target)) {
@@ -52,6 +60,7 @@
           }
         });
         World.add(world, lineBody);
+        linesList.push(lineBody);
       }
     });
   });

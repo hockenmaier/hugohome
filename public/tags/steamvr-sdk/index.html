@@ -1148,7 +1148,7 @@ window.addEventListener('load', function() {
     World.add(engine.world, ball);
   }
 
-  setInterval(spawnBall, 5000);
+  setInterval(spawnBall, 5);
 
   
   Events.on(engine, 'collisionStart', event => {
@@ -1161,7 +1161,6 @@ window.addEventListener('load', function() {
     });
   });
 
-  
   
   const ballPositionData = {};
 
@@ -1373,6 +1372,7 @@ window.addEventListener('load', function() {
 
 <script>
   window.addEventListener('BallFallBaseReady', function() {
+    const linesList = [];
     const {
       engine,
       world
@@ -1389,6 +1389,13 @@ window.addEventListener('load', function() {
       const clickableTags = ['A','BUTTON','INPUT','TEXTAREA','SELECT','LABEL'];
       return !clickableTags.includes(target.tagName);
     }
+
+    window.BallFall.clearLines = () => {
+      linesList.forEach(body => {
+        Matter.World.remove(world, body);
+      });
+      linesList.length = 0;
+    };
   
     document.addEventListener('click', e => {
       if (!isNonInteractable(e.target)) {
@@ -1422,10 +1429,85 @@ window.addEventListener('load', function() {
           }
         });
         World.add(world, lineBody);
+        linesList.push(lineBody);
       }
     });
   });
   </script>
   
+        
+<style>
+    #ballfall-ui {
+      position: fixed;
+      top: 50px;
+      left: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      z-index: 10000;
+    }
+    .bfui-button {
+      background: #ffffffaa;
+      border: 1px solid #ccc;
+      padding: 5px 10px;
+      cursor: pointer;
+      font-size: 14px;
+      display: flex;
+      align-items: center;
+    }
+    .bfui-icon {
+      margin-right: 6px;
+    }
+    @media (max-width: 720px) {
+       
+      .bfui-button .bfui-label {
+        display: none;
+      }
+    }
+    </style>
+    
+    <div id="ballfall-ui">
+      <button class="bfui-button" id="increaseSpeedBtn">
+        <span class="bfui-icon">🔼</span>
+        <span class="bfui-label">Increase Speed</span>
+      </button>
+      <button class="bfui-button" id="decreaseSpeedBtn">
+        <span class="bfui-icon">🔽</span>
+        <span class="bfui-label">Decrease Speed</span>
+      </button>
+      <button class="bfui-button" id="clearLinesBtn">
+        <span class="bfui-icon">❌</span>
+        <span class="bfui-label">Clear Lines</span>
+      </button>
+    </div>
+    
+    <script>
+    (function(){
+      const incBtn = document.getElementById('increaseSpeedBtn');
+      const decBtn = document.getElementById('decreaseSpeedBtn');
+      const clearBtn = document.getElementById('clearLinesBtn');
+    
+      incBtn.addEventListener('click', () => {
+        if (window.BallFall && window.BallFall.updateSpawnInterval) {
+          
+          window.BallFall.updateSpawnInterval(Math.max(200, window.BallFall.spawnInterval - 260));
+        }
+      });
+    
+      decBtn.addEventListener('click', () => {
+        if (window.BallFall && window.BallFall.updateSpawnInterval) {
+          
+          window.BallFall.updateSpawnInterval(window.BallFall.spawnInterval + 260);
+        }
+      });
+    
+      clearBtn.addEventListener('click', () => {
+        if (window.BallFall && window.BallFall.clearLines) {
+          window.BallFall.clearLines();
+        }
+      });
+    })();
+    </script>
+    
     </body>
 </html>

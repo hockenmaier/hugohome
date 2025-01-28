@@ -107,8 +107,15 @@ window.addEventListener('load', function() {
     });
     World.add(engine.world, ball);
   }
+  let spawnInterval = 5000;
+  let spawnIntervalId = setInterval(spawnBall, spawnInterval);
 
-  setInterval(spawnBall, 5);
+  function updateSpawnInterval(newInterval) {
+    clearInterval(spawnIntervalId);
+    spawnInterval = newInterval;
+    spawnIntervalId = setInterval(spawnBall, spawnInterval);
+  }
+  window.BallFall.updateSpawnInterval = updateSpawnInterval;
 
   // Collisions with media => dotted border
   Events.on(engine, 'collisionStart', event => {
