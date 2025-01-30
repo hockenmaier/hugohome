@@ -107,13 +107,13 @@ window.addEventListener('load', function() {
     });
     World.add(engine.world, ball);
   }
-  let spawnInterval = 5000;
-  let spawnIntervalId = setInterval(spawnBall, spawnInterval);
+  window.BallFall.spawnInterval = 5000;
+  let spawnIntervalId = setInterval(spawnBall, window.BallFall.spawnInterval);
 
   function updateSpawnInterval(newInterval) {
     clearInterval(spawnIntervalId);
-    spawnInterval = newInterval;
-    spawnIntervalId = setInterval(spawnBall, spawnInterval);
+    window.BallFall.spawnInterval = newInterval;
+    spawnIntervalId = setInterval(spawnBall, window.BallFall.spawnInterval);
   }
   window.BallFall.updateSpawnInterval = updateSpawnInterval;
 

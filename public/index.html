@@ -1761,13 +1761,13 @@ window.addEventListener('load', function() {
     });
     World.add(engine.world, ball);
   }
-  let spawnInterval = 5000;
-  let spawnIntervalId = setInterval(spawnBall, spawnInterval);
+  window.BallFall.spawnInterval = 5000;
+  let spawnIntervalId = setInterval(spawnBall, window.BallFall.spawnInterval);
 
   function updateSpawnInterval(newInterval) {
     clearInterval(spawnIntervalId);
-    spawnInterval = newInterval;
-    spawnIntervalId = setInterval(spawnBall, spawnInterval);
+    window.BallFall.spawnInterval = newInterval;
+    spawnIntervalId = setInterval(spawnBall, window.BallFall.spawnInterval);
   }
   window.BallFall.updateSpawnInterval = updateSpawnInterval;
 
@@ -2006,10 +2006,20 @@ window.addEventListener('load', function() {
     let firstClick = null;
   
     
-    function isNonInteractable(target) {
-      const clickableTags = ['A','BUTTON','INPUT','TEXTAREA','SELECT','LABEL'];
-      return !clickableTags.includes(target.tagName);
+    function isNonInteractable(e) {
+      
+      
+
+      
+      const clickable = e.target.closest('a, button, input, textarea, select, label');
+      return !clickable;
     }
+
+    document.addEventListener('click', (e) => {
+      if (!isNonInteractable(e)) {
+        
+        return;
+      }
 
     window.BallFall.clearLines = () => {
       linesList.forEach(body => {
@@ -2018,10 +2028,6 @@ window.addEventListener('load', function() {
       linesList.length = 0;
     };
   
-    document.addEventListener('click', e => {
-      if (!isNonInteractable(e.target)) {
-        return;
-      }
   
       
       const clickX = e.pageX - window.scrollX;
@@ -2066,69 +2072,128 @@ window.addEventListener('load', function() {
       flex-direction: column;
       gap: 10px;
       z-index: 10000;
+      font-family: sans-serif;
     }
     .bfui-button {
-      background: #ffffffaa;
-      border: 1px solid #ccc;
-      padding: 5px 10px;
+      background: rgba(0, 0, 0, 0.4);
+      border: 1px solid #555;
+      color: #ddd;
+      padding: 8px 12px;
+      font-size: 16px;
       cursor: pointer;
-      font-size: 14px;
       display: flex;
       align-items: center;
+      transition: transform 0.1s ease;
+    }
+    .bfui-button:active {
+      transform: scale(0.95);
     }
     .bfui-icon {
       margin-right: 6px;
     }
+  
+     
+    #bfui-drop-rate-label {
+      font-size: 12px;
+      color: #aaa;
+    }
+    #bfui-drop-rate-value {
+      font-size: 12px;
+      color: #fff;
+      font-weight: bold;
+    }
+    #bfui-drop-rate-wrapper {
+        display: flex;
+        justify-content: center;
+        text-align: center;
+        width: 100%;
+        gap: 5px;
+        margin-bottom: 5px;
+    }
+
+  
     @media (max-width: 720px) {
        
       .bfui-button .bfui-label {
         display: none;
       }
+      #bfui-drop-rate-wrapper {
+        flex-direction: column;
+        align-items: flex-start;
+        margin-top: -5px;
+      }
+      #bfui-drop-rate-label {
+        display: none;
+      }
     }
-    </style>
-    
-    <div id="ballfall-ui">
-      <button class="bfui-button" id="increaseSpeedBtn">
-        <span class="bfui-icon">🔼</span>
-        <span class="bfui-label">Increase Speed</span>
-      </button>
-      <button class="bfui-button" id="decreaseSpeedBtn">
-        <span class="bfui-icon">🔽</span>
-        <span class="bfui-label">Decrease Speed</span>
-      </button>
-      <button class="bfui-button" id="clearLinesBtn">
-        <span class="bfui-icon">❌</span>
-        <span class="bfui-label">Clear Lines</span>
-      </button>
+  </style>
+  
+  <div id="ballfall-ui">
+    <button class="bfui-button" id="increaseSpeedBtn">
+      <span class="bfui-icon">🔼</span>
+      <span class="bfui-label">Increase Speed</span>
+    </button>
+    <button class="bfui-button" id="decreaseSpeedBtn">
+      <span class="bfui-icon">🔽</span>
+      <span class="bfui-label">Decrease Speed</span>
+    </button>
+    <button class="bfui-button" id="clearLinesBtn">
+      <span class="bfui-icon">❌</span>
+      <span class="bfui-label">Clear Lines</span>
+    </button>
+  
+    <div id="bfui-drop-rate-wrapper">
+      <span id="bfui-drop-rate-label">Drop Rate:</span>
+      <span id="bfui-drop-rate-value">0</span>
     </div>
-    
-    <script>
-    (function(){
-      const incBtn = document.getElementById('increaseSpeedBtn');
-      const decBtn = document.getElementById('decreaseSpeedBtn');
-      const clearBtn = document.getElementById('clearLinesBtn');
-    
-      incBtn.addEventListener('click', () => {
-        if (window.BallFall && window.BallFall.updateSpawnInterval) {
-          
-          window.BallFall.updateSpawnInterval(Math.max(5, window.BallFall.spawnInterval - .002));
+  </div>
+  
+  <script>
+  (function(){
+    const incBtn   = document.getElementById('increaseSpeedBtn');
+    const decBtn   = document.getElementById('decreaseSpeedBtn');
+    const clearBtn = document.getElementById('clearLinesBtn');
+    const dropRateValue = document.getElementById('bfui-drop-rate-value');
+  
+    function updateDropRateDisplay() {
+        if (!window.BallFall) return;
+        const interval = window.BallFall.spawnInterval;
+        const bps = 1000 / interval; 
+        if (bps < 1) {
+            dropRateValue.textContent = `every ${(1 / bps).toFixed(1)}s`;
+        } else {
+            dropRateValue.textContent = `${bps.toFixed(1)}/s`;
         }
-      });
+    }
+
+  
+    incBtn.addEventListener('click', () => {
+      if (window.BallFall && window.BallFall.updateSpawnInterval) {
+        const current = window.BallFall.spawnInterval;
+        const newInterval = Math.max(5, current / 2);
+        window.BallFall.updateSpawnInterval(newInterval);
+        updateDropRateDisplay();
+      }
+    });
+  
+    decBtn.addEventListener('click', () => {
+      if (window.BallFall && window.BallFall.updateSpawnInterval) {
+        const current = window.BallFall.spawnInterval;
+        window.BallFall.updateSpawnInterval(current * 2);
+        updateDropRateDisplay();
+      }
+    });
+  
+    clearBtn.addEventListener('click', () => {
+      if (window.BallFall && window.BallFall.clearLines) {
+        window.BallFall.clearLines();
+      }
+    });
+  
     
-      decBtn.addEventListener('click', () => {
-        if (window.BallFall && window.BallFall.updateSpawnInterval) {
-          
-          window.BallFall.updateSpawnInterval(window.BallFall.spawnInterval + 260);
-        }
-      });
-    
-      clearBtn.addEventListener('click', () => {
-        if (window.BallFall && window.BallFall.clearLines) {
-          window.BallFall.clearLines();
-        }
-      });
-    })();
-    </script>
-    
+    setInterval(updateDropRateDisplay, 1000);
+  })();
+  </script>
+  
     </body>
 </html>

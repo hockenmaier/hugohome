@@ -16,10 +16,20 @@
     let firstClick = null;
   
     // We skip anchors, buttons, form fields, etc.
-    function isNonInteractable(target) {
-      const clickableTags = ['A','BUTTON','INPUT','TEXTAREA','SELECT','LABEL'];
-      return !clickableTags.includes(target.tagName);
+    function isNonInteractable(e) {
+      // isNonInteractable() should be TRUE when it's a place we want to draw lines
+      // and FALSE when we want to skip (like a button)
+
+      // If we find a 'clickable' ancestor, return false
+      const clickable = e.target.closest('a, button, input, textarea, select, label');
+      return !clickable;
     }
+
+    document.addEventListener('click', (e) => {
+      if (!isNonInteractable(e)) {
+        // That means we *did* click a button/etc., skip
+        return;
+      }
 
     window.BallFall.clearLines = () => {
       linesList.forEach(body => {
@@ -28,10 +38,6 @@
       linesList.length = 0;
     };
   
-    document.addEventListener('click', e => {
-      if (!isNonInteractable(e.target)) {
-        return;
-      }
   
       // Convert from page coords to "engine" coords by subtracting current scroll
       const clickX = e.pageX - window.scrollX;
