@@ -62,7 +62,17 @@
       function wrapTextNodes(root) {
         const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, null, false);
         const textNodes = [];
-        while (walker.nextNode()) textNodes.push(walker.currentNode);
+        while (walker.nextNode()) {
+          let node = walker.currentNode;
+          if (
+            node.nodeValue.trim() &&
+            node.parentNode &&
+            !node.parentNode.closest('#ballfall-ui') &&   // Skip UI Elements
+            !['SCRIPT','STYLE'].includes(node.parentNode.tagName)
+          ) {
+            textNodes.push(node);
+          }
+        }
         textNodes.forEach(node => {
           const text = node.nodeValue;
           if (!text.trim()) return;
@@ -130,7 +140,7 @@
         return body;
       }
   
-      const spans = document.querySelectorAll('span');
+      const spans = document.querySelectorAll('span:not(#ballfall-ui *)');
       spans.forEach(span => {
         const body = letterToBody(span);
         if (body) World.add(world, body);
@@ -149,4 +159,6 @@
       window.dispatchEvent(new Event('BallFallTextReady'));
     });
   </script>
+  
+
   

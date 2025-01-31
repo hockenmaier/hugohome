@@ -15,7 +15,7 @@
       border: 1px solid #555;
       color: #ddd;
       padding: 8px 12px;
-      font-size: 16px;
+      font-size: 12px;
       cursor: pointer;
       display: flex;
       align-items: center;
@@ -30,11 +30,11 @@
   
     /* Drop rate display */
     #bfui-drop-rate-label {
-      font-size: 12px;
+      font-size: 10px;
       color: #aaa;
     }
     #bfui-drop-rate-value {
-      font-size: 12px;
+      font-size: 10px;
       color: #fff;
       font-weight: bold;
     }
@@ -46,6 +46,18 @@
         gap: 5px;
         margin-bottom: 5px;
     }
+    .bfui-clear-wrapper {
+        display: flex;
+        gap: 3px;
+        width: 100%;
+        
+    }
+
+    .bfui-half {
+        flex: 1;
+        font-size: 8px;
+    }
+
 
   
     @media (max-width: 720px) {
@@ -73,10 +85,14 @@
       <span class="bfui-icon">🔽</span>
       <span class="bfui-label">Decrease Speed</span>
     </button>
-    <button class="bfui-button" id="clearLinesBtn">
-      <span class="bfui-icon">❌</span>
-      <span class="bfui-label">Clear Lines</span>
-    </button>
+    <div class="bfui-clear-wrapper">
+        <button class="bfui-button bfui-half" id="clearLinesBtn">
+            <span class="bfui-label">Clear Lines</span>
+        </button>
+        <button class="bfui-button bfui-half" id="clearBallsBtn">
+            <span class="bfui-label">Clear Balls</span>
+        </button>
+    </div>
   
     <div id="bfui-drop-rate-wrapper">
       <span id="bfui-drop-rate-label">Drop Rate:</span>
@@ -88,7 +104,8 @@
   (function(){
     const incBtn   = document.getElementById('increaseSpeedBtn');
     const decBtn   = document.getElementById('decreaseSpeedBtn');
-    const clearBtn = document.getElementById('clearLinesBtn');
+    const clearLinesBtn = document.getElementById('clearLinesBtn');
+    const clearBallsBtn = document.getElementById('clearBallsBtn');
     const dropRateValue = document.getElementById('bfui-drop-rate-value');
   
     function updateDropRateDisplay() {
@@ -106,7 +123,7 @@
     incBtn.addEventListener('click', () => {
       if (window.BallFall && window.BallFall.updateSpawnInterval) {
         const current = window.BallFall.spawnInterval;
-        const newInterval = Math.max(5, current / 2);
+        const newInterval = Math.max(1.09375, current / 2);
         window.BallFall.updateSpawnInterval(newInterval);
         updateDropRateDisplay();
       }
@@ -120,9 +137,15 @@
       }
     });
   
-    clearBtn.addEventListener('click', () => {
+    clearLinesBtn.addEventListener('click', () => {
       if (window.BallFall && window.BallFall.clearLines) {
         window.BallFall.clearLines();
+      }
+    });
+
+    clearBallsBtn.addEventListener('click', () => {
+      if (window.BallFall && window.BallFall.clearBalls) {
+        window.BallFall.clearBalls();
       }
     });
   

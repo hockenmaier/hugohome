@@ -10,3 +10,11 @@ tags: ["VR", "Multiplayer", "Networking", "Crossplay", "Game Development", "Indi
 ---
 
 The Flapper
+
+The Flapper is a project that spawned out of a simple movement mechanic test that turned out to be surprisingly fun!  The idea is to flap your arms to fly - and have it be a multiplayer battle to really get people moving.
+
+Most of the start of this game was just tuning the movement mechanic, which borrowed from some physics realities and some elements I made up to make flapping feel good.
+
+Here's a video of one of the later states of the game, where I have it fully networked and am testing with friends, though it still has a few bugs here:
+
+{{< youtube Vxn8rDOZ7dU >}}

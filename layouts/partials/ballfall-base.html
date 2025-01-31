@@ -87,6 +87,7 @@ window.addEventListener('load', function() {
     });
   }
   addMediaColliders();
+  const ballsList = [];
 
   function spawnBall() {
     const spawnX = window.scrollX + (window.innerWidth / 7);
@@ -106,8 +107,9 @@ window.addEventListener('load', function() {
       label: 'BallFallBall'
     });
     World.add(engine.world, ball);
+    ballsList.push(ball);
   }
-  window.BallFall.spawnInterval = 5000;
+  window.BallFall.spawnInterval = 4480; //Close to 5 seconds and consistent with the fastest consistent spawn rate of 3.6/s
   let spawnIntervalId = setInterval(spawnBall, window.BallFall.spawnInterval);
 
   function updateSpawnInterval(newInterval) {
@@ -116,6 +118,13 @@ window.addEventListener('load', function() {
     spawnIntervalId = setInterval(spawnBall, window.BallFall.spawnInterval);
   }
   window.BallFall.updateSpawnInterval = updateSpawnInterval;
+
+  window.BallFall.clearBalls = () => {
+      ballsList.forEach(body => {
+        Matter.World.remove(engine.world, body);
+      });
+      ballsList.length = 0;
+    };
 
   // Collisions with media => dotted border
   Events.on(engine, 'collisionStart', event => {
