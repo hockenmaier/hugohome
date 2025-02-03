@@ -31,9 +31,13 @@
         {{ if templates.Exists "partials/paige/body-last.html" }}
             {{ partial "paige/body-last.html" $page }}
         {{ end }}
-        {{ partial "ballfall-base.html" . }}
-        {{ partial "ballfall-text.html" . }}
-        {{ partial "ballfall-lines.html" . }}
+        <script src="/js/matter.min.js"></script>
+        <script src="/js/matter-wrap.min.js"></script>
+        <script src="/js/ball-machine-app.js"></script>
+        <script src="/js/base-simulation.js"></script>
+        <script src="/js/text.js"></script>
+        <script src="/js/lines.js"></script>
         {{ partial "ballfall-ui.html" . }}
+
     </body>
 </html>
