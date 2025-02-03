@@ -6,7 +6,7 @@ stack: ["hugo", "matter.js", "HTML/CSS"]
 project_link: "/"
 github_link: ""
 short_description: "A personal website and blog with game included"
-tags: ["Game Development","Procedural Generation", "Video Games", "HTML", "CSS", ]
+tags: ["Game Development","Procedural Generation", "Video Games", "HTML", "CSS", Singularity]
 ---
 
 I'm creating this website in 2025 after starting my first full-time role in AI, in an effort to clean up my website's focus and emphasize different things.  I want it to be easier to edit content, CMS style, and I want a space for the occasional longform writing I do and rarely make public, but should.

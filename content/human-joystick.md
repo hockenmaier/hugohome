@@ -7,7 +7,7 @@ stack: ["Unity", "C#", "SteamVR SDK"]
 project_link: "https://github.com/hockenmaier/humanjoystick"
 github_link: "https://github.com/hockenmaier/humanjoystick"
 short_description: "An experimental VR locomotion system leveraging physical playspace movement."
-tags: ["VR", "Experimental", "Game Development", "Unity", "SteamVR SDK", "3D Printing", "Video Games", "Prototyping", "User Experience", "AI"]
+tags: ["VR", "Experimental", "Game Development", "Unity", "SteamVR SDK", "3D Printing", "Video Games", "Prototyping", "User Experience"]
 
 ---
 

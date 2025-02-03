@@ -41,7 +41,7 @@
 
 
 
-    <meta content="3D Printing, AI, Experimental, Game Development, project overview, Prototyping, SteamVR SDK, Unity, User Experience, Video Games, VR" name="keywords">
+    <meta content="3D Printing, Experimental, Game Development, project overview, Prototyping, SteamVR SDK, Unity, User Experience, Video Games, VR" name="keywords">
 
 
 <meta content="#0d1213" name="msapplication-TileColor">
@@ -587,7 +587,7 @@ table {
                 <div id="paige-metadata">
                     
                         <p class=" paige-row-narrow  text-center  text-secondary " id="paige-keywords">
-                            <a class="link-secondary paige-keyword paige-keyword-tag" href="/tags/3d-printing/">3D Printing</a> · <a class="link-secondary paige-keyword paige-keyword-tag" href="/tags/ai/">AI</a> · <a class="link-secondary paige-keyword paige-keyword-tag" href="/tags/experimental/">Experimental</a> · <a class="link-secondary paige-keyword paige-keyword-tag" href="/tags/game-development/">Game Development</a> · <a class="link-secondary paige-keyword paige-keyword-category" href="/categories/project-overview/">Project Overview</a> · <a class="link-secondary paige-keyword paige-keyword-tag" href="/tags/prototyping/">Prototyping</a> · <a class="link-secondary paige-keyword paige-keyword-tag" href="/tags/steamvr-sdk/">SteamVR SDK</a> · <a class="link-secondary paige-keyword paige-keyword-tag" href="/tags/unity/">Unity</a> · <a class="link-secondary paige-keyword paige-keyword-tag" href="/tags/user-experience/">User Experience</a> · <a class="link-secondary paige-keyword paige-keyword-tag" href="/tags/video-games/">Video Games</a> · <a class="link-secondary paige-keyword paige-keyword-tag" href="/tags/vr/">VR</a>
+                            <a class="link-secondary paige-keyword paige-keyword-tag" href="/tags/3d-printing/">3D Printing</a> · <a class="link-secondary paige-keyword paige-keyword-tag" href="/tags/experimental/">Experimental</a> · <a class="link-secondary paige-keyword paige-keyword-tag" href="/tags/game-development/">Game Development</a> · <a class="link-secondary paige-keyword paige-keyword-category" href="/categories/project-overview/">Project Overview</a> · <a class="link-secondary paige-keyword paige-keyword-tag" href="/tags/prototyping/">Prototyping</a> · <a class="link-secondary paige-keyword paige-keyword-tag" href="/tags/steamvr-sdk/">SteamVR SDK</a> · <a class="link-secondary paige-keyword paige-keyword-tag" href="/tags/unity/">Unity</a> · <a class="link-secondary paige-keyword paige-keyword-tag" href="/tags/user-experience/">User Experience</a> · <a class="link-secondary paige-keyword paige-keyword-tag" href="/tags/video-games/">Video Games</a> · <a class="link-secondary paige-keyword paige-keyword-tag" href="/tags/vr/">VR</a>
                         </p>
                     
 
@@ -1123,14 +1123,168 @@ table {
 
 
         
-        
         <script src="/js/matter.min.js"></script>
         <script src="/js/matter-wrap.min.js"></script>
-        <script src="/js/app.js"></script>
-        <script src="/js/base.js"></script>
+        <script src="/js/ball-machine-app.js"></script>
+        <script src="/js/base-simulation.js"></script>
         <script src="/js/text.js"></script>
         <script src="/js/lines.js"></script>
         
+<style>
+    #ballfall-ui {
+      position: fixed;
+      top: 50px;
+      left: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      z-index: 10000;
+      font-family: sans-serif;
+    }
+    .bfui-button {
+      background: rgba(0, 0, 0, 0.4);
+      border: 1px solid #555;
+      color: #ddd;
+      padding: 8px 12px;
+      font-size: 12px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      transition: transform 0.1s ease;
+    }
+    .bfui-button:active {
+      transform: scale(0.95);
+    }
+    .bfui-icon {
+      margin-right: 6px;
+    }
+  
+     
+    #bfui-drop-rate-label {
+      font-size: 10px;
+      color: #aaa;
+    }
+    #bfui-drop-rate-value {
+      font-size: 10px;
+      color: #fff;
+      font-weight: bold;
+    }
+    #bfui-drop-rate-wrapper {
+        display: flex;
+        justify-content: center;
+        text-align: center;
+        width: 100%;
+        gap: 5px;
+        margin-bottom: 5px;
+    }
+    .bfui-clear-wrapper {
+        display: flex;
+        gap: 3px;
+        width: 100%;
+        
+    }
+
+    .bfui-half {
+        flex: 1;
+        font-size: 8px;
+    }
+
+
+  
+    @media (max-width: 720px) {
+       
+      .bfui-button .bfui-label {
+        display: none;
+      }
+      #bfui-drop-rate-wrapper {
+        flex-direction: column;
+        align-items: flex-start;
+        margin-top: -5px;
+      }
+      #bfui-drop-rate-label {
+        display: none;
+      }
+    }
+  </style>
+  
+  <div id="ballfall-ui">
+    <button class="bfui-button" id="increaseSpeedBtn">
+      <span class="bfui-icon">🔼</span>
+      <span class="bfui-label">Increase Speed</span>
+    </button>
+    <button class="bfui-button" id="decreaseSpeedBtn">
+      <span class="bfui-icon">🔽</span>
+      <span class="bfui-label">Decrease Speed</span>
+    </button>
+    <div class="bfui-clear-wrapper">
+        <button class="bfui-button bfui-half" id="clearLinesBtn">
+            <span class="bfui-label">Clear Lines</span>
+        </button>
+        <button class="bfui-button bfui-half" id="clearBallsBtn">
+            <span class="bfui-label">Clear Balls</span>
+        </button>
+    </div>
+  
+    <div id="bfui-drop-rate-wrapper">
+      <span id="bfui-drop-rate-label">Drop Rate:</span>
+      <span id="bfui-drop-rate-value">0</span>
+    </div>
+  </div>
+  
+  <script>
+  (function(){
+    const incBtn   = document.getElementById('increaseSpeedBtn');
+    const decBtn   = document.getElementById('decreaseSpeedBtn');
+    const clearLinesBtn = document.getElementById('clearLinesBtn');
+    const clearBallsBtn = document.getElementById('clearBallsBtn');
+    const dropRateValue = document.getElementById('bfui-drop-rate-value');
+  
+    function updateDropRateDisplay() {
+        if (!window.BallFall) return;
+        const interval = window.BallFall.spawnInterval;
+        const bps = 1000 / interval; 
+        if (bps < 1) {
+            dropRateValue.textContent = `every ${(1 / bps).toFixed(1)}s`;
+        } else {
+            dropRateValue.textContent = `${bps.toFixed(1)}/s`;
+        }
+    }
+
+  
+    incBtn.addEventListener('click', () => {
+      if (window.BallFall && window.BallFall.updateSpawnInterval) {
+        const current = window.BallFall.spawnInterval;
+        const newInterval = Math.max(1.09375, current / 2);
+        window.BallFall.updateSpawnInterval(newInterval);
+        updateDropRateDisplay();
+      }
+    });
+  
+    decBtn.addEventListener('click', () => {
+      if (window.BallFall && window.BallFall.updateSpawnInterval) {
+        const current = window.BallFall.spawnInterval;
+        window.BallFall.updateSpawnInterval(current * 2);
+        updateDropRateDisplay();
+      }
+    });
+  
+    clearLinesBtn.addEventListener('click', () => {
+      if (window.BallFall && window.BallFall.clearLines) {
+        window.BallFall.clearLines();
+      }
+    });
+
+    clearBallsBtn.addEventListener('click', () => {
+      if (window.BallFall && window.BallFall.clearBalls) {
+        window.BallFall.clearBalls();
+      }
+    });
+  
+    
+    setInterval(updateDropRateDisplay, 1000);
+  })();
+  </script>
+  
 
     </body>
 </html>

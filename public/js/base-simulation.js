@@ -1,4 +1,3 @@
-// base.js
 App.modules.base = (function() {
     let engine, render;
     function init() {
@@ -13,14 +12,7 @@ App.modules.base = (function() {
       
       Matter.use('matter-wrap');
       
-      // Ensure App.config exists
-      if (!App.config) {
-        App.config = {
-          gravity: 0.75,
-          timeScale: 0.3,
-          spawnInterval: 4480
-        };
-      }
+      
       
       // Inject canvas style if missing
       if (!document.getElementById("ballfall-style")) {
@@ -97,10 +89,10 @@ App.modules.base = (function() {
       // Ball spawning.
       const ballsList = [];
       function spawnBall() {
-        const spawnX = window.scrollX + (window.innerWidth / 7);
+        const spawnX = window.scrollX + (window.innerWidth / App.config.spawnX);
         const spawnY = -window.scrollY;
-        const ball = Bodies.circle(spawnX, spawnY, 7, {
-          restitution: 0.95,
+        const ball = Bodies.circle(spawnX, spawnY, App.config.ballSize, {
+          restitution: App.config.restitution,
           friction: 0,
           frictionAir: 0,
           render: { fillStyle: '#e6e6e6' },
