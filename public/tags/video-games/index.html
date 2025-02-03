@@ -1259,11 +1259,12 @@ window.addEventListener('load', function() {
     });
   }
   addMediaColliders();
+  const ballsList = [];
 
   function spawnBall() {
     const spawnX = window.scrollX + (window.innerWidth / 7);
     const spawnY = -window.scrollY;
-    const ballRadius = 1;
+    const ballRadius = 7;
     const ball = Bodies.circle(spawnX, spawnY, ballRadius, {
       restitution: 0.95,
       friction: 0.000,
@@ -1278,8 +1279,9 @@ window.addEventListener('load', function() {
       label: 'BallFallBall'
     });
     World.add(engine.world, ball);
+    ballsList.push(ball);
   }
-  window.BallFall.spawnInterval = 5120; 
+  window.BallFall.spawnInterval = 4480; 
   let spawnIntervalId = setInterval(spawnBall, window.BallFall.spawnInterval);
 
   function updateSpawnInterval(newInterval) {
@@ -1288,6 +1290,13 @@ window.addEventListener('load', function() {
     spawnIntervalId = setInterval(spawnBall, window.BallFall.spawnInterval);
   }
   window.BallFall.updateSpawnInterval = updateSpawnInterval;
+
+  window.BallFall.clearBalls = () => {
+      ballsList.forEach(body => {
+        Matter.World.remove(engine.world, body);
+      });
+      ballsList.length = 0;
+    };
 
   
   Events.on(engine, 'collisionStart', event => {
@@ -1418,7 +1427,17 @@ window.addEventListener('load', function() {
       function wrapTextNodes(root) {
         const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, null, false);
         const textNodes = [];
-        while (walker.nextNode()) textNodes.push(walker.currentNode);
+        while (walker.nextNode()) {
+          let node = walker.currentNode;
+          if (
+            node.nodeValue.trim() &&
+            node.parentNode &&
+            !node.parentNode.closest('#ballfall-ui') &&   
+            !['SCRIPT','STYLE'].includes(node.parentNode.tagName)
+          ) {
+            textNodes.push(node);
+          }
+        }
         textNodes.forEach(node => {
           const text = node.nodeValue;
           if (!text.trim()) return;
@@ -1486,7 +1505,7 @@ window.addEventListener('load', function() {
         return body;
       }
   
-      const spans = document.querySelectorAll('span');
+      const spans = document.querySelectorAll('span:not(#ballfall-ui *)');
       spans.forEach(span => {
         const body = letterToBody(span);
         if (body) World.add(world, body);
@@ -1505,6 +1524,8 @@ window.addEventListener('load', function() {
       window.dispatchEvent(new Event('BallFallTextReady'));
     });
   </script>
+  
+
   
         
 
@@ -1628,6 +1649,18 @@ window.addEventListener('load', function() {
         gap: 5px;
         margin-bottom: 5px;
     }
+    .bfui-clear-wrapper {
+        display: flex;
+        gap: 3px;
+        width: 100%;
+        
+    }
+
+    .bfui-half {
+        flex: 1;
+        font-size: 8px;
+    }
+
 
   
     @media (max-width: 720px) {
@@ -1655,10 +1688,14 @@ window.addEventListener('load', function() {
       <span class="bfui-icon">🔽</span>
       <span class="bfui-label">Decrease Speed</span>
     </button>
-    <button class="bfui-button" id="clearLinesBtn">
-      <span class="bfui-icon">❌</span>
-      <span class="bfui-label">Clear Lines</span>
-    </button>
+    <div class="bfui-clear-wrapper">
+        <button class="bfui-button bfui-half" id="clearLinesBtn">
+            <span class="bfui-label">Clear Lines</span>
+        </button>
+        <button class="bfui-button bfui-half" id="clearBallsBtn">
+            <span class="bfui-label">Clear Balls</span>
+        </button>
+    </div>
   
     <div id="bfui-drop-rate-wrapper">
       <span id="bfui-drop-rate-label">Drop Rate:</span>
@@ -1670,7 +1707,8 @@ window.addEventListener('load', function() {
   (function(){
     const incBtn   = document.getElementById('increaseSpeedBtn');
     const decBtn   = document.getElementById('decreaseSpeedBtn');
-    const clearBtn = document.getElementById('clearLinesBtn');
+    const clearLinesBtn = document.getElementById('clearLinesBtn');
+    const clearBallsBtn = document.getElementById('clearBallsBtn');
     const dropRateValue = document.getElementById('bfui-drop-rate-value');
   
     function updateDropRateDisplay() {
@@ -1688,7 +1726,7 @@ window.addEventListener('load', function() {
     incBtn.addEventListener('click', () => {
       if (window.BallFall && window.BallFall.updateSpawnInterval) {
         const current = window.BallFall.spawnInterval;
-        const newInterval = Math.max(5, current / 2);
+        const newInterval = Math.max(1.09375, current / 2);
         window.BallFall.updateSpawnInterval(newInterval);
         updateDropRateDisplay();
       }
@@ -1702,9 +1740,15 @@ window.addEventListener('load', function() {
       }
     });
   
-    clearBtn.addEventListener('click', () => {
+    clearLinesBtn.addEventListener('click', () => {
       if (window.BallFall && window.BallFall.clearLines) {
         window.BallFall.clearLines();
+      }
+    });
+
+    clearBallsBtn.addEventListener('click', () => {
+      if (window.BallFall && window.BallFall.clearBalls) {
+        window.BallFall.clearBalls();
       }
     });
   
