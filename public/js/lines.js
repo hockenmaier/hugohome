@@ -1,7 +1,5 @@
 App.modules.lines = (function() {
     function runLinesModule() {
-      console.log("Running lines module");
-        const lineThickness = 3;
         const linesList = [];
         const { engine, world } = window.BallFall || {};
         if (!engine || !world) return;
@@ -34,7 +32,7 @@ App.modules.lines = (function() {
                 midX = (firstClick.x + mouseX) / 2,
                 midY = (firstClick.y + mouseY) / 2;
         
-        previewLine = Bodies.rectangle(midX, midY, length, lineThickness, {
+        previewLine = Bodies.rectangle(midX, midY, length, App.config.lineThickness, {
             isStatic: true,
             angle: angle,
             render: {
@@ -161,7 +159,7 @@ App.modules.lines = (function() {
         
             firstClick = null;
         
-            const lineBody = Bodies.rectangle(midX, midY, length, lineThickness, {
+            const lineBody = Bodies.rectangle(midX, midY, length, App.config.lineThickness, {
             isStatic: true,
             angle: angle,
             render: {
@@ -175,53 +173,94 @@ App.modules.lines = (function() {
         }
         });
         
-        // Mobile: long-press deletion with pulsing.
+        // Mobile: support preview drawing and deletion.
         document.addEventListener('touchstart', (e) => {
-        if (e.touches.length !== 1) return;
-        const touch = e.touches[0],
+            if (e.touches.length !== 1) return;
+            const touch = e.touches[0],
                 touchX = touch.pageX - window.scrollX,
                 touchY = touch.pageY - window.scrollY;
-        const line = getLineAtPoint(touchX, touchY);
-        if (line) {
+            const line = getLineAtPoint(touchX, touchY);
+            if (line) {
+            // Deletion mode.
             touchStartPos = { x: touchX, y: touchY };
             pendingDeletionLine = line;
             deletionTimer = setTimeout(() => {
-            World.remove(world, line);
-            const idx = linesList.indexOf(line);
-            if (idx !== -1) linesList.splice(idx, 1);
-            pendingDeletionLine = null;
-            }, 1200);
-        }
+                World.remove(world, line);
+                const idx = linesList.indexOf(line);
+                if (idx !== -1) linesList.splice(idx, 1);
+                pendingDeletionLine = null;
+            }, App.config.lineDeleteMobileHold);
+            } else {
+            // Drawing mode.
+            firstClick = { x: touchX, y: touchY };
+            updatePreview(touchX, touchY);
+            }
         });
         
         document.addEventListener('touchmove', (e) => {
-        if (!touchStartPos) return;
-        const touch = e.touches[0],
-                touchX = touch.pageX - window.scrollX,
-                touchY = touch.pageY - window.scrollY,
-                dx = touchX - touchStartPos.x,
-                dy = touchY - touchStartPos.y;
-        if (Math.sqrt(dx*dx + dy*dy) > 10) {
-            clearTimeout(deletionTimer);
-            deletionTimer = null;
-            if (pendingDeletionLine) {
-            pendingDeletionLine.render.fillStyle = '#956eff';
-            pendingDeletionLine.render.strokeStyle = '#956eff';
+            if (firstClick) {
+            const touch = e.touches[0],
+                    touchX = touch.pageX - window.scrollX,
+                    touchY = touch.pageY - window.scrollY;
+            updatePreview(touchX, touchY);
             }
-            pendingDeletionLine = null;
-            touchStartPos = null;
-        }
+            if (touchStartPos) {
+            const touch = e.touches[0],
+                    touchX = touch.pageX - window.scrollX,
+                    touchY = touch.pageY - window.scrollY,
+                    dx = touchX - touchStartPos.x,
+                    dy = touchY - touchStartPos.y;
+            if (Math.sqrt(dx * dx + dy * dy) > 10) {
+                clearTimeout(deletionTimer);
+                deletionTimer = null;
+                if (pendingDeletionLine) {
+                pendingDeletionLine.render.fillStyle = '#956eff';
+                pendingDeletionLine.render.strokeStyle = '#956eff';
+                }
+                pendingDeletionLine = null;
+                touchStartPos = null;
+            }
+            }
         });
         
-        document.addEventListener('touchend', () => {
-        clearTimeout(deletionTimer);
-        deletionTimer = null;
-        if (pendingDeletionLine) {
+        document.addEventListener('touchend', (e) => {
+            if (firstClick) {
+            const touch = e.changedTouches[0],
+                    touchX = touch.pageX - window.scrollX,
+                    touchY = touch.pageY - window.scrollY,
+                    dx = touchX - firstClick.x,
+                    dy = touchY - firstClick.y;
+            // If the line is too short, cancel drawing.
+            if (Math.sqrt(dx * dx + dy * dy) < 7) {
+                removePreview();
+            } else {
+                removePreview();
+                const length = Math.sqrt(dx * dx + dy * dy),
+                    angle = Math.atan2(dy, dx),
+                    midX = (firstClick.x + touchX) / 2,
+                    midY = (firstClick.y + touchY) / 2;
+                const lineBody = Bodies.rectangle(midX, midY, length, App.config.lineThickness, {
+                isStatic: true,
+                angle: angle,
+                render: {
+                    fillStyle: '#956eff',
+                    strokeStyle: '#956eff',
+                    lineWidth: 1
+                }
+                });
+                World.add(world, lineBody);
+                linesList.push(lineBody);
+            }
+            firstClick = null;
+            }
+            if (pendingDeletionLine) {
+            clearTimeout(deletionTimer);
+            deletionTimer = null;
             pendingDeletionLine.render.fillStyle = '#956eff';
             pendingDeletionLine.render.strokeStyle = '#956eff';
-        }
-        pendingDeletionLine = null;
-        touchStartPos = null;
+            pendingDeletionLine = null;
+            touchStartPos = null;
+            }
         });
     }
     function init() {

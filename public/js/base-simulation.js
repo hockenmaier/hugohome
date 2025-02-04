@@ -1,7 +1,6 @@
 App.modules.base = (function() {
     let engine, render;
     function init() {
-      console.log("running init in base");
       const Engine    = Matter.Engine,
             Render    = Matter.Render,
             Runner    = Matter.Runner,
@@ -11,8 +10,6 @@ App.modules.base = (function() {
             Events    = Matter.Events;
       
       Matter.use('matter-wrap');
-      
-      
       
       // Inject canvas style if missing
       if (!document.getElementById("ballfall-style")) {

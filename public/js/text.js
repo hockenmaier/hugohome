@@ -1,6 +1,5 @@
 App.modules.text = (function() {
     function runTextModule() {
-      console.log("Running text module");
         if (window.innerWidth < 720) {  // We don't build colliders for text on mobile, because there isn't enough width regardless of having enough resources
             // Still fire the event, even on mobile
             window.dispatchEvent(new Event('BallFallTextReady'));
