@@ -86,6 +86,7 @@ App.modules.text = (function() {
         wrapTextNodes(document.body);
     
         function letterToBody(letterEl) {
+            if (letterEl.tagName === 'IMG' && letterEl.closest('#ballfall-ui')) return null;
             const rect = letterEl.getBoundingClientRect();
             if (rect.width < 1 || rect.height < 1) return null;
     
@@ -136,11 +137,25 @@ App.modules.text = (function() {
             return body;
         }
     
-        const spans = document.querySelectorAll('span:not(#ballfall-ui *)');
-        spans.forEach(span => {
-            const body = letterToBody(span);
-            if (body) World.add(world, body);
+        const elements = Array.from(document.querySelectorAll('span, img'))
+        .filter(el => !el.closest('#ballfall-ui'));
+
+        elements.forEach(el => {
+        const body = letterToBody(el);
+        if (body) World.add(world, body);
         });
+
+        //Now remove any colliders that were set for images in the UI:
+        const uiImg = document.getElementById('bfui-image');
+        if (uiImg) {
+        // Copy to avoid issues while mutating the array
+        world.bodies.slice().forEach(body => {
+            if (body.elRef === uiImg) {
+            Matter.World.remove(world, body);
+            }
+        });
+        }
+
     
         Events.on(engine, 'collisionStart', evt => {
             evt.pairs.forEach(pair => {
