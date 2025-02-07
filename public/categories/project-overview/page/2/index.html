@@ -599,6 +599,8 @@ table {
 
         
 
+        
+
 
 
 
@@ -612,6 +614,7 @@ table {
 
     </div>
 </article>
+  
 
 
 
@@ -638,6 +641,72 @@ table {
         
 
         
+
+        
+            
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+
+
+<div class="paige-page paige-published w-100">
+    
+        <p class="paige-row-narrow paige-title text-center"><a href="/land-war/">Land War</a></p>
+    
+
+    
+
+    
+
+    
+        <p class="paige-keywords paige-row-narrow text-center text-secondary">
+            <a class="link-secondary paige-keyword paige-keyword-tag" href="/tags/c%23/">C#</a> · <a class="link-secondary paige-keyword paige-keyword-tag" href="/tags/game-development/">Game Development</a> · <a class="link-secondary paige-keyword paige-keyword-tag" href="/tags/indie-games/">Indie Games</a> · <a class="link-secondary paige-keyword paige-keyword-tag" href="/tags/local-multiplayer/">Local Multiplayer</a> · <a class="link-secondary paige-keyword paige-keyword-tag" href="/tags/multiplayer/">Multiplayer</a> · <a class="link-secondary paige-keyword paige-keyword-tag" href="/tags/procedural-generation/">Procedural Generation</a> · <a class="link-secondary paige-keyword paige-keyword-category" href="/categories/project-overview/">Project Overview</a> · <a class="link-secondary paige-keyword paige-keyword-tag" href="/tags/strategy/">Strategy</a> · <a class="link-secondary paige-keyword paige-keyword-tag" href="/tags/system-design/">System Design</a> · <a class="link-secondary paige-keyword paige-keyword-tag" href="/tags/unity/">Unity</a> · <a class="link-secondary paige-keyword paige-keyword-tag" href="/tags/video-games/">Video Games</a>
+        </p>
+    
+
+    
+
+    
+
+    
+        <p class="paige-date text-center paige-row-narrow text-secondary">
+            <time datetime="2019-03-01">March 1, 2019</time>
+        </p>
+    
+
+    
+        <p class="paige-reading-time paige-row-narrow text-center text-secondary">3 minutes</p>
+    
+</div>
 
         
             
@@ -1067,9 +1136,14 @@ table {
         flex: 1;
         font-size: 8px;
     }
+    #bfui-image {
+        display: block;
+        width: 80%;  
+        max-width: 60px;  
+        margin: 0 auto 0px;  
+        display: flex; justify-content: center;
+    }
 
-
-  
     @media (max-width: 720px) {
        
       .bfui-button .bfui-label {
@@ -1082,11 +1156,12 @@ table {
       }
       #bfui-drop-rate-label {
         display: none;
-      }
+      }      
     }
   </style>
   
   <div id="ballfall-ui">
+    <img src="/images/ball-machine.png" id="bfui-image" alt="Ball Machine">
     <button class="bfui-button" id="increaseSpeedBtn">
       <span class="bfui-icon">🔼</span>
       <span class="bfui-label">Increase Speed</span>

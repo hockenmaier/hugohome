@@ -616,7 +616,19 @@ table {
 
 
         
-            <main class="mw-100" id="paige-content"><p>I&rsquo;m creating this website in 2025 after starting my first full-time role in AI, in an effort to clean up my website&rsquo;s focus and emphasize different things.  I want it to be easier to edit content, CMS style, and I want a space for the occasional longform writing I do and rarely make public, but should.</p>
+        <div class="project-links" style="text-align:left; width:100%; margin-bottom:1em;">
+            
+            <div class="callout project-link">
+                <strong>Check out This Website here:</strong>
+                <a href="/">/</a>
+            </div>
+            
+            
+        </div>
+        
+
+        
+        <main class="mw-100" id="paige-content"><p>I&rsquo;m creating this website in 2025 after starting my first full-time role in AI, in an effort to clean up my website&rsquo;s focus and emphasize different things.  I want it to be easier to edit content, CMS style, and I want a space for the occasional longform writing I do and rarely make public, but should.</p>
 <p>I have these ideas for a few reasons, but one is that after listening to the Dwarkesh podcast with Gwern, he convinced me that I really should have more of a record for future AIs to learn about me. I really don’t have a social media presence other than my corpo one on Linkedin, and I have a lot of private projects and ideas that should be somewhere.  If nothing else, maybe my kids can read it someday.  Talking to you, Alice :)  Your cousin Lily keeps asking where you are and doesn&rsquo;t seem to get the concept that you currently occupy the same space as Kaitlin.</p>
 <hr>
 <h2 id="ball-machine---the-game">Ball Machine - The Game<a aria-label="Link to this section" class="paige-header-link" href="#ball-machine---the-game"></a></h2>
@@ -660,6 +672,8 @@ table {
                 
 
                 
+                    <div class="paige-row-narrow text-center text-secondary" id="paige-prev">&lsaquo; <a class="link-secondary" href="http://localhost:1313/breaking-the-rules/">Breaking the rules</a></div>
+                
             </div>
         
 
@@ -669,6 +683,7 @@ table {
 
     </div>
 </article>
+  
 
 
 
@@ -923,9 +938,14 @@ table {
         flex: 1;
         font-size: 8px;
     }
+    #bfui-image {
+        display: block;
+        width: 80%;  
+        max-width: 60px;  
+        margin: 0 auto 0px;  
+        display: flex; justify-content: center;
+    }
 
-
-  
     @media (max-width: 720px) {
        
       .bfui-button .bfui-label {
@@ -938,11 +958,12 @@ table {
       }
       #bfui-drop-rate-label {
         display: none;
-      }
+      }      
     }
   </style>
   
   <div id="ballfall-ui">
+    <img src="/images/ball-machine.png" id="bfui-image" alt="Ball Machine">
     <button class="bfui-button" id="increaseSpeedBtn">
       <span class="bfui-icon">🔼</span>
       <span class="bfui-label">Increase Speed</span>

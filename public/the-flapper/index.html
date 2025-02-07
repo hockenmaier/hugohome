@@ -618,7 +618,9 @@ table {
 
 
         
-            <main class="mw-100" id="paige-content"><p>The Flapper</p>
+
+        
+        <main class="mw-100" id="paige-content"><p>The Flapper</p>
 <p>The Flapper is a project that spawned out of a simple movement mechanic test that turned out to be surprisingly fun!  The idea is to flap your arms to fly - and have it be a multiplayer battle to really get people moving.</p>
 <p>Most of the start of this game was just tuning the movement mechanic, which borrowed from some physics realities and some elements I made up to make flapping feel good.</p>
 <p>Here&rsquo;s a video of one of the later states of the game, where I have it fully networked and am testing with friends, though it still has a few bugs here:</p>
@@ -669,6 +671,7 @@ table {
 
     </div>
 </article>
+  
 
 
 
@@ -923,9 +926,14 @@ table {
         flex: 1;
         font-size: 8px;
     }
+    #bfui-image {
+        display: block;
+        width: 80%;  
+        max-width: 60px;  
+        margin: 0 auto 0px;  
+        display: flex; justify-content: center;
+    }
 
-
-  
     @media (max-width: 720px) {
        
       .bfui-button .bfui-label {
@@ -938,11 +946,12 @@ table {
       }
       #bfui-drop-rate-label {
         display: none;
-      }
+      }      
     }
   </style>
   
   <div id="ballfall-ui">
+    <img src="/images/ball-machine.png" id="bfui-image" alt="Ball Machine">
     <button class="bfui-button" id="increaseSpeedBtn">
       <span class="bfui-icon">🔼</span>
       <span class="bfui-label">Increase Speed</span>

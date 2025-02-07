@@ -616,7 +616,19 @@ table {
 
 
         
-            <main class="mw-100" id="paige-content">
+        <div class="project-links" style="text-align:left; width:100%; margin-bottom:1em;">
+            
+            
+            <div class="callout github-link">
+                <strong>Check out the project on Github here:</strong>
+                <a href="https://github.com/hockenmaier/humanjoystick">https://github.com/hockenmaier/humanjoystick</a>
+            </div>
+            
+        </div>
+        
+
+        
+        <main class="mw-100" id="paige-content">
     <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
       <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/q_1itpdiPb4?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"></iframe>
     </div>
@@ -934,6 +946,7 @@ table {
 
     </div>
 </article>
+  
 
 
 
@@ -1188,9 +1201,14 @@ table {
         flex: 1;
         font-size: 8px;
     }
+    #bfui-image {
+        display: block;
+        width: 80%;  
+        max-width: 60px;  
+        margin: 0 auto 0px;  
+        display: flex; justify-content: center;
+    }
 
-
-  
     @media (max-width: 720px) {
        
       .bfui-button .bfui-label {
@@ -1203,11 +1221,12 @@ table {
       }
       #bfui-drop-rate-label {
         display: none;
-      }
+      }      
     }
   </style>
   
   <div id="ballfall-ui">
+    <img src="/images/ball-machine.png" id="bfui-image" alt="Ball Machine">
     <button class="bfui-button" id="increaseSpeedBtn">
       <span class="bfui-icon">🔼</span>
       <span class="bfui-label">Increase Speed</span>

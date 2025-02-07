@@ -587,6 +587,8 @@ table {
 
         
 
+        
+
 
 
 
@@ -600,6 +602,7 @@ table {
 
     </div>
 </article>
+  
 
 
 
@@ -628,6 +631,126 @@ table {
         
 
         
+
+        
+            
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+
+
+<div class="paige-page paige-published w-100">
+    
+        <p class="paige-row-narrow paige-title text-center"><a href="/tags/crossplay/">Crossplay</a></p>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        <p class="paige-date text-center paige-row-narrow text-secondary">
+            <time datetime="2023-01-01">January 1, 2023</time>
+        </p>
+    
+
+    
+</div>
+
+        
+            
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+
+
+<div class="paige-page paige-published w-100">
+    
+        <p class="paige-row-narrow paige-title text-center"><a href="/tags/indie-games/">Indie Games</a></p>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        <p class="paige-date text-center paige-row-narrow text-secondary">
+            <time datetime="2023-01-01">January 1, 2023</time>
+        </p>
+    
+
+    
+</div>
 
         
             
@@ -1110,126 +1233,6 @@ table {
 </div>
 
         
-            
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    
-
-
-
-
-
-<div class="paige-page paige-published w-100">
-    
-        <p class="paige-row-narrow paige-title text-center"><a href="/tags/nlp/">NLP</a></p>
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-        <p class="paige-date text-center paige-row-narrow text-secondary">
-            <time datetime="2019-07-03">July 3, 2019</time>
-        </p>
-    
-
-    
-</div>
-
-        
-            
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    
-
-
-
-
-
-<div class="paige-page paige-published w-100">
-    
-        <p class="paige-row-narrow paige-title text-center"><a href="/tags/python/">Python</a></p>
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-        <p class="paige-date text-center paige-row-narrow text-secondary">
-            <time datetime="2019-07-03">July 3, 2019</time>
-        </p>
-    
-
-    
-</div>
-
-        
 
         
     
@@ -1525,9 +1528,14 @@ table {
         flex: 1;
         font-size: 8px;
     }
+    #bfui-image {
+        display: block;
+        width: 80%;  
+        max-width: 60px;  
+        margin: 0 auto 0px;  
+        display: flex; justify-content: center;
+    }
 
-
-  
     @media (max-width: 720px) {
        
       .bfui-button .bfui-label {
@@ -1540,11 +1548,12 @@ table {
       }
       #bfui-drop-rate-label {
         display: none;
-      }
+      }      
     }
   </style>
   
   <div id="ballfall-ui">
+    <img src="/images/ball-machine.png" id="bfui-image" alt="Ball Machine">
     <button class="bfui-button" id="increaseSpeedBtn">
       <span class="bfui-icon">🔼</span>
       <span class="bfui-label">Increase Speed</span>

@@ -618,7 +618,24 @@ table {
 
 
         
-            <main class="mw-100" id="paige-content"><p>First Ten is an educational app containing information about the U.S. Bill of Rights, accessible on Google devices and smart speakers. It uses a VUI (voice user interface) only, meaning there is no visual way to interact with the app.</p>
+        <div class="project-links" style="text-align:left; width:100%; margin-bottom:1em;">
+            
+            <div class="callout project-link">
+                <strong>Check out First Ten here:</strong>
+                <a href="https://assistant.google.com/services/a/uid/00000036f6a580ed">https://assistant.google.com/services/a/uid/00000036f6a580ed</a>
+            </div>
+            
+            
+            <div class="callout github-link">
+                <strong>Check out the project on Github here:</strong>
+                <a href="https://github.com/hockenmaier/billofrights">https://github.com/hockenmaier/billofrights</a>
+            </div>
+            
+        </div>
+        
+
+        
+        <main class="mw-100" id="paige-content"><p>First Ten is an educational app containing information about the U.S. Bill of Rights, accessible on Google devices and smart speakers. It uses a VUI (voice user interface) only, meaning there is no visual way to interact with the app.</p>
 <p><strong>Try it here:</strong> <a href="https://assistant.google.com/services/a/uid/00000036f6a580ed">https://assistant.google.com/services/a/uid/00000036f6a580ed</a>
 <strong>Github:</strong> <a href="https://github.com/hockenmaier/billofrights">https://github.com/hockenmaier/billofrights</a></p>
 <p>Like Alexa skills, Google actions can be accessed through search or by simply asking for their names in Google Home smart speakers. Ask your Google Home or Android device, &ldquo;Can I speak to First Ten?&rdquo; in order to try it.</p>
@@ -754,6 +771,7 @@ table {
 
     </div>
 </article>
+  
 
 
 
@@ -1008,9 +1026,14 @@ table {
         flex: 1;
         font-size: 8px;
     }
+    #bfui-image {
+        display: block;
+        width: 80%;  
+        max-width: 60px;  
+        margin: 0 auto 0px;  
+        display: flex; justify-content: center;
+    }
 
-
-  
     @media (max-width: 720px) {
        
       .bfui-button .bfui-label {
@@ -1023,11 +1046,12 @@ table {
       }
       #bfui-drop-rate-label {
         display: none;
-      }
+      }      
     }
   </style>
   
   <div id="ballfall-ui">
+    <img src="/images/ball-machine.png" id="bfui-image" alt="Ball Machine">
     <button class="bfui-button" id="increaseSpeedBtn">
       <span class="bfui-icon">🔼</span>
       <span class="bfui-label">Increase Speed</span>

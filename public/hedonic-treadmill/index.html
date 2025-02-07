@@ -619,7 +619,9 @@ table {
 
 
         
-            <main class="mw-100" id="paige-content"><p>I came across this tweet today that was surprisingly contentious. Maybe not so surprising given the state of Twitter, but still:</p>
+
+        
+        <main class="mw-100" id="paige-content"><p>I came across this tweet today that was surprisingly contentious. Maybe not so surprising given the state of Twitter, but still:</p>
 <p><a href="https://twitter.com/AdamRackis/status/1762321041899012307">https://twitter.com/AdamRackis/status/1762321041899012307</a></p>
 <p>On the face of it, “people get twisted in their relationship with work” seems like a reasonable take. Stop complaining—you are making 16x the median salary in this country. Just do the boring job with the toxic team.</p>
 <p>Let’s stop and think about this for a second. The original poster (OP from now on) is making $800K annually due to the appreciation of Spotify stock. An obscene amount of money? Maybe, maybe not. I do not have the typical hang-ups about the wealthy or ultra-wealthy. I don’t see this world as a zero-sum game, and I think the richest people out there have usually done some amazing things, especially in countries like the US where most wealth is not old wealth.</p>
@@ -804,6 +806,7 @@ table {
 
     </div>
 </article>
+  
 
 
 
@@ -1058,9 +1061,14 @@ table {
         flex: 1;
         font-size: 8px;
     }
+    #bfui-image {
+        display: block;
+        width: 80%;  
+        max-width: 60px;  
+        margin: 0 auto 0px;  
+        display: flex; justify-content: center;
+    }
 
-
-  
     @media (max-width: 720px) {
        
       .bfui-button .bfui-label {
@@ -1073,11 +1081,12 @@ table {
       }
       #bfui-drop-rate-label {
         display: none;
-      }
+      }      
     }
   </style>
   
   <div id="ballfall-ui">
+    <img src="/images/ball-machine.png" id="bfui-image" alt="Ball Machine">
     <button class="bfui-button" id="increaseSpeedBtn">
       <span class="bfui-icon">🔼</span>
       <span class="bfui-label">Increase Speed</span>

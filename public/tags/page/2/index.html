@@ -587,6 +587,8 @@ table {
 
         
 
+        
+
 
 
 
@@ -600,6 +602,7 @@ table {
 
     </div>
 </article>
+  
 
 
 
@@ -628,6 +631,186 @@ table {
         
 
         
+
+        
+            
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+
+
+<div class="paige-page paige-published w-100">
+    
+        <p class="paige-row-narrow paige-title text-center"><a href="/tags/3d-modeling/">3D Modeling</a></p>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        <p class="paige-date text-center paige-row-narrow text-secondary">
+            <time datetime="2025-01-01">January 1, 2025</time>
+        </p>
+    
+
+    
+</div>
+
+        
+            
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+
+
+<div class="paige-page paige-published w-100">
+    
+        <p class="paige-row-narrow paige-title text-center"><a href="/tags/board-games/">Board Games</a></p>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        <p class="paige-date text-center paige-row-narrow text-secondary">
+            <time datetime="2025-01-01">January 1, 2025</time>
+        </p>
+    
+
+    
+</div>
+
+        
+            
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+
+
+<div class="paige-page paige-published w-100">
+    
+        <p class="paige-row-narrow paige-title text-center"><a href="/tags/experimental/">Experimental</a></p>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        <p class="paige-date text-center paige-row-narrow text-secondary">
+            <time datetime="2025-01-01">January 1, 2025</time>
+        </p>
+    
+
+    
+</div>
 
         
             
@@ -803,66 +986,6 @@ table {
     
         <p class="paige-date text-center paige-row-narrow text-secondary">
             <time datetime="2025-01-01">January 1, 2025</time>
-        </p>
-    
-
-    
-</div>
-
-        
-            
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    
-
-
-
-
-
-<div class="paige-page paige-published w-100">
-    
-        <p class="paige-row-narrow paige-title text-center"><a href="/tags/happiness/">Happiness</a></p>
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-        <p class="paige-date text-center paige-row-narrow text-secondary">
-            <time datetime="2024-02-01">February 1, 2024</time>
         </p>
     
 
@@ -1088,126 +1211,6 @@ table {
 <div class="paige-page paige-published w-100">
     
         <p class="paige-row-narrow paige-title text-center"><a href="/tags/co-op/">Co-Op</a></p>
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-        <p class="paige-date text-center paige-row-narrow text-secondary">
-            <time datetime="2023-01-01">January 1, 2023</time>
-        </p>
-    
-
-    
-</div>
-
-        
-            
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    
-
-
-
-
-
-<div class="paige-page paige-published w-100">
-    
-        <p class="paige-row-narrow paige-title text-center"><a href="/tags/crossplay/">Crossplay</a></p>
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-        <p class="paige-date text-center paige-row-narrow text-secondary">
-            <time datetime="2023-01-01">January 1, 2023</time>
-        </p>
-    
-
-    
-</div>
-
-        
-            
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    
-
-
-
-
-
-<div class="paige-page paige-published w-100">
-    
-        <p class="paige-row-narrow paige-title text-center"><a href="/tags/indie-games/">Indie Games</a></p>
     
 
     
@@ -1525,9 +1528,14 @@ table {
         flex: 1;
         font-size: 8px;
     }
+    #bfui-image {
+        display: block;
+        width: 80%;  
+        max-width: 60px;  
+        margin: 0 auto 0px;  
+        display: flex; justify-content: center;
+    }
 
-
-  
     @media (max-width: 720px) {
        
       .bfui-button .bfui-label {
@@ -1540,11 +1548,12 @@ table {
       }
       #bfui-drop-rate-label {
         display: none;
-      }
+      }      
     }
   </style>
   
   <div id="ballfall-ui">
+    <img src="/images/ball-machine.png" id="bfui-image" alt="Ball Machine">
     <button class="bfui-button" id="increaseSpeedBtn">
       <span class="bfui-icon">🔼</span>
       <span class="bfui-label">Increase Speed</span>

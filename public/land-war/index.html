@@ -618,7 +618,19 @@ table {
 
 
         
-            <main class="mw-100" id="paige-content"><p>Land War is an 8-player strategy game I developed as a solo project and released to Steam in March of 2019.<br>
+        <div class="project-links" style="text-align:left; width:100%; margin-bottom:1em;">
+            
+            <div class="callout project-link">
+                <strong>Check out Land War here:</strong>
+                <a href="https://store.steampowered.com/app/1030960/Land_War/">https://store.steampowered.com/app/1030960/Land_War/</a>
+            </div>
+            
+            
+        </div>
+        
+
+        
+        <main class="mw-100" id="paige-content"><p>Land War is an 8-player strategy game I developed as a solo project and released to Steam in March of 2019.<br>
 This game was intended to have low art requirements and simple interaction rules that result in deep strategic gameplay.</p>
 <p>The core concept is that of an ultra-simplified real-time-strategy game. Each player is represented by a color and can grow their territory by moving in any direction. The strategic elements occur when players encounter other players and have to make choices about which side of their land to defend or give up. Players can use the structure of the map and the coordinated action of other players to gain defensible footholds in order to take more area and eventually be the last player on the board.</p>
 
@@ -1031,6 +1043,7 @@ This is what the project looked like for my first play-test with other people 5 
 
     </div>
 </article>
+  
 
 
 
@@ -1285,9 +1298,14 @@ This is what the project looked like for my first play-test with other people 5 
         flex: 1;
         font-size: 8px;
     }
+    #bfui-image {
+        display: block;
+        width: 80%;  
+        max-width: 60px;  
+        margin: 0 auto 0px;  
+        display: flex; justify-content: center;
+    }
 
-
-  
     @media (max-width: 720px) {
        
       .bfui-button .bfui-label {
@@ -1300,11 +1318,12 @@ This is what the project looked like for my first play-test with other people 5 
       }
       #bfui-drop-rate-label {
         display: none;
-      }
+      }      
     }
   </style>
   
   <div id="ballfall-ui">
+    <img src="/images/ball-machine.png" id="bfui-image" alt="Ball Machine">
     <button class="bfui-button" id="increaseSpeedBtn">
       <span class="bfui-icon">🔼</span>
       <span class="bfui-label">Increase Speed</span>

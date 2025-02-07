@@ -618,7 +618,19 @@ table {
 
 
         
-            <main class="mw-100" id="paige-content"><p><strong>Raspberry Pi Control Panel</strong> is a hardware project I designed in 2016 to manage home automation systems. The project involved designing a custom 3D-printed case for a Raspberry Pi microcomputer with a touchscreen interface.</p>
+        <div class="project-links" style="text-align:left; width:100%; margin-bottom:1em;">
+            
+            
+            <div class="callout github-link">
+                <strong>Check out the project on Github here:</strong>
+                <a href="https://github.com/hockenmaier/RaspberryPiControlPanel">https://github.com/hockenmaier/RaspberryPiControlPanel</a>
+            </div>
+            
+        </div>
+        
+
+        
+        <main class="mw-100" id="paige-content"><p><strong>Raspberry Pi Control Panel</strong> is a hardware project I designed in 2016 to manage home automation systems. The project involved designing a custom 3D-printed case for a Raspberry Pi microcomputer with a touchscreen interface.</p>
 <p>Links:</p>
 <ul>
 <li><a href="https://github.com/hockenmaier/RaspberryPiControlPanel">GitHub</a></li>
@@ -674,6 +686,7 @@ table {
 
     </div>
 </article>
+  
 
 
 
@@ -928,9 +941,14 @@ table {
         flex: 1;
         font-size: 8px;
     }
+    #bfui-image {
+        display: block;
+        width: 80%;  
+        max-width: 60px;  
+        margin: 0 auto 0px;  
+        display: flex; justify-content: center;
+    }
 
-
-  
     @media (max-width: 720px) {
        
       .bfui-button .bfui-label {
@@ -943,11 +961,12 @@ table {
       }
       #bfui-drop-rate-label {
         display: none;
-      }
+      }      
     }
   </style>
   
   <div id="ballfall-ui">
+    <img src="/images/ball-machine.png" id="bfui-image" alt="Ball Machine">
     <button class="bfui-button" id="increaseSpeedBtn">
       <span class="bfui-icon">🔼</span>
       <span class="bfui-label">Increase Speed</span>
