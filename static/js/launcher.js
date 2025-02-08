@@ -16,17 +16,21 @@ App.modules.launcher = (function () {
         ball = pair.bodyA;
       }
       if (launcher && ball && launcher.launchForce && !launcher.isPreview) {
-        // Use setVelocity for an immediate impulse.
         if (!ball.hasLaunched) {
-          console.log(
-            "Launcher collision: setting velocity",
-            launcher.launchForce
-          );
-          Matter.Body.setVelocity(ball, {
-            x: launcher.launchForce.x,
-            y: launcher.launchForce.y,
-          });
           ball.hasLaunched = true;
+          // Suck ball into launcher center
+          Matter.Body.setPosition(ball, {
+            x: launcher.position.x,
+            y: launcher.position.y,
+          });
+          Matter.Body.setVelocity(ball, { x: 0, y: 0 });
+          // After 200ms, launch the ball
+          setTimeout(() => {
+            Matter.Body.setVelocity(ball, {
+              x: launcher.launchForce.x,
+              y: launcher.launchForce.y,
+            });
+          }, 100);
         }
       }
     });
