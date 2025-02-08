@@ -861,6 +861,7 @@ The more people from groups that don&rsquo;t build are involved in a project, th
         <script src="/js/base-simulation.js"></script>
         <script src="/js/text.js"></script>
         <script src="/js/lines.js"></script>
+        <script src="/js/curved-line.js"></script>
         
 <style>
   #ballfall-ui {
@@ -890,7 +891,6 @@ The more people from groups that don&rsquo;t build are involved in a project, th
   .bfui-icon {
     margin-right: 6px;
   }
-
    
   #bfui-drop-rate-label {
     font-size: 10px;
@@ -914,22 +914,36 @@ The more people from groups that don&rsquo;t build are involved in a project, th
     gap: 3px;
     width: 100%;
   }
-
   .bfui-half {
     flex: 1;
     font-size: 8px;
   }
   #bfui-image {
     display: block;
-    width: 80%;  
-    max-width: 60px;  
-    margin: 0 auto 0px;  
+    width: 80%;
+    max-width: 60px;
+    margin: 0 auto;
     display: flex;
     justify-content: center;
   }
-
+   
+  #line-mode-toggle {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+    justify-content: center;
+  }
+  .line-toggle {
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    border: 2px solid transparent;
+    border-radius: 4px;
+  }
+  .line-toggle.selected {
+    border-color: #956eff;
+  }
   @media (max-width: 720px) {
-     
     .bfui-button .bfui-label {
       display: none;
     }
@@ -963,6 +977,22 @@ The more people from groups that don&rsquo;t build are involved in a project, th
     </button>
   </div>
 
+  
+  <div id="line-mode-toggle">
+    <img
+      src="/images/line-mode.png"
+      id="toggleStraight"
+      class="line-toggle selected"
+      alt="Straight Line"
+    />
+    <img
+      src="/images/curve-mode.png"
+      id="toggleCurved"
+      class="line-toggle"
+      alt="Curved Line"
+    />
+  </div>
+
   <div id="bfui-drop-rate-wrapper">
     <span id="bfui-drop-rate-label">Drop Rate:</span>
     <span id="bfui-drop-rate-value">0</span>
@@ -976,19 +1006,19 @@ The more people from groups that don&rsquo;t build are involved in a project, th
     const clearLinesBtn = document.getElementById("clearLinesBtn");
     const clearBallsBtn = document.getElementById("clearBallsBtn");
     const dropRateValue = document.getElementById("bfui-drop-rate-value");
+    const straightBtn = document.getElementById("toggleStraight");
+    const curvedBtn = document.getElementById("toggleCurved");
 
     function updateDropRateDisplay() {
       if (!window.BallFall) return;
       const interval = window.BallFall.spawnInterval;
       const bps = 1000 / interval;
-      if (bps < 1) {
-        dropRateValue.textContent = `every ${(1 / bps).toFixed(1)}s`;
-      } else {
-        dropRateValue.textContent = `${bps.toFixed(1)}/s`;
-      }
+      dropRateValue.textContent =
+        bps < 1 ? `every ${(1 / bps).toFixed(1)}s` : `${bps.toFixed(1)}/s`;
     }
 
-    incBtn.addEventListener("click", () => {
+    incBtn.addEventListener("click", (e) => {
+      e.stopPropagation();
       if (window.BallFall && window.BallFall.updateSpawnInterval) {
         const current = window.BallFall.spawnInterval;
         const newInterval = Math.max(1.09375, current / 2);
@@ -997,7 +1027,8 @@ The more people from groups that don&rsquo;t build are involved in a project, th
       }
     });
 
-    decBtn.addEventListener("click", () => {
+    decBtn.addEventListener("click", (e) => {
+      e.stopPropagation();
       if (window.BallFall && window.BallFall.updateSpawnInterval) {
         const current = window.BallFall.spawnInterval;
         window.BallFall.updateSpawnInterval(current * 2);
@@ -1005,23 +1036,55 @@ The more people from groups that don&rsquo;t build are involved in a project, th
       }
     });
 
-    clearLinesBtn.addEventListener("click", () => {
+    clearLinesBtn.addEventListener("click", (e) => {
+      e.stopPropagation();
       if (window.BallFall && window.BallFall.clearLines) {
         window.BallFall.clearLines();
       }
     });
 
-    clearBallsBtn.addEventListener("click", () => {
+    clearBallsBtn.addEventListener("click", (e) => {
+      e.stopPropagation();
       if (window.BallFall && window.BallFall.clearBalls) {
         window.BallFall.clearBalls();
       }
     });
 
+    function setActive(mode) {
+      if (mode === "straight") {
+        straightBtn.classList.add("selected");
+        curvedBtn.classList.remove("selected");
+      } else if (mode === "curved") {
+        curvedBtn.classList.add("selected");
+        straightBtn.classList.remove("selected");
+      } else {
+        straightBtn.classList.remove("selected");
+        curvedBtn.classList.remove("selected");
+      }
+      if (window.App.modules.lines) {
+        window.App.modules.lines.setMode(mode);
+      }
+    }
+
+    straightBtn.addEventListener("click", (e) => {
+      e.stopPropagation();
+      setActive(
+        window.App.modules.lines.getMode() === "straight" ? "none" : "straight"
+      );
+    });
+    curvedBtn.addEventListener("click", (e) => {
+      e.stopPropagation();
+      setActive(
+        window.App.modules.lines.getMode() === "curved" ? "none" : "curved"
+      );
+    });
+
     
+    setActive("straight");
     setInterval(updateDropRateDisplay, 1000);
   })();
 </script>
-
+  
 
     </body>
 </html>

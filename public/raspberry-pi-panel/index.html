@@ -640,7 +640,7 @@ table {
 <p>I created this panel display in 2026 to control much of the home automation I used in my Studio City apartment. Mainly a hardware project, I designed and 3D-printed a case and frame for the touchscreen and raspberry pi microcomputer in order to mount them to the wall. The software running the control panel is SaaS, but I did write a custom html wrapper to control the orientation and settings of the site, which is available on the github linked above.</p>
 <p>Update in 2025: This panel is still my main view into my home automation in my new house in Sherman Oaks, almost 10 years in with no modification!</p>
 <p>Here&rsquo;s a video to see the panel in action:</p>
-<h2 id="hahahugoshortcode12s0hbhb">
+<h2 id="hahahugoshortcode18s0hbhb">
     <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
       <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/iFGmm-ijJvE?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"></iframe>
     </div>
@@ -884,6 +884,7 @@ table {
         <script src="/js/base-simulation.js"></script>
         <script src="/js/text.js"></script>
         <script src="/js/lines.js"></script>
+        <script src="/js/curved-line.js"></script>
         
 <style>
   #ballfall-ui {
@@ -913,7 +914,6 @@ table {
   .bfui-icon {
     margin-right: 6px;
   }
-
    
   #bfui-drop-rate-label {
     font-size: 10px;
@@ -937,22 +937,36 @@ table {
     gap: 3px;
     width: 100%;
   }
-
   .bfui-half {
     flex: 1;
     font-size: 8px;
   }
   #bfui-image {
     display: block;
-    width: 80%;  
-    max-width: 60px;  
-    margin: 0 auto 0px;  
+    width: 80%;
+    max-width: 60px;
+    margin: 0 auto;
     display: flex;
     justify-content: center;
   }
-
+   
+  #line-mode-toggle {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+    justify-content: center;
+  }
+  .line-toggle {
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    border: 2px solid transparent;
+    border-radius: 4px;
+  }
+  .line-toggle.selected {
+    border-color: #956eff;
+  }
   @media (max-width: 720px) {
-     
     .bfui-button .bfui-label {
       display: none;
     }
@@ -986,6 +1000,22 @@ table {
     </button>
   </div>
 
+  
+  <div id="line-mode-toggle">
+    <img
+      src="/images/line-mode.png"
+      id="toggleStraight"
+      class="line-toggle selected"
+      alt="Straight Line"
+    />
+    <img
+      src="/images/curve-mode.png"
+      id="toggleCurved"
+      class="line-toggle"
+      alt="Curved Line"
+    />
+  </div>
+
   <div id="bfui-drop-rate-wrapper">
     <span id="bfui-drop-rate-label">Drop Rate:</span>
     <span id="bfui-drop-rate-value">0</span>
@@ -999,19 +1029,19 @@ table {
     const clearLinesBtn = document.getElementById("clearLinesBtn");
     const clearBallsBtn = document.getElementById("clearBallsBtn");
     const dropRateValue = document.getElementById("bfui-drop-rate-value");
+    const straightBtn = document.getElementById("toggleStraight");
+    const curvedBtn = document.getElementById("toggleCurved");
 
     function updateDropRateDisplay() {
       if (!window.BallFall) return;
       const interval = window.BallFall.spawnInterval;
       const bps = 1000 / interval;
-      if (bps < 1) {
-        dropRateValue.textContent = `every ${(1 / bps).toFixed(1)}s`;
-      } else {
-        dropRateValue.textContent = `${bps.toFixed(1)}/s`;
-      }
+      dropRateValue.textContent =
+        bps < 1 ? `every ${(1 / bps).toFixed(1)}s` : `${bps.toFixed(1)}/s`;
     }
 
-    incBtn.addEventListener("click", () => {
+    incBtn.addEventListener("click", (e) => {
+      e.stopPropagation();
       if (window.BallFall && window.BallFall.updateSpawnInterval) {
         const current = window.BallFall.spawnInterval;
         const newInterval = Math.max(1.09375, current / 2);
@@ -1020,7 +1050,8 @@ table {
       }
     });
 
-    decBtn.addEventListener("click", () => {
+    decBtn.addEventListener("click", (e) => {
+      e.stopPropagation();
       if (window.BallFall && window.BallFall.updateSpawnInterval) {
         const current = window.BallFall.spawnInterval;
         window.BallFall.updateSpawnInterval(current * 2);
@@ -1028,23 +1059,55 @@ table {
       }
     });
 
-    clearLinesBtn.addEventListener("click", () => {
+    clearLinesBtn.addEventListener("click", (e) => {
+      e.stopPropagation();
       if (window.BallFall && window.BallFall.clearLines) {
         window.BallFall.clearLines();
       }
     });
 
-    clearBallsBtn.addEventListener("click", () => {
+    clearBallsBtn.addEventListener("click", (e) => {
+      e.stopPropagation();
       if (window.BallFall && window.BallFall.clearBalls) {
         window.BallFall.clearBalls();
       }
     });
 
+    function setActive(mode) {
+      if (mode === "straight") {
+        straightBtn.classList.add("selected");
+        curvedBtn.classList.remove("selected");
+      } else if (mode === "curved") {
+        curvedBtn.classList.add("selected");
+        straightBtn.classList.remove("selected");
+      } else {
+        straightBtn.classList.remove("selected");
+        curvedBtn.classList.remove("selected");
+      }
+      if (window.App.modules.lines) {
+        window.App.modules.lines.setMode(mode);
+      }
+    }
+
+    straightBtn.addEventListener("click", (e) => {
+      e.stopPropagation();
+      setActive(
+        window.App.modules.lines.getMode() === "straight" ? "none" : "straight"
+      );
+    });
+    curvedBtn.addEventListener("click", (e) => {
+      e.stopPropagation();
+      setActive(
+        window.App.modules.lines.getMode() === "curved" ? "none" : "curved"
+      );
+    });
+
     
+    setActive("straight");
     setInterval(updateDropRateDisplay, 1000);
   })();
 </script>
-
+  
 
     </body>
 </html>

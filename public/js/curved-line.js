@@ -48,17 +48,22 @@ window.CurvedLineTool = {
         this.previewCurve = null;
       }
       const control = { x, y },
-        points = [this.startPoint, control, this.endPoint],
-        numSegments = 20,
-        vertices = [];
-      for (let i = 0; i <= numSegments; i++) {
-        const t = i / numSegments;
-        vertices.push(quadraticBezier(points, t));
-      }
+        polygon = generateCurvePolygon(
+          this.startPoint,
+          control,
+          this.endPoint,
+          20,
+          App.config.lineThickness
+        ),
+        centroid = computeCentroid(polygon),
+        localVertices = polygon.map((v) => ({
+          x: v.x - centroid.x,
+          y: v.y - centroid.y,
+        }));
       this.previewCurve = Matter.Bodies.fromVertices(
-        0,
-        0,
-        [vertices],
+        centroid.x,
+        centroid.y,
+        [localVertices],
         {
           isStatic: true,
           render: {
@@ -78,27 +83,32 @@ window.CurvedLineTool = {
       this.previewCurve = null;
     }
     const control = { x: controlX, y: controlY },
-      points = [this.startPoint, control, this.endPoint],
-      numSegments = 20,
-      vertices = [];
-    for (let i = 0; i <= numSegments; i++) {
-      const t = i / numSegments;
-      vertices.push(quadraticBezier(points, t));
-    }
-    const curveBody = Matter.Bodies.fromVertices(
-      0,
-      0,
-      [vertices],
-      {
-        isStatic: true,
-        render: {
-          fillStyle: "#956eff",
-          strokeStyle: "#956eff",
-          lineWidth: 1,
+      polygon = generateCurvePolygon(
+        this.startPoint,
+        control,
+        this.endPoint,
+        20,
+        App.config.lineThickness
+      ),
+      centroid = computeCentroid(polygon),
+      localVertices = polygon.map((v) => ({
+        x: v.x - centroid.x,
+        y: v.y - centroid.y,
+      })),
+      curveBody = Matter.Bodies.fromVertices(
+        centroid.x,
+        centroid.y,
+        [localVertices],
+        {
+          isStatic: true,
+          render: {
+            fillStyle: "#956eff",
+            strokeStyle: "#956eff",
+            lineWidth: 1,
+          },
         },
-      },
-      true
-    );
+        true
+      );
     Matter.World.add(window.BallFall.world, curveBody);
     if (window.App.modules.lines && window.App.modules.lines.addLine)
       window.App.modules.lines.addLine(curveBody);
@@ -118,17 +128,14 @@ window.CurvedLineTool = {
   // Mobile methods (using touch sequences)
   onTouchStart(x, y) {
     if (this.state === 0) {
-      // First touch: set start point.
       this.startPoint = { x, y };
       this.state = 1;
     } else if (this.state === 2) {
-      // In control phase, begin previewing control.
-      // (No state change; onTouchMove will handle preview.)
+      // In control phase; onTouchMove will update preview.
     }
   },
   onTouchMove(x, y) {
     if (this.state === 1) {
-      // Preview a straight line as candidate for end point.
       if (this.previewCurve) {
         Matter.World.remove(window.BallFall.world, this.previewCurve);
         this.previewCurve = null;
@@ -154,23 +161,27 @@ window.CurvedLineTool = {
       );
       Matter.World.add(window.BallFall.world, this.previewCurve);
     } else if (this.state === 2) {
-      // Preview curved line using current point as control.
       if (this.previewCurve) {
         Matter.World.remove(window.BallFall.world, this.previewCurve);
         this.previewCurve = null;
       }
       const control = { x, y },
-        points = [this.startPoint, control, this.endPoint],
-        numSegments = 20,
-        vertices = [];
-      for (let i = 0; i <= numSegments; i++) {
-        const t = i / numSegments;
-        vertices.push(quadraticBezier(points, t));
-      }
+        polygon = generateCurvePolygon(
+          this.startPoint,
+          control,
+          this.endPoint,
+          20,
+          App.config.lineThickness
+        ),
+        centroid = computeCentroid(polygon),
+        localVertices = polygon.map((v) => ({
+          x: v.x - centroid.x,
+          y: v.y - centroid.y,
+        }));
       this.previewCurve = Matter.Bodies.fromVertices(
-        0,
-        0,
-        [vertices],
+        centroid.x,
+        centroid.y,
+        [localVertices],
         {
           isStatic: true,
           render: {
@@ -186,7 +197,6 @@ window.CurvedLineTool = {
   },
   onTouchEnd(x, y) {
     if (this.state === 1) {
-      // End phase one: set end point and switch to control phase.
       if (this.previewCurve) {
         Matter.World.remove(window.BallFall.world, this.previewCurve);
         this.previewCurve = null;
@@ -194,7 +204,6 @@ window.CurvedLineTool = {
       this.endPoint = { x, y };
       this.state = 2;
     } else if (this.state === 2) {
-      // Finish by using this touch's point as control.
       this.finish(x, y);
     }
   },
@@ -206,4 +215,60 @@ function quadraticBezier(points, t) {
     x: (1 - t) * (1 - t) * p0.x + 2 * (1 - t) * t * p1.x + t * t * p2.x,
     y: (1 - t) * (1 - t) * p0.y + 2 * (1 - t) * t * p1.y + t * t * p2.y,
   };
+}
+
+function generateCurvePolygon(p0, p1, p2, numSegments, thickness) {
+  const centerPoints = [];
+  for (let i = 0; i <= numSegments; i++) {
+    const t = i / numSegments;
+    centerPoints.push(quadraticBezier([p0, p1, p2], t));
+  }
+  const upper = [];
+  const lower = [];
+  for (let i = 0; i < centerPoints.length; i++) {
+    const pt = centerPoints[i];
+    let tangent;
+    if (i === 0) {
+      tangent = {
+        x: centerPoints[i + 1].x - pt.x,
+        y: centerPoints[i + 1].y - pt.y,
+      };
+    } else if (i === centerPoints.length - 1) {
+      tangent = {
+        x: pt.x - centerPoints[i - 1].x,
+        y: pt.y - centerPoints[i - 1].y,
+      };
+    } else {
+      tangent = {
+        x: centerPoints[i + 1].x - centerPoints[i - 1].x,
+        y: centerPoints[i + 1].y - centerPoints[i - 1].y,
+      };
+    }
+    const len = Math.sqrt(tangent.x * tangent.x + tangent.y * tangent.y);
+    if (len !== 0) {
+      tangent.x /= len;
+      tangent.y /= len;
+    }
+    const normal = { x: -tangent.y, y: tangent.x };
+    upper.push({
+      x: pt.x + (normal.x * thickness) / 2,
+      y: pt.y + (normal.y * thickness) / 2,
+    });
+    lower.push({
+      x: pt.x - (normal.x * thickness) / 2,
+      y: pt.y - (normal.y * thickness) / 2,
+    });
+  }
+  return upper.concat(lower.reverse());
+}
+
+function computeCentroid(vertices) {
+  const centroid = { x: 0, y: 0 };
+  vertices.forEach((v) => {
+    centroid.x += v.x;
+    centroid.y += v.y;
+  });
+  centroid.x /= vertices.length;
+  centroid.y /= vertices.length;
+  return centroid;
 }
