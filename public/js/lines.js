@@ -1,56 +1,19 @@
-(function () {
-  function defineLinesModule() {
-    const world = window.BallFall.world;
+App.modules.lines = (function () {
+  function runLinesModule() {
     const linesList = [];
-    const Bodies = Matter.Bodies;
-    const World = Matter.World;
+    const { engine, world } = window.BallFall || {};
+    if (!engine || !world) return;
 
-    // --- State variables ---
-    // For straight‑line drawing.
+    const Bodies = Matter.Bodies,
+      World = Matter.World;
+
     let firstClick = null;
     let previewLine = null;
-    // For deletion pulsing.
     let hoveredLine = null;
     let pendingDeletionLine = null;
     let deletionTimer = null;
     let touchStartPos = null;
 
-    // currentMode: "straight", "curved", or null.
-    // Default to null (no drawing) so that drawing happens only when a tool is selected.
-    let currentMode = null;
-    // Expose currentMode so external UI can toggle tools.
-    window.App = window.App || {};
-    window.App.modules = window.App.modules || {};
-    window.App.modules.lines = {
-      get currentMode() {
-        return currentMode;
-      },
-      set currentMode(val) {
-        currentMode = val;
-      },
-      get linesList() {
-        return linesList;
-      },
-      init: function () {},
-    };
-
-    // --- Utility: Get event position (works for both touch and mouse) ---
-    function getEventPos(e) {
-      let touch;
-      if (e.touches && e.touches.length) {
-        touch = e.touches[0];
-      } else if (e.changedTouches && e.changedTouches.length) {
-        touch = e.changedTouches[0];
-      } else {
-        touch = e;
-      }
-      return {
-        x: touch.pageX - window.scrollX,
-        y: touch.pageY - window.scrollY,
-      };
-    }
-
-    // --- Straight‑line drawing functions (from the old working version) ---
     function removePreview() {
       if (previewLine) {
         World.remove(world, previewLine);
@@ -58,15 +21,17 @@
       }
     }
 
-    function updatePreview(x, y) {
+    function updatePreview(mouseX, mouseY) {
       if (!firstClick) return;
       removePreview();
-      const dx = x - firstClick.x,
-        dy = y - firstClick.y,
+
+      const dx = mouseX - firstClick.x,
+        dy = mouseY - firstClick.y,
         length = Math.sqrt(dx * dx + dy * dy),
         angle = Math.atan2(dy, dx),
-        midX = (firstClick.x + x) / 2,
-        midY = (firstClick.y + y) / 2;
+        midX = (firstClick.x + mouseX) / 2,
+        midY = (firstClick.y + mouseY) / 2;
+
       previewLine = Bodies.rectangle(
         midX,
         midY,
@@ -85,50 +50,25 @@
       World.add(world, previewLine);
     }
 
-    function createStraightLine(x, y) {
-      removePreview();
-      const dx = x - firstClick.x,
-        dy = y - firstClick.y,
-        length = Math.sqrt(dx * dx + dy * dy);
-      if (length < 7) {
-        firstClick = null;
-        return;
-      }
-      const angle = Math.atan2(dy, dx),
-        midX = (firstClick.x + x) / 2,
-        midY = (firstClick.y + y) / 2;
-      const lineBody = Bodies.rectangle(
-        midX,
-        midY,
-        length,
-        App.config.lineThickness,
-        {
-          isStatic: true,
-          angle: angle,
-          render: {
-            fillStyle: "#956eff",
-            strokeStyle: "#956eff",
-            lineWidth: 1,
-          },
-        }
-      );
-      World.add(world, lineBody);
-      linesList.push(lineBody);
-      firstClick = null;
+    function isNonInteractable(e) {
+      return !e.target.closest("a, button, input, textarea, select, label");
     }
 
-    // --- Get a line at a given point ---
     function getLineAtPoint(x, y) {
       for (let body of linesList) {
-        if (Matter.Vertices.contains(body.vertices, { x, y })) return body;
+        if (Matter.Vertices.contains(body.vertices, { x, y })) {
+          return body;
+        }
       }
       return null;
     }
 
-    // --- Pulse effect for hovered and pending-deletion lines ---
+    // Animation loop for pulsing effect.
     function updatePulse() {
       const timeFactor = Date.now() / 200;
       const t = (Math.sin(timeFactor) + 1) / 2;
+
+      // Update hovered line pulse.
       if (hoveredLine) {
         let r = Math.round(149 + (255 - 149) * t);
         let g = Math.round(110 * (1 - t));
@@ -137,6 +77,7 @@
         hoveredLine.render.fillStyle = color;
         hoveredLine.render.strokeStyle = color;
       }
+      // Update pending deletion line pulse.
       if (pendingDeletionLine && pendingDeletionLine !== hoveredLine) {
         let r = Math.round(149 + (255 - 149) * t);
         let g = Math.round(110 * (1 - t));
@@ -145,19 +86,20 @@
         pendingDeletionLine.render.fillStyle = color;
         pendingDeletionLine.render.strokeStyle = color;
       }
+
       requestAnimationFrame(updatePulse);
     }
     updatePulse();
 
-    // --- Desktop Events ---
     document.addEventListener("mousemove", (e) => {
-      const pos = getEventPos(e);
-      // If drawing a straight line and a start point is set, update preview.
-      if (currentMode === "straight" && firstClick) {
-        updatePreview(pos.x, pos.y);
+      const mouseX = e.pageX - window.scrollX,
+        mouseY = e.pageY - window.scrollY;
+
+      if (firstClick) {
+        updatePreview(mouseX, mouseY);
       }
-      // Update hovered line for deletion pulse.
-      const line = getLineAtPoint(pos.x, pos.y);
+
+      const line = getLineAtPoint(mouseX, mouseY);
       if (line) {
         if (hoveredLine !== line) {
           if (hoveredLine) {
@@ -175,44 +117,21 @@
         }
         document.body.style.cursor = "";
       }
-      // For curved tool, forward the onMove event.
-      if (
-        currentMode === "curved" &&
-        window.CurvedLineTool &&
-        typeof window.CurvedLineTool.onMove === "function"
-      ) {
-        window.CurvedLineTool.onMove(pos.x, pos.y);
-      }
     });
 
-    document.addEventListener("click", (e) => {
-      if (e.target.closest("a, button, input, textarea, select, label")) return;
-      const pos = getEventPos(e);
-      if (currentMode === "straight") {
-        if (!firstClick) {
-          firstClick = { x: pos.x, y: pos.y };
-        } else {
-          createStraightLine(pos.x, pos.y);
-        }
-      } else if (
-        currentMode === "curved" &&
-        window.CurvedLineTool &&
-        typeof window.CurvedLineTool.onClick === "function"
-      ) {
-        window.CurvedLineTool.onClick(pos.x, pos.y);
-      }
-    });
-
+    // Desktop: right-click deletion.
     document.addEventListener("contextmenu", (e) => {
-      const pos = getEventPos(e);
-      // Cancel in-progress straight-line drawing.
+      const mouseX = e.pageX - window.scrollX,
+        mouseY = e.pageY - window.scrollY;
+
       if (firstClick) {
         removePreview();
         firstClick = null;
         e.preventDefault();
         return;
       }
-      const line = getLineAtPoint(pos.x, pos.y);
+
+      const line = getLineAtPoint(mouseX, mouseY);
       if (line) {
         World.remove(world, line);
         const idx = linesList.indexOf(line);
@@ -221,14 +140,61 @@
       }
     });
 
-    // --- Mobile Touch Events ---
+    // Click-to-draw.
+    document.addEventListener("click", (e) => {
+      if (!isNonInteractable(e)) return;
+
+      window.BallFall.clearLines = () => {
+        linesList.forEach((body) => Matter.World.remove(world, body));
+        linesList.length = 0;
+      };
+
+      const clickX = e.pageX - window.scrollX,
+        clickY = e.pageY - window.scrollY;
+
+      if (!firstClick) {
+        firstClick = { x: clickX, y: clickY };
+      } else {
+        removePreview();
+        const dx = clickX - firstClick.x,
+          dy = clickY - firstClick.y,
+          length = Math.sqrt(dx * dx + dy * dy),
+          angle = Math.atan2(dy, dx),
+          midX = (firstClick.x + clickX) / 2,
+          midY = (firstClick.y + clickY) / 2;
+
+        firstClick = null;
+
+        const lineBody = Bodies.rectangle(
+          midX,
+          midY,
+          length,
+          App.config.lineThickness,
+          {
+            isStatic: true,
+            angle: angle,
+            render: {
+              fillStyle: "#956eff",
+              strokeStyle: "#956eff",
+              lineWidth: 1,
+            },
+          }
+        );
+        World.add(world, lineBody);
+        linesList.push(lineBody);
+      }
+    });
+
+    // Mobile: support preview drawing and deletion.
     document.addEventListener("touchstart", (e) => {
       if (e.touches.length !== 1) return;
-      const pos = getEventPos(e);
-      const line = getLineAtPoint(pos.x, pos.y);
+      const touch = e.touches[0],
+        touchX = touch.pageX - window.scrollX,
+        touchY = touch.pageY - window.scrollY;
+      const line = getLineAtPoint(touchX, touchY);
       if (line) {
-        // Enter deletion mode.
-        touchStartPos = pos;
+        // Deletion mode.
+        touchStartPos = { x: touchX, y: touchY };
         pendingDeletionLine = line;
         deletionTimer = setTimeout(() => {
           World.remove(world, line);
@@ -237,27 +203,25 @@
           pendingDeletionLine = null;
         }, App.config.lineDeleteMobileHold);
       } else {
-        if (currentMode === "straight") {
-          firstClick = pos;
-          updatePreview(pos.x, pos.y);
-        } else if (
-          currentMode === "curved" &&
-          window.CurvedLineTool &&
-          typeof window.CurvedLineTool.onClick === "function"
-        ) {
-          window.CurvedLineTool.onClick(pos.x, pos.y);
-        }
+        // Drawing mode.
+        firstClick = { x: touchX, y: touchY };
+        updatePreview(touchX, touchY);
       }
     });
 
     document.addEventListener("touchmove", (e) => {
-      const pos = getEventPos(e);
-      if (currentMode === "straight" && firstClick) {
-        updatePreview(pos.x, pos.y);
+      if (firstClick) {
+        const touch = e.touches[0],
+          touchX = touch.pageX - window.scrollX,
+          touchY = touch.pageY - window.scrollY;
+        updatePreview(touchX, touchY);
       }
       if (touchStartPos) {
-        const dx = pos.x - touchStartPos.x,
-          dy = pos.y - touchStartPos.y;
+        const touch = e.touches[0],
+          touchX = touch.pageX - window.scrollX,
+          touchY = touch.pageY - window.scrollY,
+          dx = touchX - touchStartPos.x,
+          dy = touchY - touchStartPos.y;
         if (Math.sqrt(dx * dx + dy * dy) > 10) {
           clearTimeout(deletionTimer);
           deletionTimer = null;
@@ -269,19 +233,43 @@
           touchStartPos = null;
         }
       }
-      if (
-        currentMode === "curved" &&
-        window.CurvedLineTool &&
-        typeof window.CurvedLineTool.onMove === "function"
-      ) {
-        window.CurvedLineTool.onMove(pos.x, pos.y);
-      }
     });
 
     document.addEventListener("touchend", (e) => {
-      const pos = getEventPos(e);
-      if (currentMode === "straight" && firstClick) {
-        createStraightLine(pos.x, pos.y);
+      if (firstClick) {
+        const touch = e.changedTouches[0],
+          touchX = touch.pageX - window.scrollX,
+          touchY = touch.pageY - window.scrollY,
+          dx = touchX - firstClick.x,
+          dy = touchY - firstClick.y;
+        // If the line is too short, cancel drawing.
+        if (Math.sqrt(dx * dx + dy * dy) < 7) {
+          removePreview();
+        } else {
+          removePreview();
+          const length = Math.sqrt(dx * dx + dy * dy),
+            angle = Math.atan2(dy, dx),
+            midX = (firstClick.x + touchX) / 2,
+            midY = (firstClick.y + touchY) / 2;
+          const lineBody = Bodies.rectangle(
+            midX,
+            midY,
+            length,
+            App.config.lineThickness,
+            {
+              isStatic: true,
+              angle: angle,
+              render: {
+                fillStyle: "#956eff",
+                strokeStyle: "#956eff",
+                lineWidth: 1,
+              },
+            }
+          );
+          World.add(world, lineBody);
+          linesList.push(lineBody);
+        }
+        firstClick = null;
       }
       if (pendingDeletionLine) {
         clearTimeout(deletionTimer);
@@ -291,25 +279,14 @@
         pendingDeletionLine = null;
         touchStartPos = null;
       }
-      if (
-        currentMode === "curved" &&
-        window.CurvedLineTool &&
-        typeof window.CurvedLineTool.finish === "function"
-      ) {
-        window.CurvedLineTool.finish(pos.x, pos.y);
-      }
     });
-
-    // Expose clearLines for your UI.
-    window.BallFall.clearLines = function () {
-      linesList.forEach((body) => World.remove(world, body));
-      linesList.length = 0;
-    };
   }
-
-  if (window.BallFall && window.BallFall.world) {
-    defineLinesModule();
-  } else {
-    window.addEventListener("BallFallBaseReady", defineLinesModule);
+  function init() {
+    if (window.BallFall && window.BallFall.engine) {
+      runLinesModule();
+    } else {
+      window.addEventListener("BallFallBaseReady", runLinesModule);
+    }
   }
+  return { init };
 })();

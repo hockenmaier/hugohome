@@ -1586,7 +1586,6 @@ table {
         <script src="/js/base-simulation.js"></script>
         <script src="/js/text.js"></script>
         <script src="/js/lines.js"></script>
-        <script src="/js/curved-line.js"></script>
         
 <style>
   #ballfall-ui {
@@ -1616,6 +1615,7 @@ table {
   .bfui-icon {
     margin-right: 6px;
   }
+
    
   #bfui-drop-rate-label {
     font-size: 10px;
@@ -1639,6 +1639,7 @@ table {
     gap: 3px;
     width: 100%;
   }
+
   .bfui-half {
     flex: 1;
     font-size: 8px;
@@ -1647,18 +1648,11 @@ table {
     display: block;
     width: 80%;  
     max-width: 60px;  
-    margin: 0 auto;
+    margin: 0 auto 0px;  
     display: flex;
     justify-content: center;
   }
-  .toggle-btn {
-    border: 2px solid transparent;
-    box-sizing: border-box;
-    padding: 5px;
-  }
-  .toggle-btn.selected {
-    border-color: #6eff94;
-  }
+
   @media (max-width: 720px) {
      
     .bfui-button .bfui-label {
@@ -1693,64 +1687,6 @@ table {
       <span class="bfui-label">Clear Balls</span>
     </button>
   </div>
-
-  <div
-    id="line-toggle-container"
-    style="display: flex; gap: 10px; margin-top: 10px"
-  >
-    <button class="bfui-button toggle-btn" id="toggleStraight">
-      <img
-        src="/images/line-mode.png"
-        alt="Straight Line"
-        style="width: 24px; height: 24px"
-      />
-    </button>
-    <button class="bfui-button toggle-btn" id="toggleCurved">
-      <img
-        src="/images/curve-mode.png"
-        alt="Curved Line"
-        style="width: 24px; height: 24px"
-      />
-    </button>
-  </div>
-
-  <script>
-    window.addEventListener("BallFallBaseReady", function () {
-      (function () {
-        var btnStraight = document.getElementById("toggleStraight");
-        var btnCurved = document.getElementById("toggleCurved");
-        function updateToggleButtons() {
-          if (window.App.modules.lines.currentMode === "straight") {
-            btnStraight.classList.add("selected");
-          } else {
-            btnStraight.classList.remove("selected");
-          }
-          if (window.App.modules.lines.currentMode === "curved") {
-            btnCurved.classList.add("selected");
-          } else {
-            btnCurved.classList.remove("selected");
-          }
-        }
-        btnStraight.addEventListener("click", function () {
-          if (window.App.modules.lines.currentMode === "straight") {
-            window.App.modules.lines.currentMode = null;
-          } else {
-            window.App.modules.lines.currentMode = "straight";
-          }
-          updateToggleButtons();
-        });
-        btnCurved.addEventListener("click", function () {
-          if (window.App.modules.lines.currentMode === "curved") {
-            window.App.modules.lines.currentMode = null;
-          } else {
-            window.App.modules.lines.currentMode = "curved";
-          }
-          updateToggleButtons();
-        });
-        updateToggleButtons();
-      })();
-    });
-  </script>
 
   <div id="bfui-drop-rate-wrapper">
     <span id="bfui-drop-rate-label">Drop Rate:</span>
@@ -1806,6 +1742,7 @@ table {
       }
     });
 
+    
     setInterval(updateDropRateDisplay, 1000);
   })();
 </script>
