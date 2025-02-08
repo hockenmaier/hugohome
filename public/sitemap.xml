@@ -197,6 +197,12 @@
     <loc>http://localhost:1313/tags/solidworks/</loc>
     <lastmod>2016-01-01T00:00:00+00:00</lastmod>
   </url><url>
+    <loc>http://localhost:1313/on-ai-software-development/</loc>
+  </url><url>
+    <loc>http://localhost:1313/postman-for-pms/</loc>
+  </url><url>
+    <loc>http://localhost:1313/some-custom-gpts/</loc>
+  </url><url>
     <loc>http://localhost:1313/stacks/</loc>
   </url>
 </urlset>

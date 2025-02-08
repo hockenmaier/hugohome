@@ -8,9 +8,6 @@ project_link: ""
 github_link: "https://github.com/hockenmaier/context-caddy"
 short_description: ""
 tags: ["AI", "Rapid Prototyping", "VSCode Extension"]
-
 ---
-
-
 
 ---

@@ -915,135 +915,206 @@ table {
         <script src="/js/base-simulation.js"></script>
         <script src="/js/text.js"></script>
         <script src="/js/lines.js"></script>
+        <script src="/js/curved-line.js"></script>
         
 <style>
-    #ballfall-ui {
-      position: fixed;
-      top: 50px;
-      left: 20px;
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-      z-index: 10000;
-      font-family: sans-serif;
-    }
-    .bfui-button {
-      background: rgba(0, 0, 0, 0.4);
-      border: 1px solid #555;
-      color: #ddd;
-      padding: 8px 12px;
-      font-size: 12px;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      transition: transform 0.1s ease;
-    }
-    .bfui-button:active {
-      transform: scale(0.95);
-    }
-    .bfui-icon {
-      margin-right: 6px;
-    }
-  
+  #ballfall-ui {
+    position: fixed;
+    top: 50px;
+    left: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    z-index: 10000;
+    font-family: sans-serif;
+  }
+  .bfui-button {
+    background: rgba(0, 0, 0, 0.4);
+    border: 1px solid #555;
+    color: #ddd;
+    padding: 8px 12px;
+    font-size: 12px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    transition: transform 0.1s ease;
+  }
+  .bfui-button:active {
+    transform: scale(0.95);
+  }
+  .bfui-icon {
+    margin-right: 6px;
+  }
+
+   
+  #bfui-drop-rate-label {
+    font-size: 10px;
+    color: #aaa;
+  }
+  #bfui-drop-rate-value {
+    font-size: 10px;
+    color: #fff;
+    font-weight: bold;
+  }
+  #bfui-drop-rate-wrapper {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    width: 100%;
+    gap: 5px;
+    margin-bottom: 5px;
+  }
+  .bfui-clear-wrapper {
+    display: flex;
+    gap: 3px;
+    width: 100%;
+  }
+
+  .bfui-half {
+    flex: 1;
+    font-size: 8px;
+  }
+  #bfui-image {
+    display: block;
+    width: 80%;  
+    max-width: 60px;  
+    margin: 0 auto 0px;  
+    display: flex;
+    justify-content: center;
+  }
+  .toggle-btn {
+    border: 2px solid transparent;
+    box-sizing: border-box;
+    padding: 5px;
+  }
+  .toggle-btn.selected {
+    border-color: #6eff94;
+  }
+
+  @media (max-width: 720px) {
      
-    #bfui-drop-rate-label {
-      font-size: 10px;
-      color: #aaa;
-    }
-    #bfui-drop-rate-value {
-      font-size: 10px;
-      color: #fff;
-      font-weight: bold;
+    .bfui-button .bfui-label {
+      display: none;
     }
     #bfui-drop-rate-wrapper {
-        display: flex;
-        justify-content: center;
-        text-align: center;
-        width: 100%;
-        gap: 5px;
-        margin-bottom: 5px;
+      flex-direction: column;
+      align-items: flex-start;
+      margin-top: -5px;
     }
-    .bfui-clear-wrapper {
-        display: flex;
-        gap: 3px;
-        width: 100%;
-        
+    #bfui-drop-rate-label {
+      display: none;
     }
+  }
+</style>
 
-    .bfui-half {
-        flex: 1;
-        font-size: 8px;
-    }
-    #bfui-image {
-        display: block;
-        width: 80%;  
-        max-width: 60px;  
-        margin: 0 auto 0px;  
-        display: flex; justify-content: center;
-    }
-
-    @media (max-width: 720px) {
-       
-      .bfui-button .bfui-label {
-        display: none;
-      }
-      #bfui-drop-rate-wrapper {
-        flex-direction: column;
-        align-items: flex-start;
-        margin-top: -5px;
-      }
-      #bfui-drop-rate-label {
-        display: none;
-      }      
-    }
-  </style>
-  
-  <div id="ballfall-ui">
-    <img src="/images/ball-machine.png" id="bfui-image" alt="Ball Machine">
-    <button class="bfui-button" id="increaseSpeedBtn">
-      <span class="bfui-icon">🔼</span>
-      <span class="bfui-label">Increase Speed</span>
+<div id="ballfall-ui">
+  <img src="/images/ball-machine.png" id="bfui-image" alt="Ball Machine" />
+  <button class="bfui-button" id="increaseSpeedBtn">
+    <span class="bfui-icon">🔼</span>
+    <span class="bfui-label">Increase Speed</span>
+  </button>
+  <button class="bfui-button" id="decreaseSpeedBtn">
+    <span class="bfui-icon">🔽</span>
+    <span class="bfui-label">Decrease Speed</span>
+  </button>
+  <div class="bfui-clear-wrapper">
+    <button class="bfui-button bfui-half" id="clearLinesBtn">
+      <span class="bfui-label">Clear Lines</span>
     </button>
-    <button class="bfui-button" id="decreaseSpeedBtn">
-      <span class="bfui-icon">🔽</span>
-      <span class="bfui-label">Decrease Speed</span>
+    <button class="bfui-button bfui-half" id="clearBallsBtn">
+      <span class="bfui-label">Clear Balls</span>
     </button>
-    <div class="bfui-clear-wrapper">
-        <button class="bfui-button bfui-half" id="clearLinesBtn">
-            <span class="bfui-label">Clear Lines</span>
-        </button>
-        <button class="bfui-button bfui-half" id="clearBallsBtn">
-            <span class="bfui-label">Clear Balls</span>
-        </button>
-    </div>
-  
-    <div id="bfui-drop-rate-wrapper">
-      <span id="bfui-drop-rate-label">Drop Rate:</span>
-      <span id="bfui-drop-rate-value">0</span>
-    </div>
   </div>
-  
+
+  <div
+    id="line-toggle-container"
+    style="display: flex; gap: 10px; margin-top: 10px"
+  >
+    <button class="bfui-button toggle-btn" id="toggleStraight">
+      <img
+        src="/images/line-mode.png"
+        alt="Straight Line"
+        style="width: 24px; height: 24px"
+      />
+    </button>
+    <button class="bfui-button toggle-btn" id="toggleCurved">
+      <img
+        src="/images/curve-mode.png"
+        alt="Curved Line"
+        style="width: 24px; height: 24px"
+      />
+    </button>
+  </div>
   <script>
-  (function(){
-    const incBtn   = document.getElementById('increaseSpeedBtn');
-    const decBtn   = document.getElementById('decreaseSpeedBtn');
-    const clearLinesBtn = document.getElementById('clearLinesBtn');
-    const clearBallsBtn = document.getElementById('clearBallsBtn');
-    const dropRateValue = document.getElementById('bfui-drop-rate-value');
-  
-    function updateDropRateDisplay() {
-        if (!window.BallFall) return;
-        const interval = window.BallFall.spawnInterval;
-        const bps = 1000 / interval; 
-        if (bps < 1) {
-            dropRateValue.textContent = `every ${(1 / bps).toFixed(1)}s`;
-        } else {
-            dropRateValue.textContent = `${bps.toFixed(1)}/s`;
+    window.addEventListener("BallFallBaseReady", function () {
+      (function () {
+        var btnStraight = document.getElementById("toggleStraight");
+        var btnCurved = document.getElementById("toggleCurved");
+        function updateToggleButtons() {
+          if (window.App.modules.lines.currentToolName === "straight") {
+            btnStraight.classList.add("selected");
+          } else {
+            btnStraight.classList.remove("selected");
+          }
+          if (window.App.modules.lines.currentToolName === "curved") {
+            btnCurved.classList.add("selected");
+          } else {
+            btnCurved.classList.remove("selected");
+          }
         }
+        btnStraight.addEventListener("click", function () {
+          if (window.App.modules.lines.currentToolName === "straight") {
+            window.App.modules.lines.currentTool = null;
+            window.App.modules.lines.currentToolName = null;
+          } else {
+            window.App.modules.lines.currentTool =
+              window.App.modules.lines.StraightLineTool;
+            window.App.modules.lines.currentToolName = "straight";
+          }
+          updateToggleButtons();
+        });
+        btnCurved.addEventListener("click", function () {
+          if (window.App.modules.lines.currentToolName === "curved") {
+            window.App.modules.lines.currentTool = null;
+            window.App.modules.lines.currentToolName = null;
+          } else {
+            window.App.modules.lines.currentTool =
+              window.App.modules.lines.CurvedLineTool;
+            window.App.modules.lines.currentToolName = "curved";
+          }
+          updateToggleButtons();
+        });
+        updateToggleButtons();
+      })();
+    });
+  </script>
+
+  <div id="bfui-drop-rate-wrapper">
+    <span id="bfui-drop-rate-label">Drop Rate:</span>
+    <span id="bfui-drop-rate-value">0</span>
+  </div>
+</div>
+
+<script>
+  (function () {
+    const incBtn = document.getElementById("increaseSpeedBtn");
+    const decBtn = document.getElementById("decreaseSpeedBtn");
+    const clearLinesBtn = document.getElementById("clearLinesBtn");
+    const clearBallsBtn = document.getElementById("clearBallsBtn");
+    const dropRateValue = document.getElementById("bfui-drop-rate-value");
+
+    function updateDropRateDisplay() {
+      if (!window.BallFall) return;
+      const interval = window.BallFall.spawnInterval;
+      const bps = 1000 / interval;
+      if (bps < 1) {
+        dropRateValue.textContent = `every ${(1 / bps).toFixed(1)}s`;
+      } else {
+        dropRateValue.textContent = `${bps.toFixed(1)}/s`;
+      }
     }
 
-  
-    incBtn.addEventListener('click', () => {
+    incBtn.addEventListener("click", () => {
       if (window.BallFall && window.BallFall.updateSpawnInterval) {
         const current = window.BallFall.spawnInterval;
         const newInterval = Math.max(1.09375, current / 2);
@@ -1051,32 +1122,32 @@ table {
         updateDropRateDisplay();
       }
     });
-  
-    decBtn.addEventListener('click', () => {
+
+    decBtn.addEventListener("click", () => {
       if (window.BallFall && window.BallFall.updateSpawnInterval) {
         const current = window.BallFall.spawnInterval;
         window.BallFall.updateSpawnInterval(current * 2);
         updateDropRateDisplay();
       }
     });
-  
-    clearLinesBtn.addEventListener('click', () => {
+
+    clearLinesBtn.addEventListener("click", () => {
       if (window.BallFall && window.BallFall.clearLines) {
         window.BallFall.clearLines();
       }
     });
 
-    clearBallsBtn.addEventListener('click', () => {
+    clearBallsBtn.addEventListener("click", () => {
       if (window.BallFall && window.BallFall.clearBalls) {
         window.BallFall.clearBalls();
       }
     });
-  
+
     
     setInterval(updateDropRateDisplay, 1000);
   })();
-  </script>
-  
+</script>
+
 
     </body>
 </html>
