@@ -13,6 +13,12 @@ App.modules.lines = (function () {
     if (StraightLineTool && typeof StraightLineTool.cancel === "function") {
       if (mode !== "straight") StraightLineTool.cancel();
     }
+    if (
+      window.LauncherCreateTool &&
+      typeof window.LauncherCreateTool.cancel === "function"
+    ) {
+      if (mode !== "launcher") window.LauncherCreateTool.cancel();
+    }
   }
 
   function getMode() {
@@ -181,6 +187,12 @@ App.modules.lines = (function () {
       ) {
         window.CurvedLineTool.onMove(mouseX, mouseY);
       }
+    } else if (
+      mode === "launcher" &&
+      window.LauncherCreateTool &&
+      LauncherCreateTool.state === 1
+    ) {
+      window.LauncherCreateTool.onMove(mouseX, mouseY);
     }
     const line = getLineAtPoint(mouseX, mouseY);
     if (line) {
@@ -209,11 +221,16 @@ App.modules.lines = (function () {
       (mode === "straight" && StraightLineTool.state === 1) ||
       (mode === "curved" &&
         window.CurvedLineTool &&
-        window.CurvedLineTool.state !== 0)
+        window.CurvedLineTool.state !== 0) ||
+      (mode === "launcher" &&
+        window.LauncherCreateTool &&
+        LauncherCreateTool.state !== 0)
     ) {
       if (mode === "straight") StraightLineTool.cancel();
       else if (mode === "curved" && window.CurvedLineTool)
         window.CurvedLineTool.cancel();
+      else if (mode === "launcher" && window.LauncherCreateTool)
+        window.LauncherCreateTool.cancel();
       e.preventDefault();
       return;
     }
@@ -242,6 +259,13 @@ App.modules.lines = (function () {
         typeof window.CurvedLineTool.onClick === "function"
       ) {
         window.CurvedLineTool.onClick(clickX, clickY);
+      }
+    } else if (mode === "launcher") {
+      if (
+        window.LauncherCreateTool &&
+        typeof window.LauncherCreateTool.onClick === "function"
+      ) {
+        window.LauncherCreateTool.onClick(clickX, clickY);
       }
     }
   });
@@ -273,6 +297,13 @@ App.modules.lines = (function () {
         ) {
           window.CurvedLineTool.onTouchStart(touchX, touchY);
         }
+      } else if (mode === "launcher") {
+        if (
+          window.CurvedLineTool &&
+          typeof window.LauncherCreateTool.onTouchStart === "function"
+        ) {
+          window.LauncherCreateTool.onTouchStart(touchX, touchY);
+        }
       }
     }
   });
@@ -291,6 +322,13 @@ App.modules.lines = (function () {
         typeof window.CurvedLineTool.onTouchMove === "function"
       ) {
         window.CurvedLineTool.onTouchMove(touchX, touchY);
+      }
+    } else if (mode === "launcher") {
+      if (
+        window.CurvedLineTool &&
+        typeof window.LauncherCreateTool.onTouchMove === "function"
+      ) {
+        window.LauncherCreateTool.onTouchMove(touchX, touchY);
       }
     }
     if (touchStartPos) {
@@ -331,6 +369,17 @@ App.modules.lines = (function () {
           touchX = touch.pageX - window.scrollX,
           touchY = touch.pageY - window.scrollY;
         window.CurvedLineTool.onTouchEnd(touchX, touchY);
+      }
+    }
+    if (mode === "launcher") {
+      if (
+        window.LauncherCreateTool &&
+        typeof window.LauncherCreateTool.onTouchEnd === "function"
+      ) {
+        const touch = e.changedTouches[0],
+          touchX = touch.pageX - window.scrollX,
+          touchY = touch.pageY - window.scrollY;
+        window.LauncherCreateTool.onTouchEnd(touchX, touchY);
       }
     }
     if (pendingDeletionLine) {

@@ -1630,6 +1630,8 @@ table {
         <script src="/js/text.js"></script>
         <script src="/js/lines.js"></script>
         <script src="/js/curved-line.js"></script>
+        <script src="/js/launcher.js"></script>
+        <script src="/js/launcher-create.js"></script>
         
 <style>
   #ballfall-ui {
@@ -1759,6 +1761,12 @@ table {
       class="line-toggle"
       alt="Curved Line"
     />
+    <img
+      src="/images/launcher-mode.png"
+      id="toggleLauncher"
+      class="line-toggle"
+      alt="Launcher"
+    />
   </div>
 
   <div id="bfui-drop-rate-wrapper">
@@ -1769,13 +1777,14 @@ table {
 
 <script>
   (function () {
-    const incBtn = document.getElementById("increaseSpeedBtn");
-    const decBtn = document.getElementById("decreaseSpeedBtn");
-    const clearLinesBtn = document.getElementById("clearLinesBtn");
-    const clearBallsBtn = document.getElementById("clearBallsBtn");
-    const dropRateValue = document.getElementById("bfui-drop-rate-value");
-    const straightBtn = document.getElementById("toggleStraight");
-    const curvedBtn = document.getElementById("toggleCurved");
+    const incBtn = document.getElementById("increaseSpeedBtn"),
+      decBtn = document.getElementById("decreaseSpeedBtn"),
+      clearLinesBtn = document.getElementById("clearLinesBtn"),
+      clearBallsBtn = document.getElementById("clearBallsBtn"),
+      dropRateValue = document.getElementById("bfui-drop-rate-value"),
+      straightBtn = document.getElementById("toggleStraight"),
+      curvedBtn = document.getElementById("toggleCurved"),
+      launcherBtn = document.getElementById("toggleLauncher");
 
     function updateDropRateDisplay() {
       if (!window.BallFall) return;
@@ -1819,19 +1828,13 @@ table {
     });
 
     function setActive(mode) {
-      if (mode === "straight") {
-        straightBtn.classList.add("selected");
-        curvedBtn.classList.remove("selected");
-      } else if (mode === "curved") {
-        curvedBtn.classList.add("selected");
-        straightBtn.classList.remove("selected");
-      } else {
-        straightBtn.classList.remove("selected");
-        curvedBtn.classList.remove("selected");
-      }
-      if (window.App.modules.lines) {
-        window.App.modules.lines.setMode(mode);
-      }
+      [straightBtn, curvedBtn, launcherBtn].forEach((btn) =>
+        btn.classList.remove("selected")
+      );
+      if (mode === "straight") straightBtn.classList.add("selected");
+      else if (mode === "curved") curvedBtn.classList.add("selected");
+      else if (mode === "launcher") launcherBtn.classList.add("selected");
+      if (window.App.modules.lines) window.App.modules.lines.setMode(mode);
     }
 
     straightBtn.addEventListener("click", (e) => {
@@ -1844,6 +1847,12 @@ table {
       e.stopPropagation();
       setActive(
         window.App.modules.lines.getMode() === "curved" ? "none" : "curved"
+      );
+    });
+    launcherBtn.addEventListener("click", (e) => {
+      e.stopPropagation();
+      setActive(
+        window.App.modules.lines.getMode() === "launcher" ? "none" : "launcher"
       );
     });
 
