@@ -156,20 +156,32 @@ App.modules.lines = (function () {
     const timeFactor = Date.now() / 200;
     const t = (Math.sin(timeFactor) + 1) / 2;
     if (hoveredLine) {
-      let r = Math.round(149 + (255 - 149) * t);
-      let g = Math.round(110 * (1 - t));
-      let b = Math.round(255 * (1 - t));
-      let color = `rgb(${r},${g},${b})`;
-      hoveredLine.render.fillStyle = color;
-      hoveredLine.render.strokeStyle = color;
+      if (hoveredLine.label === "Launcher" && hoveredLine.render.sprite) {
+        // Pulse the sprite’s opacity between 0.6 and 1
+        hoveredLine.render.sprite.opacity = 0.6 + 0.4 * t;
+      } else {
+        let r = Math.round(149 + (255 - 149) * t);
+        let g = Math.round(110 * (1 - t));
+        let b = Math.round(255 * (1 - t));
+        let color = `rgb(${r},${g},${b})`;
+        hoveredLine.render.fillStyle = color;
+        hoveredLine.render.strokeStyle = color;
+      }
     }
     if (pendingDeletionLine && pendingDeletionLine !== hoveredLine) {
-      let r = Math.round(149 + (255 - 149) * t);
-      let g = Math.round(110 * (1 - t));
-      let b = Math.round(255 * (1 - t));
-      let color = `rgb(${r},${g},${b})`;
-      pendingDeletionLine.render.fillStyle = color;
-      pendingDeletionLine.render.strokeStyle = color;
+      if (
+        pendingDeletionLine.label === "Launcher" &&
+        pendingDeletionLine.render.sprite
+      ) {
+        pendingDeletionLine.render.sprite.opacity = 0.6 + 0.4 * t;
+      } else {
+        let r = Math.round(149 + (255 - 149) * t);
+        let g = Math.round(110 * (1 - t));
+        let b = Math.round(255 * (1 - t));
+        let color = `rgb(${r},${g},${b})`;
+        pendingDeletionLine.render.fillStyle = color;
+        pendingDeletionLine.render.strokeStyle = color;
+      }
     }
     requestAnimationFrame(updatePulse);
   }

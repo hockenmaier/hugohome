@@ -1,3 +1,4 @@
+/* static/js/launcher.js */
 App.modules.launcher = (function () {
   function handleCollision(event) {
     event.pairs.forEach((pair) => {
@@ -16,15 +17,18 @@ App.modules.launcher = (function () {
         ball = pair.bodyA;
       }
       if (launcher && ball && launcher.launchForce && !launcher.isPreview) {
-        if (!ball.hasLaunched) {
-          ball.hasLaunched = true;
-          // Suck ball into launcher center
+        // Instead of permanently marking the ball as launched,
+        // use a short cooldown so that every launcher can launch the ball.
+        const now = Date.now();
+        if (!ball.lastLaunched || now - ball.lastLaunched > 300) {
+          ball.lastLaunched = now;
+          // Suck the ball into the launcher’s center
           Matter.Body.setPosition(ball, {
             x: launcher.position.x,
             y: launcher.position.y,
           });
           Matter.Body.setVelocity(ball, { x: 0, y: 0 });
-          // After 200ms, launch the ball
+          // After 100ms, launch the ball using the launcher's force
           setTimeout(() => {
             Matter.Body.setVelocity(ball, {
               x: launcher.launchForce.x,

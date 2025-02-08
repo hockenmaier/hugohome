@@ -103,6 +103,12 @@ window.LauncherCreateTool = {
     if (this.launcherPreview.render && this.launcherPreview.render.sprite) {
       this.launcherPreview.render.opacity = 1;
     }
+    // Add the finished launcher to the lines list so it remains permanent
+    if (App.modules.lines && typeof App.modules.lines.addLine === "function") {
+      App.modules.lines.addLine(this.launcherPreview);
+    }
+    // Clear the preview reference so it isn’t removed later on mode change
+    this.launcherPreview = null;
     this.state = 0;
     this.startPoint = null;
   },
