@@ -2,8 +2,9 @@ window.CurvedLineTool = {
   state: 0, // 0: waiting for start, 1: waiting for end, 2: waiting for control
   startPoint: null,
   endPoint: null,
-  previewCurve: null,
-  // Desktop methods (using clicks)
+  previewCompound: null,
+
+  // Desktop click-based methods
   onClick(x, y) {
     if (this.state === 0) {
       this.startPoint = { x, y };
@@ -15,25 +16,29 @@ window.CurvedLineTool = {
       this.finish(x, y);
     }
   },
+
   onMove(x, y) {
     if (this.state === 0) return;
     if (this.state === 1) {
-      if (this.previewCurve) {
-        Matter.World.remove(window.BallFall.world, this.previewCurve);
-        this.previewCurve = null;
+      // Show a straight-line preview (as a rectangle) between startPoint and current pointer.
+      if (this.previewCompound) {
+        Matter.World.remove(window.BallFall.world, this.previewCompound);
+        this.previewCompound = null;
       }
       const dx = x - this.startPoint.x,
         dy = y - this.startPoint.y,
         midX = (this.startPoint.x + x) / 2,
-        midY = (this.startPoint.y + y) / 2;
-      this.previewCurve = Matter.Bodies.rectangle(
+        midY = (this.startPoint.y + y) / 2,
+        angle = Math.atan2(dy, dx),
+        length = Math.sqrt(dx * dx + dy * dy);
+      this.previewCompound = Matter.Bodies.rectangle(
         midX,
         midY,
-        Math.sqrt(dx * dx + dy * dy),
-        App.config.lineThickness,
+        length,
+        App.config.lineThickness * 1.05,
         {
           isStatic: true,
-          angle: Math.atan2(dy, dx),
+          angle: angle,
           render: {
             fillStyle: "rgba(149,110,255,0.5)",
             strokeStyle: "rgba(149,110,255,0.5)",
@@ -41,165 +46,81 @@ window.CurvedLineTool = {
           },
         }
       );
-      Matter.World.add(window.BallFall.world, this.previewCurve);
+      Matter.World.add(window.BallFall.world, this.previewCompound);
     } else if (this.state === 2) {
-      if (this.previewCurve) {
-        Matter.World.remove(window.BallFall.world, this.previewCurve);
-        this.previewCurve = null;
+      // In control phase, use current pointer as the control point and preview a compound curved body.
+      if (this.previewCompound) {
+        Matter.World.remove(window.BallFall.world, this.previewCompound);
+        this.previewCompound = null;
       }
-      const control = { x, y },
-        polygon = generateCurvePolygon(
-          this.startPoint,
-          control,
-          this.endPoint,
-          20,
-          App.config.lineThickness
-        ),
-        centroid = computeCentroid(polygon),
-        localVertices = polygon.map((v) => ({
-          x: v.x - centroid.x,
-          y: v.y - centroid.y,
-        }));
-      this.previewCurve = Matter.Bodies.fromVertices(
-        centroid.x,
-        centroid.y,
-        [localVertices],
-        {
-          isStatic: true,
-          render: {
-            fillStyle: "rgba(149,110,255,0.5)",
-            strokeStyle: "rgba(149,110,255,0.5)",
-            lineWidth: 1,
-          },
-        },
-        true
-      );
-      Matter.World.add(window.BallFall.world, this.previewCurve);
-    }
-  },
-  finish(controlX, controlY) {
-    if (this.previewCurve) {
-      Matter.World.remove(window.BallFall.world, this.previewCurve);
-      this.previewCurve = null;
-    }
-    const control = { x: controlX, y: controlY },
-      polygon = generateCurvePolygon(
+      // The current pointer (x,y) serves as the control point.
+      this.previewCompound = generateCurveCompoundBody(
         this.startPoint,
-        control,
+        { x, y },
         this.endPoint,
-        20,
-        App.config.lineThickness
-      ),
-      centroid = computeCentroid(polygon),
-      localVertices = polygon.map((v) => ({
-        x: v.x - centroid.x,
-        y: v.y - centroid.y,
-      })),
-      curveBody = Matter.Bodies.fromVertices(
-        centroid.x,
-        centroid.y,
-        [localVertices],
+        App.config.curvedLineFidelity,
+        App.config.lineThickness * 1.05,
         {
-          isStatic: true,
-          render: {
-            fillStyle: "#956eff",
-            strokeStyle: "#956eff",
-            lineWidth: 1,
-          },
-        },
-        true
+          fillStyle: "rgba(149,110,255,0.5)",
+          strokeStyle: "rgba(149,110,255,0.5)",
+          lineWidth: 1,
+        }
       );
-    Matter.World.add(window.BallFall.world, curveBody);
+      Matter.World.add(window.BallFall.world, this.previewCompound);
+    }
+  },
+
+  finish(controlX, controlY) {
+    if (this.previewCompound) {
+      Matter.World.remove(window.BallFall.world, this.previewCompound);
+      this.previewCompound = null;
+    }
+    // Use the final control point provided at finish.
+    const compound = generateCurveCompoundBody(
+      this.startPoint,
+      { x: controlX, y: controlY },
+      this.endPoint,
+      20,
+      App.config.lineThickness * 1.05,
+      {
+        fillStyle: "#956eff",
+        strokeStyle: "#956eff",
+        lineWidth: 1,
+      }
+    );
+    Matter.World.add(window.BallFall.world, compound);
     if (window.App.modules.lines && window.App.modules.lines.addLine)
-      window.App.modules.lines.addLine(curveBody);
+      window.App.modules.lines.addLine(compound);
     this.state = 0;
     this.startPoint = null;
     this.endPoint = null;
   },
+
   cancel() {
-    if (this.previewCurve) {
-      Matter.World.remove(window.BallFall.world, this.previewCurve);
-      this.previewCurve = null;
+    if (this.previewCompound) {
+      Matter.World.remove(window.BallFall.world, this.previewCompound);
+      this.previewCompound = null;
     }
     this.state = 0;
     this.startPoint = null;
     this.endPoint = null;
   },
-  // Mobile methods (using touch sequences)
+
+  // Mobile touch methods mirror desktop behavior.
   onTouchStart(x, y) {
     if (this.state === 0) {
       this.startPoint = { x, y };
       this.state = 1;
-    } else if (this.state === 2) {
-      // In control phase; onTouchMove will update preview.
     }
   },
   onTouchMove(x, y) {
-    if (this.state === 1) {
-      if (this.previewCurve) {
-        Matter.World.remove(window.BallFall.world, this.previewCurve);
-        this.previewCurve = null;
-      }
-      const dx = x - this.startPoint.x,
-        dy = y - this.startPoint.y,
-        midX = (this.startPoint.x + x) / 2,
-        midY = (this.startPoint.y + y) / 2;
-      this.previewCurve = Matter.Bodies.rectangle(
-        midX,
-        midY,
-        Math.sqrt(dx * dx + dy * dy),
-        App.config.lineThickness,
-        {
-          isStatic: true,
-          angle: Math.atan2(dy, dx),
-          render: {
-            fillStyle: "rgba(149,110,255,0.5)",
-            strokeStyle: "rgba(149,110,255,0.5)",
-            lineWidth: 1,
-          },
-        }
-      );
-      Matter.World.add(window.BallFall.world, this.previewCurve);
-    } else if (this.state === 2) {
-      if (this.previewCurve) {
-        Matter.World.remove(window.BallFall.world, this.previewCurve);
-        this.previewCurve = null;
-      }
-      const control = { x, y },
-        polygon = generateCurvePolygon(
-          this.startPoint,
-          control,
-          this.endPoint,
-          20,
-          App.config.lineThickness
-        ),
-        centroid = computeCentroid(polygon),
-        localVertices = polygon.map((v) => ({
-          x: v.x - centroid.x,
-          y: v.y - centroid.y,
-        }));
-      this.previewCurve = Matter.Bodies.fromVertices(
-        centroid.x,
-        centroid.y,
-        [localVertices],
-        {
-          isStatic: true,
-          render: {
-            fillStyle: "rgba(149,110,255,0.5)",
-            strokeStyle: "rgba(149,110,255,0.5)",
-            lineWidth: 1,
-          },
-        },
-        true
-      );
-      Matter.World.add(window.BallFall.world, this.previewCurve);
-    }
+    this.onMove(x, y);
   },
   onTouchEnd(x, y) {
     if (this.state === 1) {
-      if (this.previewCurve) {
-        Matter.World.remove(window.BallFall.world, this.previewCurve);
-        this.previewCurve = null;
+      if (this.previewCompound) {
+        Matter.World.remove(window.BallFall.world, this.previewCompound);
+        this.previewCompound = null;
       }
       this.endPoint = { x, y };
       this.state = 2;
@@ -209,6 +130,9 @@ window.CurvedLineTool = {
   },
 };
 
+// --- Helper functions ---
+
+// Compute a point on a quadratic Bezier for a given t.
 function quadraticBezier(points, t) {
   const [p0, p1, p2] = points;
   return {
@@ -217,58 +141,37 @@ function quadraticBezier(points, t) {
   };
 }
 
-function generateCurvePolygon(p0, p1, p2, numSegments, thickness) {
-  const centerPoints = [];
-  for (let i = 0; i <= numSegments; i++) {
+// Generate a compound body approximating a curved stroke by splitting the Bezier curve into segments.
+// Each segment is rendered as a small rectangle, and the compound body is the union of these parts.
+function generateCurveCompoundBody(
+  p0,
+  control,
+  p2,
+  numSegments,
+  thickness,
+  renderOptions
+) {
+  const parts = [];
+  let prevPt = quadraticBezier([p0, control, p2], 0);
+  for (let i = 1; i <= numSegments; i++) {
     const t = i / numSegments;
-    centerPoints.push(quadraticBezier([p0, p1, p2], t));
-  }
-  const upper = [];
-  const lower = [];
-  for (let i = 0; i < centerPoints.length; i++) {
-    const pt = centerPoints[i];
-    let tangent;
-    if (i === 0) {
-      tangent = {
-        x: centerPoints[i + 1].x - pt.x,
-        y: centerPoints[i + 1].y - pt.y,
-      };
-    } else if (i === centerPoints.length - 1) {
-      tangent = {
-        x: pt.x - centerPoints[i - 1].x,
-        y: pt.y - centerPoints[i - 1].y,
-      };
-    } else {
-      tangent = {
-        x: centerPoints[i + 1].x - centerPoints[i - 1].x,
-        y: centerPoints[i + 1].y - centerPoints[i - 1].y,
-      };
-    }
-    const len = Math.sqrt(tangent.x * tangent.x + tangent.y * tangent.y);
-    if (len !== 0) {
-      tangent.x /= len;
-      tangent.y /= len;
-    }
-    const normal = { x: -tangent.y, y: tangent.x };
-    upper.push({
-      x: pt.x + (normal.x * thickness) / 2,
-      y: pt.y + (normal.y * thickness) / 2,
+    const pt = quadraticBezier([p0, control, p2], t);
+    const mid = { x: (prevPt.x + pt.x) / 2, y: (prevPt.y + pt.y) / 2 };
+    const dx = pt.x - prevPt.x;
+    const dy = pt.y - prevPt.y;
+    const length = Math.sqrt(dx * dx + dy * dy);
+    const angle = Math.atan2(dy, dx);
+    const segment = Matter.Bodies.rectangle(mid.x, mid.y, length, thickness, {
+      isStatic: true,
+      angle: angle,
+      render: renderOptions,
     });
-    lower.push({
-      x: pt.x - (normal.x * thickness) / 2,
-      y: pt.y - (normal.y * thickness) / 2,
-    });
+    parts.push(segment);
+    prevPt = pt;
   }
-  return upper.concat(lower.reverse());
-}
-
-function computeCentroid(vertices) {
-  const centroid = { x: 0, y: 0 };
-  vertices.forEach((v) => {
-    centroid.x += v.x;
-    centroid.y += v.y;
+  return Matter.Body.create({
+    parts: parts,
+    isStatic: true,
+    render: renderOptions,
   });
-  centroid.x /= vertices.length;
-  centroid.y /= vertices.length;
-  return centroid;
 }

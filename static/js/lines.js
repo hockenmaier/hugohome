@@ -14,20 +14,27 @@ App.modules.lines = (function () {
       if (mode !== "straight") StraightLineTool.cancel();
     }
   }
+
   function getMode() {
     return mode;
   }
+
   function addLine(body) {
+    body.isLine = true;
     linesList.push(body);
   }
+
   function clearLines() {
     if (!window.BallFall || !window.BallFall.world) return;
-    linesList.forEach((body) =>
-      Matter.World.remove(window.BallFall.world, body)
-    );
-    linesList = [];
+    const allBodies = Matter.Composite.allBodies(window.BallFall.world);
+    allBodies.forEach((body) => {
+      if (body.isLine) {
+        Matter.World.remove(window.BallFall.world, body);
+      }
+    });
+    linesList.length = 0;
   }
-  // Also attach clearLines on BallFall for UI access.
+
   if (window.BallFall) {
     window.BallFall.clearLines = clearLines;
   }

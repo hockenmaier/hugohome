@@ -7,7 +7,8 @@ window.App = {
     spawnX: 1.2, //Represents the x axis spawn point of balls where 1/spawnX is the fraction of the screen
     ballSize: 7,
 
-    lineThickness: 3,
+    lineThickness: 3, //All line types share this
+    curvedLineFidelity: 50, //How many sections of the "tube" that is the curved line
     lineDeleteMobileHold: 1200, //Time delay for press and hold to delete on mobile
   },
   modules: {},
