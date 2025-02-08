@@ -1,6 +1,7 @@
 App.modules.lines = (function () {
   let linesList = [];
-  let mode = "straight"; // "straight", "curved", "none"
+  // mode can be "straight", "curved", "launcher", or "none"
+  let mode = "straight";
 
   function setMode(newMode) {
     mode = newMode;
@@ -15,9 +16,9 @@ App.modules.lines = (function () {
     }
     if (
       window.LauncherCreateTool &&
-      typeof window.LauncherCreateTool.cancel === "function"
+      typeof LauncherCreateTool.cancel === "function"
     ) {
-      if (mode !== "launcher") window.LauncherCreateTool.cancel();
+      if (mode !== "launcher") LauncherCreateTool.cancel();
     }
   }
 
@@ -192,7 +193,7 @@ App.modules.lines = (function () {
       window.LauncherCreateTool &&
       LauncherCreateTool.state === 1
     ) {
-      window.LauncherCreateTool.onMove(mouseX, mouseY);
+      LauncherCreateTool.onMove(mouseX, mouseY);
     }
     const line = getLineAtPoint(mouseX, mouseY);
     if (line) {
@@ -230,7 +231,7 @@ App.modules.lines = (function () {
       else if (mode === "curved" && window.CurvedLineTool)
         window.CurvedLineTool.cancel();
       else if (mode === "launcher" && window.LauncherCreateTool)
-        window.LauncherCreateTool.cancel();
+        LauncherCreateTool.cancel();
       e.preventDefault();
       return;
     }
@@ -299,10 +300,10 @@ App.modules.lines = (function () {
         }
       } else if (mode === "launcher") {
         if (
-          window.CurvedLineTool &&
-          typeof window.LauncherCreateTool.onTouchStart === "function"
+          window.LauncherCreateTool &&
+          typeof LauncherCreateTool.onTouchStart === "function"
         ) {
-          window.LauncherCreateTool.onTouchStart(touchX, touchY);
+          LauncherCreateTool.onTouchStart(touchX, touchY);
         }
       }
     }
@@ -325,10 +326,10 @@ App.modules.lines = (function () {
       }
     } else if (mode === "launcher") {
       if (
-        window.CurvedLineTool &&
-        typeof window.LauncherCreateTool.onTouchMove === "function"
+        window.LauncherCreateTool &&
+        typeof LauncherCreateTool.onTouchMove === "function"
       ) {
-        window.LauncherCreateTool.onTouchMove(touchX, touchY);
+        LauncherCreateTool.onTouchMove(touchX, touchY);
       }
     }
     if (touchStartPos) {
@@ -374,12 +375,12 @@ App.modules.lines = (function () {
     if (mode === "launcher") {
       if (
         window.LauncherCreateTool &&
-        typeof window.LauncherCreateTool.onTouchEnd === "function"
+        typeof LauncherCreateTool.onTouchEnd === "function"
       ) {
         const touch = e.changedTouches[0],
           touchX = touch.pageX - window.scrollX,
           touchY = touch.pageY - window.scrollY;
-        window.LauncherCreateTool.onTouchEnd(touchX, touchY);
+        LauncherCreateTool.onTouchEnd(touchX, touchY);
       }
     }
     if (pendingDeletionLine) {

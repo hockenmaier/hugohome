@@ -16,10 +16,17 @@ App.modules.launcher = (function () {
         ball = pair.bodyA;
       }
       if (launcher && ball && launcher.launchForce && !launcher.isPreview) {
-        // Apply force only once per ball per launcher.
-        if (ball.launchedBy !== launcher.id) {
-          Matter.Body.applyForce(ball, ball.position, launcher.launchForce);
-          ball.launchedBy = launcher.id;
+        // Use setVelocity for an immediate impulse.
+        if (!ball.hasLaunched) {
+          console.log(
+            "Launcher collision: setting velocity",
+            launcher.launchForce
+          );
+          Matter.Body.setVelocity(ball, {
+            x: launcher.launchForce.x,
+            y: launcher.launchForce.y,
+          });
+          ball.hasLaunched = true;
         }
       }
     });

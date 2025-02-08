@@ -22,6 +22,7 @@ window.App = {
 
 function initApp() {
   App.init();
+  if (App.modules.launcher) App.modules.launcher.init();
 }
 
 if (document.readyState === "loading") {

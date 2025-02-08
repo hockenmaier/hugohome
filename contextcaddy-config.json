@@ -6,9 +6,9 @@
         "g:\\projects\\hugohome\\static\\js\\ball-machine-app.js": true,
         "g:\\projects\\hugohome\\static\\js\\base-simulation.js": true,
         "g:\\projects\\hugohome\\static\\js\\lines.js": true,
-        "g:\\projects\\hugohome\\static\\js\\text.js": true,
         "g:\\projects\\hugohome\\layouts\\partials\\ball-machine-ui.html": true,
-        "g:\\projects\\hugohome\\static\\js\\curved-line.js": true
+        "g:\\projects\\hugohome\\static\\js\\launcher.js": true,
+        "g:\\projects\\hugohome\\static\\js\\launcher-create.js": true
       },
       "prePrompt": "This is part of a little fun physics simulation game that runs on top of my hugo cms personal website, which runs the paige theme.  Baseof is how the files are inserted into the rest of the site. When giving back changes, it's best when reasonable to return a whole file to replace.  If not, choose an entire code block like a few consecutive methods wherever possible for easy replacement. Here are most of the relevant files, but let me know if you need more context:",
       "includeFileTree": true
