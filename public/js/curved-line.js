@@ -1,41 +1,82 @@
-window.CurvedLineTool = {
-  state: 0, // 0: waiting for start, 1: waiting for end, 2: waiting for control
-  startPoint: null,
-  endPoint: null,
-  previewCompound: null,
+// static/js/lines.js
+App.modules.lines = (function () {
+  // mode can be "straight", "curved", "launcher", or "none"
+  let mode = "straight";
 
-  // Desktop click-based methods
-  onClick(x, y) {
-    if (this.state === 0) {
-      this.startPoint = { x, y };
-      this.state = 1;
-    } else if (this.state === 1) {
-      this.endPoint = { x, y };
-      this.state = 2;
-    } else if (this.state === 2) {
-      this.finish(x, y);
+  function setMode(newMode) {
+    mode = newMode;
+    if (
+      window.CurvedLineTool &&
+      typeof window.CurvedLineTool.cancel === "function"
+    ) {
+      if (mode !== "curved") window.CurvedLineTool.cancel();
     }
-  },
+    if (StraightLineTool && typeof StraightLineTool.cancel === "function") {
+      if (mode !== "straight") StraightLineTool.cancel();
+    }
+    if (
+      window.LauncherCreateTool &&
+      typeof LauncherCreateTool.cancel === "function"
+    ) {
+      if (mode !== "launcher") LauncherCreateTool.cancel();
+    }
+  }
 
-  onMove(x, y) {
-    if (this.state === 0) return;
-    if (this.state === 1) {
-      // Show a straight-line preview (as a rectangle) between startPoint and current pointer.
-      if (this.previewCompound) {
-        Matter.World.remove(window.BallFall.world, this.previewCompound);
-        this.previewCompound = null;
+  function getMode() {
+    return mode;
+  }
+
+  // Instead of maintaining a separate list, simply mark bodies as lines.
+  function addLine(body) {
+    body.isLine = true;
+  }
+
+  function clearLines() {
+    if (!window.BallFall || !window.BallFall.world) return;
+    const allBodies = Matter.Composite.allBodies(window.BallFall.world);
+    allBodies.forEach((body) => {
+      if (body.isLine) {
+        Matter.World.remove(window.BallFall.world, body);
       }
-      const dx = x - this.startPoint.x,
-        dy = y - this.startPoint.y,
-        midX = (this.startPoint.x + x) / 2,
-        midY = (this.startPoint.y + y) / 2,
+    });
+  }
+
+  if (window.BallFall) {
+    window.BallFall.clearLines = clearLines;
+  }
+
+  const StraightLineTool = {
+    state: 0, // 0: waiting for start, 1: waiting for end
+    firstPoint: null,
+    previewLine: null,
+    onClick(x, y) {
+      if (this.state === 0) {
+        this.firstPoint = { x, y };
+        this.state = 1;
+      } else if (this.state === 1) {
+        this.finish(x, y);
+      }
+    },
+    onMove(x, y) {
+      if (this.state !== 1) return;
+      this.updatePreview(x, y);
+    },
+    updatePreview(x, y) {
+      if (this.previewLine) {
+        Matter.World.remove(window.BallFall.world, this.previewLine);
+        this.previewLine = null;
+      }
+      const dx = x - this.firstPoint.x,
+        dy = y - this.firstPoint.y,
+        length = Math.sqrt(dx * dx + dy * dy),
         angle = Math.atan2(dy, dx),
-        length = Math.sqrt(dx * dx + dy * dy);
-      this.previewCompound = Matter.Bodies.rectangle(
+        midX = (this.firstPoint.x + x) / 2,
+        midY = (this.firstPoint.y + y) / 2;
+      this.previewLine = Matter.Bodies.rectangle(
         midX,
         midY,
         length,
-        App.config.lineThickness * 1.05,
+        App.config.lineThickness,
         {
           isStatic: true,
           angle: angle,
@@ -46,132 +87,341 @@ window.CurvedLineTool = {
           },
         }
       );
-      Matter.World.add(window.BallFall.world, this.previewCompound);
-    } else if (this.state === 2) {
-      // In control phase, use current pointer as the control point and preview a compound curved body.
-      if (this.previewCompound) {
-        Matter.World.remove(window.BallFall.world, this.previewCompound);
-        this.previewCompound = null;
+      Matter.World.add(window.BallFall.world, this.previewLine);
+    },
+    finish(x, y) {
+      if (this.previewLine) {
+        Matter.World.remove(window.BallFall.world, this.previewLine);
+        this.previewLine = null;
       }
-      // The current pointer (x,y) serves as the control point.
-      this.previewCompound = generateCurveCompoundBody(
-        this.startPoint,
-        { x, y },
-        this.endPoint,
-        App.config.curvedLineFidelity,
-        App.config.lineThickness * 1.05,
+      const dx = x - this.firstPoint.x,
+        dy = y - this.firstPoint.y,
+        length = Math.sqrt(dx * dx + dy * dy),
+        angle = Math.atan2(dy, dx),
+        midX = (this.firstPoint.x + x) / 2,
+        midY = (this.firstPoint.y + y) / 2;
+      const lineBody = Matter.Bodies.rectangle(
+        midX,
+        midY,
+        length,
+        App.config.lineThickness,
         {
-          fillStyle: "rgba(149,110,255,0.5)",
-          strokeStyle: "rgba(149,110,255,0.5)",
-          lineWidth: 1,
+          isStatic: true,
+          angle: angle,
+          render: {
+            fillStyle: "#956eff",
+            strokeStyle: "#956eff",
+            lineWidth: 1,
+          },
         }
       );
-      Matter.World.add(window.BallFall.world, this.previewCompound);
-    }
-  },
-
-  finish(controlX, controlY) {
-    if (this.previewCompound) {
-      Matter.World.remove(window.BallFall.world, this.previewCompound);
-      this.previewCompound = null;
-    }
-    // Use the final control point provided at finish.
-    const compound = generateCurveCompoundBody(
-      this.startPoint,
-      { x: controlX, y: controlY },
-      this.endPoint,
-      20,
-      App.config.lineThickness * 1.05,
-      {
-        fillStyle: "#956eff",
-        strokeStyle: "#956eff",
-        lineWidth: 1,
+      Matter.World.add(window.BallFall.world, lineBody);
+      addLine(lineBody);
+      this.state = 0;
+      this.firstPoint = null;
+    },
+    cancel() {
+      if (this.previewLine) {
+        Matter.World.remove(window.BallFall.world, this.previewLine);
+        this.previewLine = null;
       }
-    );
-    Matter.World.add(window.BallFall.world, compound);
-    if (window.App.modules.lines && window.App.modules.lines.addLine)
-      window.App.modules.lines.addLine(compound);
-    this.state = 0;
-    this.startPoint = null;
-    this.endPoint = null;
-  },
-
-  cancel() {
-    if (this.previewCompound) {
-      Matter.World.remove(window.BallFall.world, this.previewCompound);
-      this.previewCompound = null;
-    }
-    this.state = 0;
-    this.startPoint = null;
-    this.endPoint = null;
-  },
-
-  // Mobile touch methods mirror desktop behavior.
-  onTouchStart(x, y) {
-    if (this.state === 0) {
-      this.startPoint = { x, y };
-      this.state = 1;
-    }
-  },
-  onTouchMove(x, y) {
-    this.onMove(x, y);
-  },
-  onTouchEnd(x, y) {
-    if (this.state === 1) {
-      if (this.previewCompound) {
-        Matter.World.remove(window.BallFall.world, this.previewCompound);
-        this.previewCompound = null;
-      }
-      this.endPoint = { x, y };
-      this.state = 2;
-    } else if (this.state === 2) {
+      this.state = 0;
+      this.firstPoint = null;
+    },
+    onTouchStart(x, y) {
+      this.onClick(x, y);
+    },
+    onTouchMove(x, y) {
+      this.onMove(x, y);
+    },
+    onTouchEnd(x, y) {
       this.finish(x, y);
-    }
-  },
-};
-
-// --- Helper functions ---
-
-// Compute a point on a quadratic Bezier for a given t.
-function quadraticBezier(points, t) {
-  const [p0, p1, p2] = points;
-  return {
-    x: (1 - t) * (1 - t) * p0.x + 2 * (1 - t) * t * p1.x + t * t * p2.x,
-    y: (1 - t) * (1 - t) * p0.y + 2 * (1 - t) * t * p1.y + t * t * p2.y,
+    },
   };
-}
 
-// Generate a compound body approximating a curved stroke by splitting the Bezier curve into segments.
-// Each segment is rendered as a small rectangle, and the compound body is the union of these parts.
-function generateCurveCompoundBody(
-  p0,
-  control,
-  p2,
-  numSegments,
-  thickness,
-  renderOptions
-) {
-  const parts = [];
-  let prevPt = quadraticBezier([p0, control, p2], 0);
-  for (let i = 1; i <= numSegments; i++) {
-    const t = i / numSegments;
-    const pt = quadraticBezier([p0, control, p2], t);
-    const mid = { x: (prevPt.x + pt.x) / 2, y: (prevPt.y + pt.y) / 2 };
-    const dx = pt.x - prevPt.x;
-    const dy = pt.y - prevPt.y;
-    const length = Math.sqrt(dx * dx + dy * dy);
-    const angle = Math.atan2(dy, dx);
-    const segment = Matter.Bodies.rectangle(mid.x, mid.y, length, thickness, {
-      isStatic: true,
-      angle: angle,
-      render: renderOptions,
-    });
-    parts.push(segment);
-    prevPt = pt;
+  function getLineAtPoint(x, y) {
+    const point = { x, y };
+    // Scan all bodies in the world for those flagged as lines.
+    const bodies = Matter.Composite.allBodies(window.BallFall.world);
+    for (let body of bodies) {
+      if (body.isLine) {
+        if (body.parts && body.parts.length > 1) {
+          // Skip the parent hull and check each part.
+          for (let i = 1; i < body.parts.length; i++) {
+            if (Matter.Vertices.contains(body.parts[i].vertices, point)) {
+              return body;
+            }
+          }
+        } else {
+          if (Matter.Vertices.contains(body.vertices, point)) {
+            return body;
+          }
+        }
+      }
+    }
+    return null;
   }
-  return Matter.Body.create({
-    parts: parts,
-    isStatic: true,
-    render: renderOptions,
+
+  let hoveredLine = null;
+  let pendingDeletionLine = null;
+  let deletionTimer = null;
+  let touchStartPos = null;
+
+  function updatePulse() {
+    const timeFactor = Date.now() / 200;
+    const t = (Math.sin(timeFactor) + 1) / 2;
+    const color = `rgb(${Math.round(149 + (255 - 149) * t)},${Math.round(
+      110 * (1 - t)
+    )},${Math.round(255 * (1 - t))})`;
+
+    function applyPulse(body) {
+      if (body.label === "Launcher" && body.render && body.render.sprite) {
+        body.render.sprite.opacity = 0.6 + 0.4 * t;
+      } else if (body.parts && body.parts.length > 1) {
+        for (let i = 1; i < body.parts.length; i++) {
+          body.parts[i].render.fillStyle = color;
+          body.parts[i].render.strokeStyle = color;
+        }
+      } else {
+        body.render.fillStyle = color;
+        body.render.strokeStyle = color;
+      }
+    }
+    if (hoveredLine) applyPulse(hoveredLine);
+    if (pendingDeletionLine && pendingDeletionLine !== hoveredLine) {
+      applyPulse(pendingDeletionLine);
+    }
+    requestAnimationFrame(updatePulse);
+  }
+  updatePulse();
+
+  // Desktop mouse events
+  document.addEventListener("mousemove", (e) => {
+    const mouseX = e.pageX - window.scrollX,
+      mouseY = e.pageY - window.scrollY;
+    if (mode === "straight" && StraightLineTool.state === 1) {
+      StraightLineTool.onMove(mouseX, mouseY);
+    } else if (mode === "curved") {
+      if (
+        window.CurvedLineTool &&
+        typeof window.CurvedLineTool.onMove === "function"
+      ) {
+        window.CurvedLineTool.onMove(mouseX, mouseY);
+      }
+    } else if (
+      mode === "launcher" &&
+      window.LauncherCreateTool &&
+      LauncherCreateTool.state === 1
+    ) {
+      LauncherCreateTool.onMove(mouseX, mouseY);
+    }
+    const line = getLineAtPoint(mouseX, mouseY);
+    if (line) {
+      if (hoveredLine !== line) {
+        if (hoveredLine) {
+          hoveredLine.render.fillStyle = "#956eff";
+          hoveredLine.render.strokeStyle = "#956eff";
+        }
+        hoveredLine = line;
+      }
+      document.body.style.cursor = "pointer";
+    } else {
+      if (hoveredLine) {
+        hoveredLine.render.fillStyle = "#956eff";
+        hoveredLine.render.strokeStyle = "#956eff";
+        hoveredLine = null;
+      }
+      document.body.style.cursor = "";
+    }
   });
-}
+
+  document.addEventListener("contextmenu", (e) => {
+    const mouseX = e.pageX - window.scrollX,
+      mouseY = e.pageY - window.scrollY;
+    if (
+      (mode === "straight" && StraightLineTool.state === 1) ||
+      (mode === "curved" &&
+        window.CurvedLineTool &&
+        window.CurvedLineTool.state !== 0) ||
+      (mode === "launcher" &&
+        window.LauncherCreateTool &&
+        LauncherCreateTool.state !== 0)
+    ) {
+      if (mode === "straight") StraightLineTool.cancel();
+      else if (mode === "curved" && window.CurvedLineTool)
+        window.CurvedLineTool.cancel();
+      else if (mode === "launcher" && window.LauncherCreateTool)
+        LauncherCreateTool.cancel();
+      e.preventDefault();
+      return;
+    }
+    const line = getLineAtPoint(mouseX, mouseY);
+    if (line) {
+      Matter.World.remove(window.BallFall.world, line);
+      e.preventDefault();
+    }
+  });
+
+  // Desktop click events (ignore on mobile)
+  document.addEventListener("click", (e) => {
+    if (window.matchMedia && window.matchMedia("(pointer: coarse)").matches)
+      return;
+    if (e.target.closest("a, button, input, textarea, select, label")) return;
+    if (mode === "none") return;
+    const clickX = e.pageX - window.scrollX,
+      clickY = e.pageY - window.scrollY;
+    if (mode === "straight") {
+      StraightLineTool.onClick(clickX, clickY);
+    } else if (mode === "curved") {
+      if (
+        window.CurvedLineTool &&
+        typeof window.CurvedLineTool.onClick === "function"
+      ) {
+        window.CurvedLineTool.onClick(clickX, clickY);
+      }
+    } else if (mode === "launcher") {
+      if (
+        window.LauncherCreateTool &&
+        typeof LauncherCreateTool.onClick === "function"
+      ) {
+        window.LauncherCreateTool.onClick(clickX, clickY);
+      }
+    }
+  });
+
+  // Mobile touch events
+  document.addEventListener("touchstart", (e) => {
+    if (e.touches.length !== 1) return;
+    const touch = e.touches[0],
+      touchX = touch.pageX - window.scrollX,
+      touchY = touch.pageY - window.scrollY;
+    const line = getLineAtPoint(touchX, touchY);
+    if (line) {
+      touchStartPos = { x: touchX, y: touchY };
+      pendingDeletionLine = line;
+      deletionTimer = setTimeout(() => {
+        Matter.World.remove(window.BallFall.world, line);
+        pendingDeletionLine = null;
+      }, App.config.lineDeleteMobileHold);
+    } else {
+      if (mode === "straight") {
+        if (StraightLineTool.onTouchStart)
+          StraightLineTool.onTouchStart(touchX, touchY);
+      } else if (mode === "curved") {
+        if (
+          window.CurvedLineTool &&
+          typeof window.CurvedLineTool.onTouchStart === "function"
+        ) {
+          window.CurvedLineTool.onTouchStart(touchX, touchY);
+        }
+      } else if (mode === "launcher") {
+        if (
+          window.LauncherCreateTool &&
+          typeof LauncherCreateTool.onTouchStart === "function"
+        ) {
+          LauncherCreateTool.onTouchStart(touchX, touchY);
+        }
+      }
+    }
+  });
+
+  document.addEventListener("touchmove", (e) => {
+    if (e.touches.length !== 1) return;
+    const touch = e.touches[0],
+      touchX = touch.pageX - window.scrollX,
+      touchY = touch.pageY - window.scrollY;
+    if (mode === "straight" && StraightLineTool.state === 1) {
+      if (StraightLineTool.onTouchMove)
+        StraightLineTool.onTouchMove(touchX, touchY);
+    } else if (mode === "curved") {
+      if (
+        window.CurvedLineTool &&
+        typeof window.CurvedLineTool.onTouchMove === "function"
+      ) {
+        window.CurvedLineTool.onTouchMove(touchX, touchY);
+      }
+    } else if (mode === "launcher") {
+      if (
+        window.LauncherCreateTool &&
+        typeof LauncherCreateTool.onTouchMove === "function"
+      ) {
+        LauncherCreateTool.onTouchMove(touchX, touchY);
+      }
+    }
+    if (touchStartPos) {
+      const dx = touchX - touchStartPos.x,
+        dy = touchY - touchStartPos.y;
+      if (Math.sqrt(dx * dx + dy * dy) > 10) {
+        clearTimeout(deletionTimer);
+        deletionTimer = null;
+        if (pendingDeletionLine) {
+          pendingDeletionLine.render.fillStyle = "#956eff";
+          pendingDeletionLine.render.strokeStyle = "#956eff";
+        }
+        pendingDeletionLine = null;
+        touchStartPos = null;
+      }
+    }
+  });
+
+  document.addEventListener("touchend", (e) => {
+    if (mode === "straight" && StraightLineTool.state === 1) {
+      const touch = e.changedTouches[0],
+        touchX = touch.pageX - window.scrollX,
+        touchY = touch.pageY - window.scrollY,
+        dx = touchX - StraightLineTool.firstPoint.x,
+        dy = touchY - StraightLineTool.firstPoint.y;
+      if (Math.sqrt(dx * dx + dy * dy) < 7) {
+        StraightLineTool.cancel();
+      } else {
+        StraightLineTool.onTouchEnd(touchX, touchY);
+      }
+    }
+    if (mode === "curved") {
+      if (
+        window.CurvedLineTool &&
+        typeof window.CurvedLineTool.onTouchEnd === "function"
+      ) {
+        const touch = e.changedTouches[0],
+          touchX = touch.pageX - window.scrollX,
+          touchY = touch.pageY - window.scrollY;
+        window.CurvedLineTool.onTouchEnd(touchX, touchY);
+      }
+    }
+    if (mode === "launcher") {
+      if (
+        window.LauncherCreateTool &&
+        typeof LauncherCreateTool.onTouchEnd === "function"
+      ) {
+        const touch = e.changedTouches[0],
+          touchX = touch.pageX - window.scrollX,
+          touchY = touch.pageY - window.scrollY;
+        LauncherCreateTool.onTouchEnd(touchX, touchY);
+      }
+    }
+    if (pendingDeletionLine) {
+      clearTimeout(deletionTimer);
+      deletionTimer = null;
+      pendingDeletionLine.render.fillStyle = "#956eff";
+      pendingDeletionLine.render.strokeStyle = "#956eff";
+      pendingDeletionLine = null;
+      touchStartPos = null;
+    }
+  });
+
+  function init() {
+    if (window.BallFall && window.BallFall.engine) {
+      // Ready.
+    } else {
+      window.addEventListener("BallFallBaseReady", function () {});
+    }
+  }
+
+  return {
+    init,
+    setMode,
+    getMode,
+    addLine,
+    clearLines,
+  };
+})();
