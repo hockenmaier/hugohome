@@ -8,7 +8,7 @@ window.App = {
     ballSize: 7,
 
     lineThickness: 3, //All line types share this
-    curvedLineFidelity: 50, //How many sections of the "tube" that is the curved line
+    curvedLineFidelity: 30, //How many sections of the "tube" that is the curved line
     lineDeleteMobileHold: 1200, //Time delay for press and hold to delete on mobile
   },
   modules: {},

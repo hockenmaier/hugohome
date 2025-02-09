@@ -1,6 +1,5 @@
+// static/js/lines.js
 App.modules.lines = (function () {
-  let linesList = [];
-  // mode can be "straight", "curved", "launcher", or "none"
   let mode = "straight";
 
   function setMode(newMode) {
@@ -21,30 +20,120 @@ App.modules.lines = (function () {
       if (mode !== "launcher") LauncherCreateTool.cancel();
     }
   }
-
   function getMode() {
     return mode;
   }
-
   function addLine(body) {
     body.isLine = true;
-    linesList.push(body);
   }
 
-  function clearLines() {
-    if (!window.BallFall || !window.BallFall.world) return;
-    const allBodies = Matter.Composite.allBodies(window.BallFall.world);
-    allBodies.forEach((body) => {
+  function getLineAtPoint(x, y) {
+    const point = { x, y };
+    const bodies = Matter.Composite.allBodies(window.BallFall.world);
+    for (let body of bodies) {
       if (body.isLine) {
-        Matter.World.remove(window.BallFall.world, body);
+        if (body.label === "CurvedLine" || body.label === "Launcher") {
+          for (let part of body.parts) {
+            if (Matter.Vertices.contains(part.vertices, point)) return body;
+          }
+        } else if (body.parts && body.parts.length > 1) {
+          for (let i = 1; i < body.parts.length; i++) {
+            if (Matter.Vertices.contains(body.parts[i].vertices, point))
+              return body;
+          }
+        } else {
+          if (Matter.Vertices.contains(body.vertices, point)) return body;
+        }
       }
-    });
-    linesList.length = 0;
+    }
+    return null;
   }
 
-  if (window.BallFall) {
-    window.BallFall.clearLines = clearLines;
+  let hoveredLine = null;
+  let pendingDeletionLine = null;
+  let deletionTimer = null;
+  let touchStartPos = null;
+
+  // Reset a line's style to default.
+  function resetLine(body) {
+    if (!body) return;
+    if (body.label === "Launcher" && body.render) {
+      if (body.render.sprite) {
+        body.render.sprite.opacity = 1;
+      }
+      body.render.opacity = 1;
+    }
+    if (body.parts && body.parts.length > 1) {
+      body.parts.forEach((part) => {
+        part.render.fillStyle = "#956eff";
+        part.render.strokeStyle = "#956eff";
+      });
+    } else if (body.render) {
+      body.render.fillStyle = "#956eff";
+      body.render.strokeStyle = "#956eff";
+    }
   }
+
+  let lastHovered = null;
+  let hoveredLineStartTime = null;
+  let pendingDeletionLineStartTime = null;
+
+  function updatePulse() {
+    function applyPulse(body, opacity) {
+      if (body.label === "Launcher" && body.render && body.render.sprite) {
+        body.render.sprite.opacity = opacity;
+        body.render.opacity = opacity;
+      } else if (body.parts && body.parts.length > 1) {
+        body.parts.forEach((part) => {
+          part.render.opacity = opacity;
+        });
+      } else if (body.render) {
+        body.render.opacity = opacity;
+      }
+    }
+
+    function reset(body) {
+      if (body.label === "Launcher" && body.render && body.render.sprite) {
+        body.render.sprite.opacity = 1;
+        body.render.opacity = 1;
+      } else if (body.parts && body.parts.length > 1) {
+        body.parts.forEach((part) => {
+          part.render.opacity = 1;
+        });
+      } else if (body.render) {
+        body.render.opacity = 1;
+      }
+    }
+
+    if (hoveredLine) {
+      if (!hoveredLineStartTime) hoveredLineStartTime = Date.now();
+      const elapsed = Date.now() - hoveredLineStartTime;
+      // Add π/2 so that at elapsed = 0 the sine is at its maximum (1)
+      const t = (Math.sin(elapsed / 75 + Math.PI / 2) + 1) / 2;
+      const opacity = 0.2 + 0.8 * t;
+      applyPulse(hoveredLine, opacity);
+      lastHovered = hoveredLine;
+    } else if (lastHovered) {
+      reset(lastHovered);
+      lastHovered = null;
+      hoveredLineStartTime = null;
+    }
+
+    if (pendingDeletionLine && pendingDeletionLine !== hoveredLine) {
+      if (!pendingDeletionLineStartTime)
+        pendingDeletionLineStartTime = Date.now();
+      const elapsed = Date.now() - pendingDeletionLineStartTime;
+      const t = (Math.sin(elapsed / 75 + Math.PI / 2) + 1) / 2;
+      const opacity = 0.2 + 0.8 * t;
+      applyPulse(pendingDeletionLine, opacity);
+    } else {
+      pendingDeletionLineStartTime = null;
+    }
+
+    requestAnimationFrame(updatePulse);
+  }
+
+  updatePulse();
 
   const StraightLineTool = {
     state: 0, // 0: waiting for start, 1: waiting for end
@@ -54,7 +143,7 @@ App.modules.lines = (function () {
       if (this.state === 0) {
         this.firstPoint = { x, y };
         this.state = 1;
-      } else if (this.state === 1) {
+      } else {
         this.finish(x, y);
       }
     },
@@ -140,66 +229,18 @@ App.modules.lines = (function () {
     },
   };
 
-  function getLineAtPoint(x, y) {
-    for (let body of linesList) {
-      if (Matter.Vertices.contains(body.vertices, { x, y })) return body;
-    }
-    return null;
-  }
-
-  let hoveredLine = null;
-  let pendingDeletionLine = null;
-  let deletionTimer = null;
-  let touchStartPos = null;
-
-  function updatePulse() {
-    const timeFactor = Date.now() / 200;
-    const t = (Math.sin(timeFactor) + 1) / 2;
-    if (hoveredLine) {
-      if (hoveredLine.label === "Launcher" && hoveredLine.render.sprite) {
-        // Pulse the sprite’s opacity between 0.6 and 1
-        hoveredLine.render.sprite.opacity = 0.6 + 0.4 * t;
-      } else {
-        let r = Math.round(149 + (255 - 149) * t);
-        let g = Math.round(110 * (1 - t));
-        let b = Math.round(255 * (1 - t));
-        let color = `rgb(${r},${g},${b})`;
-        hoveredLine.render.fillStyle = color;
-        hoveredLine.render.strokeStyle = color;
-      }
-    }
-    if (pendingDeletionLine && pendingDeletionLine !== hoveredLine) {
-      if (
-        pendingDeletionLine.label === "Launcher" &&
-        pendingDeletionLine.render.sprite
-      ) {
-        pendingDeletionLine.render.sprite.opacity = 0.6 + 0.4 * t;
-      } else {
-        let r = Math.round(149 + (255 - 149) * t);
-        let g = Math.round(110 * (1 - t));
-        let b = Math.round(255 * (1 - t));
-        let color = `rgb(${r},${g},${b})`;
-        pendingDeletionLine.render.fillStyle = color;
-        pendingDeletionLine.render.strokeStyle = color;
-      }
-    }
-    requestAnimationFrame(updatePulse);
-  }
-  updatePulse();
-
   // Desktop mouse events
   document.addEventListener("mousemove", (e) => {
     const mouseX = e.pageX - window.scrollX,
       mouseY = e.pageY - window.scrollY;
     if (mode === "straight" && StraightLineTool.state === 1) {
       StraightLineTool.onMove(mouseX, mouseY);
-    } else if (mode === "curved") {
-      if (
-        window.CurvedLineTool &&
-        typeof window.CurvedLineTool.onMove === "function"
-      ) {
-        window.CurvedLineTool.onMove(mouseX, mouseY);
-      }
+    } else if (
+      mode === "curved" &&
+      window.CurvedLineTool &&
+      typeof window.CurvedLineTool.onMove === "function"
+    ) {
+      window.CurvedLineTool.onMove(mouseX, mouseY);
     } else if (
       mode === "launcher" &&
       window.LauncherCreateTool &&
@@ -211,16 +252,14 @@ App.modules.lines = (function () {
     if (line) {
       if (hoveredLine !== line) {
         if (hoveredLine) {
-          hoveredLine.render.fillStyle = "#956eff";
-          hoveredLine.render.strokeStyle = "#956eff";
+          resetLine(hoveredLine);
         }
         hoveredLine = line;
       }
       document.body.style.cursor = "pointer";
     } else {
       if (hoveredLine) {
-        hoveredLine.render.fillStyle = "#956eff";
-        hoveredLine.render.strokeStyle = "#956eff";
+        resetLine(hoveredLine);
         hoveredLine = null;
       }
       document.body.style.cursor = "";
@@ -250,13 +289,10 @@ App.modules.lines = (function () {
     const line = getLineAtPoint(mouseX, mouseY);
     if (line) {
       Matter.World.remove(window.BallFall.world, line);
-      const idx = linesList.indexOf(line);
-      if (idx !== -1) linesList.splice(idx, 1);
       e.preventDefault();
     }
   });
 
-  // Desktop click events (ignore on mobile)
   document.addEventListener("click", (e) => {
     if (window.matchMedia && window.matchMedia("(pointer: coarse)").matches)
       return;
@@ -276,7 +312,7 @@ App.modules.lines = (function () {
     } else if (mode === "launcher") {
       if (
         window.LauncherCreateTool &&
-        typeof window.LauncherCreateTool.onClick === "function"
+        typeof LauncherCreateTool.onClick === "function"
       ) {
         window.LauncherCreateTool.onClick(clickX, clickY);
       }
@@ -295,8 +331,6 @@ App.modules.lines = (function () {
       pendingDeletionLine = line;
       deletionTimer = setTimeout(() => {
         Matter.World.remove(window.BallFall.world, line);
-        const idx = linesList.indexOf(line);
-        if (idx !== -1) linesList.splice(idx, 1);
         pendingDeletionLine = null;
       }, App.config.lineDeleteMobileHold);
     } else {
@@ -351,8 +385,7 @@ App.modules.lines = (function () {
         clearTimeout(deletionTimer);
         deletionTimer = null;
         if (pendingDeletionLine) {
-          pendingDeletionLine.render.fillStyle = "#956eff";
-          pendingDeletionLine.render.strokeStyle = "#956eff";
+          resetLine(pendingDeletionLine);
         }
         pendingDeletionLine = null;
         touchStartPos = null;
@@ -398,8 +431,7 @@ App.modules.lines = (function () {
     if (pendingDeletionLine) {
       clearTimeout(deletionTimer);
       deletionTimer = null;
-      pendingDeletionLine.render.fillStyle = "#956eff";
-      pendingDeletionLine.render.strokeStyle = "#956eff";
+      resetLine(pendingDeletionLine);
       pendingDeletionLine = null;
       touchStartPos = null;
     }
@@ -407,17 +439,11 @@ App.modules.lines = (function () {
 
   function init() {
     if (window.BallFall && window.BallFall.engine) {
-      // Ready.
+      /* Ready */
     } else {
       window.addEventListener("BallFallBaseReady", function () {});
     }
   }
 
-  return {
-    init,
-    setMode,
-    getMode,
-    addLine,
-    clearLines,
-  };
+  return { init, setMode, getMode, addLine };
 })();
