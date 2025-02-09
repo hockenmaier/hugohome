@@ -161,11 +161,15 @@ App.modules.base = (function () {
           };
           const dx = Math.abs(body.position.x - prev.x);
           const dy = Math.abs(body.position.y - prev.y);
-          if (dx < 0.5 && dy < 0.5) prev.stillCount++;
+          if (
+            dx < App.config.sitStillDeleteMargin &&
+            dy < App.config.sitStillDeleteMargin
+          )
+            prev.stillCount++;
           else prev.stillCount = 0;
           prev.x = body.position.x;
           prev.y = body.position.y;
-          if (prev.stillCount >= 5) {
+          if (prev.stillCount >= App.config.sitStillDeleteSeconds) {
             World.remove(engine.world, body);
             delete ballPositionData[body.id];
           } else {

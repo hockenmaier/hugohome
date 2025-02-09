@@ -1025,11 +1025,8 @@ table {
     <span class="bfui-label">Decrease Speed</span>
   </button>
   <div class="bfui-clear-wrapper">
-    <button class="bfui-button bfui-half" id="clearLinesBtn">
-      <span class="bfui-label">Clear Lines</span>
-    </button>
     <button class="bfui-button bfui-half" id="clearBallsBtn">
-      <span class="bfui-label">Clear Balls</span>
+      <span class="bfui-label">Clear Playing Field</span>
     </button>
   </div>
 
@@ -1065,7 +1062,6 @@ table {
   (function () {
     const incBtn = document.getElementById("increaseSpeedBtn"),
       decBtn = document.getElementById("decreaseSpeedBtn"),
-      clearLinesBtn = document.getElementById("clearLinesBtn"),
       clearBallsBtn = document.getElementById("clearBallsBtn"),
       dropRateValue = document.getElementById("bfui-drop-rate-value"),
       straightBtn = document.getElementById("toggleStraight"),
@@ -1096,13 +1092,6 @@ table {
         const current = window.BallFall.spawnInterval;
         window.BallFall.updateSpawnInterval(current * 2);
         updateDropRateDisplay();
-      }
-    });
-
-    clearLinesBtn.addEventListener("click", (e) => {
-      e.stopPropagation();
-      if (window.BallFall && window.BallFall.clearLines) {
-        window.BallFall.clearLines();
       }
     });
 
