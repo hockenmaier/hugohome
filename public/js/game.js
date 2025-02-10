@@ -2,7 +2,7 @@
  * game.js - High-level game management.
  * Spawns the goal object randomly on the page and attaches its behavior (defined in goal.js).
  * It waits until text colliders are present and ensures the goal is fully within document boundaries,
- * and does not overlap any existing collider (including text colliders).
+ * does not overlap any existing collider (including text colliders), and is at least 50px from the top.
  */
 (function () {
   let goalSpawned = false;
@@ -20,7 +20,8 @@
       // Ensure the goal's edges remain within the page.
       minX = goalWidth / 2,
       maxX = pageWidth - goalWidth / 2,
-      minY = goalHeight / 2,
+      // Ensure the goal is at least 200px from the top so we can build up a little speed:
+      minY = 200 + goalHeight / 2,
       maxY = pageHeight - goalHeight / 2,
       maxAttempts = 100;
     let attempt = 0,
@@ -51,7 +52,7 @@
       for (let b of bodies) {
         if (b === candidate) continue;
         if (b.isStatic && b.label !== "BallFallBall" && b.label !== "Goal") {
-          // If this is a text collider, use a bounding-box overlap test.
+          // For text colliders (SPAN), use bounding-box overlap.
           if (b.elRef && b.elRef.tagName === "SPAN") {
             if (Matter.Bounds.overlaps(candidate.bounds, b.bounds)) {
               collides = true;
