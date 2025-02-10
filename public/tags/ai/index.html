@@ -1246,23 +1246,27 @@ table {
         <script src="/js/curved-line.js"></script>
         <script src="/js/launcher.js"></script>
         <script src="/js/launcher-create.js"></script>
+        <script src="/js/game.js"></script>
+        <script src="/js/goal.js"></script>
         
 <style>
   #ballfall-ui {
     position: fixed;
-    top: 50px;
+    top: 20px;
     left: 20px;
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 5px;
     z-index: 10000;
     font-family: sans-serif;
+    font-size: 12px;
+    max-width: 200px;
   }
   .bfui-button {
     background: rgba(0, 0, 0, 0.4);
     border: 1px solid #555;
     color: #ddd;
-    padding: 8px 12px;
+    padding: 4px 6px;
     font-size: 12px;
     cursor: pointer;
     display: flex;
@@ -1273,9 +1277,8 @@ table {
     transform: scale(0.95);
   }
   .bfui-icon {
-    margin-right: 6px;
+    margin-right: 4px;
   }
-   
   #bfui-drop-rate-label {
     font-size: 10px;
     color: #aaa;
@@ -1300,17 +1303,14 @@ table {
   }
   .bfui-half {
     flex: 1;
-    font-size: 8px;
+    font-size: 10px;
   }
   #bfui-image {
     display: block;
     width: 80%;
     max-width: 60px;
     margin: 0 auto;
-    display: flex;
-    justify-content: center;
   }
-   
   #line-mode-toggle {
     display: flex;
     gap: 10px;
@@ -1318,14 +1318,20 @@ table {
     justify-content: center;
   }
   .line-toggle {
-    width: 40px;
-    height: 40px;
+    width: 30px;
+    height: 30px;
     cursor: pointer;
     border: 2px solid transparent;
     border-radius: 4px;
   }
   .line-toggle.selected {
     border-color: #956eff;
+  }
+  #coins-display {
+    text-align: center;
+    color: gold;
+    font-size: 14px;
+    margin: 5px 0;
   }
   @media (max-width: 720px) {
     .bfui-button .bfui-label {
@@ -1354,11 +1360,10 @@ table {
   </button>
   <div class="bfui-clear-wrapper">
     <button class="bfui-button bfui-half" id="clearBallsBtn">
-      <span class="bfui-label">Clear Playing Field</span>
+      <span class="bfui-label">Clear Field</span>
     </button>
   </div>
 
-  
   <div id="line-mode-toggle">
     <img
       src="/images/line-mode.png"
@@ -1373,24 +1378,26 @@ table {
       alt="Curved Line"
     />
     <img
-      src="/images/launcher.png"
+      src="/images/DKannon250-mode.png"
       id="toggleLauncher"
       class="line-toggle"
       alt="Launcher"
     />
     <img
-      src="/images/fast-launcher.png"
+      src="/images/DKannon250-fast-mode.png"
       id="toggleFastLauncher"
       class="line-toggle"
       alt="Fast Launcher"
     />
     <img
-      src="/images/insta-launcher.png"
+      src="/images/DKannon250-insta-mode.png"
       id="toggleInstaLauncher"
       class="line-toggle"
       alt="Insta Launcher"
     />
   </div>
+
+  <div id="coins-display">5 coins</div>
 
   <div id="bfui-drop-rate-wrapper">
     <span id="bfui-drop-rate-label">Drop Rate:</span>
@@ -1412,8 +1419,8 @@ table {
 
     function updateDropRateDisplay() {
       if (!window.BallFall) return;
-      const interval = window.BallFall.spawnInterval;
-      const bps = 1000 / interval;
+      const interval = window.BallFall.spawnInterval,
+        bps = 1000 / interval;
       dropRateValue.textContent =
         bps < 1 ? `every ${(1 / bps).toFixed(1)}s` : `${bps.toFixed(1)}/s`;
     }
@@ -1422,8 +1429,7 @@ table {
       e.stopPropagation();
       if (window.BallFall && window.BallFall.updateSpawnInterval) {
         const current = window.BallFall.spawnInterval;
-        const newInterval = Math.max(1.09375, current / 2);
-        window.BallFall.updateSpawnInterval(newInterval);
+        window.BallFall.updateSpawnInterval(Math.max(1.09375, current / 2));
         updateDropRateDisplay();
       }
     });
@@ -1444,11 +1450,7 @@ table {
       }
     });
 
-    
-    
-    
     function setActive(mode, launcherType) {
-      
       [
         straightBtn,
         curvedBtn,
@@ -1457,24 +1459,18 @@ table {
         instaLauncherBtn,
       ].forEach((btn) => btn.classList.remove("selected"));
       if (mode === "straight" || mode === "curved") {
-        if (mode === "straight") {
-          straightBtn.classList.add("selected");
-        } else {
-          curvedBtn.classList.add("selected");
-        }
+        (mode === "straight" ? straightBtn : curvedBtn).classList.add(
+          "selected"
+        );
         window.App.modules.lines.setMode(mode);
       } else if (mode === "launcher") {
-        
         if (!launcherType) launcherType = "launcher";
         window.LauncherCreateTool.selectedType = launcherType;
-        
-        if (launcherType === "launcher") {
-          launcherBtn.classList.add("selected");
-        } else if (launcherType === "fast-launcher") {
+        if (launcherType === "launcher") launcherBtn.classList.add("selected");
+        else if (launcherType === "fast-launcher")
           fastLauncherBtn.classList.add("selected");
-        } else if (launcherType === "insta-launcher") {
+        else if (launcherType === "insta-launcher")
           instaLauncherBtn.classList.add("selected");
-        }
         window.App.modules.lines.setMode("launcher");
       } else if (mode === "none") {
         window.App.modules.lines.setMode("none");
@@ -1484,59 +1480,47 @@ table {
     straightBtn.addEventListener("click", (e) => {
       e.stopPropagation();
       const current = window.App.modules.lines.getMode();
-      if (current === "straight") {
-        setActive("none");
-      } else {
-        setActive("straight");
-      }
+      setActive(current === "straight" ? "none" : "straight");
     });
     curvedBtn.addEventListener("click", (e) => {
       e.stopPropagation();
       const current = window.App.modules.lines.getMode();
-      if (current === "curved") {
-        setActive("none");
-      } else {
-        setActive("curved");
-      }
+      setActive(current === "curved" ? "none" : "curved");
     });
     launcherBtn.addEventListener("click", (e) => {
       e.stopPropagation();
       const current = window.App.modules.lines.getMode();
-      if (
+      setActive(
         current === "launcher" &&
-        window.LauncherCreateTool.selectedType === "launcher"
-      ) {
-        setActive("none");
-      } else {
-        setActive("launcher", "launcher");
-      }
+          window.LauncherCreateTool.selectedType === "launcher"
+          ? "none"
+          : "launcher",
+        "launcher"
+      );
     });
     fastLauncherBtn.addEventListener("click", (e) => {
       e.stopPropagation();
       const current = window.App.modules.lines.getMode();
-      if (
+      setActive(
         current === "launcher" &&
-        window.LauncherCreateTool.selectedType === "fast-launcher"
-      ) {
-        setActive("none");
-      } else {
-        setActive("launcher", "fast-launcher");
-      }
+          window.LauncherCreateTool.selectedType === "fast-launcher"
+          ? "none"
+          : "launcher",
+        "fast-launcher"
+      );
     });
     instaLauncherBtn.addEventListener("click", (e) => {
       e.stopPropagation();
       const current = window.App.modules.lines.getMode();
-      if (
+      setActive(
         current === "launcher" &&
-        window.LauncherCreateTool.selectedType === "insta-launcher"
-      ) {
-        setActive("none");
-      } else {
-        setActive("launcher", "insta-launcher");
-      }
+          window.LauncherCreateTool.selectedType === "insta-launcher"
+          ? "none"
+          : "launcher",
+        "insta-launcher"
+      );
     });
 
-    
     setActive("straight");
     setInterval(updateDropRateDisplay, 1000);
   })();

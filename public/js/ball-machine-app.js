@@ -20,6 +20,8 @@ window.App = {
       "fast-launcher": { delay: 80, image: "/images/DKannon250-fast.png" },
       "insta-launcher": { delay: 10, image: "/images/DKannon250-insta.png" },
     },
+    coins: 5, //starting coins and current coins
+    goalMinSpeed: 0.8,
   },
   modules: {},
   init: function () {
