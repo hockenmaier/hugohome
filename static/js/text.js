@@ -204,7 +204,7 @@ App.modules.text = (function () {
       evt.pairs.forEach((pair) => {
         [pair.bodyA, pair.bodyB].forEach((b) => {
           if (b.elRef && b.elRef.tagName === "SPAN") {
-            b.elRef.style.color = "#6eff94";
+            b.elRef.style.color = App.config.textHitColor;
           }
         });
       });

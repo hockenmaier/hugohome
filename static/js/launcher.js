@@ -28,13 +28,13 @@ App.modules.launcher = (function () {
             y: launcher.position.y,
           });
           Matter.Body.setVelocity(ball, { x: 0, y: 0 });
-          // After 100ms, launch the ball using the launcher's force
+          // After the launcher’s delay, launch the ball using the launcher’s force
           setTimeout(() => {
             Matter.Body.setVelocity(ball, {
               x: launcher.launchForce.x,
               y: launcher.launchForce.y,
             });
-          }, 100);
+          }, launcher.delay);
         }
       }
     });

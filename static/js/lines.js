@@ -1,4 +1,5 @@
-// static/js/lines.js
+// This is the base class for all of the "drawn powerups" which range from a simple line to a launcher cannon.
+// This should always control all of the mouse and touch events rather than subclasses handling those themselves, so that they only need to be edited one place.
 App.modules.lines = (function () {
   let mode = "straight";
 

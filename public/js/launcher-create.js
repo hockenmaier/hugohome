@@ -5,17 +5,25 @@ window.LauncherCreateTool = {
   launcherPreview: null,
   previewLine: null,
   arrowPreview: null,
+  // Currently selected launcher type (defaults to "launcher")
+  selectedType: "launcher",
 
   onClick(x, y) {
     if (this.state === 0) {
       this.startPoint = { x, y };
       const size = 40;
+      // Assuming the original image is 250px wide, compute scale.
+      const scale = size / 250;
       this.launcherPreview = Matter.Bodies.rectangle(x, y, size, size, {
         isStatic: true,
         isSensor: true,
         label: "Launcher",
         render: {
-          sprite: { texture: "/images/launcher.png" },
+          sprite: {
+            texture: App.config.launcherTypes[this.selectedType].image,
+            xScale: scale,
+            yScale: scale,
+          },
           opacity: 0.6,
         },
       });
@@ -30,7 +38,6 @@ window.LauncherCreateTool = {
 
   onMove(x, y) {
     if (this.state !== 1) return;
-    // Remove any existing preview line and arrow
     if (this.previewLine) {
       Matter.World.remove(window.BallFall.world, this.previewLine);
       this.previewLine = null;
@@ -43,7 +50,6 @@ window.LauncherCreateTool = {
       dy = y - this.startPoint.y,
       length = Math.sqrt(dx * dx + dy * dy),
       angle = Math.atan2(dy, dx);
-    // Continuously update the launcher’s rotation
     Matter.Body.setAngle(this.launcherPreview, angle);
 
     const midX = (this.startPoint.x + x) / 2,
@@ -90,24 +96,21 @@ window.LauncherCreateTool = {
       dy = y - this.startPoint.y,
       distance = Math.sqrt(dx * dx + dy * dy),
       angle = Math.atan2(dy, dx);
-    // Ensure final rotation is set
     Matter.Body.setAngle(this.launcherPreview, angle);
-    // Compute the launch force using a scale factor (adjust forceScale as needed)
     const forceScale = 0.05;
     this.launcherPreview.launchForce = {
       x: Math.cos(angle) * distance * forceScale,
       y: Math.sin(angle) * distance * forceScale,
     };
-    // Mark launcher as placed (not preview) and make it opaque
+    this.launcherPreview.delay =
+      App.config.launcherTypes[this.selectedType].delay;
     this.launcherPreview.isPreview = false;
     if (this.launcherPreview.render && this.launcherPreview.render.sprite) {
       this.launcherPreview.render.opacity = 1;
     }
-    // Add the finished launcher to the lines list so it remains permanent
     if (App.modules.lines && typeof App.modules.lines.addLine === "function") {
       App.modules.lines.addLine(this.launcherPreview);
     }
-    // Clear the preview reference so it isn’t removed later on mode change
     this.launcherPreview = null;
     this.state = 0;
     this.startPoint = null;

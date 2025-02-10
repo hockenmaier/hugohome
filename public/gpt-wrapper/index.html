@@ -979,10 +979,22 @@ table {
       alt="Curved Line"
     />
     <img
-      src="/images/launcher-mode.png"
+      src="/images/launcher.png"
       id="toggleLauncher"
       class="line-toggle"
       alt="Launcher"
+    />
+    <img
+      src="/images/fast-launcher.png"
+      id="toggleFastLauncher"
+      class="line-toggle"
+      alt="Fast Launcher"
+    />
+    <img
+      src="/images/insta-launcher.png"
+      id="toggleInstaLauncher"
+      class="line-toggle"
+      alt="Insta Launcher"
     />
   </div>
 
@@ -1000,7 +1012,9 @@ table {
       dropRateValue = document.getElementById("bfui-drop-rate-value"),
       straightBtn = document.getElementById("toggleStraight"),
       curvedBtn = document.getElementById("toggleCurved"),
-      launcherBtn = document.getElementById("toggleLauncher");
+      launcherBtn = document.getElementById("toggleLauncher"),
+      fastLauncherBtn = document.getElementById("toggleFastLauncher"),
+      instaLauncherBtn = document.getElementById("toggleInstaLauncher");
 
     function updateDropRateDisplay() {
       if (!window.BallFall) return;
@@ -1036,33 +1050,96 @@ table {
       }
     });
 
-    function setActive(mode) {
-      [straightBtn, curvedBtn, launcherBtn].forEach((btn) =>
-        btn.classList.remove("selected")
-      );
-      if (mode === "straight") straightBtn.classList.add("selected");
-      else if (mode === "curved") curvedBtn.classList.add("selected");
-      else if (mode === "launcher") launcherBtn.classList.add("selected");
-      if (window.App.modules.lines) window.App.modules.lines.setMode(mode);
+    
+    
+    
+    function setActive(mode, launcherType) {
+      
+      [
+        straightBtn,
+        curvedBtn,
+        launcherBtn,
+        fastLauncherBtn,
+        instaLauncherBtn,
+      ].forEach((btn) => btn.classList.remove("selected"));
+      if (mode === "straight" || mode === "curved") {
+        if (mode === "straight") {
+          straightBtn.classList.add("selected");
+        } else {
+          curvedBtn.classList.add("selected");
+        }
+        window.App.modules.lines.setMode(mode);
+      } else if (mode === "launcher") {
+        
+        if (!launcherType) launcherType = "launcher";
+        window.LauncherCreateTool.selectedType = launcherType;
+        
+        if (launcherType === "launcher") {
+          launcherBtn.classList.add("selected");
+        } else if (launcherType === "fast-launcher") {
+          fastLauncherBtn.classList.add("selected");
+        } else if (launcherType === "insta-launcher") {
+          instaLauncherBtn.classList.add("selected");
+        }
+        window.App.modules.lines.setMode("launcher");
+      } else if (mode === "none") {
+        window.App.modules.lines.setMode("none");
+      }
     }
 
     straightBtn.addEventListener("click", (e) => {
       e.stopPropagation();
-      setActive(
-        window.App.modules.lines.getMode() === "straight" ? "none" : "straight"
-      );
+      const current = window.App.modules.lines.getMode();
+      if (current === "straight") {
+        setActive("none");
+      } else {
+        setActive("straight");
+      }
     });
     curvedBtn.addEventListener("click", (e) => {
       e.stopPropagation();
-      setActive(
-        window.App.modules.lines.getMode() === "curved" ? "none" : "curved"
-      );
+      const current = window.App.modules.lines.getMode();
+      if (current === "curved") {
+        setActive("none");
+      } else {
+        setActive("curved");
+      }
     });
     launcherBtn.addEventListener("click", (e) => {
       e.stopPropagation();
-      setActive(
-        window.App.modules.lines.getMode() === "launcher" ? "none" : "launcher"
-      );
+      const current = window.App.modules.lines.getMode();
+      if (
+        current === "launcher" &&
+        window.LauncherCreateTool.selectedType === "launcher"
+      ) {
+        setActive("none");
+      } else {
+        setActive("launcher", "launcher");
+      }
+    });
+    fastLauncherBtn.addEventListener("click", (e) => {
+      e.stopPropagation();
+      const current = window.App.modules.lines.getMode();
+      if (
+        current === "launcher" &&
+        window.LauncherCreateTool.selectedType === "fast-launcher"
+      ) {
+        setActive("none");
+      } else {
+        setActive("launcher", "fast-launcher");
+      }
+    });
+    instaLauncherBtn.addEventListener("click", (e) => {
+      e.stopPropagation();
+      const current = window.App.modules.lines.getMode();
+      if (
+        current === "launcher" &&
+        window.LauncherCreateTool.selectedType === "insta-launcher"
+      ) {
+        setActive("none");
+      } else {
+        setActive("launcher", "insta-launcher");
+      }
     });
 
     
