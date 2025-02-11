@@ -308,7 +308,7 @@
 
 
 
-<img  alt="happiness income curve"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenmaier.github.io/images/treadmill-graph.png"   style="height: auto; max-width: 720px; width: 100%"   >
+<img  alt="happiness income curve"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenmaier.github.io/hugohome/images/treadmill-graph.png"   style="height: auto; max-width: 720px; width: 100%"   >
 
 
     
@@ -405,7 +405,7 @@
 
                 
                     <description><![CDATA[<p>The Answering Machine is a proof-of-concept system that I built using <strong>pre-LLM</strong> natural language processing (NLP), specifically NLTK, to produce answers to questions asked about data in plain English.</p>
-<p>Looking back, this project was a great insight into what LLMs immediately allowed that was incredibly difficult before.  This project was several months of work that the openAI sdk would probably have allowed in a few weeks - and that few weeks would have been mostly frontend design and a bit of prompting.</p>
+<p>Looking back, this project was a great insight into what LLMs immediately allowed that was incredibly difficult before. This project was several months of work that the openAI sdk would probably have allowed in a few weeks - and that few weeks would have been mostly frontend design and a bit of prompting.</p>
 <p><strong>Try it here:</strong> <a href="http://voicequery-dev.s3-website-us-west-2.amazonaws.com/">http://voicequery-dev.s3-website-us-west-2.amazonaws.com/</a>
 <strong>Github:</strong> <a href="https://github.com/hockenmaier/voicequery">https://github.com/hockenmaier/voicequery</a></p>
 <p>The system uses natural language processing (NLP) to produce answers to questions asked about data in plain English.</p>
@@ -495,7 +495,7 @@
 
 
 
-<img  alt="Answering Machine homepage"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenmaier.github.io/images/answering_machine_uploads.png"   style="height: auto; max-width: 720px; width: 100%"   >
+<img  alt="Answering Machine homepage"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenmaier.github.io/hugohome/images/answering_machine_uploads.png"   style="height: auto; max-width: 720px; width: 100%"   >
 
 
     
@@ -585,7 +585,7 @@
 
 
 
-<img  alt="Answering Machine main view"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenmaier.github.io/images/answering_machine_hr.png"   style="height: auto; width: 100%"   >
+<img  alt="Answering Machine main view"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenmaier.github.io/hugohome/images/answering_machine_hr.png"   style="height: auto; width: 100%"   >
 
 
     
@@ -673,7 +673,7 @@
 
 
 
-<img  alt="Answering Machine info panel"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenmaier.github.io/images/answering_machine_info.png"   style="height: auto; max-width: 720px; width: 100%"   >
+<img  alt="Answering Machine info panel"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenmaier.github.io/hugohome/images/answering_machine_info.png"   style="height: auto; max-width: 720px; width: 100%"   >
 
 
     
@@ -763,7 +763,7 @@
 
 
 
-<img  alt="Answering Machine query bar"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenmaier.github.io/images/answering_machine_query.png"   style="height: auto; max-width: 720px; width: 100%"   >
+<img  alt="Answering Machine query bar"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenmaier.github.io/hugohome/images/answering_machine_query.png"   style="height: auto; max-width: 720px; width: 100%"   >
 
 
     
@@ -859,7 +859,7 @@
 
 
 
-<img  alt="Answering Machine response"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenmaier.github.io/images/answering_machine_answer.png"   style="height: auto; max-width: 720px; width: 100%"   >
+<img  alt="Answering Machine response"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenmaier.github.io/hugohome/images/answering_machine_answer.png"   style="height: auto; max-width: 720px; width: 100%"   >
 
 
     
@@ -954,7 +954,7 @@
 
 
 
-<img  alt="Answering Machine subjects and conditions"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenmaier.github.io/images/answering_machine_lexicon.png"   style="height: auto; max-width: 400px; width: 100%"   >
+<img  alt="Answering Machine subjects and conditions"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenmaier.github.io/hugohome/images/answering_machine_lexicon.png"   style="height: auto; max-width: 400px; width: 100%"   >
 
 
     
@@ -1044,7 +1044,7 @@
 
 
 
-<img  alt="Answering Machine concept"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenmaier.github.io/images/answering_machine_concept.png"   style="height: auto; max-width: 200px; width: 100%"   >
+<img  alt="Answering Machine concept"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenmaier.github.io/hugohome/images/answering_machine_concept.png"   style="height: auto; max-width: 200px; width: 100%"   >
 
 
     
@@ -1139,7 +1139,7 @@
 
 
 
-<img  alt="Serverless Architecture of the Answering Machine app"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenmaier.github.io/images/answering_machine_architecture.png"   style="height: auto; max-width: 720px; width: 100%"   >
+<img  alt="Serverless Architecture of the Answering Machine app"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenmaier.github.io/hugohome/images/answering_machine_architecture.png"   style="height: auto; max-width: 720px; width: 100%"   >
 
 
     
@@ -1276,7 +1276,7 @@
 
 
 
-<img  alt="Serverless Architecture of the First Ten app"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenmaier.github.io/images/first_ten_architecture.png"   style="height: auto; max-width: 720px; width: 100%"   >
+<img  alt="Serverless Architecture of the First Ten app"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenmaier.github.io/hugohome/images/first_ten_architecture.png"   style="height: auto; max-width: 720px; width: 100%"   >
 
 
     
