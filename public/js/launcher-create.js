@@ -48,16 +48,22 @@ window.LauncherCreateTool = {
     }
     const dx = x - this.startPoint.x,
       dy = y - this.startPoint.y,
-      length = Math.sqrt(dx * dx + dy * dy),
+      distance = Math.sqrt(dx * dx + dy * dy),
       angle = Math.atan2(dy, dx);
+    // Clamp distance to maxSpeed from config
+    const maxSpeed = App.config.launcherTypes[this.selectedType].maxSpeed;
+    const clampedDistance = Math.min(distance, maxSpeed);
+    const clampedX = this.startPoint.x + Math.cos(angle) * clampedDistance;
+    const clampedY = this.startPoint.y + Math.sin(angle) * clampedDistance;
+
     Matter.Body.setAngle(this.launcherPreview, angle);
 
-    const midX = (this.startPoint.x + x) / 2,
-      midY = (this.startPoint.y + y) / 2;
+    const midX = (this.startPoint.x + clampedX) / 2,
+      midY = (this.startPoint.y + clampedY) / 2;
     this.previewLine = Matter.Bodies.rectangle(
       midX,
       midY,
-      length,
+      clampedDistance,
       App.config.lineThickness,
       {
         isStatic: true,
@@ -72,14 +78,20 @@ window.LauncherCreateTool = {
     Matter.World.add(window.BallFall.world, this.previewLine);
 
     const arrowSize = 20;
-    this.arrowPreview = Matter.Bodies.rectangle(x, y, arrowSize, arrowSize, {
-      isStatic: true,
-      angle: angle,
-      render: {
-        sprite: { texture: "/images/arrow.png" },
-        opacity: 0.6,
-      },
-    });
+    this.arrowPreview = Matter.Bodies.rectangle(
+      clampedX,
+      clampedY,
+      arrowSize,
+      arrowSize,
+      {
+        isStatic: true,
+        angle: angle,
+        render: {
+          sprite: { texture: "/images/arrow.png" },
+          opacity: 0.6,
+        },
+      }
+    );
     Matter.World.add(window.BallFall.world, this.arrowPreview);
   },
 
@@ -96,14 +108,20 @@ window.LauncherCreateTool = {
       dy = y - this.startPoint.y,
       distance = Math.sqrt(dx * dx + dy * dy),
       angle = Math.atan2(dy, dx);
+    // Clamp distance to maxSpeed from config
+    const maxSpeed = App.config.launcherTypes[this.selectedType].maxSpeed;
+    const clampedDistance = Math.min(distance, maxSpeed);
+
     Matter.Body.setAngle(this.launcherPreview, angle);
     const forceScale = 0.05;
     this.launcherPreview.launchForce = {
-      x: Math.cos(angle) * distance * forceScale,
-      y: Math.sin(angle) * distance * forceScale,
+      x: Math.cos(angle) * clampedDistance * forceScale,
+      y: Math.sin(angle) * clampedDistance * forceScale,
     };
     this.launcherPreview.delay =
       App.config.launcherTypes[this.selectedType].delay;
+    // Optionally store maxSpeed on launcherPreview for later use
+    this.launcherPreview.maxSpeed = maxSpeed;
     this.launcherPreview.isPreview = false;
     if (this.launcherPreview.render && this.launcherPreview.render.sprite) {
       this.launcherPreview.render.opacity = 1;

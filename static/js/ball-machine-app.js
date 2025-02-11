@@ -16,9 +16,21 @@ window.App = {
     lineDeleteMobileHold: 1200, // Time delay for press and hold to delete on mobile
 
     launcherTypes: {
-      launcher: { delay: 200, image: "/images/DKannon250.png" },
-      "fast-launcher": { delay: 80, image: "/images/DKannon250-fast.png" },
-      "insta-launcher": { delay: 10, image: "/images/DKannon250-insta.png" },
+      launcher: {
+        delay: 750,
+        image: "/images/DKannon250.png",
+        maxSpeed: 200,
+      },
+      "fast-launcher": {
+        delay: 150,
+        image: "/images/DKannon250-fast.png",
+        maxSpeed: 350,
+      },
+      "insta-launcher": {
+        delay: 10,
+        image: "/images/DKannon250-insta.png",
+        maxSpeed: 500,
+      },
     },
     coins: 5, //starting coins and current coins
     goalMinSpeed: 0.5,
