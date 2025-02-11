@@ -7,17 +7,27 @@ stack: ["Python", "React", "AWS Lambda"]
 project_link: "http://voicequery-dev.s3-website-us-west-2.amazonaws.com/"
 github_link: "https://github.com/hockenmaier/voicequery"
 short_description: "An NLP-driven analytics system enabling users to query their data in plain English."
-tags: ["AI", "NLP", "Analytics", "Data Visualization", "Serverless", "Python", "React", "AWS Lambda", "Rapid Prototyping", "System Design"]
-
+tags:
+  [
+    "AI",
+    "NLP",
+    "Analytics",
+    "Data Visualization",
+    "Serverless",
+    "Python",
+    "React",
+    "AWS Lambda",
+    "Rapid Prototyping",
+    "System Design",
+  ]
 ---
 
 The Answering Machine is a proof-of-concept system that I built using **pre-LLM** natural language processing (NLP), specifically NLTK, to produce answers to questions asked about data in plain English.
 
-Looking back, this project was a great insight into what LLMs immediately allowed that was incredibly difficult before.  This project was several months of work that the openAI sdk would probably have allowed in a few weeks - and that few weeks would have been mostly frontend design and a bit of prompting.
+Looking back, this project was a great insight into what LLMs immediately allowed that was incredibly difficult before. This project was several months of work that the openAI sdk would probably have allowed in a few weeks - and that few weeks would have been mostly frontend design and a bit of prompting.
 
 **Try it here:** [http://voicequery-dev.s3-website-us-west-2.amazonaws.com/](http://voicequery-dev.s3-website-us-west-2.amazonaws.com/)
 **Github:** [https://github.com/hockenmaier/voicequery](https://github.com/hockenmaier/voicequery)
-
 
 The system uses natural language processing (NLP) to produce answers to questions asked about data in plain English.
 
@@ -31,7 +41,7 @@ On a desktop or tablet, click the link in the header to navigate to the Answerin
 
 In order to use the Answering Machine, you can either select one of the existing datasets, such as "HR Activity Sample," or upload one of your own using the homepage of the site:
 
-{{< image-medium src="/images/answering_machine_uploads.png" alt="Answering Machine homepage" >}}
+{{< image-medium src="images/answering_machine_uploads.png" alt="Answering Machine homepage" >}}
 
 To upload your own, click in the upload area or just drag a file straight from your desktop. For now, use CSV data files. Excel and other spreadsheet programs can easily save data in the CSV format using the "File > Save As" or similar option in the menu. Each file needs a unique name.
 
@@ -43,11 +53,11 @@ There are no user accounts in this system yet, so the data you upload might be s
 
 When you enter a dataset, you'll see a view that presents you with quite a bit of information:
 
-{{< image-large src="/images/answering_machine_hr.png" alt="Answering Machine main view" >}}
+{{< image-large src="images/answering_machine_hr.png" alt="Answering Machine main view" >}}
 
 The only part you need to focus on right now is the information panel. This panel lists out all the fields (columns), data types of those fields, and some sample data from a few records in your dataset:
 
-{{< image-medium src="/images/answering_machine_info.png" alt="Answering Machine info panel" >}}
+{{< image-medium src="images/answering_machine_info.png" alt="Answering Machine info panel" >}}
 
 You can use this panel to start to formulate questions you might have about the data. If you see number values, you might ask about averages, maximums, or other math that might otherwise take some time to calculate. If you see a date, you can ask questions about the data in certain time periods.
 
@@ -55,7 +65,7 @@ Many datasets also contain fields that only have a few specific allowed values. 
 
 Now look to the query bar to start asking your data questions:
 
-{{< image-medium src="/images/answering_machine_query.png" alt="Answering Machine query bar" >}}
+{{< image-medium src="images/answering_machine_query.png" alt="Answering Machine query bar" >}}
 
 The types of questions that will currently be automatically detected and answered are:
 
@@ -65,24 +75,24 @@ The types of questions that will currently be automatically detected and answere
 These types of questions can be made specific by using qualifying statements with prepositional phrases like "in 2019" or adjective phrases like "male" or "entry-level."
 
 Combining these two ideas, you can ask specific questions with any number of qualifiers, such as:  
-*"What was the median salary of male employees in the engineering department 5 years ago?"*  
+_"What was the median salary of male employees in the engineering department 5 years ago?"_
 
 Upon hitting the "Ask" button (or hitting Enter), the Answering Machine will do its best to answer your question and will show you all of its work in this format:
 
-{{< image-medium src="/images/answering_machine_answer.png" alt="Answering Machine response" >}}
+{{< image-medium src="images/answering_machine_answer.png" alt="Answering Machine response" >}}
 
 The last line in the response is the Answering Machine's answer. In this case, it is telling you the metric you asked for with all your stipulations is **6871.6 dollars.**
 
 Moving up, you see a series of assessments that the Answering Machine has made in order to filter and identify the data you are asking about. Statements like "Best auto-detected Numeric Subject Found: salary with column: Compensation (Monthly)" provide a glimpse into one of the Answering Machine's most advanced features, which uses a selection of NLP techniques to compare words and phrases that are similar in meaning, ultimately matching things you are asking about to fields and values that actually exist in your database.
 
-At the very top of the response is how the Answering Machine's nested grammar parsing logic actually parsed your question, with some specific pieces color-coded:  
+At the very top of the response is how the Answering Machine's nested grammar parsing logic actually parsed your question, with some specific pieces color-coded:
 
 - **Green** chunks indicate "subjects" that were detected. Subjects are what the Answering Machine thinks you're asking "about." These should represent both the main subject and other supporting subjects in your question.
 - **Purple** chunks are conditions. These are the things that the Answering Machine thinks you are trying to use to "specify" or filter data.
 
 Now that your question is answered, you might notice that some new green and purple colored bubbles have appeared in the sections of your screen labeled "New Subjects" and "New Conditions." We'll call these "lexicon":
 
-{{< image-small src="/images/answering_machine_lexicon.png" alt="Answering Machine subjects and conditions" >}}
+{{< image-small src="images/answering_machine_lexicon.png" alt="Answering Machine subjects and conditions" >}}
 
 ### Forming Concepts
 
@@ -90,7 +100,7 @@ If the Answering Machine already understood what you were asking and successfull
 
 To create a concept, click and drag on the green or purple "lexicon" bubble and move it out into the blank middle area of the screen. Then click and drag the field or field value from the info-panel at the top of the screen and drop it right on top of that bubble. You'll see both the data bubble and the lexicon bubble included in a larger gray bubble, which represents the concept:
 
-{{< image-tiny src="/images/answering_machine_concept.png" alt="Answering Machine concept" >}}
+{{< image-tiny src="images/answering_machine_concept.png" alt="Answering Machine concept" >}}
 
 You can add more lexicon bubbles to this concept if they mean the same thing, but you can only use one data bubble.
 
@@ -108,6 +118,6 @@ For the cloud nerds out there, [here is a great article](https://martinfowler.co
 
 This is a high-level map of all of the components that make the Answering Machine work in its current (June 2020) state. The API gateways, CloudWatch events, and some triggers "given for free" by AWS are left out of this for readability:
 
-{{< image-medium src="/images/answering_machine_architecture.png" alt="Serverless Architecture of the Answering Machine app" >}}
+{{< image-medium src="images/answering_machine_architecture.png" alt="Serverless Architecture of the Answering Machine app" >}}
 
 The full suite of lambdas and persistent storage services that make up the Answering Machine.

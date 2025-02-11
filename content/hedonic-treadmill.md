@@ -25,7 +25,7 @@ There’s an often misquoted study from ~2010 that personal income beyond about 
 But whatever the proper measure of happiness or satisfaction is, there is a great deal of logic to thinking its relationship with income looks like this:
 
 {{< image-medium
-    src="/images/treadmill-graph.png"
+    src="images/treadmill-graph.png"
     alt="happiness income curve"
     caption="" >}}
 
@@ -37,22 +37,20 @@ This is where the real paradox comes in. Gaining wealth is supposed to make your
 
 Maybe they aren’t prioritizing happiness at all.
 
-
 ## Keeping up with the Joneses
 
 My argument so far would be absolute blasphemy to most of the $500K+ salary people who don’t have much fun at work. Let’s talk about their two most common counterarguments:
 
 {{< paige/quote >}}
-1. *"Work should be a sacrifice, and more money means more security for my family."*
-{{< /paige/quote >}}
+
+1. _"Work should be a sacrifice, and more money means more security for my family."_
+   {{< /paige/quote >}}
 
 This is noble. It’s also way too self-sacrificial for the extremely wealthy first-world people we’re talking about. You’re making $800K. There is not a salary sacrifice in the world that will make your family “insecure.”
 
 And what pattern does this even establish? You’re going to choose to be unhappy for most of your waking hours so that you can guarantee your children will be able to do the same? What are you actually working for if not you or anyone else being able to actually enjoy themselves?
 
-
-{{< paige/quote >}}
-2. *"But I could make this crazy money and then retire in 5 years."*
+{{< paige/quote >}} 2. _"But I could make this crazy money and then retire in 5 years."_
 {{< /paige/quote >}}
 
 Now this is a good argument! You could indeed retire in 5 years after making $800K per year and then spend your time with family or pursue passion projects! The problems here are twofold:
