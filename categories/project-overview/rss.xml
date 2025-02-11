@@ -1,0 +1,2336 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+        
+    
+
+    
+        
+    
+
+    
+
+    
+        
+    
+
+    
+
+    
+        
+    
+
+    
+
+    
+        
+    
+
+    
+
+    
+        
+    
+
+    
+
+    
+        
+    
+
+    
+
+    
+        
+    
+
+    
+
+    
+        
+    
+
+    
+
+    
+        
+    
+
+    
+
+    
+        
+    
+
+    
+
+    
+        
+    
+
+    
+
+    
+        
+    
+
+    
+
+    
+        
+    
+
+
+
+
+
+
+
+    
+
+    
+
+
+
+
+
+
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0"  xml:lang="en-us"  xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        
+            
+
+            
+                
+            
+
+            
+                <link href="https://bhock.net/categories/project-overview/" rel="self" type="text/html"/>
+            
+        
+            
+
+            
+
+            
+                <link href="https://bhock.net/categories/project-overview/rss.xml" rel="alternate" type="application/rss+xml"/>
+            
+        
+
+        
+
+        
+
+        <description>Recent content</description>
+
+        
+            <language>en-us</language>
+        
+
+        
+            <lastBuildDate>2025-02-05 00:00:00 +0000 UTC</lastBuildDate>
+        
+
+        <link>https://bhock.net/categories/project-overview/</link>
+
+        
+
+        <title>Project Overview · Categories · Home</title>
+
+        
+
+        
+            <item>
+                
+                
+                
+                
+                
+                
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+                
+
+                
+
+                
+
+                
+                    <description><![CDATA[<hr>
+]]></description>
+                
+
+                <guid isPermaLink="false">tag:bhock.net,2025-02-05:/context-caddy/</guid>
+
+                
+                    <link>https://bhock.net/context-caddy/</link>
+                
+
+                
+                    <pubDate>Wed, 05 Feb 2025 00:00:00 UTC</pubDate>
+                
+
+                
+                    <title>Context Caddy</title>
+                
+            </item>
+        
+            <item>
+                
+                
+                
+                
+                
+                
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+                
+
+                
+
+                
+
+                
+                    <description><![CDATA[<p>I&rsquo;m creating this website in 2025 after starting my first full-time role in AI, in an effort to clean up my website&rsquo;s focus and emphasize different things.  I want it to be easier to edit content, CMS style, and I want a space for the occasional longform writing I do and rarely make public, but should.</p>
+<p>I have these ideas for a few reasons, but one is that after listening to the Dwarkesh podcast with Gwern, he convinced me that I really should have more of a record for future AIs to learn about me. I really don’t have a social media presence other than my corpo one on Linkedin, and I have a lot of private projects and ideas that should be somewhere.  If nothing else, maybe my kids can read it someday.  Talking to you, Alice :)  Your cousin Lily keeps asking where you are and doesn&rsquo;t seem to get the concept that you currently occupy the same space as Kaitlin.</p>
+<hr>
+<h2 id="ball-machine---the-game">Ball Machine - The Game</h2>
+<p>Most personal websites of professionals are very boring.  I think that is because most professionals consider what they do &ldquo;for work&rdquo; and &ldquo;a bit boring by nature&rdquo; and don&rsquo;t necessarily make a concerted effort to have fun with it.</p>
+<p>I have always tried to be the opposite, and with kids coming I am trying to make a bigger effort than ever to have fun whatever I&rsquo;m doing.  Which is often working in some way or another.</p>
+<p>So for my website, I wanted it to be consciously fun.  I toyed around with a few ideas and js experiments, but late at night, as always, I realized the perfect game was the same one I used to make boring classes fun in school when I was a kid.  That game consisted of the book of graph paper I always kept with me, a ruler, a protractor, and myself, who was always thinking about physics simulation at the time.  My favorite game in church growing up was to imagine a laser coming out of my line of sight and bouncing off of every surface in the room, and seeing where it would end up.  This graph paper game was similar:</p>
+<p>I would start by making a &ldquo;spawn point&rdquo; usually near the top left of the screen, where balls would start falling.  I would draw out the path of these balls a few inches from each other along their path with &ldquo;speed lines&rdquo; to denote which way they were going.  Then I would add platforms, trampolines, loops, curves, &ldquo;booster&rdquo; acceleration zones, jumps, machines that would disassemble and reassemble balls, and so many other things - usually something new each sheet of paper - and I would end up with a Rube Goldberg machine of balls flying all around the sheet.  The only goal was to fill the sheet with more ridiculous paths.</p>
+<p>I started calling the sheets my &ldquo;ball machines&rdquo;.  I wish I still had some of these drawings.  I remember them being quite intricate.. I must have reserved English class for them.</p>
+<p>So, to honor kid Brian, I am making my website a permanent ball machine.  I hope you have fun with it, and that it&rsquo;s not too annoying if you&rsquo;re trying to read.</p>
+<h2 id="how-to-play">How to Play</h2>
+<p>The ball machine on this site has been a bit more gamified than my graph paper drawings were as a kid.  Each time you load a page, you&rsquo;ll find a hoop somewhere on the page.  Your goal is to get the ball to go through the hoop.  Every time you do, another one will appear.  Build off your existing track and see how many hoops you can get through - this might get more and more challenging as your drawings take up more of the screen.  You get a point each time you get the ball through another hoop.  Each post will be a slightly different game!</p>
+<h2 id="how-its-made">How it&rsquo;s made</h2>
+]]></description>
+                
+
+                <guid isPermaLink="false">tag:bhock.net,2025-01-25:/this-website/</guid>
+
+                
+                    <link>https://bhock.net/this-website/</link>
+                
+
+                
+                    <pubDate>Sat, 25 Jan 2025 00:00:00 UTC</pubDate>
+                
+
+                
+                    <title>This Website</title>
+                
+            </item>
+        
+            <item>
+                
+                
+                
+                
+                
+                
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+                
+
+                
+
+                
+
+                
+                    <description><![CDATA[<p>Make Us Smarter</p>
+]]></description>
+                
+
+                <guid isPermaLink="false">tag:bhock.net,2025-01-01:/make-us-smarter/</guid>
+
+                
+                    <link>https://bhock.net/make-us-smarter/</link>
+                
+
+                
+                    <pubDate>Wed, 01 Jan 2025 00:00:00 UTC</pubDate>
+                
+
+                
+                    <title>Make Us Smarter AI App</title>
+                
+            </item>
+        
+            <item>
+                
+                
+                
+                
+                
+                
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+                
+
+                
+
+                
+
+                
+                    <description><![CDATA[<p>This is a simple tool-calling GPT wrapper app I made with a friend.  It&rsquo;s not too complicated but it&rsquo;s clean python, has a simple frontend with voice input using OpenAI whisper, and it calls real APIs in the background to answer questions.</p>
+]]></description>
+                
+
+                <guid isPermaLink="false">tag:bhock.net,2025-01-01:/gpt-wrapper/</guid>
+
+                
+                    <link>https://bhock.net/gpt-wrapper/</link>
+                
+
+                
+                    <pubDate>Wed, 01 Jan 2025 00:00:00 UTC</pubDate>
+                
+
+                
+                    <title>GPT Wrapper</title>
+                
+            </item>
+        
+            <item>
+                
+                
+                
+                
+                
+                
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+                
+
+                
+
+                
+
+                
+                    <description><![CDATA[<p>Bloom Or Bust</p>
+]]></description>
+                
+
+                <guid isPermaLink="false">tag:bhock.net,2025-01-01:/bloom-or-bust/</guid>
+
+                
+                    <link>https://bhock.net/bloom-or-bust/</link>
+                
+
+                
+                    <pubDate>Wed, 01 Jan 2025 00:00:00 UTC</pubDate>
+                
+
+                
+                    <title>Bloom Or Bust</title>
+                
+            </item>
+        
+            <item>
+                
+                
+                
+                
+                
+                
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+                
+
+                
+
+                
+
+                
+                    <description><![CDATA[<p>8 Player Balloon Fighter</p>
+]]></description>
+                
+
+                <guid isPermaLink="false">tag:bhock.net,2025-01-01:/balloon-fight/</guid>
+
+                
+                    <link>https://bhock.net/balloon-fight/</link>
+                
+
+                
+                    <pubDate>Wed, 01 Jan 2025 00:00:00 UTC</pubDate>
+                
+
+                
+                    <title>8 Player Balloon Fighter</title>
+                
+            </item>
+        
+            <item>
+                
+                
+                
+                
+                
+                
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+                
+
+                
+
+                
+
+                
+                    <description><![CDATA[<p>The Flapper</p>
+<p>The Flapper is a project that spawned out of a simple movement mechanic test that turned out to be surprisingly fun!  The idea is to flap your arms to fly - and have it be a multiplayer battle to really get people moving.</p>
+<p>Most of the start of this game was just tuning the movement mechanic, which borrowed from some physics realities and some elements I made up to make flapping feel good.</p>
+<p>Here&rsquo;s a video of one of the later states of the game, where I have it fully networked and am testing with friends, though it still has a few bugs here:</p>
+
+    <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+      <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/Vxn8rDOZ7dU?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"></iframe>
+    </div>
+
+]]></description>
+                
+
+                <guid isPermaLink="false">tag:bhock.net,2023-01-01:/the-flapper/</guid>
+
+                
+                    <link>https://bhock.net/the-flapper/</link>
+                
+
+                
+                    <pubDate>Sun, 01 Jan 2023 00:00:00 UTC</pubDate>
+                
+
+                
+                    <title>The Flapper</title>
+                
+            </item>
+        
+            <item>
+                
+                
+                
+                
+                
+                
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+                
+
+                
+
+                
+
+                
+                    <description><![CDATA[<div style="text-align: center; margin-bottom: 1rem;">
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+    
+
+
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<img  alt="The Treekeepers Puddle Jumper"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://bhock.net/images/treekeepers_moonlight.png"   style="height: auto; max-width: 100%"   >
+
+
+    
+        <span style="font-style: italic; margin-top: 0.5rem;">The Treekeepers Puddle Jumper</span>
+    
+</div>
+
+<p>Treekeepers VR is a networked VR game where up to 4 players can cooperate to navigate an oversized world and save a giant tree.</p>
+<p>Treekeepers is in production on both Quest (standalone VR) and Steam (PC VR) with full cross-play functionality. See the <a href="https://togetheragainstudios.com/treekeepersvr/">Treekeepers VR Website</a> for links to all storefronts and more detail about the game.</p>
+<hr>
+<h2 id="development">Development</h2>
+<p>I began working on Treekeepers in June 2021, and my primary goal was to go significantly deeper into Unity and make a fully networked game. Very few co-op games existed in VR at the time (the area is still lacking), and my intention was to answer this need and create a game that 4 players could cooperate in within a static frame of reference (players move within a ship, and the ship moves through the world) while having to solve coordination challenges together.</p>
+<p>I initially designed the project for SteamVR only using the SteamVR SDK but quickly realized that a VR game released only on PC would miss the majority of the userbase, as the (then Oculus) Quest 2 was quickly dominating the market. Treekeepers was a good fit for a mobile platform with its simple low-poly cel-shaded design, so I pivoted to using OpenXR about two months into the project to support VR interactions on both PC and mobile (Android) devices like the Quest 2.</p>
+<p>By summer 2022, I had a releasable product, albeit only with one “world” available. I decided to push the game to early access to gather rapid feedback from real players, and after getting approved for both storefronts, Treekeepers released to early access on September 30, 2022.</p>
+]]></description>
+                
+
+                <guid isPermaLink="false">tag:bhock.net,2022-10-01:/treekeepers-vr/</guid>
+
+                
+                    <link>https://bhock.net/treekeepers-vr/</link>
+                
+
+                
+                    <pubDate>Sat, 01 Oct 2022 00:00:00 UTC</pubDate>
+                
+
+                
+                    <title>Treekeepers VR</title>
+                
+            </item>
+        
+            <item>
+                
+                
+                
+                
+                
+                
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+                
+
+                
+
+                
+
+                
+                    <description><![CDATA[
+    <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+      <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/q_1itpdiPb4?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"></iframe>
+    </div>
+
+<p>The &ldquo;Human Joystick&rdquo; is an experimental VR movement system in which the player moves through the virtual environment by changing their physical location within their VR &ldquo;playspace&rdquo;.</p>
+<p>A demo of the human joystick movement system, showing how the system can work on flat surfaces or terrain.</p>
+<p>This was my first barebones VR project. Though I knew Unity going in, VR and 3D games in general have a lot of unique aspects that I wanted to learn about while trying to solve an actual problem, rather than following tutorials or demos online.</p>
+<p>VR has some adoption problems in its current state. We all know of some of the main problems- the clunky headset, the nausea issues, and of course the pricetag. But one major problem that you don&rsquo;t really notice until you get into it, is the lack of a good solution for virtual movement.</p>
+<p>I had been wondering about &ldquo;the human joystick&rdquo; as a potential a solution to this particular problem ever since getting into consumer VR in 2016.</p>
+<p>In most modern VR systems, the player can move physically around the room if they choose. Some applications and games depend on this - they put you in a small space and rely on your physical movement in order to reach different areas and interact with things. But games that provide a more traditional sense of scale and allow players to move through large worlds cannot rely on physical motion, because their users are constrained by physical space. Because of this, you see all kinds of &ldquo;artificial&rdquo; locomotion systems in order to let people move around - some just like traditional 2D games that let users &ldquo;slide&rdquo; their playspaces around the world using a joystick, and others that adopt teleportation mechanics. Neither feel very natural as compared to actually walking, and some can be downright sickening.</p>
+<p>My goal with this project was to solve this problem with a mixture of physical and artificial movement.</p>
+<p>It works like this: When the player is standing near the center of their playspace, physical VR movement applies. The player can move around and interact with things with their actual bodies. But once the player moves further from the center, the plaspace starts to move with them in the same direction as the vector from the center of the player&rsquo;s space to their current position. This allows for some of the benefits that physical movement experiences have, while allowing the players to more naturally move through an infinite amount of space.</p>
+<p>I experimented with several speeds, both static and scaling with the distance between the center and the player. I also experimented with the size of the physical movement &ldquo;deadzone&rdquo; and with vertical and constrained movement across hills, valleys, and buildings.</p>
+<hr>
+<table>
+  <thead>
+      <tr>
+          <th style="text-align: center">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="paige-image">
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+    
+
+    
+        
+
+        
+
+        
+    
+        
+
+        
+
+        
+    
+        
+
+        
+            
+
+    
+
+
+
+    
+
+
+
+
+
+
+
+    
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<img   class="img-fluid "  crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://bhock.net/images/human_joystick_centered.jpg"   style="display:block; height: auto; margin:0 auto; width: 60%"   >
+
+
+</div>
+</th>
+          <th style="text-align: left"><em>View from the player&rsquo;s perspective looking at the guides at his feet. With the white dot in the red deadzone, the player isn&rsquo;t moving.</em></th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: center">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="paige-image">
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+    
+
+    
+        
+
+        
+
+        
+    
+        
+
+        
+
+        
+    
+        
+
+        
+            
+
+    
+
+
+
+    
+
+
+
+
+
+
+
+    
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<img   class="img-fluid "  crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://bhock.net/images/human_joystick_moving.jpg"   style="display:block; height: auto; margin:0 auto; width: 60%"   >
+
+
+</div>
+</td>
+          <td style="text-align: left"><strong><em>When the white dot is in the green area, the player moves in that direction. Here I am moving forward and left at about half of max speed.</em></strong></td>
+      </tr>
+  </tbody>
+</table>
+<hr>
+<p>Eventually I found some good default values and the system worked, but there were some unforeseen problems: First, it was more difficult to center yourself within the playspace without looking at the visible guides I put at the player&rsquo;s feet than I expected. Second and more importantly, when you were already moving in one direction, it was not as simple as I thought to start moving in another direction accurately without fully returning to center, which was an immersion breaker.</p>
+<p>Ultimately I put the project up for others to view but have not expanded it into a full experience or released it on any marketplaces. Feel free to download the Unity project and try it on your own VR setup if you&rsquo;re curious.</p>
+]]></description>
+                
+
+                <guid isPermaLink="false">tag:bhock.net,2020-01-01:/human-joystick/</guid>
+
+                
+                    <link>https://bhock.net/human-joystick/</link>
+                
+
+                
+                    <pubDate>Wed, 01 Jan 2020 00:00:00 UTC</pubDate>
+                
+
+                
+                    <title>Human Joystick VR</title>
+                
+            </item>
+        
+            <item>
+                
+                
+                
+                
+                
+                
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+                
+
+                
+
+                
+
+                
+                    <description><![CDATA[<p>The Answering Machine is a proof-of-concept system that I built using <strong>pre-LLM</strong> natural language processing (NLP), specifically NLTK, to produce answers to questions asked about data in plain English.</p>
+<p>Looking back, this project was a great insight into what LLMs immediately allowed that was incredibly difficult before.  This project was several months of work that the openAI sdk would probably have allowed in a few weeks - and that few weeks would have been mostly frontend design and a bit of prompting.</p>
+<p><strong>Try it here:</strong> <a href="http://voicequery-dev.s3-website-us-west-2.amazonaws.com/">http://voicequery-dev.s3-website-us-west-2.amazonaws.com/</a>
+<strong>Github:</strong> <a href="https://github.com/hockenmaier/voicequery">https://github.com/hockenmaier/voicequery</a></p>
+<p>The system uses natural language processing (NLP) to produce answers to questions asked about data in plain English.</p>
+<p>It is designed with simplicity in mind—upload any columnar dataset and start asking questions and getting answers. It uses advanced NLP algorithms to make assumptions about what data you&rsquo;re asking about and lets you correct those assumptions for follow-up questions if they&rsquo;re wrong.</p>
+<p>It is built entirely out of serverless components, which means there is no cost to maintain or run it other than the traffic the system receives.</p>
+<h2 id="how-to">How-to</h2>
+<p>On a desktop or tablet, click the link in the header to navigate to the Answering Machine. For now, it isn&rsquo;t optimized for smartphone-sized screens.</p>
+<p>In order to use the Answering Machine, you can either select one of the existing datasets, such as &ldquo;HR Activity Sample,&rdquo; or upload one of your own using the homepage of the site:</p>
+<div style="text-align: center; margin-bottom: 1rem;">
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<img  alt="Answering Machine homepage"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://bhock.net/images/answering_machine_uploads.png"   style="height: auto; max-width: 720px; width: 100%"   >
+
+
+    
+</div>
+
+<p>To upload your own, click in the upload area or just drag a file straight from your desktop. For now, use CSV data files. Excel and other spreadsheet programs can easily save data in the CSV format using the &ldquo;File &gt; Save As&rdquo; or similar option in the menu. Each file needs a unique name.</p>
+<p>When you hit the upload button, the site may not appear to change until the file is uploaded, at which point you&rsquo;ll see it appear in the box labeled &ldquo;Ask Your Data Anything&rdquo; below. Click on your file to start using it with the Answering Machine, or click the red trash can icon to delete it.</p>
+<p>There are no user accounts in this system yet, so the data you upload might be seen by other users using the system. Try not to use sensitive data for now.</p>
+<h3 id="asking-questions">Asking questions</h3>
+<p>When you enter a dataset, you&rsquo;ll see a view that presents you with quite a bit of information:</p>
+<div style="text-align: center; margin-bottom: 1rem;">
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+
+
+    
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<img  alt="Answering Machine main view"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://bhock.net/images/answering_machine_hr.png"   style="height: auto; width: 100%"   >
+
+
+    
+</div>
+
+<p>The only part you need to focus on right now is the information panel. This panel lists out all the fields (columns), data types of those fields, and some sample data from a few records in your dataset:</p>
+<div style="text-align: center; margin-bottom: 1rem;">
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<img  alt="Answering Machine info panel"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://bhock.net/images/answering_machine_info.png"   style="height: auto; max-width: 720px; width: 100%"   >
+
+
+    
+</div>
+
+<p>You can use this panel to start to formulate questions you might have about the data. If you see number values, you might ask about averages, maximums, or other math that might otherwise take some time to calculate. If you see a date, you can ask questions about the data in certain time periods.</p>
+<p>Many datasets also contain fields that only have a few specific allowed values. When the Answering Machine sees fewer than 15 unique values in any field, the data type will be a &ldquo;List&rdquo; and it lists them right out under the sample values table. You can use this type of value to ask questions about records containing those specific values. For example, in the HR dataset, you might only be interested in data where the &ldquo;Education&rdquo; field&rsquo;s value is &ldquo;High School.&rdquo;</p>
+<p>Now look to the query bar to start asking your data questions:</p>
+<div style="text-align: center; margin-bottom: 1rem;">
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<img  alt="Answering Machine query bar"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://bhock.net/images/answering_machine_query.png"   style="height: auto; max-width: 720px; width: 100%"   >
+
+
+    
+</div>
+
+<p>The types of questions that will currently be automatically detected and answered are:</p>
+<ul>
+<li>Counts of records where certain conditions are true</li>
+<li>Math questions such as averages, medians, maximums, and minimums</li>
+</ul>
+<p>These types of questions can be made specific by using qualifying statements with prepositional phrases like &ldquo;in 2019&rdquo; or adjective phrases like &ldquo;male&rdquo; or &ldquo;entry-level.&rdquo;</p>
+<p>Combining these two ideas, you can ask specific questions with any number of qualifiers, such as:<br>
+<em>&ldquo;What was the median salary of male employees in the engineering department 5 years ago?&rdquo;</em></p>
+<p>Upon hitting the &ldquo;Ask&rdquo; button (or hitting Enter), the Answering Machine will do its best to answer your question and will show you all of its work in this format:</p>
+<div style="text-align: center; margin-bottom: 1rem;">
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<img  alt="Answering Machine response"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://bhock.net/images/answering_machine_answer.png"   style="height: auto; max-width: 720px; width: 100%"   >
+
+
+    
+</div>
+
+<p>The last line in the response is the Answering Machine&rsquo;s answer. In this case, it is telling you the metric you asked for with all your stipulations is <strong>6871.6 dollars.</strong></p>
+<p>Moving up, you see a series of assessments that the Answering Machine has made in order to filter and identify the data you are asking about. Statements like &ldquo;Best auto-detected Numeric Subject Found: salary with column: Compensation (Monthly)&rdquo; provide a glimpse into one of the Answering Machine&rsquo;s most advanced features, which uses a selection of NLP techniques to compare words and phrases that are similar in meaning, ultimately matching things you are asking about to fields and values that actually exist in your database.</p>
+<p>At the very top of the response is how the Answering Machine&rsquo;s nested grammar parsing logic actually parsed your question, with some specific pieces color-coded:</p>
+<ul>
+<li><strong>Green</strong> chunks indicate &ldquo;subjects&rdquo; that were detected. Subjects are what the Answering Machine thinks you&rsquo;re asking &ldquo;about.&rdquo; These should represent both the main subject and other supporting subjects in your question.</li>
+<li><strong>Purple</strong> chunks are conditions. These are the things that the Answering Machine thinks you are trying to use to &ldquo;specify&rdquo; or filter data.</li>
+</ul>
+<p>Now that your question is answered, you might notice that some new green and purple colored bubbles have appeared in the sections of your screen labeled &ldquo;New Subjects&rdquo; and &ldquo;New Conditions.&rdquo; We&rsquo;ll call these &ldquo;lexicon&rdquo;:</p>
+<div style="text-align: center; margin-bottom: 1rem;">
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<img  alt="Answering Machine subjects and conditions"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://bhock.net/images/answering_machine_lexicon.png"   style="height: auto; max-width: 400px; width: 100%"   >
+
+
+    
+</div>
+
+<h3 id="forming-concepts">Forming Concepts</h3>
+<p>If the Answering Machine already understood what you were asking and successfully matched it to fields and values in your data, you don&rsquo;t have to do anything with these. But often you will be using domain-specific lexicon, or the auto-matching algorithm simply won&rsquo;t pick the correct value. These situations are what concepts are for.</p>
+<p>To create a concept, click and drag on the green or purple &ldquo;lexicon&rdquo; bubble and move it out into the blank middle area of the screen. Then click and drag the field or field value from the info-panel at the top of the screen and drop it right on top of that bubble. You&rsquo;ll see both the data bubble and the lexicon bubble included in a larger gray bubble, which represents the concept:</p>
+<div style="text-align: center; margin-bottom: 1rem;">
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<img  alt="Answering Machine concept"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://bhock.net/images/answering_machine_concept.png"   style="height: auto; max-width: 200px; width: 100%"   >
+
+
+    
+</div>
+
+<p>You can add more lexicon bubbles to this concept if they mean the same thing, but you can only use one data bubble.</p>
+<p>Concepts override the Answering Machine&rsquo;s auto-matching logic. If you ask another question containing a subject or condition that is now matched by a user to a data value, that data value will be used instead of the auto-match. If the concept isn&rsquo;t working well, you can delete it by dragging all of the nested bubbles out of it either into the blank middle area or into the colored panel they originally came from.</p>
+<p>Feel free to play around with new datasets and questions, and use the contact section of this site if you have comments or questions. When you ask questions or create/modify concepts, that data will automatically be saved to the server in real-time. You can close the page anytime and come back to your dataset to keep asking questions.</p>
+<p>Remember that there are no user accounts, meaning you can share your dataset and work in tandem with others! But again, please do not upload sensitive data to this proof-of-concept tool as it will be available for other users to see and query.</p>
+<h2 id="architecture">Architecture</h2>
+<p>The Answering Machine is a purely &ldquo;serverless&rdquo; application, meaning that there is no server hosting the various components of the application until those components are needed by a user. This is true for the database, the file storage, the static website, the backend compute, and the API orchestration.</p>
+<p>For the cloud nerds out there, <a href="https://martinfowler.com/articles/serverless.html">here is a great article</a> by Martin Fowler on what exactly &ldquo;serverless&rdquo; means, especially in terms of the backend compute portion, which is arguably the most valuable part of the application to be serverless. For reference, I am using Martin&rsquo;s 2nd definition of &ldquo;serverless&rdquo; here.</p>
+<p>This is a high-level map of all of the components that make the Answering Machine work in its current (June 2020) state. The API gateways, CloudWatch events, and some triggers &ldquo;given for free&rdquo; by AWS are left out of this for readability:</p>
+<div style="text-align: center; margin-bottom: 1rem;">
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<img  alt="Serverless Architecture of the Answering Machine app"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://bhock.net/images/answering_machine_architecture.png"   style="height: auto; max-width: 720px; width: 100%"   >
+
+
+    
+</div>
+
+<p>The full suite of lambdas and persistent storage services that make up the Answering Machine.</p>
+]]></description>
+                
+
+                <guid isPermaLink="false">tag:bhock.net,2019-07-03:/answering-machine/</guid>
+
+                
+                    <link>https://bhock.net/answering-machine/</link>
+                
+
+                
+                    <pubDate>Wed, 03 Jul 2019 00:00:00 UTC</pubDate>
+                
+
+                
+                    <title>The Answering Machine</title>
+                
+            </item>
+        
+            <item>
+                
+                
+                
+                
+                
+                
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+                
+
+                
+
+                
+
+                
+                    <description><![CDATA[<p>Land War is an 8-player strategy game I developed as a solo project and released to Steam in March of 2019.<br>
+This game was intended to have low art requirements and simple interaction rules that result in deep strategic gameplay.</p>
+<p>The core concept is that of an ultra-simplified real-time-strategy game. Each player is represented by a color and can grow their territory by moving in any direction. The strategic elements occur when players encounter other players and have to make choices about which side of their land to defend or give up. Players can use the structure of the map and the coordinated action of other players to gain defensible footholds in order to take more area and eventually be the last player on the board.</p>
+
+    <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+      <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/5Q8PAuWcmQc?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"></iframe>
+    </div>
+
+<p>A full game of the final product released on Steam played on a Windows computer.</p>
+<h3 id="development">Development</h3>
+<p>I built Land War over the course of 7 months and 400 hours of work using Unity with C#. Though art requirements were intentionally low for a video game, I still had to produce several hundred static graphics and GIFs, and commissioned custom music for the menu and gameplay.</p>
+<p>This project is one of my favorite examples of what can be done in relatively little time with a focused vision and a constant eye on scope creep. From the very start, I knew that a key to making compelling software was to flesh out the core concept before all else. This is why I started on the most fundamental strategic interaction of the players and built an MVP version of the game without a menu, sound, art, or even a win condition.</p>
+<p>I started the project on a Memorial Day Monday, and by Friday had a rudimentary prototype playable with 8 players on Nintendo Joy-Con controllers paired to a Windows machine via Bluetooth.<br>
+This is what the project looked like for my first play-test with other people 5 days in:</p>
+<div style="text-align: center; margin-bottom: 1rem;">
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+
+
+    
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<img  alt="Land War 4-day MVP"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://bhock.net/images/land_war_mvp.gif"   style="height: auto; width: 100%"   >
+
+
+    
+        <span style="display: block; font-style: italic; margin-top: 0.5rem;">4-player game played with Nintendo Joy-Cons on a build of the game from 5 days into development.</span>
+    
+</div>
+
+<p>From there, I continued to work on depth and full feature functionality including menus, a tutorial, a map generator, a dynamic scoring and round system, better sound and sprite graphics, different play modes and settings, and support for many controllers. I released the game with very little marketing aside from some Reddit posts and a physical handout at E3 but was happy to receive positive reviews and several hundred purchases of the game.</p>
+<div style="text-align: center; margin-bottom: 1rem;">
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+
+
+    
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<img  alt="Player Select screen"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://bhock.net/images/land_war_player_select.png"   style="height: auto; width: 100%"   >
+
+
+    
+        <span style="display: block; font-style: italic; margin-top: 0.5rem;">Player Select screen. Supporting menu and player controls across hundreds of controller types was one of the largest unforeseen challenges in developing Land War.</span>
+    
+</div>
+
+<div style="text-align: center; margin-bottom: 1rem;">
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+
+
+    
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<img  alt="Settings menu"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://bhock.net/images/land_war_settings.png"   style="height: auto; width: 100%"   >
+
+
+    
+        <span style="display: block; font-style: italic; margin-top: 0.5rem;">Settings menu. Most interesting mechanics I found while developing the game were added as options to keep the game interesting here.</span>
+    
+</div>
+
+<div style="text-align: center; margin-bottom: 1rem;">
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<img  alt="E3 marketing material"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://bhock.net/images/land_war_e3.png"   style="height: auto; max-width: 400px; width: 100%"   >
+
+
+    
+        <span style="display: block; font-style: italic; margin-top: 0.5rem;">The only physical marketing material developed for Land War. Several hundred Steam keys (copies of the game) were handed out during the E3 convention in 2019.</span>
+    
+</div>
+
+
+    <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+      <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/BylKEPF4EeU?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"></iframe>
+    </div>
+
+<p><em>Land War&rsquo;s Steam release announcement trailer.</em></p>
+]]></description>
+                
+
+                <guid isPermaLink="false">tag:bhock.net,2019-03-01:/land-war/</guid>
+
+                
+                    <link>https://bhock.net/land-war/</link>
+                
+
+                
+                    <pubDate>Fri, 01 Mar 2019 00:00:00 UTC</pubDate>
+                
+
+                
+                    <title>Land War</title>
+                
+            </item>
+        
+            <item>
+                
+                
+                
+                
+                
+                
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+                
+
+                
+
+                
+
+                
+                    <description><![CDATA[<p>First Ten is an educational app containing information about the U.S. Bill of Rights, accessible on Google devices and smart speakers. It uses a VUI (voice user interface) only, meaning there is no visual way to interact with the app.</p>
+<p><strong>Try it here:</strong> <a href="https://assistant.google.com/services/a/uid/00000036f6a580ed">https://assistant.google.com/services/a/uid/00000036f6a580ed</a>
+<strong>Github:</strong> <a href="https://github.com/hockenmaier/billofrights">https://github.com/hockenmaier/billofrights</a></p>
+<p>Like Alexa skills, Google actions can be accessed through search or by simply asking for their names in Google Home smart speakers. Ask your Google Home or Android device, &ldquo;Can I speak to First Ten?&rdquo; in order to try it.</p>
+<h3 id="architecture">Architecture</h3>
+<p>First Ten&rsquo;s backend is built in the serverless AWS services Lambda and DynamoDB, and its frontend—the engine that parses your voice into different &ldquo;intents&rdquo; and parameters—is built on Google&rsquo;s Dialogflow.
+<div style="text-align: center; margin-bottom: 1rem;">
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<img  alt="Serverless Architecture of the First Ten app"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://bhock.net/images/first_ten_architecture.png"   style="height: auto; max-width: 720px; width: 100%"   >
+
+
+    
+</div>
+</p>
+<hr>
+]]></description>
+                
+
+                <guid isPermaLink="false">tag:bhock.net,2018-05-19:/first-ten/</guid>
+
+                
+                    <link>https://bhock.net/first-ten/</link>
+                
+
+                
+                    <pubDate>Sat, 19 May 2018 00:00:00 UTC</pubDate>
+                
+
+                
+                    <title>First Ten</title>
+                
+            </item>
+        
+            <item>
+                
+                
+                
+                
+                
+                
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+                
+
+                
+
+                
+
+                
+                    <description><![CDATA[<p><strong>Raspberry Pi Control Panel</strong> is a hardware project I designed in 2016 to manage home automation systems. The project involved designing a custom 3D-printed case for a Raspberry Pi microcomputer with a touchscreen interface.</p>
+<p>Links:</p>
+<ul>
+<li><a href="https://github.com/hockenmaier/RaspberryPiControlPanel">GitHub</a></li>
+<li><a href="https://www.thingiverse.com/thing:2524560">Thingiverse</a></li>
+</ul>
+<hr>
+<p>I created this panel display in 2026 to control much of the home automation I used in my Studio City apartment. Mainly a hardware project, I designed and 3D-printed a case and frame for the touchscreen and raspberry pi microcomputer in order to mount them to the wall. The software running the control panel is SaaS, but I did write a custom html wrapper to control the orientation and settings of the site, which is available on the github linked above.</p>
+<p>Update in 2025: This panel is still my main view into my home automation in my new house in Sherman Oaks, almost 10 years in with no modification!</p>
+<p>Here&rsquo;s a video to see the panel in action:</p>
+<h2 id="hahahugoshortcode9s0hbhb">
+    <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+      <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/iFGmm-ijJvE?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"></iframe>
+    </div>
+</h2>
+<p>Feel free to explore the linked repositories for schematics and source code.</p>
+]]></description>
+                
+
+                <guid isPermaLink="false">tag:bhock.net,2016-01-01:/raspberry-pi-panel/</guid>
+
+                
+                    <link>https://bhock.net/raspberry-pi-panel/</link>
+                
+
+                
+                    <pubDate>Fri, 01 Jan 2016 00:00:00 UTC</pubDate>
+                
+
+                
+                    <title>Raspberry Pi Control Panel</title>
+                
+            </item>
+        
+    </channel>
+</rss>
