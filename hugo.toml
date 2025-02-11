@@ -1,4 +1,4 @@
-baseURL = 'https://bhock.net/'
+baseURL = 'https://hockenmaier.github.io/hugohome/'
 languageCode = 'en-us'
 title = "HockenHome"
 theme = 'paige'

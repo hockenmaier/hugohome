@@ -1,0 +1,700 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+        
+    
+
+    
+        
+    
+
+    
+
+    
+        
+    
+
+    
+
+    
+        
+    
+
+
+
+
+
+
+
+    
+
+    
+
+
+
+
+
+
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0"  xml:lang="en-us"  xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        
+            
+
+            
+                
+            
+
+            
+                <link href="https://bhock.net/tags/indie-games/" rel="self" type="text/html"/>
+            
+        
+            
+
+            
+
+            
+                <link href="https://bhock.net/tags/indie-games/rss.xml" rel="alternate" type="application/rss+xml"/>
+            
+        
+
+        
+
+        
+
+        <description>Recent content</description>
+
+        
+            <language>en-us</language>
+        
+
+        
+            <lastBuildDate>2023-01-01 00:00:00 +0000 UTC</lastBuildDate>
+        
+
+        <link>https://bhock.net/tags/indie-games/</link>
+
+        
+
+        <title>Indie Games · Tags · Home</title>
+
+        
+
+        
+            <item>
+                
+                
+                
+                
+                
+                
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+                
+
+                
+
+                
+
+                
+                    <description><![CDATA[<p>The Flapper</p>
+<p>The Flapper is a project that spawned out of a simple movement mechanic test that turned out to be surprisingly fun!  The idea is to flap your arms to fly - and have it be a multiplayer battle to really get people moving.</p>
+<p>Most of the start of this game was just tuning the movement mechanic, which borrowed from some physics realities and some elements I made up to make flapping feel good.</p>
+<p>Here&rsquo;s a video of one of the later states of the game, where I have it fully networked and am testing with friends, though it still has a few bugs here:</p>
+
+    <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+      <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/Vxn8rDOZ7dU?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"></iframe>
+    </div>
+
+]]></description>
+                
+
+                <guid isPermaLink="false">tag:bhock.net,2023-01-01:/the-flapper/</guid>
+
+                
+                    <link>https://bhock.net/the-flapper/</link>
+                
+
+                
+                    <pubDate>Sun, 01 Jan 2023 00:00:00 UTC</pubDate>
+                
+
+                
+                    <title>The Flapper</title>
+                
+            </item>
+        
+            <item>
+                
+                
+                
+                
+                
+                
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+                
+
+                
+
+                
+
+                
+                    <description><![CDATA[<div style="text-align: center; margin-bottom: 1rem;">
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+    
+
+
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<img  alt="The Treekeepers Puddle Jumper"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://bhock.net/images/treekeepers_moonlight.png"   style="height: auto; max-width: 100%"   >
+
+
+    
+        <span style="font-style: italic; margin-top: 0.5rem;">The Treekeepers Puddle Jumper</span>
+    
+</div>
+
+<p>Treekeepers VR is a networked VR game where up to 4 players can cooperate to navigate an oversized world and save a giant tree.</p>
+<p>Treekeepers is in production on both Quest (standalone VR) and Steam (PC VR) with full cross-play functionality. See the <a href="https://togetheragainstudios.com/treekeepersvr/">Treekeepers VR Website</a> for links to all storefronts and more detail about the game.</p>
+<hr>
+<h2 id="development">Development</h2>
+<p>I began working on Treekeepers in June 2021, and my primary goal was to go significantly deeper into Unity and make a fully networked game. Very few co-op games existed in VR at the time (the area is still lacking), and my intention was to answer this need and create a game that 4 players could cooperate in within a static frame of reference (players move within a ship, and the ship moves through the world) while having to solve coordination challenges together.</p>
+<p>I initially designed the project for SteamVR only using the SteamVR SDK but quickly realized that a VR game released only on PC would miss the majority of the userbase, as the (then Oculus) Quest 2 was quickly dominating the market. Treekeepers was a good fit for a mobile platform with its simple low-poly cel-shaded design, so I pivoted to using OpenXR about two months into the project to support VR interactions on both PC and mobile (Android) devices like the Quest 2.</p>
+<p>By summer 2022, I had a releasable product, albeit only with one “world” available. I decided to push the game to early access to gather rapid feedback from real players, and after getting approved for both storefronts, Treekeepers released to early access on September 30, 2022.</p>
+]]></description>
+                
+
+                <guid isPermaLink="false">tag:bhock.net,2022-10-01:/treekeepers-vr/</guid>
+
+                
+                    <link>https://bhock.net/treekeepers-vr/</link>
+                
+
+                
+                    <pubDate>Sat, 01 Oct 2022 00:00:00 UTC</pubDate>
+                
+
+                
+                    <title>Treekeepers VR</title>
+                
+            </item>
+        
+            <item>
+                
+                
+                
+                
+                
+                
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+                
+
+                
+
+                
+
+                
+                    <description><![CDATA[<p>Land War is an 8-player strategy game I developed as a solo project and released to Steam in March of 2019.<br>
+This game was intended to have low art requirements and simple interaction rules that result in deep strategic gameplay.</p>
+<p>The core concept is that of an ultra-simplified real-time-strategy game. Each player is represented by a color and can grow their territory by moving in any direction. The strategic elements occur when players encounter other players and have to make choices about which side of their land to defend or give up. Players can use the structure of the map and the coordinated action of other players to gain defensible footholds in order to take more area and eventually be the last player on the board.</p>
+
+    <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+      <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/5Q8PAuWcmQc?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"></iframe>
+    </div>
+
+<p>A full game of the final product released on Steam played on a Windows computer.</p>
+<h3 id="development">Development</h3>
+<p>I built Land War over the course of 7 months and 400 hours of work using Unity with C#. Though art requirements were intentionally low for a video game, I still had to produce several hundred static graphics and GIFs, and commissioned custom music for the menu and gameplay.</p>
+<p>This project is one of my favorite examples of what can be done in relatively little time with a focused vision and a constant eye on scope creep. From the very start, I knew that a key to making compelling software was to flesh out the core concept before all else. This is why I started on the most fundamental strategic interaction of the players and built an MVP version of the game without a menu, sound, art, or even a win condition.</p>
+<p>I started the project on a Memorial Day Monday, and by Friday had a rudimentary prototype playable with 8 players on Nintendo Joy-Con controllers paired to a Windows machine via Bluetooth.<br>
+This is what the project looked like for my first play-test with other people 5 days in:</p>
+<div style="text-align: center; margin-bottom: 1rem;">
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+
+
+    
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<img  alt="Land War 4-day MVP"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://bhock.net/images/land_war_mvp.gif"   style="height: auto; width: 100%"   >
+
+
+    
+        <span style="display: block; font-style: italic; margin-top: 0.5rem;">4-player game played with Nintendo Joy-Cons on a build of the game from 5 days into development.</span>
+    
+</div>
+
+<p>From there, I continued to work on depth and full feature functionality including menus, a tutorial, a map generator, a dynamic scoring and round system, better sound and sprite graphics, different play modes and settings, and support for many controllers. I released the game with very little marketing aside from some Reddit posts and a physical handout at E3 but was happy to receive positive reviews and several hundred purchases of the game.</p>
+<div style="text-align: center; margin-bottom: 1rem;">
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+
+
+    
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<img  alt="Player Select screen"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://bhock.net/images/land_war_player_select.png"   style="height: auto; width: 100%"   >
+
+
+    
+        <span style="display: block; font-style: italic; margin-top: 0.5rem;">Player Select screen. Supporting menu and player controls across hundreds of controller types was one of the largest unforeseen challenges in developing Land War.</span>
+    
+</div>
+
+<div style="text-align: center; margin-bottom: 1rem;">
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+
+
+    
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<img  alt="Settings menu"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://bhock.net/images/land_war_settings.png"   style="height: auto; width: 100%"   >
+
+
+    
+        <span style="display: block; font-style: italic; margin-top: 0.5rem;">Settings menu. Most interesting mechanics I found while developing the game were added as options to keep the game interesting here.</span>
+    
+</div>
+
+<div style="text-align: center; margin-bottom: 1rem;">
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<img  alt="E3 marketing material"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://bhock.net/images/land_war_e3.png"   style="height: auto; max-width: 400px; width: 100%"   >
+
+
+    
+        <span style="display: block; font-style: italic; margin-top: 0.5rem;">The only physical marketing material developed for Land War. Several hundred Steam keys (copies of the game) were handed out during the E3 convention in 2019.</span>
+    
+</div>
+
+
+    <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+      <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/BylKEPF4EeU?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"></iframe>
+    </div>
+
+<p><em>Land War&rsquo;s Steam release announcement trailer.</em></p>
+]]></description>
+                
+
+                <guid isPermaLink="false">tag:bhock.net,2019-03-01:/land-war/</guid>
+
+                
+                    <link>https://bhock.net/land-war/</link>
+                
+
+                
+                    <pubDate>Fri, 01 Mar 2019 00:00:00 UTC</pubDate>
+                
+
+                
+                    <title>Land War</title>
+                
+            </item>
+        
+    </channel>
+</rss>

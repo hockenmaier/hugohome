@@ -1,0 +1,37 @@
+baseURL = 'https://bhock.net/'
+languageCode = 'en-us'
+title = "HockenHome"
+theme = 'paige'
+
+
+[taxonomies]
+category = "categories"      # For post types like project overview, project update, essay, thought, etc.
+#personal = "personal"        # Binary for personal vs professional projects: personal-Y or personal-N
+stack = "stacks"             # Technology stack used
+tags = "tags"                # Still optional, for very specific filters like "AI ethics"
+
+[params.paige]
+color = "#0d1213" # Adjust to your preferred primary color
+color_scheme = "dark" # "auto" will follow system preferences for dark/light mode
+description = "Welcome to HockenHome, Brian's site for project updates, writings, and ideas."
+menu_style = "pills" # Can be "links", "pills", "tabs", or "underline"
+#credit = '© Brian Hockenmaier. All rights reserved.'
+#Credit is not needed, this is added in layouts/partials/paige/side-footer.html
+
+
+[params.paige.list_page]
+disable_reading_time = false
+disable_summary = true
+
+[params.paige.page]
+disable_reading_time = true
+
+[paige.alert]
+message = "What's up!"
+type = "primary"
+
+[paige.comments]
+disable = true # Disable comments entirely
+
+[paige.search]
+disable = false # Enable search functionality
