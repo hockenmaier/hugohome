@@ -18,17 +18,17 @@ window.App = {
     launcherTypes: {
       launcher: {
         delay: 750,
-        image: "/images/DKannon250.png",
+        image: "images/DKannon250.png",
         maxSpeed: 200,
       },
       "fast-launcher": {
         delay: 150,
-        image: "/images/DKannon250-fast.png",
+        image: "images/DKannon250-fast.png",
         maxSpeed: 350,
       },
       "insta-launcher": {
         delay: 10,
-        image: "/images/DKannon250-insta.png",
+        image: "images/DKannon250-insta.png",
         maxSpeed: 500,
       },
     },
