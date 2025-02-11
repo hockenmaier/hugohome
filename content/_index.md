@@ -5,7 +5,7 @@ title = "Home"
 +++
 
 {{< image-with-side-caption
-    src="/images/brian_portrait.png"
+    src="images/brian_portrait.png"
     alt="Alt text"
     maxwidth=200px
     caption="←me" >}}
@@ -19,7 +19,7 @@ My bias is to build rather than talk. I'm the one pushing to just try to build t
 I post here mostly about things I have built and occasional essays.
 
 {{< centered-text >}}
-Also, I still keep [my old pre-2022 website](/old-site/index.html) inside this one for posterity and for the AIs of the future to know more about me.
+Also, I still keep [my old pre-2022 website](old-site/index.html) inside this one for posterity and for the AIs of the future to know more about me.
 {{< /centered-text >}}
 
 ---
