@@ -7,17 +7,25 @@ stack: ["Unity", "C#", "SteamVR SDK"]
 project_link: "https://github.com/hockenmaier/humanjoystick"
 github_link: "https://github.com/hockenmaier/humanjoystick"
 short_description: "An experimental VR locomotion system leveraging physical playspace movement."
-tags: ["VR", "Experimental", "Game Development", "Unity", "SteamVR SDK", "3D Printing", "Video Games", "Prototyping", "User Experience"]
-
+tags:
+  [
+    "VR",
+    "Experimental",
+    "Game Development",
+    "Unity",
+    "SteamVR SDK",
+    "3D Printing",
+    "Video Games",
+    "Prototyping",
+    "User Experience",
+  ]
 ---
 
 {{< youtube q_1itpdiPb4 >}}
 
 The "Human Joystick" is an experimental VR movement system in which the player moves through the virtual environment by changing their physical location within their VR "playspace".
 
-
 A demo of the human joystick movement system, showing how the system can work on flat surfaces or terrain.
-
 
 This was my first barebones VR project. Though I knew Unity going in, VR and 3D games in general have a lot of unique aspects that I wanted to learn about while trying to solve an actual problem, rather than following tutorials or demos online.
 
@@ -34,9 +42,11 @@ It works like this: When the player is standing near the center of their playspa
 I experimented with several speeds, both static and scaling with the distance between the center and the player. I also experimented with the size of the physical movement "deadzone" and with vertical and constrained movement across hills, valleys, and buildings.
 
 ---
-| {{< paige/image src="/images/human_joystick_centered.jpg" width="60%" style="display:block; margin:0 auto;" >}} | _View from the player's perspective looking at the guides at his feet. With the white dot in the red deadzone, the player isn't moving._ |
-|:----------------------------------------------------------------------------------------------------------------:|:-------------------------------------------------------------------------------------------------------------|
-| {{< paige/image src="/images/human_joystick_moving.jpg" width="60%" style="display:block; margin:0 auto;" >}}    | **_When the white dot is in the green area, the player moves in that direction. Here I am moving forward and left at about half of max speed._** |
+
+| {{< paige/image src="images/human_joystick_centered.jpg" width="60%" style="display:block; margin:0 auto;" >}} | _View from the player's perspective looking at the guides at his feet. With the white dot in the red deadzone, the player isn't moving._         |
+| :------------------------------------------------------------------------------------------------------------: | :----------------------------------------------------------------------------------------------------------------------------------------------- |
+|  {{< paige/image src="images/human_joystick_moving.jpg" width="60%" style="display:block; margin:0 auto;" >}}  | **_When the white dot is in the green area, the player moves in that direction. Here I am moving forward and left at about half of max speed._** |
+
 ---
 
 Eventually I found some good default values and the system worked, but there were some unforeseen problems: First, it was more difficult to center yourself within the playspace without looking at the visible guides I put at the player's feet than I expected. Second and more importantly, when you were already moving in one direction, it was not as simple as I thought to start moving in another direction accurately without fully returning to center, which was an immersion breaker.
