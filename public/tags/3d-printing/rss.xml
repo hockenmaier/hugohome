@@ -52,7 +52,7 @@
             
 
             
-                <link href="https://hockenmaier.github.io/hugohome/tags/3d-printing/" rel="self" type="text/html"/>
+                <link href="http://localhost:1313/tags/3d-printing/" rel="self" type="text/html"/>
             
         
             
@@ -60,7 +60,7 @@
             
 
             
-                <link href="https://hockenmaier.github.io/hugohome/tags/3d-printing/rss.xml" rel="alternate" type="application/rss+xml"/>
+                <link href="http://localhost:1313/tags/3d-printing/rss.xml" rel="alternate" type="application/rss+xml"/>
             
         
 
@@ -78,7 +78,7 @@
             <lastBuildDate>2020-01-01 00:00:00 +0000 UTC</lastBuildDate>
         
 
-        <link>https://hockenmaier.github.io/hugohome/tags/3d-printing/</link>
+        <link>http://localhost:1313/tags/3d-printing/</link>
 
         
 
@@ -248,7 +248,7 @@
 
 
 
-<img   class="img-fluid "  crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenmaier.github.io/images/human_joystick_centered.jpg"   style="display:block; height: auto; margin:0 auto; width: 60%"   >
+<img   class="img-fluid "  crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/human_joystick_centered.jpg"   style="display:block; height: auto; margin:0 auto; width: 60%"   >
 
 
 </div>
@@ -376,7 +376,7 @@
 
 
 
-<img   class="img-fluid "  crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenmaier.github.io/images/human_joystick_moving.jpg"   style="display:block; height: auto; margin:0 auto; width: 60%"   >
+<img   class="img-fluid "  crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/human_joystick_moving.jpg"   style="display:block; height: auto; margin:0 auto; width: 60%"   >
 
 
 </div>
@@ -391,10 +391,10 @@
 ]]></description>
                 
 
-                <guid isPermaLink="false">tag:hockenmaier.github.io,2020-01-01:/hugohome/human-joystick/</guid>
+                <guid isPermaLink="false">tag:localhost:1313,2020-01-01:/human-joystick/</guid>
 
                 
-                    <link>https://hockenmaier.github.io/hugohome/human-joystick/</link>
+                    <link>http://localhost:1313/human-joystick/</link>
                 
 
                 
@@ -441,7 +441,7 @@
 <p>I created this panel display in 2026 to control much of the home automation I used in my Studio City apartment. Mainly a hardware project, I designed and 3D-printed a case and frame for the touchscreen and raspberry pi microcomputer in order to mount them to the wall. The software running the control panel is SaaS, but I did write a custom html wrapper to control the orientation and settings of the site, which is available on the github linked above.</p>
 <p>Update in 2025: This panel is still my main view into my home automation in my new house in Sherman Oaks, almost 10 years in with no modification!</p>
 <p>Here&rsquo;s a video to see the panel in action:</p>
-<h2 id="hahahugoshortcode15s0hbhb">
+<h2 id="hahahugoshortcode3s0hbhb">
     <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
       <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/iFGmm-ijJvE?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"></iframe>
     </div>
@@ -450,10 +450,10 @@
 ]]></description>
                 
 
-                <guid isPermaLink="false">tag:hockenmaier.github.io,2016-01-01:/hugohome/raspberry-pi-panel/</guid>
+                <guid isPermaLink="false">tag:localhost:1313,2016-01-01:/raspberry-pi-panel/</guid>
 
                 
-                    <link>https://hockenmaier.github.io/hugohome/raspberry-pi-panel/</link>
+                    <link>http://localhost:1313/raspberry-pi-panel/</link>
                 
 
                 

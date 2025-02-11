@@ -44,12 +44,6 @@
         
     
 
-    
-
-    
-        
-    
-
 
 
 
@@ -76,7 +70,7 @@
             
 
             
-                <link href="https://hockenmaier.github.io/hugohome/tags/ai/" rel="self" type="text/html"/>
+                <link href="http://localhost:1313/tags/ai/" rel="self" type="text/html"/>
             
         
             
@@ -84,7 +78,7 @@
             
 
             
-                <link href="https://hockenmaier.github.io/hugohome/tags/ai/rss.xml" rel="alternate" type="application/rss+xml"/>
+                <link href="http://localhost:1313/tags/ai/rss.xml" rel="alternate" type="application/rss+xml"/>
             
         
 
@@ -102,7 +96,7 @@
             <lastBuildDate>2025-02-05 00:00:00 +0000 UTC</lastBuildDate>
         
 
-        <link>https://hockenmaier.github.io/hugohome/tags/ai/</link>
+        <link>http://localhost:1313/tags/ai/</link>
 
         
 
@@ -140,10 +134,10 @@
 ]]></description>
                 
 
-                <guid isPermaLink="false">tag:hockenmaier.github.io,2025-02-05:/hugohome/context-caddy/</guid>
+                <guid isPermaLink="false">tag:localhost:1313,2025-02-05:/context-caddy/</guid>
 
                 
-                    <link>https://hockenmaier.github.io/hugohome/context-caddy/</link>
+                    <link>http://localhost:1313/context-caddy/</link>
                 
 
                 
@@ -180,63 +174,14 @@
                 
 
                 
-                    <description><![CDATA[<p>Notes:</p>
-<p>The times I have been most successful in my career are the times I broke the rules.  Mostly soft rules, like the idea of what I was &ldquo;supposed&rdquo; to be getting paid for.  The biggest time being when I built ragpile in my spare time.</p>
-<p>I remember getting this advice early on in my career from a mentor - that you always need to be doing your job, plus something else.  Maybe it was from Ashish?</p>
-<p>I think there are many reasons that this is likely true in large organizations - but a reason it is getting more and more true, is because &ldquo;order taking&rdquo; is one of the easiest skills to learn, and becoming less and less relevant as we create AIs good at taking orders.</p>
-<p>Ideas to incorporate:
-The more people from groups that don&rsquo;t build are involved in a project, the slower it goes</p>
-]]></description>
-                
-
-                <guid isPermaLink="false">tag:hockenmaier.github.io,2025-02-04:/hugohome/breaking-the-rules/</guid>
-
-                
-                    <link>https://hockenmaier.github.io/hugohome/breaking-the-rules/</link>
-                
-
-                
-                    <pubDate>Tue, 04 Feb 2025 00:00:00 UTC</pubDate>
-                
-
-                
-                    <title>Breaking the rules</title>
-                
-            </item>
-        
-            <item>
-                
-                
-                
-                
-                
-                
-                
-
-                
-
-                
-
-                
-
-                
-
-                
-                
-
-                
-
-                
-
-                
                     <description><![CDATA[<p>Make Us Smarter</p>
 ]]></description>
                 
 
-                <guid isPermaLink="false">tag:hockenmaier.github.io,2025-01-01:/hugohome/make-us-smarter/</guid>
+                <guid isPermaLink="false">tag:localhost:1313,2025-01-01:/make-us-smarter/</guid>
 
                 
-                    <link>https://hockenmaier.github.io/hugohome/make-us-smarter/</link>
+                    <link>http://localhost:1313/make-us-smarter/</link>
                 
 
                 
@@ -363,7 +308,7 @@ The more people from groups that don&rsquo;t build are involved in a project, th
 
 
 
-<img  alt="happiness income curve"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenmaier.github.io/images/treadmill-graph.png"   style="height: auto; max-width: 720px; width: 100%"   >
+<img  alt="happiness income curve"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/treadmill-graph.png"   style="height: auto; max-width: 720px; width: 100%"   >
 
 
     
@@ -419,10 +364,10 @@ The more people from groups that don&rsquo;t build are involved in a project, th
 ]]></description>
                 
 
-                <guid isPermaLink="false">tag:hockenmaier.github.io,2024-02-01:/hugohome/hedonic-treadmill/</guid>
+                <guid isPermaLink="false">tag:localhost:1313,2024-02-01:/hedonic-treadmill/</guid>
 
                 
-                    <link>https://hockenmaier.github.io/hugohome/hedonic-treadmill/</link>
+                    <link>http://localhost:1313/hedonic-treadmill/</link>
                 
 
                 
@@ -550,7 +495,7 @@ The more people from groups that don&rsquo;t build are involved in a project, th
 
 
 
-<img  alt="Answering Machine homepage"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenmaier.github.io/images/answering_machine_uploads.png"   style="height: auto; max-width: 720px; width: 100%"   >
+<img  alt="Answering Machine homepage"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/answering_machine_uploads.png"   style="height: auto; max-width: 720px; width: 100%"   >
 
 
     
@@ -640,7 +585,7 @@ The more people from groups that don&rsquo;t build are involved in a project, th
 
 
 
-<img  alt="Answering Machine main view"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenmaier.github.io/images/answering_machine_hr.png"   style="height: auto; width: 100%"   >
+<img  alt="Answering Machine main view"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/answering_machine_hr.png"   style="height: auto; width: 100%"   >
 
 
     
@@ -728,7 +673,7 @@ The more people from groups that don&rsquo;t build are involved in a project, th
 
 
 
-<img  alt="Answering Machine info panel"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenmaier.github.io/images/answering_machine_info.png"   style="height: auto; max-width: 720px; width: 100%"   >
+<img  alt="Answering Machine info panel"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/answering_machine_info.png"   style="height: auto; max-width: 720px; width: 100%"   >
 
 
     
@@ -818,7 +763,7 @@ The more people from groups that don&rsquo;t build are involved in a project, th
 
 
 
-<img  alt="Answering Machine query bar"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenmaier.github.io/images/answering_machine_query.png"   style="height: auto; max-width: 720px; width: 100%"   >
+<img  alt="Answering Machine query bar"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/answering_machine_query.png"   style="height: auto; max-width: 720px; width: 100%"   >
 
 
     
@@ -914,7 +859,7 @@ The more people from groups that don&rsquo;t build are involved in a project, th
 
 
 
-<img  alt="Answering Machine response"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenmaier.github.io/images/answering_machine_answer.png"   style="height: auto; max-width: 720px; width: 100%"   >
+<img  alt="Answering Machine response"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/answering_machine_answer.png"   style="height: auto; max-width: 720px; width: 100%"   >
 
 
     
@@ -1009,7 +954,7 @@ The more people from groups that don&rsquo;t build are involved in a project, th
 
 
 
-<img  alt="Answering Machine subjects and conditions"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenmaier.github.io/images/answering_machine_lexicon.png"   style="height: auto; max-width: 400px; width: 100%"   >
+<img  alt="Answering Machine subjects and conditions"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/answering_machine_lexicon.png"   style="height: auto; max-width: 400px; width: 100%"   >
 
 
     
@@ -1099,7 +1044,7 @@ The more people from groups that don&rsquo;t build are involved in a project, th
 
 
 
-<img  alt="Answering Machine concept"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenmaier.github.io/images/answering_machine_concept.png"   style="height: auto; max-width: 200px; width: 100%"   >
+<img  alt="Answering Machine concept"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/answering_machine_concept.png"   style="height: auto; max-width: 200px; width: 100%"   >
 
 
     
@@ -1194,7 +1139,7 @@ The more people from groups that don&rsquo;t build are involved in a project, th
 
 
 
-<img  alt="Serverless Architecture of the Answering Machine app"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenmaier.github.io/images/answering_machine_architecture.png"   style="height: auto; max-width: 720px; width: 100%"   >
+<img  alt="Serverless Architecture of the Answering Machine app"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/answering_machine_architecture.png"   style="height: auto; max-width: 720px; width: 100%"   >
 
 
     
@@ -1204,10 +1149,10 @@ The more people from groups that don&rsquo;t build are involved in a project, th
 ]]></description>
                 
 
-                <guid isPermaLink="false">tag:hockenmaier.github.io,2019-07-03:/hugohome/answering-machine/</guid>
+                <guid isPermaLink="false">tag:localhost:1313,2019-07-03:/answering-machine/</guid>
 
                 
-                    <link>https://hockenmaier.github.io/hugohome/answering-machine/</link>
+                    <link>http://localhost:1313/answering-machine/</link>
                 
 
                 
@@ -1331,7 +1276,7 @@ The more people from groups that don&rsquo;t build are involved in a project, th
 
 
 
-<img  alt="Serverless Architecture of the First Ten app"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenmaier.github.io/images/first_ten_architecture.png"   style="height: auto; max-width: 720px; width: 100%"   >
+<img  alt="Serverless Architecture of the First Ten app"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/first_ten_architecture.png"   style="height: auto; max-width: 720px; width: 100%"   >
 
 
     
@@ -1341,10 +1286,10 @@ The more people from groups that don&rsquo;t build are involved in a project, th
 ]]></description>
                 
 
-                <guid isPermaLink="false">tag:hockenmaier.github.io,2018-05-19:/hugohome/first-ten/</guid>
+                <guid isPermaLink="false">tag:localhost:1313,2018-05-19:/first-ten/</guid>
 
                 
-                    <link>https://hockenmaier.github.io/hugohome/first-ten/</link>
+                    <link>http://localhost:1313/first-ten/</link>
                 
 
                 
