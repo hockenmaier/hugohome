@@ -52,7 +52,7 @@
             
 
             
-                <link href="http://localhost:1313/tags/user-experience/" rel="self" type="text/html"/>
+                <link href="https://bhock.net/tags/user-experience/" rel="self" type="text/html"/>
             
         
             
@@ -60,7 +60,7 @@
             
 
             
-                <link href="http://localhost:1313/tags/user-experience/rss.xml" rel="alternate" type="application/rss+xml"/>
+                <link href="https://bhock.net/tags/user-experience/rss.xml" rel="alternate" type="application/rss+xml"/>
             
         
 
@@ -78,7 +78,7 @@
             <lastBuildDate>2025-01-01 00:00:00 +0000 UTC</lastBuildDate>
         
 
-        <link>http://localhost:1313/tags/user-experience/</link>
+        <link>https://bhock.net/tags/user-experience/</link>
 
         
 
@@ -116,10 +116,10 @@
 ]]></description>
                 
 
-                <guid isPermaLink="false">tag:localhost:1313,2025-01-01:/make-us-smarter/</guid>
+                <guid isPermaLink="false">tag:bhock.net,2025-01-01:/make-us-smarter/</guid>
 
                 
-                    <link>http://localhost:1313/make-us-smarter/</link>
+                    <link>https://bhock.net/make-us-smarter/</link>
                 
 
                 
@@ -292,7 +292,7 @@
 
 
 
-<img   class="img-fluid "  crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/human_joystick_centered.jpg"   style="display:block; height: auto; margin:0 auto; width: 60%"   >
+<img   class="img-fluid "  crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://bhock.net/images/human_joystick_centered.jpg"   style="display:block; height: auto; margin:0 auto; width: 60%"   >
 
 
 </div>
@@ -420,7 +420,7 @@
 
 
 
-<img   class="img-fluid "  crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/human_joystick_moving.jpg"   style="display:block; height: auto; margin:0 auto; width: 60%"   >
+<img   class="img-fluid "  crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://bhock.net/images/human_joystick_moving.jpg"   style="display:block; height: auto; margin:0 auto; width: 60%"   >
 
 
 </div>
@@ -435,10 +435,10 @@
 ]]></description>
                 
 
-                <guid isPermaLink="false">tag:localhost:1313,2020-01-01:/human-joystick/</guid>
+                <guid isPermaLink="false">tag:bhock.net,2020-01-01:/human-joystick/</guid>
 
                 
-                    <link>http://localhost:1313/human-joystick/</link>
+                    <link>https://bhock.net/human-joystick/</link>
                 
 
                 

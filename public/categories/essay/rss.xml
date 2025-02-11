@@ -52,7 +52,7 @@
             
 
             
-                <link href="http://localhost:1313/categories/essay/" rel="self" type="text/html"/>
+                <link href="https://bhock.net/categories/essay/" rel="self" type="text/html"/>
             
         
             
@@ -60,7 +60,7 @@
             
 
             
-                <link href="http://localhost:1313/categories/essay/rss.xml" rel="alternate" type="application/rss+xml"/>
+                <link href="https://bhock.net/categories/essay/rss.xml" rel="alternate" type="application/rss+xml"/>
             
         
 
@@ -78,7 +78,7 @@
             <lastBuildDate>2025-02-04 00:00:00 +0000 UTC</lastBuildDate>
         
 
-        <link>http://localhost:1313/categories/essay/</link>
+        <link>https://bhock.net/categories/essay/</link>
 
         
 
@@ -121,10 +121,10 @@ The more people from groups that don&rsquo;t build are involved in a project, th
 ]]></description>
                 
 
-                <guid isPermaLink="false">tag:localhost:1313,2025-02-04:/breaking-the-rules/</guid>
+                <guid isPermaLink="false">tag:bhock.net,2025-02-04:/breaking-the-rules/</guid>
 
                 
-                    <link>http://localhost:1313/breaking-the-rules/</link>
+                    <link>https://bhock.net/breaking-the-rules/</link>
                 
 
                 
@@ -251,7 +251,7 @@ The more people from groups that don&rsquo;t build are involved in a project, th
 
 
 
-<img  alt="happiness income curve"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/treadmill-graph.png"   style="height: auto; max-width: 720px; width: 100%"   >
+<img  alt="happiness income curve"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://bhock.net/images/treadmill-graph.png"   style="height: auto; max-width: 720px; width: 100%"   >
 
 
     
@@ -307,10 +307,10 @@ The more people from groups that don&rsquo;t build are involved in a project, th
 ]]></description>
                 
 
-                <guid isPermaLink="false">tag:localhost:1313,2024-02-01:/hedonic-treadmill/</guid>
+                <guid isPermaLink="false">tag:bhock.net,2024-02-01:/hedonic-treadmill/</guid>
 
                 
-                    <link>http://localhost:1313/hedonic-treadmill/</link>
+                    <link>https://bhock.net/hedonic-treadmill/</link>
                 
 
                 

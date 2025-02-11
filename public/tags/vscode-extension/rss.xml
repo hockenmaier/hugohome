@@ -46,7 +46,7 @@
             
 
             
-                <link href="http://localhost:1313/tags/vscode-extension/" rel="self" type="text/html"/>
+                <link href="https://bhock.net/tags/vscode-extension/" rel="self" type="text/html"/>
             
         
             
@@ -54,7 +54,7 @@
             
 
             
-                <link href="http://localhost:1313/tags/vscode-extension/rss.xml" rel="alternate" type="application/rss+xml"/>
+                <link href="https://bhock.net/tags/vscode-extension/rss.xml" rel="alternate" type="application/rss+xml"/>
             
         
 
@@ -72,7 +72,7 @@
             <lastBuildDate>2025-02-05 00:00:00 +0000 UTC</lastBuildDate>
         
 
-        <link>http://localhost:1313/tags/vscode-extension/</link>
+        <link>https://bhock.net/tags/vscode-extension/</link>
 
         
 
@@ -110,10 +110,10 @@
 ]]></description>
                 
 
-                <guid isPermaLink="false">tag:localhost:1313,2025-02-05:/context-caddy/</guid>
+                <guid isPermaLink="false">tag:bhock.net,2025-02-05:/context-caddy/</guid>
 
                 
-                    <link>http://localhost:1313/context-caddy/</link>
+                    <link>https://bhock.net/context-caddy/</link>
                 
 
                 
