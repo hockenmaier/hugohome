@@ -30,7 +30,7 @@
     do {
       const x = Math.random() * (maxX - minX) + minX;
       const y = Math.random() * (maxY - minY) + minY;
-      candidate = Bodies.rectangle(x, y, goalWidth, goalHeight, {
+      candidate = Bodies.circle(x, y, goalWidth / 2, {
         isStatic: true,
         isSensor: true,
         label: "Goal",

@@ -16,14 +16,14 @@
 
   // Handles collision events by checking if a ball hit the goal with enough speed.
   function handleCollision(event) {
+    console.log("goal collision");
     event.pairs.forEach(function (pair) {
       if (pair.bodyA === goalBody || pair.bodyB === goalBody) {
         const other = pair.bodyA === goalBody ? pair.bodyB : pair.bodyA;
         if (other.label === "BallFallBall") {
           // Calculate the speed of the ball using its velocity vector
           const speed = Math.hypot(other.velocity.x, other.velocity.y);
-          // Use the configured minimum speed, defaulting to 3 if not set
-          const minSpeed = App.config.goalMinSpeed || 3;
+          const minSpeed = App.config.goalMinSpeed;
           if (speed >= minSpeed) {
             // Remove the ball and update coins if the impact is strong enough
             Matter.World.remove(window.BallFall.world, other);

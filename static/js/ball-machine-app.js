@@ -21,7 +21,7 @@ window.App = {
       "insta-launcher": { delay: 10, image: "/images/DKannon250-insta.png" },
     },
     coins: 5, //starting coins and current coins
-    goalMinSpeed: 1.5,
+    goalMinSpeed: 0.5,
   },
   modules: {},
   init: function () {

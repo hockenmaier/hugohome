@@ -17,11 +17,13 @@ App.modules.launcher = (function () {
         ball = pair.bodyA;
       }
       if (launcher && ball && launcher.launchForce && !launcher.isPreview) {
-        // Instead of permanently marking the ball as launched,
-        // use a short cooldown so that every launcher can launch the ball.
         const now = Date.now();
-        if (!ball.lastLaunched || now - ball.lastLaunched > 300) {
-          ball.lastLaunched = now;
+        ball._launcherCooldown = ball._launcherCooldown || {};
+        if (
+          !ball._launcherCooldown[launcher.id] ||
+          now - ball._launcherCooldown[launcher.id] > 1500
+        ) {
+          ball._launcherCooldown[launcher.id] = now;
           // Suck the ball into the launcher’s center
           Matter.Body.setPosition(ball, {
             x: launcher.position.x,
