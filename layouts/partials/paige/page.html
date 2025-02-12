@@ -52,7 +52,7 @@
             {{ if and .Params.project_link (ne .Params.project_link .Params.github_link) }}
             <div class="callout project-link">
                 <strong>Check out {{ .Title }} here:</strong>
-                <a href="{{ .Params.project_link }}">{{ .Params.project_link }}</a>
+                <a href="{{ .Params.project_link | absURL }}">{{ .Params.project_link }}</a>
             </div>
             {{ end }}
             {{ if .Params.github_link }}
