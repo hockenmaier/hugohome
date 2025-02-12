@@ -36,7 +36,7 @@
         label: "Goal",
         render: {
           sprite: {
-            texture: "/images/goal.png",
+            texture: goalTexture,
             xScale: goalWidth / 100,
             yScale: goalHeight / 100,
           },

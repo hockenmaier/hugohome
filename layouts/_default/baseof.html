@@ -31,18 +31,21 @@
         {{ if templates.Exists "partials/paige/body-last.html" }}
             {{ partial "paige/body-last.html" $page }}
         {{ end }}
-        <script src="js/matter.min.js"></script>
-        <script src="js/matter-wrap.min.js"></script>
-        <script src="js/ball-machine-app.js"></script>
-        <script src="js/base-simulation.js"></script>
-        <script src="js/text.js"></script>
-        <script src="js/lines.js"></script>
-        <script src="js/curved-line.js"></script>
-        <script src="js/launcher.js"></script>
-        <script src="js/launcher-create.js"></script>
-        <script src="js/game.js"></script>
-        <script src="js/goal.js"></script>
-        {{ partial "ball-machine-ui.html" . }}  
+        <script>
+            var goalTexture = '{{ "images/goal.png" | relURL }}';
+        </script>          
+        <script src="{{ "js/matter.min.js" | relURL }}"></script>
+        <script src="{{ "js/matter-wrap.min.js" | relURL }}"></script>
+        <script src="{{ "js/ball-machine-app.js" | relURL }}"></script>
+        <script src="{{ "js/base-simulation.js" | relURL }}"></script>
+        <script src="{{ "js/text.js" | relURL }}"></script>
+        <script src="{{ "js/lines.js" | relURL }}"></script>
+        <script src="{{ "js/curved-line.js" | relURL }}"></script>
+        <script src="{{ "js/launcher.js" | relURL }}"></script>
+        <script src="{{ "js/launcher-create.js" | relURL }}"></script>
+        <script src="{{ "js/game.js" | relURL }}"></script>
+        <script src="{{ "js/goal.js" | relURL }}"></script>
+        {{ partial "ball-machine-ui.html" . }}
 
     </body>
 </html>

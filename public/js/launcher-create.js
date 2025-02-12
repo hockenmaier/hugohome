@@ -87,7 +87,7 @@ window.LauncherCreateTool = {
         isStatic: true,
         angle: angle,
         render: {
-          sprite: { texture: "/images/arrow.png" },
+          sprite: { texture: "images/arrow.png" },
           opacity: 0.6,
         },
       }
