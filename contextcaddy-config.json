@@ -69,9 +69,7 @@
     },
     "gamejs": {
       "selectedFiles": {
-        "g:\\projects\\hugohome\\layouts\\_default\\baseof.html": true,
-        "g:\\projects\\hugohome\\layouts\\partials\\ball-machine-ui.html": true,
-        "g:\\projects\\hugohome\\static\\js\\game.js": true
+        "g:\\projects\\hugohome\\layouts\\_default\\baseof.html": true
       },
       "prePrompt": "",
       "includeFileTree": true
