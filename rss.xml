@@ -196,7 +196,7 @@
 ]]></description>
                 
 
-                <guid isPermaLink="false">tag:hockenmaier.github.io,2025-02-05:/context-caddy/</guid>
+                <guid isPermaLink="false">tag:hockenmaier.github.io,2025-02-05:/hugohome/context-caddy/</guid>
 
                 
                     <link>https://hockenmaier.github.io/hugohome/context-caddy/</link>
@@ -252,7 +252,7 @@
 ]]></description>
                 
 
-                <guid isPermaLink="false">tag:hockenmaier.github.io,2025-01-25:/this-website/</guid>
+                <guid isPermaLink="false">tag:hockenmaier.github.io,2025-01-25:/hugohome/this-website/</guid>
 
                 
                     <link>https://hockenmaier.github.io/hugohome/this-website/</link>
@@ -296,7 +296,7 @@
 ]]></description>
                 
 
-                <guid isPermaLink="false">tag:hockenmaier.github.io,2025-01-01:/make-us-smarter/</guid>
+                <guid isPermaLink="false">tag:hockenmaier.github.io,2025-01-01:/hugohome/make-us-smarter/</guid>
 
                 
                     <link>https://hockenmaier.github.io/hugohome/make-us-smarter/</link>
@@ -340,7 +340,7 @@
 ]]></description>
                 
 
-                <guid isPermaLink="false">tag:hockenmaier.github.io,2025-01-01:/bloom-or-bust/</guid>
+                <guid isPermaLink="false">tag:hockenmaier.github.io,2025-01-01:/hugohome/bloom-or-bust/</guid>
 
                 
                     <link>https://hockenmaier.github.io/hugohome/bloom-or-bust/</link>
@@ -384,7 +384,7 @@
 ]]></description>
                 
 
-                <guid isPermaLink="false">tag:hockenmaier.github.io,2025-01-01:/balloon-fight/</guid>
+                <guid isPermaLink="false">tag:hockenmaier.github.io,2025-01-01:/hugohome/balloon-fight/</guid>
 
                 
                     <link>https://hockenmaier.github.io/hugohome/balloon-fight/</link>
@@ -570,7 +570,7 @@
 ]]></description>
                 
 
-                <guid isPermaLink="false">tag:hockenmaier.github.io,2024-02-01:/hedonic-treadmill/</guid>
+                <guid isPermaLink="false">tag:hockenmaier.github.io,2024-02-01:/hugohome/hedonic-treadmill/</guid>
 
                 
                     <link>https://hockenmaier.github.io/hugohome/hedonic-treadmill/</link>
@@ -622,7 +622,7 @@
 ]]></description>
                 
 
-                <guid isPermaLink="false">tag:hockenmaier.github.io,2023-01-01:/the-flapper/</guid>
+                <guid isPermaLink="false">tag:hockenmaier.github.io,2023-01-01:/hugohome/the-flapper/</guid>
 
                 
                     <link>https://hockenmaier.github.io/hugohome/the-flapper/</link>
@@ -759,7 +759,7 @@
 ]]></description>
                 
 
-                <guid isPermaLink="false">tag:hockenmaier.github.io,2022-10-01:/treekeepers-vr/</guid>
+                <guid isPermaLink="false">tag:hockenmaier.github.io,2022-10-01:/hugohome/treekeepers-vr/</guid>
 
                 
                     <link>https://hockenmaier.github.io/hugohome/treekeepers-vr/</link>
@@ -1078,7 +1078,7 @@
 ]]></description>
                 
 
-                <guid isPermaLink="false">tag:hockenmaier.github.io,2020-01-01:/human-joystick/</guid>
+                <guid isPermaLink="false">tag:hockenmaier.github.io,2020-01-01:/hugohome/human-joystick/</guid>
 
                 
                     <link>https://hockenmaier.github.io/hugohome/human-joystick/</link>
@@ -1863,7 +1863,7 @@
 ]]></description>
                 
 
-                <guid isPermaLink="false">tag:hockenmaier.github.io,2019-07-03:/answering-machine/</guid>
+                <guid isPermaLink="false">tag:hockenmaier.github.io,2019-07-03:/hugohome/answering-machine/</guid>
 
                 
                     <link>https://hockenmaier.github.io/hugohome/answering-machine/</link>
@@ -2277,7 +2277,7 @@ This is what the project looked like for my first play-test with other people 5 
 ]]></description>
                 
 
-                <guid isPermaLink="false">tag:hockenmaier.github.io,2019-03-01:/land-war/</guid>
+                <guid isPermaLink="false">tag:hockenmaier.github.io,2019-03-01:/hugohome/land-war/</guid>
 
                 
                     <link>https://hockenmaier.github.io/hugohome/land-war/</link>
@@ -2414,7 +2414,7 @@ This is what the project looked like for my first play-test with other people 5 
 ]]></description>
                 
 
-                <guid isPermaLink="false">tag:hockenmaier.github.io,2018-05-19:/first-ten/</guid>
+                <guid isPermaLink="false">tag:hockenmaier.github.io,2018-05-19:/hugohome/first-ten/</guid>
 
                 
                     <link>https://hockenmaier.github.io/hugohome/first-ten/</link>
@@ -2464,7 +2464,7 @@ This is what the project looked like for my first play-test with other people 5 
 <p>I created this panel display in 2026 to control much of the home automation I used in my Studio City apartment. Mainly a hardware project, I designed and 3D-printed a case and frame for the touchscreen and raspberry pi microcomputer in order to mount them to the wall. The software running the control panel is SaaS, but I did write a custom html wrapper to control the orientation and settings of the site, which is available on the github linked above.</p>
 <p>Update in 2025: This panel is still my main view into my home automation in my new house in Sherman Oaks, almost 10 years in with no modification!</p>
 <p>Here&rsquo;s a video to see the panel in action:</p>
-<h2 id="hahahugoshortcode14s0hbhb">
+<h2 id="hahahugoshortcode7s0hbhb">
     <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
       <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/iFGmm-ijJvE?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"></iframe>
     </div>
@@ -2473,7 +2473,7 @@ This is what the project looked like for my first play-test with other people 5 
 ]]></description>
                 
 
-                <guid isPermaLink="false">tag:hockenmaier.github.io,2016-01-01:/raspberry-pi-panel/</guid>
+                <guid isPermaLink="false">tag:hockenmaier.github.io,2016-01-01:/hugohome/raspberry-pi-panel/</guid>
 
                 
                     <link>https://hockenmaier.github.io/hugohome/raspberry-pi-panel/</link>
@@ -2518,7 +2518,7 @@ This is what the project looked like for my first play-test with other people 5 
 
                 
 
-                <guid isPermaLink="false">tag:hockenmaier.github.io,0001-01-01:/some-custom-gpts/</guid>
+                <guid isPermaLink="false">tag:hockenmaier.github.io,0001-01-01:/hugohome/some-custom-gpts/</guid>
 
                 
                     <link>https://hockenmaier.github.io/hugohome/some-custom-gpts/</link>
@@ -2561,7 +2561,7 @@ This is what the project looked like for my first play-test with other people 5 
 
                 
 
-                <guid isPermaLink="false">tag:hockenmaier.github.io,0001-01-01:/postman-for-pms/</guid>
+                <guid isPermaLink="false">tag:hockenmaier.github.io,0001-01-01:/hugohome/postman-for-pms/</guid>
 
                 
                     <link>https://hockenmaier.github.io/hugohome/postman-for-pms/</link>
@@ -2604,7 +2604,7 @@ This is what the project looked like for my first play-test with other people 5 
 
                 
 
-                <guid isPermaLink="false">tag:hockenmaier.github.io,0001-01-01:/on-ai-software-development/</guid>
+                <guid isPermaLink="false">tag:hockenmaier.github.io,0001-01-01:/hugohome/on-ai-software-development/</guid>
 
                 
                     <link>https://hockenmaier.github.io/hugohome/on-ai-software-development/</link>
