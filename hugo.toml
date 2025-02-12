@@ -1,4 +1,5 @@
-baseURL = 'https://hockenmaier.github.io/hugohome'
+baseURL = "https://hockenmaier.github.io/hugohome/"
+canonifyURLs = true
 languageCode = 'en-us'
 title = "HockenHome"
 theme = 'paige'

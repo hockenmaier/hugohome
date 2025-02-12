@@ -3,7 +3,7 @@ title: "This Website"
 date: 2025-01-25
 categories: ["project overview"]
 stack: ["hugo", "matter.js", "HTML/CSS"]
-project_link: "/"
+project_link: "{{ "/" | absURL }}"
 github_link: ""
 short_description: "A personal website and blog with game included"
 tags:
