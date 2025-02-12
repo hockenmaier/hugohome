@@ -16,7 +16,7 @@
 
   // Handles collision events by checking if a ball hit the goal with enough speed.
   function handleCollision(event) {
-    console.log("goal collision");
+    //console.log("goal collision");
     event.pairs.forEach(function (pair) {
       if (pair.bodyA === goalBody || pair.bodyB === goalBody) {
         const other = pair.bodyA === goalBody ? pair.bodyB : pair.bodyA;

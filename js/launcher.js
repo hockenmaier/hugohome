@@ -86,10 +86,10 @@ App.modules.launcher = (function () {
     const now = Date.now();
     window.BallFall.engine.world.bodies.forEach((body) => {
       if (body.label === "BallFallBall" && body.currentLauncher) {
-        const launcher = body._launcherRef;
         // If there's no valid launcher or the ball is not colliding...
-        if (!launcher || !Matter.SAT.collides(launcher, body).collided) {
-          // If the ball has been out of collision for over 100ms, cancel loading.
+        const launcher = body._launcherRef;
+        const collision = launcher && Matter.SAT.collides(launcher, body);
+        if (!launcher || !collision || !collision.collided) {
           if (!body._lastCollideTime) {
             body._lastCollideTime = now;
           }
@@ -103,7 +103,6 @@ App.modules.launcher = (function () {
             body._launcherRef = null;
           }
         } else {
-          // Still colliding: update last collision time and freeze vertical motion.
           body._lastCollideTime = now;
           Matter.Body.setVelocity(body, { x: body.velocity.x, y: 0 });
         }
