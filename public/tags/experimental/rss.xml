@@ -58,7 +58,7 @@
             
 
             
-                <link href="https://hockenmaier.github.io/hugohome/tags/experimental/" rel="self" type="text/html"/>
+                <link href="http://localhost:1313/tags/experimental/" rel="self" type="text/html"/>
             
         
             
@@ -66,7 +66,7 @@
             
 
             
-                <link href="https://hockenmaier.github.io/hugohome/tags/experimental/rss.xml" rel="alternate" type="application/rss+xml"/>
+                <link href="http://localhost:1313/tags/experimental/rss.xml" rel="alternate" type="application/rss+xml"/>
             
         
 
@@ -84,7 +84,7 @@
             <lastBuildDate>2025-01-01 00:00:00 +0000 UTC</lastBuildDate>
         
 
-        <link>https://hockenmaier.github.io/hugohome/tags/experimental/</link>
+        <link>http://localhost:1313/tags/experimental/</link>
 
         
 
@@ -122,10 +122,10 @@
 ]]></description>
                 
 
-                <guid isPermaLink="false">tag:hockenmaier.github.io,2025-01-01:/hugohome/make-us-smarter/</guid>
+                <guid isPermaLink="false">tag:localhost:1313,2025-01-01:/make-us-smarter/</guid>
 
                 
-                    <link>https://hockenmaier.github.io/hugohome/make-us-smarter/</link>
+                    <link>http://localhost:1313/make-us-smarter/</link>
                 
 
                 
@@ -298,7 +298,7 @@
 
 
 
-<img   class="img-fluid "  crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenmaier.github.io/hugohome/images/human_joystick_centered.jpg"   style="display:block; height: auto; margin:0 auto; width: 60%"   >
+<img   class="img-fluid "  crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/human_joystick_centered.jpg"   style="display:block; height: auto; margin:0 auto; width: 60%"   >
 
 
 </div>
@@ -426,7 +426,7 @@
 
 
 
-<img   class="img-fluid "  crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenmaier.github.io/hugohome/images/human_joystick_moving.jpg"   style="display:block; height: auto; margin:0 auto; width: 60%"   >
+<img   class="img-fluid "  crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/human_joystick_moving.jpg"   style="display:block; height: auto; margin:0 auto; width: 60%"   >
 
 
 </div>
@@ -441,10 +441,10 @@
 ]]></description>
                 
 
-                <guid isPermaLink="false">tag:hockenmaier.github.io,2020-01-01:/hugohome/human-joystick/</guid>
+                <guid isPermaLink="false">tag:localhost:1313,2020-01-01:/human-joystick/</guid>
 
                 
-                    <link>https://hockenmaier.github.io/hugohome/human-joystick/</link>
+                    <link>http://localhost:1313/human-joystick/</link>
                 
 
                 
@@ -500,10 +500,10 @@
 ]]></description>
                 
 
-                <guid isPermaLink="false">tag:hockenmaier.github.io,2016-01-01:/hugohome/raspberry-pi-panel/</guid>
+                <guid isPermaLink="false">tag:localhost:1313,2016-01-01:/raspberry-pi-panel/</guid>
 
                 
-                    <link>https://hockenmaier.github.io/hugohome/raspberry-pi-panel/</link>
+                    <link>http://localhost:1313/raspberry-pi-panel/</link>
                 
 
                 

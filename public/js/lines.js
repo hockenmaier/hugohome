@@ -30,6 +30,7 @@ App.modules.lines = (function () {
 
   function getLineAtPoint(x, y) {
     const point = { x, y };
+    if (!window.BallFall || !window.BallFall.world) return null;
     const bodies = Matter.Composite.allBodies(window.BallFall.world);
     for (let body of bodies) {
       if (body.isLine) {
@@ -232,8 +233,8 @@ App.modules.lines = (function () {
 
   // Desktop mouse events
   document.addEventListener("mousemove", (e) => {
-    const mouseX = e.pageX - window.scrollX,
-      mouseY = e.pageY - window.scrollY;
+    const mouseX = e.pageX,
+      mouseY = e.pageY;
     if (mode === "straight" && StraightLineTool.state === 1) {
       StraightLineTool.onMove(mouseX, mouseY);
     } else if (
@@ -268,8 +269,8 @@ App.modules.lines = (function () {
   });
 
   document.addEventListener("contextmenu", (e) => {
-    const mouseX = e.pageX - window.scrollX,
-      mouseY = e.pageY - window.scrollY;
+    const mouseX = e.pageX,
+      mouseY = e.pageY;
     if (
       (mode === "straight" && StraightLineTool.state === 1) ||
       (mode === "curved" &&
@@ -299,8 +300,8 @@ App.modules.lines = (function () {
       return;
     if (e.target.closest("a, button, input, textarea, select, label")) return;
     if (mode === "none") return;
-    const clickX = e.pageX - window.scrollX,
-      clickY = e.pageY - window.scrollY;
+    const clickX = e.pageX,
+      clickY = e.pageY;
     if (mode === "straight") {
       StraightLineTool.onClick(clickX, clickY);
     } else if (mode === "curved") {
@@ -324,8 +325,8 @@ App.modules.lines = (function () {
   document.addEventListener("touchstart", (e) => {
     if (e.touches.length !== 1) return;
     const touch = e.touches[0],
-      touchX = touch.pageX - window.scrollX,
-      touchY = touch.pageY - window.scrollY;
+      touchX = touch.pageX,
+      touchY = touch.pageY;
     const line = getLineAtPoint(touchX, touchY);
     if (line) {
       touchStartPos = { x: touchX, y: touchY };
@@ -359,8 +360,8 @@ App.modules.lines = (function () {
   document.addEventListener("touchmove", (e) => {
     if (e.touches.length !== 1) return;
     const touch = e.touches[0],
-      touchX = touch.pageX - window.scrollX,
-      touchY = touch.pageY - window.scrollY;
+      touchX = touch.pageX,
+      touchY = touch.pageY;
     if (mode === "straight" && StraightLineTool.state === 1) {
       if (StraightLineTool.onTouchMove)
         StraightLineTool.onTouchMove(touchX, touchY);

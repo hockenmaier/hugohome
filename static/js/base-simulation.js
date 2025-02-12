@@ -44,10 +44,19 @@ App.modules.base = (function () {
     });
     engine.timing.timeScale = App.config.timeScale;
     window.BallFall.render = render;
+
     Render.run(render);
 
-    const runner = Runner.create({ isFixed: true, delta: 1000 / 60 });
-    Runner.run(runner, engine);
+    // Run 'substeps'physics substeps per original timestep.
+    const substeps = 5;
+    const baseDt = 1000 / 60; // 16.67ms original timestep.
+    const dt = baseDt / substeps; // substep dt
+
+    setInterval(() => {
+      for (let i = 0; i < substeps; i++) {
+        Matter.Engine.update(engine, dt * engine.timing.timeScale);
+      }
+    }, baseDt);
 
     // Resize canvas.
     function resize() {
@@ -59,12 +68,32 @@ App.modules.base = (function () {
     window.addEventListener("resize", resize);
     resize();
 
-    // World shift on scroll.
-    let lastScrollY = window.scrollY;
+    // // World shift on scroll.
+    // let lastScrollY = window.scrollY;
+    // window.addEventListener("scroll", () => {
+    //   const dy = window.scrollY - lastScrollY;
+    //   Composite.translate(engine.world, { x: 0, y: -dy });
+    //   lastScrollY = window.scrollY;
+
+    //   // Reset collision detection's spatial index.
+    //   // Matter.Engine.update(engine, 0);
+    //   // if (
+    //   //   engine.broadphase &&
+    //   //   engine.broadphase.controller &&
+    //   //   typeof engine.broadphase.controller.clear === "function"
+    //   // ) {
+    //   //   engine.broadphase.controller.clear(engine.broadphase);
+    //   // }
+    // });
+
     window.addEventListener("scroll", () => {
-      const dy = window.scrollY - lastScrollY;
-      Composite.translate(engine.world, { x: 0, y: -dy });
-      lastScrollY = window.scrollY;
+      Render.lookAt(render, {
+        min: { x: window.scrollX, y: window.scrollY },
+        max: {
+          x: window.scrollX + window.innerWidth,
+          y: window.scrollY + window.innerHeight,
+        },
+      });
     });
 
     // Create colliders for images and iframes.
@@ -88,7 +117,7 @@ App.modules.base = (function () {
     const ballsList = [];
     function spawnBall() {
       const spawnX = window.scrollX + window.innerWidth / App.config.spawnX;
-      const spawnY = -window.scrollY;
+      const spawnY = 0;
       const ball = Bodies.circle(spawnX, spawnY, App.config.ballSize, {
         restitution: App.config.restitution,
         friction: 0,
@@ -104,7 +133,7 @@ App.modules.base = (function () {
       });
       World.add(engine.world, ball);
       ballsList.push(ball);
-      console.log("Spawned ball at", spawnX, spawnY);
+      //console.log("Spawned ball at", spawnX, spawnY);
     }
     window.BallFall.spawnInterval = App.config.spawnInterval;
     let spawnIntervalId = setInterval(spawnBall, window.BallFall.spawnInterval);
