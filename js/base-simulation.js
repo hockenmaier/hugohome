@@ -48,7 +48,7 @@ App.modules.base = (function () {
     Render.run(render);
 
     // Run 'substeps'physics substeps per original timestep.
-    const substeps = 5;
+    const substeps = 2;
     const baseDt = 1000 / 60; // 16.67ms original timestep.
     const dt = baseDt / substeps; // substep dt
 

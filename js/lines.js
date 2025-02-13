@@ -396,40 +396,40 @@ App.modules.lines = (function () {
   });
 
   document.addEventListener("touchend", (e) => {
-    if (mode === "straight" && StraightLineTool.state === 1) {
-      const touch = e.changedTouches[0],
-        touchX = touch.pageX - window.scrollX,
-        touchY = touch.pageY - window.scrollY,
-        dx = touchX - StraightLineTool.firstPoint.x,
-        dy = touchY - StraightLineTool.firstPoint.y;
-      if (Math.sqrt(dx * dx + dy * dy) < 7) {
-        StraightLineTool.cancel();
-      } else {
-        StraightLineTool.onTouchEnd(touchX, touchY);
+    const touch = e.changedTouches[0],
+      touchX = touch.pageX,
+      touchY = touch.pageY;
+
+    // For consistency, handle each mode the same way.
+    if (mode === "straight") {
+      // Optional: Check if the tool is in the proper state.
+      if (StraightLineTool.state === 1) {
+        const dx = touchX - StraightLineTool.firstPoint.x,
+          dy = touchY - StraightLineTool.firstPoint.y;
+        // If the movement is too small, cancel; otherwise finish.
+        if (Math.sqrt(dx * dx + dy * dy) < 7) {
+          StraightLineTool.cancel();
+        } else {
+          StraightLineTool.onTouchEnd(touchX, touchY);
+        }
       }
-    }
-    if (mode === "curved") {
+    } else if (mode === "curved") {
       if (
         window.CurvedLineTool &&
         typeof window.CurvedLineTool.onTouchEnd === "function"
       ) {
-        const touch = e.changedTouches[0],
-          touchX = touch.pageX - window.scrollX,
-          touchY = touch.pageY - window.scrollY;
         window.CurvedLineTool.onTouchEnd(touchX, touchY);
       }
-    }
-    if (mode === "launcher") {
+    } else if (mode === "launcher") {
       if (
         window.LauncherCreateTool &&
         typeof LauncherCreateTool.onTouchEnd === "function"
       ) {
-        const touch = e.changedTouches[0],
-          touchX = touch.pageX - window.scrollX,
-          touchY = touch.pageY - window.scrollY;
         LauncherCreateTool.onTouchEnd(touchX, touchY);
       }
     }
+
+    // Consistent cleanup for pending deletion regardless of mode.
     if (pendingDeletionLine) {
       clearTimeout(deletionTimer);
       deletionTimer = null;

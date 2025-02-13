@@ -118,11 +118,37 @@ window.CurvedLineTool = {
   },
   onTouchEnd(x, y) {
     if (this.state === 1) {
+      // Set the end point.
+      this.endPoint = { x, y };
+
+      // Define a default control point (e.g., the midpoint) so the preview curve is visible.
+      const defaultControl = {
+        x: (this.startPoint.x + this.endPoint.x) / 2,
+        y: (this.startPoint.y + this.endPoint.y) / 2,
+      };
+
+      // Remove the existing preview compound (if any) so we can update it.
       if (this.previewCompound) {
         Matter.World.remove(window.BallFall.world, this.previewCompound);
         this.previewCompound = null;
       }
-      this.endPoint = { x, y };
+
+      // Create a preview compound using the default control point.
+      this.previewCompound = generateCurveCompoundBody(
+        this.startPoint,
+        defaultControl,
+        this.endPoint,
+        App.config.curvedLineFidelity,
+        App.config.lineThickness * 1.05,
+        {
+          fillStyle: "rgba(149,110,255,0.5)",
+          strokeStyle: "rgba(149,110,255,0.5)",
+          lineWidth: 1,
+        }
+      );
+      Matter.World.add(window.BallFall.world, this.previewCompound);
+
+      // Now we're in control state, and the preview stays visible until the next touch.
       this.state = 2;
     } else if (this.state === 2) {
       this.finish(x, y);
