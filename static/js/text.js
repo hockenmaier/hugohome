@@ -168,38 +168,6 @@ App.modules.text = (function () {
       if (body) World.add(world, body);
     });
 
-    // //Now remove any colliders that were set for images in the UI:
-    // const uiImg = document.getElementById("bfui-image");
-    // if (uiImg) {
-    //   // Copy to avoid issues while mutating the array
-    //   world.bodies.slice().forEach((body) => {
-    //     if (body.elRef === uiImg) {
-    //       Matter.World.remove(world, body);
-    //     }
-    //   });
-    // }
-    // // Remove colliders for UI images.
-    // document.querySelectorAll("#ballfall-ui img").forEach(function (img) {
-    //   world.bodies.slice().forEach((body) => {
-    //     if (body.elRef === img) {
-    //       Matter.World.remove(world, body);
-    //     }
-    //   });
-    // });
-
-    // Remove colliders for UI images (bfui-image and all images in #ballfall-ui).
-    // This removal now runs after a short delay so the UI elements are in the DOM.
-    setTimeout(function () {
-      const uiImgs = document.querySelectorAll("#ballfall-ui img");
-      uiImgs.forEach(function (img) {
-        world.bodies.slice().forEach((body) => {
-          if (body.elRef === img) {
-            Matter.World.remove(world, body);
-          }
-        });
-      });
-    }, 500);
-
     Events.on(engine, "collisionStart", (evt) => {
       evt.pairs.forEach((pair) => {
         [pair.bodyA, pair.bodyB].forEach((b) => {
