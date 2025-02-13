@@ -80,7 +80,7 @@ window.CurvedLineTool = {
       this.startPoint,
       { x: controlX, y: controlY },
       this.endPoint,
-      20,
+      App.config.curvedLineFidelity,
       App.config.lineThickness * 1.05,
       {
         fillStyle: "#956eff",

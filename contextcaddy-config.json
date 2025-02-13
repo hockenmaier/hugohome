@@ -4,7 +4,6 @@
       "selectedFiles": {
         "g:\\projects\\hugohome\\layouts\\_default\\baseof.html": true,
         "g:\\projects\\hugohome\\static\\js\\ball-machine-app.js": true,
-        "g:\\projects\\hugohome\\static\\js\\base-simulation.js": true,
         "g:\\projects\\hugohome\\static\\js\\lines.js": true,
         "g:\\projects\\hugohome\\layouts\\partials\\ball-machine-ui.html": true,
         "g:\\projects\\hugohome\\static\\js\\launcher-create.js": true,
@@ -78,6 +77,11 @@
       },
       "prePrompt": "",
       "includeFileTree": true
+    },
+    "loganisdumb": {
+      "selectedFiles": {},
+      "prePrompt": "",
+      "includeFileTree": false
     }
   },
   "activeProfile": "ball-machine"
