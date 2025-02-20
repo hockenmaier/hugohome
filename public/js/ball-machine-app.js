@@ -12,6 +12,7 @@ window.App = {
     textHitColor: "#b3ffc7",
 
     lineThickness: 5, // All line types share this
+    dottedLineHealth: 5, // Dotted line health (configurable)
     curvedLineFidelity: 30, // How many sections of the "tube" that is the curved line
     lineDeleteMobileHold: 1200, // Time delay for press and hold to delete on mobile
 

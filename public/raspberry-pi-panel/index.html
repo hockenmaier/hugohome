@@ -640,7 +640,7 @@ table {
 <p>I created this panel display in 2026 to control much of the home automation I used in my Studio City apartment. Mainly a hardware project, I designed and 3D-printed a case and frame for the touchscreen and raspberry pi microcomputer in order to mount them to the wall. The software running the control panel is SaaS, but I did write a custom html wrapper to control the orientation and settings of the site, which is available on the github linked above.</p>
 <p>Update in 2025: This panel is still my main view into my home automation in my new house in Sherman Oaks, almost 10 years in with no modification!</p>
 <p>Here&rsquo;s a video to see the panel in action:</p>
-<h2 id="hahahugoshortcode8s0hbhb">
+<h2 id="hahahugoshortcode3s0hbhb">
     <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
       <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/iFGmm-ijJvE?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"></iframe>
     </div>
@@ -1011,142 +1011,144 @@ table {
   </div>
 
   <div id="line-mode-toggle">
-    <img src="/images/line-mode.png" id="toggleStraight"
-    class="line-toggle selected" alt="Straight Line" /> <img src="/images/curve-mode.png" id="toggleCurved" class="line-toggle"
-    alt="Curved Line" /> <img src="/images/DKannon250-mode.png"
-    id="toggleLauncher" class="line-toggle" alt="Launcher" /> <img src="/images/DKannon250-fast-mode.png" id="toggleFastLauncher"
+    <img src="/images/dotted-line-mode.png" id="toggleDotted"
+    class="line-toggle" alt="Dotted Line" /> <img src="/images/line-mode.png" id="toggleStraight" class="line-toggle selected" alt="Straight
+    Line" /> <img src="/images/curve-mode.png" id="toggleCurved"
+    class="line-toggle" alt="Curved Line" /> <img src="/images/DKannon250-mode.png" id="toggleLauncher"
+    class="line-toggle" alt="Launcher" /> <img src="/images/DKannon250-fast-mode.png" id="toggleFastLauncher"
     class="line-toggle" alt="Fast Launcher" /> <img src="/images/DKannon250-insta-mode.png" id="toggleInstaLauncher"
     class="line-toggle" alt="Insta Launcher" />
   </div>
 
-  <div id="coins-display">5 coins</div>
+  <script>
+    (function () {
+      const incBtn = document.getElementById("increaseSpeedBtn"),
+        decBtn = document.getElementById("decreaseSpeedBtn"),
+        clearBallsBtn = document.getElementById("clearBallsBtn"),
+        dropRateValue = document.getElementById("bfui-drop-rate-value"),
+        dottedBtn = document.getElementById("toggleDotted"),
+        straightBtn = document.getElementById("toggleStraight"),
+        curvedBtn = document.getElementById("toggleCurved"),
+        launcherBtn = document.getElementById("toggleLauncher"),
+        fastLauncherBtn = document.getElementById("toggleFastLauncher"),
+        instaLauncherBtn = document.getElementById("toggleInstaLauncher");
 
-  <div id="bfui-drop-rate-wrapper">
-    <span id="bfui-drop-rate-label">Drop Rate:</span>
-    <span id="bfui-drop-rate-value">0</span>
-  </div>
-</div>
-
-<script>
-  (function () {
-    const incBtn = document.getElementById("increaseSpeedBtn"),
-      decBtn = document.getElementById("decreaseSpeedBtn"),
-      clearBallsBtn = document.getElementById("clearBallsBtn"),
-      dropRateValue = document.getElementById("bfui-drop-rate-value"),
-      straightBtn = document.getElementById("toggleStraight"),
-      curvedBtn = document.getElementById("toggleCurved"),
-      launcherBtn = document.getElementById("toggleLauncher"),
-      fastLauncherBtn = document.getElementById("toggleFastLauncher"),
-      instaLauncherBtn = document.getElementById("toggleInstaLauncher");
-
-    function updateDropRateDisplay() {
-      if (!window.BallFall) return;
-      const interval = window.BallFall.spawnInterval,
-        bps = 1000 / interval;
-      dropRateValue.textContent =
-        bps < 1 ? `every ${(1 / bps).toFixed(1)}s` : `${bps.toFixed(1)}/s`;
-    }
-
-    incBtn.addEventListener("click", (e) => {
-      e.stopPropagation();
-      if (window.BallFall && window.BallFall.updateSpawnInterval) {
-        const current = window.BallFall.spawnInterval;
-        window.BallFall.updateSpawnInterval(Math.max(1.09375, current / 2));
-        updateDropRateDisplay();
+      function updateDropRateDisplay() {
+        if (!window.BallFall) return;
+        const interval = window.BallFall.spawnInterval,
+          bps = 1000 / interval;
+        dropRateValue.textContent =
+          bps < 1 ? `every ${(1 / bps).toFixed(1)}s` : `${bps.toFixed(1)}/s`;
       }
-    });
 
-    decBtn.addEventListener("click", (e) => {
-      e.stopPropagation();
-      if (window.BallFall && window.BallFall.updateSpawnInterval) {
-        const current = window.BallFall.spawnInterval;
-        window.BallFall.updateSpawnInterval(current * 2);
-        updateDropRateDisplay();
+      incBtn.addEventListener("click", (e) => {
+        e.stopPropagation();
+        if (window.BallFall && window.BallFall.updateSpawnInterval) {
+          const current = window.BallFall.spawnInterval;
+          window.BallFall.updateSpawnInterval(Math.max(1.09375, current / 2));
+          updateDropRateDisplay();
+        }
+      });
+
+      decBtn.addEventListener("click", (e) => {
+        e.stopPropagation();
+        if (window.BallFall && window.BallFall.updateSpawnInterval) {
+          const current = window.BallFall.spawnInterval;
+          window.BallFall.updateSpawnInterval(current * 2);
+          updateDropRateDisplay();
+        }
+      });
+
+      clearBallsBtn.addEventListener("click", (e) => {
+        e.stopPropagation();
+        if (window.BallFall && window.BallFall.clearBalls) {
+          window.BallFall.clearBalls();
+        }
+      });
+
+      function setActive(mode, launcherType) {
+        [
+          dottedBtn,
+          straightBtn,
+          curvedBtn,
+          launcherBtn,
+          fastLauncherBtn,
+          instaLauncherBtn,
+        ].forEach((btn) => btn.classList.remove("selected"));
+        if (mode === "straight" || mode === "curved" || mode === "dotted") {
+          if (mode === "straight") straightBtn.classList.add("selected");
+          else if (mode === "curved") curvedBtn.classList.add("selected");
+          else if (mode === "dotted") dottedBtn.classList.add("selected");
+          window.App.modules.lines.setMode(mode);
+        } else if (mode === "launcher") {
+          if (!launcherType) launcherType = "launcher";
+          window.LauncherCreateTool.selectedType = launcherType;
+          if (launcherType === "launcher")
+            launcherBtn.classList.add("selected");
+          else if (launcherType === "fast-launcher")
+            fastLauncherBtn.classList.add("selected");
+          else if (launcherType === "insta-launcher")
+            instaLauncherBtn.classList.add("selected");
+          window.App.modules.lines.setMode("launcher");
+        } else if (mode === "none") {
+          window.App.modules.lines.setMode("none");
+        }
       }
-    });
 
-    clearBallsBtn.addEventListener("click", (e) => {
-      e.stopPropagation();
-      if (window.BallFall && window.BallFall.clearBalls) {
-        window.BallFall.clearBalls();
-      }
-    });
-
-    function setActive(mode, launcherType) {
-      [
-        straightBtn,
-        curvedBtn,
-        launcherBtn,
-        fastLauncherBtn,
-        instaLauncherBtn,
-      ].forEach((btn) => btn.classList.remove("selected"));
-      if (mode === "straight" || mode === "curved") {
-        (mode === "straight" ? straightBtn : curvedBtn).classList.add(
-          "selected"
+      dottedBtn.addEventListener("click", (e) => {
+        e.stopPropagation();
+        const current = window.App.modules.lines.getMode();
+        setActive(current === "dotted" ? "none" : "dotted");
+      });
+      straightBtn.addEventListener("click", (e) => {
+        e.stopPropagation();
+        const current = window.App.modules.lines.getMode();
+        setActive(current === "straight" ? "none" : "straight");
+      });
+      curvedBtn.addEventListener("click", (e) => {
+        e.stopPropagation();
+        const current = window.App.modules.lines.getMode();
+        setActive(current === "curved" ? "none" : "curved");
+      });
+      launcherBtn.addEventListener("click", (e) => {
+        e.stopPropagation();
+        const current = window.App.modules.lines.getMode();
+        setActive(
+          current === "launcher" &&
+            window.LauncherCreateTool.selectedType === "launcher"
+            ? "none"
+            : "launcher",
+          "launcher"
         );
-        window.App.modules.lines.setMode(mode);
-      } else if (mode === "launcher") {
-        if (!launcherType) launcherType = "launcher";
-        window.LauncherCreateTool.selectedType = launcherType;
-        if (launcherType === "launcher") launcherBtn.classList.add("selected");
-        else if (launcherType === "fast-launcher")
-          fastLauncherBtn.classList.add("selected");
-        else if (launcherType === "insta-launcher")
-          instaLauncherBtn.classList.add("selected");
-        window.App.modules.lines.setMode("launcher");
-      } else if (mode === "none") {
-        window.App.modules.lines.setMode("none");
-      }
-    }
+      });
+      fastLauncherBtn.addEventListener("click", (e) => {
+        e.stopPropagation();
+        const current = window.App.modules.lines.getMode();
+        setActive(
+          current === "launcher" &&
+            window.LauncherCreateTool.selectedType === "fast-launcher"
+            ? "none"
+            : "launcher",
+          "fast-launcher"
+        );
+      });
+      instaLauncherBtn.addEventListener("click", (e) => {
+        e.stopPropagation();
+        const current = window.App.modules.lines.getMode();
+        setActive(
+          current === "launcher" &&
+            window.LauncherCreateTool.selectedType === "insta-launcher"
+            ? "none"
+            : "launcher",
+          "insta-launcher"
+        );
+      });
 
-    straightBtn.addEventListener("click", (e) => {
-      e.stopPropagation();
-      const current = window.App.modules.lines.getMode();
-      setActive(current === "straight" ? "none" : "straight");
-    });
-    curvedBtn.addEventListener("click", (e) => {
-      e.stopPropagation();
-      const current = window.App.modules.lines.getMode();
-      setActive(current === "curved" ? "none" : "curved");
-    });
-    launcherBtn.addEventListener("click", (e) => {
-      e.stopPropagation();
-      const current = window.App.modules.lines.getMode();
-      setActive(
-        current === "launcher" &&
-          window.LauncherCreateTool.selectedType === "launcher"
-          ? "none"
-          : "launcher",
-        "launcher"
-      );
-    });
-    fastLauncherBtn.addEventListener("click", (e) => {
-      e.stopPropagation();
-      const current = window.App.modules.lines.getMode();
-      setActive(
-        current === "launcher" &&
-          window.LauncherCreateTool.selectedType === "fast-launcher"
-          ? "none"
-          : "launcher",
-        "fast-launcher"
-      );
-    });
-    instaLauncherBtn.addEventListener("click", (e) => {
-      e.stopPropagation();
-      const current = window.App.modules.lines.getMode();
-      setActive(
-        current === "launcher" &&
-          window.LauncherCreateTool.selectedType === "insta-launcher"
-          ? "none"
-          : "launcher",
-        "insta-launcher"
-      );
-    });
-
-    setActive("straight");
-    setInterval(updateDropRateDisplay, 1000);
-  })();
-</script>
+      setActive("straight");
+      setInterval(updateDropRateDisplay, 1000);
+    })();
+  </script>
+</div>
 
 
     </body>

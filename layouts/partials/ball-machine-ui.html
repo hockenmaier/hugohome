@@ -75,7 +75,7 @@
     border-radius: 4px;
   }
   .line-toggle.selected {
-    border-color: #956eff;
+    border-color: #59ffa7;
   }
   #coins-display {
     text-align: center;
@@ -116,11 +116,13 @@
   </div>
 
   <div id="line-mode-toggle">
-    <img src="{{ "images/line-mode.png" | relURL }}" id="toggleStraight"
-    class="line-toggle selected" alt="Straight Line" /> <img src="{{
-    "images/curve-mode.png" | relURL }}" id="toggleCurved" class="line-toggle"
-    alt="Curved Line" /> <img src="{{ "images/DKannon250-mode.png" | relURL }}"
-    id="toggleLauncher" class="line-toggle" alt="Launcher" /> <img src="{{
+    <img src="{{ "images/dotted-line-mode.png" | relURL }}" id="toggleDotted"
+    class="line-toggle selected" alt="Dotted Line" /> <img src="{{
+    "images/line-mode.png" | relURL }}" id="toggleStraight" class="line-toggle"
+    alt="Straight Line" /> <img src="{{ "images/curve-mode.png" | relURL }}"
+    id="toggleCurved" class="line-toggle" alt="Curved Line" /> <img src="{{
+    "images/DKannon250-mode.png" | relURL }}" id="toggleLauncher"
+    class="line-toggle" alt="Launcher" /> <img src="{{
     "images/DKannon250-fast-mode.png" | relURL }}" id="toggleFastLauncher"
     class="line-toggle" alt="Fast Launcher" /> <img src="{{
     "images/DKannon250-insta-mode.png" | relURL }}" id="toggleInstaLauncher"
@@ -128,7 +130,6 @@
   </div>
 
   <div id="coins-display">5 coins</div>
-
   <div id="bfui-drop-rate-wrapper">
     <span id="bfui-drop-rate-label">Drop Rate:</span>
     <span id="bfui-drop-rate-value">0</span>
@@ -141,6 +142,7 @@
       decBtn = document.getElementById("decreaseSpeedBtn"),
       clearBallsBtn = document.getElementById("clearBallsBtn"),
       dropRateValue = document.getElementById("bfui-drop-rate-value"),
+      dottedBtn = document.getElementById("toggleDotted"),
       straightBtn = document.getElementById("toggleStraight"),
       curvedBtn = document.getElementById("toggleCurved"),
       launcherBtn = document.getElementById("toggleLauncher"),
@@ -148,7 +150,6 @@
       instaLauncherBtn = document.getElementById("toggleInstaLauncher");
 
     function updateDropRateDisplay() {
-      if (!window.BallFall) return;
       const interval = window.BallFall.spawnInterval,
         bps = 1000 / interval;
       dropRateValue.textContent =
@@ -157,41 +158,34 @@
 
     incBtn.addEventListener("click", (e) => {
       e.stopPropagation();
-      if (window.BallFall && window.BallFall.updateSpawnInterval) {
-        const current = window.BallFall.spawnInterval;
-        window.BallFall.updateSpawnInterval(Math.max(1.09375, current / 2));
-        updateDropRateDisplay();
-      }
+      const current = window.BallFall.spawnInterval;
+      window.BallFall.updateSpawnInterval(Math.max(1.09375, current / 2));
+      updateDropRateDisplay();
     });
-
     decBtn.addEventListener("click", (e) => {
       e.stopPropagation();
-      if (window.BallFall && window.BallFall.updateSpawnInterval) {
-        const current = window.BallFall.spawnInterval;
-        window.BallFall.updateSpawnInterval(current * 2);
-        updateDropRateDisplay();
-      }
+      const current = window.BallFall.spawnInterval;
+      window.BallFall.updateSpawnInterval(current * 2);
+      updateDropRateDisplay();
     });
-
     clearBallsBtn.addEventListener("click", (e) => {
       e.stopPropagation();
-      if (window.BallFall && window.BallFall.clearBalls) {
-        window.BallFall.clearBalls();
-      }
+      window.BallFall.clearBalls();
     });
 
     function setActive(mode, launcherType) {
       [
+        dottedBtn,
         straightBtn,
         curvedBtn,
         launcherBtn,
         fastLauncherBtn,
         instaLauncherBtn,
       ].forEach((btn) => btn.classList.remove("selected"));
-      if (mode === "straight" || mode === "curved") {
-        (mode === "straight" ? straightBtn : curvedBtn).classList.add(
-          "selected"
-        );
+      if (mode === "dotted" || mode === "straight" || mode === "curved") {
+        if (mode === "dotted") dottedBtn.classList.add("selected");
+        else if (mode === "straight") straightBtn.classList.add("selected");
+        else if (mode === "curved") curvedBtn.classList.add("selected");
         window.App.modules.lines.setMode(mode);
       } else if (mode === "launcher") {
         if (!launcherType) launcherType = "launcher";
@@ -202,11 +196,16 @@
         else if (launcherType === "insta-launcher")
           instaLauncherBtn.classList.add("selected");
         window.App.modules.lines.setMode("launcher");
-      } else if (mode === "none") {
+      } else {
         window.App.modules.lines.setMode("none");
       }
     }
 
+    dottedBtn.addEventListener("click", (e) => {
+      e.stopPropagation();
+      const current = window.App.modules.lines.getMode();
+      setActive(current === "dotted" ? "none" : "dotted");
+    });
     straightBtn.addEventListener("click", (e) => {
       e.stopPropagation();
       const current = window.App.modules.lines.getMode();
@@ -251,7 +250,8 @@
       );
     });
 
-    setActive("straight");
+    // Set dotted as the default.
+    setActive("dotted");
     setInterval(updateDropRateDisplay, 1000);
   })();
 </script>

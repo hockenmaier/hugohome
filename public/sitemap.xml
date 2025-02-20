@@ -3,46 +3,25 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>http://localhost:1313/tags/ai/</loc>
-    <lastmod>2025-02-05T00:00:00+00:00</lastmod>
+    <lastmod>2025-02-13T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/categories/</loc>
-    <lastmod>2025-02-05T00:00:00+00:00</lastmod>
+    <lastmod>2025-02-13T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/context-caddy/</loc>
-    <lastmod>2025-02-05T00:00:00+00:00</lastmod>
+    <lastmod>2025-02-13T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/categories/project-overview/</loc>
-    <lastmod>2025-02-05T00:00:00+00:00</lastmod>
+    <lastmod>2025-02-13T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/tags/rapid-prototyping/</loc>
-    <lastmod>2025-02-05T00:00:00+00:00</lastmod>
+    <lastmod>2025-02-13T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/tags/</loc>
-    <lastmod>2025-02-05T00:00:00+00:00</lastmod>
+    <lastmod>2025-02-13T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/tags/vscode-extension/</loc>
-    <lastmod>2025-02-05T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/tags/css/</loc>
-    <lastmod>2025-01-25T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/tags/game-development/</loc>
-    <lastmod>2025-01-25T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/tags/html/</loc>
-    <lastmod>2025-01-25T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/tags/procedural-generation/</loc>
-    <lastmod>2025-01-25T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/tags/singularity/</loc>
-    <lastmod>2025-01-25T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/this-website/</loc>
-    <lastmod>2025-01-25T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/tags/video-games/</loc>
-    <lastmod>2025-01-25T00:00:00+00:00</lastmod>
+    <lastmod>2025-02-13T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/</loc>
     <lastmod>2025-01-12T12:28:01-08:00</lastmod>
@@ -62,6 +41,9 @@
     <loc>http://localhost:1313/tags/experimental/</loc>
     <lastmod>2025-01-01T00:00:00+00:00</lastmod>
   </url><url>
+    <loc>http://localhost:1313/tags/game-development/</loc>
+    <lastmod>2025-01-01T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>http://localhost:1313/make-us-smarter/</loc>
     <lastmod>2025-01-01T00:00:00+00:00</lastmod>
   </url><url>
@@ -78,6 +60,9 @@
     <lastmod>2024-02-01T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/tags/happiness/</loc>
+    <lastmod>2024-02-01T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/singularity/</loc>
     <lastmod>2024-02-01T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/hedonic-treadmill/</loc>
@@ -104,6 +89,9 @@
     <loc>http://localhost:1313/tags/networking/</loc>
     <lastmod>2023-01-01T00:00:00+00:00</lastmod>
   </url><url>
+    <loc>http://localhost:1313/tags/procedural-generation/</loc>
+    <lastmod>2023-01-01T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>http://localhost:1313/tags/steamvr-sdk/</loc>
     <lastmod>2023-01-01T00:00:00+00:00</lastmod>
   </url><url>
@@ -111,6 +99,9 @@
     <lastmod>2023-01-01T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/tags/unity/</loc>
+    <lastmod>2023-01-01T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/video-games/</loc>
     <lastmod>2023-01-01T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/tags/vr/</loc>
@@ -173,6 +164,9 @@
     <loc>http://localhost:1313/tags/voice-interface/</loc>
     <lastmod>2018-05-19T00:00:00+00:00</lastmod>
   </url><url>
+    <loc>http://localhost:1313/tags/css/</loc>
+    <lastmod>2016-01-01T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>http://localhost:1313/tags/diy/</loc>
     <lastmod>2016-01-01T00:00:00+00:00</lastmod>
   </url><url>
@@ -180,6 +174,9 @@
     <lastmod>2016-01-01T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/tags/home-automation/</loc>
+    <lastmod>2016-01-01T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/html/</loc>
     <lastmod>2016-01-01T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/tags/raspberry-pi/</loc>
