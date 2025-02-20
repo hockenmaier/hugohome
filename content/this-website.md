@@ -1,6 +1,6 @@
 ---
 title: "This Website"
-date: 2025-01-25
+date: 2025-03-01
 categories: ["project overview"]
 stack: ["hugo", "matter.js", "HTML/CSS"]
 project_link: "/"
