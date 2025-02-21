@@ -5,6 +5,7 @@ window.App = {
     timeScale: 0.82,
     restitution: 0.95,
     spawnX: 1.2, // Represents the x axis spawn point of balls where 1/spawnX is the fraction of the screen
+    spawnManual: 7, // A new variable representing where the manual click-to spawn should be placed according to the same rules as the autospawner at spawnX
     ballSize: 7,
     sitStillDeleteSeconds: 3,
     sitStillDeleteMargin: 1,

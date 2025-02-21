@@ -799,6 +799,7 @@ table {
         <script src="/js/base-simulation.js"></script>
         <script src="/js/text.js"></script>
         <script src="/js/lines.js"></script>
+        <script src="/js/dotted-line.js"></script>
         <script src="/js/curved-line.js"></script>
         <script src="/js/launcher.js"></script>
         <script src="/js/launcher-create.js"></script>
@@ -882,7 +883,7 @@ table {
     border-radius: 4px;
   }
   .line-toggle.selected {
-    border-color: #956eff;
+    border-color: #59ffa7;
   }
   #coins-display {
     text-align: center;
@@ -924,143 +925,140 @@ table {
 
   <div id="line-mode-toggle">
     <img src="/images/dotted-line-mode.png" id="toggleDotted"
-    class="line-toggle" alt="Dotted Line" /> <img src="/images/line-mode.png" id="toggleStraight" class="line-toggle selected" alt="Straight
-    Line" /> <img src="/images/curve-mode.png" id="toggleCurved"
-    class="line-toggle" alt="Curved Line" /> <img src="/images/DKannon250-mode.png" id="toggleLauncher"
+    class="line-toggle selected" alt="Dotted Line" /> <img src="/images/line-mode.png" id="toggleStraight" class="line-toggle"
+    alt="Straight Line" /> <img src="/images/curve-mode.png"
+    id="toggleCurved" class="line-toggle" alt="Curved Line" /> <img src="/images/DKannon250-mode.png" id="toggleLauncher"
     class="line-toggle" alt="Launcher" /> <img src="/images/DKannon250-fast-mode.png" id="toggleFastLauncher"
     class="line-toggle" alt="Fast Launcher" /> <img src="/images/DKannon250-insta-mode.png" id="toggleInstaLauncher"
     class="line-toggle" alt="Insta Launcher" />
   </div>
 
-  <script>
-    (function () {
-      const incBtn = document.getElementById("increaseSpeedBtn"),
-        decBtn = document.getElementById("decreaseSpeedBtn"),
-        clearBallsBtn = document.getElementById("clearBallsBtn"),
-        dropRateValue = document.getElementById("bfui-drop-rate-value"),
-        dottedBtn = document.getElementById("toggleDotted"),
-        straightBtn = document.getElementById("toggleStraight"),
-        curvedBtn = document.getElementById("toggleCurved"),
-        launcherBtn = document.getElementById("toggleLauncher"),
-        fastLauncherBtn = document.getElementById("toggleFastLauncher"),
-        instaLauncherBtn = document.getElementById("toggleInstaLauncher");
-
-      function updateDropRateDisplay() {
-        if (!window.BallFall) return;
-        const interval = window.BallFall.spawnInterval,
-          bps = 1000 / interval;
-        dropRateValue.textContent =
-          bps < 1 ? `every ${(1 / bps).toFixed(1)}s` : `${bps.toFixed(1)}/s`;
-      }
-
-      incBtn.addEventListener("click", (e) => {
-        e.stopPropagation();
-        if (window.BallFall && window.BallFall.updateSpawnInterval) {
-          const current = window.BallFall.spawnInterval;
-          window.BallFall.updateSpawnInterval(Math.max(1.09375, current / 2));
-          updateDropRateDisplay();
-        }
-      });
-
-      decBtn.addEventListener("click", (e) => {
-        e.stopPropagation();
-        if (window.BallFall && window.BallFall.updateSpawnInterval) {
-          const current = window.BallFall.spawnInterval;
-          window.BallFall.updateSpawnInterval(current * 2);
-          updateDropRateDisplay();
-        }
-      });
-
-      clearBallsBtn.addEventListener("click", (e) => {
-        e.stopPropagation();
-        if (window.BallFall && window.BallFall.clearBalls) {
-          window.BallFall.clearBalls();
-        }
-      });
-
-      function setActive(mode, launcherType) {
-        [
-          dottedBtn,
-          straightBtn,
-          curvedBtn,
-          launcherBtn,
-          fastLauncherBtn,
-          instaLauncherBtn,
-        ].forEach((btn) => btn.classList.remove("selected"));
-        if (mode === "straight" || mode === "curved" || mode === "dotted") {
-          if (mode === "straight") straightBtn.classList.add("selected");
-          else if (mode === "curved") curvedBtn.classList.add("selected");
-          else if (mode === "dotted") dottedBtn.classList.add("selected");
-          window.App.modules.lines.setMode(mode);
-        } else if (mode === "launcher") {
-          if (!launcherType) launcherType = "launcher";
-          window.LauncherCreateTool.selectedType = launcherType;
-          if (launcherType === "launcher")
-            launcherBtn.classList.add("selected");
-          else if (launcherType === "fast-launcher")
-            fastLauncherBtn.classList.add("selected");
-          else if (launcherType === "insta-launcher")
-            instaLauncherBtn.classList.add("selected");
-          window.App.modules.lines.setMode("launcher");
-        } else if (mode === "none") {
-          window.App.modules.lines.setMode("none");
-        }
-      }
-
-      dottedBtn.addEventListener("click", (e) => {
-        e.stopPropagation();
-        const current = window.App.modules.lines.getMode();
-        setActive(current === "dotted" ? "none" : "dotted");
-      });
-      straightBtn.addEventListener("click", (e) => {
-        e.stopPropagation();
-        const current = window.App.modules.lines.getMode();
-        setActive(current === "straight" ? "none" : "straight");
-      });
-      curvedBtn.addEventListener("click", (e) => {
-        e.stopPropagation();
-        const current = window.App.modules.lines.getMode();
-        setActive(current === "curved" ? "none" : "curved");
-      });
-      launcherBtn.addEventListener("click", (e) => {
-        e.stopPropagation();
-        const current = window.App.modules.lines.getMode();
-        setActive(
-          current === "launcher" &&
-            window.LauncherCreateTool.selectedType === "launcher"
-            ? "none"
-            : "launcher",
-          "launcher"
-        );
-      });
-      fastLauncherBtn.addEventListener("click", (e) => {
-        e.stopPropagation();
-        const current = window.App.modules.lines.getMode();
-        setActive(
-          current === "launcher" &&
-            window.LauncherCreateTool.selectedType === "fast-launcher"
-            ? "none"
-            : "launcher",
-          "fast-launcher"
-        );
-      });
-      instaLauncherBtn.addEventListener("click", (e) => {
-        e.stopPropagation();
-        const current = window.App.modules.lines.getMode();
-        setActive(
-          current === "launcher" &&
-            window.LauncherCreateTool.selectedType === "insta-launcher"
-            ? "none"
-            : "launcher",
-          "insta-launcher"
-        );
-      });
-
-      setActive("straight");
-      setInterval(updateDropRateDisplay, 1000);
-    })();
-  </script>
+  <div id="coins-display">5 coins</div>
+  <div id="bfui-drop-rate-wrapper">
+    <span id="bfui-drop-rate-label">Drop Rate:</span>
+    <span id="bfui-drop-rate-value">0</span>
+  </div>
 </div>
+
+<script>
+  (function () {
+    const incBtn = document.getElementById("increaseSpeedBtn"),
+      decBtn = document.getElementById("decreaseSpeedBtn"),
+      clearBallsBtn = document.getElementById("clearBallsBtn"),
+      dropRateValue = document.getElementById("bfui-drop-rate-value"),
+      dottedBtn = document.getElementById("toggleDotted"),
+      straightBtn = document.getElementById("toggleStraight"),
+      curvedBtn = document.getElementById("toggleCurved"),
+      launcherBtn = document.getElementById("toggleLauncher"),
+      fastLauncherBtn = document.getElementById("toggleFastLauncher"),
+      instaLauncherBtn = document.getElementById("toggleInstaLauncher");
+
+    function updateDropRateDisplay() {
+      const interval = window.BallFall.spawnInterval,
+        bps = 1000 / interval;
+      dropRateValue.textContent =
+        bps < 1 ? `every ${(1 / bps).toFixed(1)}s` : `${bps.toFixed(1)}/s`;
+    }
+
+    incBtn.addEventListener("click", (e) => {
+      e.stopPropagation();
+      const current = window.BallFall.spawnInterval;
+      window.BallFall.updateSpawnInterval(Math.max(1.09375, current / 2));
+      updateDropRateDisplay();
+    });
+    decBtn.addEventListener("click", (e) => {
+      e.stopPropagation();
+      const current = window.BallFall.spawnInterval;
+      window.BallFall.updateSpawnInterval(current * 2);
+      updateDropRateDisplay();
+    });
+    clearBallsBtn.addEventListener("click", (e) => {
+      e.stopPropagation();
+      window.BallFall.clearBalls();
+    });
+
+    function setActive(mode, launcherType) {
+      [
+        dottedBtn,
+        straightBtn,
+        curvedBtn,
+        launcherBtn,
+        fastLauncherBtn,
+        instaLauncherBtn,
+      ].forEach((btn) => btn.classList.remove("selected"));
+      if (mode === "dotted" || mode === "straight" || mode === "curved") {
+        if (mode === "dotted") dottedBtn.classList.add("selected");
+        else if (mode === "straight") straightBtn.classList.add("selected");
+        else if (mode === "curved") curvedBtn.classList.add("selected");
+        window.App.modules.lines.setMode(mode);
+      } else if (mode === "launcher") {
+        if (!launcherType) launcherType = "launcher";
+        window.LauncherCreateTool.selectedType = launcherType;
+        if (launcherType === "launcher") launcherBtn.classList.add("selected");
+        else if (launcherType === "fast-launcher")
+          fastLauncherBtn.classList.add("selected");
+        else if (launcherType === "insta-launcher")
+          instaLauncherBtn.classList.add("selected");
+        window.App.modules.lines.setMode("launcher");
+      } else {
+        window.App.modules.lines.setMode("none");
+      }
+    }
+
+    dottedBtn.addEventListener("click", (e) => {
+      e.stopPropagation();
+      const current = window.App.modules.lines.getMode();
+      setActive(current === "dotted" ? "none" : "dotted");
+    });
+    straightBtn.addEventListener("click", (e) => {
+      e.stopPropagation();
+      const current = window.App.modules.lines.getMode();
+      setActive(current === "straight" ? "none" : "straight");
+    });
+    curvedBtn.addEventListener("click", (e) => {
+      e.stopPropagation();
+      const current = window.App.modules.lines.getMode();
+      setActive(current === "curved" ? "none" : "curved");
+    });
+    launcherBtn.addEventListener("click", (e) => {
+      e.stopPropagation();
+      const current = window.App.modules.lines.getMode();
+      setActive(
+        current === "launcher" &&
+          window.LauncherCreateTool.selectedType === "launcher"
+          ? "none"
+          : "launcher",
+        "launcher"
+      );
+    });
+    fastLauncherBtn.addEventListener("click", (e) => {
+      e.stopPropagation();
+      const current = window.App.modules.lines.getMode();
+      setActive(
+        current === "launcher" &&
+          window.LauncherCreateTool.selectedType === "fast-launcher"
+          ? "none"
+          : "launcher",
+        "fast-launcher"
+      );
+    });
+    instaLauncherBtn.addEventListener("click", (e) => {
+      e.stopPropagation();
+      const current = window.App.modules.lines.getMode();
+      setActive(
+        current === "launcher" &&
+          window.LauncherCreateTool.selectedType === "insta-launcher"
+          ? "none"
+          : "launcher",
+        "insta-launcher"
+      );
+    });
+
+    
+    setActive("dotted");
+    setInterval(updateDropRateDisplay, 1000);
+  })();
+</script>
 
 
     </body>
