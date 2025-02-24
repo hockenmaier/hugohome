@@ -309,6 +309,7 @@ App.modules.lines = (function () {
 
   // Consolidated mobile touch events.
   document.addEventListener("touchstart", (e) => {
+    if (e.target.closest("#ballfall-ui")) return;
     if (e.touches.length !== 1) return;
     const touch = e.touches[0],
       touchX = touch.pageX,
@@ -330,6 +331,7 @@ App.modules.lines = (function () {
   });
 
   document.addEventListener("touchmove", (e) => {
+    if (e.target.closest("#ballfall-ui")) return;
     if (e.touches.length !== 1) return;
     const touch = e.touches[0],
       touchX = touch.pageX,
@@ -352,6 +354,7 @@ App.modules.lines = (function () {
   });
 
   document.addEventListener("touchend", (e) => {
+    if (e.target.closest("#ballfall-ui")) return;
     const touch = e.changedTouches[0],
       touchX = touch.pageX,
       touchY = touch.pageY;
