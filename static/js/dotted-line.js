@@ -161,16 +161,16 @@
     if (!render) return;
     Matter.Events.on(render, "afterRender", function () {
       const context = render.context;
+      // Apply the view transform so we draw in world (page) space
+      Matter.Render.startViewTransform(render);
       const bodies = Matter.Composite.allBodies(window.BallFall.world);
       bodies.forEach(function (body) {
         if (body.label === "DottedLine") {
           context.save();
-          // Use the opacity set via updatePulse (or default to 1).
           const opacity =
             body.render.opacity !== undefined ? body.render.opacity : 1;
           context.globalAlpha = opacity;
           context.strokeStyle = "#a8328d";
-          // Use a fixed thinner line width for dotted appearance.
           context.lineWidth = 2;
           context.setLineDash(body.customDash || []);
           context.beginPath();
@@ -184,6 +184,7 @@
           context.restore();
         }
       });
+      Matter.Render.endViewTransform(render);
     });
   }
 
