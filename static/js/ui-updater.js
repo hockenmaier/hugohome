@@ -1,9 +1,7 @@
 // ui-updater.js
 (function () {
-  /**
-   * Remove Matter.js bodies that are linked to UI elements (inside #ballfall-ui).
-   */
   console.log("running");
+
   function removeUIColliders() {
     if (!window.BallFall || !window.BallFall.world) {
       return;
@@ -32,24 +30,29 @@
     });
   }
 
-  /**
-   * Wait for the BallFall engine to be ready before removing UI colliders.
-   */
+  function updateCoinsDisplay() {
+    const display = document.getElementById("coins-display");
+    if (display) display.textContent = `${App.config.coins} coins`;
+  }
+
   function runUpdater() {
     if (!window.BallFall || !window.BallFall.world) {
       window.addEventListener("BallFallBaseReady", runUpdater);
       return;
     }
 
-    // Give the UI a moment to render and any colliders to be created.
-    setTimeout(removeUIColliders, 500);
+    setTimeout(() => {
+      updateCoinsDisplay(); // Ensure initial UI matches config value
+      removeUIColliders();
+    }, 500);
 
-    // Optionally, re-run when the window resizes (in case UI elements are re-rendered).
     window.addEventListener("resize", () => {
-      setTimeout(removeUIColliders, 500);
+      setTimeout(() => {
+        updateCoinsDisplay();
+        removeUIColliders();
+      }, 500);
     });
   }
 
-  // Run the updater immediately.
   runUpdater();
 })();

@@ -10,9 +10,14 @@ window.LauncherCreateTool = {
 
   onClick(x, y) {
     if (this.state === 0) {
+      const tool = new BaseDrawingTool("launcher", App.config.costs.launcher);
+      if (!tool.canPlace()) {
+        BaseDrawingTool.showInsufficientFunds();
+        return;
+      }
       this.startPoint = { x, y };
+      // Create launcherPreview as before…
       const size = 40;
-      // Assuming the original image is 250px wide, compute scale.
       const scale = size / 250;
       this.launcherPreview = Matter.Bodies.rectangle(x, y, size, size, {
         isStatic: true,
@@ -27,12 +32,13 @@ window.LauncherCreateTool = {
           opacity: 0.6,
         },
       });
-      // Mark as preview so collisions are ignored
       this.launcherPreview.isPreview = true;
       Matter.World.add(window.BallFall.world, this.launcherPreview);
       this.state = 1;
     } else if (this.state === 1) {
       this.finish(x, y);
+      const cost = App.config.costs[this.selectedType];
+      new BaseDrawingTool(this.selectedType, cost).charge();
     }
   },
 
@@ -152,12 +158,21 @@ window.LauncherCreateTool = {
   },
 
   onTouchStart(x, y) {
+    const tool = new BaseDrawingTool("launcher", App.config.costs.launcher);
+    if (!tool.canPlace()) {
+      BaseDrawingTool.showInsufficientFunds();
+      return;
+    }
     this.onClick(x, y);
   },
   onTouchMove(x, y) {
     this.onMove(x, y);
   },
   onTouchEnd(x, y) {
-    if (this.state === 1) this.finish(x, y);
+    if (this.state === 1) {
+      this.finish(x, y);
+      const cost = App.config.costs[this.selectedType];
+      new BaseDrawingTool(this.selectedType, cost).charge();
+    }
   },
 };

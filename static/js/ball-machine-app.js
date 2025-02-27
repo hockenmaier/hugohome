@@ -34,7 +34,14 @@ window.App = {
         maxSpeed: 500,
       },
     },
-    coins: 5, //starting coins and current coins
+    coins: 5000, //starting coins and current coins
+    costs: {
+      straight: 5,
+      curved: 20,
+      launcher: 50,
+      "fast-launcher": 200,
+      "insta-launcher": 1000,
+    },
     goalMinSpeed: 0.5,
   },
   modules: {},

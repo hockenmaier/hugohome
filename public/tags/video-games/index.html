@@ -1208,6 +1208,24 @@ table {
     font-size: 14px;
     margin: 5px 0;
   }
+  .toggle-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .cost-label {
+    font-size: 10px;
+    color: #fff;
+    margin-top: 2px;
+    display: flex;
+    align-items: center;
+  }
+  .cost-label img {
+    width: 12px;
+    height: 12px;
+    margin-right: 2px;
+  }
+
   @media (max-width: 720px) {
     .bfui-button .bfui-label {
       display: none;
@@ -1241,13 +1259,46 @@ table {
   </div>
 
   <div id="line-mode-toggle">
-    <img src="/images/dotted-line-mode.png" id="toggleDotted"
-    class="line-toggle selected" alt="Dotted Line" /> <img src="/images/line-mode.png" id="toggleStraight" class="line-toggle"
-    alt="Straight Line" /> <img src="/images/curve-mode.png"
-    id="toggleCurved" class="line-toggle" alt="Curved Line" /> <img src="/images/DKannon250-mode.png" id="toggleLauncher"
-    class="line-toggle" alt="Launcher" /> <img src="/images/DKannon250-fast-mode.png" id="toggleFastLauncher"
-    class="line-toggle" alt="Fast Launcher" /> <img src="/images/DKannon250-insta-mode.png" id="toggleInstaLauncher"
-    class="line-toggle" alt="Insta Launcher" />
+    <div class="toggle-wrapper">
+      <img src="/images/dotted-line-mode.png" id="toggleDotted"
+      class="line-toggle selected" alt="Dotted Line" />
+      <div class="cost-label"></div>
+    </div>
+    <div class="toggle-wrapper">
+      <img src="/images/line-mode.png" id="toggleStraight"
+      class="line-toggle" alt="Straight Line" />
+      <div class="cost-label">
+        <img src="/images/coin-cost.png" alt="Coin" /> 5
+      </div>
+    </div>
+    <div class="toggle-wrapper">
+      <img src="/images/curve-mode.png" id="toggleCurved"
+      class="line-toggle" alt="Curved Line" />
+      <div class="cost-label">
+        <img src="/images/coin-cost.png" alt="Coin" /> 20
+      </div>
+    </div>
+    <div class="toggle-wrapper">
+      <img src="/images/DKannon250-mode.png" id="toggleLauncher"
+      class="line-toggle" alt="Launcher" />
+      <div class="cost-label">
+        <img src="/images/coin-cost.png" alt="Coin" /> 50
+      </div>
+    </div>
+    <div class="toggle-wrapper">
+      <img src="/images/DKannon250-fast-mode.png"
+      id="toggleFastLauncher" class="line-toggle" alt="Fast Launcher" />
+      <div class="cost-label">
+        <img src="/images/coin-cost.png" alt="Coin" /> 200
+      </div>
+    </div>
+    <div class="toggle-wrapper">
+      <img src="/images/DKannon250-insta-mode.png"
+      id="toggleInstaLauncher" class="line-toggle" alt="Insta Launcher" />
+      <div class="cost-label">
+        <img src="/images/coin-cost.png" alt="Coin" /> 1000
+      </div>
+    </div>
   </div>
 
   <div id="coins-display">5 coins</div>

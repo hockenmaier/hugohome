@@ -149,18 +149,26 @@ App.modules.lines = (function () {
     firstPoint: null,
     previewLine: null,
     onClick(x, y) {
+      const tool = new BaseDrawingTool("straight", App.config.costs.straight);
+      if (!tool.canPlace()) {
+        BaseDrawingTool.showInsufficientFunds();
+        return;
+      }
       if (this.state === 0) {
         this.firstPoint = { x, y };
         this.state = 1;
       } else {
         this.finish(x, y);
+        tool.charge();
       }
     },
+
     onMove(x, y) {
       if (this.state !== 1) return;
       this.updatePreview(x, y);
     },
     updatePreview(x, y) {
+      ``;
       if (this.previewLine) {
         Matter.World.remove(window.BallFall.world, this.previewLine);
         this.previewLine = null;
@@ -235,6 +243,7 @@ App.modules.lines = (function () {
     },
     onTouchEnd(x, y) {
       this.finish(x, y);
+      new BaseDrawingTool("straight", App.config.costs.straight).charge();
     },
   };
 
