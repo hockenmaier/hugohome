@@ -1181,6 +1181,7 @@ table {
         <script src="/js/ball-machine-app.js"></script>
         <script src="/js/base-simulation.js"></script>
         <script src="/js/text.js"></script>
+        <script src="/js/base-drawing-tool.js"></script>
         <script src="/js/lines.js"></script>
         <script src="/js/dotted-line.js"></script>
         <script src="/js/curved-line.js"></script>
@@ -1367,11 +1368,11 @@ table {
     </div>
   </div>
 
-  <div id="coins-display">5 coins</div>
   <div id="bfui-drop-rate-wrapper">
     <span id="bfui-drop-rate-label">Drop Rate:</span>
     <span id="bfui-drop-rate-value">0</span>
   </div>
+  <div id="coins-display">0 coins</div>
 </div>
 
 <script>
@@ -1495,5 +1496,15 @@ table {
 </script>
 
 
+        <script>
+          
+          document.addEventListener('click', function(e) {
+            if (window.App && window.App.modules && window.App.modules.lines && window.App.modules.lines.getMode() !== "none") {
+              if (e.target.closest('a') && !e.target.closest('#ballfall-ui')) {
+                e.preventDefault();
+              }
+            }
+          });
+        </script>
     </body>
 </html>

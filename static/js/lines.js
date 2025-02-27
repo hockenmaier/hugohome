@@ -303,18 +303,48 @@ App.modules.lines = (function () {
     }
   });
 
-  document.addEventListener("click", (e) => {
-    if (window.matchMedia && window.matchMedia("(pointer: coarse)").matches)
-      return;
-    if (e.target.closest("a, button, input, textarea, select, label")) return;
-    if (mode === "none") return;
-    const clickX = e.pageX,
-      clickY = e.pageY;
-    let tool = getActiveTool();
-    if (tool && typeof tool.onClick === "function") {
-      tool.onClick(clickX, clickY);
-    }
-  });
+  document.addEventListener(
+    "click",
+    (e) => {
+      if (window.matchMedia && window.matchMedia("(pointer: coarse)").matches)
+        return;
+      if (
+        window.App &&
+        window.App.modules &&
+        window.App.modules.lines &&
+        window.App.modules.lines.getMode() !== "none"
+      ) {
+        var linkEl = e.target.closest("a");
+        if (linkEl) {
+          e.preventDefault();
+          flashElementStyle(
+            linkEl,
+            ["color", "textDecoration"],
+            { color: "red", textDecoration: "line-through" },
+            100,
+            6
+          );
+          var toggleGroup = document.getElementById("toggle-container");
+          if (toggleGroup) {
+            flashElementStyle(
+              toggleGroup,
+              ["border"],
+              { border: "2px solid red" },
+              100,
+              6
+            );
+          }
+        }
+        const clickX = e.pageX,
+          clickY = e.pageY;
+        let tool = getActiveTool();
+        if (tool && typeof tool.onClick === "function") {
+          tool.onClick(clickX, clickY);
+        }
+      }
+    },
+    true
+  );
 
   // Consolidated mobile touch events.
   document.addEventListener("touchstart", (e) => {

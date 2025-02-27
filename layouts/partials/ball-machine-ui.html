@@ -133,45 +133,58 @@
     </button>
   </div>
 
-  <div id="line-mode-toggle">
-    <div class="toggle-wrapper">
-      <img src="{{ "images/dotted-line-mode.png" | relURL }}" id="toggleDotted"
-      class="line-toggle selected" alt="Dotted Line" />
-      <div class="cost-label"></div>
-    </div>
-    <div class="toggle-wrapper">
-      <img src="{{ "images/line-mode.png" | relURL }}" id="toggleStraight"
-      class="line-toggle" alt="Straight Line" />
-      <div class="cost-label">
-        <img src="{{ "images/coin-cost.png" | relURL }}" alt="Coin" /> 5
+  <div
+    id="toggle-container"
+    style="display: inline-block; padding: 5px; border: 2px solid transparent"
+  >
+    <div
+      id="line-mode-toggle"
+      style="
+        display: flex;
+        gap: 10px;
+        margin-top: 10px;
+        justify-content: center;
+      "
+    >
+      <div class="toggle-wrapper">
+        <img src="{{ "images/dotted-line-mode.png" | relURL }}"
+        id="toggleDotted" class="line-toggle selected" alt="Dotted Line" />
+        <div class="cost-label"></div>
       </div>
-    </div>
-    <div class="toggle-wrapper">
-      <img src="{{ "images/curve-mode.png" | relURL }}" id="toggleCurved"
-      class="line-toggle" alt="Curved Line" />
-      <div class="cost-label">
-        <img src="{{ "images/coin-cost.png" | relURL }}" alt="Coin" /> 20
+      <div class="toggle-wrapper">
+        <img src="{{ "images/line-mode.png" | relURL }}" id="toggleStraight"
+        class="line-toggle" alt="Straight Line" />
+        <div class="cost-label">
+          <img src="{{ "images/coin-cost.png" | relURL }}" alt="Coin" /> 5
+        </div>
       </div>
-    </div>
-    <div class="toggle-wrapper">
-      <img src="{{ "images/DKannon250-mode.png" | relURL }}" id="toggleLauncher"
-      class="line-toggle" alt="Launcher" />
-      <div class="cost-label">
-        <img src="{{ "images/coin-cost.png" | relURL }}" alt="Coin" /> 50
+      <div class="toggle-wrapper">
+        <img src="{{ "images/curve-mode.png" | relURL }}" id="toggleCurved"
+        class="line-toggle" alt="Curved Line" />
+        <div class="cost-label">
+          <img src="{{ "images/coin-cost.png" | relURL }}" alt="Coin" /> 20
+        </div>
       </div>
-    </div>
-    <div class="toggle-wrapper">
-      <img src="{{ "images/DKannon250-fast-mode.png" | relURL }}"
-      id="toggleFastLauncher" class="line-toggle" alt="Fast Launcher" />
-      <div class="cost-label">
-        <img src="{{ "images/coin-cost.png" | relURL }}" alt="Coin" /> 200
+      <div class="toggle-wrapper">
+        <img src="{{ "images/DKannon250-mode.png" | relURL }}"
+        id="toggleLauncher" class="line-toggle" alt="Launcher" />
+        <div class="cost-label">
+          <img src="{{ "images/coin-cost.png" | relURL }}" alt="Coin" /> 50
+        </div>
       </div>
-    </div>
-    <div class="toggle-wrapper">
-      <img src="{{ "images/DKannon250-insta-mode.png" | relURL }}"
-      id="toggleInstaLauncher" class="line-toggle" alt="Insta Launcher" />
-      <div class="cost-label">
-        <img src="{{ "images/coin-cost.png" | relURL }}" alt="Coin" /> 1000
+      <div class="toggle-wrapper">
+        <img src="{{ "images/DKannon250-fast-mode.png" | relURL }}"
+        id="toggleFastLauncher" class="line-toggle" alt="Fast Launcher" />
+        <div class="cost-label">
+          <img src="{{ "images/coin-cost.png" | relURL }}" alt="Coin" /> 200
+        </div>
+      </div>
+      <div class="toggle-wrapper">
+        <img src="{{ "images/DKannon250-insta-mode.png" | relURL }}"
+        id="toggleInstaLauncher" class="line-toggle" alt="Insta Launcher" />
+        <div class="cost-label">
+          <img src="{{ "images/coin-cost.png" | relURL }}" alt="Coin" /> 1000
+        </div>
       </div>
     </div>
   </div>
@@ -220,7 +233,8 @@
       window.BallFall.clearBalls();
     });
 
-    function setActive(mode, launcherType) {
+    function setActive(newMode, launcherType) {
+      const prevMode = window.App.modules.lines.getMode();
       [
         dottedBtn,
         straightBtn,
@@ -229,12 +243,16 @@
         fastLauncherBtn,
         instaLauncherBtn,
       ].forEach((btn) => btn.classList.remove("selected"));
-      if (mode === "dotted" || mode === "straight" || mode === "curved") {
-        if (mode === "dotted") dottedBtn.classList.add("selected");
-        else if (mode === "straight") straightBtn.classList.add("selected");
-        else if (mode === "curved") curvedBtn.classList.add("selected");
-        window.App.modules.lines.setMode(mode);
-      } else if (mode === "launcher") {
+      if (
+        newMode === "dotted" ||
+        newMode === "straight" ||
+        newMode === "curved"
+      ) {
+        if (newMode === "dotted") dottedBtn.classList.add("selected");
+        else if (newMode === "straight") straightBtn.classList.add("selected");
+        else if (newMode === "curved") curvedBtn.classList.add("selected");
+        window.App.modules.lines.setMode(newMode);
+      } else if (newMode === "launcher") {
         if (!launcherType) launcherType = "launcher";
         window.LauncherCreateTool.selectedType = launcherType;
         if (launcherType === "launcher") launcherBtn.classList.add("selected");
@@ -245,6 +263,21 @@
         window.App.modules.lines.setMode("launcher");
       } else {
         window.App.modules.lines.setMode("none");
+      }
+
+      // Only flash if the toggle state changed.
+      if (
+        prevMode === "none" &&
+        window.App.modules.lines.getMode() !== "none"
+      ) {
+        // Drawing tool toggled on
+        flashAllLinks({ color: "red", textDecoration: "line-through" }, 100, 6);
+      } else if (
+        prevMode !== "none" &&
+        window.App.modules.lines.getMode() === "none"
+      ) {
+        // Drawing tool toggled off
+        flashAllLinks({ color: "gold", textDecoration: "none" }, 100, 6);
       }
     }
 
