@@ -135,7 +135,7 @@
         
 
         
-            <lastBuildDate>2025-02-05 00:00:00 +0000 UTC</lastBuildDate>
+            <lastBuildDate>2025-03-01 00:00:00 +0000 UTC</lastBuildDate>
         
 
         <link>https://hockenmaier.github.io/hugohome/categories/project-overview/</link>
@@ -146,50 +146,6 @@
 
         
 
-        
-            <item>
-                
-                
-                
-                
-                
-                
-                
-
-                
-
-                
-
-                
-
-                
-
-                
-                
-
-                
-
-                
-
-                
-                    <description><![CDATA[<hr>
-]]></description>
-                
-
-                <guid isPermaLink="false">tag:hockenmaier.github.io,2025-02-05:/hugohome/context-caddy/</guid>
-
-                
-                    <link>https://hockenmaier.github.io/hugohome/context-caddy/</link>
-                
-
-                
-                    <pubDate>Wed, 05 Feb 2025 00:00:00 UTC</pubDate>
-                
-
-                
-                    <title>Context Caddy</title>
-                
-            </item>
         
             <item>
                 
@@ -232,18 +188,73 @@
 ]]></description>
                 
 
-                <guid isPermaLink="false">tag:hockenmaier.github.io,2025-01-25:/hugohome/this-website/</guid>
+                <guid isPermaLink="false">tag:hockenmaier.github.io,2025-03-01:/hugohome/this-website/</guid>
 
                 
                     <link>https://hockenmaier.github.io/hugohome/this-website/</link>
                 
 
                 
-                    <pubDate>Sat, 25 Jan 2025 00:00:00 UTC</pubDate>
+                    <pubDate>Sat, 01 Mar 2025 00:00:00 UTC</pubDate>
                 
 
                 
                     <title>This Website</title>
+                
+            </item>
+        
+            <item>
+                
+                
+                
+                
+                
+                
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+                
+
+                
+
+                
+
+                
+                    <description><![CDATA[<p>I built a nice little tool to help AI write code for you.</p>
+
+    <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+      <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/R5wztMBfh0w?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"></iframe>
+    </div>
+
+<p>Well, really, o3-mini and o3-mini-high worked together to write this and I corrected a few things here and there. I started using this tool to write itself about 30 mins into development!</p>
+<p>Download on github <a href="https://github.com/hockenmaier/context-caddy">https://github.com/hockenmaier/context-caddy</a>
+Or the VScode marketplace:
+<a href="https://marketplace.visualstudio.com/manage/publishers/hockenmaier/extensions/context-caddy/hub?_a=acquisition">https://marketplace.visualstudio.com/manage/publishers/hockenmaier/extensions/context-caddy/hub?_a=acquisition</a></p>
+<p>And reminder - if you are writing code for a company NEVER put code into an AI model that company doesn’t approve :)</p>
+<hr>
+]]></description>
+                
+
+                <guid isPermaLink="false">tag:hockenmaier.github.io,2025-02-13:/hugohome/context-caddy/</guid>
+
+                
+                    <link>https://hockenmaier.github.io/hugohome/context-caddy/</link>
+                
+
+                
+                    <pubDate>Thu, 13 Feb 2025 00:00:00 UTC</pubDate>
+                
+
+                
+                    <title>Context Caddy</title>
                 
             </item>
         
@@ -2258,7 +2269,7 @@ This is what the project looked like for my first play-test with other people 5 
 <p>I created this panel display in 2026 to control much of the home automation I used in my Studio City apartment. Mainly a hardware project, I designed and 3D-printed a case and frame for the touchscreen and raspberry pi microcomputer in order to mount them to the wall. The software running the control panel is SaaS, but I did write a custom html wrapper to control the orientation and settings of the site, which is available on the github linked above.</p>
 <p>Update in 2025: This panel is still my main view into my home automation in my new house in Sherman Oaks, almost 10 years in with no modification!</p>
 <p>Here&rsquo;s a video to see the panel in action:</p>
-<h2 id="hahahugoshortcode18s0hbhb">
+<h2 id="hahahugoshortcode7s0hbhb">
     <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
       <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/iFGmm-ijJvE?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"></iframe>
     </div>

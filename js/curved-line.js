@@ -7,6 +7,11 @@ window.CurvedLineTool = {
   // Desktop click-based methods
   onClick(x, y) {
     if (this.state === 0) {
+      const tool = new BaseDrawingTool("curved", App.config.costs.curved);
+      if (!tool.canPlace()) {
+        BaseDrawingTool.showInsufficientFunds();
+        return;
+      }
       this.startPoint = { x, y };
       this.state = 1;
     } else if (this.state === 1) {
@@ -14,6 +19,7 @@ window.CurvedLineTool = {
       this.state = 2;
     } else if (this.state === 2) {
       this.finish(x, y);
+      new BaseDrawingTool("curved", App.config.costs.curved).charge();
     }
   },
 
@@ -80,7 +86,7 @@ window.CurvedLineTool = {
       this.startPoint,
       { x: controlX, y: controlY },
       this.endPoint,
-      20,
+      App.config.curvedLineFidelity,
       App.config.lineThickness * 1.05,
       {
         fillStyle: "#956eff",
@@ -107,33 +113,82 @@ window.CurvedLineTool = {
   },
 
   // Mobile touch methods mirror desktop behavior.
+  // In curved-line.js, update the mobile methods:
+  // Mobile touch methods for CurvedLineTool in curved-line.js
   onTouchStart(x, y) {
     if (this.state === 0) {
+      const tool = new BaseDrawingTool("curved", App.config.costs.curved);
+      if (!tool.canPlace()) {
+        BaseDrawingTool.showInsufficientFunds();
+        return;
+      }
       this.startPoint = { x, y };
       this.state = 1;
     }
+    // In state 2, no special action on touchstart
   },
   onTouchMove(x, y) {
-    this.onMove(x, y);
-  },
-  onTouchEnd(x, y) {
     if (this.state === 1) {
-      // Set the end point.
-      this.endPoint = { x, y };
-
-      // Define a default control point (e.g., the midpoint) so the preview curve is visible.
-      const defaultControl = {
-        x: (this.startPoint.x + this.endPoint.x) / 2,
-        y: (this.startPoint.y + this.endPoint.y) / 2,
-      };
-
-      // Remove the existing preview compound (if any) so we can update it.
+      // Update straight-line preview during first session.
       if (this.previewCompound) {
         Matter.World.remove(window.BallFall.world, this.previewCompound);
         this.previewCompound = null;
       }
-
-      // Create a preview compound using the default control point.
+      const dx = x - this.startPoint.x,
+        dy = y - this.startPoint.y,
+        midX = (this.startPoint.x + x) / 2,
+        midY = (this.startPoint.y + y) / 2,
+        angle = Math.atan2(dy, dx),
+        length = Math.sqrt(dx * dx + dy * dy);
+      this.previewCompound = Matter.Bodies.rectangle(
+        midX,
+        midY,
+        length,
+        App.config.lineThickness * 1.05,
+        {
+          isStatic: true,
+          angle: angle,
+          render: {
+            fillStyle: "rgba(149,110,255,0.5)",
+            strokeStyle: "rgba(149,110,255,0.5)",
+            lineWidth: 1,
+          },
+        }
+      );
+      Matter.World.add(window.BallFall.world, this.previewCompound);
+    } else if (this.state === 2) {
+      // During second session, update the curve preview using current pointer as control.
+      if (this.previewCompound) {
+        Matter.World.remove(window.BallFall.world, this.previewCompound);
+        this.previewCompound = null;
+      }
+      this.previewCompound = generateCurveCompoundBody(
+        this.startPoint,
+        { x, y },
+        this.endPoint,
+        App.config.curvedLineFidelity,
+        App.config.lineThickness * 1.05,
+        {
+          fillStyle: "rgba(149,110,255,0.5)",
+          strokeStyle: "rgba(149,110,255,0.5)",
+          lineWidth: 1,
+        }
+      );
+      Matter.World.add(window.BallFall.world, this.previewCompound);
+    }
+  },
+  onTouchEnd(x, y) {
+    if (this.state === 1) {
+      // First session: finalize end point and create default curve preview.
+      this.endPoint = { x, y };
+      if (this.previewCompound) {
+        Matter.World.remove(window.BallFall.world, this.previewCompound);
+        this.previewCompound = null;
+      }
+      const defaultControl = {
+        x: (this.startPoint.x + this.endPoint.x) / 2,
+        y: (this.startPoint.y + this.endPoint.y) / 2,
+      };
       this.previewCompound = generateCurveCompoundBody(
         this.startPoint,
         defaultControl,
@@ -147,11 +202,11 @@ window.CurvedLineTool = {
         }
       );
       Matter.World.add(window.BallFall.world, this.previewCompound);
-
-      // Now we're in control state, and the preview stays visible until the next touch.
       this.state = 2;
     } else if (this.state === 2) {
+      // Second session: use current pointer as control to finalize the curve.
       this.finish(x, y);
+      new BaseDrawingTool("curved", App.config.costs.curved).charge();
     }
   },
 };

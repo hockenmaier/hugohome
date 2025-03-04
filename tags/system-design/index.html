@@ -9,36 +9,14 @@
 
 <html  data-bs-theme="dark"  data-paige="Paige theme from https://github.com/willfaught/paige"   lang="en-us" >
 
-    
-
-
-
-
-
-
-
-
-
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-
-
+    <base href="https://hockenmaier.github.io/hugohome/" />
+<script>
+  window.assetBase = "https:\/\/hockenmaier.github.io\/hugohome\/";
+</script>
+              
 
 <head>
-    
-
-    
+   
 
 <meta charset="utf-8">
 
@@ -68,13 +46,9 @@
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="System Design">
 
-
-
-    
-        <title>System Design · Tags · Home</title>
-    
-
-    
+ 
+  <title>System Design · Tags · Home</title>
+   
 
 
     <link href="/hugohome/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180">
@@ -186,8 +160,7 @@
 
     <link href="https://hockenmaier.github.io/hugohome/tags/system-design/rss.xml" rel="alternate" type="application/rss+xml">
 
-
-    
+ 
 
 <style>
 
@@ -376,9 +349,7 @@ table {
 
 
 </style>
-
-
-    
+ 
 </head>
 
     <body>
@@ -1040,20 +1011,23 @@ table {
 
         
         <script>
-            var goalTexture = '\/hugohome\/images\/goal.png';
+            var goalTexture = 'https:\/\/hockenmaier.github.io\/hugohome\/images\/goal.png';
         </script>          
-        <script src="/hugohome/js/matter.min.js"></script>
-        <script src="/hugohome/js/matter-wrap.min.js"></script>
-        <script src="/hugohome/js/ball-machine-app.js"></script>
-        <script src="/hugohome/js/base-simulation.js"></script>
-        <script src="/hugohome/js/text.js"></script>
-        <script src="/hugohome/js/lines.js"></script>
-        <script src="/hugohome/js/curved-line.js"></script>
-        <script src="/hugohome/js/launcher.js"></script>
-        <script src="/hugohome/js/launcher-create.js"></script>
-        <script src="/hugohome/js/game.js"></script>
-        <script src="/hugohome/js/goal.js"></script>
-        <script src="/hugohome/js/ui-updater.js"></script>
+        <script src="https://hockenmaier.github.io/hugohome/js/matter.min.js"></script>
+        <script src="https://hockenmaier.github.io/hugohome/js/matter-wrap.min.js"></script>
+        <script src="https://hockenmaier.github.io/hugohome/js/ball-machine-app.js"></script>
+        <script src="https://hockenmaier.github.io/hugohome/js/base-simulation.js"></script>
+        <script src="https://hockenmaier.github.io/hugohome/js/text.js"></script>
+        <script src="https://hockenmaier.github.io/hugohome/js/base-drawing-tool.js"></script>
+        <script src="https://hockenmaier.github.io/hugohome/js/notifications.js"></script>
+        <script src="https://hockenmaier.github.io/hugohome/js/lines.js"></script>
+        <script src="https://hockenmaier.github.io/hugohome/js/dotted-line.js"></script>
+        <script src="https://hockenmaier.github.io/hugohome/js/curved-line.js"></script>
+        <script src="https://hockenmaier.github.io/hugohome/js/launcher.js"></script>
+        <script src="https://hockenmaier.github.io/hugohome/js/launcher-create.js"></script>
+        <script src="https://hockenmaier.github.io/hugohome/js/game.js"></script>
+        <script src="https://hockenmaier.github.io/hugohome/js/goal.js"></script>
+        <script src="https://hockenmaier.github.io/hugohome/js/ui-updater.js"></script>
         
 <style>
   #ballfall-ui {
@@ -1131,7 +1105,7 @@ table {
     border-radius: 4px;
   }
   .line-toggle.selected {
-    border-color: #956eff;
+    border-color: #59ffa7;
   }
   #coins-display {
     text-align: center;
@@ -1139,6 +1113,24 @@ table {
     font-size: 14px;
     margin: 5px 0;
   }
+  .toggle-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .cost-label {
+    font-size: 10px;
+    color: #fff;
+    margin-top: 2px;
+    display: flex;
+    align-items: center;
+  }
+  .cost-label img {
+    width: 12px;
+    height: 12px;
+    margin-right: 2px;
+  }
+
   @media (max-width: 720px) {
     .bfui-button .bfui-label {
       display: none;
@@ -1171,21 +1163,67 @@ table {
     </button>
   </div>
 
-  <div id="line-mode-toggle">
-    <img src="/hugohome/images/line-mode.png" id="toggleStraight"
-    class="line-toggle selected" alt="Straight Line" /> <img src="/hugohome/images/curve-mode.png" id="toggleCurved" class="line-toggle"
-    alt="Curved Line" /> <img src="/hugohome/images/DKannon250-mode.png"
-    id="toggleLauncher" class="line-toggle" alt="Launcher" /> <img src="/hugohome/images/DKannon250-fast-mode.png" id="toggleFastLauncher"
-    class="line-toggle" alt="Fast Launcher" /> <img src="/hugohome/images/DKannon250-insta-mode.png" id="toggleInstaLauncher"
-    class="line-toggle" alt="Insta Launcher" />
+  <div
+    id="toggle-container"
+    style="display: inline-block; padding: 5px; border: 2px solid transparent"
+  >
+    <div
+      id="line-mode-toggle"
+      style="
+        display: flex;
+        gap: 10px;
+        margin-top: 10px;
+        justify-content: center;
+      "
+    >
+      <div class="toggle-wrapper">
+        <img src="/hugohome/images/dotted-line-mode.png"
+        id="toggleDotted" class="line-toggle selected" alt="Dotted Line" />
+        <div class="cost-label"></div>
+      </div>
+      <div class="toggle-wrapper">
+        <img src="/hugohome/images/line-mode.png" id="toggleStraight"
+        class="line-toggle" alt="Straight Line" />
+        <div class="cost-label">
+          <img src="/hugohome/images/coin-cost.png" alt="Coin" /> 5
+        </div>
+      </div>
+      <div class="toggle-wrapper">
+        <img src="/hugohome/images/curve-mode.png" id="toggleCurved"
+        class="line-toggle" alt="Curved Line" />
+        <div class="cost-label">
+          <img src="/hugohome/images/coin-cost.png" alt="Coin" /> 20
+        </div>
+      </div>
+      <div class="toggle-wrapper">
+        <img src="/hugohome/images/DKannon250-mode.png"
+        id="toggleLauncher" class="line-toggle" alt="Launcher" />
+        <div class="cost-label">
+          <img src="/hugohome/images/coin-cost.png" alt="Coin" /> 50
+        </div>
+      </div>
+      <div class="toggle-wrapper">
+        <img src="/hugohome/images/DKannon250-fast-mode.png"
+        id="toggleFastLauncher" class="line-toggle" alt="Fast Launcher" />
+        <div class="cost-label">
+          <img src="/hugohome/images/coin-cost.png" alt="Coin" /> 200
+        </div>
+      </div>
+      <div class="toggle-wrapper">
+        <img src="/hugohome/images/DKannon250-insta-mode.png"
+        id="toggleInstaLauncher" class="line-toggle" alt="Insta Launcher" />
+        <div class="cost-label">
+          <img src="/hugohome/images/coin-cost.png" alt="Coin" /> 1000
+        </div>
+      </div>
+    </div>
   </div>
-
-  <div id="coins-display">5 coins</div>
 
   <div id="bfui-drop-rate-wrapper">
     <span id="bfui-drop-rate-label">Drop Rate:</span>
     <span id="bfui-drop-rate-value">0</span>
   </div>
+  <div id="coins-display">0 coins</div>
 </div>
 
 <script>
@@ -1194,6 +1232,7 @@ table {
       decBtn = document.getElementById("decreaseSpeedBtn"),
       clearBallsBtn = document.getElementById("clearBallsBtn"),
       dropRateValue = document.getElementById("bfui-drop-rate-value"),
+      dottedBtn = document.getElementById("toggleDotted"),
       straightBtn = document.getElementById("toggleStraight"),
       curvedBtn = document.getElementById("toggleCurved"),
       launcherBtn = document.getElementById("toggleLauncher"),
@@ -1201,7 +1240,6 @@ table {
       instaLauncherBtn = document.getElementById("toggleInstaLauncher");
 
     function updateDropRateDisplay() {
-      if (!window.BallFall) return;
       const interval = window.BallFall.spawnInterval,
         bps = 1000 / interval;
       dropRateValue.textContent =
@@ -1210,43 +1248,41 @@ table {
 
     incBtn.addEventListener("click", (e) => {
       e.stopPropagation();
-      if (window.BallFall && window.BallFall.updateSpawnInterval) {
-        const current = window.BallFall.spawnInterval;
-        window.BallFall.updateSpawnInterval(Math.max(1.09375, current / 2));
-        updateDropRateDisplay();
-      }
+      const current = window.BallFall.spawnInterval;
+      window.BallFall.updateSpawnInterval(Math.max(1.09375, current / 2));
+      updateDropRateDisplay();
     });
-
     decBtn.addEventListener("click", (e) => {
       e.stopPropagation();
-      if (window.BallFall && window.BallFall.updateSpawnInterval) {
-        const current = window.BallFall.spawnInterval;
-        window.BallFall.updateSpawnInterval(current * 2);
-        updateDropRateDisplay();
-      }
+      const current = window.BallFall.spawnInterval;
+      window.BallFall.updateSpawnInterval(current * 2);
+      updateDropRateDisplay();
     });
-
     clearBallsBtn.addEventListener("click", (e) => {
       e.stopPropagation();
-      if (window.BallFall && window.BallFall.clearBalls) {
-        window.BallFall.clearBalls();
-      }
+      window.BallFall.clearBalls();
     });
 
-    function setActive(mode, launcherType) {
+    function setActive(newMode, launcherType) {
+      const prevMode = window.App.modules.lines.getMode();
       [
+        dottedBtn,
         straightBtn,
         curvedBtn,
         launcherBtn,
         fastLauncherBtn,
         instaLauncherBtn,
       ].forEach((btn) => btn.classList.remove("selected"));
-      if (mode === "straight" || mode === "curved") {
-        (mode === "straight" ? straightBtn : curvedBtn).classList.add(
-          "selected"
-        );
-        window.App.modules.lines.setMode(mode);
-      } else if (mode === "launcher") {
+      if (
+        newMode === "dotted" ||
+        newMode === "straight" ||
+        newMode === "curved"
+      ) {
+        if (newMode === "dotted") dottedBtn.classList.add("selected");
+        else if (newMode === "straight") straightBtn.classList.add("selected");
+        else if (newMode === "curved") curvedBtn.classList.add("selected");
+        window.App.modules.lines.setMode(newMode);
+      } else if (newMode === "launcher") {
         if (!launcherType) launcherType = "launcher";
         window.LauncherCreateTool.selectedType = launcherType;
         if (launcherType === "launcher") launcherBtn.classList.add("selected");
@@ -1255,11 +1291,31 @@ table {
         else if (launcherType === "insta-launcher")
           instaLauncherBtn.classList.add("selected");
         window.App.modules.lines.setMode("launcher");
-      } else if (mode === "none") {
+      } else {
         window.App.modules.lines.setMode("none");
+      }
+
+      
+      if (
+        prevMode === "none" &&
+        window.App.modules.lines.getMode() !== "none"
+      ) {
+        
+        flashAllLinks({ color: "red", textDecoration: "line-through" }, 100, 6);
+      } else if (
+        prevMode !== "none" &&
+        window.App.modules.lines.getMode() === "none"
+      ) {
+        
+        flashAllLinks({ color: "gold", textDecoration: "none" }, 100, 6);
       }
     }
 
+    dottedBtn.addEventListener("click", (e) => {
+      e.stopPropagation();
+      const current = window.App.modules.lines.getMode();
+      setActive(current === "dotted" ? "none" : "dotted");
+    });
     straightBtn.addEventListener("click", (e) => {
       e.stopPropagation();
       const current = window.App.modules.lines.getMode();
@@ -1304,11 +1360,22 @@ table {
       );
     });
 
-    setActive("straight");
+    
+    setActive("dotted");
     setInterval(updateDropRateDisplay, 1000);
   })();
 </script>
 
 
+        <script>
+          
+          document.addEventListener('click', function(e) {
+            if (window.App && window.App.modules && window.App.modules.lines && window.App.modules.lines.getMode() !== "none") {
+              if (e.target.closest('a') && !e.target.closest('#ballfall-ui')) {
+                e.preventDefault();
+              }
+            }
+          });
+        </script>
     </body>
 </html>

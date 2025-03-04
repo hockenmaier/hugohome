@@ -1,5 +1,5 @@
-// This is the base class for all of the "drawn powerups" which range from a simple line to a launcher cannon.
-// This should always control all of the mouse and touch events rather than subclasses handling those themselves, so that they only need to be edited one place.
+// This is the base class for all of the "drawn powerups"
+// (existing comments preserved)
 App.modules.lines = (function () {
   let mode = "straight";
 
@@ -7,27 +7,36 @@ App.modules.lines = (function () {
     mode = newMode;
     if (
       window.CurvedLineTool &&
-      typeof window.CurvedLineTool.cancel === "function"
-    ) {
-      if (mode !== "curved") window.CurvedLineTool.cancel();
-    }
-    if (StraightLineTool && typeof StraightLineTool.cancel === "function") {
-      if (mode !== "straight") StraightLineTool.cancel();
-    }
+      typeof window.CurvedLineTool.cancel === "function" &&
+      mode !== "curved"
+    )
+      window.CurvedLineTool.cancel();
+    if (
+      StraightLineTool &&
+      typeof StraightLineTool.cancel === "function" &&
+      mode !== "straight"
+    )
+      StraightLineTool.cancel();
     if (
       window.LauncherCreateTool &&
-      typeof LauncherCreateTool.cancel === "function"
-    ) {
-      if (mode !== "launcher") LauncherCreateTool.cancel();
-    }
+      typeof LauncherCreateTool.cancel === "function" &&
+      mode !== "launcher"
+    )
+      LauncherCreateTool.cancel();
+    if (
+      window.DottedLineTool &&
+      typeof DottedLineTool.cancel === "function" &&
+      mode !== "dotted"
+    )
+      DottedLineTool.cancel();
   }
+
   function getMode() {
     return mode;
   }
   function addLine(body) {
     body.isLine = true;
   }
-
   function getLineAtPoint(x, y) {
     const point = { x, y };
     if (!window.BallFall || !window.BallFall.world) return null;
@@ -60,12 +69,15 @@ App.modules.lines = (function () {
   function resetLine(body) {
     if (!body) return;
     if (body.label === "Launcher" && body.render) {
-      if (body.render.sprite) {
-        body.render.sprite.opacity = 1;
-      }
+      if (body.render.sprite) body.render.sprite.opacity = 1;
       body.render.opacity = 1;
-    }
-    if (body.parts && body.parts.length > 1) {
+    } else if (body.label === "DottedLine") {
+      if (body.render) {
+        body.render.fillStyle = "#a8328d";
+        body.render.strokeStyle = "#a8328d";
+        body.render.opacity = 1;
+      }
+    } else if (body.parts && body.parts.length > 1) {
       body.parts.forEach((part) => {
         part.render.fillStyle = "#956eff";
         part.render.strokeStyle = "#956eff";
@@ -93,7 +105,6 @@ App.modules.lines = (function () {
         body.render.opacity = opacity;
       }
     }
-
     function reset(body) {
       if (body.label === "Launcher" && body.render && body.render.sprite) {
         body.render.sprite.opacity = 1;
@@ -106,11 +117,9 @@ App.modules.lines = (function () {
         body.render.opacity = 1;
       }
     }
-
     if (hoveredLine) {
       if (!hoveredLineStartTime) hoveredLineStartTime = Date.now();
       const elapsed = Date.now() - hoveredLineStartTime;
-      // Add π/2 so that at elapsed = 0 the sine is at its maximum (1)
       const t = (Math.sin(elapsed / 75 + Math.PI / 2) + 1) / 2;
       const opacity = 0.2 + 0.8 * t;
       applyPulse(hoveredLine, opacity);
@@ -120,7 +129,6 @@ App.modules.lines = (function () {
       lastHovered = null;
       hoveredLineStartTime = null;
     }
-
     if (pendingDeletionLine && pendingDeletionLine !== hoveredLine) {
       if (!pendingDeletionLineStartTime)
         pendingDeletionLineStartTime = Date.now();
@@ -131,29 +139,36 @@ App.modules.lines = (function () {
     } else {
       pendingDeletionLineStartTime = null;
     }
-
     requestAnimationFrame(updatePulse);
   }
-
   updatePulse();
 
+  // Existing StraightLineTool definition remains unchanged...
   const StraightLineTool = {
-    state: 0, // 0: waiting for start, 1: waiting for end
+    state: 0,
     firstPoint: null,
     previewLine: null,
     onClick(x, y) {
+      const tool = new BaseDrawingTool("straight", App.config.costs.straight);
+      if (!tool.canPlace()) {
+        BaseDrawingTool.showInsufficientFunds();
+        return;
+      }
       if (this.state === 0) {
         this.firstPoint = { x, y };
         this.state = 1;
       } else {
         this.finish(x, y);
+        tool.charge();
       }
     },
+
     onMove(x, y) {
       if (this.state !== 1) return;
       this.updatePreview(x, y);
     },
     updatePreview(x, y) {
+      ``;
       if (this.previewLine) {
         Matter.World.remove(window.BallFall.world, this.previewLine);
         this.previewLine = null;
@@ -228,34 +243,38 @@ App.modules.lines = (function () {
     },
     onTouchEnd(x, y) {
       this.finish(x, y);
+      new BaseDrawingTool("straight", App.config.costs.straight).charge();
     },
   };
 
-  // Desktop mouse events
+  // Helper to get the current active tool based on mode.
+  function getActiveTool() {
+    switch (mode) {
+      case "straight":
+        return StraightLineTool;
+      case "curved":
+        return window.CurvedLineTool;
+      case "launcher":
+        return window.LauncherCreateTool;
+      case "dotted":
+        return window.DottedLineTool;
+      default:
+        return null;
+    }
+  }
+
+  // Consolidated desktop event handlers.
   document.addEventListener("mousemove", (e) => {
     const mouseX = e.pageX,
       mouseY = e.pageY;
-    if (mode === "straight" && StraightLineTool.state === 1) {
-      StraightLineTool.onMove(mouseX, mouseY);
-    } else if (
-      mode === "curved" &&
-      window.CurvedLineTool &&
-      typeof window.CurvedLineTool.onMove === "function"
-    ) {
-      window.CurvedLineTool.onMove(mouseX, mouseY);
-    } else if (
-      mode === "launcher" &&
-      window.LauncherCreateTool &&
-      LauncherCreateTool.state === 1
-    ) {
-      LauncherCreateTool.onMove(mouseX, mouseY);
+    let tool = getActiveTool();
+    if (tool && typeof tool.onMove === "function") {
+      tool.onMove(mouseX, mouseY);
     }
     const line = getLineAtPoint(mouseX, mouseY);
     if (line) {
       if (hoveredLine !== line) {
-        if (hoveredLine) {
-          resetLine(hoveredLine);
-        }
+        if (hoveredLine) resetLine(hoveredLine);
         hoveredLine = line;
       }
       document.body.style.cursor = "pointer";
@@ -271,20 +290,9 @@ App.modules.lines = (function () {
   document.addEventListener("contextmenu", (e) => {
     const mouseX = e.pageX,
       mouseY = e.pageY;
-    if (
-      (mode === "straight" && StraightLineTool.state === 1) ||
-      (mode === "curved" &&
-        window.CurvedLineTool &&
-        window.CurvedLineTool.state !== 0) ||
-      (mode === "launcher" &&
-        window.LauncherCreateTool &&
-        LauncherCreateTool.state !== 0)
-    ) {
-      if (mode === "straight") StraightLineTool.cancel();
-      else if (mode === "curved" && window.CurvedLineTool)
-        window.CurvedLineTool.cancel();
-      else if (mode === "launcher" && window.LauncherCreateTool)
-        LauncherCreateTool.cancel();
+    let tool = getActiveTool();
+    if (tool && tool.state && tool.state !== 0) {
+      if (typeof tool.cancel === "function") tool.cancel();
       e.preventDefault();
       return;
     }
@@ -295,34 +303,52 @@ App.modules.lines = (function () {
     }
   });
 
-  document.addEventListener("click", (e) => {
-    if (window.matchMedia && window.matchMedia("(pointer: coarse)").matches)
-      return;
-    if (e.target.closest("a, button, input, textarea, select, label")) return;
-    if (mode === "none") return;
-    const clickX = e.pageX,
-      clickY = e.pageY;
-    if (mode === "straight") {
-      StraightLineTool.onClick(clickX, clickY);
-    } else if (mode === "curved") {
+  document.addEventListener(
+    "click",
+    (e) => {
+      if (window.matchMedia && window.matchMedia("(pointer: coarse)").matches)
+        return;
       if (
-        window.CurvedLineTool &&
-        typeof window.CurvedLineTool.onClick === "function"
+        window.App &&
+        window.App.modules &&
+        window.App.modules.lines &&
+        window.App.modules.lines.getMode() !== "none"
       ) {
-        window.CurvedLineTool.onClick(clickX, clickY);
+        var linkEl = e.target.closest("a");
+        if (linkEl) {
+          e.preventDefault();
+          flashElementStyle(
+            linkEl,
+            ["color", "textDecoration"],
+            { color: "red", textDecoration: "line-through" },
+            100,
+            6
+          );
+          var toggleGroup = document.getElementById("toggle-container");
+          if (toggleGroup) {
+            flashElementStyle(
+              toggleGroup,
+              ["border"],
+              { border: "2px solid red" },
+              100,
+              6
+            );
+          }
+        }
+        const clickX = e.pageX,
+          clickY = e.pageY;
+        let tool = getActiveTool();
+        if (tool && typeof tool.onClick === "function") {
+          tool.onClick(clickX, clickY);
+        }
       }
-    } else if (mode === "launcher") {
-      if (
-        window.LauncherCreateTool &&
-        typeof LauncherCreateTool.onClick === "function"
-      ) {
-        window.LauncherCreateTool.onClick(clickX, clickY);
-      }
-    }
-  });
+    },
+    true
+  );
 
-  // Mobile touch events
+  // Consolidated mobile touch events.
   document.addEventListener("touchstart", (e) => {
+    if (e.target.closest("#ballfall-ui")) return;
     if (e.touches.length !== 1) return;
     const touch = e.touches[0],
       touchX = touch.pageX,
@@ -336,49 +362,22 @@ App.modules.lines = (function () {
         pendingDeletionLine = null;
       }, App.config.lineDeleteMobileHold);
     } else {
-      if (mode === "straight") {
-        if (StraightLineTool.onTouchStart)
-          StraightLineTool.onTouchStart(touchX, touchY);
-      } else if (mode === "curved") {
-        if (
-          window.CurvedLineTool &&
-          typeof window.CurvedLineTool.onTouchStart === "function"
-        ) {
-          window.CurvedLineTool.onTouchStart(touchX, touchY);
-        }
-      } else if (mode === "launcher") {
-        if (
-          window.LauncherCreateTool &&
-          typeof LauncherCreateTool.onTouchStart === "function"
-        ) {
-          LauncherCreateTool.onTouchStart(touchX, touchY);
-        }
+      let tool = getActiveTool();
+      if (tool && typeof tool.onTouchStart === "function") {
+        tool.onTouchStart(touchX, touchY);
       }
     }
   });
 
   document.addEventListener("touchmove", (e) => {
+    if (e.target.closest("#ballfall-ui")) return;
     if (e.touches.length !== 1) return;
     const touch = e.touches[0],
       touchX = touch.pageX,
       touchY = touch.pageY;
-    if (mode === "straight" && StraightLineTool.state === 1) {
-      if (StraightLineTool.onTouchMove)
-        StraightLineTool.onTouchMove(touchX, touchY);
-    } else if (mode === "curved") {
-      if (
-        window.CurvedLineTool &&
-        typeof window.CurvedLineTool.onTouchMove === "function"
-      ) {
-        window.CurvedLineTool.onTouchMove(touchX, touchY);
-      }
-    } else if (mode === "launcher") {
-      if (
-        window.LauncherCreateTool &&
-        typeof LauncherCreateTool.onTouchMove === "function"
-      ) {
-        LauncherCreateTool.onTouchMove(touchX, touchY);
-      }
+    let tool = getActiveTool();
+    if (tool && typeof tool.onTouchMove === "function") {
+      tool.onTouchMove(touchX, touchY);
     }
     if (touchStartPos) {
       const dx = touchX - touchStartPos.x,
@@ -386,9 +385,7 @@ App.modules.lines = (function () {
       if (Math.sqrt(dx * dx + dy * dy) > 10) {
         clearTimeout(deletionTimer);
         deletionTimer = null;
-        if (pendingDeletionLine) {
-          resetLine(pendingDeletionLine);
-        }
+        if (pendingDeletionLine) resetLine(pendingDeletionLine);
         pendingDeletionLine = null;
         touchStartPos = null;
       }
@@ -396,40 +393,14 @@ App.modules.lines = (function () {
   });
 
   document.addEventListener("touchend", (e) => {
+    if (e.target.closest("#ballfall-ui")) return;
     const touch = e.changedTouches[0],
       touchX = touch.pageX,
       touchY = touch.pageY;
-
-    // For consistency, handle each mode the same way.
-    if (mode === "straight") {
-      // Optional: Check if the tool is in the proper state.
-      if (StraightLineTool.state === 1) {
-        const dx = touchX - StraightLineTool.firstPoint.x,
-          dy = touchY - StraightLineTool.firstPoint.y;
-        // If the movement is too small, cancel; otherwise finish.
-        if (Math.sqrt(dx * dx + dy * dy) < 7) {
-          StraightLineTool.cancel();
-        } else {
-          StraightLineTool.onTouchEnd(touchX, touchY);
-        }
-      }
-    } else if (mode === "curved") {
-      if (
-        window.CurvedLineTool &&
-        typeof window.CurvedLineTool.onTouchEnd === "function"
-      ) {
-        window.CurvedLineTool.onTouchEnd(touchX, touchY);
-      }
-    } else if (mode === "launcher") {
-      if (
-        window.LauncherCreateTool &&
-        typeof LauncherCreateTool.onTouchEnd === "function"
-      ) {
-        LauncherCreateTool.onTouchEnd(touchX, touchY);
-      }
+    let tool = getActiveTool();
+    if (tool && typeof tool.onTouchEnd === "function") {
+      tool.onTouchEnd(touchX, touchY);
     }
-
-    // Consistent cleanup for pending deletion regardless of mode.
     if (pendingDeletionLine) {
       clearTimeout(deletionTimer);
       deletionTimer = null;
