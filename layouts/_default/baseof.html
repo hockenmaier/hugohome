@@ -32,23 +32,23 @@
             {{ partial "paige/body-last.html" $page }}
         {{ end }}
         <script>
-            var goalTexture = '{{ "images/goal.png" | relURL }}';
+            var goalTexture = '{{ "images/goal.png" | absURL }}';
         </script>          
-        <script src="{{ "js/matter.min.js" | relURL }}"></script>
-        <script src="{{ "js/matter-wrap.min.js" | relURL }}"></script>
-        <script src="{{ "js/ball-machine-app.js" | relURL }}"></script>
-        <script src="{{ "js/base-simulation.js" | relURL }}"></script>
-        <script src="{{ "js/text.js" | relURL }}"></script>
-        <script src="{{ "js/base-drawing-tool.js" | relURL }}"></script>
-        <script src="{{ "js/notifications.js" | relURL }}"></script>
-        <script src="{{ "js/lines.js" | relURL }}"></script>
-        <script src="{{ "js/dotted-line.js" | relURL }}"></script>
-        <script src="{{ "js/curved-line.js" | relURL }}"></script>
-        <script src="{{ "js/launcher.js" | relURL }}"></script>
-        <script src="{{ "js/launcher-create.js" | relURL }}"></script>
-        <script src="{{ "js/game.js" | relURL }}"></script>
-        <script src="{{ "js/goal.js" | relURL }}"></script>
-        <script src="{{ "js/ui-updater.js" | relURL }}"></script>
+        <script src="{{ "js/matter.min.js" | absURL }}"></script>
+        <script src="{{ "js/matter-wrap.min.js" | absURL }}"></script>
+        <script src="{{ "js/ball-machine-app.js" | absURL }}"></script>
+        <script src="{{ "js/base-simulation.js" | absURL }}"></script>
+        <script src="{{ "js/text.js" | absURL }}"></script>
+        <script src="{{ "js/base-drawing-tool.js" | absURL }}"></script>
+        <script src="{{ "js/notifications.js" | absURL }}"></script>
+        <script src="{{ "js/lines.js" | absURL }}"></script>
+        <script src="{{ "js/dotted-line.js" | absURL }}"></script>
+        <script src="{{ "js/curved-line.js" | absURL }}"></script>
+        <script src="{{ "js/launcher.js" | absURL }}"></script>
+        <script src="{{ "js/launcher-create.js" | absURL }}"></script>
+        <script src="{{ "js/game.js" | absURL }}"></script>
+        <script src="{{ "js/goal.js" | absURL }}"></script>
+        <script src="{{ "js/ui-updater.js" | absURL }}"></script>
         {{ partial "ball-machine-ui.html" . }}
 
         <script>
