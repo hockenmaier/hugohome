@@ -9,9 +9,9 @@
 
 <html  data-bs-theme="dark"  data-paige="Paige theme from https://github.com/willfaught/paige"   lang="en-us" >
 
-    <base href="https://hockenmaier.github.io/hugohome/" />
+    <script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><base href="http://localhost:1313/" />
 <script>
-  window.assetBase = "https:\/\/hockenmaier.github.io\/hugohome\/";
+  window.assetBase = "http:\/\/localhost:1313\/";
 </script>
           
 
@@ -25,61 +25,76 @@
 
 
 
+    <meta content="AI, essay, singularity, software" name="keywords">
+
 
 <meta content="#0d1213" name="msapplication-TileColor">
 
 
-    <meta content="/hugohome/browserconfig.xml" name="msapplication-config">
+    <meta content="/browserconfig.xml" name="msapplication-config">
 
 
 <meta content="https://github.com/willfaught/paige" name="theme">
 <meta content="#0d1213" name="theme-color">
 <meta content="width=device-width, initial-scale=1" name="viewport">
 
-<meta property="og:url" content="https://hockenmaier.github.io/hugohome/on-ai-software-development/">
+<meta property="og:url" content="http://localhost:1313/on-ai-software-development/">
   <meta property="og:site_name" content="HockenHome">
-  <meta property="og:title" content="HockenHome">
+  <meta property="og:title" content="On AI Software Development">
+  <meta property="og:description" content="Lots of chatter right now about AI replacing software developers.
+I agree - AI will take over software development. The question is: what work will be left when this happens?
+Some considerations:
+Benchmarks for the best LLMs still put them solidly in the “bad at programming” category, scoring in the 5th percentile of human programmers on common tests. Meanwhile, LLMs score in the 80th-95th percentile for law exams and 85th–100th for psychology, statistics, and many other less technical fields. More scores available in the “simulated exams” section of https://openai.com/research/gpt-4. Engineers have been using language models like tabnine and copilot as “super-stackoverflow” style code assistance years before chatGPT released. This means much of the velocity increase we might expect from current LLMs’ ability to write code has already been “priced in” to the market. Many of the trends making software development more costly are growing, not shrinking: Systems are becoming more distributed. The cloud lowered infrastructure costs but made applications more complex. We’re making more and deeper integrations among disparate systems. Auth is becoming more secure and thus complex (managed identity, MFA, etc). Github copilot chat and other LLM dev tools are speeding up the rote stuff. I’ve seen it in my own work.">
   <meta property="og:locale" content="en_us">
   <meta property="og:type" content="article">
+    <meta property="article:published_time" content="2024-01-24T00:00:00+00:00">
+    <meta property="article:modified_time" content="2024-01-24T00:00:00+00:00">
+    <meta property="article:tag" content="Software">
+    <meta property="article:tag" content="Singularity">
+    <meta property="article:tag" content="AI">
 
 
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="HockenHome">
+  <meta name="twitter:title" content="On AI Software Development">
+  <meta name="twitter:description" content="Lots of chatter right now about AI replacing software developers.
+I agree - AI will take over software development. The question is: what work will be left when this happens?
+Some considerations:
+Benchmarks for the best LLMs still put them solidly in the “bad at programming” category, scoring in the 5th percentile of human programmers on common tests. Meanwhile, LLMs score in the 80th-95th percentile for law exams and 85th–100th for psychology, statistics, and many other less technical fields. More scores available in the “simulated exams” section of https://openai.com/research/gpt-4. Engineers have been using language models like tabnine and copilot as “super-stackoverflow” style code assistance years before chatGPT released. This means much of the velocity increase we might expect from current LLMs’ ability to write code has already been “priced in” to the market. Many of the trends making software development more costly are growing, not shrinking: Systems are becoming more distributed. The cloud lowered infrastructure costs but made applications more complex. We’re making more and deeper integrations among disparate systems. Auth is becoming more secure and thus complex (managed identity, MFA, etc). Github copilot chat and other LLM dev tools are speeding up the rote stuff. I’ve seen it in my own work.">
 
  
-  <title> · Home</title>
+  <title>On AI Software Development · Home</title>
    
 
 
-    <link href="/hugohome/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180">
+    <link href="/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180">
 
 
 
-    <link href="/hugohome/favicon.ico" rel="shortcut icon">
+    <link href="/favicon.ico" rel="shortcut icon">
 
 
 
-    <link href="/hugohome/favicon.png" rel="icon" type="image/png">
+    <link href="/favicon.png" rel="icon" type="image/png">
 
 
 
-    <link href="/hugohome/favicon.svg" rel="icon" type="image/svg+xml">
+    <link href="/favicon.svg" rel="icon" type="image/svg+xml">
 
 
 
-    <link href="/hugohome/favicon-16x16.png" rel="icon" sizes="16x16" type="image/png">
+    <link href="/favicon-16x16.png" rel="icon" sizes="16x16" type="image/png">
 
 
 
-    <link href="/hugohome/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png">
+    <link href="/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png">
 
 
 
-    <link color="#0d1213" href="/hugohome/safari-pinned-tab.svg" rel="mask-icon">
+    <link color="#0d1213" href="/safari-pinned-tab.svg" rel="mask-icon">
 
 
 
-    <link href="/hugohome/site.webmanifest" rel="manifest">
+    <link href="/site.webmanifest" rel="manifest">
 
 
 
@@ -121,7 +136,7 @@
     
 
 
-<link  crossorigin="anonymous"  href="/hugohome/css/paige/bootstrap/14cce8f10c43f734971f8d33cd5a57c329fab6fd-paige.min.ba752813461039a2da7687b2d396a2e0accb36226a66e88bc2e3a08fdaa08b95.css"  integrity="sha256-unUoE0YQOaLadoey05ai4KzLNiJqZuiLwuOgj9qgi5U="   referrerpolicy="no-referrer"  rel="stylesheet">
+<link  crossorigin="anonymous"  href="/css/paige/bootstrap/14cce8f10c43f734971f8d33cd5a57c329fab6fd-paige.min.d48aec4dfdd56584d47efc388224a845a56c407947408528bf4c65a621fb3ed0.css"  integrity="sha256-1IrsTf3VZYTUfvw4giSoRaVsQHlHQIUov0xlpiH7PtA="   referrerpolicy="no-referrer"  rel="stylesheet">
 
 
 
@@ -152,7 +167,7 @@
     
 
 
-<link  crossorigin="anonymous"  href="/hugohome/css/paige/bootstrap-icons/bootstrap-icons.min.540116b7267d4b2410c74086ae6497566928c6d5715900be7ce7279ad45addcd.css"  integrity="sha256-VAEWtyZ9SyQQx0CGrmSXVmkoxtVxWQC&#43;fOcnmtRa3c0="   referrerpolicy="no-referrer"  rel="stylesheet">
+<link  crossorigin="anonymous"  href="/css/paige/bootstrap-icons/bootstrap-icons.min.540116b7267d4b2410c74086ae6497566928c6d5715900be7ce7279ad45addcd.css"  integrity="sha256-VAEWtyZ9SyQQx0CGrmSXVmkoxtVxWQC&#43;fOcnmtRa3c0="   referrerpolicy="no-referrer"  rel="stylesheet">
 
 
 
@@ -374,6 +389,8 @@ table {
 
 
 
+    
+
 
 
 
@@ -423,7 +440,7 @@ table {
                             
 
                             <li class="nav-item">
-                                <a  class=" nav-link " href="/hugohome/categories/" >Categories</a>
+                                <a  class=" nav-link " href="/categories/" >Categories</a>
                             </li>
                         
                             
@@ -433,7 +450,7 @@ table {
                             
 
                             <li class="nav-item">
-                                <a  class=" nav-link " href="/hugohome/" >Home</a>
+                                <a  class=" nav-link " href="/" >Home</a>
                             </li>
                         
                             
@@ -443,7 +460,7 @@ table {
                             
 
                             <li class="nav-item">
-                                <a  class=" nav-link " href="/hugohome/tags/" >Tags</a>
+                                <a  class=" nav-link " href="/tags/" >Tags</a>
                             </li>
                         
                     </ul>
@@ -464,7 +481,7 @@ table {
 
                             
 
-                            <li class="breadcrumb-item"><a href="/hugohome/">Home</a></li>
+                            <li class="breadcrumb-item"><a href="/">Home</a></li>
                         
                     </ol>
                 </div>
@@ -532,10 +549,152 @@ table {
 
 
 
+    <header class="mw-100" id="paige-page-header">
+        <div class="align-items-center d-flex flex-column">
+            
+
+            
+                
+                    <h1 class="fw-bold" id="paige-page-title">On AI Software Development</h1>
+                
+            
+
+            
+
+            
+                <div id="paige-metadata">
+                    
+                        <p class=" paige-row-narrow  text-center  text-secondary " id="paige-keywords">
+                            <a class="link-secondary paige-keyword paige-keyword-tag" href="/tags/ai/">AI</a> · <a class="link-secondary paige-keyword paige-keyword-category" href="/categories/essay/">Essay</a> · <a class="link-secondary paige-keyword paige-keyword-tag" href="/tags/singularity/">Singularity</a> · <a class="link-secondary paige-keyword paige-keyword-tag" href="/tags/software/">Software</a>
+                        </p>
+                    
+
+                    
+
+                    
+
+                    
+                        <p class="paige-row-narrow text-center text-secondary" id="paige-date">
+                            <time datetime="2024-01-24">January 24, 2024</time>
+                        </p>
+                    
+
+                    
+                </div>
+            
+
+            
+
+            
+
+            
+        </div>
+    </header>
+
 
 
         
 
+        
+        <main class="mw-100" id="paige-content"><div style="text-align: center; margin-bottom: 1rem;">
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<img  alt="this is a robot"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/ai-software-dev.png"   style="height: auto; max-width: 720px; width: 100%"   >
+
+
+    
+</div>
+
+<p>Lots of chatter right now about AI replacing software developers.</p>
+<p>I agree - AI will take over software development. The question is: what work will be left when this happens?</p>
+<p>Some considerations:</p>
+<ul>
+<li>Benchmarks for the best LLMs still put them solidly in the &ldquo;bad at programming&rdquo; category, scoring in the 5th percentile of human programmers on common tests. Meanwhile, LLMs score in the 80th-95th percentile for law exams and 85th–100th for psychology, statistics, and many other less technical fields. More scores available in the &ldquo;simulated exams&rdquo; section of <a href="https://openai.com/research/gpt-4">https://openai.com/research/gpt-4</a>.</li>
+<li>Engineers have been using language models like tabnine and copilot as &ldquo;super-stackoverflow&rdquo; style code assistance years before chatGPT released. This means much of the velocity increase we might expect from current LLMs&rsquo; ability to write code has already been &ldquo;priced in&rdquo; to the market.</li>
+<li>Many of the trends making software development more costly are growing, not shrinking: Systems are becoming more distributed. The cloud lowered infrastructure costs but made applications more complex. We&rsquo;re making more and deeper integrations among disparate systems. Auth is becoming more secure and thus complex (managed identity, MFA, etc).</li>
+</ul>
+<p>Github copilot chat and other LLM dev tools are speeding up the rote stuff. I’ve seen it in my own work.</p>
+<p>And I really do believe new AI models will do more than just the basics, maybe in the next couple of years. Even precluding &ldquo;AGI&rdquo;, the trend we are on is that more and more work is automatable, and engineers, especially more junior ones - are going to have to shift focus away from algorithmic work that AI can do.</p>
+<p>But by the time our neural nets are &ldquo;good enough&rdquo; at building software to make it significantly cheaper to build, I doubt this trend will make the news. Everything else gets automated too.</p>
+</main>
         
 
         
@@ -562,11 +721,11 @@ table {
         
             <div id="paige-siblings">
                 
-                    <div class="paige-row-narrow text-center text-secondary" id="paige-next"><a class="link-secondary" href="https://hockenmaier.github.io/hugohome/postman-for-pms/"></a> &rsaquo;</div>
+                    <div class="paige-row-narrow text-center text-secondary" id="paige-next"><a class="link-secondary" href="http://localhost:1313/the-flapper/">The Flapper</a> &rsaquo;</div>
                 
 
                 
-                    <div class="paige-row-narrow text-center text-secondary" id="paige-prev">&lsaquo; <a class="link-secondary" href="https://hockenmaier.github.io/hugohome/raspberry-pi-panel/">Raspberry Pi Control Panel</a></div>
+                    <div class="paige-row-narrow text-center text-secondary" id="paige-prev">&lsaquo; <a class="link-secondary" href="http://localhost:1313/hedonic-treadmill/">The Treadmill</a></div>
                 
             </div>
         
@@ -693,7 +852,7 @@ table {
     
 
 
-<script  crossorigin="anonymous"   defer  integrity="sha256-lX&#43;ULWAvPVhH6ZIQfjfpD61jOifETLc9RAMCMqtgfeQ="   referrerpolicy="no-referrer"  src="/hugohome/js/paige/bootstrap/bootstrap.bundle.min.957f942d602f3d5847e992107e37e90fad633a27c44cb73d44030232ab607de4.js" ></script>
+<script  crossorigin="anonymous"   defer  integrity="sha256-lX&#43;ULWAvPVhH6ZIQfjfpD61jOifETLc9RAMCMqtgfeQ="   referrerpolicy="no-referrer"  src="/js/paige/bootstrap/bootstrap.bundle.min.957f942d602f3d5847e992107e37e90fad633a27c44cb73d44030232ab607de4.js" ></script>
 
 
 
@@ -768,23 +927,23 @@ table {
 
         
         <script>
-            var goalTexture = 'https:\/\/hockenmaier.github.io\/hugohome\/images\/goal.png';
+            var goalTexture = 'http:\/\/localhost:1313\/images\/goal.png';
         </script>          
-        <script src="https://hockenmaier.github.io/hugohome/js/matter.min.js"></script>
-        <script src="https://hockenmaier.github.io/hugohome/js/matter-wrap.min.js"></script>
-        <script src="https://hockenmaier.github.io/hugohome/js/ball-machine-app.js"></script>
-        <script src="https://hockenmaier.github.io/hugohome/js/base-simulation.js"></script>
-        <script src="https://hockenmaier.github.io/hugohome/js/text.js"></script>
-        <script src="https://hockenmaier.github.io/hugohome/js/base-drawing-tool.js"></script>
-        <script src="https://hockenmaier.github.io/hugohome/js/notifications.js"></script>
-        <script src="https://hockenmaier.github.io/hugohome/js/lines.js"></script>
-        <script src="https://hockenmaier.github.io/hugohome/js/dotted-line.js"></script>
-        <script src="https://hockenmaier.github.io/hugohome/js/curved-line.js"></script>
-        <script src="https://hockenmaier.github.io/hugohome/js/launcher.js"></script>
-        <script src="https://hockenmaier.github.io/hugohome/js/launcher-create.js"></script>
-        <script src="https://hockenmaier.github.io/hugohome/js/game.js"></script>
-        <script src="https://hockenmaier.github.io/hugohome/js/goal.js"></script>
-        <script src="https://hockenmaier.github.io/hugohome/js/ui-updater.js"></script>
+        <script src="http://localhost:1313/js/matter.min.js"></script>
+        <script src="http://localhost:1313/js/matter-wrap.min.js"></script>
+        <script src="http://localhost:1313/js/ball-machine-app.js"></script>
+        <script src="http://localhost:1313/js/base-simulation.js"></script>
+        <script src="http://localhost:1313/js/text.js"></script>
+        <script src="http://localhost:1313/js/base-drawing-tool.js"></script>
+        <script src="http://localhost:1313/js/notifications.js"></script>
+        <script src="http://localhost:1313/js/lines.js"></script>
+        <script src="http://localhost:1313/js/dotted-line.js"></script>
+        <script src="http://localhost:1313/js/curved-line.js"></script>
+        <script src="http://localhost:1313/js/launcher.js"></script>
+        <script src="http://localhost:1313/js/launcher-create.js"></script>
+        <script src="http://localhost:1313/js/game.js"></script>
+        <script src="http://localhost:1313/js/goal.js"></script>
+        <script src="http://localhost:1313/js/ui-updater.js"></script>
         
 <style>
   #ballfall-ui {
@@ -904,7 +1063,7 @@ table {
 </style>
 
 <div id="ballfall-ui">
-  <img src="/hugohome/images/ball-machine.png" id="bfui-image" alt="Ball
+  <img src="/images/ball-machine.png" id="bfui-image" alt="Ball
   Machine" />
   <button class="bfui-button" id="increaseSpeedBtn">
     <span class="bfui-icon">🔼</span>
@@ -934,43 +1093,43 @@ table {
       "
     >
       <div class="toggle-wrapper">
-        <img src="/hugohome/images/dotted-line-mode.png"
+        <img src="/images/dotted-line-mode.png"
         id="toggleDotted" class="line-toggle selected" alt="Dotted Line" />
         <div class="cost-label"></div>
       </div>
       <div class="toggle-wrapper">
-        <img src="/hugohome/images/line-mode.png" id="toggleStraight"
+        <img src="/images/line-mode.png" id="toggleStraight"
         class="line-toggle" alt="Straight Line" />
         <div class="cost-label">
-          <img src="/hugohome/images/coin-cost.png" alt="Coin" /> 5
+          <img src="/images/coin-cost.png" alt="Coin" /> 5
         </div>
       </div>
       <div class="toggle-wrapper">
-        <img src="/hugohome/images/curve-mode.png" id="toggleCurved"
+        <img src="/images/curve-mode.png" id="toggleCurved"
         class="line-toggle" alt="Curved Line" />
         <div class="cost-label">
-          <img src="/hugohome/images/coin-cost.png" alt="Coin" /> 20
+          <img src="/images/coin-cost.png" alt="Coin" /> 20
         </div>
       </div>
       <div class="toggle-wrapper">
-        <img src="/hugohome/images/DKannon250-mode.png"
+        <img src="/images/DKannon250-mode.png"
         id="toggleLauncher" class="line-toggle" alt="Launcher" />
         <div class="cost-label">
-          <img src="/hugohome/images/coin-cost.png" alt="Coin" /> 50
+          <img src="/images/coin-cost.png" alt="Coin" /> 50
         </div>
       </div>
       <div class="toggle-wrapper">
-        <img src="/hugohome/images/DKannon250-fast-mode.png"
+        <img src="/images/DKannon250-fast-mode.png"
         id="toggleFastLauncher" class="line-toggle" alt="Fast Launcher" />
         <div class="cost-label">
-          <img src="/hugohome/images/coin-cost.png" alt="Coin" /> 200
+          <img src="/images/coin-cost.png" alt="Coin" /> 200
         </div>
       </div>
       <div class="toggle-wrapper">
-        <img src="/hugohome/images/DKannon250-insta-mode.png"
+        <img src="/images/DKannon250-insta-mode.png"
         id="toggleInstaLauncher" class="line-toggle" alt="Insta Launcher" />
         <div class="cost-label">
-          <img src="/hugohome/images/coin-cost.png" alt="Coin" /> 1000
+          <img src="/images/coin-cost.png" alt="Coin" /> 1000
         </div>
       </div>
     </div>

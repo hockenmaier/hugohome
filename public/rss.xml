@@ -110,6 +110,30 @@
         
     
 
+    
+
+    
+        
+    
+
+    
+
+    
+        
+    
+
+    
+
+    
+        
+    
+
+    
+
+    
+        
+    
+
 
 
 
@@ -132,7 +156,7 @@
             
 
             
-                <link href="https://hockenmaier.github.io/hugohome/" rel="self" type="text/html"/>
+                <link href="http://localhost:1313/" rel="self" type="text/html"/>
             
         
             
@@ -140,7 +164,7 @@
             
 
             
-                <link href="https://hockenmaier.github.io/hugohome/rss.xml" rel="alternate" type="application/rss+xml"/>
+                <link href="http://localhost:1313/rss.xml" rel="alternate" type="application/rss+xml"/>
             
         
 
@@ -158,7 +182,7 @@
             <lastBuildDate>2025-03-01 00:00:00 +0000 UTC</lastBuildDate>
         
 
-        <link>https://hockenmaier.github.io/hugohome/</link>
+        <link>http://localhost:1313/</link>
 
         
 
@@ -208,10 +232,10 @@
 ]]></description>
                 
 
-                <guid isPermaLink="false">tag:hockenmaier.github.io,2025-03-01:/hugohome/this-website/</guid>
+                <guid isPermaLink="false">tag:localhost:1313,2025-03-01:/this-website/</guid>
 
                 
-                    <link>https://hockenmaier.github.io/hugohome/this-website/</link>
+                    <link>http://localhost:1313/this-website/</link>
                 
 
                 
@@ -263,10 +287,10 @@ Or the VScode marketplace:
 ]]></description>
                 
 
-                <guid isPermaLink="false">tag:hockenmaier.github.io,2025-02-13:/hugohome/context-caddy/</guid>
+                <guid isPermaLink="false">tag:localhost:1313,2025-02-13:/context-caddy/</guid>
 
                 
-                    <link>https://hockenmaier.github.io/hugohome/context-caddy/</link>
+                    <link>http://localhost:1313/context-caddy/</link>
                 
 
                 
@@ -307,10 +331,10 @@ Or the VScode marketplace:
 ]]></description>
                 
 
-                <guid isPermaLink="false">tag:hockenmaier.github.io,2025-01-01:/hugohome/make-us-smarter/</guid>
+                <guid isPermaLink="false">tag:localhost:1313,2025-01-01:/make-us-smarter/</guid>
 
                 
-                    <link>https://hockenmaier.github.io/hugohome/make-us-smarter/</link>
+                    <link>http://localhost:1313/make-us-smarter/</link>
                 
 
                 
@@ -351,10 +375,10 @@ Or the VScode marketplace:
 ]]></description>
                 
 
-                <guid isPermaLink="false">tag:hockenmaier.github.io,2025-01-01:/hugohome/bloom-or-bust/</guid>
+                <guid isPermaLink="false">tag:localhost:1313,2025-01-01:/bloom-or-bust/</guid>
 
                 
-                    <link>https://hockenmaier.github.io/hugohome/bloom-or-bust/</link>
+                    <link>http://localhost:1313/bloom-or-bust/</link>
                 
 
                 
@@ -395,10 +419,10 @@ Or the VScode marketplace:
 ]]></description>
                 
 
-                <guid isPermaLink="false">tag:hockenmaier.github.io,2025-01-01:/hugohome/balloon-fight/</guid>
+                <guid isPermaLink="false">tag:localhost:1313,2025-01-01:/balloon-fight/</guid>
 
                 
-                    <link>https://hockenmaier.github.io/hugohome/balloon-fight/</link>
+                    <link>http://localhost:1313/balloon-fight/</link>
                 
 
                 
@@ -525,7 +549,7 @@ Or the VScode marketplace:
 
 
 
-<img  alt="happiness income curve"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenmaier.github.io/hugohome/images/treadmill-graph.png"   style="height: auto; max-width: 720px; width: 100%"   >
+<img  alt="happiness income curve"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/treadmill-graph.png"   style="height: auto; max-width: 720px; width: 100%"   >
 
 
     
@@ -581,10 +605,10 @@ Or the VScode marketplace:
 ]]></description>
                 
 
-                <guid isPermaLink="false">tag:hockenmaier.github.io,2024-02-01:/hugohome/hedonic-treadmill/</guid>
+                <guid isPermaLink="false">tag:localhost:1313,2024-02-01:/hedonic-treadmill/</guid>
 
                 
-                    <link>https://hockenmaier.github.io/hugohome/hedonic-treadmill/</link>
+                    <link>http://localhost:1313/hedonic-treadmill/</link>
                 
 
                 
@@ -593,6 +617,201 @@ Or the VScode marketplace:
 
                 
                     <title>The Treadmill</title>
+                
+            </item>
+        
+            <item>
+                
+                
+                
+                
+                
+                
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+                
+
+                
+
+                
+
+                
+                    <description><![CDATA[<div style="text-align: center; margin-bottom: 1rem;">
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<img  alt="this is a robot"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/ai-software-dev.png"   style="height: auto; max-width: 720px; width: 100%"   >
+
+
+    
+</div>
+
+<p>Lots of chatter right now about AI replacing software developers.</p>
+<p>I agree - AI will take over software development. The question is: what work will be left when this happens?</p>
+<p>Some considerations:</p>
+<ul>
+<li>Benchmarks for the best LLMs still put them solidly in the &ldquo;bad at programming&rdquo; category, scoring in the 5th percentile of human programmers on common tests. Meanwhile, LLMs score in the 80th-95th percentile for law exams and 85th–100th for psychology, statistics, and many other less technical fields. More scores available in the &ldquo;simulated exams&rdquo; section of <a href="https://openai.com/research/gpt-4">https://openai.com/research/gpt-4</a>.</li>
+<li>Engineers have been using language models like tabnine and copilot as &ldquo;super-stackoverflow&rdquo; style code assistance years before chatGPT released. This means much of the velocity increase we might expect from current LLMs&rsquo; ability to write code has already been &ldquo;priced in&rdquo; to the market.</li>
+<li>Many of the trends making software development more costly are growing, not shrinking: Systems are becoming more distributed. The cloud lowered infrastructure costs but made applications more complex. We&rsquo;re making more and deeper integrations among disparate systems. Auth is becoming more secure and thus complex (managed identity, MFA, etc).</li>
+</ul>
+<p>Github copilot chat and other LLM dev tools are speeding up the rote stuff. I’ve seen it in my own work.</p>
+<p>And I really do believe new AI models will do more than just the basics, maybe in the next couple of years. Even precluding &ldquo;AGI&rdquo;, the trend we are on is that more and more work is automatable, and engineers, especially more junior ones - are going to have to shift focus away from algorithmic work that AI can do.</p>
+<p>But by the time our neural nets are &ldquo;good enough&rdquo; at building software to make it significantly cheaper to build, I doubt this trend will make the news. Everything else gets automated too.</p>
+]]></description>
+                
+
+                <guid isPermaLink="false">tag:localhost:1313,2024-01-24:/on-ai-software-development/</guid>
+
+                
+                    <link>http://localhost:1313/on-ai-software-development/</link>
+                
+
+                
+                    <pubDate>Wed, 24 Jan 2024 00:00:00 UTC</pubDate>
+                
+
+                
+                    <title>On AI Software Development</title>
+                
+            </item>
+        
+            <item>
+                
+                
+                
+                
+                
+                
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+                
+
+                
+
+                
+
+                
+                    <description><![CDATA[<p>I made &ldquo;Postman for PMs,&rdquo; a tool to help non-engineers understand and use APIs!</p>
+
+    <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+      <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/3O4r_q2Ioko?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"></iframe>
+    </div>
+
+<p>It&rsquo;s a &ldquo;Custom GPT&rdquo; - a customized version of chatGPT. Just give it some details about the API and then tell it in English what you want to get, post, update, whatever.</p>
+<p>If you&rsquo;re a PM, business analyst, or anyone that cares about APIs but doesn&rsquo;t like terminals and engineer-y tools like Postman, and you have ChatGPT plus, try it out. Here&rsquo;s a link:
+<a href="https://chatgpt.com/g/g-QeNbSmirA-postman-for-pms">https://chatgpt.com/g/g-QeNbSmirA-postman-for-pms</a></p>
+<p>Important disclaimer: DON&rsquo;T use ChatGPT on corporate stuff if your company doesn&rsquo;t allow it! This was a fun experiment for me and I&rsquo;m definitely not using any corporate resources on it/for it. There are plenty of free APIs to try this out on. Maybe ask ChatGPT for some suggestions</p>
+<hr>
+]]></description>
+                
+
+                <guid isPermaLink="false">tag:localhost:1313,2024-01-13:/postman-for-pms/</guid>
+
+                
+                    <link>http://localhost:1313/postman-for-pms/</link>
+                
+
+                
+                    <pubDate>Sat, 13 Jan 2024 00:00:00 UTC</pubDate>
+                
+
+                
+                    <title>Postman for PMs</title>
                 
             </item>
         
@@ -633,10 +852,10 @@ Or the VScode marketplace:
 ]]></description>
                 
 
-                <guid isPermaLink="false">tag:hockenmaier.github.io,2023-01-01:/hugohome/the-flapper/</guid>
+                <guid isPermaLink="false">tag:localhost:1313,2023-01-01:/the-flapper/</guid>
 
                 
-                    <link>https://hockenmaier.github.io/hugohome/the-flapper/</link>
+                    <link>http://localhost:1313/the-flapper/</link>
                 
 
                 
@@ -752,7 +971,7 @@ Or the VScode marketplace:
 
 
 
-<img  alt="The Treekeepers Puddle Jumper"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenmaier.github.io/hugohome/images/treekeepers_moonlight.png"   style="height: auto; max-width: 100%"   >
+<img  alt="The Treekeepers Puddle Jumper"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/treekeepers_moonlight.png"   style="height: auto; max-width: 100%"   >
 
 
     
@@ -770,10 +989,10 @@ Or the VScode marketplace:
 ]]></description>
                 
 
-                <guid isPermaLink="false">tag:hockenmaier.github.io,2022-10-01:/hugohome/treekeepers-vr/</guid>
+                <guid isPermaLink="false">tag:localhost:1313,2022-10-01:/treekeepers-vr/</guid>
 
                 
-                    <link>https://hockenmaier.github.io/hugohome/treekeepers-vr/</link>
+                    <link>http://localhost:1313/treekeepers-vr/</link>
                 
 
                 
@@ -946,7 +1165,7 @@ Or the VScode marketplace:
 
 
 
-<img   class="img-fluid "  crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenmaier.github.io/hugohome/images/human_joystick_centered.jpg"   style="display:block; height: auto; margin:0 auto; width: 60%"   >
+<img   class="img-fluid "  crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/human_joystick_centered.jpg"   style="display:block; height: auto; margin:0 auto; width: 60%"   >
 
 
 </div>
@@ -1074,7 +1293,7 @@ Or the VScode marketplace:
 
 
 
-<img   class="img-fluid "  crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenmaier.github.io/hugohome/images/human_joystick_moving.jpg"   style="display:block; height: auto; margin:0 auto; width: 60%"   >
+<img   class="img-fluid "  crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/human_joystick_moving.jpg"   style="display:block; height: auto; margin:0 auto; width: 60%"   >
 
 
 </div>
@@ -1089,10 +1308,10 @@ Or the VScode marketplace:
 ]]></description>
                 
 
-                <guid isPermaLink="false">tag:hockenmaier.github.io,2020-01-01:/hugohome/human-joystick/</guid>
+                <guid isPermaLink="false">tag:localhost:1313,2020-01-01:/human-joystick/</guid>
 
                 
-                    <link>https://hockenmaier.github.io/hugohome/human-joystick/</link>
+                    <link>http://localhost:1313/human-joystick/</link>
                 
 
                 
@@ -1220,7 +1439,7 @@ Or the VScode marketplace:
 
 
 
-<img  alt="Answering Machine homepage"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenmaier.github.io/hugohome/images/answering_machine_uploads.png"   style="height: auto; max-width: 720px; width: 100%"   >
+<img  alt="Answering Machine homepage"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/answering_machine_uploads.png"   style="height: auto; max-width: 720px; width: 100%"   >
 
 
     
@@ -1310,7 +1529,7 @@ Or the VScode marketplace:
 
 
 
-<img  alt="Answering Machine main view"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenmaier.github.io/hugohome/images/answering_machine_hr.png"   style="height: auto; width: 100%"   >
+<img  alt="Answering Machine main view"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/answering_machine_hr.png"   style="height: auto; width: 100%"   >
 
 
     
@@ -1398,7 +1617,7 @@ Or the VScode marketplace:
 
 
 
-<img  alt="Answering Machine info panel"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenmaier.github.io/hugohome/images/answering_machine_info.png"   style="height: auto; max-width: 720px; width: 100%"   >
+<img  alt="Answering Machine info panel"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/answering_machine_info.png"   style="height: auto; max-width: 720px; width: 100%"   >
 
 
     
@@ -1488,7 +1707,7 @@ Or the VScode marketplace:
 
 
 
-<img  alt="Answering Machine query bar"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenmaier.github.io/hugohome/images/answering_machine_query.png"   style="height: auto; max-width: 720px; width: 100%"   >
+<img  alt="Answering Machine query bar"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/answering_machine_query.png"   style="height: auto; max-width: 720px; width: 100%"   >
 
 
     
@@ -1584,7 +1803,7 @@ Or the VScode marketplace:
 
 
 
-<img  alt="Answering Machine response"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenmaier.github.io/hugohome/images/answering_machine_answer.png"   style="height: auto; max-width: 720px; width: 100%"   >
+<img  alt="Answering Machine response"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/answering_machine_answer.png"   style="height: auto; max-width: 720px; width: 100%"   >
 
 
     
@@ -1679,7 +1898,7 @@ Or the VScode marketplace:
 
 
 
-<img  alt="Answering Machine subjects and conditions"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenmaier.github.io/hugohome/images/answering_machine_lexicon.png"   style="height: auto; max-width: 400px; width: 100%"   >
+<img  alt="Answering Machine subjects and conditions"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/answering_machine_lexicon.png"   style="height: auto; max-width: 400px; width: 100%"   >
 
 
     
@@ -1769,7 +1988,7 @@ Or the VScode marketplace:
 
 
 
-<img  alt="Answering Machine concept"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenmaier.github.io/hugohome/images/answering_machine_concept.png"   style="height: auto; max-width: 200px; width: 100%"   >
+<img  alt="Answering Machine concept"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/answering_machine_concept.png"   style="height: auto; max-width: 200px; width: 100%"   >
 
 
     
@@ -1864,7 +2083,7 @@ Or the VScode marketplace:
 
 
 
-<img  alt="Serverless Architecture of the Answering Machine app"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenmaier.github.io/hugohome/images/answering_machine_architecture.png"   style="height: auto; max-width: 720px; width: 100%"   >
+<img  alt="Serverless Architecture of the Answering Machine app"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/answering_machine_architecture.png"   style="height: auto; max-width: 720px; width: 100%"   >
 
 
     
@@ -1874,10 +2093,10 @@ Or the VScode marketplace:
 ]]></description>
                 
 
-                <guid isPermaLink="false">tag:hockenmaier.github.io,2019-07-03:/hugohome/answering-machine/</guid>
+                <guid isPermaLink="false">tag:localhost:1313,2019-07-03:/answering-machine/</guid>
 
                 
-                    <link>https://hockenmaier.github.io/hugohome/answering-machine/</link>
+                    <link>http://localhost:1313/answering-machine/</link>
                 
 
                 
@@ -2007,7 +2226,7 @@ This is what the project looked like for my first play-test with other people 5 
 
 
 
-<img  alt="Land War 4-day MVP"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenmaier.github.io/hugohome/images/land_war_mvp.gif"   style="height: auto; width: 100%"   >
+<img  alt="Land War 4-day MVP"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/land_war_mvp.gif"   style="height: auto; width: 100%"   >
 
 
     
@@ -2095,7 +2314,7 @@ This is what the project looked like for my first play-test with other people 5 
 
 
 
-<img  alt="Player Select screen"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenmaier.github.io/hugohome/images/land_war_player_select.png"   style="height: auto; width: 100%"   >
+<img  alt="Player Select screen"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/land_war_player_select.png"   style="height: auto; width: 100%"   >
 
 
     
@@ -2182,7 +2401,7 @@ This is what the project looked like for my first play-test with other people 5 
 
 
 
-<img  alt="Settings menu"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenmaier.github.io/hugohome/images/land_war_settings.png"   style="height: auto; width: 100%"   >
+<img  alt="Settings menu"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/land_war_settings.png"   style="height: auto; width: 100%"   >
 
 
     
@@ -2271,7 +2490,7 @@ This is what the project looked like for my first play-test with other people 5 
 
 
 
-<img  alt="E3 marketing material"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenmaier.github.io/hugohome/images/land_war_e3.png"   style="height: auto; max-width: 400px; width: 100%"   >
+<img  alt="E3 marketing material"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/land_war_e3.png"   style="height: auto; max-width: 400px; width: 100%"   >
 
 
     
@@ -2288,10 +2507,10 @@ This is what the project looked like for my first play-test with other people 5 
 ]]></description>
                 
 
-                <guid isPermaLink="false">tag:hockenmaier.github.io,2019-03-01:/hugohome/land-war/</guid>
+                <guid isPermaLink="false">tag:localhost:1313,2019-03-01:/land-war/</guid>
 
                 
-                    <link>https://hockenmaier.github.io/hugohome/land-war/</link>
+                    <link>http://localhost:1313/land-war/</link>
                 
 
                 
@@ -2415,7 +2634,7 @@ This is what the project looked like for my first play-test with other people 5 
 
 
 
-<img  alt="Serverless Architecture of the First Ten app"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenmaier.github.io/hugohome/images/first_ten_architecture.png"   style="height: auto; max-width: 720px; width: 100%"   >
+<img  alt="Serverless Architecture of the First Ten app"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/first_ten_architecture.png"   style="height: auto; max-width: 720px; width: 100%"   >
 
 
     
@@ -2425,10 +2644,10 @@ This is what the project looked like for my first play-test with other people 5 
 ]]></description>
                 
 
-                <guid isPermaLink="false">tag:hockenmaier.github.io,2018-05-19:/hugohome/first-ten/</guid>
+                <guid isPermaLink="false">tag:localhost:1313,2018-05-19:/first-ten/</guid>
 
                 
-                    <link>https://hockenmaier.github.io/hugohome/first-ten/</link>
+                    <link>http://localhost:1313/first-ten/</link>
                 
 
                 
@@ -2475,7 +2694,7 @@ This is what the project looked like for my first play-test with other people 5 
 <p>I created this panel display in 2026 to control much of the home automation I used in my Studio City apartment. Mainly a hardware project, I designed and 3D-printed a case and frame for the touchscreen and raspberry pi microcomputer in order to mount them to the wall. The software running the control panel is SaaS, but I did write a custom html wrapper to control the orientation and settings of the site, which is available on the github linked above.</p>
 <p>Update in 2025: This panel is still my main view into my home automation in my new house in Sherman Oaks, almost 10 years in with no modification!</p>
 <p>Here&rsquo;s a video to see the panel in action:</p>
-<h2 id="hahahugoshortcode7s0hbhb">
+<h2 id="hahahugoshortcode93s0hbhb">
     <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
       <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/iFGmm-ijJvE?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"></iframe>
     </div>
@@ -2484,10 +2703,10 @@ This is what the project looked like for my first play-test with other people 5 
 ]]></description>
                 
 
-                <guid isPermaLink="false">tag:hockenmaier.github.io,2016-01-01:/hugohome/raspberry-pi-panel/</guid>
+                <guid isPermaLink="false">tag:localhost:1313,2016-01-01:/raspberry-pi-panel/</guid>
 
                 
-                    <link>https://hockenmaier.github.io/hugohome/raspberry-pi-panel/</link>
+                    <link>http://localhost:1313/raspberry-pi-panel/</link>
                 
 
                 
@@ -2529,53 +2748,10 @@ This is what the project looked like for my first play-test with other people 5 
 
                 
 
-                <guid isPermaLink="false">tag:hockenmaier.github.io,0001-01-01:/hugohome/some-custom-gpts/</guid>
+                <guid isPermaLink="false">tag:localhost:1313,0001-01-01:/some-custom-gpts/</guid>
 
                 
-                    <link>https://hockenmaier.github.io/hugohome/some-custom-gpts/</link>
-                
-
-                
-                    <pubDate>Mon, 01 Jan 0001 00:00:00 UTC</pubDate>
-                
-
-                
-            </item>
-        
-            <item>
-                
-                
-                
-                
-                
-                
-                
-
-                
-
-                
-
-                
-
-                
-                    
-                
-
-                
-                
-
-                
-                    
-                
-
-                
-
-                
-
-                <guid isPermaLink="false">tag:hockenmaier.github.io,0001-01-01:/hugohome/postman-for-pms/</guid>
-
-                
-                    <link>https://hockenmaier.github.io/hugohome/postman-for-pms/</link>
+                    <link>http://localhost:1313/some-custom-gpts/</link>
                 
 
                 
@@ -2615,10 +2791,139 @@ This is what the project looked like for my first play-test with other people 5 
 
                 
 
-                <guid isPermaLink="false">tag:hockenmaier.github.io,0001-01-01:/hugohome/on-ai-software-development/</guid>
+                <guid isPermaLink="false">tag:localhost:1313,0001-01-01:/raspberry-pi-bike-tracker/</guid>
 
                 
-                    <link>https://hockenmaier.github.io/hugohome/on-ai-software-development/</link>
+                    <link>http://localhost:1313/raspberry-pi-bike-tracker/</link>
+                
+
+                
+                    <pubDate>Mon, 01 Jan 0001 00:00:00 UTC</pubDate>
+                
+
+                
+            </item>
+        
+            <item>
+                
+                
+                
+                
+                
+                
+                
+
+                
+
+                
+
+                
+
+                
+                    
+                
+
+                
+                
+
+                
+                    
+                
+
+                
+
+                
+
+                <guid isPermaLink="false">tag:localhost:1313,0001-01-01:/nope-game/</guid>
+
+                
+                    <link>http://localhost:1313/nope-game/</link>
+                
+
+                
+                    <pubDate>Mon, 01 Jan 0001 00:00:00 UTC</pubDate>
+                
+
+                
+            </item>
+        
+            <item>
+                
+                
+                
+                
+                
+                
+                
+
+                
+
+                
+
+                
+
+                
+                    
+                
+
+                
+                
+
+                
+                    
+                
+
+                
+
+                
+
+                <guid isPermaLink="false">tag:localhost:1313,0001-01-01:/hocken-pocket-blokus/</guid>
+
+                
+                    <link>http://localhost:1313/hocken-pocket-blokus/</link>
+                
+
+                
+                    <pubDate>Mon, 01 Jan 0001 00:00:00 UTC</pubDate>
+                
+
+                
+            </item>
+        
+            <item>
+                
+                
+                
+                
+                
+                
+                
+
+                
+
+                
+
+                
+
+                
+                    
+                
+
+                
+                
+
+                
+                    
+                
+
+                
+
+                
+
+                <guid isPermaLink="false">tag:localhost:1313,0001-01-01:/3d-key/</guid>
+
+                
+                    <link>http://localhost:1313/3d-key/</link>
                 
 
                 

@@ -1,0 +1,224 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+        
+    
+
+    
+        
+    
+
+
+
+
+
+
+
+    
+
+    
+
+
+
+
+
+
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0"  xml:lang="en-us"  xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        
+            
+
+            
+                
+            
+
+            
+                <link href="http://localhost:1313/tags/software/" rel="self" type="text/html"/>
+            
+        
+            
+
+            
+
+            
+                <link href="http://localhost:1313/tags/software/rss.xml" rel="alternate" type="application/rss+xml"/>
+            
+        
+
+        
+
+        
+
+        <description>Recent content</description>
+
+        
+            <language>en-us</language>
+        
+
+        
+            <lastBuildDate>2024-01-24 00:00:00 +0000 UTC</lastBuildDate>
+        
+
+        <link>http://localhost:1313/tags/software/</link>
+
+        
+
+        <title>Software · Tags · Home</title>
+
+        
+
+        
+            <item>
+                
+                
+                
+                
+                
+                
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+                
+
+                
+
+                
+
+                
+                    <description><![CDATA[<div style="text-align: center; margin-bottom: 1rem;">
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<img  alt="this is a robot"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/ai-software-dev.png"   style="height: auto; max-width: 720px; width: 100%"   >
+
+
+    
+</div>
+
+<p>Lots of chatter right now about AI replacing software developers.</p>
+<p>I agree - AI will take over software development. The question is: what work will be left when this happens?</p>
+<p>Some considerations:</p>
+<p>Benchmarks for the best LLMs still put them solidly in the &ldquo;bad at programming&rdquo; category, scoring in the 5th percentile of human programmers on common tests. Meanwhile, LLMs score in the 80th-95th percentile for law exams and 85th–100th for psychology, statistics, and many other less technical fields. More scores available in the &ldquo;simulated exams&rdquo; section of <a href="https://openai.com/research/gpt-4">https://openai.com/research/gpt-4</a>.
+Engineers have been using language models like tabnine and copilot as &ldquo;super-stackoverflow&rdquo; style code assistance years before chatGPT released. This means much of the velocity increase we might expect from current LLMs&rsquo; ability to write code has already been &ldquo;priced in&rdquo; to the market.
+Many of the trends making software development more costly are growing, not shrinking: Systems are becoming more distributed. The cloud lowered infrastructure costs but made applications more complex. We&rsquo;re making more and deeper integrations among disparate systems. Auth is becoming more secure and thus complex (managed identity, MFA, etc).</p>
+<p>Github copilot chat and other LLM dev tools are speeding up the rote stuff. I’ve seen it in my own work.</p>
+<p>And I really do believe new AI models will do more than just the basics, maybe in the next couple of years. Even precluding &ldquo;AGI&rdquo;, the trend we are on is that more and more work is automatable, and engineers, especially more junior ones - are going to have to shift focus away from algorithmic work that AI can do.</p>
+<p>But by the time our neural nets are &ldquo;good enough&rdquo; at building software to make it significantly cheaper to build, I doubt this trend will make the news. Everything else gets automated too.</p>
+]]></description>
+                
+
+                <guid isPermaLink="false">tag:localhost:1313,2024-01-24:/on-ai-software-development/</guid>
+
+                
+                    <link>http://localhost:1313/on-ai-software-development/</link>
+                
+
+                
+                    <pubDate>Wed, 24 Jan 2024 00:00:00 UTC</pubDate>
+                
+
+                
+                    <title>The Treadmill</title>
+                
+            </item>
+        
+    </channel>
+</rss>
