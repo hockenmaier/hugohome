@@ -89,8 +89,32 @@
     <loc>http://localhost:1313/tags/work-life-balance/</loc>
     <lastmod>2024-02-01T00:00:00+00:00</lastmod>
   </url><url>
+    <loc>http://localhost:1313/on-ai-software-development/</loc>
+    <lastmod>2024-01-24T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/software/</loc>
+    <lastmod>2024-01-24T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/apis/</loc>
+    <lastmod>2024-01-13T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/custom-gpt/</loc>
+    <lastmod>2024-01-13T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/postman-for-pms/</loc>
+    <lastmod>2024-01-13T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>http://localhost:1313/tags/c%23/</loc>
-    <lastmod>2023-01-01T00:00:00+00:00</lastmod>
+    <lastmod>2023-02-01T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/nerfs/</loc>
+    <lastmod>2023-02-01T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/nerfs/</loc>
+    <lastmod>2023-02-01T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/unity/</loc>
+    <lastmod>2023-02-01T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/tags/co-op/</loc>
     <lastmod>2023-01-01T00:00:00+00:00</lastmod>
@@ -108,9 +132,6 @@
     <lastmod>2023-01-01T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/the-flapper/</loc>
-    <lastmod>2023-01-01T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/tags/unity/</loc>
     <lastmod>2023-01-01T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/tags/vr/</loc>
@@ -191,9 +212,13 @@
     <loc>http://localhost:1313/tags/solidworks/</loc>
     <lastmod>2016-01-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/on-ai-software-development/</loc>
+    <loc>http://localhost:1313/3d-key/</loc>
   </url><url>
-    <loc>http://localhost:1313/postman-for-pms/</loc>
+    <loc>http://localhost:1313/hocken-pocket-blokus/</loc>
+  </url><url>
+    <loc>http://localhost:1313/nope-game/</loc>
+  </url><url>
+    <loc>http://localhost:1313/raspberry-pi-bike-tracker/</loc>
   </url><url>
     <loc>http://localhost:1313/some-custom-gpts/</loc>
   </url><url>

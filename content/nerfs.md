@@ -2,16 +2,15 @@
 title: "NeRFs in VR"
 date: 2023-02-01
 categories: ["project overview"]
-draft: true
 stack: ["Unity", "C#", "luma"]
 github_link: ""
 short_description: "An experiment with NeRFs"
 tags: ["AI", "nerfs", "Unity", "C#", "Procedural Generation", "Video Games"]
 ---
 
-I’ve been playing around with NeRFs lately and thought a fun way to explore them would be flying through them in the Treekeepers “Puddle Jumper” in true scale.
+I’ve been playing around with [neural radiance fields](https://en.wikipedia.org/wiki/Neural_radiance_field) (NeRFs) lately and thought a fun way to explore them would be flying through them in the Treekeepers “Puddle Jumper” in true scale.
 
-[[Insert video]]
+{{< youtube QguH3aK90Ck >}}
 
 Of course, you lose a lot of the draw of NeRFs when you export the model into a 3d engine because it has to flatten all the textures and lighting, and also Luma AI cuts off 3D model exports as a jarring cube
 
