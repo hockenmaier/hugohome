@@ -68,6 +68,18 @@ window.App = {
     // Show the game UI (it is hidden by default in the HTML)
     const ui = document.getElementById("ballfall-ui");
     if (ui) ui.style.display = "block";
+
+    window.addEventListener("scroll", function updateCamera() {
+      if (window.BallFall && window.BallFall.render) {
+        Matter.Render.lookAt(window.BallFall.render, {
+          min: { x: window.scrollX, y: window.scrollY },
+          max: {
+            x: window.scrollX + window.innerWidth,
+            y: window.scrollY + window.innerHeight,
+          },
+        });
+      }
+    });
   },
 
   init: function () {
