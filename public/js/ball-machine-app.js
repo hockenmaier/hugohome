@@ -8,7 +8,7 @@ window.App = {
     gravity: 0.75,
     timeScale: 0.82,
     restitution: 0.95,
-    spawnX: 1.2, // x axis spawn point: 1/spawnX is the fraction of the screen width
+    spawnX: 1.5, // x axis spawn point: 1/spawnX is the fraction of the screen width
     spawnManual: 7, // Position for manual click-to-spawn, similar rules to auto-spawner
     ballSize: 7,
     sitStillDeleteSeconds: 3,
@@ -57,17 +57,14 @@ window.App = {
 
   // startSimulation loads Matter.js, text colliders, etc.
   startSimulation: function () {
-    if (this.simulationLoaded) return;
-    this.simulationLoaded = true;
+    if (window.App.simulationLoaded) return;
+    window.App.simulationLoaded = true;
     // Initialize simulation modules – preserving existing comments.
-    if (this.modules.base) this.modules.base.init();
-    if (this.modules.text) this.modules.text.init();
-    if (this.modules.lines) this.modules.lines.init();
-    if (this.modules.launcher) this.modules.launcher.init();
-    // For immediate feedback, spawn one ball after simulation loads.
-    if (window.BallFall && typeof window.BallFall.spawnBall === "function") {
-      window.BallFall.spawnBall();
-    }
+    if (window.App.modules.base) window.App.modules.base.init();
+    if (window.App.modules.text) window.App.modules.text.init();
+    if (window.App.modules.lines) window.App.modules.lines.init();
+    if (window.App.modules.launcher) window.App.modules.launcher.init();
+    // Removed duplicate ball spawn here.
     // Show the game UI (it is hidden by default in the HTML)
     const ui = document.getElementById("ballfall-ui");
     if (ui) ui.style.display = "block";

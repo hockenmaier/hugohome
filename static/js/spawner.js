@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", function () {
   function positionSpawner() {
     const container = document.getElementById("spawner-container");
     if (!container) return;
-    const xPos = window.innerWidth / App.config.spawnX;
+    const xPos = window.innerWidth / App.config.spawnX + 20;
     container.style.left = xPos - container.offsetWidth / 2 + "px";
   }
   positionSpawner();

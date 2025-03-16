@@ -971,7 +971,7 @@ table {
   </button>
   <div id="bfui-drop-rate-wrapper">
     <span id="bfui-drop-rate-label">Drop Rate:</span>
-    <span id="bfui-drop-rate-value">0</span>
+    <span id="bfui-drop-rate-value">N/A</span>
   </div>
   <div id="coins-display">0 coins</div>
   <div
@@ -1036,16 +1036,25 @@ table {
     (function () {
       const dropRateValue = document.getElementById("bfui-drop-rate-value");
       function updateDropRateDisplay() {
-        if (window.BallFall && window.BallFall.spawnInterval) {
-          const interval = window.BallFall.spawnInterval,
-            bps = 1000 / interval;
-          dropRateValue.textContent =
-            bps < 1 ? `every ${(1 / bps).toFixed(1)}s` : `${bps.toFixed(1)}/s`;
-        } else {
+        if (
+          !App.simulationLoaded ||
+          !window.BallFall ||
+          !window.BallFall.spawnInterval
+        ) {
           dropRateValue.textContent = "N/A";
+          return;
         }
+        const interval = window.BallFall.spawnInterval,
+          bps = 1000 / interval;
+        dropRateValue.textContent =
+          bps < 1 ? `every ${(1 / bps).toFixed(1)}s` : `${bps.toFixed(1)}/s`;
       }
       setInterval(updateDropRateDisplay, 1000);
+
+      
+      if (window.App && window.App.modules && window.App.modules.lines) {
+        window.App.modules.lines.setMode("none");
+      }
     })();
 
     (function () {
@@ -1152,7 +1161,7 @@ table {
           "insta-launcher"
         );
       });
-      setActive("dotted");
+      
       setInterval(updateDropRateDisplay, 1000);
     })();
   </script>
