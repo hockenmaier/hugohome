@@ -26,3 +26,5 @@ Github copilot chat and other LLM dev tools are speeding up the rote stuff. I’
 And I really do believe new AI models will do more than just the basics, maybe in the next couple of years. Even precluding "AGI", the trend we are on is that more and more work is automatable, and engineers, especially more junior ones - are going to have to shift focus away from algorithmic work that AI can do.
 
 But by the time our neural nets are "good enough" at building software to make it significantly cheaper to build, I doubt this trend will make the news. Everything else gets automated too.
+
+These are my thoughts at what seems to be the beginning of the next AI revolution in early 2024. I plan to revisit this topic and see if I'm right in future posts.

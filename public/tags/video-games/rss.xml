@@ -192,7 +192,7 @@
                 
 
                 
-                    <description><![CDATA[<p>I’ve been playing around with NeRFs lately and thought a fun way to explore them would be flying through them in the Treekeepers “Puddle Jumper” in true scale.</p>
+                    <description><![CDATA[<p>I’ve been playing around with <a href="https://en.wikipedia.org/wiki/Neural_radiance_field">neural radiance fields</a> (NeRFs) lately and thought a fun way to explore them would be flying through them in the Treekeepers “Puddle Jumper” in true scale.</p>
 
     <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
       <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/QguH3aK90Ck?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"></iframe>
