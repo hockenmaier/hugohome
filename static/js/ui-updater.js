@@ -13,6 +13,8 @@
       "#ballfall-ui img, #spawner-container img"
     );
     uiImgs.forEach(function (img) {
+      // Clear any borders set by collisions
+      img.style.border = "";
       // Use a copy of the bodies array to avoid iteration issues
       world.bodies.slice().forEach((body) => {
         if (body.elRef === img) {
