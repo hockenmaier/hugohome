@@ -168,7 +168,7 @@ App.modules.lines = (function () {
       this.updatePreview(x, y);
     },
     updatePreview(x, y) {
-      ``;
+      if (!window.BallFall || !window.BallFall.world) return;
       if (this.previewLine) {
         Matter.World.remove(window.BallFall.world, this.previewLine);
         this.previewLine = null;
