@@ -168,7 +168,7 @@ App.modules.lines = (function () {
       this.updatePreview(x, y);
     },
     updatePreview(x, y) {
-      ``;
+      if (!window.BallFall || !window.BallFall.world) return;
       if (this.previewLine) {
         Matter.World.remove(window.BallFall.world, this.previewLine);
         this.previewLine = null;
@@ -308,6 +308,8 @@ App.modules.lines = (function () {
     (e) => {
       if (window.matchMedia && window.matchMedia("(pointer: coarse)").matches)
         return;
+      // Ignore clicks originating from UI toggle elements to prevent triggering tool actions
+      if (e.target.closest("#toggle-container")) return;
       if (
         window.App &&
         window.App.modules &&

@@ -44,6 +44,12 @@
         
     
 
+    
+
+    
+        
+    
+
 
 
 
@@ -158,6 +164,59 @@
 
                 
                     <title>This Website</title>
+                
+            </item>
+        
+            <item>
+                
+                
+                
+                
+                
+                
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+                
+
+                
+
+                
+
+                
+                    <description><![CDATA[<p>I’ve been playing around with <a href="https://en.wikipedia.org/wiki/Neural_radiance_field">neural radiance fields</a> (NeRFs) lately and thought a fun way to explore them would be flying through them in the Treekeepers “Puddle Jumper” in true scale.</p>
+
+    <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+      <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/QguH3aK90Ck?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"></iframe>
+    </div>
+
+<p>Of course, you lose a lot of the draw of NeRFs when you export the model into a 3d engine because it has to flatten all the textures and lighting, and also Luma AI cuts off 3D model exports as a jarring cube</p>
+<p>But still - I was amazed at how well just applying a day/night lighting cycle and mesh colliders worked with this. Projectile and enemy physics played well too.</p>
+<p>It’s still early days, but I could see 3D model generation from this tech getting a lot better and forming the basis for some really interesting user-generated content in the future!</p>
+<p>Neat stuff - big thanks to Luma AI for the free toolset.</p>
+]]></description>
+                
+
+                <guid isPermaLink="false">tag:hockenmaier.github.io,2023-02-01:/hugohome/nerfs/</guid>
+
+                
+                    <link>https://hockenmaier.github.io/hugohome/nerfs/</link>
+                
+
+                
+                    <pubDate>Wed, 01 Feb 2023 00:00:00 UTC</pubDate>
+                
+
+                
+                    <title>NeRFs in VR</title>
                 
             </item>
         

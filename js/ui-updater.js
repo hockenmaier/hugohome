@@ -9,8 +9,12 @@
     const world = window.BallFall.world;
 
     // Remove colliders for UI images (all images in #ballfall-ui)
-    const uiImgs = document.querySelectorAll("#ballfall-ui img");
+    const uiImgs = document.querySelectorAll(
+      "#ballfall-ui img, #spawner-container img"
+    );
     uiImgs.forEach(function (img) {
+      // Clear any borders set by collisions
+      img.style.border = "";
       // Use a copy of the bodies array to avoid iteration issues
       world.bodies.slice().forEach((body) => {
         if (body.elRef === img) {
@@ -20,7 +24,9 @@
     });
 
     // Remove colliders for all UI elements inside #ballfall-ui
-    const uiElements = document.querySelectorAll("#ballfall-ui *");
+    const uiElements = document.querySelectorAll(
+      "#ballfall-ui *, #spawner-container *"
+    );
     uiElements.forEach(function (elem) {
       world.bodies.slice().forEach((body) => {
         if (body.elRef && elem.contains(body.elRef)) {

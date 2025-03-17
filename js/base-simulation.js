@@ -47,18 +47,16 @@ App.modules.base = (function () {
 
     Render.run(render);
 
-    // Run 'substeps'physics substeps per original timestep.
+    // Run physics substeps.
     const substeps = 2;
-    const baseDt = 1000 / 60; // 16.67ms original timestep.
-    const dt = baseDt / substeps; // substep dt
-
+    const baseDt = 1000 / 60;
+    const dt = baseDt / substeps;
     setInterval(() => {
       for (let i = 0; i < substeps; i++) {
         Matter.Engine.update(engine, dt * engine.timing.timeScale);
       }
     }, baseDt);
 
-    // Resize canvas.
     function resize() {
       render.options.width = window.innerWidth;
       render.options.height = window.innerHeight;
@@ -68,35 +66,7 @@ App.modules.base = (function () {
     window.addEventListener("resize", resize);
     resize();
 
-    // // World shift on scroll.
-    // let lastScrollY = window.scrollY;
-    // window.addEventListener("scroll", () => {
-    //   const dy = window.scrollY - lastScrollY;
-    //   Composite.translate(engine.world, { x: 0, y: -dy });
-    //   lastScrollY = window.scrollY;
-
-    //   // Reset collision detection's spatial index.
-    //   // Matter.Engine.update(engine, 0);
-    //   // if (
-    //   //   engine.broadphase &&
-    //   //   engine.broadphase.controller &&
-    //   //   typeof engine.broadphase.controller.clear === "function"
-    //   // ) {
-    //   //   engine.broadphase.controller.clear(engine.broadphase);
-    //   // }
-    // });
-
-    window.addEventListener("scroll", () => {
-      Render.lookAt(render, {
-        min: { x: window.scrollX, y: window.scrollY },
-        max: {
-          x: window.scrollX + window.innerWidth,
-          y: window.scrollY + window.innerHeight,
-        },
-      });
-    });
-
-    // Create colliders for images and iframes.
+    // Media colliders.
     function addMediaColliders() {
       document.querySelectorAll("img, iframe").forEach((el) => {
         const rect = el.getBoundingClientRect();
@@ -113,12 +83,44 @@ App.modules.base = (function () {
     }
     addMediaColliders();
 
-    // Ball spawning.
+    // ---- Ball spawning logic ----
     const ballsList = [];
+    // Expose spawnBall() for manual or auto-triggered spawning.
+    let isAnimating = false;
+    const totalFrames = 9;
+    const frameDuration = 60; // 80 ms per frame
+    const animationFrames = Array.from(
+      { length: totalFrames },
+      (_, i) => `images/ball-chute-hatch-${i + 1}.png`
+    );
+
+    function playSpawnerAnimation(frame = 0) {
+      const spawnerImg = document.getElementById("ball-spawner");
+      if (!spawnerImg) return;
+
+      isAnimating = true;
+      spawnerImg.src = animationFrames[frame];
+
+      if (frame < totalFrames - 1) {
+        setTimeout(() => playSpawnerAnimation(frame + 1), frameDuration);
+      } else {
+        isAnimating = false;
+        spawnerImg.src = animationFrames[0];
+      }
+    }
+
     function spawnBall() {
+      if (!window.BallFall.firstBallDropped) {
+        window.BallFall.firstBallDropped = true;
+        const autoBtn = document.getElementById("autoClicker");
+        const dropIndicator = document.getElementById("spawner-indicator");
+        //if (autoBtn) autoBtn.style.display = "none";
+        if (dropIndicator) dropIndicator.style.display = "flex";
+      }
+
       const spawnX = window.scrollX + window.innerWidth / App.config.spawnX;
       const spawnY = 0;
-      const ball = Bodies.circle(spawnX, spawnY, App.config.ballSize, {
+      const ball = Matter.Bodies.circle(spawnX, spawnY, App.config.ballSize, {
         restitution: App.config.restitution,
         friction: 0,
         frictionAir: 0,
@@ -131,21 +133,32 @@ App.modules.base = (function () {
         },
         label: "BallFallBall",
       });
-      World.add(engine.world, ball);
+      Matter.World.add(window.BallFall.world, ball);
       ballsList.push(ball);
-      //console.log("Spawned ball at", spawnX, spawnY);
-    }
-    window.BallFall.spawnInterval = App.config.spawnInterval;
-    let spawnIntervalId = setInterval(spawnBall, window.BallFall.spawnInterval);
 
-    // For immediate feedback, spawn one ball now.
-    spawnBall();
+      // Trigger animation ONLY if not already animating
+      if (!isAnimating) {
+        playSpawnerAnimation();
+      }
+    }
+
+    window.BallFall.spawnBall = spawnBall;
+
+    // Auto-spawner: not started until auto-clicker is purchased.
+    let spawnIntervalId = null;
+    function startAutoSpawner() {
+      if (spawnIntervalId) return;
+      spawnIntervalId = setInterval(spawnBall, App.config.spawnInterval);
+    }
+    window.BallFall.startAutoSpawner = startAutoSpawner;
 
     function updateSpawnInterval(newInterval) {
-      clearInterval(spawnIntervalId);
+      if (spawnIntervalId) {
+        clearInterval(spawnIntervalId);
+        spawnIntervalId = setInterval(spawnBall, newInterval);
+      }
       window.BallFall.spawnInterval = newInterval;
       App.config.spawnInterval = newInterval;
-      spawnIntervalId = setInterval(spawnBall, newInterval);
     }
     window.BallFall.updateSpawnInterval = updateSpawnInterval;
     window.BallFall.clearBalls = () => {
@@ -153,7 +166,7 @@ App.modules.base = (function () {
       ballsList.length = 0;
     };
 
-    // Collision effect.
+    // Collision effect and ball removal logic remain unchanged.
     Events.on(engine, "collisionStart", (event) => {
       event.pairs.forEach((pair) => {
         [pair.bodyA, pair.bodyB].forEach((b) => {
@@ -164,7 +177,6 @@ App.modules.base = (function () {
       });
     });
 
-    // Remove balls off-screen or at rest.
     const ballPositionData = {};
     function removeBallsBelowPage() {
       const bodies = Composite.allBodies(engine.world);

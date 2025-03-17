@@ -1,22 +1,23 @@
+/*
+ * ball-machine-app.js
+ * Main app configuration and initialization.
+ */
 window.App = {
   config: {
-    spawnInterval: 4480, // Time between ball spawns in ms
+    spawnInterval: 4480, // Default ball spawn interval in ms (auto-clicker rate)
     gravity: 0.75,
     timeScale: 0.82,
     restitution: 0.95,
-    spawnX: 1.2, // Represents the x axis spawn point of balls where 1/spawnX is the fraction of the screen
-    spawnManual: 7, // A new variable representing where the manual click-to spawn should be placed according to the same rules as the autospawner at spawnX
+    spawnX: 1.5, // x axis spawn point: 1/spawnX is the fraction of the screen width
+    spawnManual: 7, // Position for manual click-to-spawn, similar rules to auto-spawner
     ballSize: 7,
     sitStillDeleteSeconds: 3,
     sitStillDeleteMargin: 1,
-
     textHitColor: "#b3ffc7",
-
-    lineThickness: 5, // All line types share this
-    dottedLineHealth: 5, // Dotted line health (configurable)
-    curvedLineFidelity: 30, // How many sections of the "tube" that is the curved line
-    lineDeleteMobileHold: 1200, // Time delay for press and hold to delete on mobile
-
+    lineThickness: 5,
+    dottedLineHealth: 5,
+    curvedLineFidelity: 30,
+    lineDeleteMobileHold: 1200,
     launcherTypes: {
       launcher: {
         delay: 750,
@@ -34,7 +35,7 @@ window.App = {
         maxSpeed: 500,
       },
     },
-    coins: 5000, //starting coins and current coins
+    coins: 50000,
     costs: {
       straight: 5,
       curved: 20,
@@ -43,23 +44,69 @@ window.App = {
       "insta-launcher": 1000,
     },
     goalMinSpeed: 0.5,
+    // New economy clicker settings:
+    spawnCooldown: 250, // 0.25 sec cooldown between manual spawns
+    autoClickerCost: 20, // Cost to unlock auto spawner
+    speedUpgradeCosts: {
+      1: 50,
+      2: 100,
+      3: 200,
+      4: 400,
+      5: 800,
+      6: 1600,
+      7: 3200,
+      8: 6400,
+      9: 12800,
+    }, // Upgrades: x2, x4, x8, etc.
+    maxUnlockedSpeedLevel: 0, // Initially 0; increases with upgrades
+    autoClicker: false, // Flag set when auto-clicker is purchased
+    originalSpawnInterval: 4480, // To compute speed upgrades
   },
   modules: {},
+  simulationLoaded: false, // Tracks whether the physics simulation is running
+
+  // startSimulation loads Matter.js, text colliders, etc.
+  startSimulation: function () {
+    if (window.App.simulationLoaded) return;
+    window.App.simulationLoaded = true;
+    // Initialize simulation modules – preserving existing comments.
+    if (window.App.modules.base) window.App.modules.base.init();
+    if (window.App.modules.text) window.App.modules.text.init();
+    if (window.App.modules.lines) window.App.modules.lines.init();
+    if (window.App.modules.launcher) window.App.modules.launcher.init();
+    // Removed duplicate ball spawn here.
+    // Show the game UI (it is hidden by default in the HTML)
+    const ui = document.getElementById("ballfall-ui");
+    if (ui) ui.style.display = "block";
+
+    // Show auto clicker upgrade button after simulation loads.
+    const autoClickerBtn = document.getElementById("autoClicker");
+    if (autoClickerBtn) autoClickerBtn.style.display = "block";
+
+    window.addEventListener("scroll", function updateCamera() {
+      if (window.BallFall && window.BallFall.render) {
+        Matter.Render.lookAt(window.BallFall.render, {
+          min: { x: window.scrollX, y: window.scrollY },
+          max: {
+            x: window.scrollX + window.innerWidth,
+            y: window.scrollY + window.innerHeight,
+          },
+        });
+      }
+    });
+  },
+
   init: function () {
-    if (this.modules.base) this.modules.base.init();
-    if (this.modules.text) this.modules.text.init();
-    if (this.modules.lines) this.modules.lines.init();
+    // No auto-init; simulation is started via user click on spawner.
   },
 };
 
 function initApp() {
   App.init();
-  if (App.modules.launcher) App.modules.launcher.init();
 }
 
 if (document.readyState === "loading") {
   document.addEventListener("DOMContentLoaded", initApp);
 } else {
-  console.log("running initApp");
   initApp();
 }
