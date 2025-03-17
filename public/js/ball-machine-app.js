@@ -35,7 +35,7 @@ window.App = {
         maxSpeed: 500,
       },
     },
-    coins: 5000,
+    coins: 5,
     costs: {
       straight: 5,
       curved: 20,
@@ -68,6 +68,10 @@ window.App = {
     // Show the game UI (it is hidden by default in the HTML)
     const ui = document.getElementById("ballfall-ui");
     if (ui) ui.style.display = "block";
+
+    // Show auto clicker upgrade button after simulation loads.
+    const autoClickerBtn = document.getElementById("autoClicker");
+    if (autoClickerBtn) autoClickerBtn.style.display = "block";
 
     window.addEventListener("scroll", function updateCamera() {
       if (window.BallFall && window.BallFall.render) {
