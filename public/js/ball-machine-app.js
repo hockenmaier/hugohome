@@ -35,7 +35,7 @@ window.App = {
         maxSpeed: 500,
       },
     },
-    coins: 5,
+    coins: 50000,
     costs: {
       straight: 5,
       curved: 20,
@@ -47,7 +47,17 @@ window.App = {
     // New economy clicker settings:
     spawnCooldown: 250, // 0.25 sec cooldown between manual spawns
     autoClickerCost: 20, // Cost to unlock auto spawner
-    speedUpgradeCosts: { 1: 50, 2: 100, 3: 200 }, // Upgrades: x2, x4, x8, etc.
+    speedUpgradeCosts: {
+      1: 50,
+      2: 100,
+      3: 200,
+      4: 400,
+      5: 800,
+      6: 1600,
+      7: 3200,
+      8: 6400,
+      9: 12800,
+    }, // Upgrades: x2, x4, x8, etc.
     maxUnlockedSpeedLevel: 0, // Initially 0; increases with upgrades
     autoClicker: false, // Flag set when auto-clicker is purchased
     originalSpawnInterval: 4480, // To compute speed upgrades

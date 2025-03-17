@@ -3,7 +3,8 @@
   const NOTIFICATION_STYLES = {
     enableLinks: { color: "red", textDecoration: "line-through" },
     disableLinks: { color: "gold", textDecoration: "none" },
-    unaffordable: { color: "red", textDecoration: "none" },
+    // Updated unaffordable style to include fontSize for flashing.
+    unaffordable: { color: "red", fontSize: "20px" },
   };
 
   function flashElementStyle(
@@ -23,14 +24,13 @@
       });
       element._flashInterval = null;
     }
-    // Save original styles if not already saved
-    if (!element._flashOriginalValues) {
-      element._flashOriginalValues = {};
-      styleProps.forEach(function (prop) {
-        element._flashOriginalValues[prop] =
-          element.style[prop] || window.getComputedStyle(element)[prop];
-      });
-    }
+    // Always get fresh original styles
+    element._flashOriginalValues = {};
+    styleProps.forEach(function (prop) {
+      element._flashOriginalValues[prop] =
+        element.style[prop] || window.getComputedStyle(element)[prop];
+    });
+
     let count = 0;
     element._flashInterval = setInterval(function () {
       count++;
@@ -83,8 +83,24 @@
     }
   }
 
+  // New function for unaffordable funds notification.
+  // Flashes the coins display using the unaffordable style.
+  function notifyUnaffordable(flashDuration, flashTimes) {
+    const display = document.getElementById("coins-display");
+    if (display) {
+      flashElementStyle(
+        display,
+        ["color", "fontSize"],
+        NOTIFICATION_STYLES.unaffordable,
+        flashDuration,
+        flashTimes
+      );
+    }
+  }
+
   // Expose functions to the global scope.
   window.flashElementStyle = flashElementStyle;
   window.flashAllLinks = flashAllLinks;
   window.notifyToggleChange = notifyToggleChange;
+  window.notifyUnaffordable = notifyUnaffordable;
 })();

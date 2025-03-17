@@ -308,6 +308,8 @@ App.modules.lines = (function () {
     (e) => {
       if (window.matchMedia && window.matchMedia("(pointer: coarse)").matches)
         return;
+      // Ignore clicks originating from UI toggle elements to prevent triggering tool actions
+      if (e.target.closest("#toggle-container")) return;
       if (
         window.App &&
         window.App.modules &&
