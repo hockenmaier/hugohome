@@ -86,10 +86,41 @@ App.modules.base = (function () {
     // ---- Ball spawning logic ----
     const ballsList = [];
     // Expose spawnBall() for manual or auto-triggered spawning.
+    let isAnimating = false;
+    const totalFrames = 9;
+    const frameDuration = 60; // 80 ms per frame
+    const animationFrames = Array.from(
+      { length: totalFrames },
+      (_, i) => `images/ball-chute-hatch-${i + 1}.png`
+    );
+
+    function playSpawnerAnimation(frame = 0) {
+      const spawnerImg = document.getElementById("ball-spawner");
+      if (!spawnerImg) return;
+
+      isAnimating = true;
+      spawnerImg.src = animationFrames[frame];
+
+      if (frame < totalFrames - 1) {
+        setTimeout(() => playSpawnerAnimation(frame + 1), frameDuration);
+      } else {
+        isAnimating = false;
+        spawnerImg.src = animationFrames[0];
+      }
+    }
+
     function spawnBall() {
+      if (!window.BallFall.firstBallDropped) {
+        window.BallFall.firstBallDropped = true;
+        const autoBtn = document.getElementById("autoClicker");
+        const dropIndicator = document.getElementById("spawner-indicator");
+        if (autoBtn) autoBtn.style.display = "none";
+        if (dropIndicator) dropIndicator.style.display = "flex";
+      }
+
       const spawnX = window.scrollX + window.innerWidth / App.config.spawnX;
       const spawnY = 0;
-      const ball = Bodies.circle(spawnX, spawnY, App.config.ballSize, {
+      const ball = Matter.Bodies.circle(spawnX, spawnY, App.config.ballSize, {
         restitution: App.config.restitution,
         friction: 0,
         frictionAir: 0,
@@ -102,9 +133,15 @@ App.modules.base = (function () {
         },
         label: "BallFallBall",
       });
-      World.add(engine.world, ball);
+      Matter.World.add(window.BallFall.world, ball);
       ballsList.push(ball);
+
+      // Trigger animation ONLY if not already animating
+      if (!isAnimating) {
+        playSpawnerAnimation();
+      }
     }
+
     window.BallFall.spawnBall = spawnBall;
 
     // Auto-spawner: not started until auto-clicker is purchased.
