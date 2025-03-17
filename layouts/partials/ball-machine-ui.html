@@ -83,22 +83,26 @@
   .bfui-icon {
     margin-right: 4px;
   }
-  #bfui-drop-rate-label {
+  /* New rule: Center the Clear Field button */
+  #clearBallsBtn {
+    margin: 0 auto;
+    display: block;
+  }
+  /* New drop rate indicator styling (initially hidden) */
+  #drop-rate-indicator {
+    display: none;
+    flex-direction: column;
+    text-align: center;
     font-size: 10px;
+    color: #fff;
+    margin-right: 10px;
+  }
+  #bfui-drop-rate-label {
     color: #aaa;
   }
   #bfui-drop-rate-value {
-    font-size: 10px;
     color: #fff;
     font-weight: bold;
-  }
-  #bfui-drop-rate-wrapper {
-    display: flex;
-    justify-content: center;
-    text-align: center;
-    width: 100%;
-    gap: 5px;
-    margin-bottom: 5px;
   }
   .bfui-clear-wrapper {
     display: flex;
@@ -158,38 +162,47 @@
     .bfui-button .bfui-label {
       display: none;
     }
-    #bfui-drop-rate-wrapper {
-      flex-direction: column;
-      align-items: flex-start;
-      margin-top: -5px;
-    }
-    #bfui-drop-rate-label {
-      display: none;
-    }
   }
 </style>
 
 <!-- Spawner Container -->
 <div id="spawner-container">
+  <!-- Drop rate indicator: hidden initially -->
+  <div
+    id="spawner-indicator"
+    style="
+      display: none;
+      flex-direction: column;
+      text-align: center;
+      font-size: 10px;
+      color: #fff;
+      margin-right: 10px;
+    "
+  >
+    <span id="spawner-drop-rate-label" style="color: #aaa">Drop Rate:</span>
+    <span id="bfui-drop-rate-value">N/A</span>
+  </div>
+  <!-- Ball spawner always visible -->
   <img src="{{ "images/ball-spawner.png" | relURL }}" id="ball-spawner"
-  alt="Ball Spawner" /> <img src="{{ "images/up-arrow.png" | relURL }}"
-  id="increaseSpeed" class="spawner-arrow" alt="Increase Speed" /> <img src="{{
-  "images/down-arrow.png" | relURL }}" id="decreaseSpeed" class="spawner-arrow"
-  alt="Decrease Speed" /> <img src="{{ "images/auto-clicker.png" | relURL }}"
-  id="autoClicker" class="upgrade-icon" alt="Auto Clicker" />
+  alt="Ball Spawner" />
+  <!-- Up/Down arrows: hidden initially -->
+  <img src="{{ "images/up-arrow.png" | relURL }}" id="increaseSpeed"
+  class="spawner-arrow" alt="Increase Speed" style="display:none;" /> <img
+  src="{{ "images/down-arrow.png" | relURL }}" id="decreaseSpeed"
+  class="spawner-arrow" alt="Decrease Speed" style="display:none;" />
+  <!-- Auto-clicker upgrade button: hidden initially -->
+  <img src="{{ "images/auto-clicker.png" | relURL }}" id="autoClicker"
+  class="upgrade-icon" alt="Auto Clicker" style="display:none;" />
 </div>
 
-<!-- Existing UI panel remains (coins, toggle, etc.) -->
+<!-- Main UI panel (unchanged except for removing any duplicate drop rate block) -->
 <div id="ballfall-ui">
   <img src="{{ "images/ball-machine.png" | relURL }}" id="bfui-image" alt="Ball
   Machine" />
   <button class="bfui-button" id="clearBallsBtn">
     <span class="bfui-label">Clear Field</span>
   </button>
-  <div id="bfui-drop-rate-wrapper">
-    <span id="bfui-drop-rate-label">Drop Rate:</span>
-    <span id="bfui-drop-rate-value">N/A</span>
-  </div>
+  <!-- Removed duplicate drop rate wrapper -->
   <div id="coins-display">0 coins</div>
   <div
     id="toggle-container"
@@ -381,5 +394,100 @@
       //setActive("dotted");
       setInterval(updateDropRateDisplay, 1000);
     })();
+
+    document.addEventListener("DOMContentLoaded", function () {
+      // Attach a click event on the ball spawner to reveal the auto-clicker upgrade button.
+      var spawner = document.getElementById("ball-spawner");
+      spawner.addEventListener("click", function () {
+        // Delay a tick to allow the sim to start.
+        setTimeout(function () {
+          if (!App.config.autoClicker) {
+            var autoBtn = document.getElementById("autoClicker");
+            if (autoBtn) {
+              autoBtn.style.display = "inline";
+            }
+          }
+        }, 100);
+      });
+
+      // Attach the auto-clicker upgrade event listener.
+      var autoBtn = document.getElementById("autoClicker");
+      if (autoBtn) {
+        autoBtn.addEventListener("click", function (e) {
+          e.stopPropagation();
+          // Check if the player has enough coins to purchase the auto-clicker.
+          if (App.config.coins >= App.config.autoClickerCost) {
+            App.config.coins -= App.config.autoClickerCost;
+            App.config.autoClicker = true;
+            // Hide the auto-clicker upgrade button.
+            autoBtn.style.display = "none";
+            // Show the drop rate indicator and up/down arrows.
+            var dropIndicator = document.getElementById("spawner-indicator");
+            var upArrow = document.getElementById("increaseSpeed");
+            var downArrow = document.getElementById("decreaseSpeed");
+            if (dropIndicator) dropIndicator.style.display = "flex";
+            if (upArrow) upArrow.style.display = "inline";
+            if (downArrow) downArrow.style.display = "inline";
+            if (typeof BaseDrawingTool !== "undefined") {
+              BaseDrawingTool.updateCoinsDisplay();
+            }
+            // Immediately update drop rate display after auto-clicker purchase.
+            var dropRateValue = document.getElementById("bfui-drop-rate-value");
+            if (dropRateValue) {
+              const interval =
+                window.BallFall.spawnInterval || App.config.spawnInterval;
+              const bps = 1000 / interval;
+              dropRateValue.textContent =
+                bps < 1
+                  ? `every ${(1 / bps).toFixed(1)}s`
+                  : `${bps.toFixed(1)}/s`;
+            }
+          } else {
+            if (typeof BaseDrawingTool !== "undefined") {
+              BaseDrawingTool.showInsufficientFunds();
+            }
+          }
+        });
+      }
+    });
+  </script>
+
+  <!-- New script: attach up/down arrow click events to update drop rate immediately -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const increaseBtn = document.getElementById("increaseSpeed"),
+        decreaseBtn = document.getElementById("decreaseSpeed"),
+        dropRateValue = document.getElementById("bfui-drop-rate-value");
+      if (increaseBtn) {
+        increaseBtn.addEventListener("click", function (e) {
+          e.stopPropagation();
+          // Decrease spawn interval (increase drop rate); minimum interval 100ms.
+          let newInterval = Math.max(100, App.config.spawnInterval - 200);
+          window.BallFall.updateSpawnInterval(newInterval);
+          if (dropRateValue) {
+            const bps = 1000 / newInterval;
+            dropRateValue.textContent =
+              bps < 1
+                ? `every ${(1 / bps).toFixed(1)}s`
+                : `${bps.toFixed(1)}/s`;
+          }
+        });
+      }
+      if (decreaseBtn) {
+        decreaseBtn.addEventListener("click", function (e) {
+          e.stopPropagation();
+          // Increase spawn interval (decrease drop rate)
+          let newInterval = App.config.spawnInterval + 200;
+          window.BallFall.updateSpawnInterval(newInterval);
+          if (dropRateValue) {
+            const bps = 1000 / newInterval;
+            dropRateValue.textContent =
+              bps < 1
+                ? `every ${(1 / bps).toFixed(1)}s`
+                : `${bps.toFixed(1)}/s`;
+          }
+        });
+      }
+    });
   </script>
 </div>

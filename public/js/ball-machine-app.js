@@ -64,11 +64,14 @@ window.App = {
     if (window.App.modules.text) window.App.modules.text.init();
     if (window.App.modules.lines) window.App.modules.lines.init();
     if (window.App.modules.launcher) window.App.modules.launcher.init();
-    // Removed duplicate ball spawn here.
     // Show the game UI (it is hidden by default in the HTML)
     const ui = document.getElementById("ballfall-ui");
     if (ui) ui.style.display = "block";
-
+    // After sim starts, if auto-clicker upgrade is not purchased, show its button.
+    if (!App.config.autoClicker) {
+      var autoBtn = document.getElementById("autoClicker");
+      if (autoBtn) autoBtn.style.display = "inline";
+    }
     window.addEventListener("scroll", function updateCamera() {
       if (window.BallFall && window.BallFall.render) {
         Matter.Render.lookAt(window.BallFall.render, {

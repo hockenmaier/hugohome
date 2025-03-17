@@ -87,6 +87,14 @@ App.modules.base = (function () {
     const ballsList = [];
     // Expose spawnBall() for manual or auto-triggered spawning.
     function spawnBall() {
+      // On the first ball drop, hide auto-clicker and show drop rate indicator.
+      if (!window.BallFall.firstBallDropped) {
+        window.BallFall.firstBallDropped = true;
+        var autoBtn = document.getElementById("autoClicker");
+        var dropIndicator = document.getElementById("spawner-indicator");
+        if (autoBtn) autoBtn.style.display = "none";
+        if (dropIndicator) dropIndicator.style.display = "flex";
+      }
       const spawnX = window.scrollX + window.innerWidth / App.config.spawnX;
       const spawnY = 0;
       const ball = Bodies.circle(spawnX, spawnY, App.config.ballSize, {
@@ -105,6 +113,7 @@ App.modules.base = (function () {
       World.add(engine.world, ball);
       ballsList.push(ball);
     }
+
     window.BallFall.spawnBall = spawnBall;
 
     // Auto-spawner: not started until auto-clicker is purchased.

@@ -1788,22 +1788,26 @@ table {
   .bfui-icon {
     margin-right: 4px;
   }
-  #bfui-drop-rate-label {
+   
+  #clearBallsBtn {
+    margin: 0 auto;
+    display: block;
+  }
+   
+  #drop-rate-indicator {
+    display: none;
+    flex-direction: column;
+    text-align: center;
     font-size: 10px;
+    color: #fff;
+    margin-right: 10px;
+  }
+  #bfui-drop-rate-label {
     color: #aaa;
   }
   #bfui-drop-rate-value {
-    font-size: 10px;
     color: #fff;
     font-weight: bold;
-  }
-  #bfui-drop-rate-wrapper {
-    display: flex;
-    justify-content: center;
-    text-align: center;
-    width: 100%;
-    gap: 5px;
-    margin-bottom: 5px;
   }
   .bfui-clear-wrapper {
     display: flex;
@@ -1863,24 +1867,37 @@ table {
     .bfui-button .bfui-label {
       display: none;
     }
-    #bfui-drop-rate-wrapper {
-      flex-direction: column;
-      align-items: flex-start;
-      margin-top: -5px;
-    }
-    #bfui-drop-rate-label {
-      display: none;
-    }
   }
 </style>
 
 
 <div id="spawner-container">
+  
+  <div
+    id="spawner-indicator"
+    style="
+      display: none;
+      flex-direction: column;
+      text-align: center;
+      font-size: 10px;
+      color: #fff;
+      margin-right: 10px;
+    "
+  >
+    <span id="spawner-drop-rate-label" style="color: #aaa">Drop Rate:</span>
+    <span id="bfui-drop-rate-value">N/A</span>
+  </div>
+  
   <img src="/images/ball-spawner.png" id="ball-spawner"
-  alt="Ball Spawner" /> <img src="/images/up-arrow.png"
-  id="increaseSpeed" class="spawner-arrow" alt="Increase Speed" /> <img src="/images/down-arrow.png" id="decreaseSpeed" class="spawner-arrow"
-  alt="Decrease Speed" /> <img src="/images/auto-clicker.png"
-  id="autoClicker" class="upgrade-icon" alt="Auto Clicker" />
+  alt="Ball Spawner" />
+  
+  <img src="/images/up-arrow.png" id="increaseSpeed"
+  class="spawner-arrow" alt="Increase Speed" style="display:none;" /> <img
+  src="/images/down-arrow.png" id="decreaseSpeed"
+  class="spawner-arrow" alt="Decrease Speed" style="display:none;" />
+  
+  <img src="/images/auto-clicker.png" id="autoClicker"
+  class="upgrade-icon" alt="Auto Clicker" style="display:none;" />
 </div>
 
 
@@ -1890,10 +1907,7 @@ table {
   <button class="bfui-button" id="clearBallsBtn">
     <span class="bfui-label">Clear Field</span>
   </button>
-  <div id="bfui-drop-rate-wrapper">
-    <span id="bfui-drop-rate-label">Drop Rate:</span>
-    <span id="bfui-drop-rate-value">N/A</span>
-  </div>
+  
   <div id="coins-display">0 coins</div>
   <div
     id="toggle-container"
@@ -2085,6 +2099,101 @@ table {
       
       setInterval(updateDropRateDisplay, 1000);
     })();
+
+    document.addEventListener("DOMContentLoaded", function () {
+      
+      var spawner = document.getElementById("ball-spawner");
+      spawner.addEventListener("click", function () {
+        
+        setTimeout(function () {
+          if (!App.config.autoClicker) {
+            var autoBtn = document.getElementById("autoClicker");
+            if (autoBtn) {
+              autoBtn.style.display = "inline";
+            }
+          }
+        }, 100);
+      });
+
+      
+      var autoBtn = document.getElementById("autoClicker");
+      if (autoBtn) {
+        autoBtn.addEventListener("click", function (e) {
+          e.stopPropagation();
+          
+          if (App.config.coins >= App.config.autoClickerCost) {
+            App.config.coins -= App.config.autoClickerCost;
+            App.config.autoClicker = true;
+            
+            autoBtn.style.display = "none";
+            
+            var dropIndicator = document.getElementById("spawner-indicator");
+            var upArrow = document.getElementById("increaseSpeed");
+            var downArrow = document.getElementById("decreaseSpeed");
+            if (dropIndicator) dropIndicator.style.display = "flex";
+            if (upArrow) upArrow.style.display = "inline";
+            if (downArrow) downArrow.style.display = "inline";
+            if (typeof BaseDrawingTool !== "undefined") {
+              BaseDrawingTool.updateCoinsDisplay();
+            }
+            
+            var dropRateValue = document.getElementById("bfui-drop-rate-value");
+            if (dropRateValue) {
+              const interval =
+                window.BallFall.spawnInterval || App.config.spawnInterval;
+              const bps = 1000 / interval;
+              dropRateValue.textContent =
+                bps < 1
+                  ? `every ${(1 / bps).toFixed(1)}s`
+                  : `${bps.toFixed(1)}/s`;
+            }
+          } else {
+            if (typeof BaseDrawingTool !== "undefined") {
+              BaseDrawingTool.showInsufficientFunds();
+            }
+          }
+        });
+      }
+    });
+  </script>
+
+  
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const increaseBtn = document.getElementById("increaseSpeed"),
+        decreaseBtn = document.getElementById("decreaseSpeed"),
+        dropRateValue = document.getElementById("bfui-drop-rate-value");
+      if (increaseBtn) {
+        increaseBtn.addEventListener("click", function (e) {
+          e.stopPropagation();
+          
+          let newInterval = Math.max(100, App.config.spawnInterval - 200);
+          window.BallFall.updateSpawnInterval(newInterval);
+          if (dropRateValue) {
+            const bps = 1000 / newInterval;
+            dropRateValue.textContent =
+              bps < 1
+                ? `every ${(1 / bps).toFixed(1)}s`
+                : `${bps.toFixed(1)}/s`;
+          }
+        });
+      }
+      if (decreaseBtn) {
+        decreaseBtn.addEventListener("click", function (e) {
+          e.stopPropagation();
+          
+          let newInterval = App.config.spawnInterval + 200;
+          window.BallFall.updateSpawnInterval(newInterval);
+          if (dropRateValue) {
+            const bps = 1000 / newInterval;
+            dropRateValue.textContent =
+              bps < 1
+                ? `every ${(1 / bps).toFixed(1)}s`
+                : `${bps.toFixed(1)}/s`;
+          }
+        });
+      }
+    });
   </script>
 </div>
 

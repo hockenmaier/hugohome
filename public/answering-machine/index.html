@@ -1704,22 +1704,26 @@ table {
   .bfui-icon {
     margin-right: 4px;
   }
-  #bfui-drop-rate-label {
+   
+  #clearBallsBtn {
+    margin: 0 auto;
+    display: block;
+  }
+   
+  #drop-rate-indicator {
+    display: none;
+    flex-direction: column;
+    text-align: center;
     font-size: 10px;
+    color: #fff;
+    margin-right: 10px;
+  }
+  #bfui-drop-rate-label {
     color: #aaa;
   }
   #bfui-drop-rate-value {
-    font-size: 10px;
     color: #fff;
     font-weight: bold;
-  }
-  #bfui-drop-rate-wrapper {
-    display: flex;
-    justify-content: center;
-    text-align: center;
-    width: 100%;
-    gap: 5px;
-    margin-bottom: 5px;
   }
   .bfui-clear-wrapper {
     display: flex;
@@ -1779,24 +1783,36 @@ table {
     .bfui-button .bfui-label {
       display: none;
     }
-    #bfui-drop-rate-wrapper {
-      flex-direction: column;
-      align-items: flex-start;
-      margin-top: -5px;
-    }
-    #bfui-drop-rate-label {
-      display: none;
-    }
   }
 </style>
 
 
 <div id="spawner-container">
+  
+  <div
+    id="spawner-indicator"
+    style="
+      display: none;
+      flex-direction: column;
+      text-align: center;
+      font-size: 10px;
+      color: #fff;
+      margin-right: 10px;
+    "
+  >
+    <span id="spawner-drop-rate-label" style="color: #aaa">Drop Rate:</span>
+    <span id="spawner-drop-rate-value">N/A</span>
+  </div>
   <img src="/images/ball-spawner.png" id="ball-spawner"
-  alt="Ball Spawner" /> <img src="/images/up-arrow.png"
-  id="increaseSpeed" class="spawner-arrow" alt="Increase Speed" /> <img src="/images/down-arrow.png" id="decreaseSpeed" class="spawner-arrow"
-  alt="Decrease Speed" /> <img src="/images/auto-clicker.png"
-  id="autoClicker" class="upgrade-icon" alt="Auto Clicker" />
+  alt="Ball Spawner" />
+  
+  <img src="/images/up-arrow.png" id="increaseSpeed"
+  class="spawner-arrow" alt="Increase Speed" style="display:none;" /> <img
+  src="/images/down-arrow.png" id="decreaseSpeed"
+  class="spawner-arrow" alt="Decrease Speed" style="display:none;" />
+  
+  <img src="/images/auto-clicker.png" id="autoClicker"
+  class="upgrade-icon" alt="Auto Clicker" style="display:none;" />
 </div>
 
 
@@ -1806,10 +1822,7 @@ table {
   <button class="bfui-button" id="clearBallsBtn">
     <span class="bfui-label">Clear Field</span>
   </button>
-  <div id="bfui-drop-rate-wrapper">
-    <span id="bfui-drop-rate-label">Drop Rate:</span>
-    <span id="bfui-drop-rate-value">N/A</span>
-  </div>
+  
   <div id="coins-display">0 coins</div>
   <div
     id="toggle-container"
@@ -2001,6 +2014,36 @@ table {
       
       setInterval(updateDropRateDisplay, 1000);
     })();
+    document.addEventListener("DOMContentLoaded", function () {
+      
+      var autoBtn = document.getElementById("autoClicker");
+      if (autoBtn) {
+        autoBtn.addEventListener("click", function (e) {
+          e.stopPropagation();
+          
+          if (App.config.coins >= App.config.autoClickerCost) {
+            App.config.coins -= App.config.autoClickerCost;
+            App.config.autoClicker = true;
+            
+            autoBtn.style.display = "none";
+            
+            var dropIndicator = document.getElementById("spawner-indicator");
+            var upArrow = document.getElementById("increaseSpeed");
+            var downArrow = document.getElementById("decreaseSpeed");
+            if (dropIndicator) dropIndicator.style.display = "flex";
+            if (upArrow) upArrow.style.display = "inline";
+            if (downArrow) downArrow.style.display = "inline";
+            if (typeof BaseDrawingTool !== "undefined") {
+              BaseDrawingTool.updateCoinsDisplay();
+            }
+          } else {
+            if (typeof BaseDrawingTool !== "undefined") {
+              BaseDrawingTool.showInsufficientFunds();
+            }
+          }
+        });
+      }
+    });
   </script>
 </div>
 
