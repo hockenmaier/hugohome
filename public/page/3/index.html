@@ -1431,6 +1431,15 @@ table {
         fastLauncherBtn = document.getElementById("toggleFastLauncher"),
         instaLauncherBtn = document.getElementById("toggleInstaLauncher");
 
+      
+      const NOTIFICATION_STYLES = {
+        enableLinks: { color: "red", textDecoration: "line-through" },
+        disableLinks: { color: "gold", textDecoration: "none" },
+        unaffordable: { color: "red", textDecoration: "none" },
+      };
+      const FLASH_DURATION = 100,
+        FLASH_TIMES = 6;
+
       function updateDropRateDisplay() {
         const interval = window.BallFall.spawnInterval,
           bps = 1000 / interval;
@@ -1451,6 +1460,22 @@ table {
           fastLauncherBtn,
           instaLauncherBtn,
         ].forEach((btn) => btn.classList.remove("selected"));
+
+        
+        if (prevMode === "none" && newMode !== "none") {
+          flashAllLinks(
+            NOTIFICATION_STYLES.enableLinks,
+            FLASH_DURATION,
+            FLASH_TIMES
+          );
+        } else if (prevMode !== "none" && newMode === "none") {
+          flashAllLinks(
+            NOTIFICATION_STYLES.disableLinks,
+            FLASH_DURATION,
+            FLASH_TIMES
+          );
+        }
+
         if (
           newMode === "dotted" ||
           newMode === "straight" ||
@@ -1525,7 +1550,6 @@ table {
           "insta-launcher"
         );
       });
-      
       setInterval(updateDropRateDisplay, 1000);
     })();
   </script>

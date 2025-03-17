@@ -987,7 +987,8 @@ table {
   alt="Ball Spawner" /> <img src="/images/up-arrow.png"
   id="increaseSpeed" class="spawner-arrow" alt="Increase Speed" /> <img src="/images/down-arrow.png" id="decreaseSpeed" class="spawner-arrow"
   alt="Decrease Speed" /> <img src="/images/auto-clicker.png"
-  id="autoClicker" class="upgrade-icon" alt="Auto Clicker" />
+  id="autoClicker" class="upgrade-icon" alt="Auto Clicker" style="display:none;"
+  />
 </div>
 
 
@@ -1115,6 +1116,22 @@ table {
           fastLauncherBtn,
           instaLauncherBtn,
         ].forEach((btn) => btn.classList.remove("selected"));
+
+        
+        if (prevMode === "none" && newMode !== "none") {
+          flashAllLinks(
+            { color: "red", textDecoration: "line-through" },
+            100,
+            6
+          );
+        } else if (prevMode !== "none" && newMode === "none") {
+          flashAllLinks(
+            { color: "red", textDecoration: "line-through" },
+            100,
+            6
+          );
+        }
+
         if (
           newMode === "dotted" ||
           newMode === "straight" ||
@@ -1189,7 +1206,6 @@ table {
           "insta-launcher"
         );
       });
-      
       setInterval(updateDropRateDisplay, 1000);
     })();
   </script>

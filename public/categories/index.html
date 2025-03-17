@@ -1255,6 +1255,22 @@ table {
           fastLauncherBtn,
           instaLauncherBtn,
         ].forEach((btn) => btn.classList.remove("selected"));
+
+        
+        if (prevMode === "none" && newMode !== "none") {
+          flashAllLinks(
+            { color: "red", textDecoration: "line-through" },
+            100,
+            6
+          );
+        } else if (prevMode !== "none" && newMode === "none") {
+          flashAllLinks(
+            { color: "red", textDecoration: "line-through" },
+            100,
+            6
+          );
+        }
+
         if (
           newMode === "dotted" ||
           newMode === "straight" ||
@@ -1329,7 +1345,6 @@ table {
           "insta-launcher"
         );
       });
-      
       setInterval(updateDropRateDisplay, 1000);
     })();
   </script>
