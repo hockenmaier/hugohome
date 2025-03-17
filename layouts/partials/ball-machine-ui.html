@@ -285,12 +285,6 @@
         fastLauncherBtn = document.getElementById("toggleFastLauncher"),
         instaLauncherBtn = document.getElementById("toggleInstaLauncher");
 
-      // Notification style definitions for flashAllLinks.
-      const NOTIFICATION_STYLES = {
-        enableLinks: { color: "red", textDecoration: "line-through" },
-        disableLinks: { color: "gold", textDecoration: "none" },
-        unaffordable: { color: "red", textDecoration: "none" },
-      };
       const FLASH_DURATION = 100,
         FLASH_TIMES = 6;
 
@@ -315,20 +309,13 @@
           instaLauncherBtn,
         ].forEach((btn) => btn.classList.remove("selected"));
 
-        // Flash notifications based on toggle change.
-        if (prevMode === "none" && newMode !== "none") {
-          flashAllLinks(
-            NOTIFICATION_STYLES.enableLinks,
-            FLASH_DURATION,
-            FLASH_TIMES
-          );
-        } else if (prevMode !== "none" && newMode === "none") {
-          flashAllLinks(
-            NOTIFICATION_STYLES.disableLinks,
-            FLASH_DURATION,
-            FLASH_TIMES
-          );
-        }
+        // Call centralized notification logic for toggle changes.
+        window.notifyToggleChange(
+          prevMode,
+          newMode,
+          FLASH_DURATION,
+          FLASH_TIMES
+        );
 
         if (
           newMode === "dotted" ||

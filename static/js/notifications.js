@@ -1,4 +1,11 @@
 (function () {
+  // Notification style definitions.
+  const NOTIFICATION_STYLES = {
+    enableLinks: { color: "red", textDecoration: "line-through" },
+    disableLinks: { color: "gold", textDecoration: "none" },
+    unaffordable: { color: "red", textDecoration: "none" },
+  };
+
   function flashElementStyle(
     element,
     styleProps,
@@ -24,7 +31,7 @@
           element.style[prop] || window.getComputedStyle(element)[prop];
       });
     }
-    var count = 0;
+    let count = 0;
     element._flashInterval = setInterval(function () {
       count++;
       if (count % 2 === 1) {
@@ -59,6 +66,25 @@
     });
   }
 
+  // Consolidated notification logic for toggling tools.
+  // When a tool is enabled (prevMode "none" -> newMode non-"none"),
+  // flash using the enableLinks style.
+  // When a tool is disabled (prevMode non-"none" -> newMode "none"),
+  // flash using the disableLinks style.
+  function notifyToggleChange(prevMode, newMode, flashDuration, flashTimes) {
+    if (prevMode === "none" && newMode !== "none") {
+      flashAllLinks(NOTIFICATION_STYLES.enableLinks, flashDuration, flashTimes);
+    } else if (prevMode !== "none" && newMode === "none") {
+      flashAllLinks(
+        NOTIFICATION_STYLES.disableLinks,
+        flashDuration,
+        flashTimes
+      );
+    }
+  }
+
+  // Expose functions to the global scope.
   window.flashElementStyle = flashElementStyle;
   window.flashAllLinks = flashAllLinks;
+  window.notifyToggleChange = notifyToggleChange;
 })();

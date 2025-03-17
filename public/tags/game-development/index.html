@@ -1515,6 +1515,9 @@ table {
         fastLauncherBtn = document.getElementById("toggleFastLauncher"),
         instaLauncherBtn = document.getElementById("toggleInstaLauncher");
 
+      const FLASH_DURATION = 100,
+        FLASH_TIMES = 6;
+
       function updateDropRateDisplay() {
         const interval = window.BallFall.spawnInterval,
           bps = 1000 / interval;
@@ -1537,19 +1540,12 @@ table {
         ].forEach((btn) => btn.classList.remove("selected"));
 
         
-        if (prevMode === "none" && newMode !== "none") {
-          flashAllLinks(
-            { color: "red", textDecoration: "line-through" },
-            100,
-            6
-          );
-        } else if (prevMode !== "none" && newMode === "none") {
-          flashAllLinks(
-            { color: "red", textDecoration: "line-through" },
-            100,
-            6
-          );
-        }
+        window.notifyToggleChange(
+          prevMode,
+          newMode,
+          FLASH_DURATION,
+          FLASH_TIMES
+        );
 
         if (
           newMode === "dotted" ||
