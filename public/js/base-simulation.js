@@ -114,7 +114,7 @@ App.modules.base = (function () {
         window.BallFall.firstBallDropped = true;
         const autoBtn = document.getElementById("autoClicker");
         const dropIndicator = document.getElementById("spawner-indicator");
-        if (autoBtn) autoBtn.style.display = "none";
+        //if (autoBtn) autoBtn.style.display = "none";
         if (dropIndicator) dropIndicator.style.display = "flex";
       }
 
