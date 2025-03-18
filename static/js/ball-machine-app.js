@@ -34,7 +34,7 @@ window.App = {
         maxSpeed: 500,
       },
     },
-    coins: 5000000,
+    coins: 50,
     costs: {
       straight: 5,
       curved: 20,

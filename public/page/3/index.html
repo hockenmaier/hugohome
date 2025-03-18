@@ -1595,6 +1595,48 @@ table {
   })();
 </script>
 
+<script>
+  (function () {
+    function toggleActiveToolIfNoPreview() {
+      
+      var mode = window.App.modules.lines.getMode();
+      if (mode === "none") return;
+      if (mode === "straight") {
+        if (!window.StraightLineTool.previewLine) {
+          window.App.modules.lines.setMode("none");
+        }
+      } else if (mode === "curved") {
+        if (!window.CurvedLineTool.previewCompound) {
+          window.App.modules.lines.setMode("none");
+        }
+      } else if (mode === "launcher") {
+        if (
+          !LauncherCreateTool.launcherPreview &&
+          !LauncherCreateTool.previewLine &&
+          !LauncherCreateTool.arrowPreview
+        ) {
+          window.App.modules.lines.setMode("none");
+        }
+      } else if (mode === "dotted") {
+        if (!DottedLineTool.previewLine) {
+          window.App.modules.lines.setMode("none");
+        }
+      }
+    }
+
+    
+    document.addEventListener("click", function (e) {
+      
+      if (
+        e.target.closest("#ballfall-ui") ||
+        e.target.closest("#spawner-container")
+      ) {
+        toggleActiveToolIfNoPreview();
+      }
+    });
+  })();
+</script>
+
 
         <script>
           

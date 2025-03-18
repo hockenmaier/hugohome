@@ -447,3 +447,45 @@
     updateAutoClickerCostDisplay();
   })();
 </script>
+
+<script>
+  (function () {
+    function toggleActiveToolIfNoPreview() {
+      // Get the current mode from the lines module.
+      var mode = window.App.modules.lines.getMode();
+      if (mode === "none") return;
+      if (mode === "straight") {
+        if (!window.StraightLineTool.previewLine) {
+          window.App.modules.lines.setMode("none");
+        }
+      } else if (mode === "curved") {
+        if (!window.CurvedLineTool.previewCompound) {
+          window.App.modules.lines.setMode("none");
+        }
+      } else if (mode === "launcher") {
+        if (
+          !LauncherCreateTool.launcherPreview &&
+          !LauncherCreateTool.previewLine &&
+          !LauncherCreateTool.arrowPreview
+        ) {
+          window.App.modules.lines.setMode("none");
+        }
+      } else if (mode === "dotted") {
+        if (!DottedLineTool.previewLine) {
+          window.App.modules.lines.setMode("none");
+        }
+      }
+    }
+
+    // Attach a global listener for clicks on UI elements.
+    document.addEventListener("click", function (e) {
+      // If the click occurred inside the UI panel or spawner container, check for active tool.
+      if (
+        e.target.closest("#ballfall-ui") ||
+        e.target.closest("#spawner-container")
+      ) {
+        toggleActiveToolIfNoPreview();
+      }
+    });
+  })();
+</script>

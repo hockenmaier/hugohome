@@ -1510,6 +1510,7 @@ table {
   #spawner-container img {
     cursor: pointer;
   }
+   
   .spawner-arrow {
     width: 30px;
     height: 30px;
@@ -1633,11 +1634,19 @@ table {
 
 <div id="spawner-container">
   <img src="/images/ball-chute-hatch-1.png" id="ball-spawner"
-  alt="Ball Spawner" /> <img src="/images/up-arrow.png"
-  id="increaseSpeed" class="spawner-arrow" alt="Increase Speed" /> <img src="/images/down-arrow.png" id="decreaseSpeed" class="spawner-arrow"
-  alt="Decrease Speed" /> <img src="/images/auto-clicker.png"
-  id="autoClicker" class="upgrade-icon" alt="Auto Clicker" style="display:none;"
-  />
+  alt="Ball Spawner" />
+  
+  <div
+    id="autoClicker-wrapper"
+    style="display: inline-block; text-align: center"
+  >
+    <img src="/images/auto-clicker.png" id="autoClicker"
+    class="upgrade-icon" alt="Auto Clicker" style="display:none;" />
+    
+    <div id="autoClickerCost" class="cost-label" style="display: none">
+      <img src="/images/coin-cost.png" alt="Coin" /> 20
+    </div>
+  </div>
 </div>
 
 
@@ -1855,6 +1864,50 @@ table {
     })();
   </script>
 </div>
+
+<script>
+  
+  (function () {
+    
+    function updateAutoClickerCostDisplay() {
+      var nextLevel = App.config.maxUnlockedSpeedLevel + 1;
+      var cost = App.config.speedUpgradeCosts[nextLevel];
+      var costEl = document.getElementById("autoClickerCost");
+      if (costEl) {
+        costEl.innerHTML =
+          '<img src="\/images\/coin-cost.png" alt="Coin" /> ' +
+          cost;
+      }
+    }
+
+    var autoClickerBtn = document.getElementById("autoClicker");
+    if (autoClickerBtn) {
+      autoClickerBtn.addEventListener("click", function () {
+        var nextLevel = App.config.maxUnlockedSpeedLevel + 1;
+        var cost = App.config.speedUpgradeCosts[nextLevel];
+        if (App.config.coins >= cost) {
+          App.config.coins -= cost;
+          App.config.maxUnlockedSpeedLevel = nextLevel;
+          
+          var newInterval =
+            App.config.originalSpawnInterval / Math.pow(2, nextLevel);
+          window.BallFall.updateSpawnInterval(newInterval);
+          
+          if (!App.config.autoClicker) {
+            App.config.autoClicker = true;
+            window.BallFall.startAutoSpawner();
+          }
+          BaseDrawingTool.updateCoinsDisplay();
+          updateAutoClickerCostDisplay();
+        } else {
+          window.notifyUnaffordable(100, 12);
+        }
+      });
+    }
+    
+    updateAutoClickerCostDisplay();
+  })();
+</script>
 
 
         <script>

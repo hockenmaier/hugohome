@@ -308,41 +308,48 @@ App.modules.lines = (function () {
     (e) => {
       if (window.matchMedia && window.matchMedia("(pointer: coarse)").matches)
         return;
-      // Ignore clicks originating from UI toggle elements to prevent triggering tool actions
+
+      // Always ignore clicks from the toggle container.
       if (e.target.closest("#toggle-container")) return;
-      if (
-        window.App &&
-        window.App.modules &&
-        window.App.modules.lines &&
-        window.App.modules.lines.getMode() !== "none"
-      ) {
-        var linkEl = e.target.closest("a");
-        if (linkEl) {
-          e.preventDefault();
+
+      const tool = getActiveTool();
+      // Determine if the click originated from UI elements.
+      const uiElement =
+        e.target.closest("#ballfall-ui") ||
+        e.target.closest("#spawner-container");
+
+      // For link clicks, do flash effects if the click is allowed.
+      const linkEl = e.target.closest("a");
+      if (linkEl && (!uiElement || (uiElement && tool && tool.state !== 0))) {
+        e.preventDefault();
+        flashElementStyle(
+          linkEl,
+          ["color", "textDecoration"],
+          { color: "red", textDecoration: "line-through" },
+          100,
+          6
+        );
+        const toggleGroup = document.getElementById("toggle-container");
+        if (toggleGroup) {
           flashElementStyle(
-            linkEl,
-            ["color", "textDecoration"],
-            { color: "red", textDecoration: "line-through" },
+            toggleGroup,
+            ["border"],
+            { border: "2px solid red" },
             100,
             6
           );
-          var toggleGroup = document.getElementById("toggle-container");
-          if (toggleGroup) {
-            flashElementStyle(
-              toggleGroup,
-              ["border"],
-              { border: "2px solid red" },
-              100,
-              6
-            );
-          }
         }
-        const clickX = e.pageX,
-          clickY = e.pageY;
-        let tool = getActiveTool();
-        if (tool && typeof tool.onClick === "function") {
-          tool.onClick(clickX, clickY);
-        }
+      }
+
+      // If the click is from a UI element and no drawing is in progress, do nothing.
+      if (uiElement && (!tool || tool.state === 0)) {
+        return;
+      }
+
+      const clickX = e.pageX,
+        clickY = e.pageY;
+      if (tool && typeof tool.onClick === "function") {
+        tool.onClick(clickX, clickY);
       }
     },
     true
