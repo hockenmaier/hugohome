@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", function () {
   function positionSpawner() {
     const container = document.getElementById("spawner-container");
     if (!container) return;
-    const xPos = window.innerWidth / App.config.spawnX - 1;
+    const xPos = window.innerWidth / App.config.spawnX + 5;
     container.style.left = xPos - container.offsetWidth / 2 + "px";
   }
   positionSpawner();
@@ -38,8 +38,15 @@ document.addEventListener("DOMContentLoaded", function () {
         App.config.coins -= App.config.autoClickerCost;
         BaseDrawingTool.updateCoinsDisplay();
         App.config.autoClicker = true;
-        document.getElementById("increaseSpeed").style.display = "block";
-        document.getElementById("decreaseSpeed").style.display = "block";
+        var incBtn = document.getElementById("increaseSpeed");
+        if (incBtn) {
+          incBtn.style.display = "none";
+        }
+        var decBtn = document.getElementById("decreaseSpeed");
+        if (decBtn) {
+          decBtn.style.display = "none";
+        }
+
         window.BallFall.startAutoSpawner();
       } else {
         flashElementStyle(

@@ -8,8 +8,7 @@ window.App = {
     gravity: 0.75,
     timeScale: 0.82,
     restitution: 0.95,
-    spawnX: 1.5, // x axis spawn point: 1/spawnX is the fraction of the screen width
-    spawnManual: 7, // Position for manual click-to-spawn, similar rules to auto-spawner
+    spawnX: 1.3, // x axis spawn point: 1/spawnX is the fraction of the screen width
     ballSize: 7,
     sitStillDeleteSeconds: 3,
     sitStillDeleteMargin: 1,
@@ -35,7 +34,7 @@ window.App = {
         maxSpeed: 500,
       },
     },
-    coins: 50000,
+    coins: 5000000,
     costs: {
       straight: 5,
       curved: 20,
@@ -52,11 +51,13 @@ window.App = {
       2: 100,
       3: 200,
       4: 400,
-      5: 800,
-      6: 1600,
-      7: 3200,
-      8: 6400,
-      9: 12800,
+      5: 1600,
+      6: 3200,
+      7: 6400,
+      8: 12800,
+      9: 25600,
+      10: 51200,
+      11: 100000,
     }, // Upgrades: x2, x4, x8, etc.
     maxUnlockedSpeedLevel: 0, // Initially 0; increases with upgrades
     autoClicker: false, // Flag set when auto-clicker is purchased
@@ -79,9 +80,13 @@ window.App = {
     const ui = document.getElementById("ballfall-ui");
     if (ui) ui.style.display = "block";
 
-    // Show auto clicker upgrade button after simulation loads.
+    // Show auto clicker upgrade button and its cost only after simulation loads.
     const autoClickerBtn = document.getElementById("autoClicker");
-    if (autoClickerBtn) autoClickerBtn.style.display = "block";
+    if (autoClickerBtn) {
+      autoClickerBtn.style.display = "block";
+      const autoClickerCost = document.getElementById("autoClickerCost");
+      if (autoClickerCost) autoClickerCost.style.display = "block";
+    }
 
     window.addEventListener("scroll", function updateCamera() {
       if (window.BallFall && window.BallFall.render) {

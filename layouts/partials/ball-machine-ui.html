@@ -49,6 +49,7 @@
   #spawner-container img {
     cursor: pointer;
   }
+  /* Removed .spawner-arrow display so only auto-clicker remains */
   .spawner-arrow {
     width: 30px;
     height: 30px;
@@ -172,12 +173,19 @@
 <!-- Spawner Container -->
 <div id="spawner-container">
   <img src="{{ "images/ball-chute-hatch-1.png" | relURL }}" id="ball-spawner"
-  alt="Ball Spawner" /> <img src="{{ "images/up-arrow.png" | relURL }}"
-  id="increaseSpeed" class="spawner-arrow" alt="Increase Speed" /> <img src="{{
-  "images/down-arrow.png" | relURL }}" id="decreaseSpeed" class="spawner-arrow"
-  alt="Decrease Speed" /> <img src="{{ "images/auto-clicker.png" | relURL }}"
-  id="autoClicker" class="upgrade-icon" alt="Auto Clicker" style="display:none;"
-  />
+  alt="Ball Spawner" />
+  <!-- Removed up and down arrows; auto-clicker now handles upgrades -->
+  <div
+    id="autoClicker-wrapper"
+    style="display: inline-block; text-align: center"
+  >
+    <img src="{{ "images/auto-clicker.png" | relURL }}" id="autoClicker"
+    class="upgrade-icon" alt="Auto Clicker" style="display:none;" />
+    <!-- Hide cost label by default -->
+    <div id="autoClickerCost" class="cost-label" style="display: none">
+      <img src="{{ "images/coin-cost.png" | relURL }}" alt="Coin" /> 20
+    </div>
+  </div>
 </div>
 
 <!-- Existing UI panel remains (coins, toggle, etc.) -->
@@ -395,3 +403,47 @@
     })();
   </script>
 </div>
+
+<script>
+  // New auto-clicker upgrade functionality.
+  (function () {
+    // Updates the cost label below the auto-clicker button.
+    function updateAutoClickerCostDisplay() {
+      var nextLevel = App.config.maxUnlockedSpeedLevel + 1;
+      var cost = App.config.speedUpgradeCosts[nextLevel];
+      var costEl = document.getElementById("autoClickerCost");
+      if (costEl) {
+        costEl.innerHTML =
+          '<img src="{{ "images/coin-cost.png" | relURL }}" alt="Coin" /> ' +
+          cost;
+      }
+    }
+
+    var autoClickerBtn = document.getElementById("autoClicker");
+    if (autoClickerBtn) {
+      autoClickerBtn.addEventListener("click", function () {
+        var nextLevel = App.config.maxUnlockedSpeedLevel + 1;
+        var cost = App.config.speedUpgradeCosts[nextLevel];
+        if (App.config.coins >= cost) {
+          App.config.coins -= cost;
+          App.config.maxUnlockedSpeedLevel = nextLevel;
+          // Upgrade: reduce spawnInterval by factor of 2 per level.
+          var newInterval =
+            App.config.originalSpawnInterval / Math.pow(2, nextLevel);
+          window.BallFall.updateSpawnInterval(newInterval);
+          // Enable auto-spawning on first purchase.
+          if (!App.config.autoClicker) {
+            App.config.autoClicker = true;
+            window.BallFall.startAutoSpawner();
+          }
+          BaseDrawingTool.updateCoinsDisplay();
+          updateAutoClickerCostDisplay();
+        } else {
+          window.notifyUnaffordable(100, 12);
+        }
+      });
+    }
+    // Initial update.
+    updateAutoClickerCostDisplay();
+  })();
+</script>
