@@ -302,7 +302,7 @@ App.modules.lines = (function () {
       e.preventDefault();
     }
   });
-
+  // Consolidated desktop event handlers.
   document.addEventListener(
     "click",
     (e) => {
@@ -318,9 +318,9 @@ App.modules.lines = (function () {
         e.target.closest("#ballfall-ui") ||
         e.target.closest("#spawner-container");
 
-      // For link clicks, do flash effects if the click is allowed.
       const linkEl = e.target.closest("a");
-      if (linkEl && (!uiElement || (uiElement && tool && tool.state !== 0))) {
+      // If a link is clicked outside UI and a drawing tool is selected, always block and notify.
+      if (linkEl && !uiElement && tool) {
         e.preventDefault();
         flashElementStyle(
           linkEl,
