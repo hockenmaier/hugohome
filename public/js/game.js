@@ -1,9 +1,3 @@
-/*
- * game.js - High-level game management.
- * Spawns the goal object randomly on the page and attaches its behavior (defined in goal.js).
- * It waits until text colliders are present and ensures the goal is fully within document boundaries,
- * does not overlap any existing collider (including text colliders), and is at least 50px from the top.
- */
 (function () {
   let goalSpawned = false;
 
@@ -14,21 +8,30 @@
       Composite = Matter.Composite,
       world = window.BallFall.world,
       goalWidth = 40,
-      goalHeight = 40,
-      pageWidth = document.body.scrollWidth,
-      pageHeight = document.body.scrollHeight,
-      // Ensure the goal's edges remain within the page.
-      minX = goalWidth / 2,
-      maxX = pageWidth - goalWidth / 2,
-      // Ensure the goal is at least 200px from the top so we can build up a little speed:
-      minY = 200 + goalHeight / 2,
+      goalHeight = 40;
+
+    // Use viewport dimensions on mobile; full page on desktop.
+    let pageWidth, pageHeight, minY;
+    if (window.innerWidth < 720) {
+      pageWidth = window.innerWidth;
+      pageHeight = window.innerHeight;
+      // Allow the goal to spawn anywhere vertically on mobile.
+      minY = 150 + goalHeight / 2;
+    } else {
+      pageWidth = document.body.scrollWidth;
+      pageHeight = document.body.scrollHeight;
+      // Ensure the goal is at least 200px from the top on desktop.
+      minY = 200 + goalHeight / 2;
+    }
+    const maxX = pageWidth - goalWidth / 2,
       maxY = pageHeight - goalHeight / 2,
       maxAttempts = 100;
     let attempt = 0,
       candidate;
 
     do {
-      const x = Math.random() * (maxX - minX) + minX;
+      // For x, ensure candidate is at least half goalWidth from left.
+      const x = Math.random() * (maxX - goalWidth / 2) + goalWidth / 2;
       const y = Math.random() * (maxY - minY) + minY;
       candidate = Bodies.circle(x, y, goalWidth / 2, {
         isStatic: true,
@@ -52,7 +55,7 @@
       for (let b of bodies) {
         if (b === candidate) continue;
         if (b.isStatic && b.label !== "BallFallBall" && b.label !== "Goal") {
-          // For text colliders (SPAN), use bounding-box overlap.
+          // On desktop, avoid overlapping text colliders.
           if (b.elRef && b.elRef.tagName === "SPAN") {
             if (Matter.Bounds.overlaps(candidate.bounds, b.bounds)) {
               collides = true;
@@ -79,8 +82,12 @@
     goalSpawned = true;
   }
 
-  // Waits until at least one text collider (a body with an elRef referencing a SPAN) exists.
+  // Waits for text colliders—but on mobile text colliders aren’t built, so call callback immediately.
   function waitForTextColliders(callback) {
+    if (window.innerWidth < 720) {
+      callback();
+      return;
+    }
     const Composite = Matter.Composite,
       world = window.BallFall.world;
     const bodies = Composite.allBodies(world);
