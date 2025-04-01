@@ -29,6 +29,15 @@ App.modules.lines = (function () {
       mode !== "dotted"
     )
       DottedLineTool.cancel();
+
+    // Lock scrolling on mobile when a drawing tool is active.
+    if (window.innerWidth < 720) {
+      if (newMode !== "none") {
+        document.body.style.overflow = "hidden";
+      } else {
+        document.body.style.overflow = "";
+      }
+    }
   }
 
   function getMode() {
