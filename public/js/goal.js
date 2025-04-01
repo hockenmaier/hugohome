@@ -28,19 +28,11 @@
             // Remove the ball and update coins if the impact is strong enough
             Matter.World.remove(window.BallFall.world, other);
             App.config.coins++;
-            updateCoinDisplay();
+            window.App.updateCoinsDisplay();
           }
         }
       }
     });
-  }
-
-  // Updates the coin display element in the UI.
-  function updateCoinDisplay() {
-    const coinEl = document.getElementById("coins-display");
-    if (coinEl) {
-      coinEl.textContent = App.config.coins + " coins";
-    }
   }
 
   // Expose the attach method as part of the module.

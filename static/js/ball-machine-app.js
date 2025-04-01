@@ -34,7 +34,7 @@ window.App = {
         maxSpeed: 500,
       },
     },
-    coins: 5000000,
+    coins: 25, //Default for when app first loads and there's no storage
     costs: {
       straight: 5,
       curved: 20,
@@ -115,3 +115,37 @@ if (document.readyState === "loading") {
 } else {
   initApp();
 }
+
+// --- Begin persistent storage module and update functions ---
+if (window.localStorage) {
+  // Initialize persistent coins using our new storage module
+  // If a saved value exists, load it; otherwise, save the default value.
+  App.Storage = {
+    namespace: "game",
+    getKey: function (itemName) {
+      return this.namespace + "." + itemName;
+    },
+    getItem: function (itemName, defaultValue) {
+      var key = this.getKey(itemName);
+      var val = localStorage.getItem(key);
+      return val !== null ? JSON.parse(val) : defaultValue;
+    },
+    setItem: function (itemName, value) {
+      var key = this.getKey(itemName);
+      localStorage.setItem(key, JSON.stringify(value));
+    },
+  };
+
+  // Load coins from persistent storage or use default
+  App.config.coins = App.Storage.getItem("coins", App.config.coins);
+}
+
+App.updateCoinsDisplay = function () {
+  const display = document.getElementById("coins-display");
+  if (display) display.textContent = `${App.config.coins} coins`;
+  if (App.Storage) {
+    App.Storage.setItem("coins", App.config.coins);
+    //App.Storage.setItem("coins", 2000); //Use for adding coins to storage
+  }
+};
+// --- End persistent storage module and update functions ---
