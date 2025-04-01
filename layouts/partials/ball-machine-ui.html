@@ -260,24 +260,6 @@
     // Existing UI button event listeners (clear field, line toggles, drop rate display, etc.)
 
     (function () {
-      const dropRateValue = document.getElementById("bfui-drop-rate-value");
-      function updateDropRateDisplay() {
-        if (
-          !App.simulationLoaded ||
-          !window.BallFall ||
-          !window.BallFall.spawnInterval
-        ) {
-          dropRateValue.textContent = "N/A";
-          return;
-        }
-        const interval = window.BallFall.spawnInterval,
-          bps = 1000 / interval;
-        dropRateValue.textContent =
-          bps < 1 ? `every ${(1 / bps).toFixed(1)}s` : `${bps.toFixed(1)}/s`;
-      }
-      setInterval(updateDropRateDisplay, 1000);
-
-      // Ensure no drawing tool is active on load.
       if (window.App && window.App.modules && window.App.modules.lines) {
         window.App.modules.lines.setMode("none");
       }
@@ -297,6 +279,13 @@
         FLASH_TIMES = 6;
 
       function updateDropRateDisplay() {
+        if (
+          !window.BallFall ||
+          typeof window.BallFall.spawnInterval === "undefined"
+        ) {
+          dropRateValue.textContent = "N/A";
+          return;
+        }
         const interval = window.BallFall.spawnInterval,
           bps = 1000 / interval;
         dropRateValue.textContent =
