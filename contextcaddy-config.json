@@ -18,7 +18,10 @@
         "static\\js\\goal.js": true,
         "static\\js\\curved-line.js": true,
         "static\\js\\dotted-line.js": true,
-        "static\\js\\spawner.js": true
+        "static\\js\\spawner.js": true,
+        "content\\context-caddy.md": true,
+        "content\\postman-for-pms.md": true,
+        "content\\land-war.md": true
       },
       "prePrompt": "This is part of a little fun physics simulation game that runs on top of my hugo cms personal website, which runs the paige theme.  Baseof is how the files are inserted into the rest of the site. When giving back changes, it's best when reasonable to return a whole file to replace.  If not, choose an entire code block like a few consecutive methods wherever possible for easy replacement. But whatever you do, DO NOT alter contents you aren't intending to, including removing existing comments.  This change may SEEM simple, but there is a lot of nested complexity to this project, and you need to consider all modifications and edge cases you can.  So that I can understand your changes, always explain what you're doing and briefly why at the start of your final response.  When rewriting a file or function, KEEP any descriptive comments that are currently there such as in app.js annotating what each variable does.  I can’t keep and will reject changes if they don’t maintain existing comments. Here are most of the relevant files, but let me know if you need more context:",
       "includeFileTree": true

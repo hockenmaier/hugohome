@@ -285,10 +285,8 @@
     </div>
 
 <p>Well, really, o3-mini and o3-mini-high worked together to write this and I corrected a few things here and there. I started using this tool to write itself about 30 mins into development!</p>
-<p>Download on github <a href="https://github.com/hockenmaier/context-caddy">https://github.com/hockenmaier/context-caddy</a>
-Or the VScode marketplace:
-<a href="https://marketplace.visualstudio.com/manage/publishers/hockenmaier/extensions/context-caddy/hub?_a=acquisition">https://marketplace.visualstudio.com/manage/publishers/hockenmaier/extensions/context-caddy/hub?_a=acquisition</a></p>
-<p>And reminder - if you are writing code for a company NEVER put code into an AI model that company doesn’t approve :)</p>
+<p>Download on github (above) or the VScode marketplace:</p>
+<p><a href="https://marketplace.visualstudio.com/items?itemName=Hockenmaier.context-caddy">https://marketplace.visualstudio.com/items?itemName=Hockenmaier.context-caddy</a></p>
 <hr>
 ]]></description>
                 

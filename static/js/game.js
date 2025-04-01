@@ -16,12 +16,12 @@
       pageWidth = window.innerWidth;
       pageHeight = window.innerHeight;
       // Allow the goal to spawn anywhere vertically on mobile.
-      minY = 150 + goalHeight / 2;
+      minY = 500 + goalHeight / 2;
     } else {
       pageWidth = document.body.scrollWidth;
       pageHeight = document.body.scrollHeight;
       // Ensure the goal is at least 200px from the top on desktop.
-      minY = 200 + goalHeight / 2;
+      minY = 300 + goalHeight / 2;
     }
     const maxX = pageWidth - goalWidth / 2,
       maxY = pageHeight - goalHeight / 2,
