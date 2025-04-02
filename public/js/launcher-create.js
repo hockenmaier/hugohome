@@ -39,6 +39,7 @@ window.LauncherCreateTool = {
       this.finish(x, y);
       const cost = App.config.costs[this.selectedType];
       new BaseDrawingTool(this.selectedType, cost).charge();
+      if (App.savePlacedObjects) App.savePlacedObjects();
     }
   },
 
@@ -173,6 +174,7 @@ window.LauncherCreateTool = {
       this.finish(x, y);
       const cost = App.config.costs[this.selectedType];
       new BaseDrawingTool(this.selectedType, cost).charge();
+      if (App.savePlacedObjects) App.savePlacedObjects();
     }
   },
 };

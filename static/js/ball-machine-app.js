@@ -99,6 +99,11 @@ window.App = {
         });
       }
     });
+
+    // Load persisted objects so placed items appear in their saved positions.
+    if (App.Storage && typeof App.loadPlacedObjects === "function") {
+      App.loadPlacedObjects();
+    }
   },
 
   init: function () {
@@ -149,3 +154,116 @@ App.updateCoinsDisplay = function () {
   }
 };
 // --- End persistent storage module and update functions ---
+
+// --- Begin persistent object storage module ---
+// These methods save/load placed objects (lines, goals, etc.) per page using localStorage.
+// Objects are gathered from the physics world based on a persistent flag (or known labels).
+App.savePlacedObjects = function () {
+  var objects = [];
+  if (window.BallFall && window.BallFall.world) {
+    var bodies = Matter.Composite.allBodies(window.BallFall.world);
+    bodies.forEach(function (body) {
+      // Check for persistent objects by flag or by known user-placed labels.
+      if (
+        body.isPersistent ||
+        body.isLine ||
+        ["Goal", "Launcher", "DottedLine", "CurvedLine"].includes(body.label)
+      ) {
+        var obj = {
+          label: body.label,
+          position: { x: body.position.x, y: body.position.y },
+          angle: body.angle,
+        };
+        if (body.bounds) {
+          obj.bounds = {
+            min: { x: body.bounds.min.x, y: body.bounds.min.y },
+            max: { x: body.bounds.max.x, y: body.bounds.max.y },
+          };
+        }
+        if (body.circleRadius) {
+          obj.circleRadius = body.circleRadius;
+        }
+        if (body.health !== undefined) {
+          obj.health = body.health;
+        }
+        objects.push(obj);
+      }
+    });
+  }
+  App.Storage.setItem("pageObjects_" + window.location.pathname, objects);
+};
+
+App.loadPlacedObjects = function () {
+  var objects = App.Storage.getItem(
+    "pageObjects_" + window.location.pathname,
+    null
+  );
+  if (!objects) return;
+  // Remove any existing persistent objects from the world
+  if (window.BallFall && window.BallFall.world) {
+    var bodies = Matter.Composite.allBodies(window.BallFall.world);
+    bodies.forEach(function (body) {
+      if (
+        body.isPersistent ||
+        body.isLine ||
+        ["Goal", "Launcher", "DottedLine", "CurvedLine"].includes(body.label)
+      ) {
+        Matter.World.remove(window.BallFall.world, body);
+      }
+    });
+  }
+  // Recreate objects from saved data
+  objects.forEach(function (obj) {
+    var newBody;
+    if (obj.label === "Goal") {
+      newBody = Matter.Bodies.circle(
+        obj.position.x,
+        obj.position.y,
+        obj.circleRadius || 20,
+        {
+          isStatic: true,
+          isSensor: true,
+          label: "Goal",
+          render: {
+            sprite: {
+              texture: goalTexture,
+              xScale: ((obj.circleRadius || 20) * 2) / 100,
+              yScale: ((obj.circleRadius || 20) * 2) / 100,
+            },
+            visible: true,
+          },
+        }
+      );
+    } else {
+      // For lines and similar objects, use rectangle.
+      var width = 0,
+        height = 0;
+      if (obj.bounds) {
+        width = obj.bounds.max.x - obj.bounds.min.x;
+        height = obj.bounds.max.y - obj.bounds.min.y;
+      }
+      newBody = Matter.Bodies.rectangle(
+        obj.position.x,
+        obj.position.y,
+        width || 100,
+        height || App.config.lineThickness,
+        {
+          isStatic: true,
+          angle: obj.angle,
+          label: obj.label,
+          render: {
+            fillStyle: obj.label === "DottedLine" ? "#a8328d" : "#956eff",
+            strokeStyle: obj.label === "DottedLine" ? "#a8328d" : "#956eff",
+            lineWidth: 1,
+          },
+        }
+      );
+      if (obj.health !== undefined) {
+        newBody.health = obj.health;
+      }
+    }
+    newBody.isPersistent = true;
+    Matter.World.add(window.BallFall.world, newBody);
+  });
+};
+// --- End persistent object storage module ---

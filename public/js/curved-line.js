@@ -20,6 +20,7 @@ window.CurvedLineTool = {
     } else if (this.state === 2) {
       this.finish(x, y);
       new BaseDrawingTool("curved", App.config.costs.curved).charge();
+      if (App.savePlacedObjects) App.savePlacedObjects();
     }
   },
 
@@ -207,6 +208,7 @@ window.CurvedLineTool = {
       // Second session: use current pointer as control to finalize the curve.
       this.finish(x, y);
       new BaseDrawingTool("curved", App.config.costs.curved).charge();
+      if (App.savePlacedObjects) App.savePlacedObjects();
     }
   },
 };

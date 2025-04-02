@@ -151,7 +151,6 @@ App.modules.lines = (function () {
     requestAnimationFrame(updatePulse);
   }
   updatePulse();
-
   // Existing StraightLineTool definition remains unchanged...
   const StraightLineTool = {
     state: 0,
@@ -169,6 +168,8 @@ App.modules.lines = (function () {
       } else {
         this.finish(x, y);
         tool.charge();
+        // Save the placed line persistently
+        if (App.savePlacedObjects) App.savePlacedObjects();
       }
     },
 
@@ -232,7 +233,14 @@ App.modules.lines = (function () {
         }
       );
       Matter.World.add(window.BallFall.world, lineBody);
-      addLine(lineBody);
+      // Mark as a persistent, user-placed object.
+      lineBody.isPersistent = true;
+      if (
+        window.App.modules.lines &&
+        typeof window.App.modules.lines.addLine === "function"
+      ) {
+        window.App.modules.lines.addLine(lineBody);
+      }
       this.state = 0;
       this.firstPoint = null;
     },
@@ -253,6 +261,7 @@ App.modules.lines = (function () {
     onTouchEnd(x, y) {
       this.finish(x, y);
       new BaseDrawingTool("straight", App.config.costs.straight).charge();
+      if (App.savePlacedObjects) App.savePlacedObjects();
     },
   };
 

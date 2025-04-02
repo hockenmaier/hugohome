@@ -108,6 +108,7 @@
       }
       this.state = 0;
       this.firstPoint = null;
+      if (App.savePlacedObjects) App.savePlacedObjects();
     },
     cancel() {
       if (this.previewLine) {
@@ -151,6 +152,7 @@
           } else {
             Matter.World.remove(window.BallFall.world, dottedLine);
           }
+          if (App.savePlacedObjects) App.savePlacedObjects();
         }
       });
     });
