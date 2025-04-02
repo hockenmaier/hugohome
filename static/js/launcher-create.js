@@ -106,18 +106,13 @@ window.LauncherCreateTool = {
       Matter.World.remove(window.BallFall.world, this.previewLine);
       this.previewLine = null;
     }
-    if (this.arrowPreview) {
-      Matter.World.remove(window.BallFall.world, this.arrowPreview);
-      this.arrowPreview = null;
-    }
     const dx = x - this.startPoint.x,
       dy = y - this.startPoint.y,
       distance = Math.sqrt(dx * dx + dy * dy),
       angle = Math.atan2(dy, dx);
-    // Clamp distance to maxSpeed from config
+    // Clamp distance based on maxSpeed.
     const maxSpeed = App.config.launcherTypes[this.selectedType].maxSpeed;
     const clampedDistance = Math.min(distance, maxSpeed);
-
     Matter.Body.setAngle(this.launcherPreview, angle);
     const forceScale = 0.05;
     this.launcherPreview.launchForce = {
@@ -126,15 +121,18 @@ window.LauncherCreateTool = {
     };
     this.launcherPreview.delay =
       App.config.launcherTypes[this.selectedType].delay;
-    // Optionally store maxSpeed on launcherPreview for later use
     this.launcherPreview.maxSpeed = maxSpeed;
     this.launcherPreview.isPreview = false;
-    if (this.launcherPreview.render && this.launcherPreview.render.sprite) {
-      this.launcherPreview.render.opacity = 1;
-    }
     if (App.modules.lines && typeof App.modules.lines.addLine === "function") {
       App.modules.lines.addLine(this.launcherPreview);
     }
+    // Save launcher persistence data.
+    App.Persistence.saveLauncher({
+      type: "launcher",
+      selectedType: this.selectedType,
+      startPoint: this.startPoint,
+      endPoint: { x: x, y: y },
+    });
     this.launcherPreview = null;
     this.state = 0;
     this.startPoint = null;

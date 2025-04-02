@@ -2,6 +2,7 @@
 // (existing comments preserved)
 App.modules.lines = (function () {
   let mode = "straight";
+  let lastFinishTime = 0; // NEW: Timestamp of last finish to block immediate new click
 
   function setMode(newMode) {
     mode = newMode;
@@ -30,7 +31,6 @@ App.modules.lines = (function () {
     )
       DottedLineTool.cancel();
 
-    // Lock scrolling on mobile when a drawing tool is active.
     if (window.innerWidth < 720) {
       if (newMode !== "none") {
         document.body.style.overflow = "hidden";
@@ -152,7 +152,7 @@ App.modules.lines = (function () {
   }
   updatePulse();
 
-  // Existing StraightLineTool definition remains unchanged...
+  // StraightLineTool definition with modified finish().
   const StraightLineTool = {
     state: 0,
     firstPoint: null,
@@ -171,7 +171,6 @@ App.modules.lines = (function () {
         tool.charge();
       }
     },
-
     onMove(x, y) {
       if (this.state !== 1) return;
       this.updatePreview(x, y);
@@ -233,8 +232,16 @@ App.modules.lines = (function () {
       );
       Matter.World.add(window.BallFall.world, lineBody);
       addLine(lineBody);
+      // Persist the straight line using its endpoints.
+      App.Persistence.saveLine({
+        type: "straight",
+        p1: this.firstPoint,
+        p2: { x: x, y: y },
+      });
       this.state = 0;
       this.firstPoint = null;
+      // Mark the finish time to block immediate new clicks.
+      lastFinishTime = Date.now();
     },
     cancel() {
       if (this.previewLine) {
@@ -272,7 +279,7 @@ App.modules.lines = (function () {
     }
   }
 
-  // Consolidated desktop event handlers.
+  // Global desktop event handlers.
   document.addEventListener("mousemove", (e) => {
     const mouseX = e.pageX,
       mouseY = e.pageY;
@@ -311,24 +318,20 @@ App.modules.lines = (function () {
       e.preventDefault();
     }
   });
-  // Consolidated desktop event handlers.
+
+  // Global click handler that blocks clicks if within 200ms of a finish.
   document.addEventListener(
     "click",
     (e) => {
+      if (Date.now() - lastFinishTime < 200) return;
       if (window.matchMedia && window.matchMedia("(pointer: coarse)").matches)
         return;
-
-      // Always ignore clicks from the toggle container.
       if (e.target.closest("#toggle-container")) return;
-
       const tool = getActiveTool();
-      // Determine if the click originated from UI elements.
       const uiElement =
         e.target.closest("#ballfall-ui") ||
         e.target.closest("#spawner-container");
-
       const linkEl = e.target.closest("a");
-      // If a link is clicked outside UI and a drawing tool is selected, always block and notify.
       if (linkEl && !uiElement && tool) {
         e.preventDefault();
         flashElementStyle(
@@ -349,12 +352,9 @@ App.modules.lines = (function () {
           );
         }
       }
-
-      // If the click is from a UI element and no drawing is in progress, do nothing.
       if (uiElement && (!tool || tool.state === 0)) {
         return;
       }
-
       const clickX = e.pageX,
         clickY = e.pageY;
       if (tool && typeof tool.onClick === "function") {
@@ -364,7 +364,7 @@ App.modules.lines = (function () {
     true
   );
 
-  // Consolidated mobile touch events.
+  // Mobile touch events (unchanged).
   document.addEventListener("touchstart", (e) => {
     if (e.target.closest("#ballfall-ui")) return;
     if (e.touches.length !== 1) return;
