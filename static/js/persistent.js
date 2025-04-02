@@ -1,29 +1,35 @@
-/* persistent.js - Handles persistence for goal, line, and launcher objects.
+/* persistent.js - Handles per-page persistence for goal, line, and launcher objects.
    Coins persistence remains unchanged.
 */
 (function () {
+  // Generate a key that is unique per page.
+  function pageKey(itemName) {
+    let pageId = window.location.pathname.replace(/\//g, "_") || "home";
+    return "game." + pageId + "." + itemName;
+  }
+
   App.Persistence = {
     saveGoal: function (goalData) {
-      App.Storage.setItem("goal", goalData);
+      App.Storage.setItem(pageKey("goal"), goalData);
     },
     loadGoal: function () {
-      return App.Storage.getItem("goal", null);
+      return App.Storage.getItem(pageKey("goal"), null);
     },
     saveLine: function (lineData) {
-      let lines = App.Storage.getItem("lines", []);
+      let lines = App.Storage.getItem(pageKey("lines"), []);
       lines.push(lineData);
-      App.Storage.setItem("lines", lines);
+      App.Storage.setItem(pageKey("lines"), lines);
     },
     loadLines: function () {
-      return App.Storage.getItem("lines", []);
+      return App.Storage.getItem(pageKey("lines"), []);
     },
     saveLauncher: function (launcherData) {
-      let launchers = App.Storage.getItem("launchers", []);
+      let launchers = App.Storage.getItem(pageKey("launchers"), []);
       launchers.push(launcherData);
-      App.Storage.setItem("launchers", launchers);
+      App.Storage.setItem(pageKey("launchers"), launchers);
     },
     loadLaunchers: function () {
-      return App.Storage.getItem("launchers", []);
+      return App.Storage.getItem(pageKey("launchers"), []);
     },
     rebuildGoal: function () {
       const gd = this.loadGoal();
@@ -102,7 +108,6 @@
       const launchers = this.loadLaunchers();
       if (!launchers || !launchers.length) return;
       launchers.forEach(function (ld) {
-        // Rebuild launcher similar to how LauncherCreateTool does.
         const size = 40,
           scale = size / 250;
         const body = Matter.Bodies.rectangle(
@@ -124,7 +129,6 @@
             },
           }
         );
-        // Calculate angle and launchForce from stored startPoint and endPoint.
         const dx = ld.endPoint.x - ld.startPoint.x,
           dy = ld.endPoint.y - ld.startPoint.y,
           angle = Math.atan2(dy, dx),

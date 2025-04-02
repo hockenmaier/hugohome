@@ -2,15 +2,11 @@
   let goalSpawned = false;
 
   function spawnGoal() {
-    const savedGoal = App.Storage.getItem("goal", null);
+    // Use the per-page persistence functions.
+    const savedGoal = App.Persistence.loadGoal();
     if (savedGoal) {
-      // A saved goal exists—rebuild it via the persistence module.
-      if (
-        App.Persistence &&
-        typeof App.Persistence.rebuildGoal === "function"
-      ) {
-        App.Persistence.rebuildGoal();
-      }
+      // A saved goal exists—rebuild it.
+      App.Persistence.rebuildGoal();
       goalSpawned = true;
       return;
     }
@@ -85,8 +81,8 @@
     if (App.modules.goal && typeof App.modules.goal.attach === "function") {
       App.modules.goal.attach(candidate);
     }
-    // Save the new goal data.
-    App.Storage.setItem("goal", {
+    // Save the new goal data using per‑page keys.
+    App.Persistence.saveGoal({
       x: candidate.position.x,
       y: candidate.position.y,
       goalWidth: goalWidth,
