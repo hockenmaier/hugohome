@@ -392,14 +392,18 @@
     })();
   </script>
 </div>
-
 <script>
   // New auto-clicker upgrade functionality.
   (function () {
     // Updates the cost label below the auto-clicker button.
     function updateAutoClickerCostDisplay() {
-      var nextLevel = App.config.maxUnlockedSpeedLevel + 1;
-      var cost = App.config.speedUpgradeCosts[nextLevel];
+      var cost;
+      if (!App.config.autoClicker) {
+        cost = App.config.autoClickerCost;
+      } else {
+        cost =
+          App.config.speedUpgradeCosts[App.config.maxUnlockedSpeedLevel + 1];
+      }
       var costEl = document.getElementById("autoClickerCost");
       if (costEl) {
         costEl.innerHTML =
@@ -411,24 +415,36 @@
     var autoClickerBtn = document.getElementById("autoClicker");
     if (autoClickerBtn) {
       autoClickerBtn.addEventListener("click", function () {
-        var nextLevel = App.config.maxUnlockedSpeedLevel + 1;
-        var cost = App.config.speedUpgradeCosts[nextLevel];
-        if (App.config.coins >= cost) {
-          App.config.coins -= cost;
-          App.config.maxUnlockedSpeedLevel = nextLevel;
-          // Upgrade: reduce spawnInterval by factor of 2 per level.
-          var newInterval =
-            App.config.originalSpawnInterval / Math.pow(2, nextLevel);
-          window.BallFall.updateSpawnInterval(newInterval);
-          // Enable auto-spawning on first purchase.
-          if (!App.config.autoClicker) {
+        if (!App.config.autoClicker) {
+          // Initial unlock branch: cost is autoClickerCost (20)
+          var cost = App.config.autoClickerCost;
+          if (App.config.coins >= cost) {
+            App.config.coins -= cost;
             App.config.autoClicker = true;
             window.BallFall.startAutoSpawner();
+            // Set spawnInterval so drop rate UI can update
+            window.BallFall.updateSpawnInterval(App.config.spawnInterval);
+            App.updateCoinsDisplay();
+            updateAutoClickerCostDisplay();
+          } else {
+            window.notifyUnaffordable(100, 12);
           }
-          BaseDrawingTool.updateCoinsDisplay();
-          updateAutoClickerCostDisplay();
         } else {
-          window.notifyUnaffordable(100, 12);
+          // Upgrade branch: use speedUpgradeCosts (first upgrade costs 50)
+          var nextLevel = App.config.maxUnlockedSpeedLevel + 1;
+          var cost = App.config.speedUpgradeCosts[nextLevel];
+          if (App.config.coins >= cost) {
+            App.config.coins -= cost;
+            App.config.maxUnlockedSpeedLevel = nextLevel;
+            // Upgrade: reduce spawnInterval by factor of 2 per level.
+            var newInterval =
+              App.config.originalSpawnInterval / Math.pow(2, nextLevel);
+            window.BallFall.updateSpawnInterval(newInterval);
+            App.updateCoinsDisplay();
+            updateAutoClickerCostDisplay();
+          } else {
+            window.notifyUnaffordable(100, 12);
+          }
         }
       });
     }
