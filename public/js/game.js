@@ -23,11 +23,11 @@
     if (window.innerWidth < 720) {
       pageWidth = window.innerWidth;
       pageHeight = window.innerHeight;
-      minY = 500 + goalHeight / 2;
+      minY = App.config.goalBaseSpawnYMobile + goalHeight / 2;
     } else {
       pageWidth = document.body.scrollWidth;
       pageHeight = document.body.scrollHeight;
-      minY = 300 + goalHeight / 2;
+      minY = App.config.goalBaseSpawnYDesktop + goalHeight / 2;
     }
     const maxX = pageWidth - goalWidth / 2,
       maxY = pageHeight - goalHeight / 2,

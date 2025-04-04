@@ -58,10 +58,17 @@ window.App = {
       9: 25600,
       10: 51200,
       11: 100000,
-    }, // Upgrades: x2, x4, x8, etc.
+    },
     maxUnlockedSpeedLevel: 0, // Initially 0; increases with upgrades
     autoClicker: false, // Flag set when auto-clicker is purchased
     originalSpawnInterval: 4480, // To compute speed upgrades
+
+    // --- New goal income settings ---
+    goalDefaultIncome: 1, // Default coins earned when goal spawns at base position
+    goalIncomeStepDesktop: 300, // Additional coin per 300px beyond base in desktop mode
+    goalIncomeStepMobile: 500, // Additional coin per 500px beyond base in mobile mode
+    goalBaseSpawnYDesktop: 300, // Base spawn Y for desktop mode (independent variable for income)
+    goalBaseSpawnYMobile: 500, // Base spawn Y for mobile mode
   },
   modules: {},
   simulationLoaded: false, // Tracks whether the physics simulation is running

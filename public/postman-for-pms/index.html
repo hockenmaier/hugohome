@@ -1259,14 +1259,18 @@ table {
     })();
   </script>
 </div>
-
 <script>
   
   (function () {
     
     function updateAutoClickerCostDisplay() {
-      var nextLevel = App.config.maxUnlockedSpeedLevel + 1;
-      var cost = App.config.speedUpgradeCosts[nextLevel];
+      var cost;
+      if (!App.config.autoClicker) {
+        cost = App.config.autoClickerCost;
+      } else {
+        cost =
+          App.config.speedUpgradeCosts[App.config.maxUnlockedSpeedLevel + 1];
+      }
       var costEl = document.getElementById("autoClickerCost");
       if (costEl) {
         costEl.innerHTML =
@@ -1278,24 +1282,36 @@ table {
     var autoClickerBtn = document.getElementById("autoClicker");
     if (autoClickerBtn) {
       autoClickerBtn.addEventListener("click", function () {
-        var nextLevel = App.config.maxUnlockedSpeedLevel + 1;
-        var cost = App.config.speedUpgradeCosts[nextLevel];
-        if (App.config.coins >= cost) {
-          App.config.coins -= cost;
-          App.config.maxUnlockedSpeedLevel = nextLevel;
+        if (!App.config.autoClicker) {
           
-          var newInterval =
-            App.config.originalSpawnInterval / Math.pow(2, nextLevel);
-          window.BallFall.updateSpawnInterval(newInterval);
-          
-          if (!App.config.autoClicker) {
+          var cost = App.config.autoClickerCost;
+          if (App.config.coins >= cost) {
+            App.config.coins -= cost;
             App.config.autoClicker = true;
             window.BallFall.startAutoSpawner();
+            
+            window.BallFall.updateSpawnInterval(App.config.spawnInterval);
+            App.updateCoinsDisplay();
+            updateAutoClickerCostDisplay();
+          } else {
+            window.notifyUnaffordable(100, 12);
           }
-          BaseDrawingTool.updateCoinsDisplay();
-          updateAutoClickerCostDisplay();
         } else {
-          window.notifyUnaffordable(100, 12);
+          
+          var nextLevel = App.config.maxUnlockedSpeedLevel + 1;
+          var cost = App.config.speedUpgradeCosts[nextLevel];
+          if (App.config.coins >= cost) {
+            App.config.coins -= cost;
+            App.config.maxUnlockedSpeedLevel = nextLevel;
+            
+            var newInterval =
+              App.config.originalSpawnInterval / Math.pow(2, nextLevel);
+            window.BallFall.updateSpawnInterval(newInterval);
+            App.updateCoinsDisplay();
+            updateAutoClickerCostDisplay();
+          } else {
+            window.notifyUnaffordable(100, 12);
+          }
         }
       });
     }
