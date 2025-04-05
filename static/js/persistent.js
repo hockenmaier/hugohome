@@ -16,20 +16,46 @@
       return App.Storage.getItem(pageKey("goal"), null);
     },
     saveLine: function (lineData) {
+      // Generate a unique id for the line if not provided.
+      if (!lineData.id) {
+        lineData.id =
+          Date.now() + "-" + Math.random().toString(36).substr(2, 9);
+      }
       let lines = App.Storage.getItem(pageKey("lines"), []);
       lines.push(lineData);
       App.Storage.setItem(pageKey("lines"), lines);
+      return lineData.id;
     },
     loadLines: function () {
       return App.Storage.getItem(pageKey("lines"), []);
     },
+    deleteLine: function (id) {
+      let lines = App.Storage.getItem(pageKey("lines"), []);
+      lines = lines.filter(function (l) {
+        return l.id !== id;
+      });
+      App.Storage.setItem(pageKey("lines"), lines);
+    },
     saveLauncher: function (launcherData) {
+      // Generate a unique id for the launcher if not provided.
+      if (!launcherData.id) {
+        launcherData.id =
+          Date.now() + "-" + Math.random().toString(36).substr(2, 9);
+      }
       let launchers = App.Storage.getItem(pageKey("launchers"), []);
       launchers.push(launcherData);
       App.Storage.setItem(pageKey("launchers"), launchers);
+      return launcherData.id;
     },
     loadLaunchers: function () {
       return App.Storage.getItem(pageKey("launchers"), []);
+    },
+    deleteLauncher: function (id) {
+      let launchers = App.Storage.getItem(pageKey("launchers"), []);
+      launchers = launchers.filter(function (l) {
+        return l.id !== id;
+      });
+      App.Storage.setItem(pageKey("launchers"), launchers);
     },
     rebuildGoal: function () {
       const gd = this.loadGoal();
@@ -94,6 +120,8 @@
           );
         }
         if (body) {
+          // Attach the persistent id so that deletions can be synced.
+          body.persistenceId = ld.id;
           Matter.World.add(window.BallFall.world, body);
           if (
             App.modules.lines &&
@@ -145,6 +173,8 @@
         body.delay = App.config.launcherTypes[ld.selectedType].delay;
         body.maxSpeed = App.config.launcherTypes[ld.selectedType].maxSpeed;
         body.isPreview = false;
+        // Attach the persistent id.
+        body.persistenceId = ld.id;
         Matter.World.add(window.BallFall.world, body);
         if (
           App.modules.lines &&

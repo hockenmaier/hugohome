@@ -126,13 +126,14 @@ window.LauncherCreateTool = {
     if (App.modules.lines && typeof App.modules.lines.addLine === "function") {
       App.modules.lines.addLine(this.launcherPreview);
     }
-    // Save launcher persistence data.
-    App.Persistence.saveLauncher({
+    // Save launcher persistence data and capture the persistent id.
+    let persistentId = App.Persistence.saveLauncher({
       type: "launcher",
       selectedType: this.selectedType,
       startPoint: this.startPoint,
       endPoint: { x: x, y: y },
     });
+    this.launcherPreview.persistenceId = persistentId;
     this.launcherPreview = null;
     this.state = 0;
     this.startPoint = null;

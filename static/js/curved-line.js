@@ -96,18 +96,18 @@ window.CurvedLineTool = {
     Matter.World.add(window.BallFall.world, compound);
     if (window.App.modules.lines && window.App.modules.lines.addLine)
       window.App.modules.lines.addLine(compound);
-    // Save the curved line with its defining points.
-    App.Persistence.saveLine({
+    // Save the curved line with its defining points and capture the persistent id.
+    let persistentId = App.Persistence.saveLine({
       type: "curved",
       startPoint: this.startPoint,
       endPoint: this.endPoint,
       controlPoint: { x: controlX, y: controlY },
       fidelity: App.config.curvedLineFidelity,
     });
+    compound.persistenceId = persistentId;
     this.state = 0;
     this.startPoint = null;
     this.endPoint = null;
-    // NEW: Trigger the ignore flag via the lines module.
     if (
       App.modules.lines &&
       typeof App.modules.lines.setIgnoreNextClick === "function"

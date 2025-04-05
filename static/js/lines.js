@@ -232,17 +232,19 @@ App.modules.lines = (function () {
       );
       Matter.World.add(window.BallFall.world, lineBody);
       addLine(lineBody);
-      // Persist the straight line using its endpoints.
-      App.Persistence.saveLine({
+      // Persist the straight line using its endpoints and capture the persistent id.
+      let persistentId = App.Persistence.saveLine({
         type: "straight",
         p1: this.firstPoint,
         p2: { x: x, y: y },
       });
+      lineBody.persistenceId = persistentId;
       this.state = 0;
       this.firstPoint = null;
       // Mark the finish time to block immediate new clicks.
       lastFinishTime = Date.now();
     },
+
     cancel() {
       if (this.previewLine) {
         Matter.World.remove(window.BallFall.world, this.previewLine);
@@ -315,6 +317,13 @@ App.modules.lines = (function () {
     const line = getLineAtPoint(mouseX, mouseY);
     if (line) {
       Matter.World.remove(window.BallFall.world, line);
+      // Remove the persistent record.
+      if (line.label === "Launcher") {
+        if (line.persistenceId)
+          App.Persistence.deleteLauncher(line.persistenceId);
+      } else {
+        if (line.persistenceId) App.Persistence.deleteLine(line.persistenceId);
+      }
       e.preventDefault();
     }
   });
@@ -377,6 +386,14 @@ App.modules.lines = (function () {
       pendingDeletionLine = line;
       deletionTimer = setTimeout(() => {
         Matter.World.remove(window.BallFall.world, line);
+        // Remove persistent record on mobile deletion.
+        if (line.label === "Launcher") {
+          if (line.persistenceId)
+            App.Persistence.deleteLauncher(line.persistenceId);
+        } else {
+          if (line.persistenceId)
+            App.Persistence.deleteLine(line.persistenceId);
+        }
         pendingDeletionLine = null;
       }, App.config.lineDeleteMobileHold);
     } else {
