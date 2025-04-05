@@ -1197,9 +1197,11 @@ table {
       if (costEl) {
         costEl.innerHTML =
           '<img src="\/images\/coin-cost.png" alt="Coin" /> ' +
-          cost;
+          (cost !== undefined ? cost : "");
       }
     }
+    
+    App.updateAutoClickerCostDisplay = updateAutoClickerCostDisplay;
 
     var autoClickerBtn = document.getElementById("autoClicker");
     if (autoClickerBtn) {
@@ -1210,6 +1212,11 @@ table {
           if (App.config.coins >= cost) {
             App.config.coins -= cost;
             App.config.autoClicker = true;
+            
+            App.Persistence.saveAutoClicker({
+              purchased: true,
+              maxSpeedLevel: 0,
+            });
             window.BallFall.startAutoSpawner();
             
             window.BallFall.updateSpawnInterval(App.config.spawnInterval);
@@ -1231,6 +1238,11 @@ table {
             window.BallFall.updateSpawnInterval(newInterval);
             App.updateCoinsDisplay();
             updateAutoClickerCostDisplay();
+            
+            App.Persistence.saveAutoClicker({
+              purchased: true,
+              maxSpeedLevel: nextLevel,
+            });
           } else {
             window.notifyUnaffordable(100, 12);
           }

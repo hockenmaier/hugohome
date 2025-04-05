@@ -12,6 +12,7 @@ window.App = {
     ballSize: 7,
     sitStillDeleteSeconds: 3,
     sitStillDeleteMargin: 1,
+    disableDuration: 800, // milliseconds
     textHitColor: "#b3ffc7",
     lineThickness: 5,
     dottedLineHealth: 5,

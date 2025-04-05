@@ -84,6 +84,8 @@ App.modules.base = (function () {
     addMediaColliders();
 
     // ---- Ball spawning logic ----
+    const BALL_CATEGORY = 0x0002;
+
     const ballsList = [];
     // Expose spawnBall() for manual or auto-triggered spawning.
     let isAnimating = false;
@@ -109,6 +111,7 @@ App.modules.base = (function () {
       }
     }
 
+    // Expose spawnBall() for manual or auto-triggered spawning.
     function spawnBall() {
       if (!window.BallFall.firstBallDropped) {
         window.BallFall.firstBallDropped = true;
@@ -138,7 +141,20 @@ App.modules.base = (function () {
             },
           },
           label: "BallFallBall",
+          // Assign the custom ball category and default full mask.
+          collisionFilter: {
+            category: BALL_CATEGORY,
+            mask: 0xffffffff,
+          },
         });
+
+        // Temporarily disable collisions with other balls by removing the BALL_CATEGORY bit.
+        const disableDuration = App.config.disableDuration; // milliseconds
+        ball.collisionFilter.mask = 0xffffffff & ~BALL_CATEGORY;
+        setTimeout(() => {
+          ball.collisionFilter.mask = 0xffffffff;
+        }, disableDuration);
+
         Matter.World.add(window.BallFall.world, ball);
         ballsList.push(ball);
       }, 300); // Adjust delay as needed
