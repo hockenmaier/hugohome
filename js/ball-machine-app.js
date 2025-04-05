@@ -8,8 +8,7 @@ window.App = {
     gravity: 0.75,
     timeScale: 0.82,
     restitution: 0.95,
-    spawnX: 1.5, // x axis spawn point: 1/spawnX is the fraction of the screen width
-    spawnManual: 7, // Position for manual click-to-spawn, similar rules to auto-spawner
+    spawnX: 1.3, // x axis spawn point: 1/spawnX is the fraction of the screen width
     ballSize: 7,
     sitStillDeleteSeconds: 3,
     sitStillDeleteMargin: 1,
@@ -35,7 +34,7 @@ window.App = {
         maxSpeed: 500,
       },
     },
-    coins: 50000,
+    coins: 250, //Default for when app first loads and there's no storage
     costs: {
       straight: 5,
       curved: 20,
@@ -52,20 +51,31 @@ window.App = {
       2: 100,
       3: 200,
       4: 400,
-      5: 800,
-      6: 1600,
-      7: 3200,
-      8: 6400,
-      9: 12800,
-    }, // Upgrades: x2, x4, x8, etc.
+      5: 1600,
+      6: 3200,
+      7: 6400,
+      8: 12800,
+      9: 25600,
+      10: 51200,
+      11: 100000,
+    },
     maxUnlockedSpeedLevel: 0, // Initially 0; increases with upgrades
     autoClicker: false, // Flag set when auto-clicker is purchased
     originalSpawnInterval: 4480, // To compute speed upgrades
+
+    // --- New goal income settings ---
+    goalDefaultIncome: 1, // Default coins earned when goal spawns at base position
+    goalIncomeStepDesktop: 300, // Additional coin per 300px beyond base in desktop mode
+    goalIncomeStepMobile: 500, // Additional coin per 500px beyond base in mobile mode
+    goalBaseSpawnYDesktop: 300, // Base spawn Y for desktop mode (independent variable for income)
+    goalBaseSpawnYMobile: 500, // Base spawn Y for mobile mode
   },
   modules: {},
   simulationLoaded: false, // Tracks whether the physics simulation is running
 
   // startSimulation loads Matter.js, text colliders, etc.
+  // In static/js/ball-machine-app.js
+  // In static/js/ball-machine-app.js
   startSimulation: function () {
     if (window.App.simulationLoaded) return;
     window.App.simulationLoaded = true;
@@ -74,14 +84,40 @@ window.App = {
     if (window.App.modules.text) window.App.modules.text.init();
     if (window.App.modules.lines) window.App.modules.lines.init();
     if (window.App.modules.launcher) window.App.modules.launcher.init();
-    // Removed duplicate ball spawn here.
+
+    // Load auto-clicker state for this page from persistent storage.
+    if (
+      App.Persistence &&
+      typeof App.Persistence.loadAutoClicker === "function"
+    ) {
+      var autoData = App.Persistence.loadAutoClicker();
+      if (autoData && autoData.purchased) {
+        App.config.autoClicker = true;
+        App.config.maxUnlockedSpeedLevel = autoData.maxSpeedLevel;
+        var newInterval =
+          App.config.originalSpawnInterval /
+          Math.pow(2, autoData.maxSpeedLevel);
+        App.config.spawnInterval = newInterval;
+        window.BallFall.updateSpawnInterval(newInterval);
+        window.BallFall.startAutoSpawner();
+        // Update the cost display so it reflects the proper next upgrade cost.
+        if (App.updateAutoClickerCostDisplay) {
+          App.updateAutoClickerCostDisplay();
+        }
+      }
+    }
+
     // Show the game UI (it is hidden by default in the HTML)
     const ui = document.getElementById("ballfall-ui");
     if (ui) ui.style.display = "block";
 
-    // Show auto clicker upgrade button after simulation loads.
+    // Show auto clicker upgrade button and its cost only after simulation loads.
     const autoClickerBtn = document.getElementById("autoClicker");
-    if (autoClickerBtn) autoClickerBtn.style.display = "block";
+    if (autoClickerBtn) {
+      autoClickerBtn.style.display = "block";
+      const autoClickerCost = document.getElementById("autoClickerCost");
+      if (autoClickerCost) autoClickerCost.style.display = "block";
+    }
 
     window.addEventListener("scroll", function updateCamera() {
       if (window.BallFall && window.BallFall.render) {
@@ -110,3 +146,37 @@ if (document.readyState === "loading") {
 } else {
   initApp();
 }
+
+// --- Begin persistent storage module and update functions ---
+if (window.localStorage) {
+  // Initialize persistent coins using our new storage module
+  // If a saved value exists, load it; otherwise, save the default value.
+  App.Storage = {
+    namespace: "game",
+    getKey: function (itemName) {
+      return this.namespace + "." + itemName;
+    },
+    getItem: function (itemName, defaultValue) {
+      var key = this.getKey(itemName);
+      var val = localStorage.getItem(key);
+      return val !== null ? JSON.parse(val) : defaultValue;
+    },
+    setItem: function (itemName, value) {
+      var key = this.getKey(itemName);
+      localStorage.setItem(key, JSON.stringify(value));
+    },
+  };
+
+  // Load coins from persistent storage or use default
+  App.config.coins = App.Storage.getItem("coins", App.config.coins);
+}
+
+App.updateCoinsDisplay = function () {
+  const display = document.getElementById("coins-display");
+  if (display) display.textContent = `${App.config.coins} coins`;
+  if (App.Storage) {
+    App.Storage.setItem("coins", App.config.coins);
+    //App.Storage.setItem("coins", 2000); //Use for adding coins to storage
+  }
+};
+// --- End persistent storage module and update functions ---

@@ -114,32 +114,34 @@ App.modules.base = (function () {
         window.BallFall.firstBallDropped = true;
         const autoBtn = document.getElementById("autoClicker");
         const dropIndicator = document.getElementById("spawner-indicator");
-        //if (autoBtn) autoBtn.style.display = "none";
         if (dropIndicator) dropIndicator.style.display = "flex";
       }
 
-      const spawnX = window.scrollX + window.innerWidth / App.config.spawnX;
-      const spawnY = 0;
-      const ball = Matter.Bodies.circle(spawnX, spawnY, App.config.ballSize, {
-        restitution: App.config.restitution,
-        friction: 0,
-        frictionAir: 0,
-        render: { fillStyle: "#e6e6e6" },
-        plugin: {
-          wrap: {
-            min: { x: 0, y: -999999 },
-            max: { x: document.body.scrollWidth, y: 999999 },
-          },
-        },
-        label: "BallFallBall",
-      });
-      Matter.World.add(window.BallFall.world, ball);
-      ballsList.push(ball);
-
-      // Trigger animation ONLY if not already animating
+      // Start the animation immediately
       if (!isAnimating) {
         playSpawnerAnimation();
       }
+
+      // Delay only the ball spawning
+      setTimeout(() => {
+        const spawnX = window.scrollX + window.innerWidth / App.config.spawnX;
+        const spawnY = 55;
+        const ball = Matter.Bodies.circle(spawnX, spawnY, App.config.ballSize, {
+          restitution: App.config.restitution,
+          friction: 0,
+          frictionAir: 0,
+          render: { fillStyle: "#e6e6e6" },
+          plugin: {
+            wrap: {
+              min: { x: 0, y: -999999 },
+              max: { x: document.body.scrollWidth, y: 999999 },
+            },
+          },
+          label: "BallFallBall",
+        });
+        Matter.World.add(window.BallFall.world, ball);
+        ballsList.push(ball);
+      }, 300); // Adjust delay as needed
     }
 
     window.BallFall.spawnBall = spawnBall;

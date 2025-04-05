@@ -81,7 +81,6 @@ window.CurvedLineTool = {
       Matter.World.remove(window.BallFall.world, this.previewCompound);
       this.previewCompound = null;
     }
-    // Use the final control point provided at finish.
     const compound = generateCurveCompoundBody(
       this.startPoint,
       { x: controlX, y: controlY },
@@ -97,9 +96,24 @@ window.CurvedLineTool = {
     Matter.World.add(window.BallFall.world, compound);
     if (window.App.modules.lines && window.App.modules.lines.addLine)
       window.App.modules.lines.addLine(compound);
+    // Save the curved line with its defining points and capture the persistent id.
+    let persistentId = App.Persistence.saveLine({
+      type: "curved",
+      startPoint: this.startPoint,
+      endPoint: this.endPoint,
+      controlPoint: { x: controlX, y: controlY },
+      fidelity: App.config.curvedLineFidelity,
+    });
+    compound.persistenceId = persistentId;
     this.state = 0;
     this.startPoint = null;
     this.endPoint = null;
+    if (
+      App.modules.lines &&
+      typeof App.modules.lines.setIgnoreNextClick === "function"
+    ) {
+      App.modules.lines.setIgnoreNextClick(true);
+    }
   },
 
   cancel() {

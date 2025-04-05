@@ -2,6 +2,7 @@
 // (existing comments preserved)
 App.modules.lines = (function () {
   let mode = "straight";
+  let lastFinishTime = 0; // NEW: Timestamp of last finish to block immediate new click
 
   function setMode(newMode) {
     mode = newMode;
@@ -29,6 +30,14 @@ App.modules.lines = (function () {
       mode !== "dotted"
     )
       DottedLineTool.cancel();
+
+    if (window.innerWidth < 720) {
+      if (newMode !== "none") {
+        document.body.style.overflow = "hidden";
+      } else {
+        document.body.style.overflow = "";
+      }
+    }
   }
 
   function getMode() {
@@ -143,7 +152,7 @@ App.modules.lines = (function () {
   }
   updatePulse();
 
-  // Existing StraightLineTool definition remains unchanged...
+  // StraightLineTool definition with modified finish().
   const StraightLineTool = {
     state: 0,
     firstPoint: null,
@@ -162,7 +171,6 @@ App.modules.lines = (function () {
         tool.charge();
       }
     },
-
     onMove(x, y) {
       if (this.state !== 1) return;
       this.updatePreview(x, y);
@@ -224,9 +232,19 @@ App.modules.lines = (function () {
       );
       Matter.World.add(window.BallFall.world, lineBody);
       addLine(lineBody);
+      // Persist the straight line using its endpoints and capture the persistent id.
+      let persistentId = App.Persistence.saveLine({
+        type: "straight",
+        p1: this.firstPoint,
+        p2: { x: x, y: y },
+      });
+      lineBody.persistenceId = persistentId;
       this.state = 0;
       this.firstPoint = null;
+      // Mark the finish time to block immediate new clicks.
+      lastFinishTime = Date.now();
     },
+
     cancel() {
       if (this.previewLine) {
         Matter.World.remove(window.BallFall.world, this.previewLine);
@@ -263,7 +281,7 @@ App.modules.lines = (function () {
     }
   }
 
-  // Consolidated desktop event handlers.
+  // Global desktop event handlers.
   document.addEventListener("mousemove", (e) => {
     const mouseX = e.pageX,
       mouseY = e.pageY;
@@ -299,56 +317,63 @@ App.modules.lines = (function () {
     const line = getLineAtPoint(mouseX, mouseY);
     if (line) {
       Matter.World.remove(window.BallFall.world, line);
+      // Remove the persistent record.
+      if (line.label === "Launcher") {
+        if (line.persistenceId)
+          App.Persistence.deleteLauncher(line.persistenceId);
+      } else {
+        if (line.persistenceId) App.Persistence.deleteLine(line.persistenceId);
+      }
       e.preventDefault();
     }
   });
 
+  // Global click handler that blocks clicks if within 200ms of a finish.
   document.addEventListener(
     "click",
     (e) => {
+      if (Date.now() - lastFinishTime < 200) return;
       if (window.matchMedia && window.matchMedia("(pointer: coarse)").matches)
         return;
-      // Ignore clicks originating from UI toggle elements to prevent triggering tool actions
       if (e.target.closest("#toggle-container")) return;
-      if (
-        window.App &&
-        window.App.modules &&
-        window.App.modules.lines &&
-        window.App.modules.lines.getMode() !== "none"
-      ) {
-        var linkEl = e.target.closest("a");
-        if (linkEl) {
-          e.preventDefault();
+      const tool = getActiveTool();
+      const uiElement =
+        e.target.closest("#ballfall-ui") ||
+        e.target.closest("#spawner-container");
+      const linkEl = e.target.closest("a");
+      if (linkEl && !uiElement && tool) {
+        e.preventDefault();
+        flashElementStyle(
+          linkEl,
+          ["color", "textDecoration"],
+          { color: "red", textDecoration: "line-through" },
+          100,
+          6
+        );
+        const toggleGroup = document.getElementById("toggle-container");
+        if (toggleGroup) {
           flashElementStyle(
-            linkEl,
-            ["color", "textDecoration"],
-            { color: "red", textDecoration: "line-through" },
+            toggleGroup,
+            ["border"],
+            { border: "2px solid red" },
             100,
             6
           );
-          var toggleGroup = document.getElementById("toggle-container");
-          if (toggleGroup) {
-            flashElementStyle(
-              toggleGroup,
-              ["border"],
-              { border: "2px solid red" },
-              100,
-              6
-            );
-          }
         }
-        const clickX = e.pageX,
-          clickY = e.pageY;
-        let tool = getActiveTool();
-        if (tool && typeof tool.onClick === "function") {
-          tool.onClick(clickX, clickY);
-        }
+      }
+      if (uiElement && (!tool || tool.state === 0)) {
+        return;
+      }
+      const clickX = e.pageX,
+        clickY = e.pageY;
+      if (tool && typeof tool.onClick === "function") {
+        tool.onClick(clickX, clickY);
       }
     },
     true
   );
 
-  // Consolidated mobile touch events.
+  // Mobile touch events (unchanged).
   document.addEventListener("touchstart", (e) => {
     if (e.target.closest("#ballfall-ui")) return;
     if (e.touches.length !== 1) return;
@@ -361,6 +386,14 @@ App.modules.lines = (function () {
       pendingDeletionLine = line;
       deletionTimer = setTimeout(() => {
         Matter.World.remove(window.BallFall.world, line);
+        // Remove persistent record on mobile deletion.
+        if (line.label === "Launcher") {
+          if (line.persistenceId)
+            App.Persistence.deleteLauncher(line.persistenceId);
+        } else {
+          if (line.persistenceId)
+            App.Persistence.deleteLine(line.persistenceId);
+        }
         pendingDeletionLine = null;
       }, App.config.lineDeleteMobileHold);
     } else {

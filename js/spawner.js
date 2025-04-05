@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", function () {
   function positionSpawner() {
     const container = document.getElementById("spawner-container");
     if (!container) return;
-    const xPos = window.innerWidth / App.config.spawnX - 1;
+    const xPos = window.innerWidth / App.config.spawnX + 5;
     container.style.left = xPos - container.offsetWidth / 2 + "px";
   }
   positionSpawner();
@@ -29,29 +29,9 @@ document.addEventListener("DOMContentLoaded", function () {
     console.error("ball-spawner element not found");
   }
 
-  // Auto-clicker upgrade.
-  const autoClickerIcon = document.getElementById("autoClicker");
-  if (autoClickerIcon) {
-    autoClickerIcon.addEventListener("click", function (e) {
-      if (App.config.autoClicker) return;
-      if (App.config.coins >= App.config.autoClickerCost) {
-        App.config.coins -= App.config.autoClickerCost;
-        BaseDrawingTool.updateCoinsDisplay();
-        App.config.autoClicker = true;
-        document.getElementById("increaseSpeed").style.display = "block";
-        document.getElementById("decreaseSpeed").style.display = "block";
-        window.BallFall.startAutoSpawner();
-      } else {
-        flashElementStyle(
-          document.getElementById("coins-display"),
-          ["color", "fontSize"],
-          { color: "red", fontSize: "20px" },
-          100,
-          6
-        );
-      }
-    });
-  }
+  // Legacy auto-clicker upgrade handler removed.
+  // Auto-clicker purchase and upgrades are now handled exclusively
+  // by the upgrade block in ball-machine-ui.html.
 
   // Speed upgrade arrows.
   const increaseBtn = document.getElementById("increaseSpeed");
