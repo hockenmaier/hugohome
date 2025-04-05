@@ -106,6 +106,11 @@ window.LauncherCreateTool = {
       Matter.World.remove(window.BallFall.world, this.previewLine);
       this.previewLine = null;
     }
+    // Remove the arrow preview to prevent it from sticking around.
+    if (this.arrowPreview) {
+      Matter.World.remove(window.BallFall.world, this.arrowPreview);
+      this.arrowPreview = null;
+    }
     const dx = x - this.startPoint.x,
       dy = y - this.startPoint.y,
       distance = Math.sqrt(dx * dx + dy * dy),
