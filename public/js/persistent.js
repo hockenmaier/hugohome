@@ -57,6 +57,17 @@
       });
       App.Storage.setItem(pageKey("launchers"), launchers);
     },
+    // --- New auto-clicker persistence functions ---
+    saveAutoClicker: function (autoData) {
+      App.Storage.setItem(pageKey("autoclicker"), autoData);
+    },
+    loadAutoClicker: function () {
+      // Default: not purchased, no upgrades.
+      return App.Storage.getItem(pageKey("autoclicker"), {
+        purchased: false,
+        maxSpeedLevel: 0,
+      });
+    },
     rebuildGoal: function () {
       const gd = this.loadGoal();
       if (!gd) return;

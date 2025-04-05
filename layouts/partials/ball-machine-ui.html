@@ -408,9 +408,11 @@
       if (costEl) {
         costEl.innerHTML =
           '<img src="{{ "images/coin-cost.png" | relURL }}" alt="Coin" /> ' +
-          cost;
+          (cost !== undefined ? cost : "");
       }
     }
+    // Expose the function so it can be called externally.
+    App.updateAutoClickerCostDisplay = updateAutoClickerCostDisplay;
 
     var autoClickerBtn = document.getElementById("autoClicker");
     if (autoClickerBtn) {
@@ -421,6 +423,11 @@
           if (App.config.coins >= cost) {
             App.config.coins -= cost;
             App.config.autoClicker = true;
+            // Save initial auto-clicker state: purchased with no upgrades.
+            App.Persistence.saveAutoClicker({
+              purchased: true,
+              maxSpeedLevel: 0,
+            });
             window.BallFall.startAutoSpawner();
             // Set spawnInterval so drop rate UI can update
             window.BallFall.updateSpawnInterval(App.config.spawnInterval);
@@ -442,6 +449,11 @@
             window.BallFall.updateSpawnInterval(newInterval);
             App.updateCoinsDisplay();
             updateAutoClickerCostDisplay();
+            // Save updated auto-clicker upgrade level.
+            App.Persistence.saveAutoClicker({
+              purchased: true,
+              maxSpeedLevel: nextLevel,
+            });
           } else {
             window.notifyUnaffordable(100, 12);
           }

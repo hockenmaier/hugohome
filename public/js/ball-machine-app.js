@@ -74,6 +74,8 @@ window.App = {
   simulationLoaded: false, // Tracks whether the physics simulation is running
 
   // startSimulation loads Matter.js, text colliders, etc.
+  // In static/js/ball-machine-app.js
+  // In static/js/ball-machine-app.js
   startSimulation: function () {
     if (window.App.simulationLoaded) return;
     window.App.simulationLoaded = true;
@@ -82,7 +84,29 @@ window.App = {
     if (window.App.modules.text) window.App.modules.text.init();
     if (window.App.modules.lines) window.App.modules.lines.init();
     if (window.App.modules.launcher) window.App.modules.launcher.init();
-    // Removed duplicate ball spawn here.
+
+    // Load auto-clicker state for this page from persistent storage.
+    if (
+      App.Persistence &&
+      typeof App.Persistence.loadAutoClicker === "function"
+    ) {
+      var autoData = App.Persistence.loadAutoClicker();
+      if (autoData && autoData.purchased) {
+        App.config.autoClicker = true;
+        App.config.maxUnlockedSpeedLevel = autoData.maxSpeedLevel;
+        var newInterval =
+          App.config.originalSpawnInterval /
+          Math.pow(2, autoData.maxSpeedLevel);
+        App.config.spawnInterval = newInterval;
+        window.BallFall.updateSpawnInterval(newInterval);
+        window.BallFall.startAutoSpawner();
+        // Update the cost display so it reflects the proper next upgrade cost.
+        if (App.updateAutoClickerCostDisplay) {
+          App.updateAutoClickerCostDisplay();
+        }
+      }
+    }
+
     // Show the game UI (it is hidden by default in the HTML)
     const ui = document.getElementById("ballfall-ui");
     if (ui) ui.style.display = "block";
