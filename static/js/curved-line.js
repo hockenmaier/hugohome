@@ -132,48 +132,64 @@ window.CurvedLineTool = {
   },
 
   onTouchStart(x, y) {
-    if (this.state === 0) {
-      const tool = new BaseDrawingTool("curved", App.config.costs.curved);
-      if (!tool.canPlace()) {
-        BaseDrawingTool.showInsufficientFunds();
-        return;
+    BaseDrawingTool.prototype.handleTouchStart.call(
+      this,
+      x,
+      y,
+      function (x, y) {
+        if (this.state === 0) {
+          const tool = new BaseDrawingTool("curved", App.config.costs.curved);
+          if (!tool.canPlace()) {
+            BaseDrawingTool.showInsufficientFunds();
+            return;
+          }
+          this.startPoint = { x, y };
+          this.state = 1;
+        }
       }
-      this.startPoint = { x, y };
-      this.state = 1;
-    }
+    );
   },
   onTouchMove(x, y) {
-    this.onMove(x, y);
+    BaseDrawingTool.prototype.handleTouchMove.call(this, x, y, this.onMove);
   },
   onTouchEnd(x, y) {
-    if (this.state === 1) {
-      this.endPoint = { x, y };
-      if (this.previewCompound) {
-        Matter.World.remove(window.BallFall.world, this.previewCompound);
-        this.previewCompound = null;
-      }
-      const defaultControl = {
-        x: (this.startPoint.x + this.endPoint.x) / 2,
-        y: (this.startPoint.y + this.endPoint.y) / 2,
-      };
-      this.previewCompound = generateCurveCompoundBody(
-        this.startPoint,
-        defaultControl,
-        this.endPoint,
-        App.config.curvedLineFidelity,
-        App.config.lineThickness * 1.05,
-        App.config.curvedLineRender || {
-          fillStyle: "rgba(149,110,255,0.5)",
-          strokeStyle: "rgba(149,110,255,0.5)",
-          lineWidth: 1,
+    BaseDrawingTool.prototype.handleTouchEnd.call(
+      this,
+      x,
+      y,
+      function (x, y) {
+        if (this.state === 1) {
+          this.endPoint = { x, y };
+          if (this.previewCompound) {
+            Matter.World.remove(window.BallFall.world, this.previewCompound);
+            this.previewCompound = null;
+          }
+          const defaultControl = {
+            x: (this.startPoint.x + this.endPoint.x) / 2,
+            y: (this.startPoint.y + this.endPoint.y) / 2,
+          };
+          this.previewCompound = generateCurveCompoundBody(
+            this.startPoint,
+            defaultControl,
+            this.endPoint,
+            App.config.curvedLineFidelity,
+            App.config.lineThickness * 1.05,
+            App.config.curvedLineRender || {
+              fillStyle: "rgba(149,110,255,0.5)",
+              strokeStyle: "rgba(149,110,255,0.5)",
+              lineWidth: 1,
+            }
+          );
+          Matter.World.add(window.BallFall.world, this.previewCompound);
+          this.state = 2;
+        } else if (this.state === 2) {
+          this.finish(x, y);
+          new BaseDrawingTool("curved", App.config.costs.curved).charge();
         }
-      );
-      Matter.World.add(window.BallFall.world, this.previewCompound);
-      this.state = 2;
-    } else if (this.state === 2) {
-      this.finish(x, y);
-      new BaseDrawingTool("curved", App.config.costs.curved).charge();
-    }
+      },
+      this.cancel,
+      App.config.costs.curved
+    );
   },
 };
 

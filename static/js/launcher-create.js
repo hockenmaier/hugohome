@@ -158,21 +158,37 @@ window.LauncherCreateTool = {
   },
 
   onTouchStart(x, y) {
-    const tool = new BaseDrawingTool("launcher", App.config.costs.launcher);
-    if (!tool.canPlace()) {
-      BaseDrawingTool.showInsufficientFunds();
-      return;
-    }
-    this.onClick(x, y);
+    BaseDrawingTool.prototype.handleTouchStart.call(
+      this,
+      x,
+      y,
+      function (x, y) {
+        const tool = new BaseDrawingTool("launcher", App.config.costs.launcher);
+        if (!tool.canPlace()) {
+          BaseDrawingTool.showInsufficientFunds();
+          return;
+        }
+        this.onClick(x, y);
+      }
+    );
   },
   onTouchMove(x, y) {
-    this.onMove(x, y);
+    BaseDrawingTool.prototype.handleTouchMove.call(this, x, y, this.onMove);
   },
   onTouchEnd(x, y) {
-    if (this.state === 1) {
-      this.finish(x, y);
-      const cost = App.config.costs[this.selectedType];
-      new BaseDrawingTool("launcher", cost).charge();
-    }
+    BaseDrawingTool.prototype.handleTouchEnd.call(
+      this,
+      x,
+      y,
+      function (x, y) {
+        if (this.state === 1) {
+          this.finish(x, y);
+          const cost = App.config.costs[this.selectedType];
+          new BaseDrawingTool("launcher", cost).charge();
+        }
+      },
+      this.cancel,
+      App.config.costs.launcher
+    );
   },
 };

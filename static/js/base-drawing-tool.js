@@ -12,6 +12,9 @@ class BaseDrawingTool {
     this.state = 0;
     this.firstPoint = null;
     this.preview = null;
+    // Track if a drag occurred.
+    this._mobileStartPoint = null;
+    this._hasMoved = false;
   }
 
   canPlace() {
@@ -21,6 +24,12 @@ class BaseDrawingTool {
   charge() {
     App.config.coins -= this.cost;
     App.updateCoinsDisplay();
+  }
+
+  static isValidDrag(startPoint, x, y, threshold = 5) {
+    const dx = x - startPoint.x;
+    const dy = y - startPoint.y;
+    return Math.sqrt(dx * dx + dy * dy) >= threshold;
   }
 
   static showInsufficientFunds() {
@@ -47,5 +56,34 @@ class BaseDrawingTool {
     }
     return null;
   }
+
+  // Generic mobile touch handling
+  handleTouchStart(x, y, onStart) {
+    this._mobileStartPoint = { x, y };
+    this._hasMoved = false;
+    if (onStart) onStart.call(this, x, y);
+  }
+
+  handleTouchMove(x, y, onMove) {
+    this._hasMoved = true;
+    if (onMove) onMove.call(this, x, y);
+  }
+
+  handleTouchEnd(x, y, onEnd, onCancel, cost) {
+    // If there was no drag or the movement is too small, cancel.
+    if (
+      !this._hasMoved ||
+      !BaseDrawingTool.isValidDrag(this._mobileStartPoint, x, y)
+    ) {
+      if (onCancel) onCancel.call(this);
+      BaseDrawingTool.ignoreNextClick = true;
+      return;
+    }
+    if (onEnd) onEnd.call(this, x, y);
+    new BaseDrawingTool(this.toolName, cost).charge();
+    this._hasMoved = false;
+  }
 }
+// Flag used to ignore subsequent click events on mobile.
+BaseDrawingTool.ignoreNextClick = false;
 window.BaseDrawingTool = BaseDrawingTool;

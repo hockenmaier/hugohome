@@ -32,6 +32,10 @@
 
   // Click event.
   document.addEventListener("click", (e) => {
+    if (BaseDrawingTool.ignoreNextClick) {
+      BaseDrawingTool.ignoreNextClick = false;
+      return;
+    }
     const uiEl = e.target.closest("#ballfall-ui, #spawner-container");
     const tool = getActiveTool();
     // If UI element is clicked but an active tool is in progress, finish the tool.

@@ -111,14 +111,28 @@ App.modules.lines = (function () {
     },
 
     onTouchStart(x, y) {
-      this.onClick(x, y);
+      BaseDrawingTool.prototype.handleTouchStart.call(
+        this,
+        x,
+        y,
+        function (x, y) {
+          // Use the original onClick to start drawing
+          this.onClick(x, y);
+        }
+      );
     },
     onTouchMove(x, y) {
-      this.onMove(x, y);
+      BaseDrawingTool.prototype.handleTouchMove.call(this, x, y, this.onMove);
     },
     onTouchEnd(x, y) {
-      this.finish(x, y);
-      new BaseDrawingTool("straight", App.config.costs.straight).charge();
+      BaseDrawingTool.prototype.handleTouchEnd.call(
+        this,
+        x,
+        y,
+        this.finish,
+        this.cancel,
+        App.config.costs.straight
+      );
     },
   };
 
