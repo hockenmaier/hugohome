@@ -100,7 +100,10 @@
         "static\\js\\dotted-line.js": true,
         "static\\js\\launcher-create.js": true,
         "static\\js\\inputManager.js": true,
-        "static\\js\\lines.js": true
+        "static\\js\\lines.js": true,
+        "static\\js\\line-interaction.js": true,
+        "static\\js\\notifications.js": true,
+        "ai-understanding-notes\\pre-refactor-lines-code.md": true
       },
       "prePrompt": "",
       "includeFileTree": false
