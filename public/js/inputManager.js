@@ -54,6 +54,7 @@
 
   // Right-click (contextmenu) event.
   document.addEventListener("contextmenu", (e) => {
+    console.log("right click");
     const tool = getActiveTool();
     if (
       tool &&
@@ -65,7 +66,7 @@
       e.preventDefault();
       return;
     }
-    // Allow deletion via line-interaction.js (handled there)
+    // Do nothing; let the deletion handler in line-interaction.js take care of right-clicks.
   });
 
   // Touch events.

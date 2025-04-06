@@ -88,7 +88,10 @@ App.modules.lines = (function () {
           render: renderOptions,
         }
       );
+      // Add the new line only once.
       Matter.World.add(window.BallFall.world, lineBody);
+      // Register it so deletion routines recognize it.
+      App.modules.lines.addLine(lineBody);
       lineBody.isLine = true;
       let persistentId = App.Persistence.saveLine({
         type: "straight",
@@ -99,6 +102,10 @@ App.modules.lines = (function () {
       this.state = 0;
       this.firstPoint = null;
       lastFinishTime = Date.now();
+      // Remove the delayed vertices update.
+      // setTimeout(() => {
+      //   Matter.Body.setVertices(lineBody, lineBody.vertices);
+      // }, 0);
     },
 
     cancel() {

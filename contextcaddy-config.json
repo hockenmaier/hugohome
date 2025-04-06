@@ -106,7 +106,7 @@
         "ai-understanding-notes\\pre-refactor-lines-code.md": true
       },
       "prePrompt": "",
-      "includeFileTree": false
+      "includeFileTree": true
     }
   },
   "activeProfile": "line-refactor"

@@ -1,4 +1,4 @@
-This is the code before the lines and base drawing tool refactor. The files "inputManager.js and line-interaction.js don't exist because all of this generic functionality was included within the tool code itself
+This is the code before the lines and base drawing tool refactor. The files "inputManager.js and line-interaction.js don't exist because all of this generic functionality was included within the tool code itself.
 Use this for reference of all of the features including small QOL features that existed before the major line refactor that pulled redundant code into base-drawing-tool, inputManager, line-interaction, and others. Notice also that style information was not contained in ball-machine-app.js previously, as it is now.
 
 ----- static\js\ball-machine-app.js -----
