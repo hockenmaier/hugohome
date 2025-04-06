@@ -70,6 +70,45 @@ window.App = {
     goalIncomeStepMobile: 500, // Additional coin per 500px beyond base in mobile mode
     goalBaseSpawnYDesktop: 300, // Base spawn Y for desktop mode (independent variable for income)
     goalBaseSpawnYMobile: 500, // Base spawn Y for mobile mode
+    // New style settings for drawing tools:
+    straightLineRender: {
+      fillStyle: "#956eff",
+      strokeStyle: "#956eff",
+      lineWidth: 1,
+    },
+    straightLinePreviewRender: {
+      fillStyle: "rgba(149,110,255,0.5)",
+      strokeStyle: "rgba(149,110,255,0.5)",
+      lineWidth: 1,
+    },
+    curvedLineRender: {
+      fillStyle: "#956eff",
+      strokeStyle: "#956eff",
+      lineWidth: 1,
+    },
+    curvedLinePreviewRender: {
+      fillStyle: "rgba(149,110,255,0.5)",
+      strokeStyle: "rgba(149,110,255,0.5)",
+      lineWidth: 1,
+    },
+    dottedLineRender: {
+      visible: false,
+      fillStyle: "transparent",
+      strokeStyle: "#a8328d",
+      lineWidth: 5,
+    },
+    dottedLinePreviewRender: {
+      visible: true,
+      fillStyle: "transparent",
+      strokeStyle: "#a8328d",
+      lineWidth: 2,
+      lineDash: [],
+    },
+    launcherPreviewRender: {
+      fillStyle: "rgba(149,110,255,0.5)",
+      strokeStyle: "rgba(149,110,255,0.5)",
+      lineWidth: 1,
+    },
   },
   modules: {},
   simulationLoaded: false, // Tracks whether the physics simulation is running

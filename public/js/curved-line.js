@@ -1,10 +1,15 @@
+/* static/js/curved-line.js */
+/*
+ * curved-line.js
+ * Implements the curved line drawing tool.
+ * Uses a quadratic Bézier curve approximated by compound rectangles.
+ */
 window.CurvedLineTool = {
   state: 0, // 0: waiting for start, 1: waiting for end, 2: waiting for control
   startPoint: null,
   endPoint: null,
   previewCompound: null,
 
-  // Desktop click-based methods
   onClick(x, y) {
     if (this.state === 0) {
       const tool = new BaseDrawingTool("curved", App.config.costs.curved);
@@ -26,17 +31,20 @@ window.CurvedLineTool = {
   onMove(x, y) {
     if (this.state === 0) return;
     if (this.state === 1) {
-      // Show a straight-line preview (as a rectangle) between startPoint and current pointer.
       if (this.previewCompound) {
         Matter.World.remove(window.BallFall.world, this.previewCompound);
         this.previewCompound = null;
       }
-      const dx = x - this.startPoint.x,
-        dy = y - this.startPoint.y,
-        midX = (this.startPoint.x + x) / 2,
-        midY = (this.startPoint.y + y) / 2,
-        angle = Math.atan2(dy, dx),
-        length = Math.sqrt(dx * dx + dy * dy);
+      const { midX, midY, angle, length } = BaseDrawingTool.computeLineMetrics(
+        this.startPoint,
+        x,
+        y
+      );
+      const previewRender = App.config.curvedLinePreviewRender || {
+        fillStyle: "rgba(149,110,255,0.5)",
+        strokeStyle: "rgba(149,110,255,0.5)",
+        lineWidth: 1,
+      };
       this.previewCompound = Matter.Bodies.rectangle(
         midX,
         midY,
@@ -45,30 +53,24 @@ window.CurvedLineTool = {
         {
           isStatic: true,
           angle: angle,
-          render: {
-            fillStyle: "rgba(149,110,255,0.5)",
-            strokeStyle: "rgba(149,110,255,0.5)",
-            lineWidth: 1,
-          },
+          render: previewRender,
         }
       );
       Matter.World.add(window.BallFall.world, this.previewCompound);
     } else if (this.state === 2) {
-      // In control phase, use current pointer as the control point and preview a compound curved body.
       if (this.previewCompound) {
         Matter.World.remove(window.BallFall.world, this.previewCompound);
         this.previewCompound = null;
       }
-      // The current pointer (x,y) serves as the control point.
       this.previewCompound = generateCurveCompoundBody(
         this.startPoint,
         { x, y },
         this.endPoint,
         App.config.curvedLineFidelity,
         App.config.lineThickness * 1.05,
-        {
-          fillStyle: "rgba(149,110,255,0.5)",
-          strokeStyle: "rgba(149,110,255,0.5)",
+        App.config.curvedLineRender || {
+          fillStyle: "#956eff",
+          strokeStyle: "#956eff",
           lineWidth: 1,
         }
       );
@@ -87,16 +89,19 @@ window.CurvedLineTool = {
       this.endPoint,
       App.config.curvedLineFidelity,
       App.config.lineThickness * 1.05,
-      {
+      App.config.curvedLineRender || {
         fillStyle: "#956eff",
         strokeStyle: "#956eff",
         lineWidth: 1,
       }
     );
     Matter.World.add(window.BallFall.world, compound);
-    if (window.App.modules.lines && window.App.modules.lines.addLine)
+    if (
+      window.App.modules.lines &&
+      typeof window.App.modules.lines.addLine === "function"
+    ) {
       window.App.modules.lines.addLine(compound);
-    // Save the curved line with its defining points and capture the persistent id.
+    }
     let persistentId = App.Persistence.saveLine({
       type: "curved",
       startPoint: this.startPoint,
@@ -126,9 +131,6 @@ window.CurvedLineTool = {
     this.endPoint = null;
   },
 
-  // Mobile touch methods mirror desktop behavior.
-  // In curved-line.js, update the mobile methods:
-  // Mobile touch methods for CurvedLineTool in curved-line.js
   onTouchStart(x, y) {
     if (this.state === 0) {
       const tool = new BaseDrawingTool("curved", App.config.costs.curved);
@@ -139,61 +141,12 @@ window.CurvedLineTool = {
       this.startPoint = { x, y };
       this.state = 1;
     }
-    // In state 2, no special action on touchstart
   },
   onTouchMove(x, y) {
-    if (this.state === 1) {
-      // Update straight-line preview during first session.
-      if (this.previewCompound) {
-        Matter.World.remove(window.BallFall.world, this.previewCompound);
-        this.previewCompound = null;
-      }
-      const dx = x - this.startPoint.x,
-        dy = y - this.startPoint.y,
-        midX = (this.startPoint.x + x) / 2,
-        midY = (this.startPoint.y + y) / 2,
-        angle = Math.atan2(dy, dx),
-        length = Math.sqrt(dx * dx + dy * dy);
-      this.previewCompound = Matter.Bodies.rectangle(
-        midX,
-        midY,
-        length,
-        App.config.lineThickness * 1.05,
-        {
-          isStatic: true,
-          angle: angle,
-          render: {
-            fillStyle: "rgba(149,110,255,0.5)",
-            strokeStyle: "rgba(149,110,255,0.5)",
-            lineWidth: 1,
-          },
-        }
-      );
-      Matter.World.add(window.BallFall.world, this.previewCompound);
-    } else if (this.state === 2) {
-      // During second session, update the curve preview using current pointer as control.
-      if (this.previewCompound) {
-        Matter.World.remove(window.BallFall.world, this.previewCompound);
-        this.previewCompound = null;
-      }
-      this.previewCompound = generateCurveCompoundBody(
-        this.startPoint,
-        { x, y },
-        this.endPoint,
-        App.config.curvedLineFidelity,
-        App.config.lineThickness * 1.05,
-        {
-          fillStyle: "rgba(149,110,255,0.5)",
-          strokeStyle: "rgba(149,110,255,0.5)",
-          lineWidth: 1,
-        }
-      );
-      Matter.World.add(window.BallFall.world, this.previewCompound);
-    }
+    this.onMove(x, y);
   },
   onTouchEnd(x, y) {
     if (this.state === 1) {
-      // First session: finalize end point and create default curve preview.
       this.endPoint = { x, y };
       if (this.previewCompound) {
         Matter.World.remove(window.BallFall.world, this.previewCompound);
@@ -209,7 +162,7 @@ window.CurvedLineTool = {
         this.endPoint,
         App.config.curvedLineFidelity,
         App.config.lineThickness * 1.05,
-        {
+        App.config.curvedLineRender || {
           fillStyle: "rgba(149,110,255,0.5)",
           strokeStyle: "rgba(149,110,255,0.5)",
           lineWidth: 1,
@@ -218,16 +171,13 @@ window.CurvedLineTool = {
       Matter.World.add(window.BallFall.world, this.previewCompound);
       this.state = 2;
     } else if (this.state === 2) {
-      // Second session: use current pointer as control to finalize the curve.
       this.finish(x, y);
       new BaseDrawingTool("curved", App.config.costs.curved).charge();
     }
   },
 };
 
-// --- Helper functions ---
-
-// Compute a point on a quadratic Bezier for a given t.
+// Helper: quadratic Bézier calculation.
 function quadraticBezier(points, t) {
   const [p0, p1, p2] = points;
   return {
@@ -236,8 +186,7 @@ function quadraticBezier(points, t) {
   };
 }
 
-// Generate a compound body approximating a curved stroke by splitting the Bezier curve into segments.
-// Each segment is rendered as a small rectangle, and the compound body is the union of these parts.
+// Helper: generate a compound body approximating a curved stroke.
 function generateCurveCompoundBody(
   p0,
   control,

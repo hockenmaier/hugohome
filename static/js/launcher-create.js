@@ -1,4 +1,10 @@
 /* static/js/launcher-create.js */
+/*
+ * launcher-create.js
+ * Implements the launcher creation tool.
+ * Launchers are drawn by clicking to set a start point, then dragging for direction.
+ * Shared math is handled via BaseDrawingTool.
+ */
 window.LauncherCreateTool = {
   state: 0, // 0: waiting for start, 1: waiting for direction
   startPoint: null,
@@ -16,7 +22,6 @@ window.LauncherCreateTool = {
         return;
       }
       this.startPoint = { x, y };
-      // Create launcherPreview as before…
       const size = 40;
       const scale = size / 250;
       this.launcherPreview = Matter.Bodies.rectangle(x, y, size, size, {
@@ -38,47 +43,43 @@ window.LauncherCreateTool = {
     } else if (this.state === 1) {
       this.finish(x, y);
       const cost = App.config.costs[this.selectedType];
-      new BaseDrawingTool(this.selectedType, cost).charge();
+      new BaseDrawingTool("launcher", cost).charge();
     }
   },
 
   onMove(x, y) {
     if (this.state !== 1) return;
     if (this.previewLine) {
-      Matter.World.remove(window.BallFall.world, this.previewLine);
-      this.previewLine = null;
+      this.previewLine = BaseDrawingTool.removePreview(this.previewLine);
     }
     if (this.arrowPreview) {
-      Matter.World.remove(window.BallFall.world, this.arrowPreview);
-      this.arrowPreview = null;
+      this.arrowPreview = BaseDrawingTool.removePreview(this.arrowPreview);
     }
-    const dx = x - this.startPoint.x,
-      dy = y - this.startPoint.y,
-      distance = Math.sqrt(dx * dx + dy * dy),
-      angle = Math.atan2(dy, dx);
-    // Clamp distance to maxSpeed from config
+    const { dx, dy, midX, midY, angle, length } =
+      BaseDrawingTool.computeLineMetrics(this.startPoint, x, y);
     const maxSpeed = App.config.launcherTypes[this.selectedType].maxSpeed;
-    const clampedDistance = Math.min(distance, maxSpeed);
+    const clampedDistance = Math.min(length, maxSpeed);
     const clampedX = this.startPoint.x + Math.cos(angle) * clampedDistance;
     const clampedY = this.startPoint.y + Math.sin(angle) * clampedDistance;
 
     Matter.Body.setAngle(this.launcherPreview, angle);
 
-    const midX = (this.startPoint.x + clampedX) / 2,
-      midY = (this.startPoint.y + clampedY) / 2;
+    const newMidX = (this.startPoint.x + clampedX) / 2;
+    const newMidY = (this.startPoint.y + clampedY) / 2;
+    const previewRender = App.config.launcherPreviewRender || {
+      fillStyle: "rgba(149,110,255,0.5)",
+      strokeStyle: "rgba(149,110,255,0.5)",
+      lineWidth: 1,
+    };
     this.previewLine = Matter.Bodies.rectangle(
-      midX,
-      midY,
+      newMidX,
+      newMidY,
       clampedDistance,
       App.config.lineThickness,
       {
         isStatic: true,
         angle: angle,
-        render: {
-          fillStyle: "rgba(149,110,255,0.5)",
-          strokeStyle: "rgba(149,110,255,0.5)",
-          lineWidth: 1,
-        },
+        render: previewRender,
       }
     );
     Matter.World.add(window.BallFall.world, this.previewLine);
@@ -106,18 +107,14 @@ window.LauncherCreateTool = {
       Matter.World.remove(window.BallFall.world, this.previewLine);
       this.previewLine = null;
     }
-    // Remove the arrow preview to prevent it from sticking around.
     if (this.arrowPreview) {
       Matter.World.remove(window.BallFall.world, this.arrowPreview);
       this.arrowPreview = null;
     }
-    const dx = x - this.startPoint.x,
-      dy = y - this.startPoint.y,
-      distance = Math.sqrt(dx * dx + dy * dy),
-      angle = Math.atan2(dy, dx);
-    // Clamp distance based on maxSpeed.
+    const { dx, dy, midX, midY, angle, length } =
+      BaseDrawingTool.computeLineMetrics(this.startPoint, x, y);
     const maxSpeed = App.config.launcherTypes[this.selectedType].maxSpeed;
-    const clampedDistance = Math.min(distance, maxSpeed);
+    const clampedDistance = Math.min(length, maxSpeed);
     Matter.Body.setAngle(this.launcherPreview, angle);
     const forceScale = 0.05;
     this.launcherPreview.launchForce = {
@@ -131,12 +128,11 @@ window.LauncherCreateTool = {
     if (App.modules.lines && typeof App.modules.lines.addLine === "function") {
       App.modules.lines.addLine(this.launcherPreview);
     }
-    // Save launcher persistence data and capture the persistent id.
     let persistentId = App.Persistence.saveLauncher({
       type: "launcher",
       selectedType: this.selectedType,
       startPoint: this.startPoint,
-      endPoint: { x: x, y: y },
+      endPoint: { x, y },
     });
     this.launcherPreview.persistenceId = persistentId;
     this.launcherPreview = null;
@@ -176,7 +172,7 @@ window.LauncherCreateTool = {
     if (this.state === 1) {
       this.finish(x, y);
       const cost = App.config.costs[this.selectedType];
-      new BaseDrawingTool(this.selectedType, cost).charge();
+      new BaseDrawingTool("launcher", cost).charge();
     }
   },
 };
