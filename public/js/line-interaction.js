@@ -133,22 +133,30 @@
   document.addEventListener("contextmenu", (e) => {
     const mouseX = e.pageX;
     const mouseY = e.pageY;
-    // If an active tool is in progress, cancel it.
     const tool =
       window.App.modules.lines && window.App.modules.lines.getMode
         ? window.App.modules.lines.getMode()
         : null;
-    if (tool && tool !== "none") {
-      const activeTool = window.App.modules.lines.StraightLineTool;
-      if (activeTool && typeof activeTool.cancel === "function") {
-        activeTool.cancel();
-      }
+    if (
+      tool &&
+      tool.state &&
+      tool.state !== 0 &&
+      typeof tool.cancel === "function"
+    ) {
+      tool.cancel();
       e.preventDefault();
       return;
     }
     const line = getLineAtPoint(mouseX, mouseY);
     if (line) {
-      Matter.World.remove(window.BallFall.world, line);
+      // Attempt removal via Matter – deep removal flag set.
+      Matter.Composite.remove(window.BallFall.world, line, true);
+      // Fallback: manually remove the body from the world's bodies array.
+      const bodies = window.BallFall.world.bodies;
+      const idx = bodies.indexOf(line);
+      if (idx !== -1) {
+        bodies.splice(idx, 1);
+      }
       if (line.label === "Launcher") {
         if (line.persistenceId)
           App.Persistence.deleteLauncher(line.persistenceId);
