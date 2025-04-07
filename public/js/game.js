@@ -135,7 +135,10 @@
   function updateRevenue() {
     const currentCoins = App.config.coins;
     let delta = currentCoins - lastCoinCount;
-    if (delta < 0) delta = 0;
+    //This check is to account for large purchases - instead of tracking them we simply throw out seconds that had a big negative assuming they were a purchase
+    if (delta < 0) {
+      delta = history.length > 0 ? history[history.length - 1] : 0;
+    }
     history.push(delta);
     if (history.length > maxHistory) history.shift();
 
