@@ -31,7 +31,7 @@ I have always tried to be the opposite, and with kids coming I am trying to make
 
 So for my website, I wanted it to be consciously fun. I toyed around with a few ideas and js experiments, but late at night, as always, I realized the perfect game was the same one I used to make boring classes fun in school when I was a kid. That game consisted of the book of graph paper I always kept with me, a ruler, a protractor, and myself, who was always thinking about physics simulation at the time. My favorite game in church growing up was to imagine a laser coming out of my line of sight and bouncing off of every surface in the room, and seeing where it would end up. This graph paper game was similar:
 
-I would start by making a "spawn point" usually near the top left of the screen, where balls would start falling. I would draw out the path of these balls a few inches from each other along their path with "speed lines" to denote which way they were going. Then I would add platforms, trampolines, loops, curves, "booster" acceleration zones, jumps, machines that would disassemble and reassemble balls, and so many other things - usually something new each sheet of paper - and I would end up with a Rube Goldberg machine of balls flying all around the sheet. The only goal was to fill the sheet with more ridiculous paths.
+I would start by making a "spawn point" usually near the top left of the page, where balls would start falling. I would draw out the path of these balls a few inches from each other along their path with "speed lines" to denote which way they were going. Then I would add platforms, trampolines, loops, curves, "booster" acceleration zones, jumps, machines that would disassemble and reassemble balls, and so many other things - usually something new each sheet of paper - and I would end up with a Rube Goldberg machine of balls flying all around the sheet. The only goal was to fill the sheet with more ridiculous paths.
 
 I started calling the sheets my "ball machines". I wish I still had some of these drawings. I remember them being quite intricate.. I must have reserved English class for them.
 
@@ -39,6 +39,12 @@ So, to honor kid Brian, I am making my website a permanent ball machine. I hope 
 
 ## How to Play
 
-The ball machine on this site has been a bit more gamified than my graph paper drawings were as a kid. Each time you load a page, you'll find a hoop somewhere on the page. Your goal is to get the ball to go through the hoop. Every time you do, another one will appear. Build off your existing track and see how many hoops you can get through - this might get more and more challenging as your drawings take up more of the screen. You get a point each time you get the ball through another hoop. Each post will be a slightly different game!
+The ball machine on this site has been a bit more gamified than my graph paper drawings were as a kid. Each time you load a page, you'll find a goal somewhere on the page. Your goal is to get the ball into that goal. But there is a bit of a catch - balls start out being worth only 1 coin. The longer you can keep balls around, the more they will be worth when going into the goals - this might get more and more challenging as your drawings take up more of the screen and balls start bouncing off of each other. And don't let balls sit around trying to get them to accumulate value too long - balls disappear when they've been still too long.
+
+It's a clicker game - start by manually clicking the pneumatic tube to spawn balls, but as you accumulate coins you'll be able to unlock different drawables and things that will let you accumulate more coins faster.
+
+Each post on this site will be a slightly different randomized game! Try making ball machines on multiple pages at once...
+
+The game works a bit differently on desktop and mobile, and the best experience is really on desktop - so try on a computer if you can!
 
 ## How it's made

@@ -20,19 +20,14 @@
             // Remove the ball and update coins if the impact is strong enough
             Matter.World.remove(window.BallFall.world, other);
 
-            // Determine base and step based on current mode (mobile vs. desktop)
-            let base, step;
-            if (window.innerWidth < 720) {
-              base = App.config.goalBaseSpawnYMobile;
-              step = App.config.goalIncomeStepMobile;
-            } else {
-              base = App.config.goalBaseSpawnYDesktop;
-              step = App.config.goalIncomeStepDesktop;
-            }
-            // Compute income: floor((goalY - base) / step) + default income
+            // Calculate the ball's income based on its age:
+            // income = ballStartValue + floor((currentTime - spawnTime)/ballIncomeTimeStep) * ballIncomeIncrement
+            const now = Date.now();
+            const age = now - (other.spawnTime || now);
             const income =
-              Math.floor((goalBody.position.y - base) / step) +
-              App.config.goalDefaultIncome;
+              App.config.ballStartValue +
+              Math.floor(age / App.config.ballIncomeTimeStep) *
+                App.config.ballIncomeIncrement;
             App.config.coins += income;
             window.App.updateCoinsDisplay();
           }

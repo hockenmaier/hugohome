@@ -48,7 +48,7 @@ App.modules.base = (function () {
     Render.run(render);
 
     // Run physics substeps.
-    const substeps = 2;
+    const substeps = 6;
     const baseDt = 1000 / 60;
     const dt = baseDt / substeps;
     setInterval(() => {
@@ -147,6 +147,8 @@ App.modules.base = (function () {
             mask: 0xffffffff,
           },
         });
+        // Set the spawn time for time-based income calculations.
+        ball.spawnTime = Date.now();
 
         // Temporarily disable collisions with other balls by removing the BALL_CATEGORY bit.
         const disableDuration = App.config.disableDuration; // milliseconds
@@ -241,6 +243,35 @@ App.modules.base = (function () {
       removeBallsBelowPage();
       removeStillBalls();
     }, 1000);
+
+    // --- New afterRender hook to display ball values ---
+    Matter.Events.on(render, "afterRender", function () {
+      const context = render.context;
+      const now = Date.now();
+      // Begin view transform so drawing uses world (page) space.
+      Matter.Render.startViewTransform(render);
+      const bodies = Matter.Composite.allBodies(engine.world);
+      bodies.forEach(function (body) {
+        if (body.label === "BallFallBall") {
+          // Compute the ball's value based on its spawn time.
+          const age = now - (body.spawnTime || now);
+          const ballValue =
+            App.config.ballStartValue +
+            Math.floor(age / App.config.ballIncomeTimeStep) *
+              App.config.ballIncomeIncrement;
+          context.save();
+          // Use 10px for values under 100, then scale down to 5px for larger numbers.
+          const fontSize = ballValue < 100 ? 10 : 5;
+          context.font = `bold ${fontSize}px Consolas`;
+          context.fillStyle = "#1f1b0a";
+          context.textAlign = "center";
+          context.textBaseline = "middle";
+          context.fillText(ballValue, body.position.x, body.position.y);
+          context.restore();
+        }
+      });
+      Matter.Render.endViewTransform(render);
+    });
 
     console.log("Base module initialized, dispatching BallFallBaseReady");
     window.dispatchEvent(new Event("BallFallBaseReady"));

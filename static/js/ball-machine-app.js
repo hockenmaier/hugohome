@@ -35,7 +35,7 @@ window.App = {
         maxSpeed: 500,
       },
     },
-    coins: 250, //Default for when app first loads and there's no storage
+    coins: 750, //Default for when app first loads and there's no storage
     costs: {
       straight: 5,
       curved: 20,
@@ -46,31 +46,40 @@ window.App = {
     goalMinSpeed: 0.5,
     // New economy clicker settings:
     spawnCooldown: 250, // 0.25 sec cooldown between manual spawns
-    autoClickerCost: 20, // Cost to unlock auto spawner
+    autoClickerCost: 100, // Cost to unlock auto spawner
     speedUpgradeCosts: {
-      1: 50,
-      2: 100,
-      3: 200,
-      4: 400,
-      5: 1600,
-      6: 3200,
-      7: 6400,
-      8: 12800,
-      9: 25600,
-      10: 51200,
-      11: 100000,
+      1: 200,
+      2: 400,
+      3: 800,
+      4: 1600,
+      5: 6400,
+      6: 12800,
+      7: 25600,
+      8: 51200,
+      9: 100000,
+      10: 200000,
+      11: 400000,
+      12: 800000,
     },
     maxUnlockedSpeedLevel: 0, // Initially 0; increases with upgrades
     autoClicker: false, // Flag set when auto-clicker is purchased
     originalSpawnInterval: 4480, // To compute speed upgrades
 
-    // --- New goal income settings ---
-    goalDefaultIncome: 1, // Default coins earned when goal spawns at base position
-    goalIncomeStepDesktop: 300, // Additional coin per 300px beyond base in desktop mode
-    goalIncomeStepMobile: 500, // Additional coin per 500px beyond base in mobile mode
+    // --- Goal income settings ---
+    // goalDefaultIncome: 0, // Default coins earned when goal spawns at base position - set to zero for now; only ball-based income will be used with this set to 0
+    // goalIncomeStepDesktop: 3000000, // Additional coin per 300px beyond base in desktop mode, currently set very high to essentially not use depth-based rewards, but should be maintained.
+    // goalIncomeStepMobile: 5000000, // Additional coin per 500px beyond base in mobile mode, currently set very high to essentially not use depth-based rewards, but should be maintained.
+
+    // --- Goal min depth settings ---
     goalBaseSpawnYDesktop: 300, // Base spawn Y for desktop mode (independent variable for income)
     goalBaseSpawnYMobile: 500, // Base spawn Y for mobile mode
-    // New style settings for drawing tools:
+
+    // --- Rube Goldberg Time-based income settings ---
+    ballStartValue: 1, //The value of a ball when it spawns
+    ballIncomeIncrement: 1,
+    ballIncomeTimeStep: 2000, // Every ballIncomeTimeStep ms, the ball will gain ballIncomeIncrement in value
+
+    // Style settings for drawing tools:
     straightLineRender: {
       fillStyle: "#956eff",
       strokeStyle: "#956eff",
