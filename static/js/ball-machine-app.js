@@ -12,7 +12,7 @@ window.App = {
     ballSize: 7,
     sitStillDeleteSeconds: 3,
     sitStillDeleteMargin: 1,
-    disableDuration: 800, // milliseconds
+    disableDuration: 600, // milliseconds
     textHitColor: "#b3ffc7",
     lineThickness: 5,
     dottedLineHealth: 5,
@@ -35,7 +35,7 @@ window.App = {
         maxSpeed: 500,
       },
     },
-    coins: 250, //Default for when app first loads and there's no storage
+    coins: 250000, //Default for when app first loads and there's no storage
     costs: {
       straight: 5,
       curved: 20,

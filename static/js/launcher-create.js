@@ -34,16 +34,23 @@ window.LauncherCreateTool = {
             xScale: scale,
             yScale: scale,
           },
-          opacity: 0.6,
+          opacity: 0.6, // preview opacity (will be set to 1 on finish)
         },
       });
       this.launcherPreview.isPreview = true;
       Matter.World.add(window.BallFall.world, this.launcherPreview);
       this.state = 1;
     } else if (this.state === 1) {
-      this.finish(x, y);
       const cost = App.config.costs[this.selectedType];
-      new BaseDrawingTool("launcher", cost).charge();
+      const tool = new BaseDrawingTool("launcher", cost);
+      // Re-check funds before finishing (desktop flow)
+      if (!tool.canPlace()) {
+        BaseDrawingTool.showInsufficientFunds();
+        this.cancel();
+        return;
+      }
+      this.finish(x, y);
+      tool.charge();
     }
   },
 
@@ -125,6 +132,10 @@ window.LauncherCreateTool = {
       App.config.launcherTypes[this.selectedType].delay;
     this.launcherPreview.maxSpeed = maxSpeed;
     this.launcherPreview.isPreview = false;
+    // Set to full opacity now that the launcher is placed
+    if (this.launcherPreview.render) {
+      this.launcherPreview.render.opacity = 1;
+    }
     if (App.modules.lines && typeof App.modules.lines.addLine === "function") {
       App.modules.lines.addLine(this.launcherPreview);
     }
