@@ -188,7 +188,7 @@
   </div>
 </div>
 
-<!-- Existing UI panel remains (coins, toggle, etc.) -->
+<!-- Main UI panel (coins, toggle, etc.) -->
 <div id="ballfall-ui">
   <img src="{{ "images/ball-machine.png" | relURL }}" id="bfui-image" alt="Ball
   Machine" />
@@ -200,6 +200,10 @@
     <span id="bfui-drop-rate-value">N/A</span>
   </div>
   <div id="coins-display">0 coins</div>
+  <!-- New revenue display element -->
+  <div id="revenue-display">
+    <img src="{{ "images/coin-cost.png" | relURL }}" alt="Coin" />0/s
+  </div>
   <div
     id="toggle-container"
     style="display: inline-block; padding: 5px; border: 2px solid transparent"

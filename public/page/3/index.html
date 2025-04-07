@@ -1128,7 +1128,10 @@ table {
         
         <script>
             var goalTexture = 'http:\/\/localhost:1313\/images\/goal.png';
-        </script>          
+        </script>        
+        <script>
+            var coinCostURL = 'http:\/\/localhost:1313\/images\/coin-cost.png';
+        </script>                 
         <script src="http://localhost:1313/js/matter.min.js"></script>
         <script src="http://localhost:1313/js/matter-wrap.min.js"></script>
         <script src="http://localhost:1313/js/ball-machine-app.js"></script>
@@ -1350,6 +1353,10 @@ table {
     <span id="bfui-drop-rate-value">N/A</span>
   </div>
   <div id="coins-display">0 coins</div>
+  
+  <div id="revenue-display">
+    <img src="/images/coin-cost.png" alt="Coin" />0/s
+  </div>
   <div
     id="toggle-container"
     style="display: inline-block; padding: 5px; border: 2px solid transparent"
