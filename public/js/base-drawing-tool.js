@@ -69,6 +69,7 @@ class BaseDrawingTool {
     if (onMove) onMove.call(this, x, y);
   }
 
+  // Generic mobile touch handling
   handleTouchEnd(x, y, onEnd, onCancel, cost) {
     // If there was no drag or the movement is too small, cancel.
     if (
@@ -79,8 +80,15 @@ class BaseDrawingTool {
       BaseDrawingTool.ignoreNextClick = true;
       return;
     }
+    // Create a tool instance to check funds.
+    let tool = new BaseDrawingTool(this.toolName, cost);
+    if (!tool.canPlace()) {
+      BaseDrawingTool.showInsufficientFunds();
+      if (onCancel) onCancel.call(this);
+      return;
+    }
     if (onEnd) onEnd.call(this, x, y);
-    new BaseDrawingTool(this.toolName, cost).charge();
+    tool.charge();
     this._hasMoved = false;
   }
 }

@@ -183,12 +183,10 @@ window.LauncherCreateTool = {
       function (x, y) {
         if (this.state === 1) {
           this.finish(x, y);
-          const cost = App.config.costs[this.selectedType];
-          new BaseDrawingTool("launcher", cost).charge();
         }
       },
       this.cancel,
-      App.config.costs.launcher
+      App.config.costs[this.selectedType]
     );
   },
 };
