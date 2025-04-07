@@ -35,7 +35,7 @@ window.App = {
         maxSpeed: 500,
       },
     },
-    coins: 750, //Default for when app first loads and there's no storage
+    coins: 75, //Default for when app first loads and there's no storage
     costs: {
       straight: 5,
       curved: 20,
@@ -43,8 +43,9 @@ window.App = {
       "fast-launcher": 200,
       "insta-launcher": 1000,
     },
-    goalMinSpeed: 0.5,
-    // New economy clicker settings:
+    goalMinSpeed: 0.5, //Speed balls must be traveling to trigger the goal
+
+    // Economy clicker settings:
     spawnCooldown: 250, // 0.25 sec cooldown between manual spawns
     autoClickerCost: 100, // Cost to unlock auto spawner
     speedUpgradeCosts: {
