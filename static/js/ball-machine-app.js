@@ -38,10 +38,10 @@ window.App = {
     coins: 75, //Default for when app first loads and there's no storage
     costs: {
       straight: 5,
-      curved: 20,
-      launcher: 50,
-      "fast-launcher": 200,
-      "insta-launcher": 1000,
+      curved: 100,
+      launcher: 200,
+      "fast-launcher": 500,
+      "insta-launcher": 2500,
     },
     goalMinSpeed: 0.5, //Speed balls must be traveling to trigger the goal
 

@@ -58,11 +58,19 @@ App.modules.base = (function () {
     }, baseDt);
 
     function resize() {
+      const ratio = window.devicePixelRatio || 1;
       render.options.width = window.innerWidth;
       render.options.height = window.innerHeight;
-      canvasEl.width = window.innerWidth;
-      canvasEl.height = window.innerHeight;
+      // Set the canvas resolution to CSS size times the device pixel ratio
+      canvasEl.width = window.innerWidth * ratio;
+      canvasEl.height = window.innerHeight * ratio;
+      // Keep the canvas displayed at the CSS pixel size
+      canvasEl.style.width = window.innerWidth + "px";
+      canvasEl.style.height = window.innerHeight + "px";
+      // Tell Matter.Render to use the new pixel ratio
+      Matter.Render.setPixelRatio(render, ratio);
     }
+
     window.addEventListener("resize", resize);
     resize();
 
