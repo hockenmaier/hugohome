@@ -250,7 +250,7 @@ App.modules.base = (function () {
     setInterval(() => {
       removeBallsBelowPage();
       removeStillBalls();
-    }, 1000);
+    }, 500);
 
     // Convert a hex color to an HSL object.
     function hexToHSL(hex) {

@@ -10,10 +10,10 @@ window.App = {
     restitution: 0.95,
     spawnX: 1.3, // x axis spawn point: 1/spawnX is the fraction of the screen width
     ballSize: 7,
-    sitStillDeleteSeconds: 3,
+    sitStillDeleteSeconds: 2,
     sitStillDeleteMargin: 1,
     disableDuration: 600, // milliseconds
-    textHitFadeTime: 10, //seconds
+    //textHitFadeTime: 100, //seconds  //Not yet used
     lineThickness: 5,
     dottedLineHealth: 5,
     curvedLineFidelity: 30,
@@ -84,26 +84,17 @@ window.App = {
     // The ball’s color will be interpolated between these thresholds:
     // 0: white, 3: #ffa200, 10: #26ff00, 25: #000dff, 100: #ff00ff, 500+: #ff0000.
     ballColorThresholds: [
-      { value: 0, color: "#e6e6e6" }, //original white
-      { value: 5, color: "#e6e6e6" }, //original white
-      { value: 10, color: "#ffe58a" }, //white-yellow
-      { value: 15, color: "#ffdd66" }, //yellower
-      { value: 20, color: "#ffd12e" }, //almost orance-yellow
+      { value: 0, color: "#ffffff" }, //original white
+      { value: 5, color: "#fffae6" }, //yellower
+      { value: 10, color: "#fff3c7" }, //white-yellow
+      { value: 15, color: "#fcdf77" }, //yellower
+      { value: 20, color: "#ffd12e" }, //almost orange-yellow
       { value: 25, color: "#ffc600" }, //orange-yellow
       { value: 100, color: "#26ff00" }, //green
       { value: 250, color: "#000dff" }, //blue
       { value: 1000, color: "#ff00ff" }, //purple
       { value: 5000, color: "#ff0000" }, //red
     ],
-
-    // ballColorThresholds: [
-    //   { value: 0, color: "#e6e6e6" }, //original white
-    //   { value: 10, color: "#ffa200" }, //orange-yellow
-    //   { value: 15, color: "#26ff00" }, //green
-    //   { value: 25, color: "#000dff" }, //blue
-    //   { value: 35, color: "#ff00ff" }, //purple
-    //   { value: 45, color: "#ff0000" }, //red
-    // ],
 
     // Style settings for drawing tools:
     straightLineRender: {
