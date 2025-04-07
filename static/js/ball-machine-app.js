@@ -13,7 +13,7 @@ window.App = {
     sitStillDeleteSeconds: 3,
     sitStillDeleteMargin: 1,
     disableDuration: 600, // milliseconds
-    textHitColor: "#b3ffc7",
+    textHitFadeTime: 10, //seconds
     lineThickness: 5,
     dottedLineHealth: 5,
     curvedLineFidelity: 30,
@@ -38,7 +38,7 @@ window.App = {
     coins: 75, //Default for when app first loads and there's no storage
     costs: {
       straight: 5,
-      curved: 100,
+      curved: 50,
       launcher: 200,
       "fast-launcher": 500,
       "insta-launcher": 2500,
@@ -79,6 +79,31 @@ window.App = {
     ballStartValue: 1, //The value of a ball when it spawns
     ballIncomeIncrement: 1,
     ballIncomeTimeStep: 2000, // Every ballIncomeTimeStep ms, the ball will gain ballIncomeIncrement in value
+
+    //Configurable ball color thresholds.
+    // The ball’s color will be interpolated between these thresholds:
+    // 0: white, 3: #ffa200, 10: #26ff00, 25: #000dff, 100: #ff00ff, 500+: #ff0000.
+    ballColorThresholds: [
+      { value: 0, color: "#e6e6e6" }, //original white
+      { value: 5, color: "#e6e6e6" }, //original white
+      { value: 10, color: "#ffe58a" }, //white-yellow
+      { value: 15, color: "#ffdd66" }, //yellower
+      { value: 20, color: "#ffd12e" }, //almost orance-yellow
+      { value: 25, color: "#ffc600" }, //orange-yellow
+      { value: 100, color: "#26ff00" }, //green
+      { value: 250, color: "#000dff" }, //blue
+      { value: 1000, color: "#ff00ff" }, //purple
+      { value: 5000, color: "#ff0000" }, //red
+    ],
+
+    // ballColorThresholds: [
+    //   { value: 0, color: "#e6e6e6" }, //original white
+    //   { value: 10, color: "#ffa200" }, //orange-yellow
+    //   { value: 15, color: "#26ff00" }, //green
+    //   { value: 25, color: "#000dff" }, //blue
+    //   { value: 35, color: "#ff00ff" }, //purple
+    //   { value: 45, color: "#ff0000" }, //red
+    // ],
 
     // Style settings for drawing tools:
     straightLineRender: {

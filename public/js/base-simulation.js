@@ -252,23 +252,99 @@ App.modules.base = (function () {
       removeStillBalls();
     }, 1000);
 
-    // --- New afterRender hook to display ball values ---
+    // Convert a hex color to an HSL object.
+    function hexToHSL(hex) {
+      let r = parseInt(hex.substr(1, 2), 16) / 255,
+        g = parseInt(hex.substr(3, 2), 16) / 255,
+        b = parseInt(hex.substr(5, 2), 16) / 255;
+      let max = Math.max(r, g, b),
+        min = Math.min(r, g, b);
+      let h,
+        s,
+        l = (max + min) / 2;
+      if (max === min) {
+        h = s = 0; // achromatic
+      } else {
+        let d = max - min;
+        s = l > 0.5 ? d / (2 - max - min) : d / (max + min);
+        if (max === r) {
+          h = ((g - b) / d + (g < b ? 6 : 0)) / 6;
+        } else if (max === g) {
+          h = ((b - r) / d + 2) / 6;
+        } else {
+          h = ((r - g) / d + 4) / 6;
+        }
+      }
+      return { h: h, s: s, l: l };
+    }
+
+    // Convert an HSL object to hex.
+    function HSLToHex(h, s, l) {
+      let hue2rgb = function (p, q, t) {
+        if (t < 0) t += 1;
+        if (t > 1) t -= 1;
+        if (t < 1 / 6) return p + (q - p) * 6 * t;
+        if (t < 1 / 2) return q;
+        if (t < 2 / 3) return p + (q - p) * (2 / 3 - t) * 6;
+        return p;
+      };
+      let r, g, b;
+      if (s === 0) {
+        r = g = b = l;
+      } else {
+        let q = l < 0.5 ? l * (1 + s) : l + s - l * s;
+        let p = 2 * l - q;
+        r = hue2rgb(p, q, h + 1 / 3);
+        g = hue2rgb(p, q, h);
+        b = hue2rgb(p, q, h - 1 / 3);
+      }
+      let toHex = function (x) {
+        let hex = Math.round(x * 255).toString(16);
+        return hex.length === 1 ? "0" + hex : hex;
+      };
+      return "#" + toHex(r) + toHex(g) + toHex(b);
+    }
+
+    // Interpolate between two hex colors in HSL space.
+    function interpolateColorHSL(color1, color2, t) {
+      let hsl1 = hexToHSL(color1);
+      let hsl2 = hexToHSL(color2);
+      // For a brighter look, you can choose to keep lightness fixed if desired.
+      let h = hsl1.h + (hsl2.h - hsl1.h) * t;
+      let s = hsl1.s + (hsl2.s - hsl1.s) * t;
+      let l = hsl1.l + (hsl2.l - hsl1.l) * t;
+      return HSLToHex(h, s, l);
+    }
+
+    // Update getBallColor to use HSL interpolation.
+    function getBallColor(value) {
+      var thresholds = App.config.ballColorThresholds;
+      for (var i = 0; i < thresholds.length - 1; i++) {
+        if (value >= thresholds[i].value && value < thresholds[i + 1].value) {
+          var lower = thresholds[i];
+          var upper = thresholds[i + 1];
+          var ratio = (value - lower.value) / (upper.value - lower.value);
+          return interpolateColorHSL(lower.color, upper.color, ratio);
+        }
+      }
+      return thresholds[thresholds.length - 1].color;
+    }
+
+    // --- afterRender hook (unchanged except for calling getBallColor) ---
     Matter.Events.on(render, "afterRender", function () {
       const context = render.context;
       const now = Date.now();
-      // Begin view transform so drawing uses world (page) space.
       Matter.Render.startViewTransform(render);
       const bodies = Matter.Composite.allBodies(engine.world);
       bodies.forEach(function (body) {
         if (body.label === "BallFallBall") {
-          // Compute the ball's value based on its spawn time.
           const age = now - (body.spawnTime || now);
           const ballValue =
             App.config.ballStartValue +
             Math.floor(age / App.config.ballIncomeTimeStep) *
               App.config.ballIncomeIncrement;
+          body.render.fillStyle = getBallColor(ballValue);
           context.save();
-          // Use 10px for values under 100, then scale down to 5px for larger numbers.
           const fontSize = ballValue < 100 ? 10 : 5;
           context.font = `bold ${fontSize}px Consolas`;
           context.fillStyle = "#1f1b0a";
