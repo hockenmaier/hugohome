@@ -39,7 +39,7 @@ So, to honor kid Brian, I am making my website a permanent ball machine. I hope 
 
 ## How to Play
 
-The ball machine on this site has been a bit more gamified than my graph paper drawings were as a kid. Each time you load a page, you'll find a goal somewhere on the page. Your goal is to get the ball into that goal. But there is a bit of a catch - balls start out being worth only 1 coin. The longer you can keep balls around, the more they will be worth when going into the goals - this might get more and more challenging as your drawings take up more of the screen and balls start bouncing off of each other. And don't let balls sit around trying to get them to accumulate value too long - balls disappear when they've been still too long.
+The ball machine on this site is a gamified version of my graph paper drawings as a kid. Each time you load a page, you'll find a goal somewhere on the page. Your goal is to get the ball into that goal. But there is a bit of a trick - balls start out being worth 1 coin, and the longer you can keep balls around, the more they will be worth when going into the goals - this might get more and more challenging as your drawings take up more of the screen and balls start bouncing off of each other. And don't let balls sit around trying to get them to accumulate value too long - balls disappear when they've been still too long.
 
 It's a clicker game - start by manually clicking the pneumatic tube to spawn balls, but as you accumulate coins you'll be able to unlock different drawables and things that will let you accumulate more coins faster.
 
