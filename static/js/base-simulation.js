@@ -343,7 +343,11 @@ App.modules.base = (function () {
             App.config.ballStartValue +
             Math.floor(age / App.config.ballIncomeTimeStep) *
               App.config.ballIncomeIncrement;
-          body.render.fillStyle = getBallColor(ballValue);
+          // Only update the ball's color if its value has changed.
+          if (ballValue !== body.lastBallValue) {
+            body.render.fillStyle = getBallColor(ballValue);
+            body.lastBallValue = ballValue;
+          }
           context.save();
           const fontSize = ballValue < 100 ? 10 : 5;
           context.font = `bold ${fontSize}px Consolas`;
