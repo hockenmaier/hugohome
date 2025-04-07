@@ -1144,7 +1144,10 @@ table {
         
         <script>
             var goalTexture = 'https:\/\/hockenmaier.github.io\/hugohome\/images\/goal.png';
-        </script>          
+        </script>        
+        <script>
+            var coinCostURL = 'https:\/\/hockenmaier.github.io\/hugohome\/images\/coin-cost.png';
+        </script>                 
         <script src="https://hockenmaier.github.io/hugohome/js/matter.min.js"></script>
         <script src="https://hockenmaier.github.io/hugohome/js/matter-wrap.min.js"></script>
         <script src="https://hockenmaier.github.io/hugohome/js/ball-machine-app.js"></script>
@@ -1153,7 +1156,7 @@ table {
         <script src="https://hockenmaier.github.io/hugohome/js/text.js"></script>
         <script src="https://hockenmaier.github.io/hugohome/js/base-drawing-tool.js"></script>
         <script src="https://hockenmaier.github.io/hugohome/js/line-interaction.js"></script>
-        <script src="https://hockenmaier.github.io/hugohome/js/inputManager.js"></script>
+        <script src="https://hockenmaier.github.io/hugohome/js/input-manager.js"></script>
         <script src="https://hockenmaier.github.io/hugohome/js/notifications.js"></script>
         <script src="https://hockenmaier.github.io/hugohome/js/lines.js"></script>
         <script src="https://hockenmaier.github.io/hugohome/js/dotted-line.js"></script>
@@ -1304,6 +1307,12 @@ table {
     font-size: 14px;
     margin: 5px 0;
   }
+  #revenue-display {
+    text-align: center;
+    color: gold;
+    font-size: 12px;
+    margin: 5px 0;
+  }
   .toggle-wrapper {
     display: flex;
     flex-direction: column;
@@ -1366,6 +1375,8 @@ table {
     <span id="bfui-drop-rate-value">N/A</span>
   </div>
   <div id="coins-display">0 coins</div>
+  
+  <div id="revenue-display">coins/s</div>
   <div
     id="toggle-container"
     style="display: inline-block; padding: 5px; border: 2px solid transparent"
@@ -1396,28 +1407,28 @@ table {
         <img src="/hugohome/images/curve-mode.png" id="toggleCurved"
         class="line-toggle" alt="Curved Line" />
         <div class="cost-label">
-          <img src="/hugohome/images/coin-cost.png" alt="Coin" /> 20
+          <img src="/hugohome/images/coin-cost.png" alt="Coin" /> 50
         </div>
       </div>
       <div class="toggle-wrapper">
         <img src="/hugohome/images/DKannon250-mode.png"
         id="toggleLauncher" class="line-toggle" alt="Launcher" />
         <div class="cost-label">
-          <img src="/hugohome/images/coin-cost.png" alt="Coin" /> 50
+          <img src="/hugohome/images/coin-cost.png" alt="Coin" /> 200
         </div>
       </div>
       <div class="toggle-wrapper">
         <img src="/hugohome/images/DKannon250-fast-mode.png"
         id="toggleFastLauncher" class="line-toggle" alt="Fast Launcher" />
         <div class="cost-label">
-          <img src="/hugohome/images/coin-cost.png" alt="Coin" /> 200
+          <img src="/hugohome/images/coin-cost.png" alt="Coin" /> 500
         </div>
       </div>
       <div class="toggle-wrapper">
         <img src="/hugohome/images/DKannon250-insta-mode.png"
         id="toggleInstaLauncher" class="line-toggle" alt="Insta Launcher" />
         <div class="cost-label">
-          <img src="/hugohome/images/coin-cost.png" alt="Coin" /> 1000
+          <img src="/hugohome/images/coin-cost.png" alt="Coin" /> 2500
         </div>
       </div>
     </div>
@@ -1603,7 +1614,6 @@ table {
             window.notifyUnaffordable(100, 12);
           }
         } else {
-          
           var nextLevel = App.config.maxUnlockedSpeedLevel + 1;
           var cost = App.config.speedUpgradeCosts[nextLevel];
           if (App.config.coins >= cost) {

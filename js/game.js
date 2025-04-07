@@ -122,3 +122,49 @@
 
   initSpawn();
 })();
+
+// --- Begin Moving Average Coin Revenue Calculation ---
+// This block calculates coin revenue per second as a moving average over the last 25 seconds,
+// ignoring any negative deltas (e.g. purchases).
+// It updates the UI element with id "revenue-display" once per second.
+(function () {
+  let lastCoinCount = App.config.coins;
+  const history = [];
+  const maxHistory = 25;
+
+  function updateRevenue() {
+    const currentCoins = App.config.coins;
+    let delta = currentCoins - lastCoinCount;
+    //This check is to account for large purchases - instead of tracking them we simply throw out seconds that had a big negative assuming they were a purchase
+    if (delta < 0) {
+      delta = history.length > 0 ? history[history.length - 1] : 0;
+    }
+    history.push(delta);
+    if (history.length > maxHistory) history.shift();
+
+    const sum = history.reduce((a, b) => a + b, 0);
+    const avgRevenue = sum / history.length;
+
+    //console.log(`Delta: ${delta}, Average: ${avgRevenue.toFixed(1)}`); // debug log
+
+    const revenueDisplay = document.getElementById("revenue-display");
+    if (revenueDisplay) {
+      revenueDisplay.innerHTML = `<img src="${coinCostURL}" alt="Coin" style="width:12px; height:12px;"> ${avgRevenue.toFixed(
+        1
+      )} /s`;
+    }
+
+    lastCoinCount = currentCoins;
+  }
+
+  // Wait until BallFall and the revenue-display element exist.
+  function start() {
+    if (!window.BallFall || !document.getElementById("revenue-display")) {
+      setTimeout(start, 250);
+      return;
+    }
+    setInterval(updateRevenue, 1000);
+  }
+
+  start();
+})();

@@ -60,10 +60,12 @@ App.modules.launcher = (function () {
         // Use a short threshold to allow for minor physics jitter.
         const timeSinceLast = Date.now() - ball._lastCollideTime;
         const collisionThreshold = 100; // ms
+        const collision = Matter.SAT.collides(launcher, ball);
         if (
           ball.currentLauncher === launcher.id &&
           timeSinceLast < collisionThreshold &&
-          Matter.SAT.collides(launcher, ball).collided
+          collision &&
+          collision.collided
         ) {
           Matter.Body.setVelocity(ball, {
             x: launcher.launchForce.x,

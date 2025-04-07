@@ -614,7 +614,7 @@ table {
 <p>I started calling the sheets my &ldquo;ball machines&rdquo;. I wish I still had some of these drawings. I remember them being quite intricate.. I must have reserved English class for them.</p>
 <p>So, to honor kid Brian, I am making my website a permanent ball machine. I hope you have fun with it, and that it&rsquo;s not too annoying if you&rsquo;re trying to read.</p>
 <h2 id="how-to-play">How to Play<a aria-label="Link to this section" class="paige-header-link" href="#how-to-play"></a></h2>
-<p>The ball machine on this site has been a bit more gamified than my graph paper drawings were as a kid. Each time you load a page, you&rsquo;ll find a goal somewhere on the page. Your goal is to get the ball into that goal. But there is a bit of a catch - balls start out being worth only 1 coin. The longer you can keep balls around, the more they will be worth when going into the goals - this might get more and more challenging as your drawings take up more of the screen and balls start bouncing off of each other. And don&rsquo;t let balls sit around trying to get them to accumulate value too long - balls disappear when they&rsquo;ve been still too long.</p>
+<p>The ball machine on this site is a gamified version of my graph paper drawings as a kid. Each time you load a page, you&rsquo;ll find a goal somewhere on the page. Your goal is to get the ball into that goal. But there is a bit of a trick - balls start out being worth 1 coin, and the longer you can keep balls around, the more they will be worth when going into the goals - this might get more and more challenging as your drawings take up more of the screen and balls start bouncing off of each other. And don&rsquo;t let balls sit around trying to get them to accumulate value too long - balls disappear when they&rsquo;ve been still too long.</p>
 <p>It&rsquo;s a clicker game - start by manually clicking the pneumatic tube to spawn balls, but as you accumulate coins you&rsquo;ll be able to unlock different drawables and things that will let you accumulate more coins faster.</p>
 <p>Each post on this site will be a slightly different randomized game! Try making ball machines on multiple pages at once&hellip;</p>
 <p>The game works a bit differently on desktop and mobile, and the best experience is really on desktop - so try on a computer if you can!</p>
@@ -851,7 +851,10 @@ table {
         
         <script>
             var goalTexture = 'https:\/\/hockenmaier.github.io\/hugohome\/images\/goal.png';
-        </script>          
+        </script>        
+        <script>
+            var coinCostURL = 'https:\/\/hockenmaier.github.io\/hugohome\/images\/coin-cost.png';
+        </script>                 
         <script src="https://hockenmaier.github.io/hugohome/js/matter.min.js"></script>
         <script src="https://hockenmaier.github.io/hugohome/js/matter-wrap.min.js"></script>
         <script src="https://hockenmaier.github.io/hugohome/js/ball-machine-app.js"></script>
@@ -860,7 +863,7 @@ table {
         <script src="https://hockenmaier.github.io/hugohome/js/text.js"></script>
         <script src="https://hockenmaier.github.io/hugohome/js/base-drawing-tool.js"></script>
         <script src="https://hockenmaier.github.io/hugohome/js/line-interaction.js"></script>
-        <script src="https://hockenmaier.github.io/hugohome/js/inputManager.js"></script>
+        <script src="https://hockenmaier.github.io/hugohome/js/input-manager.js"></script>
         <script src="https://hockenmaier.github.io/hugohome/js/notifications.js"></script>
         <script src="https://hockenmaier.github.io/hugohome/js/lines.js"></script>
         <script src="https://hockenmaier.github.io/hugohome/js/dotted-line.js"></script>
@@ -1011,6 +1014,12 @@ table {
     font-size: 14px;
     margin: 5px 0;
   }
+  #revenue-display {
+    text-align: center;
+    color: gold;
+    font-size: 12px;
+    margin: 5px 0;
+  }
   .toggle-wrapper {
     display: flex;
     flex-direction: column;
@@ -1073,6 +1082,8 @@ table {
     <span id="bfui-drop-rate-value">N/A</span>
   </div>
   <div id="coins-display">0 coins</div>
+  
+  <div id="revenue-display">coins/s</div>
   <div
     id="toggle-container"
     style="display: inline-block; padding: 5px; border: 2px solid transparent"
@@ -1103,28 +1114,28 @@ table {
         <img src="/hugohome/images/curve-mode.png" id="toggleCurved"
         class="line-toggle" alt="Curved Line" />
         <div class="cost-label">
-          <img src="/hugohome/images/coin-cost.png" alt="Coin" /> 20
+          <img src="/hugohome/images/coin-cost.png" alt="Coin" /> 50
         </div>
       </div>
       <div class="toggle-wrapper">
         <img src="/hugohome/images/DKannon250-mode.png"
         id="toggleLauncher" class="line-toggle" alt="Launcher" />
         <div class="cost-label">
-          <img src="/hugohome/images/coin-cost.png" alt="Coin" /> 50
+          <img src="/hugohome/images/coin-cost.png" alt="Coin" /> 200
         </div>
       </div>
       <div class="toggle-wrapper">
         <img src="/hugohome/images/DKannon250-fast-mode.png"
         id="toggleFastLauncher" class="line-toggle" alt="Fast Launcher" />
         <div class="cost-label">
-          <img src="/hugohome/images/coin-cost.png" alt="Coin" /> 200
+          <img src="/hugohome/images/coin-cost.png" alt="Coin" /> 500
         </div>
       </div>
       <div class="toggle-wrapper">
         <img src="/hugohome/images/DKannon250-insta-mode.png"
         id="toggleInstaLauncher" class="line-toggle" alt="Insta Launcher" />
         <div class="cost-label">
-          <img src="/hugohome/images/coin-cost.png" alt="Coin" /> 1000
+          <img src="/hugohome/images/coin-cost.png" alt="Coin" /> 2500
         </div>
       </div>
     </div>
@@ -1310,7 +1321,6 @@ table {
             window.notifyUnaffordable(100, 12);
           }
         } else {
-          
           var nextLevel = App.config.maxUnlockedSpeedLevel + 1;
           var cost = App.config.speedUpgradeCosts[nextLevel];
           if (App.config.coins >= cost) {

@@ -10,10 +10,10 @@ window.App = {
     restitution: 0.95,
     spawnX: 1.3, // x axis spawn point: 1/spawnX is the fraction of the screen width
     ballSize: 7,
-    sitStillDeleteSeconds: 3,
+    sitStillDeleteSeconds: 2,
     sitStillDeleteMargin: 1,
     disableDuration: 600, // milliseconds
-    textHitColor: "#b3ffc7",
+    //textHitFadeTime: 100, //seconds  //Not yet used
     lineThickness: 5,
     dottedLineHealth: 5,
     curvedLineFidelity: 30,
@@ -38,10 +38,10 @@ window.App = {
     coins: 75, //Default for when app first loads and there's no storage
     costs: {
       straight: 5,
-      curved: 20,
-      launcher: 50,
-      "fast-launcher": 200,
-      "insta-launcher": 1000,
+      curved: 50,
+      launcher: 200,
+      "fast-launcher": 500,
+      "insta-launcher": 2500,
     },
     goalMinSpeed: 0.5, //Speed balls must be traveling to trigger the goal
 
@@ -79,6 +79,22 @@ window.App = {
     ballStartValue: 1, //The value of a ball when it spawns
     ballIncomeIncrement: 1,
     ballIncomeTimeStep: 2000, // Every ballIncomeTimeStep ms, the ball will gain ballIncomeIncrement in value
+
+    //Configurable ball color thresholds.
+    // The ball’s color will be interpolated between these thresholds:
+    // 0: white, 3: #ffa200, 10: #26ff00, 25: #000dff, 100: #ff00ff, 500+: #ff0000.
+    ballColorThresholds: [
+      { value: 0, color: "#ffffff" }, //original white
+      { value: 5, color: "#fffae6" }, //yellower
+      { value: 10, color: "#fff3c7" }, //white-yellow
+      { value: 15, color: "#fcdf77" }, //yellower
+      { value: 20, color: "#ffd12e" }, //almost orange-yellow
+      { value: 25, color: "#ffc600" }, //orange-yellow
+      { value: 100, color: "#26ff00" }, //green
+      { value: 250, color: "#000dff" }, //blue
+      { value: 1000, color: "#ff00ff" }, //purple
+      { value: 5000, color: "#ff0000" }, //red
+    ],
 
     // Style settings for drawing tools:
     straightLineRender: {

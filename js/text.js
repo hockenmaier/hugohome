@@ -168,13 +168,37 @@ App.modules.text = (function () {
       if (body) World.add(world, body);
     });
 
+    // Helper: simply change the text color to match the ball's color.
+    function applyBallHitEffect(letterBody, ballBody) {
+      const letterEl = letterBody.elRef;
+      if (!letterEl) return;
+      //console.log("Collision: changing color for letter", letterEl.textContent);
+      const ballColor =
+        ballBody.render && ballBody.render.fillStyle
+          ? ballBody.render.fillStyle
+          : App.config.textHitColor;
+      // Directly set the text color without a fade transition.
+      letterEl.style.color = ballColor;
+    }
+
+    // Collision handler: detect collisions between text letters and balls.
     Events.on(engine, "collisionStart", (evt) => {
       evt.pairs.forEach((pair) => {
-        [pair.bodyA, pair.bodyB].forEach((b) => {
-          if (b.elRef && b.elRef.tagName === "SPAN") {
-            b.elRef.style.color = App.config.textHitColor;
-          }
-        });
+        if (
+          pair.bodyA.elRef &&
+          pair.bodyA.elRef.tagName &&
+          pair.bodyA.elRef.tagName.toUpperCase() === "SPAN" &&
+          pair.bodyB.label === "BallFallBall"
+        ) {
+          applyBallHitEffect(pair.bodyA, pair.bodyB);
+        } else if (
+          pair.bodyB.elRef &&
+          pair.bodyB.elRef.tagName &&
+          pair.bodyB.elRef.tagName.toUpperCase() === "SPAN" &&
+          pair.bodyA.label === "BallFallBall"
+        ) {
+          applyBallHitEffect(pair.bodyB, pair.bodyA);
+        }
       });
     });
 
