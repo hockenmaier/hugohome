@@ -70,7 +70,7 @@
             
 
             
-                <link href="https://hockenmaier.github.io/hugohome/tags/procedural-generation/" rel="self" type="text/html"/>
+                <link href="http://localhost:1313/tags/procedural-generation/" rel="self" type="text/html"/>
             
         
             
@@ -78,7 +78,7 @@
             
 
             
-                <link href="https://hockenmaier.github.io/hugohome/tags/procedural-generation/rss.xml" rel="alternate" type="application/rss+xml"/>
+                <link href="http://localhost:1313/tags/procedural-generation/rss.xml" rel="alternate" type="application/rss+xml"/>
             
         
 
@@ -96,7 +96,7 @@
             <lastBuildDate>2025-03-01 00:00:00 +0000 UTC</lastBuildDate>
         
 
-        <link>https://hockenmaier.github.io/hugohome/tags/procedural-generation/</link>
+        <link>http://localhost:1313/tags/procedural-generation/</link>
 
         
 
@@ -141,7 +141,7 @@
 <p>I started calling the sheets my &ldquo;ball machines&rdquo;. I wish I still had some of these drawings. I remember them being quite intricate.. I must have reserved English class for them.</p>
 <p>So, to honor kid Brian, I am making my website a permanent ball machine. I hope you have fun with it, and that it&rsquo;s not too annoying if you&rsquo;re trying to read.</p>
 <h2 id="how-to-play">How to Play</h2>
-<p>The ball machine on this site has been a bit more gamified than my graph paper drawings were as a kid. Each time you load a page, you&rsquo;ll find a goal somewhere on the page. Your goal is to get the ball into that goal. But there is a bit of a catch - balls start out being worth only 1 coin. The longer you can keep balls around, the more they will be worth when going into the goals - this might get more and more challenging as your drawings take up more of the screen and balls start bouncing off of each other. And don&rsquo;t let balls sit around trying to get them to accumulate value too long - balls disappear when they&rsquo;ve been still too long.</p>
+<p>The ball machine on this site is a gamified version of my graph paper drawings as a kid. Each time you load a page, you&rsquo;ll find a goal somewhere on the page. Your goal is to get the ball into that goal. But there is a bit of a trick - balls start out being worth 1 coin, and the longer you can keep balls around, the more they will be worth when going into the goals - this might get more and more challenging as your drawings take up more of the screen and balls start bouncing off of each other. And don&rsquo;t let balls sit around trying to get them to accumulate value too long - balls disappear when they&rsquo;ve been still too long.</p>
 <p>It&rsquo;s a clicker game - start by manually clicking the pneumatic tube to spawn balls, but as you accumulate coins you&rsquo;ll be able to unlock different drawables and things that will let you accumulate more coins faster.</p>
 <p>Each post on this site will be a slightly different randomized game! Try making ball machines on multiple pages at once&hellip;</p>
 <p>The game works a bit differently on desktop and mobile, and the best experience is really on desktop - so try on a computer if you can!</p>
@@ -149,10 +149,10 @@
 ]]></description>
                 
 
-                <guid isPermaLink="false">tag:hockenmaier.github.io,2025-03-01:/hugohome/this-website/</guid>
+                <guid isPermaLink="false">tag:localhost:1313,2025-03-01:/this-website/</guid>
 
                 
-                    <link>https://hockenmaier.github.io/hugohome/this-website/</link>
+                    <link>http://localhost:1313/this-website/</link>
                 
 
                 
@@ -202,10 +202,10 @@
 ]]></description>
                 
 
-                <guid isPermaLink="false">tag:hockenmaier.github.io,2023-02-01:/hugohome/nerfs/</guid>
+                <guid isPermaLink="false">tag:localhost:1313,2023-02-01:/nerfs/</guid>
 
                 
-                    <link>https://hockenmaier.github.io/hugohome/nerfs/</link>
+                    <link>http://localhost:1313/nerfs/</link>
                 
 
                 
@@ -254,10 +254,10 @@
 ]]></description>
                 
 
-                <guid isPermaLink="false">tag:hockenmaier.github.io,2023-01-01:/hugohome/the-flapper/</guid>
+                <guid isPermaLink="false">tag:localhost:1313,2023-01-01:/the-flapper/</guid>
 
                 
-                    <link>https://hockenmaier.github.io/hugohome/the-flapper/</link>
+                    <link>http://localhost:1313/the-flapper/</link>
                 
 
                 
@@ -373,7 +373,7 @@
 
 
 
-<img  alt="The Treekeepers Puddle Jumper"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenmaier.github.io/hugohome/images/treekeepers_moonlight.png"   style="height: auto; max-width: 100%"   >
+<img  alt="The Treekeepers Puddle Jumper"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/treekeepers_moonlight.png"   style="height: auto; max-width: 100%"   >
 
 
     
@@ -391,10 +391,10 @@
 ]]></description>
                 
 
-                <guid isPermaLink="false">tag:hockenmaier.github.io,2022-10-01:/hugohome/treekeepers-vr/</guid>
+                <guid isPermaLink="false">tag:localhost:1313,2022-10-01:/treekeepers-vr/</guid>
 
                 
-                    <link>https://hockenmaier.github.io/hugohome/treekeepers-vr/</link>
+                    <link>http://localhost:1313/treekeepers-vr/</link>
                 
 
                 
@@ -524,7 +524,7 @@ This is what the project looked like for my first play-test with other people 5 
 
 
 
-<img  alt="Land War 4-day MVP"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenmaier.github.io/hugohome/images/land_war_mvp.gif"   style="height: auto; width: 100%"   >
+<img  alt="Land War 4-day MVP"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/land_war_mvp.gif"   style="height: auto; width: 100%"   >
 
 
     
@@ -612,7 +612,7 @@ This is what the project looked like for my first play-test with other people 5 
 
 
 
-<img  alt="Player Select screen"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenmaier.github.io/hugohome/images/land_war_player_select.png"   style="height: auto; width: 100%"   >
+<img  alt="Player Select screen"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/land_war_player_select.png"   style="height: auto; width: 100%"   >
 
 
     
@@ -699,7 +699,7 @@ This is what the project looked like for my first play-test with other people 5 
 
 
 
-<img  alt="Settings menu"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenmaier.github.io/hugohome/images/land_war_settings.png"   style="height: auto; width: 100%"   >
+<img  alt="Settings menu"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/land_war_settings.png"   style="height: auto; width: 100%"   >
 
 
     
@@ -788,7 +788,7 @@ This is what the project looked like for my first play-test with other people 5 
 
 
 
-<img  alt="E3 marketing material"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenmaier.github.io/hugohome/images/land_war_e3.png"   style="height: auto; max-width: 400px; width: 100%"   >
+<img  alt="E3 marketing material"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/land_war_e3.png"   style="height: auto; max-width: 400px; width: 100%"   >
 
 
     
@@ -805,10 +805,10 @@ This is what the project looked like for my first play-test with other people 5 
 ]]></description>
                 
 
-                <guid isPermaLink="false">tag:hockenmaier.github.io,2019-03-01:/hugohome/land-war/</guid>
+                <guid isPermaLink="false">tag:localhost:1313,2019-03-01:/land-war/</guid>
 
                 
-                    <link>https://hockenmaier.github.io/hugohome/land-war/</link>
+                    <link>http://localhost:1313/land-war/</link>
                 
 
                 

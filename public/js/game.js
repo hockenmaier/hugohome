@@ -143,15 +143,13 @@
     if (history.length > maxHistory) history.shift();
 
     const sum = history.reduce((a, b) => a + b, 0);
-    const avgRevenue = sum / history.length;
+    const avgRevenue = Math.round(sum / history.length);
 
     //console.log(`Delta: ${delta}, Average: ${avgRevenue.toFixed(1)}`); // debug log
 
     const revenueDisplay = document.getElementById("revenue-display");
     if (revenueDisplay) {
-      revenueDisplay.innerHTML = `<img src="${coinCostURL}" alt="Coin" style="width:12px; height:12px;"> ${avgRevenue.toFixed(
-        1
-      )} /s`;
+      revenueDisplay.innerHTML = `<img src="${coinCostURL}" alt="Coin" style="width:12px; height:12px;"> ${avgRevenue} /s`;
     }
 
     lastCoinCount = currentCoins;
