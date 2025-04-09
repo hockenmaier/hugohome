@@ -1,11 +1,11 @@
+// game.js: Handles goal spawning and cross‑page revenue updates.
 (function () {
   let goalSpawned = false;
 
   function spawnGoal() {
-    // Use the per-page persistence functions.
+    // Use the per‑page persistence functions.
     const savedGoal = App.Persistence.loadGoal();
     if (savedGoal) {
-      // A saved goal exists—rebuild it.
       App.Persistence.rebuildGoal();
       goalSpawned = true;
       return;
@@ -81,7 +81,6 @@
     if (App.modules.goal && typeof App.modules.goal.attach === "function") {
       App.modules.goal.attach(candidate);
     }
-    // Save the new goal data using per‑page keys.
     App.Persistence.saveGoal({
       x: candidate.position.x,
       y: candidate.position.y,
@@ -123,46 +122,110 @@
   initSpawn();
 })();
 
-// --- Begin Moving Average Coin Revenue Calculation ---
-// This block calculates coin revenue per second as a moving average over the last 25 seconds,
-// ignoring any negative deltas (e.g. purchases).
-// It updates the UI element with id "revenue-display" once per second.
+// --- Begin Modified Moving Average Revenue Calculation ---
 (function () {
   let lastCoinCount = App.config.coins;
   const history = [];
   const maxHistory = 25;
+  let currentPageRate = 0; // This page’s moving average
+
+  // Sum all stored recurring revenue from all pages.
+  function getAllPagesRevenue() {
+    let total = 0;
+    for (let i = 0; i < localStorage.length; i++) {
+      const key = localStorage.key(i);
+      if (key.startsWith("game.") && key.endsWith(".revenue")) {
+        try {
+          const rate = JSON.parse(localStorage.getItem(key));
+          total += Number(rate) || 0;
+        } catch (e) {}
+      }
+    }
+    return total;
+  }
+  // Only subtract this page’s rate if autoClicker is purchased; otherwise, treat this page rate as 0.
+  function getOtherPagesRevenue() {
+    const cp = App.config.autoClicker ? currentPageRate : 0;
+    return getAllPagesRevenue() - cp;
+  }
 
   function updateRevenue() {
     const currentCoins = App.config.coins;
-    let delta = currentCoins - lastCoinCount;
-    //This check is to account for large purchases - instead of tracking them we simply throw out seconds that had a big negative assuming they were a purchase
+    let rawDelta = currentCoins - lastCoinCount;
+    let otherRate = getOtherPagesRevenue();
+    let delta = rawDelta - otherRate;
     if (delta < 0) {
       delta = history.length > 0 ? history[history.length - 1] : 0;
     }
     history.push(delta);
     if (history.length > maxHistory) history.shift();
-
-    const sum = history.reduce((a, b) => a + b, 0);
-    const avgRevenue = Math.round(sum / history.length);
-
-    //console.log(`Delta: ${delta}, Average: ${avgRevenue.toFixed(1)}`); // debug log
-
-    const revenueDisplay = document.getElementById("revenue-display");
-    if (revenueDisplay) {
-      revenueDisplay.innerHTML = `<img src="${coinCostURL}" alt="Coin" style="width:12px; height:12px;"> ${avgRevenue} /s`;
+    currentPageRate = Math.round(
+      history.reduce((a, b) => a + b, 0) / history.length
+    );
+    const thisDisplay = document.getElementById("thispage-revenue-display");
+    if (thisDisplay) {
+      thisDisplay.innerHTML =
+        "This page: " +
+        '<img src="' +
+        coinCostURL +
+        '" alt="Coin" style="width:12px;height:12px;"> ' +
+        currentPageRate +
+        " /s";
     }
-
+    if (App.config.autoClicker) {
+      App.Persistence.saveRecurringRevenue(currentPageRate);
+    }
     lastCoinCount = currentCoins;
   }
 
-  // Wait until BallFall and the revenue-display element exist.
-  function start() {
-    if (!window.BallFall || !document.getElementById("revenue-display")) {
-      setTimeout(start, 250);
-      return;
+  function addOtherPagesRevenue() {
+    let otherRate = getOtherPagesRevenue();
+    App.config.coins += otherRate;
+    App.updateCoinsDisplay();
+    const otherDisplay = document.getElementById("otherpages-revenue-display");
+    if (otherDisplay) {
+      otherDisplay.innerHTML =
+        "Other pages: " +
+        '<img src="' +
+        coinCostURL +
+        '" alt="Coin" style="width:12px;height:12px;"> ' +
+        otherRate +
+        " /s";
     }
-    setInterval(updateRevenue, 1000);
   }
 
-  start();
+  // Show coin info if sim has started or if any recurring revenue exists across pages.
+  function updateCoinInfoVisibility() {
+    const coinInfo = document.getElementById("coin-info");
+    if (!coinInfo) return;
+    const simRunning = window.App.simulationLoaded;
+    const anyRevenue = getAllPagesRevenue() > 0;
+    coinInfo.style.display = simRunning || anyRevenue ? "inline-block" : "none";
+  }
+
+  function startRevenueUpdates() {
+    if (!document.getElementById("thispage-revenue-display")) {
+      setTimeout(startRevenueUpdates, 250);
+      return;
+    }
+    // On load, if a recurring rate was saved for this page, update displays.
+    let savedRate = App.Persistence.loadRecurringRevenue();
+    if (savedRate !== null) {
+      currentPageRate = Number(savedRate);
+      const thisDisplay = document.getElementById("thispage-revenue-display");
+      if (thisDisplay) {
+        thisDisplay.innerHTML =
+          '<img src="' +
+          coinCostURL +
+          '" alt="Coin" style="width:12px;height:12px;"> ' +
+          currentPageRate +
+          " /s";
+      }
+    }
+    App.updateCoinsDisplay();
+    setInterval(updateRevenue, 1000);
+    setInterval(addOtherPagesRevenue, 1000);
+    setInterval(updateCoinInfoVisibility, 1000);
+  }
+  startRevenueUpdates();
 })();

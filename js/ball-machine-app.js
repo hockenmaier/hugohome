@@ -35,7 +35,7 @@ window.App = {
         maxSpeed: 500,
       },
     },
-    coins: 75, //Default for when app first loads and there's no storage
+    coins: 7500, //Default for when app first loads and there's no storage
     costs: {
       straight: 5,
       curved: 50,
@@ -95,6 +95,9 @@ window.App = {
       { value: 1000, color: "#ff00ff" }, //purple
       { value: 5000, color: "#ff0000" }, //red
     ],
+
+    // --- New Revenue Tracking ---
+    revenueRate: 0, // This page coins/s (recurring revenue), updated by game.js
 
     // Style settings for drawing tools:
     straightLineRender: {
@@ -240,9 +243,9 @@ if (window.localStorage) {
 App.updateCoinsDisplay = function () {
   const display = document.getElementById("coins-display");
   if (display) display.textContent = `${App.config.coins} coins`;
+  const globalDisplay = document.getElementById("global-coins-display");
+  if (globalDisplay) globalDisplay.textContent = `${App.config.coins} coins`;
   if (App.Storage) {
     App.Storage.setItem("coins", App.config.coins);
-    //App.Storage.setItem("coins", 2000); //Use for adding coins to storage
   }
 };
-// --- End persistent storage module and update functions ---
