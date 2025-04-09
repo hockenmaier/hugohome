@@ -165,6 +165,7 @@
     const thisDisplay = document.getElementById("thispage-revenue-display");
     if (thisDisplay) {
       thisDisplay.innerHTML =
+        "This page: " +
         '<img src="' +
         coinCostURL +
         '" alt="Coin" style="width:12px;height:12px;"> ' +
@@ -184,6 +185,7 @@
     const otherDisplay = document.getElementById("otherpages-revenue-display");
     if (otherDisplay) {
       otherDisplay.innerHTML =
+        "Other pages: " +
         '<img src="' +
         coinCostURL +
         '" alt="Coin" style="width:12px;height:12px;"> ' +

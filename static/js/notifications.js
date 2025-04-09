@@ -84,9 +84,13 @@
   }
 
   // New function for unaffordable funds notification.
-  // Flashes the coins display using the unaffordable style.
+  // Now checks for coins display visibility and falls back to the global coins display if needed.
   function notifyUnaffordable(flashDuration, flashTimes) {
-    const display = document.getElementById("coins-display");
+    let display = document.getElementById("coins-display");
+    // If #coins-display is not found or is hidden, use #global-coins-display instead.
+    if (!display || display.offsetParent === null) {
+      display = document.getElementById("global-coins-display");
+    }
     if (display) {
       flashElementStyle(
         display,
