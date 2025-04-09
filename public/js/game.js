@@ -129,7 +129,7 @@
   const maxHistory = 25;
   let currentPageRate = 0; // This page’s moving average
 
-  // Sum all stored recurring revenue (from all pages)
+  // Sum all stored recurring revenue from all pages.
   function getAllPagesRevenue() {
     let total = 0;
     for (let i = 0; i < localStorage.length; i++) {
@@ -143,9 +143,10 @@
     }
     return total;
   }
-  // Other pages revenue = all pages revenue minus this page rate.
+  // Only subtract this page’s rate if autoClicker is purchased; otherwise, treat this page rate as 0.
   function getOtherPagesRevenue() {
-    return getAllPagesRevenue() - currentPageRate;
+    const cp = App.config.autoClicker ? currentPageRate : 0;
+    return getAllPagesRevenue() - cp;
   }
 
   function updateRevenue() {
@@ -191,8 +192,7 @@
     }
   }
 
-  // Update coin info visibility.
-  // Show coin info if simulation has started OR any recurring revenue exists (across pages).
+  // Show coin info if sim has started or if any recurring revenue exists across pages.
   function updateCoinInfoVisibility() {
     const coinInfo = document.getElementById("coin-info");
     if (!coinInfo) return;
@@ -201,7 +201,6 @@
     coinInfo.style.display = simRunning || anyRevenue ? "inline-block" : "none";
   }
 
-  // Start updates as soon as the coin info container exists.
   function startRevenueUpdates() {
     if (!document.getElementById("thispage-revenue-display")) {
       setTimeout(startRevenueUpdates, 250);
@@ -221,9 +220,7 @@
           " /s";
       }
     }
-    // Also update coin total on load.
     App.updateCoinsDisplay();
-    // Begin intervals regardless of simulation state.
     setInterval(updateRevenue, 1000);
     setInterval(addOtherPagesRevenue, 1000);
     setInterval(updateCoinInfoVisibility, 1000);
