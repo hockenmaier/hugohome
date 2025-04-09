@@ -1119,6 +1119,16 @@ table {
     cursor: pointer;
   }
    
+  #coin-info {
+    display: inline-block;
+    text-align: left;
+    font-size: 12px;
+    color: gold;
+  }
+  #coin-info div {
+    margin: 2px 0;
+  }
+   
   .spawner-arrow {
     width: 30px;
     height: 30px;
@@ -1237,34 +1247,10 @@ table {
   .line-toggle.selected {
     border-color: #59ffa7;
   }
-  #coins-display {
-    text-align: center;
-    color: gold;
-    font-size: 14px;
-    margin: 5px 0;
-  }
+   
+  #coins-display,
   #revenue-display {
-    text-align: center;
-    color: gold;
-    font-size: 12px;
-    margin: 5px 0;
-  }
-  .toggle-wrapper {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  .cost-label {
-    font-size: 10px;
-    color: #fff;
-    margin-top: 2px;
-    display: flex;
-    align-items: center;
-  }
-  .cost-label img {
-    width: 12px;
-    height: 12px;
-    margin-right: 2px;
+    display: none;
   }
   @media (max-width: 720px) {
     .bfui-button .bfui-label {
@@ -1283,6 +1269,21 @@ table {
 
 
 <div id="spawner-container">
+  
+  <div id="coin-info">
+    <div id="global-coins-display">
+      
+      0 coins
+    </div>
+    <div id="thispage-revenue-display">
+      
+      This page: 0 /s
+    </div>
+    <div id="otherpages-revenue-display">
+      
+      Other pages: 0 /s
+    </div>
+  </div>
   <img src="/images/ball-chute-hatch-1.png" id="ball-spawner"
   alt="Ball Spawner" />
   
@@ -1310,9 +1311,7 @@ table {
     <span id="bfui-drop-rate-label">Drop Rate:</span>
     <span id="bfui-drop-rate-value">N/A</span>
   </div>
-  <div id="coins-display">0 coins</div>
   
-  <div id="revenue-display">coins/s</div>
   <div
     id="toggle-container"
     style="display: inline-block; padding: 5px; border: 2px solid transparent"
@@ -1371,7 +1370,6 @@ table {
   </div>
   <script>
     
-
     (function () {
       if (window.App && window.App.modules && window.App.modules.lines) {
         window.App.modules.lines.setMode("none");
@@ -1508,7 +1506,6 @@ table {
 <script>
   
   (function () {
-    
     function updateAutoClickerCostDisplay() {
       var cost;
       if (!App.config.autoClicker) {
@@ -1524,25 +1521,21 @@ table {
           (cost !== undefined ? cost : "");
       }
     }
-    
     App.updateAutoClickerCostDisplay = updateAutoClickerCostDisplay;
 
     var autoClickerBtn = document.getElementById("autoClicker");
     if (autoClickerBtn) {
       autoClickerBtn.addEventListener("click", function () {
         if (!App.config.autoClicker) {
-          
           var cost = App.config.autoClickerCost;
           if (App.config.coins >= cost) {
             App.config.coins -= cost;
             App.config.autoClicker = true;
-            
             App.Persistence.saveAutoClicker({
               purchased: true,
               maxSpeedLevel: 0,
             });
             window.BallFall.startAutoSpawner();
-            
             window.BallFall.updateSpawnInterval(App.config.spawnInterval);
             App.updateCoinsDisplay();
             updateAutoClickerCostDisplay();
@@ -1555,13 +1548,11 @@ table {
           if (App.config.coins >= cost) {
             App.config.coins -= cost;
             App.config.maxUnlockedSpeedLevel = nextLevel;
-            
             var newInterval =
               App.config.originalSpawnInterval / Math.pow(2, nextLevel);
             window.BallFall.updateSpawnInterval(newInterval);
             App.updateCoinsDisplay();
             updateAutoClickerCostDisplay();
-            
             App.Persistence.saveAutoClicker({
               purchased: true,
               maxSpeedLevel: nextLevel,
@@ -1572,7 +1563,6 @@ table {
         }
       });
     }
-    
     updateAutoClickerCostDisplay();
   })();
 </script>

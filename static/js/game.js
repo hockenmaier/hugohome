@@ -123,14 +123,13 @@
 })();
 
 // --- Begin Modified Moving Average Revenue Calculation ---
-// Now calculates "This page coins/s" excluding coins added from "Other pages" revenue.
 (function () {
   let lastCoinCount = App.config.coins;
   const history = [];
   const maxHistory = 25;
-  let currentPageRate = 0; // Computed moving average for this page
+  let currentPageRate = 0; // This page’s moving average
 
-  // Sum recurring revenue for all pages from storage.
+  // Sum all stored recurring revenue (from all pages)
   function getAllPagesRevenue() {
     let total = 0;
     for (let i = 0; i < localStorage.length; i++) {
@@ -139,14 +138,12 @@
         try {
           const rate = JSON.parse(localStorage.getItem(key));
           total += Number(rate) || 0;
-        } catch (e) {
-          // ignore parsing errors
-        }
+        } catch (e) {}
       }
     }
     return total;
   }
-  // Other pages revenue is all pages' minus this page's value.
+  // Other pages revenue = all pages revenue minus this page rate.
   function getOtherPagesRevenue() {
     return getAllPagesRevenue() - currentPageRate;
   }
@@ -154,7 +151,6 @@
   function updateRevenue() {
     const currentCoins = App.config.coins;
     let rawDelta = currentCoins - lastCoinCount;
-    // Remove other pages contribution from the delta
     let otherRate = getOtherPagesRevenue();
     let delta = rawDelta - otherRate;
     if (delta < 0) {
@@ -165,8 +161,6 @@
     currentPageRate = Math.round(
       history.reduce((a, b) => a + b, 0) / history.length
     );
-
-    // Update display for this page coins/s.
     const thisDisplay = document.getElementById("thispage-revenue-display");
     if (thisDisplay) {
       thisDisplay.innerHTML =
@@ -176,7 +170,6 @@
         currentPageRate +
         " /s";
     }
-    // Save only if auto‑clicker purchased.
     if (App.config.autoClicker) {
       App.Persistence.saveRecurringRevenue(currentPageRate);
     }
@@ -198,9 +191,8 @@
     }
   }
 
-  // Update coin info container visibility.
-  // It stays hidden only if no recurring revenue exists anywhere.
-  // Once the simulation has started or any page records coins/s, it shows.
+  // Update coin info visibility.
+  // Show coin info if simulation has started OR any recurring revenue exists (across pages).
   function updateCoinInfoVisibility() {
     const coinInfo = document.getElementById("coin-info");
     if (!coinInfo) return;
@@ -209,14 +201,29 @@
     coinInfo.style.display = simRunning || anyRevenue ? "inline-block" : "none";
   }
 
+  // Start updates as soon as the coin info container exists.
   function startRevenueUpdates() {
-    if (
-      !window.BallFall ||
-      !document.getElementById("thispage-revenue-display")
-    ) {
+    if (!document.getElementById("thispage-revenue-display")) {
       setTimeout(startRevenueUpdates, 250);
       return;
     }
+    // On load, if a recurring rate was saved for this page, update displays.
+    let savedRate = App.Persistence.loadRecurringRevenue();
+    if (savedRate !== null) {
+      currentPageRate = Number(savedRate);
+      const thisDisplay = document.getElementById("thispage-revenue-display");
+      if (thisDisplay) {
+        thisDisplay.innerHTML =
+          '<img src="' +
+          coinCostURL +
+          '" alt="Coin" style="width:12px;height:12px;"> ' +
+          currentPageRate +
+          " /s";
+      }
+    }
+    // Also update coin total on load.
+    App.updateCoinsDisplay();
+    // Begin intervals regardless of simulation state.
     setInterval(updateRevenue, 1000);
     setInterval(addOtherPagesRevenue, 1000);
     setInterval(updateCoinInfoVisibility, 1000);
