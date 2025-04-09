@@ -13,6 +13,16 @@
   #spawner-container img {
     cursor: pointer;
   }
+  /* New coin info styles */
+  #coin-info {
+    display: inline-block;
+    text-align: left;
+    font-size: 12px;
+    color: gold;
+  }
+  #coin-info div {
+    margin: 2px 0;
+  }
   /* Up/Down arrows and auto-clicker icon styling */
   .spawner-arrow {
     width: 30px;
@@ -132,34 +142,10 @@
   .line-toggle.selected {
     border-color: #59ffa7;
   }
-  #coins-display {
-    text-align: center;
-    color: gold;
-    font-size: 14px;
-    margin: 5px 0;
-  }
+  /* Hide old coin displays (they are replaced) */
+  #coins-display,
   #revenue-display {
-    text-align: center;
-    color: gold;
-    font-size: 12px;
-    margin: 5px 0;
-  }
-  .toggle-wrapper {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  .cost-label {
-    font-size: 10px;
-    color: #fff;
-    margin-top: 2px;
-    display: flex;
-    align-items: center;
-  }
-  .cost-label img {
-    width: 12px;
-    height: 12px;
-    margin-right: 2px;
+    display: none;
   }
   @media (max-width: 720px) {
     .bfui-button .bfui-label {
@@ -178,6 +164,21 @@
 
 <!-- Spawner Container -->
 <div id="spawner-container">
+  <!-- New Coin Info Container (displayed if any recurring revenue exists or simulation has started) -->
+  <div id="coin-info">
+    <div id="global-coins-display">
+      <!-- Global coins display; updated by App.updateCoinsDisplay() -->
+      0 coins
+    </div>
+    <div id="thispage-revenue-display">
+      <!-- This page coins/s will be updated by game.js -->
+      This page: 0 /s
+    </div>
+    <div id="otherpages-revenue-display">
+      <!-- Other pages coins/s will be updated by game.js -->
+      Other pages: 0 /s
+    </div>
+  </div>
   <img src="{{ "images/ball-chute-hatch-1.png" | relURL }}" id="ball-spawner"
   alt="Ball Spawner" />
   <!-- Removed up and down arrows; auto-clicker now handles upgrades -->
@@ -194,7 +195,7 @@
   </div>
 </div>
 
-<!-- Main UI panel (coins, toggle, etc.) -->
+<!-- Main UI panel remains unchanged (for buttons, toggles, etc.) -->
 <div id="ballfall-ui">
   <img src="{{ "images/ball-machine.png" | relURL }}" id="bfui-image" alt="Ball
   Machine" />
@@ -205,9 +206,7 @@
     <span id="bfui-drop-rate-label">Drop Rate:</span>
     <span id="bfui-drop-rate-value">N/A</span>
   </div>
-  <div id="coins-display">0 coins</div>
-  <!-- New revenue display element -->
-  <div id="revenue-display">coins/s</div>
+  <!-- The old coins and revenue displays (#coins-display and #revenue-display) are now hidden -->
   <div
     id="toggle-container"
     style="display: inline-block; padding: 5px; border: 2px solid transparent"
@@ -265,8 +264,7 @@
     </div>
   </div>
   <script>
-    // Existing UI button event listeners (clear field, line toggles, drop rate display, etc.)
-
+    // Existing UI button event listeners remain unchanged.
     (function () {
       if (window.App && window.App.modules && window.App.modules.lines) {
         window.App.modules.lines.setMode("none");
@@ -403,7 +401,6 @@
 <script>
   // New auto-clicker upgrade functionality.
   (function () {
-    // Updates the cost label below the auto-clicker button.
     function updateAutoClickerCostDisplay() {
       var cost;
       if (!App.config.autoClicker) {
@@ -419,25 +416,21 @@
           (cost !== undefined ? cost : "");
       }
     }
-    // Expose the function so it can be called externally.
     App.updateAutoClickerCostDisplay = updateAutoClickerCostDisplay;
 
     var autoClickerBtn = document.getElementById("autoClicker");
     if (autoClickerBtn) {
       autoClickerBtn.addEventListener("click", function () {
         if (!App.config.autoClicker) {
-          // Initial unlock branch: cost is autoClickerCost (20)
           var cost = App.config.autoClickerCost;
           if (App.config.coins >= cost) {
             App.config.coins -= cost;
             App.config.autoClicker = true;
-            // Save initial auto-clicker state: purchased with no upgrades.
             App.Persistence.saveAutoClicker({
               purchased: true,
               maxSpeedLevel: 0,
             });
             window.BallFall.startAutoSpawner();
-            // Set spawnInterval so drop rate UI can update
             window.BallFall.updateSpawnInterval(App.config.spawnInterval);
             App.updateCoinsDisplay();
             updateAutoClickerCostDisplay();
@@ -450,13 +443,11 @@
           if (App.config.coins >= cost) {
             App.config.coins -= cost;
             App.config.maxUnlockedSpeedLevel = nextLevel;
-            // Upgrade: reduce spawnInterval by factor of 2 per level.
             var newInterval =
               App.config.originalSpawnInterval / Math.pow(2, nextLevel);
             window.BallFall.updateSpawnInterval(newInterval);
             App.updateCoinsDisplay();
             updateAutoClickerCostDisplay();
-            // Save updated auto-clicker upgrade level.
             App.Persistence.saveAutoClicker({
               purchased: true,
               maxSpeedLevel: nextLevel,
@@ -467,7 +458,6 @@
         }
       });
     }
-    // Initial update.
     updateAutoClickerCostDisplay();
   })();
 </script>

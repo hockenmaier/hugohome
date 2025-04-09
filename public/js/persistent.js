@@ -1,5 +1,5 @@
-/* persistent.js - Handles per-page persistence for goal, line, and launcher objects.
-   Coins persistence remains unchanged.
+/* persistent.js - Handles per-page persistence for goal, line, launcher objects,
+   and now also recurring revenue (coins/s for auto revenue).
 */
 (function () {
   // Generate a key that is unique per page.
@@ -57,7 +57,7 @@
       });
       App.Storage.setItem(pageKey("launchers"), launchers);
     },
-    // --- New auto-clicker persistence functions ---
+    // --- Auto-clicker persistence (unchanged) ---
     saveAutoClicker: function (autoData) {
       App.Storage.setItem(pageKey("autoclicker"), autoData);
     },
@@ -68,6 +68,14 @@
         maxSpeedLevel: 0,
       });
     },
+    // --- New Recurring Revenue (coins/s) persistence functions ---
+    saveRecurringRevenue: function (rate) {
+      App.Storage.setItem(pageKey("revenue"), rate);
+    },
+    loadRecurringRevenue: function () {
+      return App.Storage.getItem(pageKey("revenue"), null);
+    },
+    // --- Rebuild functions (unchanged, plus lines for completeness) ---
     rebuildGoal: function () {
       const gd = this.loadGoal();
       if (!gd) return;
