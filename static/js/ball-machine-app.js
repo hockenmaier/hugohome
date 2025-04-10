@@ -2,6 +2,25 @@
  * ball-machine-app.js
  * Main app configuration and initialization.
  */
+
+// Wake Lock integration: keep the screen awake while the simulation is running.
+let wakeLock = null;
+
+async function requestWakeLock() {
+  try {
+    wakeLock = await navigator.wakeLock.request("screen");
+    wakeLock.addEventListener("release", () => {
+      console.log("Wake Lock was released");
+      wakeLock = null; // Reset variable so it can be re-requested.
+    });
+    console.log("Wake Lock is active");
+  } catch (err) {
+    console.error(`${err.name}, ${err.message}`);
+  }
+}
+
+// This is where to keep all of the app's Global variables
+
 window.App = {
   config: {
     spawnInterval: 4480, // Default ball spawn interval in ms (auto-clicker rate)
@@ -144,15 +163,28 @@ window.App = {
 
   // startSimulation loads Matter.js, text colliders, etc.
   // In static/js/ball-machine-app.js
-  // In static/js/ball-machine-app.js
   startSimulation: function () {
     if (window.App.simulationLoaded) return;
     window.App.simulationLoaded = true;
+
     // Initialize simulation modules – preserving existing comments.
     if (window.App.modules.base) window.App.modules.base.init();
     if (window.App.modules.text) window.App.modules.text.init();
     if (window.App.modules.lines) window.App.modules.lines.init();
     if (window.App.modules.launcher) window.App.modules.launcher.init();
+
+    // [Wake Lock] Request wake lock when simulation starts.
+    requestWakeLock();
+    // Re-request wake lock when page becomes visible if simulation is running.
+    document.addEventListener("visibilitychange", () => {
+      if (
+        document.visibilityState === "visible" &&
+        window.App.simulationLoaded &&
+        !wakeLock
+      ) {
+        requestWakeLock();
+      }
+    });
 
     // Load auto-clicker state for this page from persistent storage.
     if (
