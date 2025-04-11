@@ -305,14 +305,23 @@ App.modules.base = (function () {
       return "#" + toHex(r) + toHex(g) + toHex(b);
     }
 
-    // Interpolate between two hex colors in HSL space.
+    // Interpolate colors that chooses the shortest circular hue path.
     function interpolateColorHSL(color1, color2, t) {
-      let hsl1 = hexToHSL(color1);
-      let hsl2 = hexToHSL(color2);
-      // For a brighter look, you can choose to keep lightness fixed if desired.
-      let h = hsl1.h + (hsl2.h - hsl1.h) * t;
-      let s = hsl1.s + (hsl2.s - hsl1.s) * t;
-      let l = hsl1.l + (hsl2.l - hsl1.l) * t;
+      var hsl1 = hexToHSL(color1);
+      var hsl2 = hexToHSL(color2);
+      var deltaH = hsl2.h - hsl1.h;
+      // Adjust if the direct difference exceeds 0.5 (i.e. 180°)
+      if (Math.abs(deltaH) > 0.5) {
+        if (deltaH > 0) {
+          deltaH -= 1;
+        } else {
+          deltaH += 1;
+        }
+      }
+      var h = (hsl1.h + deltaH * t) % 1;
+      if (h < 0) h += 1;
+      var s = hsl1.s + (hsl2.s - hsl1.s) * t;
+      var l = hsl1.l + (hsl2.l - hsl1.l) * t;
       return HSLToHex(h, s, l);
     }
 

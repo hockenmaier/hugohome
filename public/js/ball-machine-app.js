@@ -99,7 +99,7 @@ window.App = {
     ballIncomeIncrement: 1,
     ballIncomeTimeStep: 2000, // Every ballIncomeTimeStep ms, the ball will gain ballIncomeIncrement in value
 
-    //Configurable ball color thresholds.
+    // Configurable ball color thresholds.
     // The ball’s color will be interpolated between these thresholds:
     // 0: white, 3: #ffa200, 10: #26ff00, 25: #000dff, 100: #ff00ff, 500+: #ff0000.
     ballColorThresholds: [
@@ -113,6 +113,7 @@ window.App = {
       { value: 250, color: "#000dff" }, //blue
       { value: 1000, color: "#ff00ff" }, //purple
       { value: 5000, color: "#ff0000" }, //red
+      { value: 10000, color: "#000000" }, //black
     ],
 
     // --- New Revenue Tracking ---
