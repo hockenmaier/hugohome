@@ -320,6 +320,9 @@ App.modules.base = (function () {
       });
     }
     function removeStillBalls() {
+      // Only run stillness check when the window is visible.
+      if (document.visibilityState !== "visible") return;
+
       const bodies = Composite.allBodies(engine.world);
       bodies.forEach((body) => {
         if (body.label === "BallFallBall") {
@@ -333,9 +336,11 @@ App.modules.base = (function () {
           if (
             dx < App.config.sitStillDeleteMargin &&
             dy < App.config.sitStillDeleteMargin
-          )
+          ) {
             prev.stillCount++;
-          else prev.stillCount = 0;
+          } else {
+            prev.stillCount = 0;
+          }
           prev.x = body.position.x;
           prev.y = body.position.y;
           if (prev.stillCount >= App.config.sitStillDeleteSeconds) {
@@ -347,6 +352,7 @@ App.modules.base = (function () {
         }
       });
     }
+
     setInterval(() => {
       removeBallsBelowPage();
       removeStillBalls();
