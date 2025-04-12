@@ -146,53 +146,66 @@ App.modules.base = (function () {
       ripple.style.transition = "all 0.8s ease-out";
       ripple.style.zIndex = 9999;
 
-      let container = collider.elRef;
-      if (container && container.tagName.toLowerCase() === "img") {
-        // If the image is not already wrapped, wrap it.
+      let target = collider.elRef;
+      let container = target;
+      let containerRect = target.getBoundingClientRect();
+
+      // For images: wrap them so ripple fits exactly.
+      if (target.tagName.toLowerCase() === "img") {
         if (
-          !container.parentElement ||
-          !container.parentElement.classList.contains("ripple-container")
+          !target.parentElement ||
+          !target.parentElement.classList.contains("ripple-container")
         ) {
           const wrapper = document.createElement("div");
           wrapper.className = "ripple-container";
           wrapper.style.position = "relative";
           wrapper.style.display = "inline-block";
-          // For images we want to confine the ripple.
+          // Set exact dimensions based on bounding rect.
+          wrapper.style.width = containerRect.width + "px";
+          wrapper.style.height = containerRect.height + "px";
           wrapper.style.overflow = "hidden";
-          container.parentNode.insertBefore(wrapper, container);
-          wrapper.appendChild(container);
+          target.parentNode.insertBefore(wrapper, target);
+          wrapper.appendChild(target);
           container = wrapper;
+          containerRect = wrapper.getBoundingClientRect();
         } else {
-          container = container.parentElement;
+          container = target.parentElement;
+          containerRect = container.getBoundingClientRect();
         }
-      } else if (container && container.tagName.toLowerCase() === "iframe") {
-        // For iframes, use the parent element without setting overflow.
-        container = container.parentElement;
-        if (getComputedStyle(container).position === "static") {
+      }
+      // For YouTube thumbnail images: use the closest overlay container.
+      else if (target.classList.contains("ytp-cued-thumbnail-overlay-image")) {
+        let wrapper = target.closest(".ytp-cued-thumbnail-overlay");
+        if (wrapper) {
+          container = wrapper;
+          containerRect = container.getBoundingClientRect();
+        }
+      }
+      // For iframes: use the parent element (ensuring it’s relatively positioned)
+      else if (target.tagName.toLowerCase() === "iframe") {
+        container = target.parentElement;
+        if (container && getComputedStyle(container).position === "static") {
           container.style.position = "relative";
         }
+        containerRect = container.getBoundingClientRect();
       }
 
-      // Use container's bounding rect to compute ball's position relative to container.
-      if (container) {
-        const containerRect = container.getBoundingClientRect();
-        const relX = ball.position.x - containerRect.left - window.scrollX;
-        const relY = ball.position.y - containerRect.top - window.scrollY;
-        ripple.style.left = relX + "px";
-        ripple.style.top = relY + "px";
-        container.appendChild(ripple);
-      } else {
-        ripple.style.left = ball.position.x + "px";
-        ripple.style.top = ball.position.y + "px";
-        document.body.appendChild(ripple);
-      }
+      // Compute ripple position relative to container.
+      const relX = ball.position.x - containerRect.left - window.scrollX;
+      const relY = ball.position.y - containerRect.top - window.scrollY;
+      ripple.style.left = relX + "px";
+      ripple.style.top = relY + "px";
 
+      container.appendChild(ripple);
+
+      // Force reflow and animate the ripple.
       void ripple.offsetWidth;
       ripple.style.width = "60px";
       ripple.style.height = "60px";
       ripple.style.left = parseFloat(ripple.style.left) - 20 + "px";
       ripple.style.top = parseFloat(ripple.style.top) - 20 + "px";
       ripple.style.opacity = 0;
+
       setTimeout(() => {
         if (ripple.parentNode) {
           ripple.parentNode.removeChild(ripple);
