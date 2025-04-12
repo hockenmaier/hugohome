@@ -97,7 +97,7 @@ App.modules.base = (function () {
     addMediaColliders();
 
     // ---- New Media Interaction Update ----
-    // For each ball, if it overlaps any media collider, set high drag and trigger a ripple once.
+    // For each ball, if it overlaps a media collider, apply high drag and trigger a ripple once.
     function updateMediaInteractions() {
       const mediaColliders = window.BallFall.mediaColliders || [];
       const bodies = Composite.allBodies(engine.world);
@@ -129,7 +129,8 @@ App.modules.base = (function () {
     }
 
     // ---- Modified Ripple Trigger ----
-    // If the collider's element is an image, wrap it (if needed) so that ripples can appear on top.
+    // If the collider's element is an image, wrap it (with overflow hidden) so ripples show only inside.
+    // If it's an iframe (e.g. YouTube embed), use its parent (ensuring position: relative) without forcing overflow hidden.
     function triggerMediaRipple(collider, ball) {
       const ballColor =
         (ball.render && ball.render.fillStyle) || "rgba(0,0,255,0.5)";
@@ -143,13 +144,11 @@ App.modules.base = (function () {
       ripple.style.pointerEvents = "none";
       ripple.style.opacity = 1;
       ripple.style.transition = "all 0.8s ease-out";
-      // Ensure the ripple appears on top.
       ripple.style.zIndex = 9999;
 
-      // Determine the container: if collider.elRef is an IMG, wrap it.
       let container = collider.elRef;
       if (container && container.tagName.toLowerCase() === "img") {
-        // Check if the image is already wrapped in a container with class "ripple-container"
+        // If the image is not already wrapped, wrap it.
         if (
           !container.parentElement ||
           !container.parentElement.classList.contains("ripple-container")
@@ -158,37 +157,39 @@ App.modules.base = (function () {
           wrapper.className = "ripple-container";
           wrapper.style.position = "relative";
           wrapper.style.display = "inline-block";
-          wrapper.style.overflow = "visible";
-          // Insert wrapper before the image and move the image into it.
+          // For images we want to confine the ripple.
+          wrapper.style.overflow = "hidden";
           container.parentNode.insertBefore(wrapper, container);
           wrapper.appendChild(container);
           container = wrapper;
         } else {
           container = container.parentElement;
         }
+      } else if (container && container.tagName.toLowerCase() === "iframe") {
+        // For iframes, use the parent element without setting overflow.
+        container = container.parentElement;
+        if (getComputedStyle(container).position === "static") {
+          container.style.position = "relative";
+        }
       }
 
-      // Use the container's bounding rect to compute the ball's position relative to the container.
+      // Use container's bounding rect to compute ball's position relative to container.
       if (container) {
         const containerRect = container.getBoundingClientRect();
-        // Compute relative position (adjusted for scroll)
         const relX = ball.position.x - containerRect.left - window.scrollX;
         const relY = ball.position.y - containerRect.top - window.scrollY;
         ripple.style.left = relX + "px";
         ripple.style.top = relY + "px";
         container.appendChild(ripple);
       } else {
-        // Fallback: append to document.body.
         ripple.style.left = ball.position.x + "px";
         ripple.style.top = ball.position.y + "px";
         document.body.appendChild(ripple);
       }
 
-      // Force reflow and then expand/fade.
       void ripple.offsetWidth;
       ripple.style.width = "60px";
       ripple.style.height = "60px";
-      // Adjust the position so that the ripple is centered on the original point.
       ripple.style.left = parseFloat(ripple.style.left) - 20 + "px";
       ripple.style.top = parseFloat(ripple.style.top) - 20 + "px";
       ripple.style.opacity = 0;
