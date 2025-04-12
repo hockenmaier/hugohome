@@ -1,3 +1,4 @@
+/* static/js/base-simulation.js */
 App.modules.base = (function () {
   let engine, render;
   function init() {
@@ -57,48 +58,156 @@ App.modules.base = (function () {
       }
     }, baseDt);
 
+    // Resize handler.
     function resize() {
       const ratio = window.devicePixelRatio || 1;
       render.options.width = window.innerWidth;
       render.options.height = window.innerHeight;
-      // Set the canvas resolution to CSS size times the device pixel ratio
       canvasEl.width = window.innerWidth * ratio;
       canvasEl.height = window.innerHeight * ratio;
-      // Keep the canvas displayed at the CSS pixel size
       canvasEl.style.width = window.innerWidth + "px";
       canvasEl.style.height = window.innerHeight + "px";
-      // Tell Matter.Render to use the new pixel ratio
       Matter.Render.setPixelRatio(render, ratio);
     }
-
     window.addEventListener("resize", resize);
     resize();
 
-    // Media colliders.
+    // ---- Media Colliders ----
+    // Create colliders for images/iframes as triggers.
+    window.BallFall.mediaColliders = []; // global array to hold media colliders
     function addMediaColliders() {
       document.querySelectorAll("img, iframe").forEach((el) => {
+        // Skip spawner image from triggering ripples.
+        if (el.id === "ball-spawner") return;
         const rect = el.getBoundingClientRect();
         if (rect.width < 1 || rect.height < 1) return;
         const cx = rect.left + rect.width / 2 + window.scrollX;
         const cy = rect.top + rect.height / 2 + window.scrollY;
         const box = Bodies.rectangle(cx, cy, rect.width, rect.height, {
           isStatic: true,
+          isSensor: true, // make collider a trigger
           render: { visible: false },
         });
         box.elRef = el;
+        box.isMedia = true; // mark as media collider
+        window.BallFall.mediaColliders.push(box);
         World.add(engine.world, box);
       });
     }
     addMediaColliders();
 
-    // ---- Ball spawning logic ----
-    const BALL_CATEGORY = 0x0002;
+    // ---- New Media Interaction Update ----
+    // For each ball, if it overlaps any media collider, set high drag and trigger a ripple once.
+    function updateMediaInteractions() {
+      const mediaColliders = window.BallFall.mediaColliders || [];
+      const bodies = Composite.allBodies(engine.world);
+      bodies.forEach((body) => {
+        if (body.label === "BallFallBall") {
+          let insideCollider = null;
+          for (let collider of mediaColliders) {
+            if (Matter.Bounds.contains(collider.bounds, body.position)) {
+              insideCollider = collider;
+              break;
+            }
+          }
+          if (insideCollider) {
+            if (body.frictionAir !== 0.1) {
+              body.frictionAir = 0.1;
+            }
+            if (!body.inMedia) {
+              body.inMedia = true;
+              triggerMediaRipple(insideCollider, body);
+            }
+          } else {
+            if (body.inMedia) {
+              delete body.inMedia;
+              body.frictionAir = 0;
+            }
+          }
+        }
+      });
+    }
 
+    // ---- Modified Ripple Trigger ----
+    // If the collider's element is an image, wrap it (if needed) so that ripples can appear on top.
+    function triggerMediaRipple(collider, ball) {
+      const ballColor =
+        (ball.render && ball.render.fillStyle) || "rgba(0,0,255,0.5)";
+      const ripple = document.createElement("div");
+      ripple.className = "media-ripple";
+      ripple.style.position = "absolute";
+      ripple.style.width = "20px";
+      ripple.style.height = "20px";
+      ripple.style.border = "2px solid " + ballColor;
+      ripple.style.borderRadius = "50%";
+      ripple.style.pointerEvents = "none";
+      ripple.style.opacity = 1;
+      ripple.style.transition = "all 0.8s ease-out";
+      // Ensure the ripple appears on top.
+      ripple.style.zIndex = 9999;
+
+      // Determine the container: if collider.elRef is an IMG, wrap it.
+      let container = collider.elRef;
+      if (container && container.tagName.toLowerCase() === "img") {
+        // Check if the image is already wrapped in a container with class "ripple-container"
+        if (
+          !container.parentElement ||
+          !container.parentElement.classList.contains("ripple-container")
+        ) {
+          const wrapper = document.createElement("div");
+          wrapper.className = "ripple-container";
+          wrapper.style.position = "relative";
+          wrapper.style.display = "inline-block";
+          wrapper.style.overflow = "visible";
+          // Insert wrapper before the image and move the image into it.
+          container.parentNode.insertBefore(wrapper, container);
+          wrapper.appendChild(container);
+          container = wrapper;
+        } else {
+          container = container.parentElement;
+        }
+      }
+
+      // Use the container's bounding rect to compute the ball's position relative to the container.
+      if (container) {
+        const containerRect = container.getBoundingClientRect();
+        // Compute relative position (adjusted for scroll)
+        const relX = ball.position.x - containerRect.left - window.scrollX;
+        const relY = ball.position.y - containerRect.top - window.scrollY;
+        ripple.style.left = relX + "px";
+        ripple.style.top = relY + "px";
+        container.appendChild(ripple);
+      } else {
+        // Fallback: append to document.body.
+        ripple.style.left = ball.position.x + "px";
+        ripple.style.top = ball.position.y + "px";
+        document.body.appendChild(ripple);
+      }
+
+      // Force reflow and then expand/fade.
+      void ripple.offsetWidth;
+      ripple.style.width = "60px";
+      ripple.style.height = "60px";
+      // Adjust the position so that the ripple is centered on the original point.
+      ripple.style.left = parseFloat(ripple.style.left) - 20 + "px";
+      ripple.style.top = parseFloat(ripple.style.top) - 20 + "px";
+      ripple.style.opacity = 0;
+      setTimeout(() => {
+        if (ripple.parentNode) {
+          ripple.parentNode.removeChild(ripple);
+        }
+      }, 800);
+    }
+
+    // Hook media interaction update.
+    Matter.Events.on(engine, "afterUpdate", updateMediaInteractions);
+
+    // ---- Ball Spawning Logic ----
+    const BALL_CATEGORY = 0x0002;
     const ballsList = [];
-    // Expose spawnBall() for manual or auto-triggered spawning.
     let isAnimating = false;
     const totalFrames = 9;
-    const frameDuration = 60; // 80 ms per frame
+    const frameDuration = 60;
     const animationFrames = Array.from(
       { length: totalFrames },
       (_, i) => `images/ball-chute-hatch-${i + 1}.png`
@@ -107,10 +216,8 @@ App.modules.base = (function () {
     function playSpawnerAnimation(frame = 0) {
       const spawnerImg = document.getElementById("ball-spawner");
       if (!spawnerImg) return;
-
       isAnimating = true;
       spawnerImg.src = animationFrames[frame];
-
       if (frame < totalFrames - 1) {
         setTimeout(() => playSpawnerAnimation(frame + 1), frameDuration);
       } else {
@@ -119,7 +226,6 @@ App.modules.base = (function () {
       }
     }
 
-    // Expose spawnBall() for manual or auto-triggered spawning.
     function spawnBall() {
       if (!window.BallFall.firstBallDropped) {
         window.BallFall.firstBallDropped = true;
@@ -127,17 +233,13 @@ App.modules.base = (function () {
         const dropIndicator = document.getElementById("spawner-indicator");
         if (dropIndicator) dropIndicator.style.display = "flex";
       }
-
-      // Start the animation immediately
       if (!isAnimating) {
         playSpawnerAnimation();
       }
-
-      // Delay only the ball spawning
       setTimeout(() => {
         const spawnX = window.scrollX + window.innerWidth / App.config.spawnX;
         const spawnY = 55;
-        const ball = Matter.Bodies.circle(spawnX, spawnY, App.config.ballSize, {
+        const ball = Bodies.circle(spawnX, spawnY, App.config.ballSize, {
           restitution: App.config.restitution,
           friction: 0,
           frictionAir: 0,
@@ -149,30 +251,23 @@ App.modules.base = (function () {
             },
           },
           label: "BallFallBall",
-          // Assign the custom ball category and default full mask.
           collisionFilter: {
             category: BALL_CATEGORY,
             mask: 0xffffffff,
           },
         });
-        // Set the spawn time for time-based income calculations.
         ball.spawnTime = Date.now();
-
-        // Temporarily disable collisions with other balls by removing the BALL_CATEGORY bit.
-        const disableDuration = App.config.disableDuration; // milliseconds
+        const disableDuration = App.config.disableDuration;
         ball.collisionFilter.mask = 0xffffffff & ~BALL_CATEGORY;
         setTimeout(() => {
           ball.collisionFilter.mask = 0xffffffff;
         }, disableDuration);
-
-        Matter.World.add(window.BallFall.world, ball);
+        World.add(engine.world, ball);
         ballsList.push(ball);
-      }, 300); // Adjust delay as needed
+      }, 300);
     }
-
     window.BallFall.spawnBall = spawnBall;
 
-    // Auto-spawner: not started until auto-clicker is purchased.
     let spawnIntervalId = null;
     function startAutoSpawner() {
       if (spawnIntervalId) return;
@@ -194,16 +289,7 @@ App.modules.base = (function () {
       ballsList.length = 0;
     };
 
-    // Collision effect and ball removal logic remain unchanged.
-    Events.on(engine, "collisionStart", (event) => {
-      event.pairs.forEach((pair) => {
-        [pair.bodyA, pair.bodyB].forEach((b) => {
-          if (b.elRef && b.elRef.tagName !== "SPAN") {
-            b.elRef.style.border = "1px dotted #6eff94";
-          }
-        });
-      });
-    });
+    // ---- Removed Existing Collision Border Effect ----
 
     const ballPositionData = {};
     function removeBallsBelowPage() {
@@ -252,7 +338,7 @@ App.modules.base = (function () {
       removeStillBalls();
     }, 500);
 
-    // Convert a hex color to an HSL object.
+    // ---- Color Interpolation Functions (unchanged) ----
     function hexToHSL(hex) {
       let r = parseInt(hex.substr(1, 2), 16) / 255,
         g = parseInt(hex.substr(3, 2), 16) / 255,
@@ -263,7 +349,7 @@ App.modules.base = (function () {
         s,
         l = (max + min) / 2;
       if (max === min) {
-        h = s = 0; // achromatic
+        h = s = 0;
       } else {
         let d = max - min;
         s = l > 0.5 ? d / (2 - max - min) : d / (max + min);
@@ -278,7 +364,6 @@ App.modules.base = (function () {
       return { h: h, s: s, l: l };
     }
 
-    // Convert an HSL object to hex.
     function HSLToHex(h, s, l) {
       let hue2rgb = function (p, q, t) {
         if (t < 0) t += 1;
@@ -305,12 +390,10 @@ App.modules.base = (function () {
       return "#" + toHex(r) + toHex(g) + toHex(b);
     }
 
-    // Interpolate colors that chooses the shortest circular hue path.
     function interpolateColorHSL(color1, color2, t) {
       var hsl1 = hexToHSL(color1);
       var hsl2 = hexToHSL(color2);
       var deltaH = hsl2.h - hsl1.h;
-      // Adjust if the direct difference exceeds 0.5 (i.e. 180°)
       if (Math.abs(deltaH) > 0.5) {
         if (deltaH > 0) {
           deltaH -= 1;
@@ -325,7 +408,6 @@ App.modules.base = (function () {
       return HSLToHex(h, s, l);
     }
 
-    // Update getBallColor to use HSL interpolation.
     function getBallColor(value) {
       var thresholds = App.config.ballColorThresholds;
       for (var i = 0; i < thresholds.length - 1; i++) {
@@ -339,12 +421,12 @@ App.modules.base = (function () {
       return thresholds[thresholds.length - 1].color;
     }
 
-    // --- afterRender hook (unchanged except for calling getBallColor) ---
-    Matter.Events.on(render, "afterRender", function () {
+    // ---- After Render Hook: update ball colors and render numbers. ----
+    Events.on(render, "afterRender", function () {
       const context = render.context;
       const now = Date.now();
       Matter.Render.startViewTransform(render);
-      const bodies = Matter.Composite.allBodies(engine.world);
+      const bodies = Composite.allBodies(engine.world);
       bodies.forEach(function (body) {
         if (body.label === "BallFallBall") {
           const age = now - (body.spawnTime || now);
@@ -352,7 +434,6 @@ App.modules.base = (function () {
             App.config.ballStartValue +
             Math.floor(age / App.config.ballIncomeTimeStep) *
               App.config.ballIncomeIncrement;
-          // Only update the ball's color if its value has changed.
           if (ballValue !== body.lastBallValue) {
             body.render.fillStyle = getBallColor(ballValue);
             body.lastBallValue = ballValue;
