@@ -116,7 +116,7 @@ App.modules.base = (function () {
             }
             if (!body.inMedia) {
               body.inMedia = true;
-              triggerMediaRipple(insideCollider, body);
+              window.triggerMediaRipple(insideCollider, body);
             }
           } else {
             if (body.inMedia) {
@@ -126,91 +126,6 @@ App.modules.base = (function () {
           }
         }
       });
-    }
-
-    // ---- Modified Ripple Trigger ----
-    // If the collider's element is an image, wrap it (with overflow hidden) so ripples show only inside.
-    // If it's an iframe (e.g. YouTube embed), use its parent (ensuring position: relative) without forcing overflow hidden.
-    function triggerMediaRipple(collider, ball) {
-      const ballColor =
-        (ball.render && ball.render.fillStyle) || "rgba(0,0,255,0.5)";
-      const ripple = document.createElement("div");
-      ripple.className = "media-ripple";
-      ripple.style.position = "absolute";
-      ripple.style.width = "20px";
-      ripple.style.height = "20px";
-      ripple.style.border = "2px solid " + ballColor;
-      ripple.style.borderRadius = "50%";
-      ripple.style.pointerEvents = "none";
-      ripple.style.opacity = 1;
-      ripple.style.transition = "all 0.8s ease-out";
-      ripple.style.zIndex = 9999;
-
-      let target = collider.elRef;
-      let container = target;
-      let containerRect = target.getBoundingClientRect();
-
-      // For images: wrap them so ripple fits exactly.
-      if (target.tagName.toLowerCase() === "img") {
-        if (
-          !target.parentElement ||
-          !target.parentElement.classList.contains("ripple-container")
-        ) {
-          const wrapper = document.createElement("div");
-          wrapper.className = "ripple-container";
-          wrapper.style.position = "relative";
-          wrapper.style.display = "inline-block";
-          // Set exact dimensions based on bounding rect.
-          wrapper.style.width = containerRect.width + "px";
-          wrapper.style.height = containerRect.height + "px";
-          wrapper.style.overflow = "hidden";
-          target.parentNode.insertBefore(wrapper, target);
-          wrapper.appendChild(target);
-          container = wrapper;
-          containerRect = wrapper.getBoundingClientRect();
-        } else {
-          container = target.parentElement;
-          containerRect = container.getBoundingClientRect();
-        }
-      }
-      // For YouTube thumbnail images: use the closest overlay container.
-      else if (target.classList.contains("ytp-cued-thumbnail-overlay-image")) {
-        let wrapper = target.closest(".ytp-cued-thumbnail-overlay");
-        if (wrapper) {
-          container = wrapper;
-          containerRect = container.getBoundingClientRect();
-        }
-      }
-      // For iframes: use the parent element (ensuring it’s relatively positioned)
-      else if (target.tagName.toLowerCase() === "iframe") {
-        container = target.parentElement;
-        if (container && getComputedStyle(container).position === "static") {
-          container.style.position = "relative";
-        }
-        containerRect = container.getBoundingClientRect();
-      }
-
-      // Compute ripple position relative to container.
-      const relX = ball.position.x - containerRect.left - window.scrollX;
-      const relY = ball.position.y - containerRect.top - window.scrollY;
-      ripple.style.left = relX + "px";
-      ripple.style.top = relY + "px";
-
-      container.appendChild(ripple);
-
-      // Force reflow and animate the ripple.
-      void ripple.offsetWidth;
-      ripple.style.width = "60px";
-      ripple.style.height = "60px";
-      ripple.style.left = parseFloat(ripple.style.left) - 20 + "px";
-      ripple.style.top = parseFloat(ripple.style.top) - 20 + "px";
-      ripple.style.opacity = 0;
-
-      setTimeout(() => {
-        if (ripple.parentNode) {
-          ripple.parentNode.removeChild(ripple);
-        }
-      }, 800);
     }
 
     // Hook media interaction update.
@@ -344,7 +259,11 @@ App.modules.base = (function () {
           prev.x = body.position.x;
           prev.y = body.position.y;
           if (prev.stillCount >= App.config.sitStillDeleteSeconds) {
-            World.remove(engine.world, body);
+            if (typeof window.glitchAndRemove === "function") {
+              window.glitchAndRemove(body);
+            } else {
+              World.remove(engine.world, body);
+            }
             delete ballPositionData[body.id];
           } else {
             ballPositionData[body.id] = prev;

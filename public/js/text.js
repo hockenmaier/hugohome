@@ -177,25 +177,24 @@ App.modules.text = (function () {
         ballBody.render && ballBody.render.fillStyle
           ? ballBody.render.fillStyle
           : App.config.textHitColor;
-      // Set the text color immediately.
       letterEl.style.color = ballColor;
-
-      // Check if the element is an <a> tag or contained within one.
       if (
         letterEl.tagName.toUpperCase() === "A" ||
         (letterEl.closest && letterEl.closest("a"))
       ) {
         const currentVelocity = ballBody.velocity;
-        //console.log("old velocity was " + currentVelocity.y);
-        // Use a 0ms timeout so that this change happens immediately after collision resolution.
+        // Accelerate the ball.
         setTimeout(() => {
           const newVelocity = {
             x: currentVelocity.x * 1.1,
             y: currentVelocity.y * 1.1,
           };
           Matter.Body.setVelocity(ballBody, newVelocity);
-          //console.log("new velocity is " + ballBody.velocity.y);
         }, 0);
+        // Trigger the motion blur trail effect.
+        if (typeof window.applyLinkBounceEffect === "function") {
+          window.applyLinkBounceEffect(ballBody);
+        }
       }
     }
 
