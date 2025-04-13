@@ -164,13 +164,19 @@
     );
     const thisDisplay = document.getElementById("thispage-revenue-display");
     if (thisDisplay) {
-      thisDisplay.innerHTML =
-        "This page: " +
-        '<img src="' +
-        coinCostURL +
-        '" alt="Coin" style="width:12px;height:12px;"> ' +
-        currentPageRate +
-        " /s";
+      // Before the simulation starts, hide the “This page” text;
+      // otherwise, show it with its label.
+      if (!window.App.simulationLoaded) {
+        thisDisplay.innerHTML = "";
+      } else {
+        thisDisplay.innerHTML =
+          "This page: " +
+          '<img src="' +
+          coinCostURL +
+          '" alt="Coin" style="width:12px;height:12px;"> ' +
+          currentPageRate +
+          " /s";
+      }
     }
     if (App.config.autoClicker) {
       App.Persistence.saveRecurringRevenue(currentPageRate);
@@ -184,13 +190,24 @@
     App.updateCoinsDisplay();
     const otherDisplay = document.getElementById("otherpages-revenue-display");
     if (otherDisplay) {
-      otherDisplay.innerHTML =
-        "Other pages: " +
-        '<img src="' +
-        coinCostURL +
-        '" alt="Coin" style="width:12px;height:12px;"> ' +
-        otherRate +
-        " /s";
+      // If simulation hasn’t started, remove the "Other pages:" label,
+      // otherwise use the full label.
+      if (!window.App.simulationLoaded) {
+        otherDisplay.innerHTML =
+          '<img src="' +
+          coinCostURL +
+          '" alt="Coin" style="width:12px;height:12px;"> ' +
+          otherRate +
+          " /s";
+      } else {
+        otherDisplay.innerHTML =
+          "Other pages: " +
+          '<img src="' +
+          coinCostURL +
+          '" alt="Coin" style="width:12px;height:12px;"> ' +
+          otherRate +
+          " /s";
+      }
     }
   }
 

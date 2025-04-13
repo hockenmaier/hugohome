@@ -168,17 +168,34 @@ App.modules.text = (function () {
       if (body) World.add(world, body);
     });
 
-    // Helper: simply change the text color to match the ball's color.
+    // Helper: change the text color to match the ball's color.
+    // Additionally, if the letter element is an <a> tag (or within one), boost the ball's speed by multiplying it by 1.5.
     function applyBallHitEffect(letterBody, ballBody) {
       const letterEl = letterBody.elRef;
       if (!letterEl) return;
-      //console.log("Collision: changing color for letter", letterEl.textContent);
       const ballColor =
         ballBody.render && ballBody.render.fillStyle
           ? ballBody.render.fillStyle
           : App.config.textHitColor;
-      // Directly set the text color without a fade transition.
       letterEl.style.color = ballColor;
+      if (
+        letterEl.tagName.toUpperCase() === "A" ||
+        (letterEl.closest && letterEl.closest("a"))
+      ) {
+        const currentVelocity = ballBody.velocity;
+        // Accelerate the ball.
+        setTimeout(() => {
+          const newVelocity = {
+            x: currentVelocity.x * 1.1,
+            y: currentVelocity.y * 1.1,
+          };
+          Matter.Body.setVelocity(ballBody, newVelocity);
+        }, 0);
+        // Trigger the motion blur trail effect.
+        if (typeof window.applyLinkBounceEffect === "function") {
+          window.applyLinkBounceEffect(ballBody);
+        }
+      }
     }
 
     // Collision handler: detect collisions between text letters and balls.
