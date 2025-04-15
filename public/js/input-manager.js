@@ -17,6 +17,8 @@
         return window.DottedLineTool;
       case "launcher":
         return window.LauncherCreateTool;
+      case "compactor":
+        return window.CompactorCreateTool;
       default:
         return null;
     }

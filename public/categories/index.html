@@ -952,10 +952,13 @@ table {
         <script src="http://localhost:1313/js/curved-line.js"></script>
         <script src="http://localhost:1313/js/launcher.js"></script>
         <script src="http://localhost:1313/js/launcher-create.js"></script>
+        <script src="http://localhost:1313/js/compactor-create.js"></script>
+        <script src="http://localhost:1313/js/compactor.js"></script>
         <script src="http://localhost:1313/js/game.js"></script>
         <script src="http://localhost:1313/js/goal.js"></script>
         <script src="http://localhost:1313/js/spawner.js"></script>
         <script src="http://localhost:1313/js/ui-updater.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
         
 <style>
    
@@ -1235,6 +1238,13 @@ table {
           <img src="/images/coin-cost.png" alt="Coin" /> 2500
         </div>
       </div>
+      <div class="toggle-wrapper">
+        <img src="/images/compactor-mode.png"
+        id="toggleCompactor" class="line-toggle" alt="Compactor" />
+        <div class="cost-label">
+          <img src="/images/coin-cost.png" alt="Coin" /> 1000000
+        </div>
+      </div>
     </div>
   </div>
   <script>
@@ -1433,6 +1443,28 @@ table {
       });
     }
     updateAutoClickerCostDisplay();
+  })();
+</script>
+
+<script>
+  (function () {
+    const compactorBtn = document.getElementById("toggleCompactor");
+    compactorBtn.addEventListener("click", (e) => {
+      e.stopPropagation();
+      const prevMode = window.App.modules.lines.getMode();
+      
+      if (prevMode === "compactor") {
+        window.App.modules.lines.setMode("none");
+        compactorBtn.classList.remove("selected");
+      } else {
+        window.App.modules.lines.setMode("compactor");
+        
+        document
+          .querySelectorAll(".line-toggle")
+          .forEach((btn) => btn.classList.remove("selected"));
+        compactorBtn.classList.add("selected");
+      }
+    });
   })();
 </script>
 

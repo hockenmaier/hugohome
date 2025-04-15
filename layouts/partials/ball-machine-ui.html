@@ -277,6 +277,13 @@
           <img src="{{ "images/coin-cost.png" | relURL }}" alt="Coin" /> 2500
         </div>
       </div>
+      <div class="toggle-wrapper">
+        <img src="{{ "images/compactor-mode.png" | relURL }}"
+        id="toggleCompactor" class="line-toggle" alt="Compactor" />
+        <div class="cost-label">
+          <img src="{{ "images/coin-cost.png" | relURL }}" alt="Coin" /> 1000000
+        </div>
+      </div>
     </div>
   </div>
   <script>
@@ -475,5 +482,27 @@
       });
     }
     updateAutoClickerCostDisplay();
+  })();
+</script>
+
+<script>
+  (function () {
+    const compactorBtn = document.getElementById("toggleCompactor");
+    compactorBtn.addEventListener("click", (e) => {
+      e.stopPropagation();
+      const prevMode = window.App.modules.lines.getMode();
+      // Toggle compactor mode.
+      if (prevMode === "compactor") {
+        window.App.modules.lines.setMode("none");
+        compactorBtn.classList.remove("selected");
+      } else {
+        window.App.modules.lines.setMode("compactor");
+        // Deselect any other toggles.
+        document
+          .querySelectorAll(".line-toggle")
+          .forEach((btn) => btn.classList.remove("selected"));
+        compactorBtn.classList.add("selected");
+      }
+    });
   })();
 </script>

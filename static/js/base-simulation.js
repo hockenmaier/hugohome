@@ -155,7 +155,7 @@ App.modules.base = (function () {
       }
     }
 
-    function spawnBall() {
+    function spawnBall(initialValue) {
       if (!window.BallFall.firstBallDropped) {
         window.BallFall.firstBallDropped = true;
         const autoBtn = document.getElementById("autoClicker");
@@ -186,6 +186,11 @@ App.modules.base = (function () {
           },
         });
         ball.spawnTime = Date.now();
+        // Set the ball's base value to the provided initial value (if any) or the default.
+        ball.baseValue =
+          typeof initialValue !== "undefined"
+            ? initialValue
+            : App.config.ballStartValue;
         const disableDuration = App.config.disableDuration;
         ball.collisionFilter.mask = 0xffffffff & ~BALL_CATEGORY;
         setTimeout(() => {
@@ -195,6 +200,7 @@ App.modules.base = (function () {
         ballsList.push(ball);
       }, 300);
     }
+
     window.BallFall.spawnBall = spawnBall;
 
     let spawnIntervalId = null;
@@ -369,10 +375,16 @@ App.modules.base = (function () {
       bodies.forEach(function (body) {
         if (body.label === "BallFallBall") {
           const age = now - (body.spawnTime || now);
+          const base =
+            body.baseValue !== undefined
+              ? body.baseValue
+              : App.config.ballStartValue;
+
           const ballValue =
-            App.config.ballStartValue +
+            base +
             Math.floor(age / App.config.ballIncomeTimeStep) *
               App.config.ballIncomeIncrement;
+
           if (ballValue !== body.lastBallValue) {
             body.render.fillStyle = getBallColor(ballValue);
             body.lastBallValue = ballValue;
