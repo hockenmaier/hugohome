@@ -1,15 +1,16 @@
 /* static/js/compactor-create.js */
 /*
  * compactor-create.js
- * Implements the compactor creation tool.
- * Like the launcher, it uses 2 clicks: first to position,
- * and second to set rotation. The preview shows the compactor image
- * (split into 3 parts) rotating to face the mouse.
+ * Two–click compactor creation.
+ * The preview is computed so that the three images maintain their original aspect ratios
+ * with no gap between them. We assume the natural dimensions for the images are:
+ *   left: 100×50, middle: 200×50, right: 100×50.
+ * They are scaled so that the overall width equals 5×App.config.ballSize.
  */
 window.CompactorCreateTool = {
-  state: 0, // 0: waiting for first click, 1: waiting for rotation
+  state: 0,
   startPoint: null,
-  previewComposite: null, // Array of preview bodies (left, middle, right)
+  previewComposite: null,
   cost: 1000000,
 
   onClick(x, y) {
@@ -20,66 +21,114 @@ window.CompactorCreateTool = {
       }
       this.startPoint = { x, y };
 
-      // Define preview dimensions.
-      const leftWidth = 50,
-        middleWidth = 100,
-        rightWidth = 50,
-        height = 50;
-      const leftX = -(middleWidth / 2 + leftWidth / 2);
-      const rightX = middleWidth / 2 + rightWidth / 2;
+      // Natural image sizes.
+      const leftNatW = 100,
+        leftNatH = 50;
+      const midNatW = 200,
+        midNatH = 50;
+      const rightNatW = 100,
+        rightNatH = 50;
+      const totalNatW = leftNatW + midNatW + rightNatW;
+
+      // Desired total width: 5 ball diameters.
+      const targetTotalW = App.config.ballSize * 5;
+      const scaleFactor = targetTotalW / totalNatW;
+
+      // Scaled dimensions.
+      const leftW = leftNatW * scaleFactor;
+      const midW = midNatW * scaleFactor;
+      const rightW = rightNatW * scaleFactor;
+      const targetH = leftNatH * scaleFactor; // same for all
+
+      // Compute centers so that the parts touch:
+      // The overall composite center is at (0,0); left center = -(totalNatW/2 - leftNatW/2)*scaleFactor,
+      // right center = +(totalNatW/2 - rightNatW/2)*scaleFactor.
+      const leftX = -(totalNatW / 2 - leftNatW / 2) * scaleFactor;
+      const rightX = (totalNatW / 2 - rightNatW / 2) * scaleFactor;
+
       const previewOpts = {
         isStatic: true,
         isSensor: true,
         render: { opacity: 0.6 },
       };
 
-      // Create left, middle, and right preview bodies.
       const leftPreview = Matter.Bodies.rectangle(
         x + leftX,
         y,
-        leftWidth,
-        height,
+        leftW,
+        targetH,
         Object.assign({}, previewOpts, {
           label: "CompactorLeftPreview",
-          render: { sprite: { texture: "images/compactor-left.png" } },
+          render: {
+            sprite: {
+              texture: "images/compactor-left.png",
+              xScale: scaleFactor,
+              yScale: scaleFactor,
+            },
+          },
         })
       );
-      const middlePreview = Matter.Bodies.rectangle(
+      const midPreview = Matter.Bodies.rectangle(
         x,
         y,
-        middleWidth,
-        height,
+        midW,
+        targetH,
         Object.assign({}, previewOpts, {
           label: "CompactorMiddlePreview",
-          render: { sprite: { texture: "images/compactor-middle.png" } },
+          render: {
+            sprite: {
+              texture: "images/compactor-middle.png",
+              xScale: scaleFactor,
+              yScale: scaleFactor,
+            },
+          },
         })
       );
       const rightPreview = Matter.Bodies.rectangle(
         x + rightX,
         y,
-        rightWidth,
-        height,
+        rightW,
+        targetH,
         Object.assign({}, previewOpts, {
           label: "CompactorRightPreview",
-          render: { sprite: { texture: "images/compactor-right.png" } },
+          render: {
+            sprite: {
+              texture: "images/compactor-right.png",
+              xScale: scaleFactor,
+              yScale: scaleFactor,
+            },
+          },
         })
       );
-      this.previewComposite = [leftPreview, middlePreview, rightPreview];
+
+      this.previewComposite = [leftPreview, midPreview, rightPreview];
       Matter.World.add(window.BallFall.world, this.previewComposite);
       this.state = 1;
     } else if (this.state === 1) {
-      // Second click: use the current mouse position to determine rotation.
+      // Second click determines rotation.
       const dx = x - this.startPoint.x,
-        dy = y - this.startPoint.y,
-        angle = Math.atan2(dy, dx);
+        dy = y - this.startPoint.y;
+      const angle = Math.atan2(dy, dx);
       this.cancelPreview();
-      // Create the compactor.
+      // Create compactor object.
       const compactor = new Compactor(
         { x: this.startPoint.x, y: this.startPoint.y },
         angle
       );
       App.config.coins -= this.cost;
       App.updateCoinsDisplay();
+      // Persist compactor.
+      let compactorId = App.Persistence.saveCompactor({
+        position: this.startPoint,
+        angle: angle,
+      });
+      compactor.leftBody.persistenceId = compactorId;
+      compactor.middleBody.persistenceId = compactorId;
+      compactor.rightBody.persistenceId = compactorId;
+      // Tag bodies for hover/deletion.
+      compactor.leftBody.isCompactor = true;
+      compactor.middleBody.isCompactor = true;
+      compactor.rightBody.isCompactor = true;
       this.state = 0;
       this.startPoint = null;
     }
@@ -88,31 +137,38 @@ window.CompactorCreateTool = {
   onMove(x, y) {
     if (this.state === 1 && this.previewComposite) {
       const dx = x - this.startPoint.x,
-        dy = y - this.startPoint.y,
-        angle = Math.atan2(dy, dx);
-      const leftWidth = 50,
-        middleWidth = 100,
-        rightWidth = 50;
-      const leftX = -(middleWidth / 2 + leftWidth / 2);
-      const rightX = middleWidth / 2 + rightWidth / 2;
+        dy = y - this.startPoint.y;
+      const angle = Math.atan2(dy, dx);
+
+      // Recompute the offsets as in onClick.
+      const leftNatW = 100,
+        midNatW = 200,
+        rightNatW = 100;
+      const totalNatW = leftNatW + midNatW + rightNatW;
+      const targetTotalW = App.config.ballSize * 5;
+      const scaleFactor = targetTotalW / totalNatW;
+      const leftX = -(totalNatW / 2 - leftNatW / 2) * scaleFactor;
+      const rightX = (totalNatW / 2 - rightNatW / 2) * scaleFactor;
+
+      // Update positions using the current rotation.
       const cos = Math.cos(angle),
         sin = Math.sin(angle);
-      const leftOffset = { x: leftX * cos, y: leftX * sin };
-      const rightOffset = { x: rightX * cos, y: rightX * sin };
       Matter.Body.setPosition(this.previewComposite[0], {
-        x: this.startPoint.x + leftOffset.x,
-        y: this.startPoint.y + leftOffset.y,
+        x: this.startPoint.x + leftX * cos,
+        y: this.startPoint.y + leftX * sin,
       });
+      Matter.Body.setAngle(this.previewComposite[0], angle);
+
       Matter.Body.setPosition(this.previewComposite[1], {
         x: this.startPoint.x,
         y: this.startPoint.y,
       });
-      Matter.Body.setPosition(this.previewComposite[2], {
-        x: this.startPoint.x + rightOffset.x,
-        y: this.startPoint.y + rightOffset.y,
-      });
-      Matter.Body.setAngle(this.previewComposite[0], angle);
       Matter.Body.setAngle(this.previewComposite[1], angle);
+
+      Matter.Body.setPosition(this.previewComposite[2], {
+        x: this.startPoint.x + rightX * cos,
+        y: this.startPoint.y + rightX * sin,
+      });
       Matter.Body.setAngle(this.previewComposite[2], angle);
     }
   },
