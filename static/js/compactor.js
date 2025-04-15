@@ -112,8 +112,8 @@
       }
     );
     Matter.World.add(window.BallFall.world, [
-      this.leftBody,
       this.middleBody,
+      this.leftBody,
       this.rightBody,
     ]);
 

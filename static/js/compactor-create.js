@@ -6,11 +6,12 @@
  * with no gap between them. We assume the natural dimensions for the images are:
  *   left: 100×50, middle: 200×50, right: 100×50.
  * They are scaled so that the overall width equals 5×App.config.ballSize.
+ * The preview bodies are added in order so that the middle is drawn first.
  */
 window.CompactorCreateTool = {
   state: 0,
   startPoint: null,
-  previewComposite: null,
+  previewComposite: null, // Will be an object with keys: left, middle, right
   cost: 1000000,
 
   onClick(x, y) {
@@ -41,8 +42,8 @@ window.CompactorCreateTool = {
       const targetH = leftNatH * scaleFactor; // same for all
 
       // Compute centers so that the parts touch:
-      // The overall composite center is at (0,0); left center = -(totalNatW/2 - leftNatW/2)*scaleFactor,
-      // right center = +(totalNatW/2 - rightNatW/2)*scaleFactor.
+      // The overall composite center is at (0,0); left center = -((totalNatW/2 - leftNatW/2)*scaleFactor),
+      // right center = +((totalNatW/2 - rightNatW/2)*scaleFactor).
       const leftX = -(totalNatW / 2 - leftNatW / 2) * scaleFactor;
       const rightX = (totalNatW / 2 - rightNatW / 2) * scaleFactor;
 
@@ -52,6 +53,7 @@ window.CompactorCreateTool = {
         render: { opacity: 0.6 },
       };
 
+      // Create preview bodies.
       const leftPreview = Matter.Bodies.rectangle(
         x + leftX,
         y,
@@ -101,14 +103,25 @@ window.CompactorCreateTool = {
         })
       );
 
-      this.previewComposite = [leftPreview, midPreview, rightPreview];
-      Matter.World.add(window.BallFall.world, this.previewComposite);
+      // Store as an object.
+      this.previewComposite = {
+        left: leftPreview,
+        middle: midPreview,
+        right: rightPreview,
+      };
+
+      // Add to world in the order: middle first, then left, then right.
+      Matter.World.add(window.BallFall.world, [
+        midPreview,
+        leftPreview,
+        rightPreview,
+      ]);
       this.state = 1;
     } else if (this.state === 1) {
-      // Second click determines rotation.
+      // Second click: determine rotation.
       const dx = x - this.startPoint.x,
-        dy = y - this.startPoint.y;
-      const angle = Math.atan2(dy, dx);
+        dy = y - this.startPoint.y,
+        angle = Math.atan2(dy, dx);
       this.cancelPreview();
       // Create compactor object.
       const compactor = new Compactor(
@@ -137,10 +150,10 @@ window.CompactorCreateTool = {
   onMove(x, y) {
     if (this.state === 1 && this.previewComposite) {
       const dx = x - this.startPoint.x,
-        dy = y - this.startPoint.y;
-      const angle = Math.atan2(dy, dx);
+        dy = y - this.startPoint.y,
+        angle = Math.atan2(dy, dx);
 
-      // Recompute the offsets as in onClick.
+      // Recompute offsets as in onClick.
       const leftNatW = 100,
         midNatW = 200,
         rightNatW = 100;
@@ -150,32 +163,32 @@ window.CompactorCreateTool = {
       const leftX = -(totalNatW / 2 - leftNatW / 2) * scaleFactor;
       const rightX = (totalNatW / 2 - rightNatW / 2) * scaleFactor;
 
-      // Update positions using the current rotation.
       const cos = Math.cos(angle),
         sin = Math.sin(angle);
-      Matter.Body.setPosition(this.previewComposite[0], {
+      // Update left preview.
+      Matter.Body.setPosition(this.previewComposite.left, {
         x: this.startPoint.x + leftX * cos,
         y: this.startPoint.y + leftX * sin,
       });
-      Matter.Body.setAngle(this.previewComposite[0], angle);
-
-      Matter.Body.setPosition(this.previewComposite[1], {
+      Matter.Body.setAngle(this.previewComposite.left, angle);
+      // Update middle preview.
+      Matter.Body.setPosition(this.previewComposite.middle, {
         x: this.startPoint.x,
         y: this.startPoint.y,
       });
-      Matter.Body.setAngle(this.previewComposite[1], angle);
-
-      Matter.Body.setPosition(this.previewComposite[2], {
+      Matter.Body.setAngle(this.previewComposite.middle, angle);
+      // Update right preview.
+      Matter.Body.setPosition(this.previewComposite.right, {
         x: this.startPoint.x + rightX * cos,
         y: this.startPoint.y + rightX * sin,
       });
-      Matter.Body.setAngle(this.previewComposite[2], angle);
+      Matter.Body.setAngle(this.previewComposite.right, angle);
     }
   },
 
   cancelPreview() {
     if (this.previewComposite) {
-      this.previewComposite.forEach((body) =>
+      Object.values(this.previewComposite).forEach((body) =>
         Matter.World.remove(window.BallFall.world, body)
       );
       this.previewComposite = null;
