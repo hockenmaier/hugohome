@@ -72,6 +72,9 @@
         isCompactor: true,
       }
     );
+    // Attach owner reference.
+    this.leftBody.compactorOwner = this;
+
     // Middle remains sensor (for visual only).
     this.middleBody = Matter.Bodies.rectangle(
       position.x,
@@ -114,6 +117,9 @@
         isCompactor: true,
       }
     );
+    // Attach owner reference.
+    this.rightBody.compactorOwner = this;
+
     Matter.World.add(window.BallFall.world, [
       this.middleBody,
       this.leftBody,
@@ -179,7 +185,6 @@
       ease: "linear",
       leftX: self.leftOpenX,
       rightX: self.rightOpenX,
-      // No spawn call here so the new ball remains untouched.
     });
   };
 
@@ -222,6 +227,9 @@
         sensor = pair.bodyA;
       }
       if (ball && sensor) {
+        // Process only if the sensor belongs to this compactor.
+        if (sensor.compactorOwner !== this) return;
+
         let sensorCenter;
         if (sensor.label === "CompactorLeft") {
           sensorCenter = {
@@ -230,10 +238,8 @@
           };
           const dx = ball.position.x - sensorCenter.x,
             dy = ball.position.y - sensorCenter.y;
-          // Transform into the sensor's local coordinates.
           const localX =
             dx * Math.cos(-this.angle) - dy * Math.sin(-this.angle);
-          // If ball is to the right (>=0) of the left body center, crush it.
           if (localX >= 0 && !ball._compacted) {
             ball._compacted = true;
             if (typeof window.glitchAndRemove === "function") {
@@ -262,7 +268,6 @@
             dy = ball.position.y - sensorCenter.y;
           const localX =
             dx * Math.cos(-this.angle) - dy * Math.sin(-this.angle);
-          // If ball is to the left (<=0) of the right body center, crush it.
           if (localX <= 0 && !ball._compacted) {
             ball._compacted = true;
             if (typeof window.glitchAndRemove === "function") {
