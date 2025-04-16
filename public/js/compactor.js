@@ -46,6 +46,7 @@
     this.leftX = this.leftOpenX;
     this.rightX = this.rightOpenX;
 
+    // Create the left and right bodies without "isSensor"
     this.leftBody = Matter.Bodies.rectangle(
       position.x + rotateX(this.leftX, 0, angle),
       position.y + rotateY(this.leftX, 0, angle),
@@ -53,7 +54,7 @@
       this.height,
       {
         isStatic: true,
-        isSensor: true,
+        // Removed isSensor so collisions work physically.
         label: "CompactorLeft",
         angle: angle,
         render: {
@@ -74,7 +75,7 @@
       this.height,
       {
         isStatic: true,
-        isSensor: true,
+        isSensor: true, // Middle remains sensor (only graphic).
         label: "CompactorMiddle",
         angle: angle,
         render: {
@@ -95,7 +96,7 @@
       this.height,
       {
         isStatic: true,
-        isSensor: true,
+        // Removed isSensor so collisions work physically.
         label: "CompactorRight",
         angle: angle,
         render: {
@@ -109,6 +110,7 @@
         isCompactor: true,
       }
     );
+
     Matter.World.add(window.BallFall.world, [
       this.middleBody,
       this.leftBody,
@@ -165,7 +167,8 @@
       rightX: self.rightOpenX,
       onComplete: () => {
         if (self.deletedSum > 0) {
-          window.BallFall.spawnBall(self.deletedSum);
+          // Immediately spawn the new ball at the compactor’s center:
+          window.BallFall.spawnBall(self.deletedSum, self.position);
           self.deletedSum = 0;
         }
       },
@@ -209,11 +212,20 @@
         sensor = pair.bodyA;
       }
       if (ball && sensor) {
-        const dx = ball.position.x - this.position.x,
-          dy = ball.position.y - this.position.y;
-        const localX = dx * Math.cos(-this.angle) - dy * Math.sin(-this.angle);
+        // Compute sensor center (the body’s current center)
+        let sensorCenter;
         if (sensor.label === "CompactorLeft") {
-          if (localX > this.leftX && !ball._compacted) {
+          sensorCenter = {
+            x: this.position.x + rotateX(this.leftX, 0, this.angle),
+            y: this.position.y + rotateY(this.leftX, 0, this.angle),
+          };
+          const dx = ball.position.x - sensorCenter.x,
+            dy = ball.position.y - sensorCenter.y;
+          // Transform into sensor’s local coordinates
+          const localX =
+            dx * Math.cos(-this.angle) - dy * Math.sin(-this.angle);
+          // If ball is to the right of the left body center, delete it.
+          if (localX > 0 && !ball._compacted) {
             ball._compacted = true;
             if (typeof window.glitchAndRemove === "function") {
               window.glitchAndRemove(ball);
@@ -227,7 +239,16 @@
             this.deletedSum += ball.compactValue;
           }
         } else if (sensor.label === "CompactorRight") {
-          if (localX < this.rightX && !ball._compacted) {
+          sensorCenter = {
+            x: this.position.x + rotateX(this.rightX, 0, this.angle),
+            y: this.position.y + rotateY(this.rightX, 0, this.angle),
+          };
+          const dx = ball.position.x - sensorCenter.x,
+            dy = ball.position.y - sensorCenter.y;
+          const localX =
+            dx * Math.cos(-this.angle) - dy * Math.sin(-this.angle);
+          // If ball is to the left of the right body center, delete it.
+          if (localX < 0 && !ball._compacted) {
             ball._compacted = true;
             if (typeof window.glitchAndRemove === "function") {
               window.glitchAndRemove(ball);

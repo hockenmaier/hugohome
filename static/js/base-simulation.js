@@ -155,19 +155,31 @@ App.modules.base = (function () {
       }
     }
 
-    function spawnBall(initialValue) {
+    function spawnBall(initialValue, pos) {
       if (!window.BallFall.firstBallDropped) {
         window.BallFall.firstBallDropped = true;
         const autoBtn = document.getElementById("autoClicker");
         const dropIndicator = document.getElementById("spawner-indicator");
         if (dropIndicator) dropIndicator.style.display = "flex";
       }
-      if (!isAnimating) {
-        playSpawnerAnimation();
+      let delay = 300;
+      // When a position is provided (as by the compactor), skip animation and delay.
+      if (pos && typeof pos.x === "number" && typeof pos.y === "number") {
+        delay = 0;
+      } else {
+        if (!isAnimating) {
+          playSpawnerAnimation();
+        }
       }
       setTimeout(() => {
-        const spawnX = window.scrollX + window.innerWidth / App.config.spawnX;
-        const spawnY = 55;
+        let spawnX, spawnY;
+        if (pos && typeof pos.x === "number" && typeof pos.y === "number") {
+          spawnX = pos.x;
+          spawnY = pos.y;
+        } else {
+          spawnX = window.scrollX + window.innerWidth / App.config.spawnX;
+          spawnY = 55;
+        }
         const ball = Bodies.circle(spawnX, spawnY, App.config.ballSize, {
           restitution: App.config.restitution,
           friction: 0,
@@ -186,7 +198,6 @@ App.modules.base = (function () {
           },
         });
         ball.spawnTime = Date.now();
-        // Set the ball's base value to the provided initial value (if any) or the default.
         ball.baseValue =
           typeof initialValue !== "undefined"
             ? initialValue
@@ -198,7 +209,7 @@ App.modules.base = (function () {
         }, disableDuration);
         World.add(engine.world, ball);
         ballsList.push(ball);
-      }, 300);
+      }, delay);
     }
 
     window.BallFall.spawnBall = spawnBall;
