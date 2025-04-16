@@ -2,17 +2,14 @@
 /*
  * compactor-create.js
  * Two–click compactor creation.
- * The preview is computed so that the three images maintain their original aspect ratios
- * with no gap between them. We assume the natural dimensions for the images are:
- *   left: 100×50, middle: 200×50, right: 100×50.
- * They are scaled so that the overall width equals 5×App.config.ballSize.
- * The preview bodies are added in order so that the middle is drawn first.
+ * Preview bodies are computed so that the three images maintain their original aspect ratios
+ * and have no gap between them.
  */
 window.CompactorCreateTool = {
   state: 0,
   startPoint: null,
-  previewComposite: null, // Will be an object with keys: left, middle, right
-  cost: 1000000,
+  previewComposite: null, // Object with keys: left, middle, right
+  cost: App.config.compactor.cost,
 
   onClick(x, y) {
     if (this.state === 0) {
@@ -22,42 +19,35 @@ window.CompactorCreateTool = {
       }
       this.startPoint = { x, y };
 
-      // Natural image sizes.
-      const leftNatW = 100,
-        leftNatH = 50;
-      const midNatW = 200,
-        midNatH = 50;
-      const rightNatW = 100,
-        rightNatH = 50;
+      // Get natural dimensions from global config.
+      const natural = App.config.compactor.naturalDimensions;
+      const leftNatW = natural.left.width,
+        leftNatH = natural.left.height;
+      const midNatW = natural.middle.width,
+        midNatH = natural.middle.height;
+      const rightNatW = natural.right.width,
+        rightNatH = natural.right.height;
       const totalNatW = leftNatW + midNatW + rightNatW;
-
-      // Desired total width: 5 ball diameters.
-      const targetTotalW = App.config.ballSize * 5;
+      const targetTotalW =
+        App.config.ballSize * App.config.compactor.targetWidthMultiplier;
       const scaleFactor = targetTotalW / totalNatW;
+      const targetH = leftNatH * scaleFactor; // same for all parts
 
-      // Scaled dimensions.
-      const leftW = leftNatW * scaleFactor;
-      const midW = midNatW * scaleFactor;
-      const rightW = rightNatW * scaleFactor;
-      const targetH = leftNatH * scaleFactor; // same for all
+      // Use CompactorConfig helper to get open X positions.
+      const compactorParams = CompactorConfig.getParams();
+      const leftX = compactorParams.leftOpenX;
+      const rightX = compactorParams.rightOpenX;
 
-      // Compute centers so that the parts touch:
-      // The overall composite center is at (0,0); left center = -((totalNatW/2 - leftNatW/2)*scaleFactor),
-      // right center = +((totalNatW/2 - rightNatW/2)*scaleFactor).
-      const leftX = -(totalNatW / 2 - leftNatW / 2) * scaleFactor;
-      const rightX = (totalNatW / 2 - rightNatW / 2) * scaleFactor;
-
+      // Create preview bodies.
       const previewOpts = {
         isStatic: true,
         isSensor: true,
         render: { opacity: 0.6 },
       };
-
-      // Create preview bodies.
       const leftPreview = Matter.Bodies.rectangle(
         x + leftX,
         y,
-        leftW,
+        leftNatW * scaleFactor,
         targetH,
         Object.assign({}, previewOpts, {
           label: "CompactorLeftPreview",
@@ -73,7 +63,7 @@ window.CompactorCreateTool = {
       const midPreview = Matter.Bodies.rectangle(
         x,
         y,
-        midW,
+        midNatW * scaleFactor,
         targetH,
         Object.assign({}, previewOpts, {
           label: "CompactorMiddlePreview",
@@ -89,7 +79,7 @@ window.CompactorCreateTool = {
       const rightPreview = Matter.Bodies.rectangle(
         x + rightX,
         y,
-        rightW,
+        rightNatW * scaleFactor,
         targetH,
         Object.assign({}, previewOpts, {
           label: "CompactorRightPreview",
@@ -103,14 +93,11 @@ window.CompactorCreateTool = {
         })
       );
 
-      // Store as an object.
       this.previewComposite = {
         left: leftPreview,
         middle: midPreview,
         right: rightPreview,
       };
-
-      // Add to world in the order: middle first, then left, then right.
       Matter.World.add(window.BallFall.world, [
         midPreview,
         leftPreview,
@@ -130,7 +117,6 @@ window.CompactorCreateTool = {
       );
       App.config.coins -= this.cost;
       App.updateCoinsDisplay();
-      // Persist compactor.
       let compactorId = App.Persistence.saveCompactor({
         position: this.startPoint,
         angle: angle,
@@ -138,7 +124,6 @@ window.CompactorCreateTool = {
       compactor.leftBody.persistenceId = compactorId;
       compactor.middleBody.persistenceId = compactorId;
       compactor.rightBody.persistenceId = compactorId;
-      // Tag bodies for hover/deletion.
       compactor.leftBody.isCompactor = true;
       compactor.middleBody.isCompactor = true;
       compactor.rightBody.isCompactor = true;
@@ -152,32 +137,21 @@ window.CompactorCreateTool = {
       const dx = x - this.startPoint.x,
         dy = y - this.startPoint.y,
         angle = Math.atan2(dy, dx);
-
-      // Recompute offsets as in onClick.
-      const leftNatW = 100,
-        midNatW = 200,
-        rightNatW = 100;
-      const totalNatW = leftNatW + midNatW + rightNatW;
-      const targetTotalW = App.config.ballSize * 5;
-      const scaleFactor = targetTotalW / totalNatW;
-      const leftX = -(totalNatW / 2 - leftNatW / 2) * scaleFactor;
-      const rightX = (totalNatW / 2 - rightNatW / 2) * scaleFactor;
-
+      const compactorParams = CompactorConfig.getParams();
+      const leftX = compactorParams.leftOpenX;
+      const rightX = compactorParams.rightOpenX;
       const cos = Math.cos(angle),
         sin = Math.sin(angle);
-      // Update left preview.
       Matter.Body.setPosition(this.previewComposite.left, {
         x: this.startPoint.x + leftX * cos,
         y: this.startPoint.y + leftX * sin,
       });
       Matter.Body.setAngle(this.previewComposite.left, angle);
-      // Update middle preview.
       Matter.Body.setPosition(this.previewComposite.middle, {
         x: this.startPoint.x,
         y: this.startPoint.y,
       });
       Matter.Body.setAngle(this.previewComposite.middle, angle);
-      // Update right preview.
       Matter.Body.setPosition(this.previewComposite.right, {
         x: this.startPoint.x + rightX * cos,
         y: this.startPoint.y + rightX * sin,

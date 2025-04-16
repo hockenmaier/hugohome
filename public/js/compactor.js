@@ -3,11 +3,8 @@
  * compactor.js
  * Attaches to a placed compactor. Creates three bodies (left, middle, right)
  * with no gaps between them. Runs a repeating GSAP timeline:
- *   - 2 s idle,
- *   - 0.5 s crushing (closing),
- *   - 0.1 s shake,
- *   - 1 s opening.
- * Colliding balls are removed during the closing phase.
+ *   - idle, crush, shake, then open.
+ * Colliding balls are removed during the crushing phase.
  */
 (function () {
   function rotateX(x, y, angle) {
@@ -21,33 +18,34 @@
   window.Compactor = function (position, angle) {
     this.position = position;
     this.angle = angle;
-    // Natural dimensions (same as in compactor-create.js).
-    const leftNatW = 100,
-      leftNatH = 50;
-    const midNatW = 200,
-      midNatH = 50;
-    const rightNatW = 100,
-      rightNatH = 50;
+    const natural = App.config.compactor.naturalDimensions;
+    const leftNatW = natural.left.width,
+      leftNatH = natural.left.height,
+      midNatW = natural.middle.width,
+      midNatH = natural.middle.height,
+      rightNatW = natural.right.width,
+      rightNatH = natural.right.height;
     const totalNatW = leftNatW + midNatW + rightNatW;
-    const targetTotalW = App.config.ballSize * 5;
+    const targetTotalW =
+      App.config.ballSize * App.config.compactor.targetWidthMultiplier;
     const scaleFactor = targetTotalW / totalNatW;
-
     this.leftWidth = leftNatW * scaleFactor;
     this.middleWidth = midNatW * scaleFactor;
     this.rightWidth = rightNatW * scaleFactor;
     this.height = leftNatH * scaleFactor;
 
-    // Compute open positions.
-    this.leftOpenX = -(totalNatW / 2 - leftNatW / 2) * scaleFactor;
-    this.rightOpenX = (totalNatW / 2 - rightNatW / 2) * scaleFactor;
-    // Closed: inner edges meet at center.
-    this.leftClosedX = -this.leftWidth / 2;
-    this.rightClosedX = this.rightWidth / 2;
+    const compactorParams = CompactorConfig.getParams();
+    this.leftOpenX = compactorParams.leftOpenX;
+    this.rightOpenX = compactorParams.rightOpenX;
+
+    // Use closedInset from App.config.compactor
+    const inset = App.config.compactor.closedInset || 0;
+    this.leftClosedX = -(this.middleWidth + this.leftWidth) / 2 + inset;
+    this.rightClosedX = (this.middleWidth + this.rightWidth) / 2 - inset;
 
     this.leftX = this.leftOpenX;
     this.rightX = this.rightOpenX;
 
-    // Create bodies with sprite scale preserving the aspect ratio.
     this.leftBody = Matter.Bodies.rectangle(
       position.x + rotateX(this.leftX, 0, angle),
       position.y + rotateY(this.leftX, 0, angle),
@@ -137,11 +135,12 @@
         self.updatePositions(animProps);
       },
     });
-    // Idle 2 s.
-    self.timeline.to(animProps, { duration: 2 });
-    // Crush: close over 0.5 s.
+    // Use durations from global compactor config.
     self.timeline.to(animProps, {
-      duration: 0.5,
+      duration: App.config.compactor.timeline.idleDuration,
+    });
+    self.timeline.to(animProps, {
+      duration: App.config.compactor.timeline.crushDuration,
       ease: "sine.in",
       leftX: self.leftClosedX,
       rightX: self.rightClosedX,
@@ -152,17 +151,15 @@
         self.isCrushing = false;
       },
     });
-    // Shake: 0.1 s, 3 repeats yoyo.
     self.timeline.to(animProps, {
-      duration: 0.1,
-      repeat: 3,
+      duration: App.config.compactor.timeline.shakeDuration,
+      repeat: App.config.compactor.timeline.shakeRepeat,
       yoyo: true,
       leftX: self.leftClosedX + 5,
       rightX: self.rightClosedX - 5,
     });
-    // Open: release over 1 s.
     self.timeline.to(animProps, {
-      duration: 1,
+      duration: App.config.compactor.timeline.openDuration,
       ease: "linear",
       leftX: self.leftOpenX,
       rightX: self.rightOpenX,
