@@ -7,6 +7,7 @@
  * Balls are deleted (and their values summed) only during the crush phase.
  * When the crush phase ends, a new ball is spawned immediately at the compactor's center.
  */
+/* Updated static/js/compactor.js */
 (function () {
   // Helper functions to rotate coordinates.
   function rotateX(x, y, angle) {
@@ -15,6 +16,48 @@
   function rotateY(x, y, angle) {
     return x * Math.sin(angle) + y * Math.cos(angle);
   }
+  // Helper: scale polygon vertices.
+  function scalePolygon(points, scale) {
+    return points.map((pt) => ({ x: pt[0] * scale, y: pt[1] * scale }));
+  }
+  // Polygon vertices extracted from PNGs.
+  const COMPACTOR_LEFT_VERTICES = [
+    [119, 2],
+    [72, 40],
+    [0, 75],
+    [0, 737],
+    [116, 810],
+    [454, 808],
+    [474, 782],
+    [474, 585],
+    [379, 508],
+    [358, 461],
+    [351, 398],
+    [384, 303],
+    [474, 231],
+    [472, 25],
+    [437, 1],
+  ];
+
+  const COMPACTOR_RIGHT_VERTICES = [
+    [19, 3],
+    [0, 33],
+    [0, 231],
+    [89, 300],
+    [116, 361],
+    [121, 412],
+    [90, 513],
+    [61, 546],
+    [9, 570],
+    [0, 585],
+    [3, 791],
+    [30, 810],
+    [335, 808],
+    [442, 743],
+    [442, 69],
+    [387, 46],
+    [325, 1],
+  ];
 
   // Constructor: set position and angle.
   window.Compactor = function (position, angle) {
@@ -24,9 +67,7 @@
     const leftNatW = natural.left.width,
       leftNatH = natural.left.height,
       midNatW = natural.middle.width,
-      midNatH = natural.middle.height,
-      rightNatW = natural.right.width,
-      rightNatH = natural.right.height;
+      rightNatW = natural.right.width;
     const totalNatW = leftNatW + midNatW + rightNatW;
     const targetTotalW =
       App.config.ballSize * App.config.compactor.targetWidthMultiplier;
@@ -36,27 +77,21 @@
     this.rightWidth = rightNatW * scaleFactor;
     this.height = leftNatH * scaleFactor; // all parts share same height
 
-    // Get open positions from config.
+    // Get open and closed positions from config.
     const compactorParams = CompactorConfig.getParams();
     this.leftOpenX = compactorParams.leftOpenX;
     this.rightOpenX = compactorParams.rightOpenX;
-
-    // Closed positions use closedInset from config.
     const inset = App.config.compactor.closedInset || 0;
     this.leftClosedX = -(this.middleWidth + this.leftWidth) / 2 + inset;
     this.rightClosedX = (this.middleWidth + this.rightWidth) / 2 - inset;
-
-    // Starting positions.
     this.leftX = this.leftOpenX;
     this.rightX = this.rightOpenX;
 
-    // Create left, middle, and right bodies.
-    // Left and right bodies are now physical (no isSensor) so collisions occur.
-    this.leftBody = Matter.Bodies.rectangle(
+    // Create left body using fromVertices with scaled polygon.
+    this.leftBody = Matter.Bodies.fromVertices(
       position.x + rotateX(this.leftX, 0, angle),
       position.y + rotateY(this.leftX, 0, angle),
-      this.leftWidth,
-      this.height,
+      scalePolygon(COMPACTOR_LEFT_VERTICES, scaleFactor),
       {
         isStatic: true,
         label: "CompactorLeft",
@@ -72,10 +107,9 @@
         isCompactor: true,
       }
     );
-    // Attach owner reference.
     this.leftBody.compactorOwner = this;
 
-    // Middle remains sensor (for visual only).
+    // Middle stays a rectangle.
     this.middleBody = Matter.Bodies.rectangle(
       position.x,
       position.y,
@@ -97,11 +131,12 @@
         isCompactor: true,
       }
     );
-    this.rightBody = Matter.Bodies.rectangle(
+
+    // Create right body using fromVertices with scaled polygon.
+    this.rightBody = Matter.Bodies.fromVertices(
       position.x + rotateX(this.rightOpenX, 0, angle),
       position.y + rotateY(this.rightOpenX, 0, angle),
-      this.rightWidth,
-      this.height,
+      scalePolygon(COMPACTOR_RIGHT_VERTICES, scaleFactor),
       {
         isStatic: true,
         label: "CompactorRight",
@@ -117,7 +152,6 @@
         isCompactor: true,
       }
     );
-    // Attach owner reference.
     this.rightBody.compactorOwner = this;
 
     Matter.World.add(window.BallFall.world, [
@@ -126,9 +160,7 @@
       this.rightBody,
     ]);
 
-    // Sum of ball values to be replaced.
     this.deletedSum = 0;
-    // Flag to allow collision processing only during crush.
     this.isCrushing = false;
     this.handleCollision = this.handleCollision.bind(this);
     Matter.Events.on(
@@ -136,7 +168,6 @@
       "collisionStart",
       this.handleCollision
     );
-    // Create the GSAP timeline for the compactor animation.
     this.createAnimationTimeline();
   };
 
