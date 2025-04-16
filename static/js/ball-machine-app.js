@@ -173,10 +173,10 @@ window.App = {
 
       timeline: {
         idleDuration: 2, // seconds to idle
-        crushDuration: 0.15, // seconds to crush (close)
+        crushDuration: 0.12, // seconds to crush (close)
         shakeDuration: 0.06, // seconds per shake
-        shakeRepeat: 4, // number of shake repeats (yoyo)
-        openDuration: 1, // seconds to open
+        shakeRepeat: 3, // number of shake repeats (yoyo)
+        openDuration: 0.5, // seconds to open
       },
     },
   },

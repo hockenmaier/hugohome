@@ -1178,14 +1178,9 @@ table {
       });
       function setActive(newMode, launcherType) {
         const prevMode = window.App.modules.lines.getMode();
-        [
-          dottedBtn,
-          straightBtn,
-          curvedBtn,
-          launcherBtn,
-          fastLauncherBtn,
-          instaLauncherBtn,
-        ].forEach((btn) => btn.classList.remove("selected"));
+        document
+          .querySelectorAll(".line-toggle")
+          .forEach((btn) => btn.classList.remove("selected"));
 
         
         window.notifyToggleChange(
