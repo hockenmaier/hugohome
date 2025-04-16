@@ -11,6 +11,7 @@ App.modules.base = (function () {
       Events = Matter.Events;
 
     Matter.use("matter-wrap");
+    Matter.Common.setDecomp(decomp);
 
     // Inject canvas style if missing
     if (!document.getElementById("ballfall-style")) {

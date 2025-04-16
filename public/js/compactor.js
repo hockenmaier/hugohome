@@ -24,35 +24,59 @@
   const COMPACTOR_LEFT_VERTICES = [
     [119, 2],
     [72, 40],
+    [46, 53],
+    [11, 63],
     [0, 75],
     [0, 737],
+    [9, 749],
+    [60, 771],
     [116, 810],
     [454, 808],
+    [468, 797],
     [474, 782],
     [474, 585],
+    [465, 571],
+    [431, 557],
+    [410, 543],
     [379, 508],
     [358, 461],
     [351, 398],
+    [354, 371],
+    [364, 341],
     [384, 303],
+    [416, 269],
+    [446, 251],
+    [465, 245],
     [474, 231],
     [472, 25],
+    [460, 9],
     [437, 1],
   ];
 
   const COMPACTOR_RIGHT_VERTICES = [
     [19, 3],
+    [6, 13],
     [0, 33],
     [0, 231],
+    [10, 246],
+    [32, 254],
+    [64, 273],
     [89, 300],
+    [103, 325],
     [116, 361],
     [121, 412],
+    [111, 469],
     [90, 513],
     [61, 546],
+    [38, 560],
     [9, 570],
     [0, 585],
+    [0, 780],
     [3, 791],
+    [11, 803],
     [30, 810],
     [335, 808],
+    [375, 776],
     [442, 743],
     [442, 69],
     [387, 46],
@@ -88,6 +112,7 @@
     this.rightX = this.rightOpenX;
 
     // Create left body using fromVertices with scaled polygon.
+    // Left body
     this.leftBody = Matter.Bodies.fromVertices(
       position.x + rotateX(this.leftX, 0, angle),
       position.y + rotateY(this.leftX, 0, angle),
@@ -103,12 +128,20 @@
             yScale: scaleFactor,
           },
           opacity: 1,
+          visible: true,
         },
         isCompactor: true,
-      }
+      },
+      true
     );
-    this.leftBody.compactorOwner = this;
-
+    this.leftBody = Matter.Body.create({
+      parts: [this.leftBody],
+      isStatic: true,
+      label: "CompactorLeft",
+      render: this.leftBody.render,
+      angle: angle,
+      compactorOwner: this,
+    });
     // Middle stays a rectangle.
     this.middleBody = Matter.Bodies.rectangle(
       position.x,
@@ -133,6 +166,7 @@
     );
 
     // Create right body using fromVertices with scaled polygon.
+    // Right body
     this.rightBody = Matter.Bodies.fromVertices(
       position.x + rotateX(this.rightOpenX, 0, angle),
       position.y + rotateY(this.rightOpenX, 0, angle),
@@ -148,11 +182,20 @@
             yScale: scaleFactor,
           },
           opacity: 1,
+          visible: true,
         },
         isCompactor: true,
-      }
+      },
+      true
     );
-    this.rightBody.compactorOwner = this;
+    this.rightBody = Matter.Body.create({
+      parts: [this.rightBody],
+      isStatic: true,
+      label: "CompactorRight",
+      render: this.rightBody.render,
+      angle: angle,
+      compactorOwner: this,
+    });
 
     Matter.World.add(window.BallFall.world, [
       this.middleBody,
