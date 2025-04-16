@@ -1,28 +1,98 @@
 /* static/js/line-interaction.js */
 /*
  * line-interaction.js
- * Provides hover pulse effects and deletion (right-click on desktop and hold on mobile)
- * for drawn line bodies.
+ * Provides hover pulse effects and deletion for drawn line bodies and compactors.
+ * For compactors, all parts share the same persistenceId and are grouped together.
  */
 (function () {
-  let hoveredLine = null;
-  let pendingDeletionLine = null;
-  let deletionTimer = null;
-  let touchStartPos = null;
-  let lastHovered = null;
-  let hoveredLineStartTime = null;
-  let pendingDeletionLineStartTime = null;
+  // If target is a group (array) then apply a function to each
+  function applyToGroup(target, fn) {
+    if (Array.isArray(target)) {
+      target.forEach(fn);
+    } else {
+      fn(target);
+    }
+  }
 
-  // Improved hit detection: if compound, check each part (skipping parent if needed)
+  function resetLine(target) {
+    applyToGroup(target, function (body) {
+      if (body.label === "Launcher" && body.render) {
+        if (body.render.sprite) body.render.sprite.opacity = 1;
+        body.render.opacity = 1;
+      } else if (body.label === "DottedLine") {
+        if (body.render) {
+          body.render.fillStyle =
+            App.config.dottedLineRender.strokeStyle || "#a8328d";
+          body.render.strokeStyle =
+            App.config.dottedLineRender.strokeStyle || "#a8328d";
+          body.render.opacity = 1;
+        }
+      } else if (body.parts && body.parts.length > 1) {
+        body.parts.forEach(function (part) {
+          part.render.fillStyle =
+            App.config.straightLineRender.fillStyle || "#956eff";
+          part.render.strokeStyle =
+            App.config.straightLineRender.strokeStyle || "#956eff";
+          part.render.opacity = 1;
+        });
+      } else if (body.render) {
+        body.render.fillStyle =
+          App.config.straightLineRender.fillStyle || "#956eff";
+        body.render.strokeStyle =
+          App.config.straightLineRender.strokeStyle || "#956eff";
+        body.render.opacity = 1;
+      }
+    });
+  }
+
+  function applyPulse(target, opacity) {
+    applyToGroup(target, function (body) {
+      if (body.label === "Launcher" && body.render && body.render.sprite) {
+        body.render.sprite.opacity = opacity;
+        body.render.opacity = opacity;
+      } else if (body.parts && body.parts.length > 1) {
+        body.parts.forEach(function (part) {
+          part.render.opacity = opacity;
+        });
+      } else if (body.render) {
+        body.render.opacity = opacity;
+      }
+    });
+  }
+
+  // Modified getLineAtPoint: if the point is inside any compactor part,
+  // return all bodies with that persistenceId.
   function getLineAtPoint(x, y) {
     if (!window.BallFall || !window.BallFall.world) return null;
     const point = { x, y };
     const bodies = Matter.Composite.allBodies(window.BallFall.world);
+    // First check for any compactor part hit.
+    for (let body of bodies) {
+      if (body.isCompactor && body.persistenceId) {
+        // Use the first part check.
+        if (body.parts && body.parts.length > 1) {
+          for (let i = 1; i < body.parts.length; i++) {
+            if (Matter.Vertices.contains(body.parts[i].vertices, point)) {
+              // Found one compactor hit.
+              // Now group all bodies with the same persistenceId.
+              return bodies.filter(
+                (b) => b.isCompactor && b.persistenceId === body.persistenceId
+              );
+            }
+          }
+        } else {
+          if (Matter.Vertices.contains(body.vertices, point)) {
+            return bodies.filter(
+              (b) => b.isCompactor && b.persistenceId === body.persistenceId
+            );
+          }
+        }
+      }
+    }
+    // If no compactor hit, check normal lines.
     for (let body of bodies) {
       if (body.isLine) {
-        // For compound bodies, check parts
         if (body.parts && body.parts.length > 1) {
-          // Skip the first part if it's the parent (Matter includes it)
           for (let i = 1; i < body.parts.length; i++) {
             if (Matter.Vertices.contains(body.parts[i].vertices, point))
               return body;
@@ -35,51 +105,16 @@
     return null;
   }
 
-  function resetLine(body) {
-    if (!body) return;
-    if (body.label === "Launcher" && body.render) {
-      if (body.render.sprite) body.render.sprite.opacity = 1;
-      body.render.opacity = 1;
-    } else if (body.label === "DottedLine") {
-      if (body.render) {
-        body.render.fillStyle =
-          App.config.dottedLineRender.strokeStyle || "#a8328d";
-        body.render.strokeStyle =
-          App.config.dottedLineRender.strokeStyle || "#a8328d";
-        body.render.opacity = 1;
-      }
-    } else if (body.parts && body.parts.length > 1) {
-      body.parts.forEach((part) => {
-        part.render.fillStyle =
-          App.config.straightLineRender.fillStyle || "#956eff";
-        part.render.strokeStyle =
-          App.config.straightLineRender.strokeStyle || "#956eff";
-        part.render.opacity = 1;
-      });
-    } else if (body.render) {
-      body.render.fillStyle =
-        App.config.straightLineRender.fillStyle || "#956eff";
-      body.render.strokeStyle =
-        App.config.straightLineRender.strokeStyle || "#956eff";
-      body.render.opacity = 1;
-    }
-  }
-
-  function applyPulse(body, opacity) {
-    if (body.label === "Launcher" && body.render && body.render.sprite) {
-      body.render.sprite.opacity = opacity;
-      body.render.opacity = opacity;
-    } else if (body.parts && body.parts.length > 1) {
-      body.parts.forEach((part) => {
-        part.render.opacity = opacity;
-      });
-    } else if (body.render) {
-      body.render.opacity = opacity;
-    }
-  }
+  let hoveredLine = null;
+  let pendingDeletionLine = null;
+  let deletionTimer = null;
+  let touchStartPos = null;
+  let lastHovered = null;
+  let hoveredLineStartTime = null;
+  let pendingDeletionLineStartTime = null;
 
   function updatePulse() {
-    // Hovered line pulse
+    // Hover pulse.
     if (hoveredLine) {
       if (!hoveredLineStartTime) hoveredLineStartTime = Date.now();
       const elapsed = Date.now() - hoveredLineStartTime;
@@ -92,7 +127,7 @@
       lastHovered = null;
       hoveredLineStartTime = null;
     }
-    // Pending deletion pulse
+    // Pending deletion pulse.
     if (pendingDeletionLine && pendingDeletionLine !== hoveredLine) {
       if (!pendingDeletionLineStartTime)
         pendingDeletionLineStartTime = Date.now();
@@ -107,11 +142,9 @@
   }
   updatePulse();
 
-  // Desktop hover: update cursor and pulse the hovered line.
+  // Desktop hover: update cursor and pulse the hovered group.
   document.addEventListener("mousemove", (e) => {
-    const mouseX = e.pageX;
-    const mouseY = e.pageY;
-    const line = getLineAtPoint(mouseX, mouseY);
+    const line = getLineAtPoint(e.pageX, e.pageY);
     if (line) {
       if (hoveredLine !== line) {
         if (hoveredLine) resetLine(hoveredLine);
@@ -131,37 +164,21 @@
 
   // Desktop right-click deletion.
   document.addEventListener("contextmenu", (e) => {
-    const mouseX = e.pageX;
-    const mouseY = e.pageY;
-    const tool =
-      window.App.modules.lines && window.App.modules.lines.getMode
-        ? window.App.modules.lines.getMode()
-        : null;
-    if (
-      tool &&
-      tool.state &&
-      tool.state !== 0 &&
-      typeof tool.cancel === "function"
-    ) {
-      tool.cancel();
-      e.preventDefault();
-      return;
-    }
-    const line = getLineAtPoint(mouseX, mouseY);
-    if (line) {
-      // Attempt removal via Matter – deep removal flag set.
-      Matter.Composite.remove(window.BallFall.world, line, true);
-      // Fallback: manually remove the body from the world's bodies array.
-      const bodies = window.BallFall.world.bodies;
-      const idx = bodies.indexOf(line);
-      if (idx !== -1) {
-        bodies.splice(idx, 1);
-      }
-      if (line.label === "Launcher") {
-        if (line.persistenceId)
-          App.Persistence.deleteLauncher(line.persistenceId);
+    const target = getLineAtPoint(e.pageX, e.pageY);
+    if (target) {
+      // If compactor group, remove all.
+      if (Array.isArray(target)) {
+        target.forEach((body) =>
+          Matter.World.remove(window.BallFall.world, body)
+        );
+        App.Persistence.deleteCompactor(target[0].persistenceId);
       } else {
-        if (line.persistenceId) App.Persistence.deleteLine(line.persistenceId);
+        Matter.Composite.remove(window.BallFall.world, target, true);
+        if (target.label === "Launcher" && target.persistenceId) {
+          App.Persistence.deleteLauncher(target.persistenceId);
+        } else if (target.persistenceId) {
+          App.Persistence.deleteLine(target.persistenceId);
+        }
       }
       e.preventDefault();
     }
@@ -172,20 +189,23 @@
     if (e.target.closest("#ballfall-ui")) return;
     if (e.touches.length !== 1) return;
     const touch = e.touches[0];
-    const touchX = touch.pageX;
-    const touchY = touch.pageY;
-    const line = getLineAtPoint(touchX, touchY);
-    if (line) {
-      touchStartPos = { x: touchX, y: touchY };
-      pendingDeletionLine = line;
+    const target = getLineAtPoint(touch.pageX, touch.pageY);
+    if (target) {
+      touchStartPos = { x: touch.pageX, y: touch.pageY };
+      pendingDeletionLine = target;
       deletionTimer = setTimeout(() => {
-        Matter.World.remove(window.BallFall.world, line);
-        if (line.label === "Launcher") {
-          if (line.persistenceId)
-            App.Persistence.deleteLauncher(line.persistenceId);
+        if (Array.isArray(target)) {
+          target.forEach((body) =>
+            Matter.World.remove(window.BallFall.world, body)
+          );
+          App.Persistence.deleteCompactor(target[0].persistenceId);
         } else {
-          if (line.persistenceId)
-            App.Persistence.deleteLine(line.persistenceId);
+          Matter.World.remove(window.BallFall.world, target);
+          if (target.label === "Launcher" && target.persistenceId) {
+            App.Persistence.deleteLauncher(target.persistenceId);
+          } else if (target.persistenceId) {
+            App.Persistence.deleteLine(target.persistenceId);
+          }
         }
         pendingDeletionLine = null;
       }, App.config.lineDeleteMobileHold);
@@ -196,18 +216,14 @@
     if (e.target.closest("#ballfall-ui")) return;
     if (e.touches.length !== 1) return;
     const touch = e.touches[0];
-    const touchX = touch.pageX;
-    const touchY = touch.pageY;
-    if (touchStartPos) {
-      const dx = touchX - touchStartPos.x;
-      const dy = touchY - touchStartPos.y;
-      if (Math.sqrt(dx * dx + dy * dy) > 10) {
-        clearTimeout(deletionTimer);
-        deletionTimer = null;
-        if (pendingDeletionLine) resetLine(pendingDeletionLine);
-        pendingDeletionLine = null;
-        touchStartPos = null;
-      }
+    const dx = touch.pageX - (touchStartPos ? touchStartPos.x : 0);
+    const dy = touch.pageY - (touchStartPos ? touchStartPos.y : 0);
+    if (Math.sqrt(dx * dx + dy * dy) > 10) {
+      clearTimeout(deletionTimer);
+      deletionTimer = null;
+      if (pendingDeletionLine) resetLine(pendingDeletionLine);
+      pendingDeletionLine = null;
+      touchStartPos = null;
     }
   });
 

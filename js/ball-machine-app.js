@@ -158,6 +158,27 @@ window.App = {
       strokeStyle: "rgba(149,110,255,0.5)",
       lineWidth: 1,
     },
+
+    // Compactor globals.
+    compactor: {
+      cost: 1000000,
+      naturalDimensions: {
+        left: { width: 475, height: 811 },
+        middle: { width: 470, height: 811 },
+        right: { width: 475, height: 811 },
+      },
+      // Overall target width is ballSize multiplied by this factor.
+      targetWidthMultiplier: 15,
+      closedInset: 15, // positive number to offset closed positions (set to 0 if you want edges to meet exactly)
+
+      timeline: {
+        idleDuration: 2, // seconds to idle
+        crushDuration: 0.15, // seconds to crush (close)
+        shakeDuration: 0.06, // seconds per shake
+        shakeRepeat: 4, // number of shake repeats (yoyo)
+        openDuration: 1, // seconds to open
+      },
+    },
   },
   modules: {},
   simulationLoaded: false, // Tracks whether the physics simulation is running

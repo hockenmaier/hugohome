@@ -155,19 +155,31 @@ App.modules.base = (function () {
       }
     }
 
-    function spawnBall() {
+    function spawnBall(initialValue, pos) {
       if (!window.BallFall.firstBallDropped) {
         window.BallFall.firstBallDropped = true;
         const autoBtn = document.getElementById("autoClicker");
         const dropIndicator = document.getElementById("spawner-indicator");
         if (dropIndicator) dropIndicator.style.display = "flex";
       }
-      if (!isAnimating) {
-        playSpawnerAnimation();
+      let delay = 300;
+      // When a position is provided (as by the compactor), skip animation and delay.
+      if (pos && typeof pos.x === "number" && typeof pos.y === "number") {
+        delay = 0;
+      } else {
+        if (!isAnimating) {
+          playSpawnerAnimation();
+        }
       }
       setTimeout(() => {
-        const spawnX = window.scrollX + window.innerWidth / App.config.spawnX;
-        const spawnY = 55;
+        let spawnX, spawnY;
+        if (pos && typeof pos.x === "number" && typeof pos.y === "number") {
+          spawnX = pos.x;
+          spawnY = pos.y;
+        } else {
+          spawnX = window.scrollX + window.innerWidth / App.config.spawnX;
+          spawnY = 55;
+        }
         const ball = Bodies.circle(spawnX, spawnY, App.config.ballSize, {
           restitution: App.config.restitution,
           friction: 0,
@@ -186,6 +198,10 @@ App.modules.base = (function () {
           },
         });
         ball.spawnTime = Date.now();
+        ball.baseValue =
+          typeof initialValue !== "undefined"
+            ? initialValue
+            : App.config.ballStartValue;
         const disableDuration = App.config.disableDuration;
         ball.collisionFilter.mask = 0xffffffff & ~BALL_CATEGORY;
         setTimeout(() => {
@@ -193,8 +209,9 @@ App.modules.base = (function () {
         }, disableDuration);
         World.add(engine.world, ball);
         ballsList.push(ball);
-      }, 300);
+      }, delay);
     }
+
     window.BallFall.spawnBall = spawnBall;
 
     let spawnIntervalId = null;
@@ -241,6 +258,8 @@ App.modules.base = (function () {
       const bodies = Composite.allBodies(engine.world);
       bodies.forEach((body) => {
         if (body.label === "BallFallBall") {
+          // Skip stillness check for balls younger than 5000ms
+          if (Date.now() - (body.spawnTime || 0) < 5000) return;
           const prev = ballPositionData[body.id] || {
             x: body.position.x,
             y: body.position.y,
@@ -369,10 +388,16 @@ App.modules.base = (function () {
       bodies.forEach(function (body) {
         if (body.label === "BallFallBall") {
           const age = now - (body.spawnTime || now);
+          const base =
+            body.baseValue !== undefined
+              ? body.baseValue
+              : App.config.ballStartValue;
+
           const ballValue =
-            App.config.ballStartValue +
+            base +
             Math.floor(age / App.config.ballIncomeTimeStep) *
               App.config.ballIncomeIncrement;
+
           if (ballValue !== body.lastBallValue) {
             body.render.fillStyle = getBallColor(ballValue);
             body.lastBallValue = ballValue;

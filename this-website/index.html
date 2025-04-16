@@ -870,11 +870,15 @@ table {
         <script src="https://hockenmaier.github.io/hugohome/js/dotted-line.js"></script>
         <script src="https://hockenmaier.github.io/hugohome/js/curved-line.js"></script>
         <script src="https://hockenmaier.github.io/hugohome/js/launcher.js"></script>
+        <script src="https://hockenmaier.github.io/hugohome/js/compactor-config.js"></script>
         <script src="https://hockenmaier.github.io/hugohome/js/launcher-create.js"></script>
+        <script src="https://hockenmaier.github.io/hugohome/js/compactor-create.js"></script>
+        <script src="https://hockenmaier.github.io/hugohome/js/compactor.js"></script>
         <script src="https://hockenmaier.github.io/hugohome/js/game.js"></script>
         <script src="https://hockenmaier.github.io/hugohome/js/goal.js"></script>
         <script src="https://hockenmaier.github.io/hugohome/js/spawner.js"></script>
         <script src="https://hockenmaier.github.io/hugohome/js/ui-updater.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
         
 <style>
    
@@ -1154,6 +1158,13 @@ table {
           <img src="/hugohome/images/coin-cost.png" alt="Coin" /> 2500
         </div>
       </div>
+      <div class="toggle-wrapper">
+        <img src="/hugohome/images/compactor-mode.png"
+        id="toggleCompactor" class="line-toggle" alt="Compactor" />
+        <div class="cost-label">
+          <img src="/hugohome/images/coin-cost.png" alt="Coin" /> 1000000
+        </div>
+      </div>
     </div>
   </div>
   <script>
@@ -1352,6 +1363,28 @@ table {
       });
     }
     updateAutoClickerCostDisplay();
+  })();
+</script>
+
+<script>
+  (function () {
+    const compactorBtn = document.getElementById("toggleCompactor");
+    compactorBtn.addEventListener("click", (e) => {
+      e.stopPropagation();
+      const prevMode = window.App.modules.lines.getMode();
+      
+      if (prevMode === "compactor") {
+        window.App.modules.lines.setMode("none");
+        compactorBtn.classList.remove("selected");
+      } else {
+        window.App.modules.lines.setMode("compactor");
+        
+        document
+          .querySelectorAll(".line-toggle")
+          .forEach((btn) => btn.classList.remove("selected"));
+        compactorBtn.classList.add("selected");
+      }
+    });
   })();
 </script>
 
