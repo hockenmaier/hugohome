@@ -258,6 +258,8 @@ App.modules.base = (function () {
       const bodies = Composite.allBodies(engine.world);
       bodies.forEach((body) => {
         if (body.label === "BallFallBall") {
+          // Skip stillness check for balls younger than 5000ms
+          if (Date.now() - (body.spawnTime || 0) < 5000) return;
           const prev = ballPositionData[body.id] || {
             x: body.position.x,
             y: body.position.y,

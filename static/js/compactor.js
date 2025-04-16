@@ -2,11 +2,13 @@
 /*
  * compactor.js
  * Attaches to a placed compactor. Creates three bodies (left, middle, right)
- * with no gaps between them. Runs a repeating GSAP timeline:
+ * with no gaps between them and runs a repeating GSAP timeline:
  *   - idle, crush, shake, then open.
- * Colliding balls are removed during the crushing phase.
+ * Balls are deleted (and their values summed) only during the crush phase.
+ * When the crush phase ends, a new ball is spawned immediately at the compactor's center.
  */
 (function () {
+  // Helper functions to rotate coordinates.
   function rotateX(x, y, angle) {
     return x * Math.cos(angle) - y * Math.sin(angle);
   }
@@ -14,7 +16,7 @@
     return x * Math.sin(angle) + y * Math.cos(angle);
   }
 
-  // Constructor: position and angle.
+  // Constructor: set position and angle.
   window.Compactor = function (position, angle) {
     this.position = position;
     this.angle = angle;
@@ -32,21 +34,24 @@
     this.leftWidth = leftNatW * scaleFactor;
     this.middleWidth = midNatW * scaleFactor;
     this.rightWidth = rightNatW * scaleFactor;
-    this.height = leftNatH * scaleFactor;
+    this.height = leftNatH * scaleFactor; // all parts share same height
 
+    // Get open positions from config.
     const compactorParams = CompactorConfig.getParams();
     this.leftOpenX = compactorParams.leftOpenX;
     this.rightOpenX = compactorParams.rightOpenX;
 
-    // Use closedInset from App.config.compactor
+    // Closed positions use closedInset from config.
     const inset = App.config.compactor.closedInset || 0;
     this.leftClosedX = -(this.middleWidth + this.leftWidth) / 2 + inset;
     this.rightClosedX = (this.middleWidth + this.rightWidth) / 2 - inset;
 
+    // Starting positions.
     this.leftX = this.leftOpenX;
     this.rightX = this.rightOpenX;
 
-    // Create the left and right bodies without "isSensor"
+    // Create left, middle, and right bodies.
+    // Left and right bodies are now physical (no isSensor) so collisions occur.
     this.leftBody = Matter.Bodies.rectangle(
       position.x + rotateX(this.leftX, 0, angle),
       position.y + rotateY(this.leftX, 0, angle),
@@ -54,7 +59,6 @@
       this.height,
       {
         isStatic: true,
-        // Removed isSensor so collisions work physically.
         label: "CompactorLeft",
         angle: angle,
         render: {
@@ -68,6 +72,7 @@
         isCompactor: true,
       }
     );
+    // Middle remains sensor (for visual only).
     this.middleBody = Matter.Bodies.rectangle(
       position.x,
       position.y,
@@ -75,7 +80,7 @@
       this.height,
       {
         isStatic: true,
-        isSensor: true, // Middle remains sensor (only graphic).
+        isSensor: true,
         label: "CompactorMiddle",
         angle: angle,
         render: {
@@ -96,7 +101,6 @@
       this.height,
       {
         isStatic: true,
-        // Removed isSensor so collisions work physically.
         label: "CompactorRight",
         angle: angle,
         render: {
@@ -110,14 +114,15 @@
         isCompactor: true,
       }
     );
-
     Matter.World.add(window.BallFall.world, [
       this.middleBody,
       this.leftBody,
       this.rightBody,
     ]);
 
+    // Sum of ball values to be replaced.
     this.deletedSum = 0;
+    // Flag to allow collision processing only during crush.
     this.isCrushing = false;
     this.handleCollision = this.handleCollision.bind(this);
     Matter.Events.on(
@@ -125,6 +130,7 @@
       "collisionStart",
       this.handleCollision
     );
+    // Create the GSAP timeline for the compactor animation.
     this.createAnimationTimeline();
   };
 
@@ -137,10 +143,11 @@
         self.updatePositions(animProps);
       },
     });
-    // Use durations from global compactor config.
+    // Idle phase.
     self.timeline.to(animProps, {
       duration: App.config.compactor.timeline.idleDuration,
     });
+    // Crush phase: move to closed positions.
     self.timeline.to(animProps, {
       duration: App.config.compactor.timeline.crushDuration,
       ease: "sine.in",
@@ -150,9 +157,15 @@
         self.isCrushing = true;
       },
       onComplete: () => {
+        // Immediately spawn the ball from crushed value.
+        if (self.deletedSum > 0) {
+          window.BallFall.spawnBall(self.deletedSum, self.position);
+          self.deletedSum = 0;
+        }
         self.isCrushing = false;
       },
     });
+    // Shake phase.
     self.timeline.to(animProps, {
       duration: App.config.compactor.timeline.shakeDuration,
       repeat: App.config.compactor.timeline.shakeRepeat,
@@ -160,18 +173,13 @@
       leftX: self.leftClosedX + 5,
       rightX: self.rightClosedX - 5,
     });
+    // Open phase: return to open positions.
     self.timeline.to(animProps, {
       duration: App.config.compactor.timeline.openDuration,
       ease: "linear",
       leftX: self.leftOpenX,
       rightX: self.rightOpenX,
-      onComplete: () => {
-        if (self.deletedSum > 0) {
-          // Immediately spawn the new ball at the compactor’s center:
-          window.BallFall.spawnBall(self.deletedSum, self.position);
-          self.deletedSum = 0;
-        }
-      },
+      // No spawn call here so the new ball remains untouched.
     });
   };
 
@@ -191,6 +199,8 @@
     Matter.Body.setPosition(this.middleBody, this.position);
   };
 
+  // Only process collisions when isCrushing is true.
+  // Use >= 0 for left body and <= 0 for right body for proper math.
   window.Compactor.prototype.handleCollision = function (event) {
     if (!this.isCrushing) return;
     event.pairs.forEach((pair) => {
@@ -212,7 +222,6 @@
         sensor = pair.bodyA;
       }
       if (ball && sensor) {
-        // Compute sensor center (the body’s current center)
         let sensorCenter;
         if (sensor.label === "CompactorLeft") {
           sensorCenter = {
@@ -221,22 +230,28 @@
           };
           const dx = ball.position.x - sensorCenter.x,
             dy = ball.position.y - sensorCenter.y;
-          // Transform into sensor’s local coordinates
+          // Transform into the sensor's local coordinates.
           const localX =
             dx * Math.cos(-this.angle) - dy * Math.sin(-this.angle);
-          // If ball is to the right of the left body center, delete it.
-          if (localX > 0 && !ball._compacted) {
+          // If ball is to the right (>=0) of the left body center, crush it.
+          if (localX >= 0 && !ball._compacted) {
             ball._compacted = true;
             if (typeof window.glitchAndRemove === "function") {
               window.glitchAndRemove(ball);
             } else {
               Matter.World.remove(window.BallFall.world, ball);
             }
-            ball.compactValue =
+            const now = Date.now();
+            const age = now - (ball.spawnTime || now);
+            const base =
               ball.baseValue !== undefined
                 ? ball.baseValue
                 : App.config.ballStartValue;
-            this.deletedSum += ball.compactValue;
+            const ballValue =
+              base +
+              Math.floor(age / App.config.ballIncomeTimeStep) *
+                App.config.ballIncomeIncrement;
+            this.deletedSum += ballValue;
           }
         } else if (sensor.label === "CompactorRight") {
           sensorCenter = {
@@ -247,19 +262,25 @@
             dy = ball.position.y - sensorCenter.y;
           const localX =
             dx * Math.cos(-this.angle) - dy * Math.sin(-this.angle);
-          // If ball is to the left of the right body center, delete it.
-          if (localX < 0 && !ball._compacted) {
+          // If ball is to the left (<=0) of the right body center, crush it.
+          if (localX <= 0 && !ball._compacted) {
             ball._compacted = true;
             if (typeof window.glitchAndRemove === "function") {
               window.glitchAndRemove(ball);
             } else {
               Matter.World.remove(window.BallFall.world, ball);
             }
-            ball.compactValue =
+            const now = Date.now();
+            const age = now - (ball.spawnTime || now);
+            const base =
               ball.baseValue !== undefined
                 ? ball.baseValue
                 : App.config.ballStartValue;
-            this.deletedSum += ball.compactValue;
+            const ballValue =
+              base +
+              Math.floor(age / App.config.ballIncomeTimeStep) *
+                App.config.ballIncomeIncrement;
+            this.deletedSum += ballValue;
           }
         }
       }

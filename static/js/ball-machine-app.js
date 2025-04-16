@@ -168,8 +168,8 @@ window.App = {
         right: { width: 475, height: 811 },
       },
       // Overall target width is ballSize multiplied by this factor.
-      targetWidthMultiplier: 17,
-      closedInset: 18, // positive number to offset closed positions (set to 0 if you want edges to meet exactly)
+      targetWidthMultiplier: 15,
+      closedInset: 15, // positive number to offset closed positions (set to 0 if you want edges to meet exactly)
 
       timeline: {
         idleDuration: 2, // seconds to idle

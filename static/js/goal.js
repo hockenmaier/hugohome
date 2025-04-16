@@ -69,12 +69,17 @@
             Matter.World.remove(window.BallFall.world, other);
             // Calculate the ball's income based on its age:
             // income = ballStartValue + floor((currentTime - spawnTime)/ballIncomeTimeStep) * ballIncomeIncrement
-            const now = Date.now();
-            const age = now - (other.spawnTime || now);
-            const income =
-              App.config.ballStartValue +
-              Math.floor(age / App.config.ballIncomeTimeStep) *
-                App.config.ballIncomeIncrement;
+            let income;
+            if (other.lastBallValue !== undefined) {
+              income = other.lastBallValue;
+            } else {
+              const now = Date.now();
+              const age = now - (other.spawnTime || now);
+              income =
+                App.config.ballStartValue +
+                Math.floor(age / App.config.ballIncomeTimeStep) *
+                  App.config.ballIncomeIncrement;
+            }
             App.config.coins += income;
             window.App.updateCoinsDisplay();
             // Use the ball's fillStyle as the notification color if available.
