@@ -38,6 +38,7 @@
             var coinCostURL = '{{ "images/coin-cost.png" | absURL }}';
         </script>                 
         <script src="{{ "js/matter.min.js" | absURL }}"></script>
+        <script src="{{ "js/gsap.min.js" | absURL }}"></script>
         <script src="{{ "js/matter-wrap.min.js" | absURL }}"></script>
         <script src="{{ "js/ball-machine-app.js" | absURL }}"></script>
         <script src="{{ "js/base-simulation.js" | absURL }}"></script>
@@ -60,7 +61,6 @@
         <script src="{{ "js/goal.js" | absURL }}"></script>
         <script src="{{ "js/spawner.js" | absURL }}"></script>
         <script src="{{ "js/ui-updater.js" | absURL }}"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
         {{ partial "ball-machine-ui.html" . }}
 
         <script>
