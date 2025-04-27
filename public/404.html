@@ -622,6 +622,7 @@ table {
             var coinCostURL = 'http:\/\/localhost:1313\/images\/coin-cost.png';
         </script>                 
         <script src="http://localhost:1313/js/matter.min.js"></script>
+        <script src="http://localhost:1313/js/gsap.min.js"></script>
         <script src="http://localhost:1313/js/matter-wrap.min.js"></script>
         <script src="http://localhost:1313/js/ball-machine-app.js"></script>
         <script src="http://localhost:1313/js/base-simulation.js"></script>
@@ -636,7 +637,10 @@ table {
         <script src="http://localhost:1313/js/dotted-line.js"></script>
         <script src="http://localhost:1313/js/curved-line.js"></script>
         <script src="http://localhost:1313/js/launcher.js"></script>
+        <script src="http://localhost:1313/js/compactor-config.js"></script>
         <script src="http://localhost:1313/js/launcher-create.js"></script>
+        <script src="http://localhost:1313/js/compactor-create.js"></script>
+        <script src="http://localhost:1313/js/compactor.js"></script>
         <script src="http://localhost:1313/js/game.js"></script>
         <script src="http://localhost:1313/js/goal.js"></script>
         <script src="http://localhost:1313/js/spawner.js"></script>
@@ -920,6 +924,13 @@ table {
           <img src="/images/coin-cost.png" alt="Coin" /> 2500
         </div>
       </div>
+      <div class="toggle-wrapper">
+        <img src="/images/compactor-mode.png"
+        id="toggleCompactor" class="line-toggle" alt="Compactor" />
+        <div class="cost-label">
+          <img src="/images/coin-cost.png" alt="Coin" /> 1000000
+        </div>
+      </div>
     </div>
   </div>
   <script>
@@ -962,14 +973,9 @@ table {
       });
       function setActive(newMode, launcherType) {
         const prevMode = window.App.modules.lines.getMode();
-        [
-          dottedBtn,
-          straightBtn,
-          curvedBtn,
-          launcherBtn,
-          fastLauncherBtn,
-          instaLauncherBtn,
-        ].forEach((btn) => btn.classList.remove("selected"));
+        document
+          .querySelectorAll(".line-toggle")
+          .forEach((btn) => btn.classList.remove("selected"));
 
         
         window.notifyToggleChange(
@@ -1118,6 +1124,28 @@ table {
       });
     }
     updateAutoClickerCostDisplay();
+  })();
+</script>
+
+<script>
+  (function () {
+    const compactorBtn = document.getElementById("toggleCompactor");
+    compactorBtn.addEventListener("click", (e) => {
+      e.stopPropagation();
+      const prevMode = window.App.modules.lines.getMode();
+      
+      if (prevMode === "compactor") {
+        window.App.modules.lines.setMode("none");
+        compactorBtn.classList.remove("selected");
+      } else {
+        window.App.modules.lines.setMode("compactor");
+        
+        document
+          .querySelectorAll(".line-toggle")
+          .forEach((btn) => btn.classList.remove("selected"));
+        compactorBtn.classList.add("selected");
+      }
+    });
   })();
 </script>
 

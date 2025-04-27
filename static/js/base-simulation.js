@@ -155,21 +155,17 @@ App.modules.base = (function () {
       }
     }
 
-    function spawnBall(initialValue, pos) {
+    function spawnBall(initialValue, pos, originalBallsCompacted) {
       if (!window.BallFall.firstBallDropped) {
         window.BallFall.firstBallDropped = true;
-        const autoBtn = document.getElementById("autoClicker");
         const dropIndicator = document.getElementById("spawner-indicator");
         if (dropIndicator) dropIndicator.style.display = "flex";
       }
       let delay = 300;
-      // When a position is provided (as by the compactor), skip animation and delay.
       if (pos && typeof pos.x === "number" && typeof pos.y === "number") {
         delay = 0;
-      } else {
-        if (!isAnimating) {
-          playSpawnerAnimation();
-        }
+      } else if (!isAnimating) {
+        playSpawnerAnimation();
       }
       setTimeout(() => {
         let spawnX, spawnY;
@@ -192,26 +188,32 @@ App.modules.base = (function () {
             },
           },
           label: "BallFallBall",
-          collisionFilter: {
-            category: BALL_CATEGORY,
-            mask: 0xffffffff,
-          },
+          collisionFilter: { category: BALL_CATEGORY, mask: 0xffffffff },
         });
+        // ← attach persistent properties
         ball.spawnTime = Date.now();
         ball.baseValue =
           typeof initialValue !== "undefined"
             ? initialValue
             : App.config.ballStartValue;
-        const disableDuration = App.config.disableDuration;
+        ball.value = ball.baseValue;
+        ball.originalBallsCompacted = originalBallsCompacted || 1;
+        // ← schedule per-ball value increments
+        ball._valueInterval = setInterval(() => {
+          ball.value +=
+            App.config.ballIncomeIncrement * (ball.originalBallsCompacted || 1);
+        }, App.config.ballIncomeTimeStep);
+
+        // disable immediate re-collision
         ball.collisionFilter.mask = 0xffffffff & ~BALL_CATEGORY;
         setTimeout(() => {
           ball.collisionFilter.mask = 0xffffffff;
-        }, disableDuration);
+        }, App.config.disableDuration);
+
         World.add(engine.world, ball);
         ballsList.push(ball);
       }, delay);
     }
-
     window.BallFall.spawnBall = spawnBall;
 
     let spawnIntervalId = null;
@@ -382,22 +384,12 @@ App.modules.base = (function () {
     // ---- After Render Hook: update ball colors and render numbers. ----
     Events.on(render, "afterRender", function () {
       const context = render.context;
-      const now = Date.now();
       Matter.Render.startViewTransform(render);
       const bodies = Composite.allBodies(engine.world);
-      bodies.forEach(function (body) {
+
+      bodies.forEach((body) => {
         if (body.label === "BallFallBall") {
-          const age = now - (body.spawnTime || now);
-          const base =
-            body.baseValue !== undefined
-              ? body.baseValue
-              : App.config.ballStartValue;
-
-          const ballValue =
-            base +
-            Math.floor(age / App.config.ballIncomeTimeStep) *
-              App.config.ballIncomeIncrement;
-
+          const ballValue = body.value || 0;
           if (ballValue !== body.lastBallValue) {
             body.render.fillStyle = getBallColor(ballValue);
             body.lastBallValue = ballValue;
@@ -412,6 +404,7 @@ App.modules.base = (function () {
           context.restore();
         }
       });
+
       Matter.Render.endViewTransform(render);
     });
 
