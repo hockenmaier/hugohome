@@ -395,11 +395,32 @@ App.modules.base = (function () {
             body.lastBallValue = ballValue;
           }
           context.save();
-          const fontSize = ballValue < 100 ? 10 : 5;
+
+          const fontSize =
+            ballValue < 100
+              ? 10
+              : ballValue < 1000
+              ? 7
+              : ballValue < 10000
+              ? 6
+              : 4;
+
           context.font = `bold ${fontSize}px Consolas`;
-          context.fillStyle = "#1f1b0a";
           context.textAlign = "center";
           context.textBaseline = "middle";
+          // if (ballValue >= 100) {
+          //   // draw white outline
+          //   context.lineWidth = 1;
+          //   context.strokeStyle = "#ffffff";
+          //   context.strokeText(ballValue, body.position.x, body.position.y);
+          // }  //How we do stroke
+          if (ballValue >= 250) {
+            // draw white fill
+            context.fillStyle = "#ffffff";
+          } else {
+            // draw black fill
+            context.fillStyle = "#1f1b0a";
+          }
           context.fillText(ballValue, body.position.x, body.position.y);
           context.restore();
         }
