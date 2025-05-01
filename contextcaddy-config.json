@@ -38,7 +38,12 @@
         "content\\raspberry-pi-panel.md": true,
         "content\\hedonic-treadmill.md": true,
         "content\\_index.md": true,
-        "hugo.toml": true
+        "hugo.toml": true,
+        "content\\about-me.md": true,
+        "layouts\\partials\\paige\\page.html": true,
+        "layouts\\partials\\paige\\tag-head.html": true,
+        "layouts\\shortcodes\\image-with-side-caption.html": true,
+        "layouts\\shortcodes\\centered-text.html": true
       },
       "prePrompt": "I'd like you to format this content into a Paige theme hugo website content .md file in the style of the examples below.  Make sure to format images using my custom partials and make links look the same, etc.  Do your best to guess good tags and an article description based on the examples you see.",
       "includeFileTree": true
@@ -125,5 +130,5 @@
       "includeFileTree": true
     }
   },
-  "activeProfile": "ball-machine"
+  "activeProfile": "content-maker"
 }

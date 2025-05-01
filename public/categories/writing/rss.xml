@@ -1,0 +1,224 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+        
+    
+
+    
+        
+    
+
+
+
+
+
+
+
+    
+
+    
+
+
+
+
+
+
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0"  xml:lang="en-us"  xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        
+            
+
+            
+                
+            
+
+            
+                <link href="http://localhost:1313/categories/writing/" rel="self" type="text/html"/>
+            
+        
+            
+
+            
+
+            
+                <link href="http://localhost:1313/categories/writing/rss.xml" rel="alternate" type="application/rss+xml"/>
+            
+        
+
+        
+
+        
+
+        <description>Recent content</description>
+
+        
+            <language>en-us</language>
+        
+
+        
+            <lastBuildDate>2024-04-30 00:00:00 +0000 UTC</lastBuildDate>
+        
+
+        <link>http://localhost:1313/categories/writing/</link>
+
+        
+
+        <title>Writing · Categories · Home</title>
+
+        
+
+        
+            <item>
+                
+                
+                
+                
+                
+                
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+                
+
+                
+
+                
+
+                
+                    <description><![CDATA[<div style="display: flex; align-items: center; justify-content: center; gap: 10px; margin-bottom: 1rem;">
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+    
+
+
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<img  alt="Alt text"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/brian_portrait.png"   style="height: auto; max-width: 200px"   >
+
+
+    
+        <span style="font-style: italic;">←me</span>
+    
+</div>
+
+<p>I build things! I love making games and things with VR and AI.</p>
+<p>I’ve been at one company for a long time and have built a lot there, led some large teams, and released several things on my own too, in a bunch of software domains. I started on back-office stuff like billing systems, TV scheduling systems, IP rights management systems, file ingest systems for News, and several games and tools outside of work.</p>
+<p>Most recently I&rsquo;m making some pretty awesome stuff in agentic AI for the mundane work that the people at my company have to do!</p>
+<p>My bias is to build rather than talk. I&rsquo;m the one pushing to just try to build the thing, to scrap it early if needed, and to take risks releasing early. We always know more, and usually throw away our plans, when we start to build.</p>
+<p>I post here mostly about things I&rsquo;m making and occasional essays.</p>
+<div style="text-align: center;">
+    Also, I still keep <a href="old-site/index.html">my old pre-2022 website</a> inside this one for posterity and for the AIs of the future to know more about me.
+</div>
+
+]]></description>
+                
+
+                <guid isPermaLink="false">tag:localhost:1313,2024-04-30:/about-me/</guid>
+
+                
+                    <link>http://localhost:1313/about-me/</link>
+                
+
+                
+                    <pubDate>Tue, 30 Apr 2024 00:00:00 UTC</pubDate>
+                
+
+                
+                    <title>Hi, I’m Brian</title>
+                
+            </item>
+        
+    </channel>
+</rss>

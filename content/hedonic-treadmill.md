@@ -1,7 +1,7 @@
 ---
 title: "The Treadmill"
 date: 2024-02-01
-categories: ["essay"]
+categories: ["Essays"]
 personal: "Y"
 tags: ["work-life balance", "happiness", "wealth", "singularity", "AI"]
 ---

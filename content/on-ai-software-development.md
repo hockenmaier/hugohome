@@ -1,7 +1,7 @@
 ---
 title: "On AI Software Development"
 date: 2024-01-24
-categories: ["essay"]
+categories: ["Essays"]
 personal: "Y"
 tags: ["software", "singularity", "AI"]
 ---

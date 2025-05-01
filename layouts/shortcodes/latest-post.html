@@ -1,0 +1,4 @@
+{{/* Shortcode to display the most recent post stub on home page. Usage: insert
+{{< latest-post >}} in content/_index.md where you want it. */}} {{ $latest :=
+first 1 (sort .Site.RegularPages "Date" "desc") }} {{ with index $latest 0 }} ##
+[{{ .Title }}]({{ .RelPermalink }}) {{ .Summary }} {{ end }}
