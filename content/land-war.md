@@ -1,7 +1,7 @@
 ---
 title: "Land War"
 date: 2019-03-01
-categories: ["project overview"]
+categories: ["project overviews"]
 personal: "Y"
 stack: ["Unity", "C#"]
 project_link: "https://store.steampowered.com/app/1030960/Land_War/"

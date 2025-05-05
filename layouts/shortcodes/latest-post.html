@@ -1,4 +1,21 @@
-{{/* Shortcode to display the most recent post stub on home page. Usage: insert
-{{< latest-post >}} in content/_index.md where you want it. */}} {{ $latest :=
-first 1 (sort .Site.RegularPages "Date" "desc") }} {{ with index $latest 0 }} ##
-[{{ .Title }}]({{ .RelPermalink }}) {{ .Summary }} {{ end }}
+{{- /* layouts/shortcodes/latest-post.html */ -}}
+{{- /* How many stubs? Pass {{< latest-post 3 >}} for 3, defaults to 5 */ -}}
+{{- $num := .Get 0 | default "3" | int -}}
+{{- $pages := first $num .Site.RegularPages.ByDate.Reverse -}}
+{{- $count := len $pages -}}
+{{- range $i, $p := $pages -}}
+<article class="paige-latest-item py-4 text-light">
+  <h4 class="fw-bold mb-2">
+    <a href="{{ $p.RelPermalink }}" class="link-light">{{ $p.Title }}</a>
+  </h4>
+  <p class="text-secondary">
+    {{ $p.Summary }}
+    {{ if $p.Truncated }}
+      <a href="{{ $p.RelPermalink }}" class="link-light">… read more</a>
+    {{ end }}
+  </p>
+  {{- if lt (add $i 1) $count -}}
+    <hr class="border-secondary my-4">
+  {{- end -}}
+</article>
+{{- end -}}

@@ -5,7 +5,7 @@ theme = 'paige'
 
 
 [taxonomies]
-category = "categories"      # For post types like project overview, project update, essay, thought, etc.
+category = "categories"      # For post types like project overviews, project update, essays, thought, etc.
 #personal = "personal"        # Binary for personal vs professional projects: personal-Y or personal-N
 stack = "stacks"             # Technology stack used
 tags = "tags"                # Still optional, for very specific filters like "AI ethics"
@@ -25,6 +25,7 @@ disable_summary = true
 
 [params.paige.page]
 disable_reading_time = true
+
 
 [paige.alert]
 message = "What's up!"

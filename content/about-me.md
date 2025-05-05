@@ -1,7 +1,7 @@
 ---
 title: "Hi, I'm Brian"
 date: 2024-04-30
-categories: ["writing"]
+categories: ["Essays"]
 tags: []
 ---
 
@@ -20,7 +20,3 @@ Most recently I'm making some pretty awesome stuff in agentic AI for the mundane
 My bias is to build rather than talk. I'm the one pushing to just try to build the thing, to scrap it early if needed, and to take risks releasing early. We always know more, and usually throw away our plans, when we start to build.
 
 I post here mostly about things I'm making and occasional essays.
-
-{{< centered-text >}}
-Also, I still keep [my old pre-2022 website](old-site/index.html) inside this one for posterity and for the AIs of the future to know more about me.
-{{< /centered-text >}}

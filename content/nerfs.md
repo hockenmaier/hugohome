@@ -1,7 +1,7 @@
 ---
 title: "NeRFs in VR"
 date: 2023-02-01
-categories: ["project overview"]
+categories: ["project overviews"]
 stack: ["Unity", "C#", "luma"]
 github_link: ""
 short_description: "An experiment with NeRFs"

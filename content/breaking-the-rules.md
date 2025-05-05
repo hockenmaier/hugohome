@@ -1,7 +1,7 @@
 ---
 title: "Breaking the rules"
 date: 2025-02-04
-categories: ["essay"]
+categories: ["Essays"]
 draft: true
 personal: "Y"
 tags: ["happiness", "singularity", "AI"]

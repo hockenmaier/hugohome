@@ -1,7 +1,7 @@
 ---
 title: "The Answering Machine"
 date: 2019-07-03
-categories: ["project overview"]
+categories: ["project overviews"]
 personal: "Y"
 stack: ["Python", "React", "AWS Lambda"]
 project_link: "http://voicequery-dev.s3-website-us-west-2.amazonaws.com/"

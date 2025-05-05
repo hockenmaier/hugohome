@@ -53,17 +53,17 @@
 
       {{ $homeActive := eq $pagepath "/" }}
       <li class="nav-item">
-        <a class="nav-link {{ if $homeActive }}active fw-bold text-body-emphasis{{ end }}" href="{{ relLangURL "" }}">Home</a>
+        <a class="nav-link {{ if $homeActive }}active fw-bold text-body-emphasis{{ end }}" href="{{ relLangURL "" }}">home</a>
       </li>
 
       {{ $tagsPath := "/tags/" }}
       <li class="nav-item">
-        <a class="nav-link {{ if hasPrefix $pagepath $tagsPath }}active fw-bold text-body-emphasis{{ end }}" href="{{ $tagsPath | relURL }}">Tags</a>
+        <a class="nav-link {{ if hasPrefix $pagepath $tagsPath }}active fw-bold text-body-emphasis{{ end }}" href="{{ $tagsPath | relURL }}">tags</a>
       </li>
 
       {{ $aboutPath := "/about-me/" }}
       <li class="nav-item">
-        <a class="nav-link {{ if hasPrefix $pagepath $aboutPath }}active fw-bold text-body-emphasis{{ end }}" href="{{ $aboutPath | relURL }}">About Me</a>
+        <a class="nav-link {{ if hasPrefix $pagepath $aboutPath }}active fw-bold text-body-emphasis{{ end }}" href="{{ $aboutPath | relURL }}">about me</a>
       </li>
 
       {{ range $name, $_ := site.Taxonomies.categories }}

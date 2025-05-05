@@ -1,7 +1,7 @@
 ---
 title: "First Ten"
 date: 2018-05-19
-categories: ["project overview"]
+categories: ["project overviews"]
 personal: "Y"
 stack: ["Python", "AWS Lambda", "Dialogflow"]
 project_link: "https://assistant.google.com/services/a/uid/00000036f6a580ed"
