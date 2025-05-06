@@ -1,0 +1,44 @@
+blockquote {
+  color: #a7bbad;
+  font-style: italic;
+}
+
+/* Lighten all standard inline links, make visited links slightly dimmer, hover effect
+a {
+    color: #87c2a5;
+    text-decoration: underline;
+  }
+  
+  a:visited {
+    color: #6fa58e;
+  }
+  
+  a:hover {
+    color: #a8d8c0;
+  }
+
+*/
+/* Only affects links inside main post content, not the nav */
+/* Normal link color */
+/* Style all desired links, excluding the nav pills */
+#paige-content a:not(.nav-link),
+.paige-latest-item a:not(.nav-link),
+article.paige-latest-item a:not(.nav-link),
+.paige-latest-item p > a.link-light:not(.nav-link) {
+  color: #87c2a5 !important;
+  text-decoration: underline !important;
+}
+
+#paige-content a:visited:not(.nav-link),
+.paige-latest-item a:visited:not(.nav-link),
+article.paige-latest-item a:visited:not(.nav-link),
+.paige-latest-item p > a.link-light:visited:not(.nav-link) {
+  color: #6fa58e !important;
+}
+
+#paige-content a:hover:not(.nav-link),
+.paige-latest-item a:hover:not(.nav-link),
+article.paige-latest-item a:hover:not(.nav-link),
+.paige-latest-item p > a.link-light:hover:not(.nav-link) {
+  color: #a8d8c0 !important;
+}

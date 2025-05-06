@@ -30,7 +30,7 @@ window.App = {
     spawnX: 1.3, // x axis spawn point: 1/spawnX is the fraction of the screen width
     ballSize: 7,
     sitStillDeleteSeconds: 2,
-    sitStillDeleteMargin: 1,
+    sitStillDeleteMargin: 0.5,
     disableDuration: 600, // milliseconds
     //textHitFadeTime: 100, //seconds  //Not yet used
     lineThickness: 5,

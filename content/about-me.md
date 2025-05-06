@@ -1,7 +1,7 @@
 ---
 title: "Hi, I'm Brian"
 date: 2024-04-30
-categories: ["Essays"]
+categories: ["Writing"]
 tags: []
 ---
 

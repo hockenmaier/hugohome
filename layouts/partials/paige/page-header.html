@@ -30,7 +30,7 @@
             {{ end }}
 
             {{ if $page.IsHome }}
-                <h1 class="fw-bold" id="paige-page-title">Welcome!</h1>
+                <h1 class="fw-bold" id="paige-page-title"></h1>
             {{ else }}
                 {{ with $title }}
                     <h1 class="fw-bold" id="paige-page-title">{{ if $link }}<a href="{{ $link }}">{{ . }}</a>{{ else }}{{ . }}{{ end }}</h1>

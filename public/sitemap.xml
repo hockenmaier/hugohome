@@ -74,16 +74,16 @@
     <loc>http://localhost:1313/tags/user-experience/</loc>
     <lastmod>2025-01-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/categories/essays/</loc>
+    <loc>http://localhost:1313/about-me/</loc>
     <lastmod>2024-04-30T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/about-me/</loc>
+    <loc>http://localhost:1313/categories/writing/</loc>
     <lastmod>2024-04-30T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/tags/happiness/</loc>
     <lastmod>2024-02-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/hedonic-treadmill/</loc>
+    <loc>http://localhost:1313/the-treadmill/</loc>
     <lastmod>2024-02-01T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/tags/wealth/</loc>

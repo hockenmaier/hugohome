@@ -47,34 +47,35 @@
     {{ end }}
 
     {{ if $menu }}
-  <nav aria-label="{{ i18n `paige_menu` }}" class="paige-row-wide" id="paige-menu">
-    <ul class="align-items-center justify-content-center nav {{ if $pills }} nav-pills {{ else if $tabs }} nav-tabs {{ else if $underline }} nav-underline {{ end }}">
-      {{ $pagepath := strings.TrimPrefix $basepath $page.RelPermalink }}
+      <nav aria-label="{{ i18n `paige_menu` }}" class="paige-row-wide" id="paige-menu">
+        <ul class="align-items-center justify-content-center nav {{ if $pills }} nav-pills {{ else if $tabs }} nav-tabs {{ else if $underline }} nav-underline {{ end }}">
+          {{ $pagepath := strings.TrimPrefix $basepath $page.RelPermalink }}
 
-      {{ $homeActive := eq $pagepath "/" }}
-      <li class="nav-item">
-        <a class="nav-link {{ if $homeActive }}active fw-bold text-body-emphasis{{ end }}" href="{{ relLangURL "" }}">home</a>
-      </li>
+          {{ $homeActive := eq $pagepath "/" }}
+          <li class="nav-item">
+            <a class="nav-link {{ if $homeActive }}active fw-bold text-body-emphasis{{ end }}" href="{{ relLangURL "" }}">home</a>
+          </li>
 
-      {{ $tagsPath := "/tags/" }}
-      <li class="nav-item">
-        <a class="nav-link {{ if hasPrefix $pagepath $tagsPath }}active fw-bold text-body-emphasis{{ end }}" href="{{ $tagsPath | relURL }}">tags</a>
-      </li>
+          {{ range $name, $_ := site.Taxonomies.categories }}
+            {{ $catPath := printf "/categories/%s/" (urlize $name) }}
+            <li class="nav-item">
+              <a class="nav-link {{ if hasPrefix $pagepath $catPath }}active fw-bold text-body-emphasis{{ end }}" href="{{ $catPath | relURL }}">{{ $name }}</a>
+            </li>
+            {{ end }}
 
-      {{ $aboutPath := "/about-me/" }}
-      <li class="nav-item">
-        <a class="nav-link {{ if hasPrefix $pagepath $aboutPath }}active fw-bold text-body-emphasis{{ end }}" href="{{ $aboutPath | relURL }}">about me</a>
-      </li>
+            {{ $tagsPath := "/tags/" }}
+          <li class="nav-item">
+            <a class="nav-link {{ if hasPrefix $pagepath $tagsPath }}active fw-bold text-body-emphasis{{ end }}" href="{{ $tagsPath | relURL }}">tags</a>
+          </li>
 
-      {{ range $name, $_ := site.Taxonomies.categories }}
-        {{ $catPath := printf "/categories/%s/" (urlize $name) }}
-        <li class="nav-item">
-          <a class="nav-link {{ if hasPrefix $pagepath $catPath }}active fw-bold text-body-emphasis{{ end }}" href="{{ $catPath | relURL }}">{{ $name }}</a>
-        </li>
-      {{ end }}
-    </ul>
-  </nav>
-{{ end }}
+          {{ $aboutPath := "/about-me/" }}
+          <li class="nav-item">
+            <a class="nav-link {{ if hasPrefix $pagepath $aboutPath }}active fw-bold text-body-emphasis{{ end }}" href="{{ $aboutPath | relURL }}">about me</a>
+          </li>
+          
+        </ul>
+      </nav>
+    {{ end }}
 
 
     {{ with $breadcrumbs }}
