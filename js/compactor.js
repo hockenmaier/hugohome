@@ -161,6 +161,7 @@
     ]);
 
     this.deletedSum = 0;
+    this.deletedOriginalCount = 0; // sum of originalBallsCompacted for crushed balls
     this.isCrushing = false;
     this.handleCollision = this.handleCollision.bind(this);
     Matter.Events.on(
@@ -173,18 +174,23 @@
 
   window.Compactor.prototype.createAnimationTimeline = function () {
     const self = this;
+    // ensure we track both sums
+    this.deletedOriginalCount = 0;
     const animProps = { leftX: self.leftX, rightX: self.rightX };
+
     self.timeline = gsap.timeline({
       repeat: -1,
       onUpdate: () => {
         self.updatePositions(animProps);
       },
     });
-    // Idle phase.
+
+    // 1) Idle
     self.timeline.to(animProps, {
       duration: App.config.compactor.timeline.idleDuration,
     });
-    // Crush phase: move to closed positions.
+
+    // 2) Crush
     self.timeline.to(animProps, {
       duration: App.config.compactor.timeline.crushDuration,
       ease: "sine.in",
@@ -194,15 +200,21 @@
         self.isCrushing = true;
       },
       onComplete: () => {
-        // Immediately spawn the ball from crushed value.
         if (self.deletedSum > 0) {
-          window.BallFall.spawnBall(self.deletedSum, self.position);
+          // spawn with both summed value & originals
+          window.BallFall.spawnBall(
+            self.deletedSum,
+            self.position,
+            self.deletedOriginalCount
+          );
           self.deletedSum = 0;
+          self.deletedOriginalCount = 0;
         }
         self.isCrushing = false;
       },
     });
-    // Shake phase.
+
+    // 3) Shake
     self.timeline.to(animProps, {
       duration: App.config.compactor.timeline.shakeDuration,
       repeat: App.config.compactor.timeline.shakeRepeat,
@@ -210,7 +222,8 @@
       leftX: self.leftClosedX + 5,
       rightX: self.rightClosedX - 5,
     });
-    // Open phase: return to open positions.
+
+    // 4) Open
     self.timeline.to(animProps, {
       duration: App.config.compactor.timeline.openDuration,
       ease: "linear",
@@ -257,66 +270,51 @@
         ball = pair.bodyB;
         sensor = pair.bodyA;
       }
-      if (ball && sensor) {
-        // Process only if the sensor belongs to this compactor.
-        if (sensor.compactorOwner !== this) return;
+      if (!ball || !sensor) return;
+      if (sensor.compactorOwner !== this) return;
 
-        let sensorCenter;
-        if (sensor.label === "CompactorLeft") {
-          sensorCenter = {
-            x: this.position.x + rotateX(this.leftX, 0, this.angle),
-            y: this.position.y + rotateY(this.leftX, 0, this.angle),
-          };
-          const dx = ball.position.x - sensorCenter.x,
-            dy = ball.position.y - sensorCenter.y;
-          const localX =
-            dx * Math.cos(-this.angle) - dy * Math.sin(-this.angle);
-          if (localX >= 0 && !ball._compacted) {
-            ball._compacted = true;
-            if (typeof window.glitchAndRemove === "function") {
-              window.glitchAndRemove(ball);
-            } else {
-              Matter.World.remove(window.BallFall.world, ball);
-            }
-            const now = Date.now();
-            const age = now - (ball.spawnTime || now);
-            const base =
-              ball.baseValue !== undefined
-                ? ball.baseValue
-                : App.config.ballStartValue;
-            const ballValue =
-              base +
-              Math.floor(age / App.config.ballIncomeTimeStep) *
-                App.config.ballIncomeIncrement;
-            this.deletedSum += ballValue;
+      let sensorCenter;
+      if (sensor.label === "CompactorLeft") {
+        sensorCenter = {
+          x: this.position.x + rotateX(this.leftX, 0, this.angle),
+          y: this.position.y + rotateY(this.leftX, 0, this.angle),
+        };
+        const dx = ball.position.x - sensorCenter.x,
+          dy = ball.position.y - sensorCenter.y;
+        const localX = dx * Math.cos(-this.angle) - dy * Math.sin(-this.angle);
+        if (localX >= 0 && !ball._compacted) {
+          ball._compacted = true;
+          // ← stop its value timer
+          if (ball._valueInterval) clearInterval(ball._valueInterval);
+          // ← read its live value
+          const ballValue = ball.value || 0;
+          this.deletedSum += ballValue;
+          this.deletedOriginalCount += ball.originalBallsCompacted || 1;
+          // ← visual remove
+          if (typeof window.glitchAndRemove === "function") {
+            window.glitchAndRemove(ball);
+          } else {
+            Matter.World.remove(window.BallFall.world, ball);
           }
-        } else if (sensor.label === "CompactorRight") {
-          sensorCenter = {
-            x: this.position.x + rotateX(this.rightX, 0, this.angle),
-            y: this.position.y + rotateY(this.rightX, 0, this.angle),
-          };
-          const dx = ball.position.x - sensorCenter.x,
-            dy = ball.position.y - sensorCenter.y;
-          const localX =
-            dx * Math.cos(-this.angle) - dy * Math.sin(-this.angle);
-          if (localX <= 0 && !ball._compacted) {
-            ball._compacted = true;
-            if (typeof window.glitchAndRemove === "function") {
-              window.glitchAndRemove(ball);
-            } else {
-              Matter.World.remove(window.BallFall.world, ball);
-            }
-            const now = Date.now();
-            const age = now - (ball.spawnTime || now);
-            const base =
-              ball.baseValue !== undefined
-                ? ball.baseValue
-                : App.config.ballStartValue;
-            const ballValue =
-              base +
-              Math.floor(age / App.config.ballIncomeTimeStep) *
-                App.config.ballIncomeIncrement;
-            this.deletedSum += ballValue;
+        }
+      } else if (sensor.label === "CompactorRight") {
+        sensorCenter = {
+          x: this.position.x + rotateX(this.rightX, 0, this.angle),
+          y: this.position.y + rotateY(this.rightX, 0, this.angle),
+        };
+        const dx = ball.position.x - sensorCenter.x,
+          dy = ball.position.y - sensorCenter.y;
+        const localX = dx * Math.cos(-this.angle) - dy * Math.sin(-this.angle);
+        if (localX <= 0 && !ball._compacted) {
+          ball._compacted = true;
+          if (ball._valueInterval) clearInterval(ball._valueInterval);
+          const ballValue = ball.value || 0;
+          this.deletedSum += ballValue;
+          this.deletedOriginalCount += ball.originalBallsCompacted || 1;
+          if (typeof window.glitchAndRemove === "function") {
+            window.glitchAndRemove(ball);
+          } else {
+            Matter.World.remove(window.BallFall.world, ball);
           }
         }
       }

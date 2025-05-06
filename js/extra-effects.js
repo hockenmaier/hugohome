@@ -57,7 +57,7 @@
   // Revised glitch effect: break the ball into jagged fragments.
   window.glitchAndRemove = function (ball) {
     const fragmentCount = 6;
-    const duration = 500; // total duration in ms for fragments to fade.
+    const duration = 300; // total duration in ms for fragments to fade.
     const radius = ball.circleRadius || App.config.ballSize;
     const canvas = document.getElementById("ballfallCanvas");
     const canvasRect = canvas.getBoundingClientRect();

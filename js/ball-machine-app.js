@@ -30,7 +30,7 @@ window.App = {
     spawnX: 1.3, // x axis spawn point: 1/spawnX is the fraction of the screen width
     ballSize: 7,
     sitStillDeleteSeconds: 2,
-    sitStillDeleteMargin: 1,
+    sitStillDeleteMargin: 0.5,
     disableDuration: 600, // milliseconds
     //textHitFadeTime: 100, //seconds  //Not yet used
     lineThickness: 5,
@@ -173,10 +173,10 @@ window.App = {
 
       timeline: {
         idleDuration: 2, // seconds to idle
-        crushDuration: 0.15, // seconds to crush (close)
+        crushDuration: 0.12, // seconds to crush (close)
         shakeDuration: 0.06, // seconds per shake
-        shakeRepeat: 4, // number of shake repeats (yoyo)
-        openDuration: 1, // seconds to open
+        shakeRepeat: 3, // number of shake repeats (yoyo)
+        openDuration: 0.5, // seconds to open
       },
     },
   },
