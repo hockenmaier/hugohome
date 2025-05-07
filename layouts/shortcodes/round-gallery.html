@@ -1,0 +1,17 @@
+{{- $raw := .Inner | plainify -}}
+{{- $items := split $raw "," -}}
+<div class="paige-row-wide">
+  <div style="display:grid; grid-template-columns:repeat({{ len $items }}, minmax(0,1fr)); gap:15px;">
+    {{- range $items -}}
+      {{- $parts := split (trim . " \n\t\r") "|" -}}
+      {{- $src := index $parts 0 -}}
+      {{- $alt := "" -}}
+      {{- if gt (len $parts) 1 }} {{- $alt = index $parts 1 -}} {{- end }}
+      {{ partial "paige/image" (dict
+          "src"   (print "/" $src)
+          "alt"   $alt
+          "class" "rounded-4 w-100"
+      ) }}
+    {{- end -}}
+  </div>
+</div>

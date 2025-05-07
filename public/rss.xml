@@ -152,6 +152,18 @@
         
     
 
+    
+
+    
+        
+    
+
+    
+
+    
+        
+    
+
 
 
 
@@ -346,7 +358,103 @@
                 
 
                 
-                    <description><![CDATA[<p>Make Us Smarter</p>
+                    <description><![CDATA[<p>The Advent of general coding AI assistants almost immediately changed my own hiring practices and advice to my team.</p>
+<p>This was pretty easy for me psychologically because I had always had a bias against the types of coding questions that I personally do badly at - specifically ones that require knowledge or rote memory of specific language capabilities, libraries, syntax. The only types of coding questions I would personally ask before are things that simply evaluate whether a candidate is lying or not about whether they can code, which is surprisingly common. I have interviewed people that list things like 7 years of Java experience but can&rsquo;t pass a fizz buzz like question, and this was a question I gave out on paper with a closed door and no significant time pressure.</p>
+<p>So, when LLMS that could remember any syntax or attribute of any programming language perfectly were released, not only was I excited but I immediately saw that a huge chunk of the programming questions my team and many other software teams liked to ask were essentially irrelevant now, not only because people could cheat on interviews, at least virtually, but because that knowledge simply lost a lot of value overnight.</p>
+<p>Over a few conversations with friends and colleagues I began to explore the idea of what this meant generally for the interview process. There are just lots of questions that we ask in every field, it turns out, that are mostly solved by LLMS that have memorized most useful information, even when the original intent of the interview question was to test for experience.</p>
+<div style="display: flex; align-items: center; justify-content: center; gap: 10px; margin-bottom: 1rem;">
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+    
+
+
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<img  alt="the app ui"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/make-us-smarter.jpg"   style="height: auto; max-width: 200px"   >
+
+
+    
+        <span style="font-style: italic;">Super barebones UI just showing the continuously auto-transcribed words, questions derived from those words, and answers to those questions</span>
+    
+</div>
+
+<p>Notes to finish:</p>
+<p>Ad that I wanted to test my hypothesis
+Explanation For why I chose unity
+No frameworks like lying chain, probably looks very archaic now compared to new LLM based apps because of how fast things are moving
+But works surprisingly well
+Open source</p>
 ]]></description>
                 
 
@@ -2976,7 +3084,7 @@ This is what the project looked like for my first play-test with other people 5 
 <p>I created this panel display in 2026 to control much of the home automation I used in my Studio City apartment. Mainly a hardware project, I designed and 3D-printed a case and frame for the touchscreen and raspberry pi microcomputer in order to mount them to the wall. The software running the control panel is SaaS, but I did write a custom html wrapper to control the orientation and settings of the site, which is available on the github linked above.</p>
 <p>Update in 2025: This panel is still my main view into my home automation in my new house in Sherman Oaks, almost 10 years in with no modification!</p>
 <p>Here&rsquo;s a video to see the panel in action:</p>
-<h2 id="hahahugoshortcode83s0hbhb">
+<h2 id="hahahugoshortcode370s0hbhb">
     <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
       <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/iFGmm-ijJvE?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"></iframe>
     </div>
@@ -2997,6 +3105,92 @@ This is what the project looked like for my first play-test with other people 5 
 
                 
                     <title>Raspberry Pi Control Panel</title>
+                
+            </item>
+        
+            <item>
+                
+                
+                
+                
+                
+                
+                
+
+                
+
+                
+
+                
+
+                
+                    
+                
+
+                
+                
+
+                
+                    
+                
+
+                
+
+                
+
+                <guid isPermaLink="false">tag:localhost:1313,0001-01-01:/treekeepers-proposal/</guid>
+
+                
+                    <link>http://localhost:1313/treekeepers-proposal/</link>
+                
+
+                
+                    <pubDate>Mon, 01 Jan 0001 00:00:00 UTC</pubDate>
+                
+
+                
+            </item>
+        
+            <item>
+                
+                
+                
+                
+                
+                
+                
+
+                
+
+                
+
+                
+
+                
+                    
+                
+
+                
+                
+
+                
+                    
+                
+
+                
+
+                
+
+                <guid isPermaLink="false">tag:localhost:1313,0001-01-01:/treekeepers-engine/</guid>
+
+                
+                    <link>http://localhost:1313/treekeepers-engine/</link>
+                
+
+                
+                    <pubDate>Mon, 01 Jan 0001 00:00:00 UTC</pubDate>
+                
+
                 
             </item>
         

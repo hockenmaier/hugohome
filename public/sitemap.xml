@@ -228,6 +228,10 @@
   </url><url>
     <loc>http://localhost:1313/some-custom-gpts/</loc>
   </url><url>
+    <loc>http://localhost:1313/treekeepers-engine/</loc>
+  </url><url>
+    <loc>http://localhost:1313/treekeepers-proposal/</loc>
+  </url><url>
     <loc>http://localhost:1313/stacks/</loc>
   </url>
 </urlset>

@@ -4,10 +4,12 @@ draft = false
 title = "Home"
 +++
 
-{{< image-large
-    src="images/hero-banner-wide.png"
-    alt="heros"
-    caption="" >}}
+{{< round-gallery >}}
+images/coronado-herobanner.png|Lifestyle,
+images/workbench-herobanner.png|Building,
+images/nintendo-herobanner.png|Games,
+images/robots2-herobanner.png|Automation
+{{< /round-gallery >}}
 
 {{< centered-text >}}
 
