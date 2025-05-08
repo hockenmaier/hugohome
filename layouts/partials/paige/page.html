@@ -47,26 +47,23 @@
     <div class="align-items-center d-flex flex-column">
         {{ partial "paige/page-header.html" $page }}
 
-        {{ if or .Params.github_link .Params.project_link }}
-        <div class="project-links" style="text-align:left; width:100%; margin-bottom:1em;">
-            {{ if and .Params.project_link (ne .Params.project_link .Params.github_link) }}
-            <div class="callout project-link">
-                <strong>Check out {{ .Title }} here:</strong>
-                <a href="{{ .Params.project_link }}">{{ .Params.project_link }}</a>
-            </div>
-            {{ end }}
-            {{ if .Params.github_link }}
-            <div class="callout github-link">
-                <strong>Check out the project on Github here:</strong>
-                <a href="{{ .Params.github_link }}">{{ .Params.github_link }}</a>
-            </div>
-            {{ end }}
-        </div>
-        {{ end }}
-
         {{ with $content }}
-        <main class="mw-100" id="paige-content">{{ . | safeHTML }}</main>
-        {{ end }}
+        <main class="mw-100" id="paige-content">
+            {{ if or $page.Params.github_link $page.Params.project_link }}
+            <div class="project-links callout" style="margin-bottom:1em;">
+                {{ if and $page.Params.project_link (ne $page.Params.project_link $page.Params.github_link) }}
+                <strong>Check out {{ $page.Title }} here:</strong>
+                <a href="{{ $page.Params.project_link }}">{{ $page.Params.project_link }}</a><br/>
+                {{ end }}
+                {{ if $page.Params.github_link }}
+                <strong>Check out the project on Github here:</strong>
+                <a href="{{ $page.Params.github_link }}">{{ $page.Params.github_link }}</a>
+                {{ end }}
+            </div>
+            {{ end }}
+            {{ . | safeHTML }}
+            </main>
+            {{ end }}
 
         {{ partial "paige/page-footer.html" $page }}
     </div>
