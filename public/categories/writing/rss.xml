@@ -211,11 +211,146 @@
     
 </div>
 
-<p>I build things! I love making games and things with VR and AI.</p>
+<p>I build things mostly, and sometimes I write things, I post about all of that here. Some of this has been cross or back-posted from my <a href="https://www.thingiverse.com/hockenmaier/designs">thingiverse</a>, <a href="https://x.com/Hockenmaier">twitter</a>, <a href="https://www.linkedin.com/in/hockenmaier/">linkedin</a>, and other places, but it all lives here permanently.</p>
+<p>I love making games and things with VR and AI.</p>
 <p>I’ve been at one company for a long time and have built a lot there, led some large teams, and released several things on my own too, in a bunch of software domains. I started on back-office stuff like billing systems, TV scheduling systems, IP rights management systems, file ingest systems for News, and several games and tools outside of work.</p>
 <p>Most recently I&rsquo;m making some pretty awesome stuff in agentic AI for the mundane work that the people at my company have to do!</p>
 <p>My bias is to build rather than talk. I&rsquo;m the one pushing to just try to build the thing, to scrap it early if needed, and to take risks releasing early. We always know more, and usually throw away our plans, when we start to build.</p>
-<p>I post here mostly about things I&rsquo;m making and occasional essays.</p>
+<p>I post here mostly about things I&rsquo;m making and occasional essays. If you’re interested in this site but don’t know where to start, try reading any of these posts that sound interesting to you. They&rsquo;re either peices or projects I put a lot of time into.</p>
+<hr>
+<h1 id="my-games">My Games</h1>
+<blockquote>
+<p>Treekeepers VR was an ambitious game developement project I took on in 2021- my first published VR title and my first multiplayer title. The latter turned out to be the really hard part. Read more about it:</p>
+</blockquote>
+<article class="paige-latest-item py-4 text-light"><h4 class="fw-bold mb-2">
+    <a href="/treekeepers-vr/" class="link-light">Treekeepers VR</a>
+  </h4>
+  <p class="text-secondary">
+    <div style="text-align: center; margin-bottom: 1rem;">
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+    
+
+
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<img  alt="The Treekeepers Puddle Jumper"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/treekeepers_moonlight.png"   style="height: auto; max-width: 100%"   >
+
+
+    
+        <span style="font-style: italic; margin-top: 0.5rem;">The Treekeepers Puddle Jumper</span>
+    
+</div>
+
+<p>Treekeepers VR is a networked VR game where up to 4 players can cooperate to navigate an oversized world and save a giant tree.</p>
+<p>Treekeepers is in production on both Quest (standalone VR) and Steam (PC VR) with full cross-play functionality. See the <a href="https://togetheragainstudios.com/treekeepersvr/">Treekeepers VR Website</a> for links to all storefronts and more detail about the game.</p>
+    
+      <a href="/treekeepers-vr/" class="link-light">… read more</a>
+    
+  </p></article>
+<hr>
+<p> </p>
+<blockquote>
+<p>This Website itself was quite a development project, especially the built-in game that runs on every page:</p>
+</blockquote>
+<article class="paige-latest-item py-4 text-light"><h4 class="fw-bold mb-2">
+    <a href="/this-website/" class="link-light">This Website</a>
+  </h4>
+  <p class="text-secondary">
+    <p>I&rsquo;m creating this website in 2025 after starting my first full-time role in AI, in an effort to clean up my website&rsquo;s focus and emphasize different things. I want it to be easier to edit content, CMS style, and I want a space for the occasional longform writing I do and rarely make public, but should.</p>
+<p>I have these ideas for a few reasons, but one is that after listening to the Dwarkesh podcast with Gwern, he convinced me that I really should have more of a record for future AIs to learn about me. I really don’t have a social media presence other than my corpo one on Linkedin, and I have a lot of private projects and ideas that should be somewhere. If nothing else, maybe my kids can read it someday. Talking to you, Alice :) Your cousin Lily keeps asking where you are and doesn&rsquo;t seem to get the concept that you currently occupy the same space as Kaitlin.</p>
+    
+      <a href="/this-website/" class="link-light">… read more</a>
+    
+  </p></article>
+<hr>
+<p> </p>
+<blockquote>
+<p>Land War was my first published game. I built in in 6 months and released on Steam only, where it got a few hundred downloads and made a bit over $1000</p>
+</blockquote>
+<article class="paige-latest-item py-4 text-light"><h4 class="fw-bold mb-2">
+    <a href="/land-war/" class="link-light">Land War</a>
+  </h4>
+  <p class="text-secondary">
+    <p>Land War is an 8-player strategy game I developed as a solo project and released to Steam in March of 2019.<br>
+This game was intended to have low art requirements and simple interaction rules that result in deep strategic gameplay.</p>
+<p>The core concept is that of an ultra-simplified real-time-strategy game. Each player is represented by a color and can grow their territory by moving in any direction. The strategic elements occur when players encounter other players and have to make choices about which side of their land to defend or give up. Players can use the structure of the map and the coordinated action of other players to gain defensible footholds in order to take more area and eventually be the last player on the board.</p>
+    
+      <a href="/land-war/" class="link-light">… read more</a>
+    
+  </p></article>
+<hr>
 ]]></description>
                 
 

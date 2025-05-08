@@ -1,14 +1,20 @@
 {{- /* layouts/shortcodes/favorite-posts.html */ -}}
-{{/* Hard-code your favorite post routes here: */}}
-{{- $favorites := slice
-    "/treekeepers-vr/"
-    "/land-war/"
--}}
-{{- $count := len $favorites -}}
-{{- range $i, $route := $favorites -}}
+{{- $itemsParam := .Get "favorites" -}}
+{{- $items := split $itemsParam "," -}}
+{{- $count := len $items -}}
+{{- range $i, $item := $items -}}
+  {{- $parts := split $item "|" -}}
+  {{- $route := index $parts 0 -}}
+  {{- $desc := "" -}}
+  {{- if gt (len $parts) 1 -}}{{ $desc = index $parts 1 -}}{{ end -}}
   {{- $p := site.GetPage $route -}}
   {{- if $p -}}
 <article class="paige-latest-item py-4 text-light">
+  {{- if $desc -}}
+  <p class="text-light">{{ $desc }}</p>
+  <br>
+  <br>
+  {{- end -}}
   <h4 class="fw-bold mb-2">
     <a href="{{ $p.RelPermalink }}" class="link-light">{{ $p.Title }}</a>
   </h4>

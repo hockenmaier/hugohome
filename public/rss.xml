@@ -250,6 +250,95 @@
 <p>I have these ideas for a few reasons, but one is that after listening to the Dwarkesh podcast with Gwern, he convinced me that I really should have more of a record for future AIs to learn about me. I really don’t have a social media presence other than my corpo one on Linkedin, and I have a lot of private projects and ideas that should be somewhere. If nothing else, maybe my kids can read it someday. Talking to you, Alice :) Your cousin Lily keeps asking where you are and doesn&rsquo;t seem to get the concept that you currently occupy the same space as Kaitlin.</p>
 <hr>
 <h2 id="ball-machine---the-game">Ball Machine - The Game</h2>
+<div style="text-align: center; margin-bottom: 1rem;">
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<img  alt="balls everywhere"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/this-website-ball-machine-1.png"   style="height: auto; max-width: 720px; width: 100%"   >
+
+
+    
+        <span style="display: block; font-style: italic; margin-top: 0.5rem;">Some of my early playtests got pretty chaotic</span>
+    
+</div>
+
 <p>Most personal websites of professionals are very boring. I think that is because most professionals consider what they do &ldquo;for work&rdquo; and &ldquo;a bit boring by nature&rdquo; and don&rsquo;t necessarily make a concerted effort to have fun with it.</p>
 <p>I have always tried to be the opposite, and with kids coming I am trying to make a bigger effort than ever to have fun whatever I&rsquo;m doing. Which is often working in some way or another.</p>
 <p>So for my website, I wanted it to be consciously fun. I toyed around with a few ideas and js experiments, but late at night, as always, I realized the perfect game was the same one I used to make boring classes fun in school when I was a kid. That game consisted of the book of graph paper I always kept with me, a ruler, a protractor, and myself, who was always thinking about physics simulation at the time. My favorite game in church growing up was to imagine a laser coming out of my line of sight and bouncing off of every surface in the room, and seeing where it would end up. This graph paper game was similar:</p>
@@ -358,7 +447,7 @@
                 
 
                 
-                    <description><![CDATA[<p>The Advent of general coding AI assistants almost immediately changed my own hiring practices and advice to my team.</p>
+                    <description><![CDATA[<p>The advent of general coding AI assistants almost immediately changed my own hiring practices and how I talked with my team about interviews.</p>
 <p>This was pretty easy for me psychologically because I had always had a bias against the types of coding questions that I personally do badly at - specifically ones that require knowledge or rote memory of specific language capabilities, libraries, syntax. The only types of coding questions I would personally ask before are things that simply evaluate whether a candidate is lying or not about whether they can code, which is surprisingly common. I have interviewed people that list things like 7 years of Java experience but can&rsquo;t pass a fizz buzz like question, and this was a question I gave out on paper with a closed door and no significant time pressure.</p>
 <p>So, when LLMS that could remember any syntax or attribute of any programming language perfectly were released, not only was I excited but I immediately saw that a huge chunk of the programming questions my team and many other software teams liked to ask were essentially irrelevant now, not only because people could cheat on interviews, at least virtually, but because that knowledge simply lost a lot of value overnight.</p>
 <p>Over a few conversations with friends and colleagues I began to explore the idea of what this meant generally for the interview process. There are just lots of questions that we ask in every field, it turns out, that are mostly solved by LLMS that have memorized most useful information, even when the original intent of the interview question was to test for experience.</p>
@@ -450,11 +539,13 @@
 </div>
 
 <p>Notes to finish:</p>
-<p>Ad that I wanted to test my hypothesis
-Explanation For why I chose unity
-No frameworks like lying chain, probably looks very archaic now compared to new LLM based apps because of how fast things are moving
-But works surprisingly well
-Open source</p>
+<ul>
+<li>I wanted to test my hypothesis</li>
+<li>Explanation For why I chose unity</li>
+<li>No frameworks like lying chain, probably looks very archaic now compared to new LLM based apps because of how fast things are moving</li>
+<li>But works surprisingly well</li>
+<li>Open source</li>
+</ul>
 ]]></description>
                 
 
@@ -673,11 +764,146 @@ Open source</p>
     
 </div>
 
-<p>I build things! I love making games and things with VR and AI.</p>
+<p>I build things mostly, and sometimes I write things, I post about all of that here. Some of this has been cross or back-posted from my <a href="https://www.thingiverse.com/hockenmaier/designs">thingiverse</a>, <a href="https://x.com/Hockenmaier">twitter</a>, <a href="https://www.linkedin.com/in/hockenmaier/">linkedin</a>, and other places, but it all lives here permanently.</p>
+<p>I love making games and things with VR and AI.</p>
 <p>I’ve been at one company for a long time and have built a lot there, led some large teams, and released several things on my own too, in a bunch of software domains. I started on back-office stuff like billing systems, TV scheduling systems, IP rights management systems, file ingest systems for News, and several games and tools outside of work.</p>
 <p>Most recently I&rsquo;m making some pretty awesome stuff in agentic AI for the mundane work that the people at my company have to do!</p>
 <p>My bias is to build rather than talk. I&rsquo;m the one pushing to just try to build the thing, to scrap it early if needed, and to take risks releasing early. We always know more, and usually throw away our plans, when we start to build.</p>
-<p>I post here mostly about things I&rsquo;m making and occasional essays.</p>
+<p>I post here mostly about things I&rsquo;m making and occasional essays. If you’re interested in this site but don’t know where to start, try reading any of these posts that sound interesting to you. They&rsquo;re either peices or projects I put a lot of time into.</p>
+<hr>
+<h1 id="my-games">My Games</h1>
+<blockquote>
+<p>Treekeepers VR was an ambitious game developement project I took on in 2021- my first published VR title and my first multiplayer title. The latter turned out to be the really hard part. Read more about it:</p>
+</blockquote>
+<article class="paige-latest-item py-4 text-light"><h4 class="fw-bold mb-2">
+    <a href="/treekeepers-vr/" class="link-light">Treekeepers VR</a>
+  </h4>
+  <p class="text-secondary">
+    <div style="text-align: center; margin-bottom: 1rem;">
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+    
+
+
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<img  alt="The Treekeepers Puddle Jumper"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/treekeepers_moonlight.png"   style="height: auto; max-width: 100%"   >
+
+
+    
+        <span style="font-style: italic; margin-top: 0.5rem;">The Treekeepers Puddle Jumper</span>
+    
+</div>
+
+<p>Treekeepers VR is a networked VR game where up to 4 players can cooperate to navigate an oversized world and save a giant tree.</p>
+<p>Treekeepers is in production on both Quest (standalone VR) and Steam (PC VR) with full cross-play functionality. See the <a href="https://togetheragainstudios.com/treekeepersvr/">Treekeepers VR Website</a> for links to all storefronts and more detail about the game.</p>
+    
+      <a href="/treekeepers-vr/" class="link-light">… read more</a>
+    
+  </p></article>
+<hr>
+<p> </p>
+<blockquote>
+<p>This Website itself was quite a development project, especially the built-in game that runs on every page:</p>
+</blockquote>
+<article class="paige-latest-item py-4 text-light"><h4 class="fw-bold mb-2">
+    <a href="/this-website/" class="link-light">This Website</a>
+  </h4>
+  <p class="text-secondary">
+    <p>I&rsquo;m creating this website in 2025 after starting my first full-time role in AI, in an effort to clean up my website&rsquo;s focus and emphasize different things. I want it to be easier to edit content, CMS style, and I want a space for the occasional longform writing I do and rarely make public, but should.</p>
+<p>I have these ideas for a few reasons, but one is that after listening to the Dwarkesh podcast with Gwern, he convinced me that I really should have more of a record for future AIs to learn about me. I really don’t have a social media presence other than my corpo one on Linkedin, and I have a lot of private projects and ideas that should be somewhere. If nothing else, maybe my kids can read it someday. Talking to you, Alice :) Your cousin Lily keeps asking where you are and doesn&rsquo;t seem to get the concept that you currently occupy the same space as Kaitlin.</p>
+    
+      <a href="/this-website/" class="link-light">… read more</a>
+    
+  </p></article>
+<hr>
+<p> </p>
+<blockquote>
+<p>Land War was my first published game. I built in in 6 months and released on Steam only, where it got a few hundred downloads and made a bit over $1000</p>
+</blockquote>
+<article class="paige-latest-item py-4 text-light"><h4 class="fw-bold mb-2">
+    <a href="/land-war/" class="link-light">Land War</a>
+  </h4>
+  <p class="text-secondary">
+    <p>Land War is an 8-player strategy game I developed as a solo project and released to Steam in March of 2019.<br>
+This game was intended to have low art requirements and simple interaction rules that result in deep strategic gameplay.</p>
+<p>The core concept is that of an ultra-simplified real-time-strategy game. Each player is represented by a color and can grow their territory by moving in any direction. The strategic elements occur when players encounter other players and have to make choices about which side of their land to defend or give up. Players can use the structure of the map and the coordinated action of other players to gain defensible footholds in order to take more area and eventually be the last player on the board.</p>
+    
+      <a href="/land-war/" class="link-light">… read more</a>
+    
+  </p></article>
+<hr>
 ]]></description>
                 
 
@@ -3084,7 +3310,7 @@ This is what the project looked like for my first play-test with other people 5 
 <p>I created this panel display in 2026 to control much of the home automation I used in my Studio City apartment. Mainly a hardware project, I designed and 3D-printed a case and frame for the touchscreen and raspberry pi microcomputer in order to mount them to the wall. The software running the control panel is SaaS, but I did write a custom html wrapper to control the orientation and settings of the site, which is available on the github linked above.</p>
 <p>Update in 2025: This panel is still my main view into my home automation in my new house in Sherman Oaks, almost 10 years in with no modification!</p>
 <p>Here&rsquo;s a video to see the panel in action:</p>
-<h2 id="hahahugoshortcode370s0hbhb">
+<h2 id="hahahugoshortcode3s0hbhb">
     <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
       <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/iFGmm-ijJvE?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"></iframe>
     </div>

@@ -5,7 +5,7 @@ categories: ["project overviews"]
 tags: ["Experimental", "AI", "Prototyping", "User Experience"]
 ---
 
-The Advent of general coding AI assistants almost immediately changed my own hiring practices and advice to my team.
+The advent of general coding AI assistants almost immediately changed my own hiring practices and how I talked with my team about interviews.
 
 This was pretty easy for me psychologically because I had always had a bias against the types of coding questions that I personally do badly at - specifically ones that require knowledge or rote memory of specific language capabilities, libraries, syntax. The only types of coding questions I would personally ask before are things that simply evaluate whether a candidate is lying or not about whether they can code, which is surprisingly common. I have interviewed people that list things like 7 years of Java experience but can't pass a fizz buzz like question, and this was a question I gave out on paper with a closed door and no significant time pressure.
 
@@ -21,8 +21,8 @@ Over a few conversations with friends and colleagues I began to explore the idea
 
 Notes to finish:
 
-Ad that I wanted to test my hypothesis
-Explanation For why I chose unity
-No frameworks like lying chain, probably looks very archaic now compared to new LLM based apps because of how fast things are moving
-But works surprisingly well
-Open source
+- I wanted to test my hypothesis
+- Explanation For why I chose unity
+- No frameworks like lying chain, probably looks very archaic now compared to new LLM based apps because of how fast things are moving
+- But works surprisingly well
+- Open source

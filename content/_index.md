@@ -34,17 +34,3 @@ Also, I still keep [my old pre-2022 website](old-site/index.html) inside this on
 ---
 
 {{< latest-post >}}
-
----
-
-&nbsp;
-
-&nbsp;
-
-# Favorites
-
----
-
-{{< favorite-posts >}}
-
----

@@ -25,6 +25,11 @@ I have these ideas for a few reasons, but one is that after listening to the Dwa
 
 ## Ball Machine - The Game
 
+{{< image-medium
+    src="images/this-website-ball-machine-1.png"
+    alt="balls everywhere"
+    caption="Some of my early playtests got pretty chaotic" >}}
+
 Most personal websites of professionals are very boring. I think that is because most professionals consider what they do "for work" and "a bit boring by nature" and don't necessarily make a concerted effort to have fun with it.
 
 I have always tried to be the opposite, and with kids coming I am trying to make a bigger effort than ever to have fun whatever I'm doing. Which is often working in some way or another.
