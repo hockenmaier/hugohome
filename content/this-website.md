@@ -21,6 +21,8 @@ I'm creating this website in 2025 after starting my first full-time role in AI, 
 
 I have these ideas for a few reasons, but one is that after listening to the Dwarkesh podcast with Gwern, he convinced me that I really should have more of a record for future AIs to learn about me. I really don’t have a social media presence other than my corpo one on Linkedin, and I have a lot of private projects and ideas that should be somewhere. If nothing else, maybe my kids can read it someday. Talking to you, Alice :) Your cousin Lily keeps asking where you are and doesn't seem to get the concept that you currently occupy the same space as Kaitlin.
 
+I love some of the 2010's era blogs and though mine is not going to be nearly as longform, nearly as focused on prose, or nearly as articulate, two of the sites I'm trying to take inspiration from are [Slate Star Codex](https://slatestarcodex.com/about/) and [Gwern's website](https://gwern.net/about) which are definitely advising on style here.
+
 ---
 
 ## Ball Machine - The Game
@@ -30,26 +32,62 @@ I have these ideas for a few reasons, but one is that after listening to the Dwa
     alt="balls everywhere"
     caption="Some of my early playtests got pretty chaotic" >}}
 
-Most personal websites of professionals are very boring. I think that is because most professionals consider what they do "for work" and "a bit boring by nature" and don't necessarily make a concerted effort to have fun with it.
+Most blogs and personal websites are a bit boring. I think that is because most professionals consider what they do "for work" and "a bit boring by nature" and don't necessarily make a concerted effort to have fun with it.
 
-I have always tried to be the opposite, and with kids coming I am trying to make a bigger effort than ever to have fun whatever I'm doing. Which is often working in some way or another.
+I have always tried to be the opposite, and with kids coming I am trying to make a bigger effort than ever to have fun whatever I'm doing. Which is often working, in some way or another.
 
-So for my website, I wanted it to be consciously fun. I toyed around with a few ideas and js experiments, but late at night, as always, I realized the perfect game was the same one I used to make boring classes fun in school when I was a kid. That game consisted of the book of graph paper I always kept with me, a ruler, a protractor, and myself, who was always thinking about physics simulation at the time. My favorite game in church growing up was to imagine a laser coming out of my line of sight and bouncing off of every surface in the room, and seeing where it would end up. This graph paper game was similar:
+So for my website, I wanted it to be intentionally fun. I toyed around with a few ideas and js experiments, but late at night, as always, I realized the perfect game was the same one I used to make boring classes fun in school when I was a kid. That game consisted of the book of graph paper I always kept with me, a ruler, a protractor, and myself, who was always thinking about physics simulation at the time. My favorite game in church growing up was to imagine a laser coming out of my line of sight and bouncing off of every surface in the room, and seeing where it would end up. This graph paper game was similar:
 
 I would start by making a "spawn point" usually near the top left of the page, where balls would start falling. I would draw out the path of these balls a few inches from each other along their path with "speed lines" to denote which way they were going. Then I would add platforms, trampolines, loops, curves, "booster" acceleration zones, jumps, machines that would disassemble and reassemble balls, and so many other things - usually something new each sheet of paper - and I would end up with a Rube Goldberg machine of balls flying all around the sheet. The only goal was to fill the sheet with more ridiculous paths.
 
 I started calling the sheets my "ball machines". I wish I still had some of these drawings. I remember them being quite intricate.. I must have reserved English class for them.
 
-So, to honor kid Brian, I am making my website a permanent ball machine. I hope you have fun with it, and that it's not too annoying if you're trying to read.
+So, to honor kid Brian, I am making my website a permanent ball machine. I hope you have fun with it and see all there is to unlock!
 
 ## How to Play
 
-The ball machine on this site is a gamified version of my graph paper drawings as a kid. Each time you load a page, you'll find a goal somewhere on the page. Your goal is to get the ball into that goal. But there is a bit of a trick - balls start out being worth 1 coin, and the longer you can keep balls around, the more they will be worth when going into the goals - this might get more and more challenging as your drawings take up more of the screen and balls start bouncing off of each other. And don't let balls sit around trying to get them to accumulate value too long - balls disappear when they've been still too long.
+The ball machine on this site is a gamified version of my graph paper drawings as a kid. Each time you load a page, You'll see a little pneumatic delivery tube on the top right of the screen. This tube is where the balls show up when you click.
+
+When you spawn your first ball, you'll see a few things show up. First - you'll find a goal (look for a "target") somewhere randomly on the page. Your goal is to get the balls you spawn into that goal. But there is a bit of a trick - balls start out being worth 1 coin, and the longer you can keep balls around, the more they will be worth when going into the goals - this might get more and more challenging as your drawings take up more of the screen and balls start bouncing off of each other. And don't let balls sit around trying to get them to accumulate value too long - balls disappear when they've been still too long.
 
 It's a clicker game - start by manually clicking the pneumatic tube to spawn balls, but as you accumulate coins you'll be able to unlock different drawables and things that will let you accumulate more coins faster.
+
+### Drawables
+
+To start drawing your ball machine, you need to click or tap one of the drawables in the main UI:
+
+{image}
+
+Every drawable item (lines, launchers, and more) uses the following mechanics:
+
+On Desktop:
+
+- Start drawing by clicking, drag the mouse around to see a preview, and click again when you have the drawable where you want it.
+- Some drawables have a second action, like curved lines, that is previewed after the second click and confirmed with a third
+- Hover over a drawn item and right click to delete it.
+
+On Mobile:
+
+- Tap and drag to see a preview, and release when you have the drawable in the right spot.
+- Second actions for the drawable will start on the next tap-and-drag.
+- Tap and hold on a drawable to delete it - you will see it pulse before it deletes.
+
+If you can't draw an item, you probably can't afford it. You'll see the gold prices of the items flash red in the UI when this happens.
+
+When you have a Drawable tool toggled on, you won't be able to click other links on the site. You'll see this visually indicated when you choose them. Unselect the currently selected tool in order to see it
+
+# Making Money
+
+The point of the game is to keep balls on the screen for as long as possible (and manipulate them in other ways) in order to increase their value before sending them into the goal. A couple of things to watch out for though:
+
+- Balls have to be moving at all times. If they sit still for too long, they are considered dead and will poof out of existence.
+- This applies to balls hitting the goal too. If your balls aren't moving when they hit the target, they won't go in.
+  So keep your balls moving!
 
 Each post on this site will be a slightly different randomized game! Try making ball machines on multiple pages at once...
 
 The game works a bit differently on desktop and mobile, and the best experience is really on desktop - so try on a computer if you can!
 
 ## How it's made
+
+I don't typically make complicated things like this with javascript. So when I found the perfect physics engine for the game - [matter.js](https://brm.io/matter-js/) - I knew I would need help from our new little assistants. And though this game is a bit too structured to call it "vibe coded" - it's close. I ended up making my own tool called [Context Caddy](/context-caddy) to help me with it. Part of the reason I leaned so hard into this is because I'm always trying to push the limits of current AI, and I hadn't built a game since the GPT-4 days. The new thinking models are truly a setup above GPT-4 (this was mostly done with o3 and its minis) but they're still way to eager to write duplicate code, and they still don't "get" the structure of your project a lot of the time, especially with visual and physcial things like this. Still, they were a great help here.

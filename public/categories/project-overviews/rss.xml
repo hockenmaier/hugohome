@@ -186,6 +186,7 @@
                 
                     <description><![CDATA[<p>I&rsquo;m creating this website in 2025 after starting my first full-time role in AI, in an effort to clean up my website&rsquo;s focus and emphasize different things. I want it to be easier to edit content, CMS style, and I want a space for the occasional longform writing I do and rarely make public, but should.</p>
 <p>I have these ideas for a few reasons, but one is that after listening to the Dwarkesh podcast with Gwern, he convinced me that I really should have more of a record for future AIs to learn about me. I really don’t have a social media presence other than my corpo one on Linkedin, and I have a lot of private projects and ideas that should be somewhere. If nothing else, maybe my kids can read it someday. Talking to you, Alice :) Your cousin Lily keeps asking where you are and doesn&rsquo;t seem to get the concept that you currently occupy the same space as Kaitlin.</p>
+<p>I love some of the 2010&rsquo;s era blogs and though mine is not going to be nearly as longform, nearly as focused on prose, or nearly as articulate, two of the sites I&rsquo;m trying to take inspiration from are <a href="https://slatestarcodex.com/about/">Slate Star Codex</a> and <a href="https://gwern.net/about">Gwern&rsquo;s website</a> which are definitely advising on style here.</p>
 <hr>
 <h2 id="ball-machine---the-game">Ball Machine - The Game</h2>
 <div style="text-align: center; margin-bottom: 1rem;">
@@ -277,18 +278,45 @@
     
 </div>
 
-<p>Most personal websites of professionals are very boring. I think that is because most professionals consider what they do &ldquo;for work&rdquo; and &ldquo;a bit boring by nature&rdquo; and don&rsquo;t necessarily make a concerted effort to have fun with it.</p>
-<p>I have always tried to be the opposite, and with kids coming I am trying to make a bigger effort than ever to have fun whatever I&rsquo;m doing. Which is often working in some way or another.</p>
-<p>So for my website, I wanted it to be consciously fun. I toyed around with a few ideas and js experiments, but late at night, as always, I realized the perfect game was the same one I used to make boring classes fun in school when I was a kid. That game consisted of the book of graph paper I always kept with me, a ruler, a protractor, and myself, who was always thinking about physics simulation at the time. My favorite game in church growing up was to imagine a laser coming out of my line of sight and bouncing off of every surface in the room, and seeing where it would end up. This graph paper game was similar:</p>
+<p>Most blogs and personal websites are a bit boring. I think that is because most professionals consider what they do &ldquo;for work&rdquo; and &ldquo;a bit boring by nature&rdquo; and don&rsquo;t necessarily make a concerted effort to have fun with it.</p>
+<p>I have always tried to be the opposite, and with kids coming I am trying to make a bigger effort than ever to have fun whatever I&rsquo;m doing. Which is often working, in some way or another.</p>
+<p>So for my website, I wanted it to be intentionally fun. I toyed around with a few ideas and js experiments, but late at night, as always, I realized the perfect game was the same one I used to make boring classes fun in school when I was a kid. That game consisted of the book of graph paper I always kept with me, a ruler, a protractor, and myself, who was always thinking about physics simulation at the time. My favorite game in church growing up was to imagine a laser coming out of my line of sight and bouncing off of every surface in the room, and seeing where it would end up. This graph paper game was similar:</p>
 <p>I would start by making a &ldquo;spawn point&rdquo; usually near the top left of the page, where balls would start falling. I would draw out the path of these balls a few inches from each other along their path with &ldquo;speed lines&rdquo; to denote which way they were going. Then I would add platforms, trampolines, loops, curves, &ldquo;booster&rdquo; acceleration zones, jumps, machines that would disassemble and reassemble balls, and so many other things - usually something new each sheet of paper - and I would end up with a Rube Goldberg machine of balls flying all around the sheet. The only goal was to fill the sheet with more ridiculous paths.</p>
 <p>I started calling the sheets my &ldquo;ball machines&rdquo;. I wish I still had some of these drawings. I remember them being quite intricate.. I must have reserved English class for them.</p>
-<p>So, to honor kid Brian, I am making my website a permanent ball machine. I hope you have fun with it, and that it&rsquo;s not too annoying if you&rsquo;re trying to read.</p>
+<p>So, to honor kid Brian, I am making my website a permanent ball machine. I hope you have fun with it and see all there is to unlock!</p>
 <h2 id="how-to-play">How to Play</h2>
-<p>The ball machine on this site is a gamified version of my graph paper drawings as a kid. Each time you load a page, you&rsquo;ll find a goal somewhere on the page. Your goal is to get the ball into that goal. But there is a bit of a trick - balls start out being worth 1 coin, and the longer you can keep balls around, the more they will be worth when going into the goals - this might get more and more challenging as your drawings take up more of the screen and balls start bouncing off of each other. And don&rsquo;t let balls sit around trying to get them to accumulate value too long - balls disappear when they&rsquo;ve been still too long.</p>
+<p>The ball machine on this site is a gamified version of my graph paper drawings as a kid. Each time you load a page, You&rsquo;ll see a little pneumatic delivery tube on the top right of the screen. This tube is where the balls show up when you click.</p>
+<p>When you spawn your first ball, you&rsquo;ll see a few things show up. First - you&rsquo;ll find a goal (look for a &ldquo;target&rdquo;) somewhere randomly on the page. Your goal is to get the balls you spawn into that goal. But there is a bit of a trick - balls start out being worth 1 coin, and the longer you can keep balls around, the more they will be worth when going into the goals - this might get more and more challenging as your drawings take up more of the screen and balls start bouncing off of each other. And don&rsquo;t let balls sit around trying to get them to accumulate value too long - balls disappear when they&rsquo;ve been still too long.</p>
 <p>It&rsquo;s a clicker game - start by manually clicking the pneumatic tube to spawn balls, but as you accumulate coins you&rsquo;ll be able to unlock different drawables and things that will let you accumulate more coins faster.</p>
+<h3 id="drawables">Drawables</h3>
+<p>To start drawing your ball machine, you need to click or tap one of the drawables in the main UI:</p>
+<p>{image}</p>
+<p>Every drawable item (lines, launchers, and more) uses the following mechanics:</p>
+<p>On Desktop:</p>
+<ul>
+<li>Start drawing by clicking, drag the mouse around to see a preview, and click again when you have the drawable where you want it.</li>
+<li>Some drawables have a second action, like curved lines, that is previewed after the second click and confirmed with a third</li>
+<li>Hover over a drawn item and right click to delete it.</li>
+</ul>
+<p>On Mobile:</p>
+<ul>
+<li>Tap and drag to see a preview, and release when you have the drawable in the right spot.</li>
+<li>Second actions for the drawable will start on the next tap-and-drag.</li>
+<li>Tap and hold on a drawable to delete it - you will see it pulse before it deletes.</li>
+</ul>
+<p>If you can&rsquo;t draw an item, you probably can&rsquo;t afford it. You&rsquo;ll see the gold prices of the items flash red in the UI when this happens.</p>
+<p>When you have a Drawable tool toggled on, you won&rsquo;t be able to click other links on the site. You&rsquo;ll see this visually indicated when you choose them. Unselect the currently selected tool in order to see it</p>
+<h1 id="making-money">Making Money</h1>
+<p>The point of the game is to keep balls on the screen for as long as possible (and manipulate them in other ways) in order to increase their value before sending them into the goal. A couple of things to watch out for though:</p>
+<ul>
+<li>Balls have to be moving at all times. If they sit still for too long, they are considered dead and will poof out of existence.</li>
+<li>This applies to balls hitting the goal too. If your balls aren&rsquo;t moving when they hit the target, they won&rsquo;t go in.
+So keep your balls moving!</li>
+</ul>
 <p>Each post on this site will be a slightly different randomized game! Try making ball machines on multiple pages at once&hellip;</p>
 <p>The game works a bit differently on desktop and mobile, and the best experience is really on desktop - so try on a computer if you can!</p>
 <h2 id="how-its-made">How it&rsquo;s made</h2>
+<p>I don&rsquo;t typically make complicated things like this with javascript. So when I found the perfect physics engine for the game - <a href="https://brm.io/matter-js/">matter.js</a> - I knew I would need help from our new little assistants. And though this game is a bit too structured to call it &ldquo;vibe coded&rdquo; - it&rsquo;s close. I ended up making my own tool called <a href="/context-caddy">Context Caddy</a> to help me with it. Part of the reason I leaned so hard into this is because I&rsquo;m always trying to push the limits of current AI, and I hadn&rsquo;t built a game since the GPT-4 days. The new thinking models are truly a setup above GPT-4 (this was mostly done with o3 and its minis) but they&rsquo;re still way to eager to write duplicate code, and they still don&rsquo;t &ldquo;get&rdquo; the structure of your project a lot of the time, especially with visual and physcial things like this. Still, they were a great help here.</p>
 ]]></description>
                 
 
@@ -540,7 +568,15 @@
                 
 
                 
-                    <description><![CDATA[<p>Bloom Or Bust</p>
+                    <description><![CDATA[<p>Here&rsquo;s a peek at my first major board game creation.</p>
+<p>I&rsquo;ve made a few clones or slight alterations of games I like before (links to nope and block his pocket) but blue more bust is my first attempt at something of my own design and very high production quality.</p>
+<p>(Pics)</p>
+<p>This is a risk-taking game where players compete to take over a tree with their specific type of fruit. Trees and bees are becoming a recurring theme in my games!</p>
+<p>All parts of this game or hand designed by me, mostly in VR with a tool called gravity Sketch, blender, and one of my favorite programmer&rsquo;s 3D tools called OpenSCAD.</p>
+<p>(Link those)</p>
+<p>Of all my models, this one takes most advantage of my multicolor BambuLab printer. All parts including the custom box which cleverly incorporates the instructions and game board itself are printed in bamboo lab Matte PLA, which in my opinion is probably the most beautiful way to print.</p>
+<p>Production is batched with 80 to 150 of each fruit or bee on a build plate, but heavily limited by the game board and latching box each requiring a separate print.</p>
+<p>I have looked into outsourcing production of this game so that I can actually distribute it but that has not happened yet since its design is so dependent on multicolor 3D printing, and most print farms would require nearly 30 bucks to produce it, let alone shipping it and my own margin. Injection molding is an option but also gets expensive with this level of detailed color, and requires remodeling in several significant ways. It still might happen. Or I might put it out on a site that lets people buy the model and print it themselves.</p>
 ]]></description>
                 
 
@@ -587,12 +623,32 @@
                     <description><![CDATA[<p>Today&rsquo;s post is about another half finished game that either I or AI will finish one day. I&rsquo;m gaining a bit of a repertoire of those. This is one that I started when AI image generation started to become decent. It&rsquo;s a game that I&rsquo;ve always wanted to exist but with my current skill sets, I could never pull off without a lot of commissioning due to the art requirements.</p>
 <p>The idea is not as original as some of my games but it&rsquo;s very fun when played in a large group. Essentially, I combine the gameplay of the NES classic balloon fight with eight-player multiplayer. If you&rsquo;ve played my game Land war, you might know that I&rsquo;m a bit obsessed with eight player multiplayer, or really specifically anything that&rsquo;s more than four players which is where most video games typically max out.</p>
 <h1 id="eight-player-video-games">Eight-player video games</h1>
-<p>I love to have people over to socialize, and I love to game. I think they are honestly one of the best ways to have productive, good natured socialization where people can do things like band together, rib on each other a bit, and sometimes even feel like they&rsquo;ve seen something beautiful or had a new experience together. I know that&rsquo;s a little philosophical and sappy, but I think there&rsquo;s a huge place for video games in actual socialization, similar to how board games have a place.</p>
+<p>Kaitlin and I love to have people over to socialize, and I love to game. I think they are honestly one of the best ways to have productive, good natured socialization where people can do things like band together, rib on each other a bit, and sometimes even feel like they&rsquo;ve seen something beautiful or had a new experience together. I know that&rsquo;s a little philosophical and sappy, but I think there&rsquo;s a huge place for video games in actual socialization, similar to how board games have a place.</p>
 <p>And I love board games. I play them all the time. But so often when playing board games you run into mechanics that are only there because the game doesn&rsquo;t have a computer involved, can&rsquo;t count for you, can&rsquo;t add things up, can&rsquo;t simulate multiple players turns at the same time, and though it&rsquo;s nice to not have any screens in front of anybody, I think the limitations of board games hold people back from playing games as a group in general more often than not.</p>
-<p>My favorite example of this is power grid {inline image of board game cover}, a game that is clever and would be really quite fun if it didn&rsquo;t require players to spend half their time literally doing simple math in their heads or on paper while other people waited. A modern video game with similar dynamics would never do that, it would just let you play the fun part.</p>
+<p>My favorite example of this is power grid</p>
+<p>{inline image of board game cover}</p>
+<p>, a game that is clever and would be really quite fun if it didn&rsquo;t require players to spend half their time literally doing simple math in their heads or on paper while other people waited. A modern video game with similar dynamics would never do that, it would just let you play the fun part.</p>
 <p>But video games have their own limitations and requirements. Aside from the stuff that we aren&rsquo;t getting around anytime before true augmented reality is on everybody&rsquo;s faces, like getting a controller and everybody&rsquo;s hands, and getting them over the fact that they are looking at a screen to socialize, video games have one fundamental limitation most of the time which is that they only go up to four players. And most social gatherings involve more than four people.</p>
 <p>This is the core reason I wanted to make land war an eight-player strategy game, and this setting of group gatherings was also why the controls for land war are so dead simple. More about land war <a href="/land-war">here</a></p>
-<h1 id="the-state-of-generated-art">The State of Generated Art</h1>
+<h1 id="generated-art-first-edition">Generated Art, First Edition</h1>
+<p>The reason I waited to make a game like this is because I&rsquo;m no artist. I like to think I have taste but it certainly is not in my wheelhouse to make beautiful artwork, even for a simple sprite based game I want to make here.</p>
+<p>The models I was mostly working with on this project were Mid journey 6 and Dalle3, both diffusion models which is the best you could get at the time. If you&rsquo;ve worked with diffusion models before, you know you can get some pretty beautiful and creative stuff, but there are always a little artifacts that will be noticed if someone stares at it long enough, which is always going to be a case for a video game sprite. So I found myself having to do a lot of cleaning and filtering and processing of the images, and I landed on an oil painting filter that worked pretty well to disguise some of the noise and my own edits that I would inevitably have to apply to the images of my characters, power-ups, etc.</p>
+<p>It was a lot of work just to get a decent looking single sprite, not animated. Animation is where I ran into the real challenges.</p>
+<p>Diffusion models without some very complicated hard work in the form of techniques like LORAs (link) just can&rsquo;t iterate on the same image over and over again. Character consistency is not really a thing, and that&rsquo;s what&rsquo;s needed to make a multi-frame sprite that animates. This is the real impasse I ran into, and the core reason that I stopped working on this game. I wanted to spend 80% of my time on the gameplay, logic, and testing of this game, and 20% prompting for art, but it started to be about 50/50. And the results were not amazing.</p>
+<h1 id="the-state-of-generated-art-in-2025">The State of Generated Art in 2025</h1>
+<p>So fast forward to now. We all knew this has been coming for a long time, but finally we have transformer models that do image generation. And part of what that means is that conversation history, including past image generations and reference images, can be included in the neural context of the next generation. We probably all seen this with image <a href="https://www.reuters.com/technology/artificial-intelligence/ghibli-effect-chatgpt-usage-hits-record-after-rollout-viral-feature-2025-04-01/">&ldquo;Ghiblification&rdquo;</a>.</p>
+<p>OpenAI was yet again the first to release this type of capability, at least in a serious way. Technically there was a Gemini model that did native image gen maybe a month before OpenAI released theirs, but it was pretty garbage in comparison. And, unexpectedly, the new OpenAI image gen can also generate images on transparent PNG backgrounds, which is absolutely crucial for any image that&rsquo;s going to be set against some dynamic background - this is all game art.</p>
+<p>I have since taken a few attempts at making some multi-frame spray animations, and it&rsquo;s almost there, but it&rsquo;s still a lot of work unlike what you might be led to believe by excited Twitter posts with whole sprite sheets generated. The models just still aren&rsquo;t consistent enough to produce images that don&rsquo;t require a heavy amount of editing to get the same amount of background space, fallout actual sprite sheet specs, keep characters absolutely consistent. But I think they will get there soon.</p>
+<h1 id="generated-music">Generated Music</h1>
+<p>Generated music was a surprising high point of this project. Great quality sound effect and music generators were on my checklist of things that I knew would come soon, but I got super lucky when udio (link) came out about a month and two prototyping this thing. Check out these tracks I put into the game:</p>
+<p>(Media)</p>
+<p>I will say generated sound effects are still not there, similar to art. You can occasionally get something that sounds like what you intended but in general there&rsquo;s a lot of noise, a lot of strange lead-ins, and in general just strangeness.</p>
+<h1 id="current-state-of-the-game">Current State of the Game</h1>
+<p>So here&rsquo;s where I&rsquo;m at, check out this video which is just me playing against seven bots but you can start to get the idea:</p>
+<p>{youtube embed}</p>
+<p>The game is fun with multiple players, but it&rsquo;s still quite basic, and I&rsquo;m still waiting on image generation that would make the graphics good rather than the stand-ins that are mostly still from the diffusion era of image generation.</p>
+<p>At some point I will pick this thing back up, or I will have some AI agent pick it back up for me, because the core game itself is something I really want to exist, even if it&rsquo;s just another land war that a few hundred people download and I play at my own get togethers.</p>
+<p>If you&rsquo;d like, you can download a Windows build here, which is still very much a prototype but works with 8 connected controllers:</p>
 ]]></description>
                 
 
@@ -2607,7 +2663,7 @@ This is what the project looked like for my first play-test with other people 5 
 <p>I created this panel display in 2026 to control much of the home automation I used in my Studio City apartment. Mainly a hardware project, I designed and 3D-printed a case and frame for the touchscreen and raspberry pi microcomputer in order to mount them to the wall. The software running the control panel is SaaS, but I did write a custom html wrapper to control the orientation and settings of the site, which is available on the github linked above.</p>
 <p>Update in 2025: This panel is still my main view into my home automation in my new house in Sherman Oaks, almost 10 years in with no modification!</p>
 <p>Here&rsquo;s a video to see the panel in action:</p>
-<h2 id="hahahugoshortcode97s0hbhb">
+<h2 id="hahahugoshortcode89s0hbhb">
     <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
       <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/iFGmm-ijJvE?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"></iframe>
     </div>

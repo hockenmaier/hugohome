@@ -11,9 +11,9 @@ tags: []
     maxwidth=200px
     caption="←me" >}}
 
-I build things mostly, and sometimes I write things, I post about all of that here. Some of this has been cross or back-posted from my [thingiverse](https://www.thingiverse.com/hockenmaier/designs), [twitter](https://x.com/Hockenmaier), [linkedin](https://www.linkedin.com/in/hockenmaier/), and other places, but it all lives here permanently.
+I build things mostly, and sometimes I write things, I post about all of that here. I love making games and things with VR and AI. Some of this has been cross or back-posted from my [thingiverse](https://www.thingiverse.com/hockenmaier/designs), [twitter](https://x.com/Hockenmaier), [linkedin](https://www.linkedin.com/in/hockenmaier/), and other places, but it all lives here permanently.
 
-I love making games and things with VR and AI.
+One of the things I built was this website and the game built into it. [Read more about that here](/this-website)
 
 I’ve been at one company for a long time and have built a lot there, led some large teams, and released several things on my own too, in a bunch of software domains. I started on back-office stuff like billing systems, TV scheduling systems, IP rights management systems, file ingest systems for News, and several games and tools outside of work.
 
