@@ -623,7 +623,13 @@ table {
         <script src="http://localhost:1313/js/goal.js"></script>
         <script src="http://localhost:1313/js/spawner.js"></script>
         <script src="http://localhost:1313/js/ui-updater.js"></script>
-        
+        Okay, I will add a "HELP" button to the ball-machine-ui.html file that links to /this-website/#how-to-play.
+
+This involves modifying the layouts/partials/ball-machine-ui.html file to include the new button within the main UI panel (#ballfall-ui). I'll place it directly below the "Clear Field" button for logical grouping of general actions. I'll use an <a> tag styled as a button for semantic correctness, ensuring it inherits the bfui-button styles. The existing link prevention logic in baseof.html should not affect this button as it's contained within #ballfall-ui.
+
+Here is the rewritten layouts/partials/ball-machine-ui.html file:
+
+
 <style>
    
   #spawner-container {
@@ -679,14 +685,14 @@ table {
     left: 20px;
     display: none;
     flex-direction: column;
-    gap: 5px;
+    gap: 5px;  
     z-index: 10000;
     font-family: sans-serif;
     font-size: 7px;
     max-width: 200px;
   }
   #clearBallsBtn {
-    margin: 0 auto;
+    margin: 0 auto;  
   }
    
   #spawner-container {
@@ -727,7 +733,11 @@ table {
     cursor: pointer;
     display: flex;
     align-items: center;
+    justify-content: center;  
+    text-decoration: none;  
     transition: transform 0.1s ease;
+    width: 100%;  
+    box-sizing: border-box;  
   }
   .bfui-button:active {
     transform: scale(0.95);
@@ -765,7 +775,7 @@ table {
     display: block;
     width: 80%;
     max-width: 60px;
-    margin: 0 auto;
+    margin: 0 auto 5px auto;  
   }
   #line-mode-toggle {
     display: flex;
@@ -788,9 +798,40 @@ table {
   #revenue-display {
     display: none;
   }
+   
+  .cost-label {
+      font-size: 10px;
+      color: #aaa;
+      text-align: center;
+      margin-top: 2px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 2px;  
+  }
+  .cost-label img {
+      width: 10px;  
+      height: 10px;
+  }
+   
+  .toggle-wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+  }
+   
+  #bfui-help-link {
+       
+      margin-top: 0;  
+  }
+
   @media (max-width: 720px) {
     .bfui-button .bfui-label {
-      display: none;
+      display: none;  
+    }
+     
+    #bfui-help-link .bfui-label {
+        display: inline;
     }
     #bfui-drop-rate-wrapper {
       flex-direction: column;
@@ -840,33 +881,33 @@ table {
 <div id="ballfall-ui">
   <img src="/images/ball-machine.png" id="bfui-image" alt="Ball
   Machine" />
+  
   <button class="bfui-button" id="clearBallsBtn">
     <span class="bfui-label">Clear Field</span>
   </button>
+  
+  <a href="/this-website/#how-to-play" class="bfui-button" id="bfui-help-link" target="_blank" rel="noopener noreferrer">
+      <span class="bfui-label">HELP</span>
+  </a>
+  
   <div id="bfui-drop-rate-wrapper">
     <span id="bfui-drop-rate-label">Drop Rate:</span>
     <span id="bfui-drop-rate-value">N/A</span>
   </div>
   
+  
   <div
     id="toggle-container"
-    style="display: inline-block; padding: 5px; border: 2px solid transparent"
+    style="display: block; padding: 5px 0; border: 2px solid transparent" /* Adjusted padding */
   >
-    
-    <div
-      id="line-mode-toggle"
-      style="
-        display: flex;
-        gap: 10px;
-        margin-top: 10px;
-        justify-content: center;
-      "
-    >
+    <div id="line-mode-toggle">
+      
       <div class="toggle-wrapper">
         <img src="/images/dotted-line-mode.png"
         id="toggleDotted" class="line-toggle" alt="Dotted Line" />
-        <div class="cost-label"></div>
+        <div class="cost-label">Free</div> 
       </div>
+      
       <div class="toggle-wrapper">
         <img src="/images/line-mode.png" id="toggleStraight"
         class="line-toggle" alt="Straight Line" />
@@ -874,6 +915,7 @@ table {
           <img src="/images/coin-cost.png" alt="Coin" /> 5
         </div>
       </div>
+      
       <div class="toggle-wrapper">
         <img src="/images/curve-mode.png" id="toggleCurved"
         class="line-toggle" alt="Curved Line" />
@@ -881,6 +923,7 @@ table {
           <img src="/images/coin-cost.png" alt="Coin" /> 50
         </div>
       </div>
+      
       <div class="toggle-wrapper">
         <img src="/images/DKannon250-mode.png"
         id="toggleLauncher" class="line-toggle" alt="Launcher" />
@@ -902,6 +945,7 @@ table {
           <img src="/images/coin-cost.png" alt="Coin" /> 2500
         </div>
       </div>
+      
       <div class="toggle-wrapper">
         <img src="/images/compactor-mode.png"
         id="toggleCompactor" class="line-toggle" alt="Compactor" />
@@ -911,6 +955,7 @@ table {
       </div>
     </div>
   </div>
+  
   <script>
     
     (function () {
@@ -927,7 +972,8 @@ table {
         curvedBtn = document.getElementById("toggleCurved"),
         launcherBtn = document.getElementById("toggleLauncher"),
         fastLauncherBtn = document.getElementById("toggleFastLauncher"),
-        instaLauncherBtn = document.getElementById("toggleInstaLauncher");
+        instaLauncherBtn = document.getElementById("toggleInstaLauncher"),
+        compactorBtn = document.getElementById("toggleCompactor"); 
 
       const FLASH_DURATION = 100,
         FLASH_TIMES = 6;
@@ -946,9 +992,12 @@ table {
           bps < 1 ? `every ${(1 / bps).toFixed(1)}s` : `${bps.toFixed(1)}/s`;
       }
       clearBallsBtn.addEventListener("click", (e) => {
-        e.stopPropagation();
+        e.stopPropagation(); 
         window.BallFall.clearBalls();
       });
+
+      
+
       function setActive(newMode, launcherType) {
         const prevMode = window.App.modules.lines.getMode();
         document
@@ -963,6 +1012,11 @@ table {
           FLASH_TIMES
         );
 
+        
+        if (newMode !== 'launcher') window.LauncherCreateTool.selectedType = null;
+        
+
+
         if (
           newMode === "dotted" ||
           newMode === "straight" ||
@@ -974,7 +1028,7 @@ table {
           else if (newMode === "curved") curvedBtn.classList.add("selected");
           window.App.modules.lines.setMode(newMode);
         } else if (newMode === "launcher") {
-          if (!launcherType) launcherType = "launcher";
+          if (!launcherType) launcherType = "launcher"; 
           window.LauncherCreateTool.selectedType = launcherType;
           if (launcherType === "launcher")
             launcherBtn.classList.add("selected");
@@ -983,10 +1037,15 @@ table {
           else if (launcherType === "insta-launcher")
             instaLauncherBtn.classList.add("selected");
           window.App.modules.lines.setMode("launcher");
+        } else if (newMode === "compactor") {
+            compactorBtn.classList.add("selected");
+            window.App.modules.lines.setMode("compactor");
         } else {
+          
           window.App.modules.lines.setMode("none");
         }
       }
+
       dottedBtn.addEventListener("click", (e) => {
         e.stopPropagation();
         setActive(
@@ -1009,9 +1068,10 @@ table {
       });
       launcherBtn.addEventListener("click", (e) => {
         e.stopPropagation();
+        const currentMode = window.App.modules.lines.getMode();
+        const currentType = window.LauncherCreateTool.selectedType;
         setActive(
-          window.App.modules.lines.getMode() === "launcher" &&
-            window.LauncherCreateTool.selectedType === "launcher"
+          currentMode === "launcher" && currentType === "launcher"
             ? "none"
             : "launcher",
           "launcher"
@@ -1019,9 +1079,10 @@ table {
       });
       fastLauncherBtn.addEventListener("click", (e) => {
         e.stopPropagation();
+         const currentMode = window.App.modules.lines.getMode();
+        const currentType = window.LauncherCreateTool.selectedType;
         setActive(
-          window.App.modules.lines.getMode() === "launcher" &&
-            window.LauncherCreateTool.selectedType === "fast-launcher"
+          currentMode === "launcher" && currentType === "fast-launcher"
             ? "none"
             : "launcher",
           "fast-launcher"
@@ -1029,103 +1090,126 @@ table {
       });
       instaLauncherBtn.addEventListener("click", (e) => {
         e.stopPropagation();
+        const currentMode = window.App.modules.lines.getMode();
+        const currentType = window.LauncherCreateTool.selectedType;
         setActive(
-          window.App.modules.lines.getMode() === "launcher" &&
-            window.LauncherCreateTool.selectedType === "insta-launcher"
+          currentMode === "launcher" && currentType === "insta-launcher"
             ? "none"
             : "launcher",
           "insta-launcher"
         );
       });
+      compactorBtn.addEventListener("click", (e) => { 
+        e.stopPropagation();
+        setActive(
+            window.App.modules.lines.getMode() === "compactor" ? "none" : "compactor"
+        );
+      });
+
       setInterval(updateDropRateDisplay, 1000);
+      updateDropRateDisplay(); 
     })();
   </script>
-</div>
-<script>
-  
-  (function () {
-    function updateAutoClickerCostDisplay() {
-      var cost;
-      if (!App.config.autoClicker) {
-        cost = App.config.autoClickerCost;
-      } else {
-        cost =
-          App.config.speedUpgradeCosts[App.config.maxUnlockedSpeedLevel + 1];
-      }
-      var costEl = document.getElementById("autoClickerCost");
-      if (costEl) {
-        costEl.innerHTML =
-          '<img src="\/images\/coin-cost.png" alt="Coin" /> ' +
-          (cost !== undefined ? cost : "");
-      }
-    }
-    App.updateAutoClickerCostDisplay = updateAutoClickerCostDisplay;
 
-    var autoClickerBtn = document.getElementById("autoClicker");
-    if (autoClickerBtn) {
-      autoClickerBtn.addEventListener("click", function () {
+  <script>
+    
+    (function () {
+      function updateAutoClickerCostDisplay() {
+        var cost;
+        var costKey;
         if (!App.config.autoClicker) {
-          var cost = App.config.autoClickerCost;
-          if (App.config.coins >= cost) {
-            App.config.coins -= cost;
-            App.config.autoClicker = true;
-            App.Persistence.saveAutoClicker({
-              purchased: true,
-              maxSpeedLevel: 0,
-            });
-            window.BallFall.startAutoSpawner();
-            window.BallFall.updateSpawnInterval(App.config.spawnInterval);
-            App.updateCoinsDisplay();
-            updateAutoClickerCostDisplay();
-          } else {
-            window.notifyUnaffordable(100, 12);
-          }
+          cost = App.config.autoClickerCost;
+          costKey = 'autoClickerCost';
         } else {
-          var nextLevel = App.config.maxUnlockedSpeedLevel + 1;
-          var cost = App.config.speedUpgradeCosts[nextLevel];
-          if (App.config.coins >= cost) {
-            App.config.coins -= cost;
-            App.config.maxUnlockedSpeedLevel = nextLevel;
-            var newInterval =
-              App.config.originalSpawnInterval / Math.pow(2, nextLevel);
-            window.BallFall.updateSpawnInterval(newInterval);
-            App.updateCoinsDisplay();
-            updateAutoClickerCostDisplay();
-            App.Persistence.saveAutoClicker({
-              purchased: true,
-              maxSpeedLevel: nextLevel,
-            });
-          } else {
-            window.notifyUnaffordable(100, 12);
-          }
+          costKey = App.config.maxUnlockedSpeedLevel + 1;
+          cost = App.config.speedUpgradeCosts[costKey];
         }
-      });
-    }
-    updateAutoClickerCostDisplay();
-  })();
-</script>
 
-<script>
-  (function () {
-    const compactorBtn = document.getElementById("toggleCompactor");
-    compactorBtn.addEventListener("click", (e) => {
-      e.stopPropagation();
-      const prevMode = window.App.modules.lines.getMode();
-      
-      if (prevMode === "compactor") {
-        window.App.modules.lines.setMode("none");
-        compactorBtn.classList.remove("selected");
-      } else {
-        window.App.modules.lines.setMode("compactor");
+        var costEl = document.getElementById("autoClickerCost");
+        if (costEl) {
+            if (cost !== undefined) {
+                costEl.innerHTML =
+                '<img src="' + coinCostURL + '" alt="Coin" /> ' + cost;
+                costEl.style.display = 'flex'; 
+            } else {
+                 costEl.innerHTML = 'Max'; 
+                 costEl.style.display = 'flex';
+            }
+        }
+
         
-        document
-          .querySelectorAll(".line-toggle")
-          .forEach((btn) => btn.classList.remove("selected"));
-        compactorBtn.classList.add("selected");
+        var autoClickerBtn = document.getElementById("autoClicker");
+         if (autoClickerBtn && cost === undefined && App.config.autoClicker) {
+            
+            
+            autoClickerBtn.style.cursor = 'default'; 
+            autoClickerBtn.style.opacity = '0.5';
+        } else if (autoClickerBtn) {
+             autoClickerBtn.style.cursor = 'pointer';
+             autoClickerBtn.style.opacity = '1';
+        }
       }
-    });
-  })();
-</script>
+      App.updateAutoClickerCostDisplay = updateAutoClickerCostDisplay;
+
+      var autoClickerBtn = document.getElementById("autoClicker");
+      if (autoClickerBtn) {
+        autoClickerBtn.addEventListener("click", function () {
+          if (!App.config.autoClicker) {
+            
+            var cost = App.config.autoClickerCost;
+            if (App.config.coins >= cost) {
+              App.config.coins -= cost;
+              App.config.autoClicker = true;
+              App.Persistence.saveAutoClicker({
+                purchased: true,
+                maxSpeedLevel: 0,
+              });
+              window.BallFall.startAutoSpawner(); 
+              
+              App.updateCoinsDisplay();
+              updateAutoClickerCostDisplay(); 
+            } else {
+              window.notifyUnaffordable(100, 12);
+            }
+          } else {
+            
+            var nextLevel = App.config.maxUnlockedSpeedLevel + 1;
+            var cost = App.config.speedUpgradeCosts[nextLevel];
+
+            if (cost === undefined) return; 
+
+            if (App.config.coins >= cost) {
+              App.config.coins -= cost;
+              App.config.maxUnlockedSpeedLevel = nextLevel;
+              var newInterval =
+                App.config.originalSpawnInterval / Math.pow(2, nextLevel);
+              App.config.spawnInterval = newInterval; 
+              window.BallFall.updateSpawnInterval(newInterval); 
+              App.updateCoinsDisplay();
+              updateAutoClickerCostDisplay(); 
+              App.Persistence.saveAutoClicker({ 
+                purchased: true,
+                maxSpeedLevel: nextLevel,
+              });
+            } else {
+              window.notifyUnaffordable(100, 12);
+            }
+          }
+        });
+      }
+      
+       if (window.App && App.config) {
+          updateAutoClickerCostDisplay();
+      } else {
+          
+          document.addEventListener('DOMContentLoaded', updateAutoClickerCostDisplay);
+      }
+    })();
+  </script>
+
+  
+
+</div>
 
 
         <script>

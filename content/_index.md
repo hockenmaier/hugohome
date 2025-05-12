@@ -21,7 +21,7 @@ images/coronado-herobanner.png|Lifestyle
 
 I'm Brian and I post here about game development, AI, VR, Home Automation, 3D printing, Money, Happiness, the Singularity, and many other things I care about. I hope you find something interesting here.
 
-More about this website [here](/this-website) and more about me and some of the top posts [here](/about-me)
+More dasdfabout this website [here](/this-website) and more about me and some of the top posts [here](/about-me)
 
 {Subscribe to get updates - TODO}
 

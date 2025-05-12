@@ -25,20 +25,20 @@ a {
 .paige-latest-item a:not(.nav-link),
 article.paige-latest-item a:not(.nav-link),
 .paige-latest-item p > a.link-light:not(.nav-link) {
-  color: #87c2a5 !important;
-  text-decoration: underline !important;
+  color: #87c2a5;
+  text-decoration: underline;
 }
 
 #paige-content a:visited:not(.nav-link),
 .paige-latest-item a:visited:not(.nav-link),
 article.paige-latest-item a:visited:not(.nav-link),
 .paige-latest-item p > a.link-light:visited:not(.nav-link) {
-  color: #6fa58e !important;
+  color: #6fa58e;
 }
 
 #paige-content a:hover:not(.nav-link),
 .paige-latest-item a:hover:not(.nav-link),
 article.paige-latest-item a:hover:not(.nav-link),
 .paige-latest-item p > a.link-light:hover:not(.nav-link) {
-  color: #a8d8c0 !important;
+  color: #a8d8c0;
 }
