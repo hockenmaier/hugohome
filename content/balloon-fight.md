@@ -14,11 +14,14 @@ Kaitlin and I love to have people over to socialize, and I love to game. I think
 
 And I love board games. I play them all the time. But so often when playing board games you run into mechanics that are only there because the game doesn't have a computer involved, can't count for you, can't add things up, can't simulate multiple players turns at the same time, and though it's nice to not have any screens in front of anybody, I think the limitations of board games hold people back from playing games as a group in general more often than not.
 
-My favorite example of this is power grid
+My favorite example of this is power grid:
 
-{inline image of board game cover}
+{{< image-medium
+    src="images/power-grid.png"
+    alt="Serverless Architecture of the First Ten app"
+    caption="" >}}
 
-, a game that is clever and would be really quite fun if it didn't require players to spend half their time literally doing simple math in their heads or on paper while other people waited. A modern video game with similar dynamics would never do that, it would just let you play the fun part.
+A game that is clever and would be really quite fun if it didn't require players to spend half their time literally doing simple math in their heads or on paper while other people waited. A modern video game with similar dynamics would never do that, it would just let you play the fun part.
 
 But video games have their own limitations and requirements. Aside from the stuff that we aren't getting around anytime before true augmented reality is on everybody's faces, like getting a controller and everybody's hands, and getting them over the fact that they are looking at a screen to socialize, video games have one fundamental limitation most of the time which is that they only go up to four players. And most social gatherings involve more than four people.
 

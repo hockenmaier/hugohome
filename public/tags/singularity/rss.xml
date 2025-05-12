@@ -238,8 +238,21 @@
 <li>Some drawables have a second action, like curved lines, that is previewed after the second click and confirmed with a third</li>
 <li>Hover over a drawn item and right click to delete it.</li>
 </ul>
+<p>On Mobile:</p>
+<ul>
+<li>Tap and drag to see a preview, and release when you have the drawable in the right spot.</li>
+<li>Second actions for the drawable will start on the next tap-and-drag.</li>
+<li>Tap and hold on a drawable to delete it - you will see it pulse before it deletes.</li>
+</ul>
 <p>If you can&rsquo;t draw an item, you probably can&rsquo;t afford it. You&rsquo;ll see the gold prices of the items flash red in the UI when this happens.</p>
 <p>When you have a Drawable tool toggled on, you won&rsquo;t be able to click other links on the site. You&rsquo;ll see this visually indicated when you choose them. Unselect the currently selected tool in order to see it</p>
+<h1 id="making-money">Making Money</h1>
+<p>The point of the game is to keep balls on the screen for as long as possible (and manipulate them in other ways) in order to increase their value before sending them into the goal. A couple of things to watch out for though:</p>
+<ul>
+<li>Balls have to be moving at all times. If they sit still for too long, they are considered dead and will poof out of existence.</li>
+<li>This applies to balls hitting the goal too. If your balls aren&rsquo;t moving when they hit the target, they won&rsquo;t go in.
+So keep your balls moving!</li>
+</ul>
 <p>Each post on this site will be a slightly different randomized game! Try making ball machines on multiple pages at once&hellip;</p>
 <p>The game works a bit differently on desktop and mobile, and the best experience is really on desktop - so try on a computer if you can!</p>
 <h2 id="how-its-made">How it&rsquo;s made</h2>

@@ -27,16 +27,16 @@ I love some of the 2010's era blogs and though mine is not going to be nearly as
 
 ## Ball Machine - The Game
 
-{{< image-medium
-    src="images/this-website-ball-machine-1.png"
-    alt="balls everywhere"
-    caption="Some of my early playtests got pretty chaotic" >}}
-
 Most blogs and personal websites are a bit boring. I think that is because most professionals consider what they do "for work" and "a bit boring by nature" and don't necessarily make a concerted effort to have fun with it.
 
 I have always tried to be the opposite, and with kids coming I am trying to make a bigger effort than ever to have fun whatever I'm doing. Which is often working, in some way or another.
 
 So for my website, I wanted it to be intentionally fun. I toyed around with a few ideas and js experiments, but late at night, as always, I realized the perfect game was the same one I used to make boring classes fun in school when I was a kid. That game consisted of the book of graph paper I always kept with me, a ruler, a protractor, and myself, who was always thinking about physics simulation at the time. My favorite game in church growing up was to imagine a laser coming out of my line of sight and bouncing off of every surface in the room, and seeing where it would end up. This graph paper game was similar:
+
+{{< image-medium
+    src="images/this-website-ball-machine-1.png"
+    alt="balls everywhere"
+    caption="Some of my early playtests got pretty chaotic" >}}
 
 I would start by making a "spawn point" usually near the top left of the page, where balls would start falling. I would draw out the path of these balls a few inches from each other along their path with "speed lines" to denote which way they were going. Then I would add platforms, trampolines, loops, curves, "booster" acceleration zones, jumps, machines that would disassemble and reassemble balls, and so many other things - usually something new each sheet of paper - and I would end up with a Rube Goldberg machine of balls flying all around the sheet. The only goal was to fill the sheet with more ridiculous paths.
 
@@ -46,9 +46,11 @@ So, to honor kid Brian, I am making my website a permanent ball machine. I hope 
 
 ## How to Play
 
+> Quick Disclaimer: The best experience is on desktop or tablet - something with more screen real-estate than a phone.
+
 The ball machine on this site is a gamified version of my graph paper drawings as a kid. Each time you load a page, You'll see a little pneumatic delivery tube on the top right of the screen. This tube is where the balls show up when you click.
 
-When you spawn your first ball, you'll see a few things show up. First - you'll find a goal (look for a "target") somewhere randomly on the page. Your goal is to get the balls you spawn into that goal. But there is a bit of a trick - balls start out being worth 1 coin, and the longer you can keep balls around, the more they will be worth when going into the goals - this might get more and more challenging as your drawings take up more of the screen and balls start bouncing off of each other. And don't let balls sit around trying to get them to accumulate value too long - balls disappear when they've been still too long.
+When you spawn your first ball, you'll see a few things appear. First - you'll find a goal (look for a "target") somewhere randomly on the page. Find a way to get the balls you spawn into that goal. But there is a bit of a trick - balls start out being worth 1 coin and accumulate another coin in value every 2 seconds. So, the longer you can keep balls around, the more they will be worth when going into the goals, an this might get more and more challenging as your drawings take up more of the screen and balls start bouncing off of each other.
 
 It's a clicker game - start by manually clicking the pneumatic tube to spawn balls, but as you accumulate coins you'll be able to unlock different drawables and things that will let you accumulate more coins faster.
 
@@ -76,15 +78,17 @@ If you can't draw an item, you probably can't afford it. You'll see the gold pri
 
 When you have a Drawable tool toggled on, you won't be able to click other links on the site. You'll see this visually indicated when you choose them. Unselect the currently selected tool in order to see it
 
-# Making Money
+# Tips on Making Money
 
-The point of the game is to keep balls on the screen for as long as possible (and manipulate them in other ways) in order to increase their value before sending them into the goal. A couple of things to watch out for though:
+You'll quickly find ways to lengthen your Rube-Golberg Machines and build up value before you send balls into the goal. A couple of things to watch out for though:
 
 - Balls have to be moving at all times. If they sit still for too long, they are considered dead and will poof out of existence.
 - This applies to balls hitting the goal too. If your balls aren't moving when they hit the target, they won't go in.
   So keep your balls moving!
 
-Each post on this site will be a slightly different randomized game! Try making ball machines on multiple pages at once...
+Each post on this site will be a slightly different randomized game! Try making ball machines on multiple pages at once. Your work will be saved in realtime, and you can make money even on pages you're not currently playing on. Try it!
+
+Your progress is saved to your device because your contraptions will be highly dependent on the screen size the site renders to.
 
 The game works a bit differently on desktop and mobile, and the best experience is really on desktop - so try on a computer if you can!
 

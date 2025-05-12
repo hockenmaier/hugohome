@@ -5,9 +5,10 @@ title = "Home"
 +++
 
 {{< round-gallery >}}
+images/nintendo-herobanner.png|Games,
 images/workbench-herobanner.png|Building,
 images/robots2-herobanner.png|Automation,
-images/nintendo-herobanner.png|Games,
+
 images/coronado-herobanner.png|Lifestyle
 
 {{< /round-gallery >}}
