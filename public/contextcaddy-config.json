@@ -1,0 +1,72 @@
+{
+  "profiles": {
+    "ball-machine": {
+      "selectedFiles": {
+        "g:\\projects\\hugohome\\layouts\\_default\\baseof.html": true,
+        "g:\\projects\\hugohome\\static\\js\\ball-machine-app.js": true,
+        "g:\\projects\\hugohome\\static\\js\\base-simulation.js": true,
+        "g:\\projects\\hugohome\\static\\js\\lines.js": true,
+        "g:\\projects\\hugohome\\layouts\\partials\\ball-machine-ui.html": true,
+        "g:\\projects\\hugohome\\static\\js\\text.js": true,
+        "g:\\projects\\hugohome\\static\\js\\launcher-create.js": true,
+        "g:\\projects\\hugohome\\static\\js\\launcher.js": true
+      },
+      "prePrompt": "This is part of a little fun physics simulation game that runs on top of my hugo cms personal website, which runs the paige theme.  Baseof is how the files are inserted into the rest of the site. When giving back changes, it's best when reasonable to return a whole file to replace.  If not, choose an entire code block like a few consecutive methods wherever possible for easy replacement. But whatever you do, DO NOT alter contents you aren't intending to, including removing existing comments.  Here are most of the relevant files, but let me know if you need more context:",
+      "includeFileTree": true
+    },
+    "content-maker": {
+      "selectedFiles": {
+        "g:\\projects\\hugohome\\layouts\\partials\\paige\\page-header.html": true,
+        "g:\\projects\\hugohome\\layouts\\partials\\paige\\site-footer.html": true,
+        "g:\\projects\\hugohome\\layouts\\_default\\baseof.html": true,
+        "g:\\projects\\hugohome\\content\\raspberry-pi-panel.md": true,
+        "g:\\projects\\hugohome\\content\\hedonic-treadmill.md": true,
+        "g:\\projects\\hugohome\\content\\_index.md": true,
+        "g:\\projects\\hugohome\\hugo.toml": true
+      },
+      "prePrompt": "I'd like you to format this content into a Paige theme hugo website content .md file in the style of the examples below.  Make sure to format images using my custom partials and make links look the same, etc.  Do your best to guess good tags and an article description based on the examples you see.",
+      "includeFileTree": true
+    },
+    "default": {
+      "selectedFiles": {},
+      "prePrompt": "",
+      "includeFileTree": false
+    },
+    "paige-editing": {
+      "selectedFiles": {
+        "g:\\projects\\hugohome\\layouts\\_default\\baseof.html": true,
+        "g:\\projects\\hugohome\\layouts\\partials\\paige\\page-header.html": true,
+        "g:\\projects\\hugohome\\layouts\\partials\\paige\\site-footer.html": true,
+        "g:\\projects\\hugohome\\themes\\paige\\layouts\\_default\\single.html": true,
+        "g:\\projects\\hugohome\\themes\\paige\\layouts\\_default\\list.html": true,
+        "g:\\projects\\hugohome\\themes\\paige\\layouts\\_default\\home.paige-search.json": true,
+        "g:\\projects\\hugohome\\themes\\paige\\layouts\\partials\\paige\\page-footer.html": true,
+        "g:\\projects\\hugohome\\themes\\paige\\layouts\\partials\\paige\\page.html": true,
+        "g:\\projects\\hugohome\\themes\\paige\\layouts\\partials\\paige\\site-header.html": true,
+        "g:\\projects\\hugohome\\themes\\paige\\layouts\\partials\\paige\\tag-a.html": true,
+        "g:\\projects\\hugohome\\themes\\paige\\layouts\\partials\\paige\\tag-body.html": true,
+        "g:\\projects\\hugohome\\themes\\paige\\layouts\\partials\\paige\\links.html": true,
+        "g:\\projects\\hugohome\\themes\\paige\\layouts\\partials\\paige\\list-item.html": true,
+        "g:\\projects\\hugohome\\themes\\paige\\layouts\\partials\\paige\\list.html": true,
+        "g:\\projects\\hugohome\\content\\_index.md": true,
+        "g:\\projects\\hugohome\\hugo.toml": true,
+        "g:\\projects\\hugohome\\content\\this-website.md": true
+      },
+      "prePrompt": "Here is a selection of the paige theme layout files, my homepage, the layout files I've edited, and my hugo.toml to give you an idea of how my personal hugo website functions.  I've also included one of the content markdown files for example, which happens to be the post describing this very website!.",
+      "includeFileTree": true
+    },
+    "test1": {
+      "selectedFiles": {
+        "g:\\projects\\hugohome\\static\\js\\ball-machine-app.js": true
+      },
+      "prePrompt": "",
+      "includeFileTree": true
+    },
+    "test2": {
+      "selectedFiles": {},
+      "prePrompt": "",
+      "includeFileTree": false
+    }
+  },
+  "activeProfile": "ball-machine"
+}

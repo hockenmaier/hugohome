@@ -1,0 +1,48 @@
+{{ $page := . }}
+
+<!doctype html>
+{{ partial "paige/tag-html.html" $page }}
+    {{ partial "paige/tag-head.html" $page }}
+    {{ partial "paige/tag-body.html" $page }}
+        {{ if templates.Exists "partials/paige/body-first.html" }}
+            {{ partial "paige/body-first.html" $page }}
+        {{ end }}
+
+        <div class="container">
+            <div class="row">
+                <div class="col mt-3" id="paige-site">
+                    {{ if templates.Exists "partials/paige/site-first.html" }}
+                        {{ partial "paige/site-first.html" $page }}
+                    {{ end }}
+
+                    {{ partial "paige/site-header.html" $page }}
+                    {{ block "main" $page }}{{ end }}
+                    {{ partial "paige/site-footer.html" $page }}
+
+                    {{ if templates.Exists "partials/paige/site-last.html" }}
+                        {{ partial "paige/site-last.html" $page }}
+                    {{ end }}
+                </div>
+            </div>
+        </div>
+
+        {{ partial "paige/scripts.html" $page }}
+
+        {{ if templates.Exists "partials/paige/body-last.html" }}
+            {{ partial "paige/body-last.html" $page }}
+        {{ end }}
+        <script src="/js/matter.min.js"></script>
+        <script src="/js/matter-wrap.min.js"></script>
+        <script src="/js/ball-machine-app.js"></script>
+        <script src="/js/base-simulation.js"></script>
+        <script src="/js/text.js"></script>
+        <script src="/js/lines.js"></script>
+        <script src="/js/curved-line.js"></script>
+        <script src="/js/launcher.js"></script>
+        <script src="/js/launcher-create.js"></script>
+        <script src="/js/game.js"></script>
+        <script src="/js/goal.js"></script>
+        {{ partial "ball-machine-ui.html" . }}  
+
+    </body>
+</html>
