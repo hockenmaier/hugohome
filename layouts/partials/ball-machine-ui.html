@@ -480,101 +480,84 @@
     })();
   </script>
 
-  <script>
-    // New auto-clicker upgrade functionality.
-    (function () {
-      function updateAutoClickerCostDisplay() {
-        var cost;
-        var costKey;
-        if (!App.config.autoClicker) {
-          cost = App.config.autoClickerCost;
-          costKey = 'autoClickerCost';
-        } else {
-          costKey = App.config.maxUnlockedSpeedLevel + 1;
-          cost = App.config.speedUpgradeCosts[costKey];
-        }
+ <script>
+  // Auto-clicker upgrade: only show cost after simulation starts
+  (function () {
+    function updateAutoClickerCostDisplay() {
+      if (!App.simulationLoaded) return; // hide before game loads
 
-        var costEl = document.getElementById("autoClickerCost");
-        if (costEl) {
-            if (cost !== undefined) {
-                costEl.innerHTML =
-                '<img src="' + coinCostURL + '" alt="Coin" /> ' + cost;
-                costEl.style.display = 'flex'; // Show cost if available
-            } else {
-                 costEl.innerHTML = 'Max'; // Indicate max level reached
-                 costEl.style.display = 'flex';
-            }
-        }
-
-        // Also update the upgrade button image/state if maxed out
-        var autoClickerBtn = document.getElementById("autoClicker");
-         if (autoClickerBtn && cost === undefined && App.config.autoClicker) {
-            // Optionally change image or style to indicate max
-            // autoClickerBtn.src = 'images/auto-clicker-max.png'; // Example
-            autoClickerBtn.style.cursor = 'default'; // Indicate non-clickable
-            autoClickerBtn.style.opacity = '0.5';
-        } else if (autoClickerBtn) {
-             autoClickerBtn.style.cursor = 'pointer';
-             autoClickerBtn.style.opacity = '1';
-        }
-      }
-      App.updateAutoClickerCostDisplay = updateAutoClickerCostDisplay;
-
-      var autoClickerBtn = document.getElementById("autoClicker");
-      if (autoClickerBtn) {
-        autoClickerBtn.addEventListener("click", function () {
-          if (!App.config.autoClicker) {
-            // Initial purchase
-            var cost = App.config.autoClickerCost;
-            if (App.config.coins >= cost) {
-              App.config.coins -= cost;
-              App.config.autoClicker = true;
-              App.Persistence.saveAutoClicker({
-                purchased: true,
-                maxSpeedLevel: 0,
-              });
-              window.BallFall.startAutoSpawner(); // Start spawner if not already running
-              // No need to update interval here, it uses the base interval initially
-              App.updateCoinsDisplay();
-              updateAutoClickerCostDisplay(); // Update cost for next level
-            } else {
-              window.notifyUnaffordable(100, 12);
-            }
-          } else {
-            // Upgrade existing auto-clicker
-            var nextLevel = App.config.maxUnlockedSpeedLevel + 1;
-            var cost = App.config.speedUpgradeCosts[nextLevel];
-
-            if (cost === undefined) return; // Already at max level
-
-            if (App.config.coins >= cost) {
-              App.config.coins -= cost;
-              App.config.maxUnlockedSpeedLevel = nextLevel;
-              var newInterval =
-                App.config.originalSpawnInterval / Math.pow(2, nextLevel);
-              App.config.spawnInterval = newInterval; // Update config immediately
-              window.BallFall.updateSpawnInterval(newInterval); // Update running spawner
-              App.updateCoinsDisplay();
-              updateAutoClickerCostDisplay(); // Update cost for the *next* level
-              App.Persistence.saveAutoClicker({ // Save new level
-                purchased: true,
-                maxSpeedLevel: nextLevel,
-              });
-            } else {
-              window.notifyUnaffordable(100, 12);
-            }
-          }
-        });
-      }
-      // Initial call to set the correct cost display on load
-       if (window.App && App.config) {
-          updateAutoClickerCostDisplay();
+      let cost;
+      if (!App.config.autoClicker) {
+        cost = App.config.autoClickerCost;
       } else {
-          // Wait for App to initialize if it's not ready yet
-          document.addEventListener('DOMContentLoaded', updateAutoClickerCostDisplay);
+        const next = App.config.maxUnlockedSpeedLevel + 1;
+        cost = App.config.speedUpgradeCosts[next];
       }
-    })();
-  </script>
+
+      const costEl = document.getElementById("autoClickerCost");
+      if (costEl) {
+        if (cost !== undefined) {
+          costEl.innerHTML = '<img src="' + coinCostURL + '" alt="Coin" /> ' + cost;
+          costEl.style.display = 'flex';
+        } else {
+          costEl.innerHTML = 'Max';
+          costEl.style.display = 'flex';
+        }
+      }
+
+      const btn = document.getElementById("autoClicker");
+      if (btn) {
+        if (cost === undefined && App.config.autoClicker) {
+          btn.style.cursor = 'default';
+          btn.style.opacity = '0.5';
+        } else {
+          btn.style.cursor = 'pointer';
+          btn.style.opacity = '1';
+        }
+      }
+    }
+    App.updateAutoClickerCostDisplay = updateAutoClickerCostDisplay;
+
+    const btn = document.getElementById("autoClicker");
+    if (btn) {
+      btn.addEventListener("click", function () {
+        if (!App.config.autoClicker) {
+          const c = App.config.autoClickerCost;
+          if (App.config.coins >= c) {
+            App.config.coins -= c;
+            App.config.autoClicker = true;
+            App.Persistence.saveAutoClicker({ purchased: true, maxSpeedLevel: 0 });
+            window.BallFall.startAutoSpawner();
+            App.updateCoinsDisplay();
+            updateAutoClickerCostDisplay();
+          } else {
+            window.notifyUnaffordable(100, 12);
+          }
+        } else {
+          const lvl = App.config.maxUnlockedSpeedLevel + 1;
+          const c = App.config.speedUpgradeCosts[lvl];
+          if (c === undefined) return;
+          if (App.config.coins >= c) {
+            App.config.coins -= c;
+            App.config.maxUnlockedSpeedLevel = lvl;
+            const ni = App.config.originalSpawnInterval / Math.pow(2, lvl);
+            App.config.spawnInterval = ni;
+            window.BallFall.updateSpawnInterval(ni);
+            App.updateCoinsDisplay();
+            updateAutoClickerCostDisplay();
+            App.Persistence.saveAutoClicker({ purchased: true, maxSpeedLevel: lvl });
+          } else {
+            window.notifyUnaffordable(100, 12);
+          }
+        }
+      });
+    }
+
+    // Wait until simulation is ready before showing cost
+    document.addEventListener("BallFallBaseReady", updateAutoClickerCostDisplay);
+  })();
+</script>
+
 
   <!-- Compactor toggle script already included in the main toggle script block -->
 

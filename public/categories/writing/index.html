@@ -10,7 +10,7 @@
 <html  data-bs-theme="dark"  data-paige="Paige theme from https://github.com/willfaught/paige"   lang="en-us" >
 
     <script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><link rel="stylesheet" href="/css/custom.css">
-    <base href="http://localhost:1313/categories/writing/" />
+    <base href="http://localhost:1313/" />
 <script>
   window.assetBase = "http:\/\/localhost:1313\/";
 </script>
@@ -1678,101 +1678,84 @@ table {
     })();
   </script>
 
-  <script>
-    
-    (function () {
-      function updateAutoClickerCostDisplay() {
-        var cost;
-        var costKey;
-        if (!App.config.autoClicker) {
-          cost = App.config.autoClickerCost;
-          costKey = 'autoClickerCost';
-        } else {
-          costKey = App.config.maxUnlockedSpeedLevel + 1;
-          cost = App.config.speedUpgradeCosts[costKey];
-        }
+ <script>
+  
+  (function () {
+    function updateAutoClickerCostDisplay() {
+      if (!App.simulationLoaded) return; 
 
-        var costEl = document.getElementById("autoClickerCost");
-        if (costEl) {
-            if (cost !== undefined) {
-                costEl.innerHTML =
-                '<img src="' + coinCostURL + '" alt="Coin" /> ' + cost;
-                costEl.style.display = 'flex'; 
-            } else {
-                 costEl.innerHTML = 'Max'; 
-                 costEl.style.display = 'flex';
-            }
-        }
-
-        
-        var autoClickerBtn = document.getElementById("autoClicker");
-         if (autoClickerBtn && cost === undefined && App.config.autoClicker) {
-            
-            
-            autoClickerBtn.style.cursor = 'default'; 
-            autoClickerBtn.style.opacity = '0.5';
-        } else if (autoClickerBtn) {
-             autoClickerBtn.style.cursor = 'pointer';
-             autoClickerBtn.style.opacity = '1';
-        }
-      }
-      App.updateAutoClickerCostDisplay = updateAutoClickerCostDisplay;
-
-      var autoClickerBtn = document.getElementById("autoClicker");
-      if (autoClickerBtn) {
-        autoClickerBtn.addEventListener("click", function () {
-          if (!App.config.autoClicker) {
-            
-            var cost = App.config.autoClickerCost;
-            if (App.config.coins >= cost) {
-              App.config.coins -= cost;
-              App.config.autoClicker = true;
-              App.Persistence.saveAutoClicker({
-                purchased: true,
-                maxSpeedLevel: 0,
-              });
-              window.BallFall.startAutoSpawner(); 
-              
-              App.updateCoinsDisplay();
-              updateAutoClickerCostDisplay(); 
-            } else {
-              window.notifyUnaffordable(100, 12);
-            }
-          } else {
-            
-            var nextLevel = App.config.maxUnlockedSpeedLevel + 1;
-            var cost = App.config.speedUpgradeCosts[nextLevel];
-
-            if (cost === undefined) return; 
-
-            if (App.config.coins >= cost) {
-              App.config.coins -= cost;
-              App.config.maxUnlockedSpeedLevel = nextLevel;
-              var newInterval =
-                App.config.originalSpawnInterval / Math.pow(2, nextLevel);
-              App.config.spawnInterval = newInterval; 
-              window.BallFall.updateSpawnInterval(newInterval); 
-              App.updateCoinsDisplay();
-              updateAutoClickerCostDisplay(); 
-              App.Persistence.saveAutoClicker({ 
-                purchased: true,
-                maxSpeedLevel: nextLevel,
-              });
-            } else {
-              window.notifyUnaffordable(100, 12);
-            }
-          }
-        });
-      }
-      
-       if (window.App && App.config) {
-          updateAutoClickerCostDisplay();
+      let cost;
+      if (!App.config.autoClicker) {
+        cost = App.config.autoClickerCost;
       } else {
-          
-          document.addEventListener('DOMContentLoaded', updateAutoClickerCostDisplay);
+        const next = App.config.maxUnlockedSpeedLevel + 1;
+        cost = App.config.speedUpgradeCosts[next];
       }
-    })();
-  </script>
+
+      const costEl = document.getElementById("autoClickerCost");
+      if (costEl) {
+        if (cost !== undefined) {
+          costEl.innerHTML = '<img src="' + coinCostURL + '" alt="Coin" /> ' + cost;
+          costEl.style.display = 'flex';
+        } else {
+          costEl.innerHTML = 'Max';
+          costEl.style.display = 'flex';
+        }
+      }
+
+      const btn = document.getElementById("autoClicker");
+      if (btn) {
+        if (cost === undefined && App.config.autoClicker) {
+          btn.style.cursor = 'default';
+          btn.style.opacity = '0.5';
+        } else {
+          btn.style.cursor = 'pointer';
+          btn.style.opacity = '1';
+        }
+      }
+    }
+    App.updateAutoClickerCostDisplay = updateAutoClickerCostDisplay;
+
+    const btn = document.getElementById("autoClicker");
+    if (btn) {
+      btn.addEventListener("click", function () {
+        if (!App.config.autoClicker) {
+          const c = App.config.autoClickerCost;
+          if (App.config.coins >= c) {
+            App.config.coins -= c;
+            App.config.autoClicker = true;
+            App.Persistence.saveAutoClicker({ purchased: true, maxSpeedLevel: 0 });
+            window.BallFall.startAutoSpawner();
+            App.updateCoinsDisplay();
+            updateAutoClickerCostDisplay();
+          } else {
+            window.notifyUnaffordable(100, 12);
+          }
+        } else {
+          const lvl = App.config.maxUnlockedSpeedLevel + 1;
+          const c = App.config.speedUpgradeCosts[lvl];
+          if (c === undefined) return;
+          if (App.config.coins >= c) {
+            App.config.coins -= c;
+            App.config.maxUnlockedSpeedLevel = lvl;
+            const ni = App.config.originalSpawnInterval / Math.pow(2, lvl);
+            App.config.spawnInterval = ni;
+            window.BallFall.updateSpawnInterval(ni);
+            App.updateCoinsDisplay();
+            updateAutoClickerCostDisplay();
+            App.Persistence.saveAutoClicker({ purchased: true, maxSpeedLevel: lvl });
+          } else {
+            window.notifyUnaffordable(100, 12);
+          }
+        }
+      });
+    }
+
+    
+    document.addEventListener("BallFallBaseReady", updateAutoClickerCostDisplay);
+  })();
+</script>
+
 
   
 
