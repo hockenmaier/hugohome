@@ -208,6 +208,17 @@ window.App = {
       }
     });
 
+    // [Orientation Lock] Lock screen to portrait in supported browsers.
+    if (screen.orientation && screen.orientation.lock) {
+      screen.orientation.lock("portrait").catch(() => {
+        // Lock failed (e.g., not fullscreen or unsupported)
+      });
+    }
+    // Reload page on rotation change to handle layout issues.
+    window.addEventListener("orientationchange", () => {
+      location.reload();
+    });
+
     // Load auto-clicker state for this page from persistent storage.
     if (
       App.Persistence &&
