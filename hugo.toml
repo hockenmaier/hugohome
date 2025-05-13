@@ -13,7 +13,6 @@ tags = "tags"                # Still optional, for very specific filters like "A
 [params.paige]
 color = "#0d1213" # Adjust to your preferred primary color
 color_scheme = "dark" # "auto" will follow system preferences for dark/light mode
-description = "Welcome to HockenHome, Brian's site for project updates, writings, and ideas."
 menu_style = "pills" # Can be "links", "pills", "tabs", or "underline"
 #credit = '© Brian Hockenmaier. All rights reserved.'
 #Credit is not needed, this is added in layouts/partials/paige/side-footer.html
