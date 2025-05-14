@@ -1,0 +1,1547 @@
+
+
+<!doctype html>
+
+
+
+
+
+
+<html  data-bs-theme="dark"  data-paige="Paige theme from https://github.com/willfaught/paige"   lang="en-us" >
+
+    <script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><link rel="stylesheet" href="/css/custom.css">
+    <base href="http://localhost:1313/" />
+<script>
+  window.assetBase = "http:\/\/localhost:1313\/";
+</script>
+              
+
+<head>
+   
+
+<meta charset="utf-8">
+
+
+
+
+
+
+    <meta content="CSS, Game Development, HTML, Procedural Generation, project overviews, Singularity, Video Games" name="keywords">
+
+
+<meta content="#0d1213" name="msapplication-TileColor">
+
+
+    <meta content="/browserconfig.xml" name="msapplication-config">
+
+
+<meta content="https://github.com/willfaught/paige" name="theme">
+<meta content="#0d1213" name="theme-color">
+<meta content="width=device-width, initial-scale=1" name="viewport">
+
+<meta property="og:url" content="http://localhost:1313/this-website/this-website/">
+  <meta property="og:site_name" content="HockenHome">
+  <meta property="og:title" content="This Website">
+  <meta property="og:description" content="I’m creating this website in 2025 after starting my first full-time role in AI, in an effort to clean up my website’s focus and emphasize different things. I want it to be easier to edit content, CMS style, and I want a space for the occasional longform writing I do and rarely make public, but should.
+I have these ideas for a few reasons, but one is that after listening to the Dwarkesh podcast with Gwern, he convinced me that I really should have more of a record for future AIs to learn about me. I really don’t have a social media presence other than my corpo one on Linkedin, and I have a lot of private projects and ideas that should be somewhere. If nothing else, maybe my kids can read it someday. Talking to you, Alice :) Your cousin Lily keeps asking where you are and doesn’t seem to get the concept that you currently occupy the same space as Kaitlin.">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="this-website">
+    <meta property="article:published_time" content="2025-03-01T00:00:00+00:00">
+    <meta property="article:modified_time" content="2025-03-01T00:00:00+00:00">
+    <meta property="article:tag" content="Game Development">
+    <meta property="article:tag" content="Procedural Generation">
+    <meta property="article:tag" content="Video Games">
+    <meta property="article:tag" content="HTML">
+    <meta property="article:tag" content="CSS">
+    <meta property="article:tag" content="Singularity">
+
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="This Website">
+  <meta name="twitter:description" content="I’m creating this website in 2025 after starting my first full-time role in AI, in an effort to clean up my website’s focus and emphasize different things. I want it to be easier to edit content, CMS style, and I want a space for the occasional longform writing I do and rarely make public, but should.
+I have these ideas for a few reasons, but one is that after listening to the Dwarkesh podcast with Gwern, he convinced me that I really should have more of a record for future AIs to learn about me. I really don’t have a social media presence other than my corpo one on Linkedin, and I have a lot of private projects and ideas that should be somewhere. If nothing else, maybe my kids can read it someday. Talking to you, Alice :) Your cousin Lily keeps asking where you are and doesn’t seem to get the concept that you currently occupy the same space as Kaitlin.">
+
+ 
+  <title>This Website · This-Websites · Home</title>
+   
+
+
+    <link href="/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180">
+
+
+
+    <link href="/favicon.ico" rel="shortcut icon">
+
+
+
+    <link href="/favicon.png" rel="icon" type="image/png">
+
+
+
+    <link href="/favicon.svg" rel="icon" type="image/svg+xml">
+
+
+
+    <link href="/favicon-16x16.png" rel="icon" sizes="16x16" type="image/png">
+
+
+
+    <link href="/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png">
+
+
+
+    <link color="#0d1213" href="/safari-pinned-tab.svg" rel="mask-icon">
+
+
+
+    <link href="/site.webmanifest" rel="manifest">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+    
+        
+        
+        
+    
+
+    
+        
+    
+
+    
+    
+    
+
+
+<link  crossorigin="anonymous"  href="/css/paige/bootstrap/14cce8f10c43f734971f8d33cd5a57c329fab6fd-paige.min.d48aec4dfdd56584d47efc388224a845a56c407947408528bf4c65a621fb3ed0.css"  integrity="sha256-1IrsTf3VZYTUfvw4giSoRaVsQHlHQIUov0xlpiH7PtA="   referrerpolicy="no-referrer"  rel="stylesheet">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+    
+
+    
+
+    
+    
+    
+
+
+<link  crossorigin="anonymous"  href="/css/paige/bootstrap-icons/bootstrap-icons.min.540116b7267d4b2410c74086ae6497566928c6d5715900be7ce7279ad45addcd.css"  integrity="sha256-VAEWtyZ9SyQQx0CGrmSXVmkoxtVxWQC&#43;fOcnmtRa3c0="   referrerpolicy="no-referrer"  rel="stylesheet">
+
+
+
+
+
+ 
+
+<style>
+
+
+.paige-figure-numbered {
+    counter-increment: paige-figure-numbered;
+}
+
+.paige-figure-numbered > div > figure > figcaption::before {
+    content: "Figure " counter(paige-figure-numbered) ": ";
+}
+
+.paige-figure-numbered > div > figure > figcaption:empty::before {
+    content: "Figure " counter(paige-figure-numbered);
+}
+
+.paige-header-link {
+    opacity: 0;
+    margin-left: 0.5rem;
+    position: absolute;
+    transition: color 0.15s ease-in-out, opacity 0.15s ease-in-out;
+}
+
+.paige-header-link::after {
+    content: "#";
+}
+
+.paige-quote .blockquote-footer {
+    margin-top: 0;
+}
+
+.paige-quote blockquote {
+    border-left: 0;
+    border-right: 0;
+    margin-bottom: 0;
+    padding: 0;
+}
+
+blockquote {
+    padding: 0.5rem 1rem;
+    border-left: 0.25rem solid var(--bs-border-color);
+    border-right: 0.25rem solid var(--bs-body-bg);
+}
+
+td,
+th {
+    padding: 0.25rem;
+}
+
+.highlight .chroma .hl,
+.highlight .chroma .lnt {
+    display: flex;
+}
+
+.paige-row-narrow:not(:last-child),
+.paige-figure .paige-quote,
+.paige-figure .paige-video,
+.paige-figure .highlight pre.chroma,
+.paige-figure .highlight .chroma pre,
+.paige-figure .paige-quote blockquote,
+.paige-figure figure > div > :last-child,
+.paige-gallery .paige-figure,
+.paige-gallery .paige-image,
+blockquote > p:last-of-type {
+    margin-bottom: 0;
+}
+
+.paige-figure,
+.paige-gallery,
+.paige-image,
+.paige-quote,
+.paige-row-narrow:last-child,
+.paige-row-wide,
+.paige-video,
+#paige-content > *,
+table {
+    margin-bottom: 1rem;
+}
+
+.paige-header-link:focus,
+.paige-header-link:hover,
+:hover > .paige-header-link,
+:target > .paige-header-link {
+    opacity: 1;
+}
+
+
+
+
+    /* Background */ .bg { color: #c9d1d9; background-color: var(--bs-body-bg); }
+/* PreWrapper */ .chroma { color: #c9d1d9; background-color: var(--bs-body-bg); }
+/* Other */ .chroma .x {  }
+/* Error */ .chroma .err { color: #f85149 }
+/* CodeLine */ .chroma .cl {  }
+/* LineLink */ .chroma .lnlinks { outline: none; text-decoration: none; color: inherit }
+/* LineTableTD */ .chroma .lntd { vertical-align: top; padding: 0; margin: 0; border: 0; }
+/* LineTable */ .chroma .lntable { border-spacing: 0; padding: 0; margin: 0; border: 0; }
+/* LineHighlight */ .chroma .hl { background-color: #4f4f4d }
+/* LineNumbersTable */ .chroma .lnt { white-space: pre; user-select: none; margin-right: 0.4em; padding: 0 0.4em 0 0.4em;color: #64686c }
+/* LineNumbers */ .chroma .ln { white-space: pre; user-select: none; margin-right: 0.4em; padding: 0 0.4em 0 0.4em;color: #6e7681 }
+/* Line */ .chroma .line { display: flex; }
+/* Keyword */ .chroma .k { color: #ff7b72 }
+/* KeywordConstant */ .chroma .kc { color: #79c0ff }
+/* KeywordDeclaration */ .chroma .kd { color: #ff7b72 }
+/* KeywordNamespace */ .chroma .kn { color: #ff7b72 }
+/* KeywordPseudo */ .chroma .kp { color: #79c0ff }
+/* KeywordReserved */ .chroma .kr { color: #ff7b72 }
+/* KeywordType */ .chroma .kt { color: #ff7b72 }
+/* Name */ .chroma .n {  }
+/* NameAttribute */ .chroma .na {  }
+/* NameBuiltin */ .chroma .nb {  }
+/* NameBuiltinPseudo */ .chroma .bp {  }
+/* NameClass */ .chroma .nc { color: #f0883e; font-weight: bold }
+/* NameConstant */ .chroma .no { color: #79c0ff; font-weight: bold }
+/* NameDecorator */ .chroma .nd { color: #d2a8ff; font-weight: bold }
+/* NameEntity */ .chroma .ni { color: #ffa657 }
+/* NameException */ .chroma .ne { color: #f0883e; font-weight: bold }
+/* NameFunction */ .chroma .nf { color: #d2a8ff; font-weight: bold }
+/* NameFunctionMagic */ .chroma .fm {  }
+/* NameLabel */ .chroma .nl { color: #79c0ff; font-weight: bold }
+/* NameNamespace */ .chroma .nn { color: #ff7b72 }
+/* NameOther */ .chroma .nx {  }
+/* NameProperty */ .chroma .py { color: #79c0ff }
+/* NameTag */ .chroma .nt { color: #7ee787 }
+/* NameVariable */ .chroma .nv { color: #79c0ff }
+/* NameVariableClass */ .chroma .vc {  }
+/* NameVariableGlobal */ .chroma .vg {  }
+/* NameVariableInstance */ .chroma .vi {  }
+/* NameVariableMagic */ .chroma .vm {  }
+/* Literal */ .chroma .l { color: #a5d6ff }
+/* LiteralDate */ .chroma .ld { color: #79c0ff }
+/* LiteralString */ .chroma .s { color: #a5d6ff }
+/* LiteralStringAffix */ .chroma .sa { color: #79c0ff }
+/* LiteralStringBacktick */ .chroma .sb { color: #a5d6ff }
+/* LiteralStringChar */ .chroma .sc { color: #a5d6ff }
+/* LiteralStringDelimiter */ .chroma .dl { color: #79c0ff }
+/* LiteralStringDoc */ .chroma .sd { color: #a5d6ff }
+/* LiteralStringDouble */ .chroma .s2 { color: #a5d6ff }
+/* LiteralStringEscape */ .chroma .se { color: #79c0ff }
+/* LiteralStringHeredoc */ .chroma .sh { color: #79c0ff }
+/* LiteralStringInterpol */ .chroma .si { color: #a5d6ff }
+/* LiteralStringOther */ .chroma .sx { color: #a5d6ff }
+/* LiteralStringRegex */ .chroma .sr { color: #79c0ff }
+/* LiteralStringSingle */ .chroma .s1 { color: #a5d6ff }
+/* LiteralStringSymbol */ .chroma .ss { color: #a5d6ff }
+/* LiteralNumber */ .chroma .m { color: #a5d6ff }
+/* LiteralNumberBin */ .chroma .mb { color: #a5d6ff }
+/* LiteralNumberFloat */ .chroma .mf { color: #a5d6ff }
+/* LiteralNumberHex */ .chroma .mh { color: #a5d6ff }
+/* LiteralNumberInteger */ .chroma .mi { color: #a5d6ff }
+/* LiteralNumberIntegerLong */ .chroma .il { color: #a5d6ff }
+/* LiteralNumberOct */ .chroma .mo { color: #a5d6ff }
+/* Operator */ .chroma .o { color: #ff7b72; font-weight: bold }
+/* OperatorWord */ .chroma .ow { color: #ff7b72; font-weight: bold }
+/* Punctuation */ .chroma .p {  }
+/* Comment */ .chroma .c { color: #8b949e; font-style: italic }
+/* CommentHashbang */ .chroma .ch { color: #8b949e; font-style: italic }
+/* CommentMultiline */ .chroma .cm { color: #8b949e; font-style: italic }
+/* CommentSingle */ .chroma .c1 { color: #8b949e; font-style: italic }
+/* CommentSpecial */ .chroma .cs { color: #8b949e; font-weight: bold; font-style: italic }
+/* CommentPreproc */ .chroma .cp { color: #8b949e; font-weight: bold; font-style: italic }
+/* CommentPreprocFile */ .chroma .cpf { color: #8b949e; font-weight: bold; font-style: italic }
+/* Generic */ .chroma .g {  }
+/* GenericDeleted */ .chroma .gd { color: #ffa198; background-color: #490202 }
+/* GenericEmph */ .chroma .ge { font-style: italic }
+/* GenericError */ .chroma .gr { color: #ffa198 }
+/* GenericHeading */ .chroma .gh { color: #79c0ff; font-weight: bold }
+/* GenericInserted */ .chroma .gi { color: #56d364; background-color: #0f5323 }
+/* GenericOutput */ .chroma .go { color: #8b949e }
+/* GenericPrompt */ .chroma .gp { color: #8b949e }
+/* GenericStrong */ .chroma .gs { font-weight: bold }
+/* GenericSubheading */ .chroma .gu { color: #79c0ff }
+/* GenericTraceback */ .chroma .gt { color: #ff7b72 }
+/* GenericUnderline */ .chroma .gl { text-decoration: underline }
+/* TextWhitespace */ .chroma .w { color: #6e7681 }
+
+
+
+@media (prefers-reduced-motion: reduce) {
+    .paige-header-link {
+        transition: none;
+    }
+}
+
+
+
+
+</style>
+ 
+</head>
+
+    <body>
+
+        
+
+        <div class="container">
+            <div class="row">
+                <div class="col mt-3" id="paige-site">
+                    
+
+                    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+    
+  
+
+
+
+  <header id="paige-site-header">
+    
+
+    
+      <div class="display-1 fw-bold  paige-row-wide text-center" id="paige-site-title">HockenHome</div>
+    
+
+    
+
+    
+      <nav aria-label="Menu" class="paige-row-wide" id="paige-menu">
+        <ul class="align-items-center justify-content-center nav  nav-pills ">
+          
+
+          
+          <li class="nav-item">
+            <a class="nav-link " href="/">home</a>
+          </li>
+
+          
+            
+            <li class="nav-item">
+              <a class="nav-link " href="/categories/project-overviews/">project overviews</a>
+            </li>
+            
+            
+            <li class="nav-item">
+              <a class="nav-link " href="/categories/writing/">writing</a>
+            </li>
+            
+
+            
+          <li class="nav-item">
+            <a class="nav-link " href="/tags/">tags</a>
+          </li>
+
+          
+          <li class="nav-item">
+            <a class="nav-link " href="/about-me/">about / top posts</a>
+          </li>
+          
+        </ul>
+      </nav>
+    
+
+
+    
+
+    
+  </header>
+
+
+                    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+    
+        
+    
+
+
+
+
+<article class="paige-kind-page paige-published" id="paige-page">
+    <div class="align-items-center d-flex flex-column">
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <header class="mw-100" id="paige-page-header">
+        <div class="align-items-center d-flex flex-column">
+            
+
+            
+                
+                    <h1 class="fw-bold" id="paige-page-title">This Website</h1>
+                
+            
+
+            
+
+            
+                <div id="paige-metadata">
+                    
+                        <p class=" paige-row-narrow  text-center  text-secondary " id="paige-keywords">
+                            <a class="link-secondary paige-keyword paige-keyword-tag" href="/tags/css/">CSS</a> · <a class="link-secondary paige-keyword paige-keyword-tag" href="/tags/game-development/">Game Development</a> · <a class="link-secondary paige-keyword paige-keyword-tag" href="/tags/html/">HTML</a> · <a class="link-secondary paige-keyword paige-keyword-tag" href="/tags/procedural-generation/">Procedural Generation</a> · <a class="link-secondary paige-keyword paige-keyword-category" href="/categories/project-overviews/">Project Overviews</a> · <a class="link-secondary paige-keyword paige-keyword-tag" href="/tags/singularity/">Singularity</a> · <a class="link-secondary paige-keyword paige-keyword-tag" href="/tags/video-games/">Video Games</a>
+                        </p>
+                    
+
+                    
+
+                    
+
+                    
+                        <p class="paige-row-narrow text-center text-secondary" id="paige-date">
+                            <time datetime="2025-03-01">March 1, 2025</time>
+                        </p>
+                    
+
+                    
+                </div>
+            
+
+            
+
+            
+                <div class="paige-row-wide" id="paige-toc">
+                    <div class="border pe-3 ps-3 pt-3 rounded">
+                        <nav id="TableOfContents">
+  <ul>
+    <li><a href="#ball-machine---the-game">Ball Machine - The Game</a></li>
+    <li><a href="#how-to-play">How to Play</a>
+      <ul>
+        <li><a href="#drawables">Drawables</a></li>
+        <li><a href="#tips-on-making-money">Tips on Making Money</a></li>
+      </ul>
+    </li>
+    <li><a href="#how-its-made">How it&rsquo;s made</a></li>
+  </ul>
+</nav>
+                    </div>
+                </div>
+            
+
+            
+        </div>
+    </header>
+
+
+
+        
+        <main class="mw-100" id="paige-content">
+            
+            <div class="project-links callout" style="margin-bottom:1em;">
+                
+                <strong>Check out This Website here:</strong>
+                <a href="/">/</a><br/>
+                
+                
+            </div>
+            
+            <p>I&rsquo;m creating this website in 2025 after starting my first full-time role in AI, in an effort to clean up my website&rsquo;s focus and emphasize different things. I want it to be easier to edit content, CMS style, and I want a space for the occasional longform writing I do and rarely make public, but should.</p>
+<p>I have these ideas for a few reasons, but one is that after listening to the Dwarkesh podcast with Gwern, he convinced me that I really should have more of a record for future AIs to learn about me. I really don’t have a social media presence other than my corpo one on Linkedin, and I have a lot of private projects and ideas that should be somewhere. If nothing else, maybe my kids can read it someday. Talking to you, Alice :) Your cousin Lily keeps asking where you are and doesn&rsquo;t seem to get the concept that you currently occupy the same space as Kaitlin.</p>
+<p>I love some of the 2010&rsquo;s era blogs and though mine is not going to be nearly as longform, nearly as focused on prose, or nearly as articulate, two of the sites I&rsquo;m trying to take inspiration from are <a href="https://slatestarcodex.com/about/">Slate Star Codex</a> and <a href="https://gwern.net/about">Gwern&rsquo;s website</a> which are definitely advising on style here.</p>
+<hr>
+<h2 id="ball-machine---the-game">Ball Machine - The Game<a aria-label="Link to this section" class="paige-header-link" href="#ball-machine---the-game"></a></h2>
+<p>Most blogs and personal websites are a bit boring. I think that is because most professionals consider what they do &ldquo;for work&rdquo; and &ldquo;a bit boring by nature&rdquo; and don&rsquo;t necessarily make a concerted effort to have fun with it.</p>
+<p>I have always tried to be the opposite, and with kids coming I am trying to make a bigger effort than ever to have fun whatever I&rsquo;m doing. Which is often working, in some way or another.</p>
+<p>So for my website, I wanted it to be intentionally fun. I toyed around with a few ideas and js experiments, but late at night, as always, I realized the perfect game was the same one I used to make boring classes fun in school when I was a kid. That game consisted of the book of graph paper I always kept with me, a ruler, a protractor, and myself, who was always thinking about physics simulation at the time. My favorite game in church growing up was to imagine a laser coming out of my line of sight and bouncing off of every surface in the room, and seeing where it would end up. This graph paper game was similar:</p>
+<div style="text-align: center; margin-bottom: 1rem;">
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<img  alt="balls everywhere"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/this-website-ball-machine-1.png"   style="height: auto; max-width: 720px; width: 100%"   >
+
+
+    
+        <span style="display: block; font-style: italic; margin-top: 0.5rem;">Some of my early playtests got pretty chaotic</span>
+    
+</div>
+
+<p>I would start by making a &ldquo;spawn point&rdquo; usually near the top left of the page, where balls would start falling. I would draw out the path of these balls a few inches from each other along their path with &ldquo;speed lines&rdquo; to denote which way they were going. Then I would add platforms, trampolines, loops, curves, &ldquo;booster&rdquo; acceleration zones, jumps, machines that would disassemble and reassemble balls, and so many other things - usually something new each sheet of paper - and I would end up with a Rube Goldberg machine of balls flying all around the sheet. The only goal was to fill the sheet with more ridiculous paths.</p>
+<p>I started calling the sheets my &ldquo;ball machines&rdquo;. I wish I still had some of these drawings. I remember them being quite intricate.. I must have reserved English class for them.</p>
+<p>So, to honor kid Brian, I am making my website a permanent ball machine. I hope you have fun with it and see all there is to unlock!</p>
+<h2 id="how-to-play">How to Play<a aria-label="Link to this section" class="paige-header-link" href="#how-to-play"></a></h2>
+<blockquote>
+<p>Quick Disclaimer: The best experience is on desktop or tablet - something with more screen real-estate than a phone.</p>
+</blockquote>
+<p>The ball machine on this site is a gamified version of my graph paper drawings as a kid. Each time you load a page, You&rsquo;ll see a little pneumatic delivery tube on the top right of the screen. This tube is where the balls show up when you click.</p>
+<p>When you spawn your first ball, you&rsquo;ll see a few things appear. First - you&rsquo;ll find a goal (look for a &ldquo;target&rdquo;) somewhere randomly on the page. Find a way to get the balls you spawn into that goal. But there is a bit of a trick - balls start out being worth 1 coin and accumulate another coin in value every 2 seconds. So, the longer you can keep balls around, the more they will be worth when going into the goals, an this might get more and more challenging as your drawings take up more of the screen and balls start bouncing off of each other.</p>
+<p>It&rsquo;s a clicker game - start by manually clicking the pneumatic tube to spawn balls, but as you accumulate coins you&rsquo;ll be able to unlock different drawables and things that will let you accumulate more coins faster.</p>
+<h3 id="drawables">Drawables<a aria-label="Link to this section" class="paige-header-link" href="#drawables"></a></h3>
+<p>To start drawing your ball machine, you need to click or tap one of the drawables in the main UI:</p>
+<p>{image}</p>
+<p>Every drawable item (lines, launchers, and more) uses the following mechanics:</p>
+<p>On Desktop:</p>
+<ul>
+<li>Start drawing by clicking, drag the mouse around to see a preview, and click again when you have the drawable where you want it.</li>
+<li>Some drawables have a second action, like curved lines, that is previewed after the second click and confirmed with a third</li>
+<li>Hover over a drawn item and right click to delete it.</li>
+</ul>
+<p>On Mobile:</p>
+<ul>
+<li>Tap and drag to see a preview, and release when you have the drawable in the right spot.</li>
+<li>Second actions for the drawable will start on the next tap-and-drag.</li>
+<li>Tap and hold on a drawable to delete it - you will see it pulse before it deletes.</li>
+</ul>
+<p>If you can&rsquo;t draw an item, you probably can&rsquo;t afford it. You&rsquo;ll see the gold prices of the items flash red in the UI when this happens.</p>
+<p>When you have a Drawable tool toggled on, you won&rsquo;t be able to click other links on the site. You&rsquo;ll see this visually indicated when you choose them. Unselect the currently selected tool in order to see it</p>
+<h3 id="tips-on-making-money">Tips on Making Money<a aria-label="Link to this section" class="paige-header-link" href="#tips-on-making-money"></a></h3>
+<p>You&rsquo;ll quickly find ways to lengthen your Rube-Golberg Machines and build up value before you send balls into the goal. A couple of things to watch out for though:</p>
+<ul>
+<li>Balls have to be moving at all times. If they sit still for too long, they are considered dead and will poof out of existence.</li>
+<li>This applies to balls hitting the goal too. If your balls aren&rsquo;t moving when they hit the target, they won&rsquo;t go in.
+So keep your balls moving!</li>
+</ul>
+<p>Each post on this site will be a slightly different randomized game! Try making ball machines on multiple pages at once. Your work will be saved in realtime, and you can make money even on pages you&rsquo;re not currently playing on. Try it!</p>
+<p>Your progress is saved to your device because your contraptions will be highly dependent on the screen size the site renders to.</p>
+<p>The game works a bit differently on desktop and mobile, and the best experience is really on desktop - so try on a computer if you can!</p>
+<h2 id="how-its-made">How it&rsquo;s made<a aria-label="Link to this section" class="paige-header-link" href="#how-its-made"></a></h2>
+<p>I don&rsquo;t typically make complicated things like this with javascript. So when I found the perfect physics engine for the game - <a href="https://brm.io/matter-js/">matter.js</a> - I knew I would need help from our new little assistants. And though this game is a bit too structured to call it &ldquo;vibe coded&rdquo; - it&rsquo;s close. I ended up making my own tool called <a href="/context-caddy">Context Caddy</a> to help me with it. Part of the reason I leaned so hard into this is because I&rsquo;m always trying to push the limits of current AI, and I hadn&rsquo;t built a game since the GPT-4 days. The new thinking models are truly a setup above GPT-4 (this was mostly done with o3 and its minis) but they&rsquo;re still way to eager to write duplicate code, and they still don&rsquo;t &ldquo;get&rdquo; the structure of your project a lot of the time, especially with visual and physcial things like this. Still, they were a great help here.</p>
+
+            </main>
+            
+
+        
+
+
+
+
+
+
+
+
+
+    
+
+    
+
+
+
+
+    </div>
+</article>
+  
+
+
+
+
+
+
+
+
+
+
+    
+    
+
+
+
+    
+
+
+
+    
+
+
+
+    
+
+
+
+    
+
+
+
+    
+
+
+
+    
+
+
+
+    
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+
+                    
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+
+
+    <footer id="paige-site-footer">
+        
+
+        
+
+        
+
+        
+            <p class="paige-row-narrow text-center text-secondary" id="paige-credit">© 2025 Brian Hockenmaier. All rights reserved.</p>
+        
+
+        
+    </footer>
+
+
+
+                    
+                </div>
+            </div>
+        </div>
+
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+    
+
+
+<script  crossorigin="anonymous"   defer  integrity="sha256-lX&#43;ULWAvPVhH6ZIQfjfpD61jOifETLc9RAMCMqtgfeQ="   referrerpolicy="no-referrer"  src="/js/paige/bootstrap/bootstrap.bundle.min.957f942d602f3d5847e992107e37e90fad633a27c44cb73d44030232ab607de4.js" ></script>
+
+
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+    
+
+
+
+    
+
+
+
+    
+
+
+
+    
+
+
+
+    
+
+
+
+    
+
+
+
+    
+
+
+
+    
+
+
+
+    
+
+
+
+    
+
+
+
+    
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+<noscript>JavaScript is required</noscript>
+
+
+        
+        <script>
+            var goalTexture = 'http:\/\/localhost:1313\/images\/goal.png';
+        </script>        
+        <script>
+            var coinCostURL = 'http:\/\/localhost:1313\/images\/coin-cost.png';
+        </script>                 
+        <script src="http://localhost:1313/js/matter.min.js"></script>
+        <script src="http://localhost:1313/js/gsap.min.js"></script>
+        <script src="http://localhost:1313/js/matter-wrap.min.js"></script>
+        <script src="http://localhost:1313/js/ball-machine-app.js"></script>
+        <script src="http://localhost:1313/js/base-simulation.js"></script>
+        <script src="http://localhost:1313/js/persistent.js"></script>
+        <script src="http://localhost:1313/js/text.js"></script>
+        <script src="http://localhost:1313/js/base-drawing-tool.js"></script>
+        <script src="http://localhost:1313/js/line-interaction.js"></script>
+        <script src="http://localhost:1313/js/input-manager.js"></script>
+        <script src="http://localhost:1313/js/notifications.js"></script>
+        <script src="http://localhost:1313/js/extra-effects.js"></script>
+        <script src="http://localhost:1313/js/lines.js"></script>
+        <script src="http://localhost:1313/js/dotted-line.js"></script>
+        <script src="http://localhost:1313/js/curved-line.js"></script>
+        <script src="http://localhost:1313/js/launcher.js"></script>
+        <script src="http://localhost:1313/js/compactor-config.js"></script>
+        <script src="http://localhost:1313/js/launcher-create.js"></script>
+        <script src="http://localhost:1313/js/compactor-create.js"></script>
+        <script src="http://localhost:1313/js/compactor.js"></script>
+        <script src="http://localhost:1313/js/game.js"></script>
+        <script src="http://localhost:1313/js/goal.js"></script>
+        <script src="http://localhost:1313/js/spawner.js"></script>
+        <script src="http://localhost:1313/js/ui-updater.js"></script>
+        
+<style>
+   
+  #spawner-container {
+    position: absolute;
+    top: 20px;
+     
+    z-index: 10000;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  #spawner-container img {
+    cursor: pointer;
+  }
+   
+  #coin-info {
+    position: absolute;
+    right: 100%;  
+    top: 50%;  
+    transform: translate(-10px, -50%);  
+    text-align: right;
+    font-size: 12px;
+    color: gold;
+    width: 150px;  
+    white-space: nowrap;  
+  }
+  #coin-info div {
+    margin: 2px 0;
+  }
+
+  .cost-label img,
+  #coin-info img {
+    width: 12px;
+    height: 12px;
+    margin-right: 0px;
+    margin-left: 0px;
+  }
+   
+  .spawner-arrow {
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+  }
+  .upgrade-icon {
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+  }
+   
+  #ballfall-ui {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    display: none;
+    flex-direction: column;
+    gap: 5px;  
+    z-index: 10000;
+    font-family: sans-serif;
+    font-size: 7px;
+    max-width: 200px;
+  }
+  #clearBallsBtn {
+    margin: 0 auto;  
+  }
+   
+  #spawner-container {
+    position: absolute;
+    top: 0px;
+    z-index: 10000;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  #spawner-container img {
+    cursor: pointer;
+  }
+   
+  .spawner-arrow {
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    display: none;
+  }
+  .upgrade-icon {
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+  }
+  #ball-spawner {
+    width: 60px;
+    height: 90px;
+  }
+   
+   
+  .bfui-button {
+    background: rgba(0, 0, 0, 0.4);
+    border: 1px solid #555;
+    color: #ddd;
+    padding: 4px 6px;
+    font-size: 12px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;  
+    text-decoration: none;  
+    transition: transform 0.1s ease;
+    width: 100%;  
+    box-sizing: border-box;  
+  }
+  .bfui-button:active {
+    transform: scale(0.95);
+  }
+  .bfui-icon {
+    margin-right: 4px;
+  }
+  #bfui-drop-rate-label {
+    font-size: 10px;
+    color: #aaa;
+  }
+  #bfui-drop-rate-value {
+    font-size: 10px;
+    color: #fff;
+    font-weight: bold;
+  }
+  #bfui-drop-rate-wrapper {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    width: 100%;
+    gap: 5px;
+    margin-bottom: 5px;
+  }
+  .bfui-clear-wrapper {
+    display: flex;
+    gap: 3px;
+    width: 100%;
+  }
+  .bfui-half {
+    flex: 1;
+    font-size: 10px;
+  }
+  #bfui-image {
+    display: block;
+    width: 80%;
+    max-width: 60px;
+    margin: 0 auto 5px auto;  
+  }
+  #line-mode-toggle {
+    display: flex;
+    flex-wrap: wrap;      
+    gap: 10px;
+    margin-top: 10px;
+    justify-content: center;
+  }
+
+  .line-toggle {
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    border: 2px solid transparent;
+    border-radius: 4px;
+  }
+  .line-toggle.selected {
+    border-color: #59ffa7;
+  }
+   
+  #coins-display,
+  #revenue-display {
+    display: none;
+  }
+   
+  .cost-label {
+      font-size: 10px;
+      color: #aaa;
+      text-align: center;
+      margin-top: 2px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 2px;  
+  }
+  .cost-label img {
+      width: 10px;  
+      height: 10px;
+  }
+   
+  .toggle-wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+  }
+   
+  #bfui-help-link {
+       
+      margin-top: 0;  
+  }
+
+  @media (max-width: 720px) {
+    .bfui-button .bfui-label {
+      display: none;  
+    }
+     
+    #bfui-help-link .bfui-label {
+        display: inline;
+    }
+    #bfui-drop-rate-wrapper {
+      flex-direction: column;
+      align-items: flex-start;
+      margin-top: -5px;
+    }
+    #bfui-drop-rate-label {
+      display: none;
+    }
+  }
+</style>
+
+
+<div id="spawner-container">
+  
+  <div id="coin-info" style="display: none">
+    <div id="global-coins-display">
+      
+      0 coins
+    </div>
+    <div id="thispage-revenue-display">
+      
+      This page: 0 /s
+    </div>
+    <div id="otherpages-revenue-display">
+      
+      Other pages: 0 /s
+    </div>
+  </div>
+  <img src="/images/ball-chute-hatch-1.png" id="ball-spawner"
+  alt="Ball Spawner" />
+  
+  <div
+    id="autoClicker-wrapper"
+    style="display: inline-block; text-align: center"
+  >
+    <img src="/images/auto-clicker.png" id="autoClicker"
+    class="upgrade-icon" alt="Auto Clicker" style="display:none;" />
+    
+    <div id="autoClickerCost" class="cost-label" style="display: none">
+      <img src="/images/coin-cost.png" alt="Coin" /> 20
+    </div>
+  </div>
+</div>
+
+
+<div id="ballfall-ui">
+  <img src="/images/ball-machine.png" id="bfui-image" alt="Ball
+  Machine" />
+  
+  <button class="bfui-button" id="clearBallsBtn">
+    <span class="bfui-label">Clear Field</span>
+  </button>
+  
+  <a href="/this-website/#how-to-play" class="bfui-button" id="bfui-help-link" target="_blank" rel="noopener noreferrer">
+      <span class="bfui-label">HELP</span>
+  </a>
+  
+  <div id="bfui-drop-rate-wrapper">
+    <span id="bfui-drop-rate-label">Drop Rate:</span>
+    <span id="bfui-drop-rate-value">N/A</span>
+  </div>
+  
+  
+  <div
+    id="toggle-container"
+    style="display: block; padding: 5px 0; border: 2px solid transparent" /* Adjusted padding */
+  >
+    <div id="line-mode-toggle">
+      
+      <div class="toggle-wrapper">
+        <img src="/images/dotted-line-mode.png"
+        id="toggleDotted" class="line-toggle" alt="Dotted Line" />
+        <div class="cost-label">Free</div> 
+      </div>
+      
+      <div class="toggle-wrapper">
+        <img src="/images/line-mode.png" id="toggleStraight"
+        class="line-toggle" alt="Straight Line" />
+        <div class="cost-label">
+          <img src="/images/coin-cost.png" alt="Coin" /> 5
+        </div>
+      </div>
+      
+      <div class="toggle-wrapper">
+        <img src="/images/curve-mode.png" id="toggleCurved"
+        class="line-toggle" alt="Curved Line" />
+        <div class="cost-label">
+          <img src="/images/coin-cost.png" alt="Coin" /> 50
+        </div>
+      </div>
+      
+      <div class="toggle-wrapper">
+        <img src="/images/DKannon250-mode.png"
+        id="toggleLauncher" class="line-toggle" alt="Launcher" />
+        <div class="cost-label">
+          <img src="/images/coin-cost.png" alt="Coin" /> 200
+        </div>
+      </div>
+      <div class="toggle-wrapper">
+        <img src="/images/DKannon250-fast-mode.png"
+        id="toggleFastLauncher" class="line-toggle" alt="Fast Launcher" />
+        <div class="cost-label">
+          <img src="/images/coin-cost.png" alt="Coin" /> 500
+        </div>
+      </div>
+      <div class="toggle-wrapper">
+        <img src="/images/DKannon250-insta-mode.png"
+        id="toggleInstaLauncher" class="line-toggle" alt="Insta Launcher" />
+        <div class="cost-label">
+          <img src="/images/coin-cost.png" alt="Coin" /> 2500
+        </div>
+      </div>
+      
+      <div class="toggle-wrapper">
+        <img src="/images/compactor-mode.png"
+        id="toggleCompactor" class="line-toggle" alt="Compactor" />
+        <div class="cost-label">
+          <img src="/images/coin-cost.png" alt="Coin" /> 1000000
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <script>
+    
+    (function () {
+      if (window.App && window.App.modules && window.App.modules.lines) {
+        window.App.modules.lines.setMode("none");
+      }
+    })();
+
+    (function () {
+      const clearBallsBtn = document.getElementById("clearBallsBtn"),
+        dropRateValue = document.getElementById("bfui-drop-rate-value"),
+        dottedBtn = document.getElementById("toggleDotted"),
+        straightBtn = document.getElementById("toggleStraight"),
+        curvedBtn = document.getElementById("toggleCurved"),
+        launcherBtn = document.getElementById("toggleLauncher"),
+        fastLauncherBtn = document.getElementById("toggleFastLauncher"),
+        instaLauncherBtn = document.getElementById("toggleInstaLauncher"),
+        compactorBtn = document.getElementById("toggleCompactor"); 
+
+      const FLASH_DURATION = 100,
+        FLASH_TIMES = 6;
+
+      function updateDropRateDisplay() {
+        if (
+          !window.BallFall ||
+          typeof window.BallFall.spawnInterval === "undefined"
+        ) {
+          dropRateValue.textContent = "N/A";
+          return;
+        }
+        const interval = window.BallFall.spawnInterval,
+          bps = 1000 / interval;
+        dropRateValue.textContent =
+          bps < 1 ? `every ${(1 / bps).toFixed(1)}s` : `${bps.toFixed(1)}/s`;
+      }
+      clearBallsBtn.addEventListener("click", (e) => {
+        e.stopPropagation(); 
+        window.BallFall.clearBalls();
+      });
+
+      
+
+      function setActive(newMode, launcherType) {
+        const prevMode = window.App.modules.lines.getMode();
+        document
+          .querySelectorAll(".line-toggle")
+          .forEach((btn) => btn.classList.remove("selected"));
+
+        
+        window.notifyToggleChange(
+          prevMode,
+          newMode,
+          FLASH_DURATION,
+          FLASH_TIMES
+        );
+
+        
+        if (newMode !== 'launcher') window.LauncherCreateTool.selectedType = null;
+        
+
+
+        if (
+          newMode === "dotted" ||
+          newMode === "straight" ||
+          newMode === "curved"
+        ) {
+          if (newMode === "dotted") dottedBtn.classList.add("selected");
+          else if (newMode === "straight")
+            straightBtn.classList.add("selected");
+          else if (newMode === "curved") curvedBtn.classList.add("selected");
+          window.App.modules.lines.setMode(newMode);
+        } else if (newMode === "launcher") {
+          if (!launcherType) launcherType = "launcher"; 
+          window.LauncherCreateTool.selectedType = launcherType;
+          if (launcherType === "launcher")
+            launcherBtn.classList.add("selected");
+          else if (launcherType === "fast-launcher")
+            fastLauncherBtn.classList.add("selected");
+          else if (launcherType === "insta-launcher")
+            instaLauncherBtn.classList.add("selected");
+          window.App.modules.lines.setMode("launcher");
+        } else if (newMode === "compactor") {
+            compactorBtn.classList.add("selected");
+            window.App.modules.lines.setMode("compactor");
+        } else {
+          
+          window.App.modules.lines.setMode("none");
+        }
+      }
+
+      dottedBtn.addEventListener("click", (e) => {
+        e.stopPropagation();
+        setActive(
+          window.App.modules.lines.getMode() === "dotted" ? "none" : "dotted"
+        );
+      });
+      straightBtn.addEventListener("click", (e) => {
+        e.stopPropagation();
+        setActive(
+          window.App.modules.lines.getMode() === "straight"
+            ? "none"
+            : "straight"
+        );
+      });
+      curvedBtn.addEventListener("click", (e) => {
+        e.stopPropagation();
+        setActive(
+          window.App.modules.lines.getMode() === "curved" ? "none" : "curved"
+        );
+      });
+      launcherBtn.addEventListener("click", (e) => {
+        e.stopPropagation();
+        const currentMode = window.App.modules.lines.getMode();
+        const currentType = window.LauncherCreateTool.selectedType;
+        setActive(
+          currentMode === "launcher" && currentType === "launcher"
+            ? "none"
+            : "launcher",
+          "launcher"
+        );
+      });
+      fastLauncherBtn.addEventListener("click", (e) => {
+        e.stopPropagation();
+         const currentMode = window.App.modules.lines.getMode();
+        const currentType = window.LauncherCreateTool.selectedType;
+        setActive(
+          currentMode === "launcher" && currentType === "fast-launcher"
+            ? "none"
+            : "launcher",
+          "fast-launcher"
+        );
+      });
+      instaLauncherBtn.addEventListener("click", (e) => {
+        e.stopPropagation();
+        const currentMode = window.App.modules.lines.getMode();
+        const currentType = window.LauncherCreateTool.selectedType;
+        setActive(
+          currentMode === "launcher" && currentType === "insta-launcher"
+            ? "none"
+            : "launcher",
+          "insta-launcher"
+        );
+      });
+      compactorBtn.addEventListener("click", (e) => { 
+        e.stopPropagation();
+        setActive(
+            window.App.modules.lines.getMode() === "compactor" ? "none" : "compactor"
+        );
+      });
+
+      setInterval(updateDropRateDisplay, 1000);
+      updateDropRateDisplay(); 
+    })();
+  </script>
+
+ <script>
+  
+  (function () {
+    function updateAutoClickerCostDisplay() {
+      if (!App.simulationLoaded) return; 
+
+      let cost;
+      if (!App.config.autoClicker) {
+        cost = App.config.autoClickerCost;
+      } else {
+        const next = App.config.maxUnlockedSpeedLevel + 1;
+        cost = App.config.speedUpgradeCosts[next];
+      }
+
+      const costEl = document.getElementById("autoClickerCost");
+      if (costEl) {
+        if (cost !== undefined) {
+          costEl.innerHTML = '<img src="' + coinCostURL + '" alt="Coin" /> ' + cost;
+          costEl.style.display = 'flex';
+        } else {
+          costEl.innerHTML = 'Max';
+          costEl.style.display = 'flex';
+        }
+      }
+
+      const btn = document.getElementById("autoClicker");
+      if (btn) {
+        if (cost === undefined && App.config.autoClicker) {
+          btn.style.cursor = 'default';
+          btn.style.opacity = '0.5';
+        } else {
+          btn.style.cursor = 'pointer';
+          btn.style.opacity = '1';
+        }
+      }
+    }
+    App.updateAutoClickerCostDisplay = updateAutoClickerCostDisplay;
+
+    const btn = document.getElementById("autoClicker");
+    if (btn) {
+      btn.addEventListener("click", function () {
+        if (!App.config.autoClicker) {
+          const c = App.config.autoClickerCost;
+          if (App.config.coins >= c) {
+            App.config.coins -= c;
+            App.config.autoClicker = true;
+            App.Persistence.saveAutoClicker({ purchased: true, maxSpeedLevel: 0 });
+            window.BallFall.startAutoSpawner();
+            App.updateCoinsDisplay();
+            updateAutoClickerCostDisplay();
+          } else {
+            window.notifyUnaffordable(100, 12);
+          }
+        } else {
+          const lvl = App.config.maxUnlockedSpeedLevel + 1;
+          const c = App.config.speedUpgradeCosts[lvl];
+          if (c === undefined) return;
+          if (App.config.coins >= c) {
+            App.config.coins -= c;
+            App.config.maxUnlockedSpeedLevel = lvl;
+            const ni = App.config.originalSpawnInterval / Math.pow(2, lvl);
+            App.config.spawnInterval = ni;
+            window.BallFall.updateSpawnInterval(ni);
+            App.updateCoinsDisplay();
+            updateAutoClickerCostDisplay();
+            App.Persistence.saveAutoClicker({ purchased: true, maxSpeedLevel: lvl });
+          } else {
+            window.notifyUnaffordable(100, 12);
+          }
+        }
+      });
+    }
+
+    
+    document.addEventListener("BallFallBaseReady", updateAutoClickerCostDisplay);
+  })();
+</script>
+
+
+  
+
+</div>
+
+
+        <script>
+          
+          document.addEventListener('click', function(e) {
+            if (window.App && window.App.modules && window.App.modules.lines && window.App.modules.lines.getMode() !== "none") {
+              if (e.target.closest('a') && !e.target.closest('#ballfall-ui')) {
+                e.preventDefault();
+              }
+            }
+          });
+        </script>
+    </body>
+</html>

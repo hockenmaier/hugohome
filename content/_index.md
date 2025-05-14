@@ -8,9 +8,7 @@ title = "Home"
 images/nintendo-herobanner.png|Games,
 images/workbench-herobanner.png|Building,
 images/robots2-herobanner.png|Automation,
-
 images/coronado-herobanner.png|Lifestyle
-
 {{< /round-gallery >}}
 
 {{< centered-text >}}

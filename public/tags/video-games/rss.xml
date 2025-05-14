@@ -161,12 +161,12 @@
 <li><a href="https://www.nintendo.com/us/gaming-systems/switch-2/featured-games/donkey-kong-bananza/?srsltid=AfmBOoo2NFhtC_5yRr0Ne1WZoyYZOkMOwZjehQvzRZY4WvEFXcwCnXC8">Donkey Kong Bananza</a>)</li>
 </ul>
 <p>Most of these are indie titles, but the one I spent the most time on was the Oblivion Remaster - one which surprised me both with how good it looks and with how well it played. Oblivion is a 19 year old game, and a purely graphics-related overhaul should not have made it as good or better than modern AAA games releasing today, but in my opinion (and many others I’m reading) it absolutely did. How could this be?</p>
-<h1 id="graphics">Graphics</h1>
+<h2 id="graphics">Graphics</h2>
 <p>Well - I think that’s pretty clear. The only thing that has really improved about mainstream gaming in the last 20 years is graphics.</p>
 <p>And boy have the graphics improved. Oblivion not only uses new techniques like ray-tracing and revamped 4K textures and normal maps etc, it uses the full suite of global illumination provided by <a href="https://dev.epicgames.com/documentation/en-us/unreal-engine/lumen-global-illumination-and-reflections-in-unreal-engine">Unreal Engine</a>, which mean when you turn the settings up, it depends on hardly any of the typical tricks games need to use, like baked light maps, instead lighting almost everything in the game dynamically or “procedurally”, including things like reflections of reflections and lit up dust and fog.</p>
 <p>{Insert GIF from my playthrough, potentially outdoor torches in bruma in morning or afternoon with mountains in the background}</p>
 <p>Yes, Oblivion still has some simplistic design in terms of how landscapes are laid out, but that simplicity might also be why people can run it with Nvidia Lumen set up to run at ultra. Lighting is what’s really differentiating in video game graphics now, and fully simulated lighting beats or meets nearly every AAA game releasing lately that all cost 10s or 100s of millions to make.</p>
-<h1 id="not-graphics">Not Graphics</h1>
+<h2 id="not-graphics">Not Graphics</h2>
 <p>Left unstated is why nothing else has improved. Walking around Oblivion, meeting characters that have some scripted voice lines, responding to them with 1 of 4 options, holding down the left stick to sprint, and hitting a single button on your controller to watch your character animate a full scripted sword swing are all things that happen in the best and greatest RPGs of today. The same can be said of other genres - mechanics are largely untouched for the last 20 years outside of some common quality of life changes in how menus and inventory and HUDs work.</p>
 <p>Here’s my theory for why: The games industry got to the threshold of what was comfortable and possible with current input and output mechanisms for humans to interact with games in only a few years after they was technically possible. Looking at a flat screen in front of you and pressing buttons on a controller or keyboard/mouse are incredibly limiting for no other media than games. Reading, watching films, and all kinds of media in between essentially max out on one screen and limited input, but games immediately ran into them as a barrier.</p>
 <p>I wrote a little about this topic in <a href="/social-media-is-antisocial">my first post about VR and why I think it’s the future</a>. The only true innovation in gameplay that is happening in two places:</p>
@@ -175,7 +175,7 @@
 <li>VR, where we have only scratched the surface of mechanics that work and what is possible when the player’s entire hands and 3D field of view are in the game.</li>
 </ul>
 <p>AAA game developers are excluded from the first by definition and is excluded from the second by their own financial decision makers.</p>
-<h1 id="so-what">So What?</h1>
+<h2 id="so-what">So What?</h2>
 <p>Maybe people want to keep buying the same games with better graphics forever. I don&rsquo;t think they do. I think those decision makers that aren&rsquo;t investing in truly new AAA gameplay are short sighted. As long as we’ve been hearing that VR is the future and not seeing it totally come to fruition, at some point these companies that are milking the same game franchises for years will face the reality that people will only buy the same games reskinned with better graphics for so long. They&rsquo;ll either be replaced by companies that innovate or individuals using AI that will be plenty good at recreating the same game over and over again.</p>
 <p>I am hoping that the current hypestorm around AI re-kindles the ideas in the hearts of AAA game studio CFOs that they might need to invest in innovation and new ideas again. Some of the things that make Oblivion just like any RPG of today (Think about the 4 option scripted discourse and stuffy voice lines as two) would be meaningfully different if AI was applied in the right way. And I think they’d be far more powerful experiences, just like I think VR games can be - so much higher fidelity and responsive to player input.</p>
 <p>We will see. The combo of a decline in AAA game spending and AI hype feel like ripe conditions for innovation to return to gaming, to me.</p>
@@ -347,7 +347,7 @@
 </ul>
 <p>If you can&rsquo;t draw an item, you probably can&rsquo;t afford it. You&rsquo;ll see the gold prices of the items flash red in the UI when this happens.</p>
 <p>When you have a Drawable tool toggled on, you won&rsquo;t be able to click other links on the site. You&rsquo;ll see this visually indicated when you choose them. Unselect the currently selected tool in order to see it</p>
-<h1 id="tips-on-making-money">Tips on Making Money</h1>
+<h3 id="tips-on-making-money">Tips on Making Money</h3>
 <p>You&rsquo;ll quickly find ways to lengthen your Rube-Golberg Machines and build up value before you send balls into the goal. A couple of things to watch out for though:</p>
 <ul>
 <li>Balls have to be moving at all times. If they sit still for too long, they are considered dead and will poof out of existence.</li>
@@ -357,6 +357,20 @@ So keep your balls moving!</li>
 <p>Each post on this site will be a slightly different randomized game! Try making ball machines on multiple pages at once. Your work will be saved in realtime, and you can make money even on pages you&rsquo;re not currently playing on. Try it!</p>
 <p>Your progress is saved to your device because your contraptions will be highly dependent on the screen size the site renders to.</p>
 <p>The game works a bit differently on desktop and mobile, and the best experience is really on desktop - so try on a computer if you can!</p>
+<h3 id="resetting-the-game">Resetting the game</h3>
+<span
+  style="
+    color: red;
+    font-family: 'Arial Black', Arial, sans-serif;
+    font-size: 20px;
+  "
+>
+   WARNING! Don't navigate to the below page unless you're sure you want to reset the ball machine game
+</span>
+
+<p>Resetting will erase all your drawings on all pages and reset your goal locations, unlocks, coins and everything else.</p>
+<p>If you are thinking about doing this because you want to try on another device, you don&rsquo;t need to because progress is already saved to your device. The only reason to do this is to have a fresh start on this device.</p>
+<p>Navigate <a href="/this-website/reset-ball-machine">here</a> and click reset to do that.</p>
 <h2 id="how-its-made">How it&rsquo;s made</h2>
 <p>I don&rsquo;t typically make complicated things like this with javascript. So when I found the perfect physics engine for the game - <a href="https://brm.io/matter-js/">matter.js</a> - I knew I would need help from our new little assistants. And though this game is a bit too structured to call it &ldquo;vibe coded&rdquo; - it&rsquo;s close. I ended up making my own tool called <a href="/context-caddy">Context Caddy</a> to help me with it. Part of the reason I leaned so hard into this is because I&rsquo;m always trying to push the limits of current AI, and I hadn&rsquo;t built a game since the GPT-4 days. The new thinking models are truly a setup above GPT-4 (this was mostly done with o3 and its minis) but they&rsquo;re still way to eager to write duplicate code, and they still don&rsquo;t &ldquo;get&rdquo; the structure of your project a lot of the time, especially with visual and physcial things like this. Still, they were a great help here.</p>
 ]]></description>

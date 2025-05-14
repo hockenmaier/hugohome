@@ -92,6 +92,16 @@ Your progress is saved to your device because your contraptions will be highly d
 
 The game works a bit differently on desktop and mobile, and the best experience is really on desktop - so try on a computer if you can!
 
+### Resetting the game
+
+{{< warning >}} WARNING! Don't navigate to the below page unless you're sure you want to reset the ball machine game{{< /warning >}}
+
+Resetting will erase all your drawings on all pages and reset your goal locations, unlocks, coins and everything else.
+
+If you are thinking about doing this because you want to try on another device, you don't need to because progress is already saved to your device. The only reason to do this is to have a fresh start on this device.
+
+Navigate [here](/this-website/reset-ball-machine) and click reset to do that.
+
 ## How it's made
 
 I don't typically make complicated things like this with javascript. So when I found the perfect physics engine for the game - [matter.js](https://brm.io/matter-js/) - I knew I would need help from our new little assistants. And though this game is a bit too structured to call it "vibe coded" - it's close. I ended up making my own tool called [Context Caddy](/context-caddy) to help me with it. Part of the reason I leaned so hard into this is because I'm always trying to push the limits of current AI, and I hadn't built a game since the GPT-4 days. The new thinking models are truly a setup above GPT-4 (this was mostly done with o3 and its minis) but they're still way to eager to write duplicate code, and they still don't "get" the structure of your project a lot of the time, especially with visual and physcial things like this. Still, they were a great help here.

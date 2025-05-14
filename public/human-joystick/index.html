@@ -1076,37 +1076,39 @@ table {
 
 
         
-        <script>
-            var goalTexture = 'http:\/\/localhost:1313\/images\/goal.png';
-        </script>        
-        <script>
-            var coinCostURL = 'http:\/\/localhost:1313\/images\/coin-cost.png';
-        </script>                 
-        <script src="http://localhost:1313/js/matter.min.js"></script>
-        <script src="http://localhost:1313/js/gsap.min.js"></script>
-        <script src="http://localhost:1313/js/matter-wrap.min.js"></script>
-        <script src="http://localhost:1313/js/ball-machine-app.js"></script>
-        <script src="http://localhost:1313/js/base-simulation.js"></script>
-        <script src="http://localhost:1313/js/persistent.js"></script>
-        <script src="http://localhost:1313/js/text.js"></script>
-        <script src="http://localhost:1313/js/base-drawing-tool.js"></script>
-        <script src="http://localhost:1313/js/line-interaction.js"></script>
-        <script src="http://localhost:1313/js/input-manager.js"></script>
-        <script src="http://localhost:1313/js/notifications.js"></script>
-        <script src="http://localhost:1313/js/extra-effects.js"></script>
-        <script src="http://localhost:1313/js/lines.js"></script>
-        <script src="http://localhost:1313/js/dotted-line.js"></script>
-        <script src="http://localhost:1313/js/curved-line.js"></script>
-        <script src="http://localhost:1313/js/launcher.js"></script>
-        <script src="http://localhost:1313/js/compactor-config.js"></script>
-        <script src="http://localhost:1313/js/launcher-create.js"></script>
-        <script src="http://localhost:1313/js/compactor-create.js"></script>
-        <script src="http://localhost:1313/js/compactor.js"></script>
-        <script src="http://localhost:1313/js/game.js"></script>
-        <script src="http://localhost:1313/js/goal.js"></script>
-        <script src="http://localhost:1313/js/spawner.js"></script>
-        <script src="http://localhost:1313/js/ui-updater.js"></script>
+
         
+            <script>
+                var goalTexture = 'http:\/\/localhost:1313\/images\/goal.png';
+            </script>        
+            <script>
+                var coinCostURL = 'http:\/\/localhost:1313\/images\/coin-cost.png';
+            </script>                 
+            <script src="http://localhost:1313/js/matter.min.js"></script>
+            <script src="http://localhost:1313/js/gsap.min.js"></script>
+            <script src="http://localhost:1313/js/matter-wrap.min.js"></script>
+            <script src="http://localhost:1313/js/ball-machine-app.js"></script>
+            <script src="http://localhost:1313/js/base-simulation.js"></script>
+            <script src="http://localhost:1313/js/persistent.js"></script>
+            <script src="http://localhost:1313/js/text.js"></script>
+            <script src="http://localhost:1313/js/base-drawing-tool.js"></script>
+            <script src="http://localhost:1313/js/line-interaction.js"></script>
+            <script src="http://localhost:1313/js/input-manager.js"></script>
+            <script src="http://localhost:1313/js/notifications.js"></script>
+            <script src="http://localhost:1313/js/extra-effects.js"></script>
+            <script src="http://localhost:1313/js/lines.js"></script>
+            <script src="http://localhost:1313/js/dotted-line.js"></script>
+            <script src="http://localhost:1313/js/curved-line.js"></script>
+            <script src="http://localhost:1313/js/launcher.js"></script>
+            <script src="http://localhost:1313/js/compactor-config.js"></script>
+            <script src="http://localhost:1313/js/launcher-create.js"></script>
+            <script src="http://localhost:1313/js/compactor-create.js"></script>
+            <script src="http://localhost:1313/js/compactor.js"></script>
+            <script src="http://localhost:1313/js/game.js"></script>
+            <script src="http://localhost:1313/js/goal.js"></script>
+            <script src="http://localhost:1313/js/spawner.js"></script>
+            <script src="http://localhost:1313/js/ui-updater.js"></script>
+            
 <style>
    
   #spawner-container {
@@ -1674,15 +1676,16 @@ table {
 </div>
 
 
-        <script>
-          
-          document.addEventListener('click', function(e) {
-            if (window.App && window.App.modules && window.App.modules.lines && window.App.modules.lines.getMode() !== "none") {
-              if (e.target.closest('a') && !e.target.closest('#ballfall-ui')) {
-                e.preventDefault();
-              }
-            }
-          });
-        </script>
+            <script>
+            
+            document.addEventListener('click', function(e) {
+                if (window.App && window.App.modules && window.App.modules.lines && window.App.modules.lines.getMode() !== "none") {
+                if (e.target.closest('a') && !e.target.closest('#ballfall-ui')) {
+                    e.preventDefault();
+                }
+                }
+            });
+            </script>
+        
     </body>
 </html>

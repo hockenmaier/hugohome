@@ -32,47 +32,50 @@
         {{ if templates.Exists "partials/paige/body-last.html" }}
             {{ partial "paige/body-last.html" $page }}
         {{ end }}
-        <script>
-            var goalTexture = '{{ "images/goal.png" | absURL }}';
-        </script>        
-        <script>
-            var coinCostURL = '{{ "images/coin-cost.png" | absURL }}';
-        </script>                 
-        <script src="{{ "js/matter.min.js" | absURL }}"></script>
-        <script src="{{ "js/gsap.min.js" | absURL }}"></script>
-        <script src="{{ "js/matter-wrap.min.js" | absURL }}"></script>
-        <script src="{{ "js/ball-machine-app.js" | absURL }}"></script>
-        <script src="{{ "js/base-simulation.js" | absURL }}"></script>
-        <script src="{{ "js/persistent.js" | absURL }}"></script>
-        <script src="{{ "js/text.js" | absURL }}"></script>
-        <script src="{{ "js/base-drawing-tool.js" | absURL }}"></script>
-        <script src="{{ "js/line-interaction.js" | absURL }}"></script>
-        <script src="{{ "js/input-manager.js" | absURL }}"></script>
-        <script src="{{ "js/notifications.js" | absURL }}"></script>
-        <script src="{{ "js/extra-effects.js" | absURL }}"></script>
-        <script src="{{ "js/lines.js" | absURL }}"></script>
-        <script src="{{ "js/dotted-line.js" | absURL }}"></script>
-        <script src="{{ "js/curved-line.js" | absURL }}"></script>
-        <script src="{{ "js/launcher.js" | absURL }}"></script>
-        <script src="{{ "js/compactor-config.js" | absURL }}"></script>
-        <script src="{{ "js/launcher-create.js" | absURL }}"></script>
-        <script src="{{ "js/compactor-create.js" | absURL }}"></script>
-        <script src="{{ "js/compactor.js" | absURL }}"></script>
-        <script src="{{ "js/game.js" | absURL }}"></script>
-        <script src="{{ "js/goal.js" | absURL }}"></script>
-        <script src="{{ "js/spawner.js" | absURL }}"></script>
-        <script src="{{ "js/ui-updater.js" | absURL }}"></script>
-        {{ partial "ball-machine-ui.html" . }}
 
-        <script>
-          // Disable links on the main page while a drawing tool is active.
-          document.addEventListener('click', function(e) {
-            if (window.App && window.App.modules && window.App.modules.lines && window.App.modules.lines.getMode() !== "none") {
-              if (e.target.closest('a') && !e.target.closest('#ballfall-ui')) {
-                e.preventDefault();
-              }
-            }
-          });
-        </script>
+        {{ if not .Params.disableBallMachine }}
+            <script>
+                var goalTexture = '{{ "images/goal.png" | absURL }}';
+            </script>        
+            <script>
+                var coinCostURL = '{{ "images/coin-cost.png" | absURL }}';
+            </script>                 
+            <script src="{{ "js/matter.min.js" | absURL }}"></script>
+            <script src="{{ "js/gsap.min.js" | absURL }}"></script>
+            <script src="{{ "js/matter-wrap.min.js" | absURL }}"></script>
+            <script src="{{ "js/ball-machine-app.js" | absURL }}"></script>
+            <script src="{{ "js/base-simulation.js" | absURL }}"></script>
+            <script src="{{ "js/persistent.js" | absURL }}"></script>
+            <script src="{{ "js/text.js" | absURL }}"></script>
+            <script src="{{ "js/base-drawing-tool.js" | absURL }}"></script>
+            <script src="{{ "js/line-interaction.js" | absURL }}"></script>
+            <script src="{{ "js/input-manager.js" | absURL }}"></script>
+            <script src="{{ "js/notifications.js" | absURL }}"></script>
+            <script src="{{ "js/extra-effects.js" | absURL }}"></script>
+            <script src="{{ "js/lines.js" | absURL }}"></script>
+            <script src="{{ "js/dotted-line.js" | absURL }}"></script>
+            <script src="{{ "js/curved-line.js" | absURL }}"></script>
+            <script src="{{ "js/launcher.js" | absURL }}"></script>
+            <script src="{{ "js/compactor-config.js" | absURL }}"></script>
+            <script src="{{ "js/launcher-create.js" | absURL }}"></script>
+            <script src="{{ "js/compactor-create.js" | absURL }}"></script>
+            <script src="{{ "js/compactor.js" | absURL }}"></script>
+            <script src="{{ "js/game.js" | absURL }}"></script>
+            <script src="{{ "js/goal.js" | absURL }}"></script>
+            <script src="{{ "js/spawner.js" | absURL }}"></script>
+            <script src="{{ "js/ui-updater.js" | absURL }}"></script>
+            {{ partial "ball-machine-ui.html" . }}
+
+            <script>
+            // Disable links on the main page while a drawing tool is active.
+            document.addEventListener('click', function(e) {
+                if (window.App && window.App.modules && window.App.modules.lines && window.App.modules.lines.getMode() !== "none") {
+                if (e.target.closest('a') && !e.target.closest('#ballfall-ui')) {
+                    e.preventDefault();
+                }
+                }
+            });
+            </script>
+        {{ end }}
     </body>
 </html>
