@@ -55,7 +55,7 @@
   }
 
   function flashAllLinks(flashValues, flashDuration, flashTimes) {
-    document.querySelectorAll("a").forEach(function (link) {
+    document.querySelectorAll("a:not(.bfui-button)").forEach(function (link) {
       flashElementStyle(
         link,
         ["color", "textDecoration"],

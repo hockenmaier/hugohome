@@ -54,7 +54,7 @@ window.App = {
         maxSpeed: 500,
       },
     },
-    coins: 7500, //Default for when app first loads and there's no storage
+    coins: 50, //Starting coins for when app first loads and there's nothing in storage
     costs: {
       straight: 5,
       curved: 50,
@@ -301,5 +301,9 @@ App.updateCoinsDisplay = function () {
   if (globalDisplay) globalDisplay.textContent = `${App.config.coins} coins`;
   if (App.Storage) {
     App.Storage.setItem("coins", App.config.coins);
+  }
+  // ---------- Evaluate upgrade progression ----------
+  if (App.PowerUps && typeof App.PowerUps.checkUnlocks === "function") {
+    App.PowerUps.checkUnlocks(App.config.coins);
   }
 };
