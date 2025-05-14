@@ -46,7 +46,7 @@
             
 
             
-                <link href="https://hockenmaier.github.io/hugohome/tags/custom-gpt/" rel="self" type="text/html"/>
+                <link href="http://localhost:1313/tags/custom-gpt/" rel="self" type="text/html"/>
             
         
             
@@ -54,7 +54,7 @@
             
 
             
-                <link href="https://hockenmaier.github.io/hugohome/tags/custom-gpt/rss.xml" rel="alternate" type="application/rss+xml"/>
+                <link href="http://localhost:1313/tags/custom-gpt/rss.xml" rel="alternate" type="application/rss+xml"/>
             
         
 
@@ -72,7 +72,7 @@
             <lastBuildDate>2024-01-13 00:00:00 +0000 UTC</lastBuildDate>
         
 
-        <link>https://hockenmaier.github.io/hugohome/tags/custom-gpt/</link>
+        <link>http://localhost:1313/tags/custom-gpt/</link>
 
         
 
@@ -120,10 +120,10 @@
 ]]></description>
                 
 
-                <guid isPermaLink="false">tag:hockenmaier.github.io,2024-01-13:/hugohome/postman-for-pms/</guid>
+                <guid isPermaLink="false">tag:localhost:1313,2024-01-13:/postman-for-pms/</guid>
 
                 
-                    <link>https://hockenmaier.github.io/hugohome/postman-for-pms/</link>
+                    <link>http://localhost:1313/postman-for-pms/</link>
                 
 
                 

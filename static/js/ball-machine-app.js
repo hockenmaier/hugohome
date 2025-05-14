@@ -34,7 +34,7 @@ window.App = {
     disableDuration: 600, // milliseconds
     //textHitFadeTime: 100, //seconds  //Not yet used
     lineThickness: 5,
-    dottedLineHealth: 5,
+    dottedLineHealth: 50,
     curvedLineFidelity: 30,
     lineDeleteMobileHold: 1200,
     launcherTypes: {

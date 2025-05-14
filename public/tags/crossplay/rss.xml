@@ -58,7 +58,7 @@
             
 
             
-                <link href="https://hockenmaier.github.io/hugohome/tags/crossplay/" rel="self" type="text/html"/>
+                <link href="http://localhost:1313/tags/crossplay/" rel="self" type="text/html"/>
             
         
             
@@ -66,7 +66,7 @@
             
 
             
-                <link href="https://hockenmaier.github.io/hugohome/tags/crossplay/rss.xml" rel="alternate" type="application/rss+xml"/>
+                <link href="http://localhost:1313/tags/crossplay/rss.xml" rel="alternate" type="application/rss+xml"/>
             
         
 
@@ -84,7 +84,7 @@
             <lastBuildDate>2023-01-01 00:00:00 +0000 UTC</lastBuildDate>
         
 
-        <link>https://hockenmaier.github.io/hugohome/tags/crossplay/</link>
+        <link>http://localhost:1313/tags/crossplay/</link>
 
         
 
@@ -140,10 +140,10 @@
 ]]></description>
                 
 
-                <guid isPermaLink="false">tag:hockenmaier.github.io,2023-01-01:/hugohome/the-flapper/</guid>
+                <guid isPermaLink="false">tag:localhost:1313,2023-01-01:/the-flapper/</guid>
 
                 
-                    <link>https://hockenmaier.github.io/hugohome/the-flapper/</link>
+                    <link>http://localhost:1313/the-flapper/</link>
                 
 
                 
@@ -259,7 +259,7 @@
 
 
 
-<img  alt="The Treekeepers Puddle Jumper"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenmaier.github.io/hugohome/images/treekeepers_moonlight.png"   style="height: auto; max-width: 100%"   >
+<img  alt="The Treekeepers Puddle Jumper"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/treekeepers_moonlight.png"   style="height: auto; max-width: 100%"   >
 
 
     
@@ -277,10 +277,10 @@
 ]]></description>
                 
 
-                <guid isPermaLink="false">tag:hockenmaier.github.io,2022-10-01:/hugohome/treekeepers-vr/</guid>
+                <guid isPermaLink="false">tag:localhost:1313,2022-10-01:/treekeepers-vr/</guid>
 
                 
-                    <link>https://hockenmaier.github.io/hugohome/treekeepers-vr/</link>
+                    <link>http://localhost:1313/treekeepers-vr/</link>
                 
 
                 
@@ -351,10 +351,10 @@
 ]]></description>
                 
 
-                <guid isPermaLink="false">tag:hockenmaier.github.io,2022-08-01:/hugohome/social-media-is-antisocial/</guid>
+                <guid isPermaLink="false">tag:localhost:1313,2022-08-01:/social-media-is-antisocial/</guid>
 
                 
-                    <link>https://hockenmaier.github.io/hugohome/social-media-is-antisocial/</link>
+                    <link>http://localhost:1313/social-media-is-antisocial/</link>
                 
 
                 

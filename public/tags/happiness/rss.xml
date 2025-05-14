@@ -46,7 +46,7 @@
             
 
             
-                <link href="https://hockenmaier.github.io/hugohome/tags/happiness/" rel="self" type="text/html"/>
+                <link href="http://localhost:1313/tags/happiness/" rel="self" type="text/html"/>
             
         
             
@@ -54,7 +54,7 @@
             
 
             
-                <link href="https://hockenmaier.github.io/hugohome/tags/happiness/rss.xml" rel="alternate" type="application/rss+xml"/>
+                <link href="http://localhost:1313/tags/happiness/rss.xml" rel="alternate" type="application/rss+xml"/>
             
         
 
@@ -72,7 +72,7 @@
             <lastBuildDate>2024-02-01 00:00:00 +0000 UTC</lastBuildDate>
         
 
-        <link>https://hockenmaier.github.io/hugohome/tags/happiness/</link>
+        <link>http://localhost:1313/tags/happiness/</link>
 
         
 
@@ -196,7 +196,7 @@
 
 
 
-<img  alt="happiness income curve"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenmaier.github.io/hugohome/images/treadmill-graph.png"   style="height: auto; max-width: 720px; width: 100%"   >
+<img  alt="happiness income curve"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/treadmill-graph.png"   style="height: auto; max-width: 720px; width: 100%"   >
 
 
     
@@ -252,10 +252,10 @@
 ]]></description>
                 
 
-                <guid isPermaLink="false">tag:hockenmaier.github.io,2024-02-01:/hugohome/the-treadmill/</guid>
+                <guid isPermaLink="false">tag:localhost:1313,2024-02-01:/the-treadmill/</guid>
 
                 
-                    <link>https://hockenmaier.github.io/hugohome/the-treadmill/</link>
+                    <link>http://localhost:1313/the-treadmill/</link>
                 
 
                 

@@ -14,6 +14,17 @@
     2: [10, 10],
     1: [5, 10],
   };
+  let dashHealth = App.config.dottedLineHealth;
+
+  for (let i = dashHealth; i >= 1; i--) {
+    if (i === dashHealth) {
+      DASH_PATTERNS[i] = []; // solid
+    } else {
+      const dash = Math.max(1, Math.round(20 * (i / dashHealth)));
+      const gap = Math.round(30 * ((dashHealth - i) / (dashHealth - 1))); // increasing gap
+      DASH_PATTERNS[i] = [dash, gap];
+    }
+  }
 
   // Update our custom dash pattern property based on health.
   const updateDashPattern = (body) => {
