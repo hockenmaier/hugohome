@@ -15,7 +15,7 @@ So, when LLMS that could remember any syntax or attribute of any programming lan
 
 Over a few conversations with friends and colleagues I began to explore the idea of what this meant generally for the interview process. There are just lots of questions that we ask in every field, it turns out, that are mostly solved by LLMS that have memorized most useful information, even when the original intent of the interview question was to test for experience.
 
-# The Build
+## The Build
 
 In the summer of 2022 it got to the point where I really wanted to test my hypothesis - that LLMS and continuous audio transcription could let someone with no knowledge answer many interview questions correctly- and after searching for apps on the appstore that did what I was thinking in terms of, I found that surprisingly none did.
 
@@ -50,7 +50,7 @@ I open sourced the project which is a pretty small unity build, and it's a unity
 
 https://github.com/hockenmaier/make-us-smarter
 
-# Interviewing Today
+## Interviewing Today
 
 This whole experience and a whole slew of interviews that came building my team the last year have me settled on an interview approach that I think is infallible (for now). And it doesn't require sending someone home with a project or any of that stuff that good candidates often don't even consider. I heard about a version of this technique on Twitter so can't take full credit here:
 

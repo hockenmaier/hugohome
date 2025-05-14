@@ -27,7 +27,7 @@ window.App = {
     gravity: 0.75,
     timeScale: 0.82,
     restitution: 0.95,
-    spawnX: 1.3, // x axis spawn point: 1/spawnX is the fraction of the screen width
+    spawnX: window.innerWidth < 720 ? 10 : 1.4, // mobile uses 9, desktop uses 1.3
     ballSize: 7,
     sitStillDeleteSeconds: 2,
     sitStillDeleteMargin: 0.5,
@@ -206,17 +206,6 @@ window.App = {
       ) {
         requestWakeLock();
       }
-    });
-
-    // [Orientation Lock] Lock screen to portrait in supported browsers.
-    if (screen.orientation && screen.orientation.lock) {
-      screen.orientation.lock("portrait").catch(() => {
-        // Lock failed (e.g., not fullscreen or unsupported)
-      });
-    }
-    // Reload page on rotation change to handle layout issues.
-    window.addEventListener("orientationchange", () => {
-      location.reload();
     });
 
     // Load auto-clicker state for this page from persistent storage.

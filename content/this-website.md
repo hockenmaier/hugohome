@@ -78,7 +78,7 @@ If you can't draw an item, you probably can't afford it. You'll see the gold pri
 
 When you have a Drawable tool toggled on, you won't be able to click other links on the site. You'll see this visually indicated when you choose them. Unselect the currently selected tool in order to see it
 
-# Tips on Making Money
+### Tips on Making Money
 
 You'll quickly find ways to lengthen your Rube-Golberg Machines and build up value before you send balls into the goal. A couple of things to watch out for though:
 

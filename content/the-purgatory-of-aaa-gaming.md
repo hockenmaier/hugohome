@@ -28,7 +28,7 @@ During my parental leave, I played through quite a few video games - something I
 
 Most of these are indie titles, but the one I spent the most time on was the Oblivion Remaster - one which surprised me both with how good it looks and with how well it played. Oblivion is a 19 year old game, and a purely graphics-related overhaul should not have made it as good or better than modern AAA games releasing today, but in my opinion (and many others I’m reading) it absolutely did. How could this be?
 
-# Graphics
+## Graphics
 
 Well - I think that’s pretty clear. The only thing that has really improved about mainstream gaming in the last 20 years is graphics.
 
@@ -38,7 +38,7 @@ And boy have the graphics improved. Oblivion not only uses new techniques like r
 
 Yes, Oblivion still has some simplistic design in terms of how landscapes are laid out, but that simplicity might also be why people can run it with Nvidia Lumen set up to run at ultra. Lighting is what’s really differentiating in video game graphics now, and fully simulated lighting beats or meets nearly every AAA game releasing lately that all cost 10s or 100s of millions to make.
 
-# Not Graphics
+## Not Graphics
 
 Left unstated is why nothing else has improved. Walking around Oblivion, meeting characters that have some scripted voice lines, responding to them with 1 of 4 options, holding down the left stick to sprint, and hitting a single button on your controller to watch your character animate a full scripted sword swing are all things that happen in the best and greatest RPGs of today. The same can be said of other genres - mechanics are largely untouched for the last 20 years outside of some common quality of life changes in how menus and inventory and HUDs work.
 
@@ -51,7 +51,7 @@ I wrote a little about this topic in [my first post about VR and why I think it�
 
 AAA game developers are excluded from the first by definition and is excluded from the second by their own financial decision makers.
 
-# So What?
+## So What?
 
 Maybe people want to keep buying the same games with better graphics forever. I don't think they do. I think those decision makers that aren't investing in truly new AAA gameplay are short sighted. As long as we’ve been hearing that VR is the future and not seeing it totally come to fruition, at some point these companies that are milking the same game franchises for years will face the reality that people will only buy the same games reskinned with better graphics for so long. They'll either be replaced by companies that innovate or individuals using AI that will be plenty good at recreating the same game over and over again.
 
