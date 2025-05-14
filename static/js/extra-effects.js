@@ -127,8 +127,10 @@
     const ripple = document.createElement("div");
     ripple.className = "media-ripple";
     ripple.style.position = "absolute";
-    ripple.style.width = "20px";
-    ripple.style.height = "20px";
+    // initial size; center will be adjusted by half of this
+    const initialSize = 20;
+    ripple.style.width = initialSize + "px";
+    ripple.style.height = initialSize + "px";
     ripple.style.border = "2px solid " + ballColor;
     ripple.style.borderRadius = "50%";
     ripple.style.pointerEvents = "none";
@@ -174,8 +176,9 @@
     // Compute ripple position relative to container.
     const relX = ball.position.x - containerRect.left - window.scrollX;
     const relY = ball.position.y - containerRect.top - window.scrollY;
-    ripple.style.left = relX + "px";
-    ripple.style.top = relY + "px";
+    const halfInitialSize = initialSize / 2;
+    ripple.style.left = relX - halfInitialSize + "px";
+    ripple.style.top = relY - halfInitialSize + "px";
 
     container.appendChild(ripple);
     // Force reflow and animate ripple.
