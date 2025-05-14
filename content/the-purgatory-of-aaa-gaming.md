@@ -51,10 +51,36 @@ I wrote a little about this topic in [my first post about VR and why I think it�
 
 AAA game developers are excluded from the first by definition and is excluded from the second by their own financial decision makers.
 
-## So What?
+## So What? My predictions
 
 Maybe people want to keep buying the same games with better graphics forever. I don't think they do. I think those decision makers that aren't investing in truly new AAA gameplay are short sighted. As long as we’ve been hearing that VR is the future and not seeing it totally come to fruition, at some point these companies that are milking the same game franchises for years will face the reality that people will only buy the same games reskinned with better graphics for so long. They'll either be replaced by companies that innovate or individuals using AI that will be plenty good at recreating the same game over and over again.
 
 I am hoping that the current hypestorm around AI re-kindles the ideas in the hearts of AAA game studio CFOs that they might need to invest in innovation and new ideas again. Some of the things that make Oblivion just like any RPG of today (Think about the 4 option scripted discourse and stuffy voice lines as two) would be meaningfully different if AI was applied in the right way. And I think they’d be far more powerful experiences, just like I think VR games can be - so much higher fidelity and responsive to player input.
 
-We will see. The combo of a decline in AAA game spending and AI hype feel like ripe conditions for innovation to return to gaming, to me.
+Here are my predictions of things we'll see in the next decade or so, regardless of the AAA studios pioneer them or not:
+
+I think a decade or two from now, we will look at the period of 2005 to 2025 and see that it was a period of a great stagnation in game innovation. This will be driven by a few key technological advances and the downstream game mechanics that will flow from those, stemming mainly from the areas of AI and what is now called mixed reality.
+
+I'm going to make a few specific predictions of mechanics we will see in the future that will make the magnation of the last 20 years totally transparent:
+
+#### AI:
+
+- In open world games, it will become standard for non-player characters to have fully generated dialogues based on motivations and incentives rather than scripts
+
+- In open world games, players will speak directly or engage directly in some way with their own words that NPCs will understand and react to intelligently
+
+- NPCs won't have recorded voice lines, but instead have voices generated in real time, and AAA games will start to make contracts with celebrity talent in order to generate their voice in games
+
+- We will see a transition from the current minorly procedural elements of gameplay to full procedural generated worlds, especially where player actions and environmental events change landscape, buildings, etc dynamically.
+
+- Game art will go through an incredible revolution, and we will stop having massive teams of people creating 3D meshes and textures to drop around the world, with many of these meshes and textures being generated from prompts in development, but also being generated on the fly in games
+
+#### Mixed Reality:
+
+- The first reasonable augmented reality glasses that consumers are willing to wear en masse will generate entirely new genres:
+
+  - there will be a new genre of video board games, wear gameplay happens in view of a group of people in the same physical space, on a table, on the ground, in a park, etc, that will incorporate video game elements such as computations that are too complicated for typical board games, with the advantages that board games have today where players can interact with the same physical pieces, point and gesture, and socialize in person
+
+  - there will be a new genre of exercise programs combined with games. This will go far beyond current treadmills that have built-in virtual run routes or virtual exercise classes, this will be exercise incorporated as a leveling or other mechanic that will incentivize players to get some exercise. I've had a lot of hope for this category for a long time, and the one major threat to it is GLP1 drugs that may cause a serious decline in the need and desire for people to exercise daily for calorie loss
+
+When will these happen? We will see. The combo of a decline in AAA game spending and AI hype feel like ripe conditions for innovation to return to gaming, to me. I think they happen sooner vs later.
