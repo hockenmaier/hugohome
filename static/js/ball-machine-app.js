@@ -54,7 +54,7 @@ window.App = {
         maxSpeed: 500,
       },
     },
-    coins: 50, //Starting coins for when app first loads and there's nothing in storage
+    coins: 149, //Starting coins for when app first loads and there's nothing in storage
     costs: {
       straight: 5,
       curved: 50,

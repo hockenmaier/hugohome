@@ -46,7 +46,7 @@
             
 
             
-                <link href="https://hockenmaier.github.io/hugohome/tags/software/" rel="self" type="text/html"/>
+                <link href="http://localhost:1313/tags/software/" rel="self" type="text/html"/>
             
         
             
@@ -54,7 +54,7 @@
             
 
             
-                <link href="https://hockenmaier.github.io/hugohome/tags/software/rss.xml" rel="alternate" type="application/rss+xml"/>
+                <link href="http://localhost:1313/tags/software/rss.xml" rel="alternate" type="application/rss+xml"/>
             
         
 
@@ -72,7 +72,7 @@
             <lastBuildDate>2024-01-24 00:00:00 +0000 UTC</lastBuildDate>
         
 
-        <link>https://hockenmaier.github.io/hugohome/tags/software/</link>
+        <link>http://localhost:1313/tags/software/</link>
 
         
 
@@ -187,7 +187,7 @@
 
 
 
-<img  alt="this is a robot"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenmaier.github.io/hugohome/images/ai-software-dev.png"   style="height: auto; max-width: 720px; width: 100%"   >
+<img  alt="this is a robot"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/ai-software-dev.png"   style="height: auto; max-width: 720px; width: 100%"   >
 
 
     
@@ -208,10 +208,10 @@
 ]]></description>
                 
 
-                <guid isPermaLink="false">tag:hockenmaier.github.io,2024-01-24:/hugohome/on-ai-software-development/</guid>
+                <guid isPermaLink="false">tag:localhost:1313,2024-01-24:/on-ai-software-development/</guid>
 
                 
-                    <link>https://hockenmaier.github.io/hugohome/on-ai-software-development/</link>
+                    <link>http://localhost:1313/on-ai-software-development/</link>
                 
 
                 
