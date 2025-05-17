@@ -1,7 +1,7 @@
 ---
 title: "Social Media Is Anti-Social"
 date: 2022-08-01
-categories: ["Writing"]
+categories: ["writing"]
 stack: ["Unity", "C#", "Photon Networking", "XR Toolkit"]
 project_link: ""
 github_link: ""

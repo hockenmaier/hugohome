@@ -1,7 +1,7 @@
 ---
 title: "The Purgatory of AAA Gaming"
 date: 2025-05-12
-categories: ["Writing"]
+categories: ["writing"]
 tags:
   [
     "VR",

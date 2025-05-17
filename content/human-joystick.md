@@ -1,7 +1,7 @@
 ---
 title: "Human Joystick VR"
 date: 2020-01-01
-categories: ["project overviews"]
+categories: ["builds"]
 personal: "Y"
 stack: ["Unity", "C#", "SteamVR SDK"]
 project_link: "https://github.com/hockenmaier/humanjoystick"

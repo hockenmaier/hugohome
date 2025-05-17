@@ -1,7 +1,7 @@
 ---
 title: "Postman for PMs"
 date: 2024-01-13
-categories: ["project overviews"]
+categories: ["builds"]
 stack: ["python", "AWS Lambda"]
 project_link: "https://chatgpt.com/g/g-QeNbSmirA-postman-for-pms"
 short_description: ""

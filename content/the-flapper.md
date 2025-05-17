@@ -1,7 +1,7 @@
 ---
 title: "The Flapper"
 date: 2023-01-01
-categories: ["project overviews"]
+categories: ["builds"]
 stack: ["Unity", "C#", "Photon Networking", "XR Toolkit"]
 project_link: ""
 github_link: ""

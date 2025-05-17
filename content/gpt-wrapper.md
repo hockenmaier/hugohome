@@ -1,7 +1,7 @@
 ---
 title: "GPT Wrapper"
 date: 2025-01-01
-categories: ["project overviews"]
+categories: ["builds"]
 draft: true
 ---
 

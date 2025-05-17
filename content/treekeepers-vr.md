@@ -1,7 +1,7 @@
 ---
 title: "Treekeepers VR"
 date: 2022-10-01
-categories: ["project overviews"]
+categories: ["builds"]
 stack: ["Unity", "C#", "Photon Networking", "XR Toolkit"]
 project_link: "https://togetheragainstudios.com/treekeepersvr/"
 github_link: ""

@@ -1,7 +1,7 @@
 ---
 title: "Vision is the last hurdle before AGI"
 date: 2025-02-01
-categories: ["Writing"]
+categories: ["writing"]
 tags: ["singularity", "AI", "Invention"]
 ---
 

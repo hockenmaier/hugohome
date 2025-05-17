@@ -1,7 +1,7 @@
 ---
 title: "This Website"
 date: 2025-03-01
-categories: ["project overviews"]
+categories: ["builds"]
 stack: ["hugo", "matter.js", "HTML/CSS"]
 project_link: "/"
 github_link: ""
@@ -25,19 +25,35 @@ I love some of the 2010's era blogs and though mine is not going to be nearly as
 
 ---
 
-## Etymology
+## Etymology of hockenworks
 
-Hockenmaier is a great name. Not just because it's unique, but because of its meaning, at least my family's "folk-etymology" for it.
+Brian Hockenmaier <bhockenmaier@gmail.com>
+1:58 PM (22 minutes ago)
+to me
 
-You have
+Etymology of "hockenworks"
 
-##### Hocken
+Hockenmaier is a great name. I've always loved it. Not just because it’s unique and has my favorite number of letters, but because of its meaning, at least my family’s “folk-etymology” for it.
 
-> Which can roughly translate to "sitting down, squating, settling, idling". This is assuming it doesn't simply
+You have:
 
-"Lazy Worker" is perfect for someone in software engineering. There are [many](https://blog.codinghorror.com/how-to-be-lazy-dumb-and-successful/?utm_source=chatgpt.com) [correct](https://xkcd.com/1205/?utm_source=chatgpt.com) [takes](https://thethreevirtues.com/) on the value of being lazy when programming.
+> Hocken
 
-In the age of AI, it fits even better. A Lazy worker will not only not re-invent the wheel,
+Which can roughly translate to “sitting down, squating, settling, idling”.
+
+And then you have:
+
+> Maier
+
+Which has many different spellings, and ours has southern German roots, but all "Meyer" names come from the latin root "maior" mean steward, administrator, or more generally "worker"
+
+I've always heard my family put these two components together as "Lazy Worker," which is very on-brand for our sense of humor, but I think it's actually quite appropriate for me.
+
+“Lazy Worker” is perfect for someone who wants to get a lot done, especially in software engineering. We only have so many hours, and the best lives are lived restricting the number of hours spent on work that can't be done with people you love. So you better be efficient about it. You better be lazy. There are [many](https://blog.codinghorror.com/how-to-be-lazy-dumb-and-successful/?utm_source=chatgpt.com) [correct](https://xkcd.com/1205/?utm_source=chatgpt.com) [takes](https://thethreevirtues.com/) out there on the value of being lazy when programming.
+
+Now that we are starting to have AI, it's even better. A lazy worker will not only avoid unnecessary work, but will delegate all that can be delegated to the new AI workers that are multiplying in our computers. That makes the "administrator" connotation of "Maier" all the more fitting.
+
+So I'm proud to be the lazy worker, and this site is all about sharing my lazy works. My _hockenworks_.
 
 ---
 

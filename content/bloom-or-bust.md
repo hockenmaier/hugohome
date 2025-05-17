@@ -1,7 +1,7 @@
 ---
 title: "Bloom Or Bust"
 date: 2025-01-01
-categories: ["project overviews"]
+categories: ["builds"]
 stack: ["Openscad", "Bambulab"]
 project_link: ""
 github_link: ""

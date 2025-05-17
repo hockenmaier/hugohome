@@ -1,0 +1,2816 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+        
+    
+
+    
+        
+    
+
+    
+
+    
+        
+    
+
+    
+
+    
+        
+    
+
+    
+
+    
+        
+    
+
+    
+
+    
+        
+    
+
+    
+
+    
+        
+    
+
+    
+
+    
+        
+    
+
+    
+
+    
+        
+    
+
+    
+
+    
+        
+    
+
+    
+
+    
+        
+    
+
+    
+
+    
+        
+    
+
+    
+
+    
+        
+    
+
+    
+
+    
+        
+    
+
+    
+
+    
+        
+    
+
+
+
+
+
+
+
+    
+
+    
+
+
+
+
+
+
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0"  xml:lang="en-us"  xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        
+            
+
+            
+                
+            
+
+            
+                <link href="http://localhost:1313/categories/builds/" rel="self" type="text/html"/>
+            
+        
+            
+
+            
+
+            
+                <link href="http://localhost:1313/categories/builds/rss.xml" rel="alternate" type="application/rss+xml"/>
+            
+        
+
+        
+
+        
+
+        <description>Recent content</description>
+
+        
+            <language>en-us</language>
+        
+
+        
+            <lastBuildDate>2025-03-01 00:00:00 +0000 UTC</lastBuildDate>
+        
+
+        <link>http://localhost:1313/categories/builds/</link>
+
+        
+
+        <title>Builds · Categories · Home</title>
+
+        
+
+        
+            <item>
+                
+                
+                
+                
+                
+                
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+                
+
+                
+
+                
+
+                
+                    <description><![CDATA[<p>I&rsquo;m creating this website in 2025 after starting a family as well as my first full-time role in AI. It&rsquo;s an effort to clean up my website&rsquo;s focus and emphasize different things. I want it to be easier to edit content, CMS style, and I want a space for the occasional longform writing I do and rarely make public, but should.</p>
+<p>I have these ideas for a few reasons, but one is that after listening to the Dwarkesh podcast with Gwern, he convinced me that I really should have more of a record for future AIs to learn about me. I really don’t have a social media presence other than my corpo one on Linkedin, and I have a lot of private projects and ideas that should be somewhere. If no AGI comes along, there are non-artificial intelligences that may be interested. Talking to you, Alice :) Your cousin Lily keeps asking where you are and doesn&rsquo;t seem to get the concept that you currently occupy the same space as Kaitlin.</p>
+<p>I love some of the 2010&rsquo;s era blogs and though mine is not going to be nearly as longform, nearly as focused on prose, or nearly as articulate, two of the sites I&rsquo;m trying to take inspiration from are <a href="https://slatestarcodex.com/about/">Slate Star Codex</a> and <a href="https://gwern.net/about">Gwern&rsquo;s website</a> which are definitely advising on style here.</p>
+<hr>
+<h2 id="etymology-of-hockenworks">Etymology of hockenworks</h2>
+<p>Brian Hockenmaier <a href="mailto:bhockenmaier@gmail.com">bhockenmaier@gmail.com</a>
+1:58 PM (22 minutes ago)
+to me</p>
+<p>Etymology of &ldquo;hockenworks&rdquo;</p>
+<p>Hockenmaier is a great name. I&rsquo;ve always loved it. Not just because it’s unique and has my favorite number of letters, but because of its meaning, at least my family’s “folk-etymology” for it.</p>
+<p>You have:</p>
+<blockquote>
+<p>Hocken</p>
+</blockquote>
+<p>Which can roughly translate to “sitting down, squating, settling, idling”.</p>
+<p>And then you have:</p>
+<blockquote>
+<p>Maier</p>
+</blockquote>
+<p>Which has many different spellings, and ours has southern German roots, but all &ldquo;Meyer&rdquo; names come from the latin root &ldquo;maior&rdquo; mean steward, administrator, or more generally &ldquo;worker&rdquo;</p>
+<p>I&rsquo;ve always heard my family put these two components together as &ldquo;Lazy Worker,&rdquo; which is very on-brand for our sense of humor, but I think it&rsquo;s actually quite appropriate for me.</p>
+<p>“Lazy Worker” is perfect for someone who wants to get a lot done, especially in software engineering. We only have so many hours, and the best lives are lived restricting the number of hours spent on work that can&rsquo;t be done with people you love. So you better be efficient about it. You better be lazy. There are <a href="https://blog.codinghorror.com/how-to-be-lazy-dumb-and-successful/?utm_source=chatgpt.com">many</a> <a href="https://xkcd.com/1205/?utm_source=chatgpt.com">correct</a> <a href="https://thethreevirtues.com/">takes</a> out there on the value of being lazy when programming.</p>
+<p>Now that we are starting to have AI, it&rsquo;s even better. A lazy worker will not only avoid unnecessary work, but will delegate all that can be delegated to the new AI workers that are multiplying in our computers. That makes the &ldquo;administrator&rdquo; connotation of &ldquo;Maier&rdquo; all the more fitting.</p>
+<p>So I&rsquo;m proud to be the lazy worker, and this site is all about sharing my lazy works. My <em>hockenworks</em>.</p>
+<hr>
+<h2 id="ball-machine---the-game">Ball Machine - The Game</h2>
+<p>Most blogs and personal websites are a bit boring. I think that is because most professionals consider what they do &ldquo;for work&rdquo; and &ldquo;a bit boring by nature&rdquo; and don&rsquo;t necessarily make a concerted effort to have fun with it.</p>
+<p>I have always tried to be the opposite, and with kids coming I am trying to make a bigger effort than ever to have fun whatever I&rsquo;m doing. Which is often working, in some way or another.</p>
+<p>So for my website, I wanted it to be intentionally fun. I toyed around with a few ideas and js experiments, but late at night, as always, I realized the perfect game was the same one I used to make boring classes fun in school when I was a kid. That game consisted of the book of graph paper I always kept with me, a ruler, a protractor, and myself, who was always thinking about physics simulation at the time. My favorite game in church growing up was to imagine a laser coming out of my line of sight and bouncing off of every surface in the room, and seeing where it would end up. This graph paper game was similar:</p>
+<div style="text-align: center; margin-bottom: 1rem;">
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<img  alt="balls everywhere"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/this-website-ball-machine-1.png"   style="height: auto; max-width: 720px; width: 100%"   >
+
+
+    
+        <span style="display: block; font-style: italic; margin-top: 0.5rem;">Some of my early playtests got pretty chaotic</span>
+    
+</div>
+
+<p>I would start by making a &ldquo;spawn point&rdquo; usually near the top left of the page, where balls would start falling. I would draw out the path of these balls a few inches from each other along their path with &ldquo;speed lines&rdquo; to denote which way they were going. Then I would add platforms, trampolines, loops, curves, &ldquo;booster&rdquo; acceleration zones, jumps, machines that would disassemble and reassemble balls, and so many other things - usually something new each sheet of paper - and I would end up with a Rube Goldberg machine of balls flying all around the sheet. The only goal was to fill the sheet with more ridiculous paths.</p>
+<p>I started calling the sheets my &ldquo;ball machines&rdquo;. I wish I still had some of these drawings. I remember them being quite intricate.. I must have reserved English class for them.</p>
+<p>So, to honor kid Brian, I am making my website a permanent ball machine. I hope you have fun with it and see all there is to unlock!</p>
+<h2 id="how-to-play">How to Play</h2>
+<blockquote>
+<p>Quick Disclaimer: The best experience is on desktop or tablet - something with more screen real-estate than a phone.</p>
+</blockquote>
+<p>The ball machine on this site is a gamified version of my graph paper drawings as a kid. Each time you load a page, You&rsquo;ll see a little pneumatic delivery tube on the top right of the screen. This tube is where the balls show up when you click.</p>
+<p>When you spawn your first ball, you&rsquo;ll see a few things appear. First - you&rsquo;ll find a goal (look for a &ldquo;target&rdquo;) somewhere randomly on the page. Find a way to get the balls you spawn into that goal. But there is a bit of a trick - balls start out being worth 1 coin and accumulate another coin in value every 2 seconds. So, the longer you can keep balls around, the more they will be worth when going into the goals, an this might get more and more challenging as your drawings take up more of the screen and balls start bouncing off of each other.</p>
+<p>It&rsquo;s a clicker game - start by manually clicking the pneumatic tube to spawn balls, but as you accumulate coins you&rsquo;ll be able to unlock different drawables and things that will let you accumulate more coins faster.</p>
+<h3 id="drawables">Drawables</h3>
+<p>To start drawing your ball machine, you need to click or tap one of the drawables in the main UI:</p>
+<p>{image}</p>
+<p>Every drawable item (lines, launchers, and more) uses the following mechanics:</p>
+<p>On Desktop:</p>
+<ul>
+<li>Start drawing by clicking, drag the mouse around to see a preview, and click again when you have the drawable where you want it.</li>
+<li>Some drawables have a second action, like curved lines, that is previewed after the second click and confirmed with a third</li>
+<li>Hover over a drawn item and right click to delete it.</li>
+</ul>
+<p>On Mobile:</p>
+<ul>
+<li>Tap and drag to see a preview, and release when you have the drawable in the right spot.</li>
+<li>Second actions for the drawable will start on the next tap-and-drag.</li>
+<li>Tap and hold on a drawable to delete it - you will see it pulse before it deletes.</li>
+</ul>
+<p>If you can&rsquo;t draw an item, you probably can&rsquo;t afford it. You&rsquo;ll see the gold prices of the items flash red in the UI when this happens.</p>
+<p>When you have a Drawable tool toggled on, you won&rsquo;t be able to click other links on the site. You&rsquo;ll see this visually indicated when you choose them. Unselect the currently selected tool in order to see it</p>
+<h3 id="tips-on-making-money">Tips on Making Money</h3>
+<p>You&rsquo;ll quickly find ways to lengthen your Rube-Golberg Machines and build up value before you send balls into the goal. A couple of things to watch out for though:</p>
+<ul>
+<li>Balls have to be moving at all times. If they sit still for too long, they are considered dead and will poof out of existence.</li>
+<li>This applies to balls hitting the goal too. If your balls aren&rsquo;t moving when they hit the target, they won&rsquo;t go in.
+So keep your balls moving!</li>
+</ul>
+<p>Each post on this site will be a slightly different randomized game! Try making ball machines on multiple pages at once. Your work will be saved in realtime, and you can make money even on pages you&rsquo;re not currently playing on. Try it!</p>
+<p>Your progress is saved to your device because your contraptions will be highly dependent on the screen size the site renders to.</p>
+<p>The game works a bit differently on desktop and mobile, and the best experience is really on desktop - so try on a computer if you can!</p>
+<h3 id="resetting-the-game">Resetting the game</h3>
+<span
+  style="
+    color: #ff0040;
+    font-family: 'Arial Black', Arial, sans-serif;
+    font-size: 20px;
+  "
+>
+   WARNING! Don't navigate to the below page unless you're sure you want to reset the ball machine game
+</span>
+
+<p>Resetting will erase all your drawings on all pages and reset your goal locations, unlocks, coins and everything else.</p>
+<p>If you are thinking about doing this because you want to try on another device, you don&rsquo;t need to because progress is already saved to your device. The only reason to do this is to have a fresh start on this device.</p>
+<p>Navigate <a href="/reset-ball-machine">here</a> and click reset to do that.</p>
+<h2 id="how-its-made">How it&rsquo;s made</h2>
+<p>I don&rsquo;t typically make complicated things like this with javascript. So when I found the perfect physics engine for the game - <a href="https://brm.io/matter-js/">matter.js</a> - I knew I would need help from our new little assistants. And though this game is a bit too structured to call it &ldquo;vibe coded&rdquo; - it&rsquo;s close. I ended up making my own tool called <a href="/context-caddy">Context Caddy</a> to help me with it. Part of the reason I leaned so hard into this is because I&rsquo;m always trying to push the limits of current AI, and I hadn&rsquo;t built a game since the GPT-4 days. The new thinking models are truly a setup above GPT-4 (this was mostly done with o3 and its minis) but they&rsquo;re still way to eager to write duplicate code, and they still don&rsquo;t &ldquo;get&rdquo; the structure of your project a lot of the time, especially with visual and physcial things like this. Still, they were a great help here.</p>
+]]></description>
+                
+
+                <guid isPermaLink="false">tag:localhost:1313,2025-03-01:/this-website/</guid>
+
+                
+                    <link>http://localhost:1313/this-website/</link>
+                
+
+                
+                    <pubDate>Sat, 01 Mar 2025 00:00:00 UTC</pubDate>
+                
+
+                
+                    <title>This Website</title>
+                
+            </item>
+        
+            <item>
+                
+                
+                
+                
+                
+                
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+                
+
+                
+
+                
+
+                
+                    <description><![CDATA[<p>I built a nice little tool to help AI write code for you.</p>
+
+    <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+      <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/R5wztMBfh0w?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"></iframe>
+    </div>
+
+<p>Well, really, o3-mini and o3-mini-high worked together to write this and I corrected a few things here and there. I started using this tool to write itself about 30 mins into development!</p>
+<p>Download on github (above) or the VScode marketplace:</p>
+<p><a href="https://marketplace.visualstudio.com/items?itemName=Hockenmaier.context-caddy">https://marketplace.visualstudio.com/items?itemName=Hockenmaier.context-caddy</a></p>
+<hr>
+]]></description>
+                
+
+                <guid isPermaLink="false">tag:localhost:1313,2025-02-13:/context-caddy/</guid>
+
+                
+                    <link>http://localhost:1313/context-caddy/</link>
+                
+
+                
+                    <pubDate>Thu, 13 Feb 2025 00:00:00 UTC</pubDate>
+                
+
+                
+                    <title>Context Caddy</title>
+                
+            </item>
+        
+            <item>
+                
+                
+                
+                
+                
+                
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+                
+
+                
+
+                
+
+                
+                    <description><![CDATA[<p>The advent of general coding AI assistants almost immediately changed how I thought about the hiring process and interviews. And it changed how I talked about it with colleages and my own team.</p>
+<p>In the software engineerging world, this mindset shift was pretty easy for me psychologically, because I had always had a bias against the types of coding questions that I personally do badly at - specifically ones that require knowledge or rote memory of specific language capabilities, libraries, syntax. It is not that psychologically easy for everyone, especially those that have developed a core skillset of running &ldquo;leetcode-style&rdquo; interviews. Even before AI, the only types of coding questions I would personally ask were things that simply evaluate whether a candidate is lying or not about whether they can code at all, which was and still is surprisingly common. I have interviewed people that list bullet points like 7 years of Java experience but can&rsquo;t pass a fizz buzz like question, and this was a question I gave out on paper with a closed door and no significant time pressure.</p>
+<p>So, when LLMS that could remember any syntax or attribute of any programming language perfectly were released, not only was I excited but I immediately saw that a huge chunk of the programming questions my team and many other software teams liked to ask were essentially irrelevant now, not only because people could cheat on interviews, at least virtually, but because that knowledge simply lost a lot of value overnight.</p>
+<p>Over a few conversations with friends and colleagues I began to explore the idea of what this meant generally for the interview process. There are just lots of questions that we ask in every field, it turns out, that are mostly solved by LLMS that have memorized most useful information, even when the original intent of the interview question was to test for experience.</p>
+<h2 id="the-build">The Build</h2>
+<p>In the summer of 2022 it got to the point where I really wanted to test my hypothesis - that LLMS and continuous audio transcription could let someone with no knowledge answer many interview questions correctly- and after searching for apps on the appstore that did what I was thinking in terms of, I found that surprisingly none did.</p>
+<p>I&rsquo;m still not sure if that was a legal thing at the time, or if it&rsquo;s hard to get apps that continuously transcribe audio published, but as of 2025 apps like this definitely exist. Some of them have gotten famous and one has gotten its creator expelled from an ivy League for revealing that he used it to ace interviews with some top tech companies. Link for the curious here:</p>
+<p><a href="https://cluely.com/">https://cluely.com/</a></p>
+<p>But, in mid 2023, these apps were apparently not a thing, so I decided to make a prototype.</p>
+<p>My basic requirements were simply something that could continuously transcribe words being spoken in a meeting or over a call, group them up into meaningfully long chunks, and then send those to two different AI passes:</p>
+<ol>
+<li>An AI pass that would try to make meaningful questions out of the transcribed potential gibberish</li>
+<li>An AI pass that would answer those questions</li>
+</ol>
+<p>My tech stack for this was a little weird, but I know unity well and I don&rsquo;t know other ways of deploying mobile apps well, and this definitely need to be a mobile app if it was going to sit on the phone and continuously transcribe audio. Web has all kinds of restrictions on their APIs and I don&rsquo;t know native mobile web very well anyway.</p>
+<p>This was surprisingly easy to do, even in 2023. I ran into a few hiccups mainly around continuous audio transcription, but for an app that I wasn&rsquo;t going to publish that I was directly putting onto my own Android device, I got around that by simply starting up a new audio transcription thread every time one closed.</p>
+<div style="display: flex; align-items: center; justify-content: center; gap: 10px; margin-bottom: 1rem;">
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+    
+
+
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<img  alt="the app ui"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/make-us-smarter.jpg"   style="height: auto; max-width: 200px"   >
+
+
+    
+        <span style="font-style: italic;">Super barebones UI just showing the continuously auto-transcribed words, questions derived from those words, and answers to those questions.  This particular screen was grabbed long after my api key had expired and is only here to show the basic output of the app, transcription building continuously in the background and detected questions and answers in the foreground.</span>
+    
+</div>
+
+<p>And the results were surprisingly compelling. Of course I was using some of the very first versions of GPT-4 and AI is still not perfect, but the main result of this was that occasionally questions were picked up that were not actually implied by the meeting audio, and occasionally real questions were missed. The part that I knew was going to work did indeed work incredibly well: when I simulated some fizz-buzz style questions and there were no major audio transcription issues, the second question-answering AI nailed them and was able to put a succinct script to answer the question on screen within a few seconds.</p>
+<p>There was clearly more work to be done on UI and also the flow between the AI passes, and more agentic APIs of today could definitely do this all more seamlessly.</p>
+<p>But for me, my question was answered: My hunch was right and we should definitely not be asking questions about basic constructs of programming languages or simple scripts in interviews anymore.</p>
+<p>I open sourced the project which is a pretty small unity build, and it&rsquo;s a unity version from a couple of years ago now but anyone is happy to look through and modify the code anyway they want:</p>
+<p><a href="https://github.com/hockenmaier/make-us-smarter">https://github.com/hockenmaier/make-us-smarter</a></p>
+<h2 id="interviewing-today">Interviewing Today</h2>
+<p>This whole experience and a whole slew of interviews that came building my team the last year have me settled on an interview approach that I think is infallible (for now). And it doesn&rsquo;t require sending someone home with a project or any of that stuff that good candidates often don&rsquo;t even consider. I heard about a version of this technique on Twitter so can&rsquo;t take full credit here:</p>
+<p>What I do is ask candidates to bring some code that they have written, regardless of language of framework, and I simply walk through it with them in the interview. It only takes 15 minutes or so, and it usually gets much better conversation going than sample interviewing questions do. It leans on the fact that you need an interviewer that can mostly understand most programming projects, but it cannot be faked with any LLM assistance. Llm written code is pretty obvious for one, much better commented and differently organized than most humans would write, but even if the code was very sneakily written AI code, having a human go through and explain the parts that they thought were clever defeats the purpose of cheating with AI anyway.</p>
+<p>So there you go, little tidbit from what I&rsquo;ve learned. I hope no one out there that I know is using these apps to cheat on interviews, but we all need to be wise to the fact that it is trivially easy to do so, and we should shift focus to testing for the qualities that actually matter in the era of AI.</p>
+]]></description>
+                
+
+                <guid isPermaLink="false">tag:localhost:1313,2025-01-01:/my-experiments-with-ai-cheating/</guid>
+
+                
+                    <link>http://localhost:1313/my-experiments-with-ai-cheating/</link>
+                
+
+                
+                    <pubDate>Wed, 01 Jan 2025 00:00:00 UTC</pubDate>
+                
+
+                
+                    <title>My Experiments with AI Cheating</title>
+                
+            </item>
+        
+            <item>
+                
+                
+                
+                
+                
+                
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+                
+
+                
+
+                
+
+                
+                    <description><![CDATA[<p>Here&rsquo;s a peek at my first major board game creation.</p>
+<p>I&rsquo;ve made a few clones or slight alterations of games I like before (links to nope and block his pocket) but blue more bust is my first attempt at something of my own design and very high production quality.</p>
+<p>(Pics)</p>
+<p>This is a risk-taking game where players compete to take over a tree with their specific type of fruit. Trees and bees are becoming a recurring theme in my games!</p>
+<p>All parts of this game or hand designed by me, mostly in VR with a tool called gravity Sketch, blender, and one of my favorite programmer&rsquo;s 3D tools called OpenSCAD.</p>
+<p>(Link those)</p>
+<p>Of all my models, this one takes most advantage of my multicolor BambuLab printer. All parts including the custom box which cleverly incorporates the instructions and game board itself are printed in bamboo lab Matte PLA, which in my opinion is probably the most beautiful way to print.</p>
+<p>Production is batched with 80 to 150 of each fruit or bee on a build plate, but heavily limited by the game board and latching box each requiring a separate print.</p>
+<p>I have looked into outsourcing production of this game so that I can actually distribute it but that has not happened yet since its design is so dependent on multicolor 3D printing, and most print farms would require nearly 30 bucks to produce it, let alone shipping it and my own margin. Injection molding is an option but also gets expensive with this level of detailed color, and requires remodeling in several significant ways. It still might happen. Or I might put it out on a site that lets people buy the model and print it themselves.</p>
+]]></description>
+                
+
+                <guid isPermaLink="false">tag:localhost:1313,2025-01-01:/bloom-or-bust/</guid>
+
+                
+                    <link>http://localhost:1313/bloom-or-bust/</link>
+                
+
+                
+                    <pubDate>Wed, 01 Jan 2025 00:00:00 UTC</pubDate>
+                
+
+                
+                    <title>Bloom Or Bust</title>
+                
+            </item>
+        
+            <item>
+                
+                
+                
+                
+                
+                
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+                
+
+                
+
+                
+
+                
+                    <description><![CDATA[<p>Today&rsquo;s post is about another half finished game that either I or AI will finish one day. I&rsquo;m gaining a bit of a repertoire of those. This is one that I started when AI image generation started to become decent. It&rsquo;s a game that I&rsquo;ve always wanted to exist but with my current skill sets, I could never pull off without a lot of commissioning due to the art requirements.</p>
+<p>The idea is not as original as some of my games but it&rsquo;s very fun when played in a large group. Essentially, I combine the gameplay of the NES classic balloon fight with eight-player multiplayer. If you&rsquo;ve played my game Land war, you might know that I&rsquo;m a bit obsessed with eight player multiplayer, or really specifically anything that&rsquo;s more than four players which is where most video games typically max out.</p>
+<h1 id="eight-player-video-games">Eight-player video games</h1>
+<p>Kaitlin and I love to have people over to socialize, and I love to game. I think they are honestly one of the best ways to have productive, good natured socialization where people can do things like band together, rib on each other a bit, and sometimes even feel like they&rsquo;ve seen something beautiful or had a new experience together. I know that&rsquo;s a little philosophical and sappy, but I think there&rsquo;s a huge place for video games in actual socialization, similar to how board games have a place.</p>
+<p>And I love board games. I play them all the time. But so often when playing board games you run into mechanics that are only there because the game doesn&rsquo;t have a computer involved, can&rsquo;t count for you, can&rsquo;t add things up, can&rsquo;t simulate multiple players turns at the same time, and though it&rsquo;s nice to not have any screens in front of anybody, I think the limitations of board games hold people back from playing games as a group in general more often than not.</p>
+<p>My favorite example of this is power grid.</p>
+<div style="text-align: center; margin-bottom: 1rem;">
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<img  alt="an image of the cover art for Power Grid"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/power-grid.png"   style="height: auto; max-width: 200px; width: 100%"   >
+
+
+    
+</div>
+
+<p>Power Grid is a clever game that would be really quite fun if it didn&rsquo;t require players to spend half their time literally doing simple math in their heads or on paper while other people waited. A modern video game with similar dynamics would never do that; it would just let you play the fun part. Many such cases in board gaming.</p>
+<p>But video games have their own limitations and requirements. Aside from the stuff that we aren&rsquo;t getting around anytime before true augmented reality is on everybody&rsquo;s faces, like getting a controller and everybody&rsquo;s hands, and getting them over the fact that they are looking at a screen to socialize, video games have one fundamental limitation most of the time which is that they only go up to four players. And most social gatherings involve more than four people.</p>
+<p>This is the core reason I wanted to make land war an eight-player strategy game, and this setting of group gatherings was also why the controls for land war are so dead simple. More about land war <a href="/land-war">here</a></p>
+<h1 id="generated-art-first-edition">Generated Art, First Edition</h1>
+<p>The reason I waited to make a game like this is because I&rsquo;m no artist. I like to think I have taste but it certainly is not in my wheelhouse to make beautiful artwork, even for a simple sprite based game I want to make here.</p>
+<p>The models I was mostly working with on this project were Mid journey 6 and Dalle3, both diffusion models which is the best you could get at the time. If you&rsquo;ve worked with diffusion models before, you know you can get some pretty beautiful and creative stuff, but there are always a little artifacts that will be noticed if someone stares at it long enough, which is always going to be a case for a video game sprite. So I found myself having to do a lot of cleaning and filtering and processing of the images, and I landed on an oil painting filter that worked pretty well to disguise some of the noise and my own edits that I would inevitably have to apply to the images of my characters, power-ups, etc.</p>
+<p>It was a lot of work just to get a decent looking single sprite, not animated. Animation is where I ran into the real challenges.</p>
+<p>Diffusion models without some very complicated hard work in the form of techniques like LORAs (link) just can&rsquo;t iterate on the same image over and over again. Character consistency is not really a thing, and that&rsquo;s what&rsquo;s needed to make a multi-frame sprite that animates. This is the real impasse I ran into, and the core reason that I stopped working on this game. I wanted to spend 80% of my time on the gameplay, logic, and testing of this game, and 20% prompting for art, but it started to be about 50/50. And the results were not amazing.</p>
+<h1 id="the-state-of-generated-art-in-2025">The State of Generated Art in 2025</h1>
+<p>So fast forward to now. We all knew this has been coming for a long time, but finally we have transformer models that do image generation. And part of what that means is that conversation history, including past image generations and reference images, can be included in the neural context of the next generation. We probably all seen this with image <a href="https://www.reuters.com/technology/artificial-intelligence/ghibli-effect-chatgpt-usage-hits-record-after-rollout-viral-feature-2025-04-01/">&ldquo;Ghiblification&rdquo;</a>.</p>
+<p>OpenAI was yet again the first to release this type of capability, at least in a serious way. Technically there was a Gemini model that did native image gen maybe a month before OpenAI released theirs, but it was pretty garbage in comparison. And, unexpectedly, the new OpenAI image gen can also generate images on transparent PNG backgrounds, which is absolutely crucial for any image that&rsquo;s going to be set against some dynamic background - this is all game art.</p>
+<p>I have since taken a few attempts at making some multi-frame spray animations, and it&rsquo;s almost there, but it&rsquo;s still a lot of work unlike what you might be led to believe by excited Twitter posts with whole sprite sheets generated. The models just still aren&rsquo;t consistent enough to produce images that don&rsquo;t require a heavy amount of editing to get the same amount of background space, fallout actual sprite sheet specs, keep characters absolutely consistent. But I think they will get there soon.</p>
+<h1 id="generated-music">Generated Music</h1>
+<p>Generated music was a surprising high point of this project. Great quality sound effect and music generators were on my checklist of things that I knew would come soon, but I got super lucky when udio (link) came out about a month and two prototyping this thing. Check out these tracks I put into the game:</p>
+<p>(Media)</p>
+<p>I will say generated sound effects are still not there, similar to art. You can occasionally get something that sounds like what you intended but in general there&rsquo;s a lot of noise, a lot of strange lead-ins, and in general just strangeness.</p>
+<h1 id="current-state-of-the-game">Current State of the Game</h1>
+<p>So here&rsquo;s where I&rsquo;m at, check out this video which is just me playing against seven bots but you can start to get the idea:</p>
+<p>{youtube embed}</p>
+<p>The game is fun with multiple players, but it&rsquo;s still quite basic, and I&rsquo;m still waiting on image generation that would make the graphics good rather than the stand-ins that are mostly still from the diffusion era of image generation.</p>
+<p>At some point I will pick this thing back up, or I will have some AI agent pick it back up for me, because the core game itself is something I really want to exist, even if it&rsquo;s just another land war that a few hundred people download and I play at my own get togethers.</p>
+<p>If you&rsquo;d like, you can download a Windows build here, which is still very much a prototype but works with 8 connected controllers:</p>
+]]></description>
+                
+
+                <guid isPermaLink="false">tag:localhost:1313,2025-01-01:/balloon-fight/</guid>
+
+                
+                    <link>http://localhost:1313/balloon-fight/</link>
+                
+
+                
+                    <pubDate>Wed, 01 Jan 2025 00:00:00 UTC</pubDate>
+                
+
+                
+                    <title>8 Player Balloon Fighter</title>
+                
+            </item>
+        
+            <item>
+                
+                
+                
+                
+                
+                
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+                
+
+                
+
+                
+
+                
+                    <description><![CDATA[<p>I made &ldquo;Postman for PMs,&rdquo; a tool to help non-engineers understand and use APIs!</p>
+
+    <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+      <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/3O4r_q2Ioko?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"></iframe>
+    </div>
+
+<p>It&rsquo;s a &ldquo;Custom GPT&rdquo; - a customized version of chatGPT. Just give it some details about the API and then tell it in English what you want to get, post, update, whatever.</p>
+<p>If you&rsquo;re a PM, business analyst, or anyone that cares about APIs but doesn&rsquo;t like terminals and engineer-y tools like Postman, and you have ChatGPT plus, try it out. Here&rsquo;s a link:
+<a href="https://chatgpt.com/g/g-QeNbSmirA-postman-for-pms">https://chatgpt.com/g/g-QeNbSmirA-postman-for-pms</a></p>
+<p>Important disclaimer: DON&rsquo;T use ChatGPT on corporate stuff if your company doesn&rsquo;t allow it! This was a fun experiment for me and I&rsquo;m definitely not using any corporate resources on it/for it. There are plenty of free APIs to try this out on. Maybe ask ChatGPT for some suggestions</p>
+<hr>
+]]></description>
+                
+
+                <guid isPermaLink="false">tag:localhost:1313,2024-01-13:/postman-for-pms/</guid>
+
+                
+                    <link>http://localhost:1313/postman-for-pms/</link>
+                
+
+                
+                    <pubDate>Sat, 13 Jan 2024 00:00:00 UTC</pubDate>
+                
+
+                
+                    <title>Postman for PMs</title>
+                
+            </item>
+        
+            <item>
+                
+                
+                
+                
+                
+                
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+                
+
+                
+
+                
+
+                
+                    <description><![CDATA[<p>I’ve been playing around with <a href="https://en.wikipedia.org/wiki/Neural_radiance_field">neural radiance fields</a> (NeRFs) lately and thought a fun way to explore them would be flying through them in the Treekeepers “Puddle Jumper” in true scale.</p>
+
+    <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+      <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/QguH3aK90Ck?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"></iframe>
+    </div>
+
+<p>Of course, you lose a lot of the draw of NeRFs when you export the model into a 3d engine because it has to flatten all the textures and lighting, and also Luma AI cuts off 3D model exports as a jarring cube</p>
+<p>But still - I was amazed at how well just applying a day/night lighting cycle and mesh colliders worked with this. Projectile and enemy physics played well too.</p>
+<p>It’s still early days, but I could see 3D model generation from this tech getting a lot better and forming the basis for some really interesting user-generated content in the future!</p>
+<p>Neat stuff - big thanks to Luma AI for the free toolset.</p>
+]]></description>
+                
+
+                <guid isPermaLink="false">tag:localhost:1313,2023-02-01:/nerfs/</guid>
+
+                
+                    <link>http://localhost:1313/nerfs/</link>
+                
+
+                
+                    <pubDate>Wed, 01 Feb 2023 00:00:00 UTC</pubDate>
+                
+
+                
+                    <title>NeRFs in VR</title>
+                
+            </item>
+        
+            <item>
+                
+                
+                
+                
+                
+                
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+                
+
+                
+
+                
+
+                
+                    <description><![CDATA[<p>&ldquo;The Flapper&rdquo; is a project that spawned out of a simple VR movement mechanic test that I had had in my head for a while, which turned out to be surprisingly fun! The idea is to flap your arms to fly - and have it be a multiplayer battle to really get people moving.</p>
+<p>In order to start working on this game, because there was so much standard VR code that I had to write for tree keepers, I decided to make a sort of engine out of tree keepers and work off of that rather than start from scratch. That let me tie in some of the nice associated graphics, music and sound effects I had made, and a bunch of other helper functions and things I use for things like the camera following around the character, how I deal with collisions, a bunch of netcode, etc.</p>
+<p>You can see my more detailed post about that engine here: <a href="/treekeepers-engine">Treekeepers Engine</a></p>
+<h2 id="core-mechanic--gameplay">Core Mechanic &amp; Gameplay</h2>
+<p>Most of the start of this game was just tuning the movement mechanic, which borrowed from some physics realities and some elements I made up to make flapping feel good. But, the essential idea was that each arm would generate unique thrust in the direction it was moving with an exponenthel applied to how fast it was moving. It&rsquo;s hard to describe any native VR mechanic with words and videos only, but to me and the folks I demoed it to; it felt &ldquo;right&rdquo; for how flying should work if you did it by flapping your arms. I had a ton of fun just jetting around the obstacle courses I made for myself.</p>
+<p>My idea for this other than just the mechanic was to make a sort of gorilla tag-esque multiplayer game where players would fly around and try to pop each other&rsquo;s balloons in a NES balloon fight {link} style. Ideally something like 15 to 20 people would be in a lobby flying around and trying to pop each other.</p>
+<p>Like gorilla tag I didn&rsquo;t want anyone to have to &ldquo;sit out&rdquo; of the game, so it&rsquo;s essentially a deathmatch where the player who pops the most balloons wins, and is also visible who&rsquo;s winning, because they also gain the balloons that they pop. In some playtests players would have 20 or 30 balloons on their head. This was my clever idea of adding a built-in rubber-band effect to the gameplay as well, since having more balloons over your head made you a bigger target to pop. The gameplay worked well - but I never quite got the game to a place with netcode and networking engine where multiplayer felt seamless enough.</p>
+<p>Here’s a video of one of the later states of the game, where I have it fully networked and am testing with friends, though it still has a few bugs here:</p>
+
+    <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+      <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/Vxn8rDOZ7dU?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"></iframe>
+    </div>
+
+<h2 id="today">Today</h2>
+<p>I stopped working on this project after about 3 months. It turned out that flying alone with this mechanic was very compelling (and also a great workout!) but the networking engine I had used for Teeekeepers, Photon, was not up to task for how low latency a competitive game needed to be. Treekeepers was four-player co-op so photon was just fine.</p>
+<p>In the future I might pick this one back up (or maybe have an AI agent pick it up for me depending on how that goes) using space-time DB {link}</p>
+<p>which looks like a great solution for this type of game that doesn&rsquo;t require a whole ton of cloud programming and setup.</p>
+<p>You can try a build of the game here:</p>
+<p>{Download of latest build}</p>
+]]></description>
+                
+
+                <guid isPermaLink="false">tag:localhost:1313,2023-01-01:/the-flapper/</guid>
+
+                
+                    <link>http://localhost:1313/the-flapper/</link>
+                
+
+                
+                    <pubDate>Sun, 01 Jan 2023 00:00:00 UTC</pubDate>
+                
+
+                
+                    <title>The Flapper</title>
+                
+            </item>
+        
+            <item>
+                
+                
+                
+                
+                
+                
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+                
+
+                
+
+                
+
+                
+                    <description><![CDATA[<div style="text-align: center; margin-bottom: 1rem;">
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+    
+
+
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<img  alt="The Treekeepers Puddle Jumper"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/treekeepers_moonlight.png"   style="height: auto; max-width: 100%"   >
+
+
+    
+        <span style="font-style: italic; margin-top: 0.5rem;">The Treekeepers Puddle Jumper</span>
+    
+</div>
+
+<p>Treekeepers VR is a networked VR game where up to 4 players can cooperate to navigate an oversized world and save a giant tree.</p>
+<p>Treekeepers is in production on both Quest (standalone VR) and Steam (PC VR) with full cross-play functionality. See the <a href="https://togetheragainstudios.com/treekeepersvr/">Treekeepers VR Website</a> for links to all storefronts and more detail about the game.</p>
+<hr>
+<h2 id="development">Development</h2>
+<p>I began working on Treekeepers in June 2021, and my primary goal was to go significantly deeper into Unity and make a fully networked game. Very few co-op games existed in VR at the time (the area is still lacking), and my intention was to answer this need and create a game that 4 players could cooperate in within a static frame of reference (players move within a ship, and the ship moves through the world) while having to solve coordination challenges together.</p>
+<p>I initially designed the project for SteamVR only using the SteamVR SDK but quickly realized that a VR game released only on PC would miss the majority of the userbase, as the (then Oculus) Quest 2 was quickly dominating the market. Treekeepers was a good fit for a mobile platform with its simple low-poly cel-shaded design, so I pivoted to using OpenXR about two months into the project to support VR interactions on both PC and mobile (Android) devices like the Quest 2.</p>
+<p>By summer 2022, I had a releasable product, albeit only with one “world” available. I decided to push the game to early access to gather rapid feedback from real players, and after getting approved for both storefronts, Treekeepers released to early access on September 30, 2022.</p>
+]]></description>
+                
+
+                <guid isPermaLink="false">tag:localhost:1313,2022-10-01:/treekeepers-vr/</guid>
+
+                
+                    <link>http://localhost:1313/treekeepers-vr/</link>
+                
+
+                
+                    <pubDate>Sat, 01 Oct 2022 00:00:00 UTC</pubDate>
+                
+
+                
+                    <title>Treekeepers VR</title>
+                
+            </item>
+        
+            <item>
+                
+                
+                
+                
+                
+                
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+                
+
+                
+
+                
+
+                
+                    <description><![CDATA[
+    <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+      <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/q_1itpdiPb4?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"></iframe>
+    </div>
+
+<p>The &ldquo;Human Joystick&rdquo; is an experimental VR movement system in which the player moves through the virtual environment by changing their physical location within their VR &ldquo;playspace&rdquo;.</p>
+<p>A demo of the human joystick movement system, showing how the system can work on flat surfaces or terrain.</p>
+<p>This was my first barebones VR project. Though I knew Unity going in, VR and 3D games in general have a lot of unique aspects that I wanted to learn about while trying to solve an actual problem, rather than following tutorials or demos online.</p>
+<p>VR has some adoption problems in its current state. We all know of some of the main problems- the clunky headset, the nausea issues, and of course the pricetag. But one major problem that you don&rsquo;t really notice until you get into it, is the lack of a good solution for virtual movement.</p>
+<p>I had been wondering about &ldquo;the human joystick&rdquo; as a potential a solution to this particular problem ever since getting into consumer VR in 2016.</p>
+<p>In most modern VR systems, the player can move physically around the room if they choose. Some applications and games depend on this - they put you in a small space and rely on your physical movement in order to reach different areas and interact with things. But games that provide a more traditional sense of scale and allow players to move through large worlds cannot rely on physical motion, because their users are constrained by physical space. Because of this, you see all kinds of &ldquo;artificial&rdquo; locomotion systems in order to let people move around - some just like traditional 2D games that let users &ldquo;slide&rdquo; their playspaces around the world using a joystick, and others that adopt teleportation mechanics. Neither feel very natural as compared to actually walking, and some can be downright sickening.</p>
+<p>My goal with this project was to solve this problem with a mixture of physical and artificial movement.</p>
+<p>It works like this: When the player is standing near the center of their playspace, physical VR movement applies. The player can move around and interact with things with their actual bodies. But once the player moves further from the center, the plaspace starts to move with them in the same direction as the vector from the center of the player&rsquo;s space to their current position. This allows for some of the benefits that physical movement experiences have, while allowing the players to more naturally move through an infinite amount of space.</p>
+<p>I experimented with several speeds, both static and scaling with the distance between the center and the player. I also experimented with the size of the physical movement &ldquo;deadzone&rdquo; and with vertical and constrained movement across hills, valleys, and buildings.</p>
+<hr>
+<table>
+  <thead>
+      <tr>
+          <th style="text-align: center">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="paige-image">
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+    
+
+    
+        
+
+        
+
+        
+    
+        
+
+        
+
+        
+    
+        
+
+        
+            
+
+    
+
+
+
+    
+
+
+
+
+
+
+
+    
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<img   class="img-fluid "  crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/human_joystick_centered.jpg"   style="display:block; height: auto; margin:0 auto; width: 60%"   >
+
+
+</div>
+</th>
+          <th style="text-align: left"><em>View from the player&rsquo;s perspective looking at the guides at his feet. With the white dot in the red deadzone, the player isn&rsquo;t moving.</em></th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: center">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="paige-image">
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+    
+
+    
+        
+
+        
+
+        
+    
+        
+
+        
+
+        
+    
+        
+
+        
+            
+
+    
+
+
+
+    
+
+
+
+
+
+
+
+    
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<img   class="img-fluid "  crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/human_joystick_moving.jpg"   style="display:block; height: auto; margin:0 auto; width: 60%"   >
+
+
+</div>
+</td>
+          <td style="text-align: left"><strong><em>When the white dot is in the green area, the player moves in that direction. Here I am moving forward and left at about half of max speed.</em></strong></td>
+      </tr>
+  </tbody>
+</table>
+<hr>
+<p>Eventually I found some good default values and the system worked, but there were some unforeseen problems: First, it was more difficult to center yourself within the playspace without looking at the visible guides I put at the player&rsquo;s feet than I expected. Second and more importantly, when you were already moving in one direction, it was not as simple as I thought to start moving in another direction accurately without fully returning to center, which was an immersion breaker.</p>
+<p>Ultimately I put the project up for others to view but have not expanded it into a full experience or released it on any marketplaces. Feel free to download the Unity project and try it on your own VR setup if you&rsquo;re curious.</p>
+]]></description>
+                
+
+                <guid isPermaLink="false">tag:localhost:1313,2020-01-01:/human-joystick/</guid>
+
+                
+                    <link>http://localhost:1313/human-joystick/</link>
+                
+
+                
+                    <pubDate>Wed, 01 Jan 2020 00:00:00 UTC</pubDate>
+                
+
+                
+                    <title>Human Joystick VR</title>
+                
+            </item>
+        
+            <item>
+                
+                
+                
+                
+                
+                
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+                
+
+                
+
+                
+
+                
+                    <description><![CDATA[<p>The Answering Machine is a proof-of-concept system that I built using <strong>pre-LLM</strong> natural language processing (NLP), specifically NLTK, to produce answers to questions asked about data in plain English.</p>
+<p>Looking back, this project was a great insight into what LLMs immediately allowed that was incredibly difficult before. This project was several months of work that the openAI sdk would probably have allowed in a few weeks - and that few weeks would have been mostly frontend design and a bit of prompting.</p>
+<p><strong>Try it here:</strong> <a href="http://voicequery-dev.s3-website-us-west-2.amazonaws.com/">http://voicequery-dev.s3-website-us-west-2.amazonaws.com/</a>
+<strong>Github:</strong> <a href="https://github.com/hockenmaier/voicequery">https://github.com/hockenmaier/voicequery</a></p>
+<p>The system uses natural language processing (NLP) to produce answers to questions asked about data in plain English.</p>
+<p>It is designed with simplicity in mind—upload any columnar dataset and start asking questions and getting answers. It uses advanced NLP algorithms to make assumptions about what data you&rsquo;re asking about and lets you correct those assumptions for follow-up questions if they&rsquo;re wrong.</p>
+<p>It is built entirely out of serverless components, which means there is no cost to maintain or run it other than the traffic the system receives.</p>
+<h2 id="how-to">How-to</h2>
+<p>On a desktop or tablet, click the link in the header to navigate to the Answering Machine. For now, it isn&rsquo;t optimized for smartphone-sized screens.</p>
+<p>In order to use the Answering Machine, you can either select one of the existing datasets, such as &ldquo;HR Activity Sample,&rdquo; or upload one of your own using the homepage of the site:</p>
+<div style="text-align: center; margin-bottom: 1rem;">
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<img  alt="Answering Machine homepage"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/answering_machine_uploads.png"   style="height: auto; max-width: 720px; width: 100%"   >
+
+
+    
+</div>
+
+<p>To upload your own, click in the upload area or just drag a file straight from your desktop. For now, use CSV data files. Excel and other spreadsheet programs can easily save data in the CSV format using the &ldquo;File &gt; Save As&rdquo; or similar option in the menu. Each file needs a unique name.</p>
+<p>When you hit the upload button, the site may not appear to change until the file is uploaded, at which point you&rsquo;ll see it appear in the box labeled &ldquo;Ask Your Data Anything&rdquo; below. Click on your file to start using it with the Answering Machine, or click the red trash can icon to delete it.</p>
+<p>There are no user accounts in this system yet, so the data you upload might be seen by other users using the system. Try not to use sensitive data for now.</p>
+<h3 id="asking-questions">Asking questions</h3>
+<p>When you enter a dataset, you&rsquo;ll see a view that presents you with quite a bit of information:</p>
+<div style="text-align: center; margin-bottom: 1rem;">
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+
+
+    
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<img  alt="Answering Machine main view"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/answering_machine_hr.png"   style="height: auto; width: 100%"   >
+
+
+    
+</div>
+
+<p>The only part you need to focus on right now is the information panel. This panel lists out all the fields (columns), data types of those fields, and some sample data from a few records in your dataset:</p>
+<div style="text-align: center; margin-bottom: 1rem;">
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<img  alt="Answering Machine info panel"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/answering_machine_info.png"   style="height: auto; max-width: 720px; width: 100%"   >
+
+
+    
+</div>
+
+<p>You can use this panel to start to formulate questions you might have about the data. If you see number values, you might ask about averages, maximums, or other math that might otherwise take some time to calculate. If you see a date, you can ask questions about the data in certain time periods.</p>
+<p>Many datasets also contain fields that only have a few specific allowed values. When the Answering Machine sees fewer than 15 unique values in any field, the data type will be a &ldquo;List&rdquo; and it lists them right out under the sample values table. You can use this type of value to ask questions about records containing those specific values. For example, in the HR dataset, you might only be interested in data where the &ldquo;Education&rdquo; field&rsquo;s value is &ldquo;High School.&rdquo;</p>
+<p>Now look to the query bar to start asking your data questions:</p>
+<div style="text-align: center; margin-bottom: 1rem;">
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<img  alt="Answering Machine query bar"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/answering_machine_query.png"   style="height: auto; max-width: 720px; width: 100%"   >
+
+
+    
+</div>
+
+<p>The types of questions that will currently be automatically detected and answered are:</p>
+<ul>
+<li>Counts of records where certain conditions are true</li>
+<li>Math questions such as averages, medians, maximums, and minimums</li>
+</ul>
+<p>These types of questions can be made specific by using qualifying statements with prepositional phrases like &ldquo;in 2019&rdquo; or adjective phrases like &ldquo;male&rdquo; or &ldquo;entry-level.&rdquo;</p>
+<p>Combining these two ideas, you can ask specific questions with any number of qualifiers, such as:<br>
+<em>&ldquo;What was the median salary of male employees in the engineering department 5 years ago?&rdquo;</em></p>
+<p>Upon hitting the &ldquo;Ask&rdquo; button (or hitting Enter), the Answering Machine will do its best to answer your question and will show you all of its work in this format:</p>
+<div style="text-align: center; margin-bottom: 1rem;">
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<img  alt="Answering Machine response"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/answering_machine_answer.png"   style="height: auto; max-width: 720px; width: 100%"   >
+
+
+    
+</div>
+
+<p>The last line in the response is the Answering Machine&rsquo;s answer. In this case, it is telling you the metric you asked for with all your stipulations is <strong>6871.6 dollars.</strong></p>
+<p>Moving up, you see a series of assessments that the Answering Machine has made in order to filter and identify the data you are asking about. Statements like &ldquo;Best auto-detected Numeric Subject Found: salary with column: Compensation (Monthly)&rdquo; provide a glimpse into one of the Answering Machine&rsquo;s most advanced features, which uses a selection of NLP techniques to compare words and phrases that are similar in meaning, ultimately matching things you are asking about to fields and values that actually exist in your database.</p>
+<p>At the very top of the response is how the Answering Machine&rsquo;s nested grammar parsing logic actually parsed your question, with some specific pieces color-coded:</p>
+<ul>
+<li><strong>Green</strong> chunks indicate &ldquo;subjects&rdquo; that were detected. Subjects are what the Answering Machine thinks you&rsquo;re asking &ldquo;about.&rdquo; These should represent both the main subject and other supporting subjects in your question.</li>
+<li><strong>Purple</strong> chunks are conditions. These are the things that the Answering Machine thinks you are trying to use to &ldquo;specify&rdquo; or filter data.</li>
+</ul>
+<p>Now that your question is answered, you might notice that some new green and purple colored bubbles have appeared in the sections of your screen labeled &ldquo;New Subjects&rdquo; and &ldquo;New Conditions.&rdquo; We&rsquo;ll call these &ldquo;lexicon&rdquo;:</p>
+<div style="text-align: center; margin-bottom: 1rem;">
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<img  alt="Answering Machine subjects and conditions"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/answering_machine_lexicon.png"   style="height: auto; max-width: 400px; width: 100%"   >
+
+
+    
+</div>
+
+<h3 id="forming-concepts">Forming Concepts</h3>
+<p>If the Answering Machine already understood what you were asking and successfully matched it to fields and values in your data, you don&rsquo;t have to do anything with these. But often you will be using domain-specific lexicon, or the auto-matching algorithm simply won&rsquo;t pick the correct value. These situations are what concepts are for.</p>
+<p>To create a concept, click and drag on the green or purple &ldquo;lexicon&rdquo; bubble and move it out into the blank middle area of the screen. Then click and drag the field or field value from the info-panel at the top of the screen and drop it right on top of that bubble. You&rsquo;ll see both the data bubble and the lexicon bubble included in a larger gray bubble, which represents the concept:</p>
+<div style="text-align: center; margin-bottom: 1rem;">
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<img  alt="Answering Machine concept"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/answering_machine_concept.png"   style="height: auto; max-width: 200px; width: 100%"   >
+
+
+    
+</div>
+
+<p>You can add more lexicon bubbles to this concept if they mean the same thing, but you can only use one data bubble.</p>
+<p>Concepts override the Answering Machine&rsquo;s auto-matching logic. If you ask another question containing a subject or condition that is now matched by a user to a data value, that data value will be used instead of the auto-match. If the concept isn&rsquo;t working well, you can delete it by dragging all of the nested bubbles out of it either into the blank middle area or into the colored panel they originally came from.</p>
+<p>Feel free to play around with new datasets and questions, and use the contact section of this site if you have comments or questions. When you ask questions or create/modify concepts, that data will automatically be saved to the server in real-time. You can close the page anytime and come back to your dataset to keep asking questions.</p>
+<p>Remember that there are no user accounts, meaning you can share your dataset and work in tandem with others! But again, please do not upload sensitive data to this proof-of-concept tool as it will be available for other users to see and query.</p>
+<h2 id="architecture">Architecture</h2>
+<p>The Answering Machine is a purely &ldquo;serverless&rdquo; application, meaning that there is no server hosting the various components of the application until those components are needed by a user. This is true for the database, the file storage, the static website, the backend compute, and the API orchestration.</p>
+<p>For the cloud nerds out there, <a href="https://martinfowler.com/articles/serverless.html">here is a great article</a> by Martin Fowler on what exactly &ldquo;serverless&rdquo; means, especially in terms of the backend compute portion, which is arguably the most valuable part of the application to be serverless. For reference, I am using Martin&rsquo;s 2nd definition of &ldquo;serverless&rdquo; here.</p>
+<p>This is a high-level map of all of the components that make the Answering Machine work in its current (June 2020) state. The API gateways, CloudWatch events, and some triggers &ldquo;given for free&rdquo; by AWS are left out of this for readability:</p>
+<div style="text-align: center; margin-bottom: 1rem;">
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<img  alt="Serverless Architecture of the Answering Machine app"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/answering_machine_architecture.png"   style="height: auto; max-width: 720px; width: 100%"   >
+
+
+    
+</div>
+
+<p>The full suite of lambdas and persistent storage services that make up the Answering Machine.</p>
+]]></description>
+                
+
+                <guid isPermaLink="false">tag:localhost:1313,2019-07-03:/answering-machine/</guid>
+
+                
+                    <link>http://localhost:1313/answering-machine/</link>
+                
+
+                
+                    <pubDate>Wed, 03 Jul 2019 00:00:00 UTC</pubDate>
+                
+
+                
+                    <title>The Answering Machine</title>
+                
+            </item>
+        
+            <item>
+                
+                
+                
+                
+                
+                
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+                
+
+                
+
+                
+
+                
+                    <description><![CDATA[<p>Land War is an 8-player strategy game I developed as a solo project and released to Steam in March of 2019.<br>
+This game was intended to have low art requirements and simple interaction rules that result in deep strategic gameplay.</p>
+<p>The core concept is that of an ultra-simplified real-time-strategy game. Each player is represented by a color and can grow their territory by moving in any direction. The strategic elements occur when players encounter other players and have to make choices about which side of their land to defend or give up. Players can use the structure of the map and the coordinated action of other players to gain defensible footholds in order to take more area and eventually be the last player on the board.</p>
+
+    <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+      <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/5Q8PAuWcmQc?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"></iframe>
+    </div>
+
+<p>A full game of the final product released on Steam played on a Windows computer.</p>
+<h3 id="development">Development</h3>
+<p>I built Land War over the course of 7 months and 400 hours of work using Unity with C#. Though art requirements were intentionally low for a video game, I still had to produce several hundred static graphics and GIFs, and commissioned custom music for the menu and gameplay.</p>
+<p>This project is one of my favorite examples of what can be done in relatively little time with a focused vision and a constant eye on scope creep. From the very start, I knew that a key to making compelling software was to flesh out the core concept before all else. This is why I started on the most fundamental strategic interaction of the players and built an MVP version of the game without a menu, sound, art, or even a win condition.</p>
+<p>I started the project on a Memorial Day Monday, and by Friday had a rudimentary prototype playable with 8 players on Nintendo Joy-Con controllers paired to a Windows machine via Bluetooth.<br>
+This is what the project looked like for my first play-test with other people 5 days in:</p>
+<div style="text-align: center; margin-bottom: 1rem;">
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+
+
+    
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<img  alt="Land War 4-day MVP"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/land_war_mvp.gif"   style="height: auto; width: 100%"   >
+
+
+    
+        <span style="display: block; font-style: italic; margin-top: 0.5rem;">4-player game played with Nintendo Joy-Cons on a build of the game from 5 days into development.</span>
+    
+</div>
+
+<p>From there, I continued to work on depth and full feature functionality including menus, a tutorial, a map generator, a dynamic scoring and round system, better sound and sprite graphics, different play modes and settings, and support for many controllers. I released the game with very little marketing aside from some Reddit posts and a physical handout at E3 but was happy to receive positive reviews and several hundred purchases of the game.</p>
+<div style="text-align: center; margin-bottom: 1rem;">
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+
+
+    
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<img  alt="Player Select screen"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/land_war_player_select.png"   style="height: auto; width: 100%"   >
+
+
+    
+        <span style="display: block; font-style: italic; margin-top: 0.5rem;">Player Select screen. Supporting menu and player controls across hundreds of controller types was one of the largest unforeseen challenges in developing Land War.</span>
+    
+</div>
+
+<div style="text-align: center; margin-bottom: 1rem;">
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+
+
+    
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<img  alt="Settings menu"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/land_war_settings.png"   style="height: auto; width: 100%"   >
+
+
+    
+        <span style="display: block; font-style: italic; margin-top: 0.5rem;">Settings menu. Most interesting mechanics I found while developing the game were added as options to keep the game interesting here.</span>
+    
+</div>
+
+<div style="text-align: center; margin-bottom: 1rem;">
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<img  alt="E3 marketing material"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/land_war_e3.png"   style="height: auto; max-width: 400px; width: 100%"   >
+
+
+    
+        <span style="display: block; font-style: italic; margin-top: 0.5rem;">The only physical marketing material developed for Land War. Several hundred Steam keys (copies of the game) were handed out during the E3 convention in 2019.</span>
+    
+</div>
+
+
+    <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+      <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/BylKEPF4EeU?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"></iframe>
+    </div>
+
+<p><em>Land War&rsquo;s Steam release announcement trailer.</em></p>
+]]></description>
+                
+
+                <guid isPermaLink="false">tag:localhost:1313,2019-03-01:/land-war/</guid>
+
+                
+                    <link>http://localhost:1313/land-war/</link>
+                
+
+                
+                    <pubDate>Fri, 01 Mar 2019 00:00:00 UTC</pubDate>
+                
+
+                
+                    <title>Land War</title>
+                
+            </item>
+        
+            <item>
+                
+                
+                
+                
+                
+                
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+                
+
+                
+
+                
+
+                
+                    <description><![CDATA[<p>First Ten is an educational app containing information about the U.S. Bill of Rights, accessible on Google devices and smart speakers. It uses a VUI (voice user interface) only, meaning there is no visual way to interact with the app.</p>
+<p><strong>Try it here:</strong> <a href="https://assistant.google.com/services/a/uid/00000036f6a580ed">https://assistant.google.com/services/a/uid/00000036f6a580ed</a>
+<strong>Github:</strong> <a href="https://github.com/hockenmaier/billofrights">https://github.com/hockenmaier/billofrights</a></p>
+<p>Like Alexa skills, Google actions can be accessed through search or by simply asking for their names in Google Home smart speakers. Ask your Google Home or Android device, &ldquo;Can I speak to First Ten?&rdquo; in order to try it.</p>
+<h3 id="architecture">Architecture</h3>
+<p>First Ten&rsquo;s backend is built in the serverless AWS services Lambda and DynamoDB, and its frontend—the engine that parses your voice into different &ldquo;intents&rdquo; and parameters—is built on Google&rsquo;s Dialogflow.
+<div style="text-align: center; margin-bottom: 1rem;">
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<img  alt="Serverless Architecture of the First Ten app"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/first_ten_architecture.png"   style="height: auto; max-width: 720px; width: 100%"   >
+
+
+    
+</div>
+</p>
+<hr>
+]]></description>
+                
+
+                <guid isPermaLink="false">tag:localhost:1313,2018-05-19:/first-ten/</guid>
+
+                
+                    <link>http://localhost:1313/first-ten/</link>
+                
+
+                
+                    <pubDate>Sat, 19 May 2018 00:00:00 UTC</pubDate>
+                
+
+                
+                    <title>First Ten</title>
+                
+            </item>
+        
+            <item>
+                
+                
+                
+                
+                
+                
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+                
+
+                
+
+                
+
+                
+                    <description><![CDATA[<p><strong>Raspberry Pi Control Panel</strong> is a hardware project I designed in 2016 to manage home automation systems. The project involved designing a custom 3D-printed case for a Raspberry Pi microcomputer with a touchscreen interface.</p>
+<p>Links:</p>
+<ul>
+<li><a href="https://github.com/hockenmaier/RaspberryPiControlPanel">GitHub</a></li>
+<li><a href="https://www.thingiverse.com/thing:2524560">Thingiverse</a></li>
+</ul>
+<hr>
+<p>I created this panel display in 2026 to control much of the home automation I used in my Studio City apartment. Mainly a hardware project, I designed and 3D-printed a case and frame for the touchscreen and raspberry pi microcomputer in order to mount them to the wall. The software running the control panel is SaaS, but I did write a custom html wrapper to control the orientation and settings of the site, which is available on the github linked above.</p>
+<p>Update in 2025: This panel is still my main view into my home automation in my new house in Sherman Oaks, almost 10 years in with no modification!</p>
+<p>Here&rsquo;s a video to see the panel in action:</p>
+<h2 id="hahahugoshortcode18s0hbhb">
+    <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+      <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/iFGmm-ijJvE?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"></iframe>
+    </div>
+</h2>
+<p>Feel free to explore the linked repositories for schematics and source code.</p>
+]]></description>
+                
+
+                <guid isPermaLink="false">tag:localhost:1313,2016-01-01:/raspberry-pi-panel/</guid>
+
+                
+                    <link>http://localhost:1313/raspberry-pi-panel/</link>
+                
+
+                
+                    <pubDate>Fri, 01 Jan 2016 00:00:00 UTC</pubDate>
+                
+
+                
+                    <title>Raspberry Pi Control Panel</title>
+                
+            </item>
+        
+    </channel>
+</rss>

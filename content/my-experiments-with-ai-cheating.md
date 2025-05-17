@@ -1,7 +1,7 @@
 ---
 title: "My Experiments with AI Cheating"
 date: 2025-01-01
-categories: ["project overviews"]
+categories: ["builds"]
 project_link: "https://github.com/hockenmaier/make-us-smarter"
 github_link: "https://github.com/hockenmaier/make-us-smarter"
 tags: ["Experimental", "AI", "Prototyping", "User Experience"]

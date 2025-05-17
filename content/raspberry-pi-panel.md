@@ -1,7 +1,7 @@
 ---
 title: "Raspberry Pi Control Panel"
 date: 2016-01-01
-categories: ["project overviews"]
+categories: ["builds"]
 personal: "Y"
 stack: ["HTML/CSS", "Solidworks"]
 project_link: "https://github.com/hockenmaier/RaspberryPiControlPanel"

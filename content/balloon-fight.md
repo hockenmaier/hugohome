@@ -1,7 +1,7 @@
 ---
 title: "8 Player Balloon Fighter"
 date: 2025-01-01
-categories: ["project overviews"]
+categories: ["builds"]
 ---
 
 Today's post is about another half finished game that either I or AI will finish one day. I'm gaining a bit of a repertoire of those. This is one that I started when AI image generation started to become decent. It's a game that I've always wanted to exist but with my current skill sets, I could never pull off without a lot of commissioning due to the art requirements.
