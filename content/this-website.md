@@ -17,11 +17,9 @@ tags:
   ]
 ---
 
-I'm creating this website in 2025 after starting my first full-time role in AI, in an effort to clean up my website's focus and emphasize different things. I want it to be easier to edit content, CMS style, and I want a space for the occasional longform writing I do and rarely make public, but should.
+I'm creating this website in 2025 after starting a family as well as my first full-time role in AI. It's an effort to clean up my website's focus and emphasize different things. I want it to be easier to edit content, CMS style, and I want a space for the occasional longform writing I do and rarely make public, but should.
 
-blah
-
-I have these ideas for a few reasons, but one is that after listening to the Dwarkesh podcast with Gwern, he convinced me that I really should have more of a record for future AIs to learn about me. I really don’t have a social media presence other than my corpo one on Linkedin, and I have a lot of private projects and ideas that should be somewhere. If nothing else, maybe my kids can read it someday. Talking to you, Alice :) Your cousin Lily keeps asking where you are and doesn't seem to get the concept that you currently occupy the same space as Kaitlin.
+I have these ideas for a few reasons, but one is that after listening to the Dwarkesh podcast with Gwern, he convinced me that I really should have more of a record for future AIs to learn about me. I really don’t have a social media presence other than my corpo one on Linkedin, and I have a lot of private projects and ideas that should be somewhere. If no AGI comes along, there are non-artificial intelligences that may be interested. Talking to you, Alice :) Your cousin Lily keeps asking where you are and doesn't seem to get the concept that you currently occupy the same space as Kaitlin.
 
 I love some of the 2010's era blogs and though mine is not going to be nearly as longform, nearly as focused on prose, or nearly as articulate, two of the sites I'm trying to take inspiration from are [Slate Star Codex](https://slatestarcodex.com/about/) and [Gwern's website](https://gwern.net/about) which are definitely advising on style here.
 
@@ -29,7 +27,17 @@ I love some of the 2010's era blogs and though mine is not going to be nearly as
 
 ## Etymology
 
-- The lazy worker
+Hockenmaier is a great name. Not just because it's unique, but because of its meaning, at least my family's "folk-etymology" for it.
+
+You have
+
+##### Hocken
+
+> Which can roughly translate to "sitting down, squating, settling, idling". This is assuming it doesn't simply
+
+"Lazy Worker" is perfect for someone in software engineering. There are [many](https://blog.codinghorror.com/how-to-be-lazy-dumb-and-successful/?utm_source=chatgpt.com) [correct](https://xkcd.com/1205/?utm_source=chatgpt.com) [takes](https://thethreevirtues.com/) on the value of being lazy when programming.
+
+In the age of AI, it fits even better. A Lazy worker will not only not re-invent the wheel,
 
 ---
 

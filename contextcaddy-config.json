@@ -149,7 +149,27 @@
       },
       "prePrompt": "",
       "includeFileTree": true
+    },
+    "anchor-issue": {
+      "selectedFiles": {
+        "layouts\\_default\\baseof.html": true,
+        "layouts\\partials\\paige\\page-header.html": true,
+        "layouts\\partials\\paige\\page.html": true,
+        "layouts\\partials\\paige\\site-header.html": true,
+        "layouts\\partials\\paige\\tag-head.html": true,
+        "static\\js\\ball-machine-app.js": true,
+        "static\\js\\spawner.js": true,
+        "static\\js\\base-simulation.js": true,
+        "static\\css\\custom.css": true,
+        "hugo.toml": true,
+        "content\\_index.md": true,
+        "content\\this-website.md": true,
+        "layouts\\partials\\ball-machine-ui.html": true,
+        "notes\\site-description.md": true
+      },
+      "prePrompt": "",
+      "includeFileTree": true
     }
   },
-  "activeProfile": "leaf"
+  "activeProfile": "anchor-issue"
 }

@@ -204,7 +204,7 @@
             
 
             
-                <link href="https://hockenworks.com/" rel="self" type="text/html"/>
+                <link href="http://localhost:1313/" rel="self" type="text/html"/>
             
         
             
@@ -212,7 +212,7 @@
             
 
             
-                <link href="https://hockenworks.com/rss.xml" rel="alternate" type="application/rss+xml"/>
+                <link href="http://localhost:1313/rss.xml" rel="alternate" type="application/rss+xml"/>
             
         
 
@@ -230,7 +230,7 @@
             <lastBuildDate>2025-05-12 00:00:00 +0000 UTC</lastBuildDate>
         
 
-        <link>https://hockenworks.com/</link>
+        <link>http://localhost:1313/</link>
 
         
 
@@ -333,10 +333,10 @@
 ]]></description>
                 
 
-                <guid isPermaLink="false">tag:hockenworks.com,2025-05-12:/the-purgatory-of-aaa-gaming/</guid>
+                <guid isPermaLink="false">tag:localhost:1313,2025-05-12:/the-purgatory-of-aaa-gaming/</guid>
 
                 
-                    <link>https://hockenworks.com/the-purgatory-of-aaa-gaming/</link>
+                    <link>http://localhost:1313/the-purgatory-of-aaa-gaming/</link>
                 
 
                 
@@ -373,10 +373,19 @@
                 
 
                 
-                    <description><![CDATA[<p>I&rsquo;m creating this website in 2025 after starting my first full-time role in AI, in an effort to clean up my website&rsquo;s focus and emphasize different things. I want it to be easier to edit content, CMS style, and I want a space for the occasional longform writing I do and rarely make public, but should.</p>
-<p>blah</p>
-<p>I have these ideas for a few reasons, but one is that after listening to the Dwarkesh podcast with Gwern, he convinced me that I really should have more of a record for future AIs to learn about me. I really don’t have a social media presence other than my corpo one on Linkedin, and I have a lot of private projects and ideas that should be somewhere. If nothing else, maybe my kids can read it someday. Talking to you, Alice :) Your cousin Lily keeps asking where you are and doesn&rsquo;t seem to get the concept that you currently occupy the same space as Kaitlin.</p>
+                    <description><![CDATA[<p>I&rsquo;m creating this website in 2025 after starting a family as well as my first full-time role in AI. It&rsquo;s an effort to clean up my website&rsquo;s focus and emphasize different things. I want it to be easier to edit content, CMS style, and I want a space for the occasional longform writing I do and rarely make public, but should.</p>
+<p>I have these ideas for a few reasons, but one is that after listening to the Dwarkesh podcast with Gwern, he convinced me that I really should have more of a record for future AIs to learn about me. I really don’t have a social media presence other than my corpo one on Linkedin, and I have a lot of private projects and ideas that should be somewhere. If no AGI comes along, there are non-artificial intelligences that may be interested. Talking to you, Alice :) Your cousin Lily keeps asking where you are and doesn&rsquo;t seem to get the concept that you currently occupy the same space as Kaitlin.</p>
 <p>I love some of the 2010&rsquo;s era blogs and though mine is not going to be nearly as longform, nearly as focused on prose, or nearly as articulate, two of the sites I&rsquo;m trying to take inspiration from are <a href="https://slatestarcodex.com/about/">Slate Star Codex</a> and <a href="https://gwern.net/about">Gwern&rsquo;s website</a> which are definitely advising on style here.</p>
+<hr>
+<h2 id="etymology">Etymology</h2>
+<p>Hockenmaier is a great name. Not just because it&rsquo;s unique, but because of its meaning, at least my family&rsquo;s &ldquo;folk-etymology&rdquo; for it.</p>
+<p>You have</p>
+<h5 id="hocken">Hocken</h5>
+<blockquote>
+<p>Which can roughly translate to &ldquo;sitting down, squating, settling, idling&rdquo;. This is assuming it doesn&rsquo;t simply</p>
+</blockquote>
+<p>&ldquo;Lazy Worker&rdquo; is perfect for someone in software engineering. There are <a href="https://blog.codinghorror.com/how-to-be-lazy-dumb-and-successful/?utm_source=chatgpt.com">many</a> <a href="https://xkcd.com/1205/?utm_source=chatgpt.com">correct</a> <a href="https://thethreevirtues.com/">takes</a> on the value of being lazy when programming.</p>
+<p>In the age of AI, it fits even better. A Lazy worker will not only not re-invent the wheel,</p>
 <hr>
 <h2 id="ball-machine---the-game">Ball Machine - The Game</h2>
 <p>Most blogs and personal websites are a bit boring. I think that is because most professionals consider what they do &ldquo;for work&rdquo; and &ldquo;a bit boring by nature&rdquo; and don&rsquo;t necessarily make a concerted effort to have fun with it.</p>
@@ -463,7 +472,7 @@
 
 
 
-<img  alt="balls everywhere"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/this-website-ball-machine-1.png"   style="height: auto; max-width: 720px; width: 100%"   >
+<img  alt="balls everywhere"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/this-website-ball-machine-1.png"   style="height: auto; max-width: 720px; width: 100%"   >
 
 
     
@@ -528,10 +537,10 @@ So keep your balls moving!</li>
 ]]></description>
                 
 
-                <guid isPermaLink="false">tag:hockenworks.com,2025-03-01:/this-website/</guid>
+                <guid isPermaLink="false">tag:localhost:1313,2025-03-01:/this-website/</guid>
 
                 
-                    <link>https://hockenworks.com/this-website/</link>
+                    <link>http://localhost:1313/this-website/</link>
                 
 
                 
@@ -581,10 +590,10 @@ So keep your balls moving!</li>
 ]]></description>
                 
 
-                <guid isPermaLink="false">tag:hockenworks.com,2025-02-13:/context-caddy/</guid>
+                <guid isPermaLink="false">tag:localhost:1313,2025-02-13:/context-caddy/</guid>
 
                 
-                    <link>https://hockenworks.com/context-caddy/</link>
+                    <link>http://localhost:1313/context-caddy/</link>
                 
 
                 
@@ -656,10 +665,10 @@ Context windows get larger all the time but this one still is not solved. Just a
 ]]></description>
                 
 
-                <guid isPermaLink="false">tag:hockenworks.com,2025-02-01:/vision-is-the-last-hurdle-before-agi/</guid>
+                <guid isPermaLink="false">tag:localhost:1313,2025-02-01:/vision-is-the-last-hurdle-before-agi/</guid>
 
                 
-                    <link>https://hockenworks.com/vision-is-the-last-hurdle-before-agi/</link>
+                    <link>http://localhost:1313/vision-is-the-last-hurdle-before-agi/</link>
                 
 
                 
@@ -791,7 +800,7 @@ Context windows get larger all the time but this one still is not solved. Just a
 
 
 
-<img  alt="the app ui"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/make-us-smarter.jpg"   style="height: auto; max-width: 200px"   >
+<img  alt="the app ui"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/make-us-smarter.jpg"   style="height: auto; max-width: 200px"   >
 
 
     
@@ -811,10 +820,10 @@ Context windows get larger all the time but this one still is not solved. Just a
 ]]></description>
                 
 
-                <guid isPermaLink="false">tag:hockenworks.com,2025-01-01:/my-experiments-with-ai-cheating/</guid>
+                <guid isPermaLink="false">tag:localhost:1313,2025-01-01:/my-experiments-with-ai-cheating/</guid>
 
                 
-                    <link>https://hockenworks.com/my-experiments-with-ai-cheating/</link>
+                    <link>http://localhost:1313/my-experiments-with-ai-cheating/</link>
                 
 
                 
@@ -863,10 +872,10 @@ Context windows get larger all the time but this one still is not solved. Just a
 ]]></description>
                 
 
-                <guid isPermaLink="false">tag:hockenworks.com,2025-01-01:/bloom-or-bust/</guid>
+                <guid isPermaLink="false">tag:localhost:1313,2025-01-01:/bloom-or-bust/</guid>
 
                 
-                    <link>https://hockenworks.com/bloom-or-bust/</link>
+                    <link>http://localhost:1313/bloom-or-bust/</link>
                 
 
                 
@@ -908,7 +917,7 @@ Context windows get larger all the time but this one still is not solved. Just a
 <h1 id="eight-player-video-games">Eight-player video games</h1>
 <p>Kaitlin and I love to have people over to socialize, and I love to game. I think they are honestly one of the best ways to have productive, good natured socialization where people can do things like band together, rib on each other a bit, and sometimes even feel like they&rsquo;ve seen something beautiful or had a new experience together. I know that&rsquo;s a little philosophical and sappy, but I think there&rsquo;s a huge place for video games in actual socialization, similar to how board games have a place.</p>
 <p>And I love board games. I play them all the time. But so often when playing board games you run into mechanics that are only there because the game doesn&rsquo;t have a computer involved, can&rsquo;t count for you, can&rsquo;t add things up, can&rsquo;t simulate multiple players turns at the same time, and though it&rsquo;s nice to not have any screens in front of anybody, I think the limitations of board games hold people back from playing games as a group in general more often than not.</p>
-<p>My favorite example of this is power grid:</p>
+<p>My favorite example of this is power grid.</p>
 <div style="text-align: center; margin-bottom: 1rem;">
     
 
@@ -990,13 +999,13 @@ Context windows get larger all the time but this one still is not solved. Just a
 
 
 
-<img  alt="Serverless Architecture of the First Ten app"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/power-grid.png"   style="height: auto; max-width: 720px; width: 100%"   >
+<img  alt="an image of the cover art for Power Grid"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/power-grid.png"   style="height: auto; max-width: 200px; width: 100%"   >
 
 
     
 </div>
 
-<p>A game that is clever and would be really quite fun if it didn&rsquo;t require players to spend half their time literally doing simple math in their heads or on paper while other people waited. A modern video game with similar dynamics would never do that, it would just let you play the fun part.</p>
+<p>Power Grid is a clever game that would be really quite fun if it didn&rsquo;t require players to spend half their time literally doing simple math in their heads or on paper while other people waited. A modern video game with similar dynamics would never do that; it would just let you play the fun part. Many such cases in board gaming.</p>
 <p>But video games have their own limitations and requirements. Aside from the stuff that we aren&rsquo;t getting around anytime before true augmented reality is on everybody&rsquo;s faces, like getting a controller and everybody&rsquo;s hands, and getting them over the fact that they are looking at a screen to socialize, video games have one fundamental limitation most of the time which is that they only go up to four players. And most social gatherings involve more than four people.</p>
 <p>This is the core reason I wanted to make land war an eight-player strategy game, and this setting of group gatherings was also why the controls for land war are so dead simple. More about land war <a href="/land-war">here</a></p>
 <h1 id="generated-art-first-edition">Generated Art, First Edition</h1>
@@ -1021,10 +1030,10 @@ Context windows get larger all the time but this one still is not solved. Just a
 ]]></description>
                 
 
-                <guid isPermaLink="false">tag:hockenworks.com,2025-01-01:/balloon-fight/</guid>
+                <guid isPermaLink="false">tag:localhost:1313,2025-01-01:/balloon-fight/</guid>
 
                 
-                    <link>https://hockenworks.com/balloon-fight/</link>
+                    <link>http://localhost:1313/balloon-fight/</link>
                 
 
                 
@@ -1140,7 +1149,7 @@ Context windows get larger all the time but this one still is not solved. Just a
 
 
 
-<img  alt="Alt text"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/brian_portrait.png"   style="height: auto; max-width: 200px"   >
+<img  alt="Alt text"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/brian_portrait.png"   style="height: auto; max-width: 200px"   >
 
 
     
@@ -1148,7 +1157,7 @@ Context windows get larger all the time but this one still is not solved. Just a
     
 </div>
 
-<p>I build things mostly, and sometimes I write things, I post about all of that here. I love making games and things with VR and AI. Some of this has been cross or back-posted from my <a href="https://www.thingiverse.com/hockenmaier/designs">thingiverse</a>, <a href="https://x.com/Hockenmaier">twitter</a>, <a href="https://www.linkedin.com/in/hockenmaier/">linkedin</a>, and other places, but it all lives here permanently.</p>
+<p>I mostly build, sometimes write, and post about both here. I love making games and things with VR and AI. Some of this has been cross or back-posted from my <a href="https://www.thingiverse.com/hockenmaier/designs">thingiverse</a>, <a href="https://x.com/Hockenmaier">twitter</a>, <a href="https://www.linkedin.com/in/hockenmaier/">linkedin</a>, and other places, but it all lives here permanently.</p>
 <p>One of the things I built was this website and the game built into it. <a href="/this-website">Read more about that here</a></p>
 <p>I’ve been at one company for a long time and have built a lot there, led some large teams, and released several things on my own too, in a bunch of software domains. I started on back-office stuff like billing systems, TV scheduling systems, IP rights management systems, file ingest systems for News, and several games and tools outside of work.</p>
 <p>Most recently I&rsquo;m making some pretty awesome stuff in agentic AI for the mundane work that the people at my company have to do!</p>
@@ -1242,7 +1251,7 @@ Context windows get larger all the time but this one still is not solved. Just a
 
 
 
-<img  alt="The Treekeepers Puddle Jumper"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/treekeepers_moonlight.png"   style="height: auto; max-width: 100%"   >
+<img  alt="The Treekeepers Puddle Jumper"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/treekeepers_moonlight.png"   style="height: auto; max-width: 100%"   >
 
 
     
@@ -1265,9 +1274,8 @@ Context windows get larger all the time but this one still is not solved. Just a
     <a href="/this-website/" class="link-light">This Website</a>
   </h4>
   <p class="text-secondary">
-    <p>I&rsquo;m creating this website in 2025 after starting my first full-time role in AI, in an effort to clean up my website&rsquo;s focus and emphasize different things. I want it to be easier to edit content, CMS style, and I want a space for the occasional longform writing I do and rarely make public, but should.</p>
-<p>blah</p>
-<p>I have these ideas for a few reasons, but one is that after listening to the Dwarkesh podcast with Gwern, he convinced me that I really should have more of a record for future AIs to learn about me. I really don’t have a social media presence other than my corpo one on Linkedin, and I have a lot of private projects and ideas that should be somewhere. If nothing else, maybe my kids can read it someday. Talking to you, Alice :) Your cousin Lily keeps asking where you are and doesn&rsquo;t seem to get the concept that you currently occupy the same space as Kaitlin.</p>
+    <p>I&rsquo;m creating this website in 2025 after starting a family as well as my first full-time role in AI. It&rsquo;s an effort to clean up my website&rsquo;s focus and emphasize different things. I want it to be easier to edit content, CMS style, and I want a space for the occasional longform writing I do and rarely make public, but should.</p>
+<p>I have these ideas for a few reasons, but one is that after listening to the Dwarkesh podcast with Gwern, he convinced me that I really should have more of a record for future AIs to learn about me. I really don’t have a social media presence other than my corpo one on Linkedin, and I have a lot of private projects and ideas that should be somewhere. If no AGI comes along, there are non-artificial intelligences that may be interested. Talking to you, Alice :) Your cousin Lily keeps asking where you are and doesn&rsquo;t seem to get the concept that you currently occupy the same space as Kaitlin.</p>
     
       <a href="/this-website/" class="link-light">… read more</a>
     
@@ -1292,10 +1300,10 @@ This game was intended to have low art requirements and simple interaction rules
 ]]></description>
                 
 
-                <guid isPermaLink="false">tag:hockenworks.com,2024-04-30:/about-me/</guid>
+                <guid isPermaLink="false">tag:localhost:1313,2024-04-30:/about-me/</guid>
 
                 
-                    <link>https://hockenworks.com/about-me/</link>
+                    <link>http://localhost:1313/about-me/</link>
                 
 
                 
@@ -1422,7 +1430,7 @@ This game was intended to have low art requirements and simple interaction rules
 
 
 
-<img  alt="happiness income curve"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/treadmill-graph.png"   style="height: auto; max-width: 720px; width: 100%"   >
+<img  alt="happiness income curve"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/treadmill-graph.png"   style="height: auto; max-width: 720px; width: 100%"   >
 
 
     
@@ -1478,10 +1486,10 @@ This game was intended to have low art requirements and simple interaction rules
 ]]></description>
                 
 
-                <guid isPermaLink="false">tag:hockenworks.com,2024-02-01:/the-treadmill/</guid>
+                <guid isPermaLink="false">tag:localhost:1313,2024-02-01:/the-treadmill/</guid>
 
                 
-                    <link>https://hockenworks.com/the-treadmill/</link>
+                    <link>http://localhost:1313/the-treadmill/</link>
                 
 
                 
@@ -1599,7 +1607,7 @@ This game was intended to have low art requirements and simple interaction rules
 
 
 
-<img  alt="this is a robot"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/ai-software-dev.png"   style="height: auto; max-width: 720px; width: 100%"   >
+<img  alt="this is a robot"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/ai-software-dev.png"   style="height: auto; max-width: 720px; width: 100%"   >
 
 
     
@@ -1620,10 +1628,10 @@ This game was intended to have low art requirements and simple interaction rules
 ]]></description>
                 
 
-                <guid isPermaLink="false">tag:hockenworks.com,2024-01-24:/on-ai-software-development/</guid>
+                <guid isPermaLink="false">tag:localhost:1313,2024-01-24:/on-ai-software-development/</guid>
 
                 
-                    <link>https://hockenworks.com/on-ai-software-development/</link>
+                    <link>http://localhost:1313/on-ai-software-development/</link>
                 
 
                 
@@ -1674,10 +1682,10 @@ This game was intended to have low art requirements and simple interaction rules
 ]]></description>
                 
 
-                <guid isPermaLink="false">tag:hockenworks.com,2024-01-13:/postman-for-pms/</guid>
+                <guid isPermaLink="false">tag:localhost:1313,2024-01-13:/postman-for-pms/</guid>
 
                 
-                    <link>https://hockenworks.com/postman-for-pms/</link>
+                    <link>http://localhost:1313/postman-for-pms/</link>
                 
 
                 
@@ -1727,10 +1735,10 @@ This game was intended to have low art requirements and simple interaction rules
 ]]></description>
                 
 
-                <guid isPermaLink="false">tag:hockenworks.com,2023-02-01:/nerfs/</guid>
+                <guid isPermaLink="false">tag:localhost:1313,2023-02-01:/nerfs/</guid>
 
                 
-                    <link>https://hockenworks.com/nerfs/</link>
+                    <link>http://localhost:1313/nerfs/</link>
                 
 
                 
@@ -1789,10 +1797,10 @@ This game was intended to have low art requirements and simple interaction rules
 ]]></description>
                 
 
-                <guid isPermaLink="false">tag:hockenworks.com,2023-01-01:/the-flapper/</guid>
+                <guid isPermaLink="false">tag:localhost:1313,2023-01-01:/the-flapper/</guid>
 
                 
-                    <link>https://hockenworks.com/the-flapper/</link>
+                    <link>http://localhost:1313/the-flapper/</link>
                 
 
                 
@@ -1908,7 +1916,7 @@ This game was intended to have low art requirements and simple interaction rules
 
 
 
-<img  alt="The Treekeepers Puddle Jumper"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/treekeepers_moonlight.png"   style="height: auto; max-width: 100%"   >
+<img  alt="The Treekeepers Puddle Jumper"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/treekeepers_moonlight.png"   style="height: auto; max-width: 100%"   >
 
 
     
@@ -1926,10 +1934,10 @@ This game was intended to have low art requirements and simple interaction rules
 ]]></description>
                 
 
-                <guid isPermaLink="false">tag:hockenworks.com,2022-10-01:/treekeepers-vr/</guid>
+                <guid isPermaLink="false">tag:localhost:1313,2022-10-01:/treekeepers-vr/</guid>
 
                 
-                    <link>https://hockenworks.com/treekeepers-vr/</link>
+                    <link>http://localhost:1313/treekeepers-vr/</link>
                 
 
                 
@@ -2000,10 +2008,10 @@ This game was intended to have low art requirements and simple interaction rules
 ]]></description>
                 
 
-                <guid isPermaLink="false">tag:hockenworks.com,2022-08-01:/social-media-is-antisocial/</guid>
+                <guid isPermaLink="false">tag:localhost:1313,2022-08-01:/social-media-is-antisocial/</guid>
 
                 
-                    <link>https://hockenworks.com/social-media-is-antisocial/</link>
+                    <link>http://localhost:1313/social-media-is-antisocial/</link>
                 
 
                 
@@ -2176,7 +2184,7 @@ This game was intended to have low art requirements and simple interaction rules
 
 
 
-<img   class="img-fluid "  crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/human_joystick_centered.jpg"   style="display:block; height: auto; margin:0 auto; width: 60%"   >
+<img   class="img-fluid "  crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/human_joystick_centered.jpg"   style="display:block; height: auto; margin:0 auto; width: 60%"   >
 
 
 </div>
@@ -2304,7 +2312,7 @@ This game was intended to have low art requirements and simple interaction rules
 
 
 
-<img   class="img-fluid "  crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/human_joystick_moving.jpg"   style="display:block; height: auto; margin:0 auto; width: 60%"   >
+<img   class="img-fluid "  crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/human_joystick_moving.jpg"   style="display:block; height: auto; margin:0 auto; width: 60%"   >
 
 
 </div>
@@ -2319,10 +2327,10 @@ This game was intended to have low art requirements and simple interaction rules
 ]]></description>
                 
 
-                <guid isPermaLink="false">tag:hockenworks.com,2020-01-01:/human-joystick/</guid>
+                <guid isPermaLink="false">tag:localhost:1313,2020-01-01:/human-joystick/</guid>
 
                 
-                    <link>https://hockenworks.com/human-joystick/</link>
+                    <link>http://localhost:1313/human-joystick/</link>
                 
 
                 
@@ -2450,7 +2458,7 @@ This game was intended to have low art requirements and simple interaction rules
 
 
 
-<img  alt="Answering Machine homepage"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/answering_machine_uploads.png"   style="height: auto; max-width: 720px; width: 100%"   >
+<img  alt="Answering Machine homepage"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/answering_machine_uploads.png"   style="height: auto; max-width: 720px; width: 100%"   >
 
 
     
@@ -2540,7 +2548,7 @@ This game was intended to have low art requirements and simple interaction rules
 
 
 
-<img  alt="Answering Machine main view"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/answering_machine_hr.png"   style="height: auto; width: 100%"   >
+<img  alt="Answering Machine main view"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/answering_machine_hr.png"   style="height: auto; width: 100%"   >
 
 
     
@@ -2628,7 +2636,7 @@ This game was intended to have low art requirements and simple interaction rules
 
 
 
-<img  alt="Answering Machine info panel"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/answering_machine_info.png"   style="height: auto; max-width: 720px; width: 100%"   >
+<img  alt="Answering Machine info panel"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/answering_machine_info.png"   style="height: auto; max-width: 720px; width: 100%"   >
 
 
     
@@ -2718,7 +2726,7 @@ This game was intended to have low art requirements and simple interaction rules
 
 
 
-<img  alt="Answering Machine query bar"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/answering_machine_query.png"   style="height: auto; max-width: 720px; width: 100%"   >
+<img  alt="Answering Machine query bar"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/answering_machine_query.png"   style="height: auto; max-width: 720px; width: 100%"   >
 
 
     
@@ -2814,7 +2822,7 @@ This game was intended to have low art requirements and simple interaction rules
 
 
 
-<img  alt="Answering Machine response"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/answering_machine_answer.png"   style="height: auto; max-width: 720px; width: 100%"   >
+<img  alt="Answering Machine response"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/answering_machine_answer.png"   style="height: auto; max-width: 720px; width: 100%"   >
 
 
     
@@ -2909,7 +2917,7 @@ This game was intended to have low art requirements and simple interaction rules
 
 
 
-<img  alt="Answering Machine subjects and conditions"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/answering_machine_lexicon.png"   style="height: auto; max-width: 400px; width: 100%"   >
+<img  alt="Answering Machine subjects and conditions"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/answering_machine_lexicon.png"   style="height: auto; max-width: 400px; width: 100%"   >
 
 
     
@@ -2999,7 +3007,7 @@ This game was intended to have low art requirements and simple interaction rules
 
 
 
-<img  alt="Answering Machine concept"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/answering_machine_concept.png"   style="height: auto; max-width: 200px; width: 100%"   >
+<img  alt="Answering Machine concept"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/answering_machine_concept.png"   style="height: auto; max-width: 200px; width: 100%"   >
 
 
     
@@ -3094,7 +3102,7 @@ This game was intended to have low art requirements and simple interaction rules
 
 
 
-<img  alt="Serverless Architecture of the Answering Machine app"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/answering_machine_architecture.png"   style="height: auto; max-width: 720px; width: 100%"   >
+<img  alt="Serverless Architecture of the Answering Machine app"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/answering_machine_architecture.png"   style="height: auto; max-width: 720px; width: 100%"   >
 
 
     
@@ -3104,10 +3112,10 @@ This game was intended to have low art requirements and simple interaction rules
 ]]></description>
                 
 
-                <guid isPermaLink="false">tag:hockenworks.com,2019-07-03:/answering-machine/</guid>
+                <guid isPermaLink="false">tag:localhost:1313,2019-07-03:/answering-machine/</guid>
 
                 
-                    <link>https://hockenworks.com/answering-machine/</link>
+                    <link>http://localhost:1313/answering-machine/</link>
                 
 
                 
@@ -3237,7 +3245,7 @@ This is what the project looked like for my first play-test with other people 5 
 
 
 
-<img  alt="Land War 4-day MVP"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/land_war_mvp.gif"   style="height: auto; width: 100%"   >
+<img  alt="Land War 4-day MVP"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/land_war_mvp.gif"   style="height: auto; width: 100%"   >
 
 
     
@@ -3325,7 +3333,7 @@ This is what the project looked like for my first play-test with other people 5 
 
 
 
-<img  alt="Player Select screen"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/land_war_player_select.png"   style="height: auto; width: 100%"   >
+<img  alt="Player Select screen"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/land_war_player_select.png"   style="height: auto; width: 100%"   >
 
 
     
@@ -3412,7 +3420,7 @@ This is what the project looked like for my first play-test with other people 5 
 
 
 
-<img  alt="Settings menu"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/land_war_settings.png"   style="height: auto; width: 100%"   >
+<img  alt="Settings menu"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/land_war_settings.png"   style="height: auto; width: 100%"   >
 
 
     
@@ -3501,7 +3509,7 @@ This is what the project looked like for my first play-test with other people 5 
 
 
 
-<img  alt="E3 marketing material"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/land_war_e3.png"   style="height: auto; max-width: 400px; width: 100%"   >
+<img  alt="E3 marketing material"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/land_war_e3.png"   style="height: auto; max-width: 400px; width: 100%"   >
 
 
     
@@ -3518,10 +3526,10 @@ This is what the project looked like for my first play-test with other people 5 
 ]]></description>
                 
 
-                <guid isPermaLink="false">tag:hockenworks.com,2019-03-01:/land-war/</guid>
+                <guid isPermaLink="false">tag:localhost:1313,2019-03-01:/land-war/</guid>
 
                 
-                    <link>https://hockenworks.com/land-war/</link>
+                    <link>http://localhost:1313/land-war/</link>
                 
 
                 
@@ -3645,7 +3653,7 @@ This is what the project looked like for my first play-test with other people 5 
 
 
 
-<img  alt="Serverless Architecture of the First Ten app"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/first_ten_architecture.png"   style="height: auto; max-width: 720px; width: 100%"   >
+<img  alt="Serverless Architecture of the First Ten app"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/first_ten_architecture.png"   style="height: auto; max-width: 720px; width: 100%"   >
 
 
     
@@ -3655,10 +3663,10 @@ This is what the project looked like for my first play-test with other people 5 
 ]]></description>
                 
 
-                <guid isPermaLink="false">tag:hockenworks.com,2018-05-19:/first-ten/</guid>
+                <guid isPermaLink="false">tag:localhost:1313,2018-05-19:/first-ten/</guid>
 
                 
-                    <link>https://hockenworks.com/first-ten/</link>
+                    <link>http://localhost:1313/first-ten/</link>
                 
 
                 
@@ -3705,7 +3713,7 @@ This is what the project looked like for my first play-test with other people 5 
 <p>I created this panel display in 2026 to control much of the home automation I used in my Studio City apartment. Mainly a hardware project, I designed and 3D-printed a case and frame for the touchscreen and raspberry pi microcomputer in order to mount them to the wall. The software running the control panel is SaaS, but I did write a custom html wrapper to control the orientation and settings of the site, which is available on the github linked above.</p>
 <p>Update in 2025: This panel is still my main view into my home automation in my new house in Sherman Oaks, almost 10 years in with no modification!</p>
 <p>Here&rsquo;s a video to see the panel in action:</p>
-<h2 id="hahahugoshortcode8s0hbhb">
+<h2 id="hahahugoshortcode18s0hbhb">
     <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
       <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/iFGmm-ijJvE?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"></iframe>
     </div>
@@ -3714,10 +3722,10 @@ This is what the project looked like for my first play-test with other people 5 
 ]]></description>
                 
 
-                <guid isPermaLink="false">tag:hockenworks.com,2016-01-01:/raspberry-pi-panel/</guid>
+                <guid isPermaLink="false">tag:localhost:1313,2016-01-01:/raspberry-pi-panel/</guid>
 
                 
-                    <link>https://hockenworks.com/raspberry-pi-panel/</link>
+                    <link>http://localhost:1313/raspberry-pi-panel/</link>
                 
 
                 
@@ -3782,10 +3790,10 @@ This is what the project looked like for my first play-test with other people 5 
 ]]></description>
                 
 
-                <guid isPermaLink="false">tag:hockenworks.com,0001-01-01:/reset-ball-machine/</guid>
+                <guid isPermaLink="false">tag:localhost:1313,0001-01-01:/reset-ball-machine/</guid>
 
                 
-                    <link>https://hockenworks.com/reset-ball-machine/</link>
+                    <link>http://localhost:1313/reset-ball-machine/</link>
                 
 
                 
@@ -3827,10 +3835,10 @@ This is what the project looked like for my first play-test with other people 5 
 
                 
 
-                <guid isPermaLink="false">tag:hockenworks.com,0001-01-01:/treekeepers-proposal/</guid>
+                <guid isPermaLink="false">tag:localhost:1313,0001-01-01:/treekeepers-proposal/</guid>
 
                 
-                    <link>https://hockenworks.com/treekeepers-proposal/</link>
+                    <link>http://localhost:1313/treekeepers-proposal/</link>
                 
 
                 
@@ -3869,53 +3877,10 @@ This is what the project looked like for my first play-test with other people 5 
 ]]></description>
                 
 
-                <guid isPermaLink="false">tag:hockenworks.com,0001-01-01:/treekeepers-engine/</guid>
+                <guid isPermaLink="false">tag:localhost:1313,0001-01-01:/treekeepers-engine/</guid>
 
                 
-                    <link>https://hockenworks.com/treekeepers-engine/</link>
-                
-
-                
-                    <pubDate>Mon, 01 Jan 0001 00:00:00 UTC</pubDate>
-                
-
-                
-            </item>
-        
-            <item>
-                
-                
-                
-                
-                
-                
-                
-
-                
-
-                
-
-                
-
-                
-                    
-                
-
-                
-                
-
-                
-                    
-                
-
-                
-
-                
-
-                <guid isPermaLink="false">tag:hockenworks.com,0001-01-01:/some-custom-gpts/</guid>
-
-                
-                    <link>https://hockenworks.com/some-custom-gpts/</link>
+                    <link>http://localhost:1313/treekeepers-engine/</link>
                 
 
                 
@@ -3955,53 +3920,10 @@ This is what the project looked like for my first play-test with other people 5 
 
                 
 
-                <guid isPermaLink="false">tag:hockenworks.com,0001-01-01:/raspberry-pi-bike-tracker/</guid>
+                <guid isPermaLink="false">tag:localhost:1313,0001-01-01:/some-custom-gpts/</guid>
 
                 
-                    <link>https://hockenworks.com/raspberry-pi-bike-tracker/</link>
-                
-
-                
-                    <pubDate>Mon, 01 Jan 0001 00:00:00 UTC</pubDate>
-                
-
-                
-            </item>
-        
-            <item>
-                
-                
-                
-                
-                
-                
-                
-
-                
-
-                
-
-                
-
-                
-                    
-                
-
-                
-                
-
-                
-                    
-                
-
-                
-
-                
-
-                <guid isPermaLink="false">tag:hockenworks.com,0001-01-01:/nope-game/</guid>
-
-                
-                    <link>https://hockenworks.com/nope-game/</link>
+                    <link>http://localhost:1313/some-custom-gpts/</link>
                 
 
                 
@@ -4041,10 +3963,10 @@ This is what the project looked like for my first play-test with other people 5 
 
                 
 
-                <guid isPermaLink="false">tag:hockenworks.com,0001-01-01:/hocken-pocket-blokus/</guid>
+                <guid isPermaLink="false">tag:localhost:1313,0001-01-01:/raspberry-pi-bike-tracker/</guid>
 
                 
-                    <link>https://hockenworks.com/hocken-pocket-blokus/</link>
+                    <link>http://localhost:1313/raspberry-pi-bike-tracker/</link>
                 
 
                 
@@ -4084,10 +4006,96 @@ This is what the project looked like for my first play-test with other people 5 
 
                 
 
-                <guid isPermaLink="false">tag:hockenworks.com,0001-01-01:/3d-key/</guid>
+                <guid isPermaLink="false">tag:localhost:1313,0001-01-01:/nope-game/</guid>
 
                 
-                    <link>https://hockenworks.com/3d-key/</link>
+                    <link>http://localhost:1313/nope-game/</link>
+                
+
+                
+                    <pubDate>Mon, 01 Jan 0001 00:00:00 UTC</pubDate>
+                
+
+                
+            </item>
+        
+            <item>
+                
+                
+                
+                
+                
+                
+                
+
+                
+
+                
+
+                
+
+                
+                    
+                
+
+                
+                
+
+                
+                    
+                
+
+                
+
+                
+
+                <guid isPermaLink="false">tag:localhost:1313,0001-01-01:/hocken-pocket-blokus/</guid>
+
+                
+                    <link>http://localhost:1313/hocken-pocket-blokus/</link>
+                
+
+                
+                    <pubDate>Mon, 01 Jan 0001 00:00:00 UTC</pubDate>
+                
+
+                
+            </item>
+        
+            <item>
+                
+                
+                
+                
+                
+                
+                
+
+                
+
+                
+
+                
+
+                
+                    
+                
+
+                
+                
+
+                
+                    
+                
+
+                
+
+                
+
+                <guid isPermaLink="false">tag:localhost:1313,0001-01-01:/3d-key/</guid>
+
+                
+                    <link>http://localhost:1313/3d-key/</link>
                 
 
                 

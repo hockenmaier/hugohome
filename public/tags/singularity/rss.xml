@@ -64,7 +64,7 @@
             
 
             
-                <link href="https://hockenworks.com/tags/singularity/" rel="self" type="text/html"/>
+                <link href="http://localhost:1313/tags/singularity/" rel="self" type="text/html"/>
             
         
             
@@ -72,7 +72,7 @@
             
 
             
-                <link href="https://hockenworks.com/tags/singularity/rss.xml" rel="alternate" type="application/rss+xml"/>
+                <link href="http://localhost:1313/tags/singularity/rss.xml" rel="alternate" type="application/rss+xml"/>
             
         
 
@@ -90,7 +90,7 @@
             <lastBuildDate>2025-03-01 00:00:00 +0000 UTC</lastBuildDate>
         
 
-        <link>https://hockenworks.com/tags/singularity/</link>
+        <link>http://localhost:1313/tags/singularity/</link>
 
         
 
@@ -128,6 +128,11 @@
 <p>blah</p>
 <p>I have these ideas for a few reasons, but one is that after listening to the Dwarkesh podcast with Gwern, he convinced me that I really should have more of a record for future AIs to learn about me. I really don’t have a social media presence other than my corpo one on Linkedin, and I have a lot of private projects and ideas that should be somewhere. If nothing else, maybe my kids can read it someday. Talking to you, Alice :) Your cousin Lily keeps asking where you are and doesn&rsquo;t seem to get the concept that you currently occupy the same space as Kaitlin.</p>
 <p>I love some of the 2010&rsquo;s era blogs and though mine is not going to be nearly as longform, nearly as focused on prose, or nearly as articulate, two of the sites I&rsquo;m trying to take inspiration from are <a href="https://slatestarcodex.com/about/">Slate Star Codex</a> and <a href="https://gwern.net/about">Gwern&rsquo;s website</a> which are definitely advising on style here.</p>
+<hr>
+<h2 id="etymology">Etymology</h2>
+<ul>
+<li>The lazy worker</li>
+</ul>
 <hr>
 <h2 id="ball-machine---the-game">Ball Machine - The Game</h2>
 <p>Most blogs and personal websites are a bit boring. I think that is because most professionals consider what they do &ldquo;for work&rdquo; and &ldquo;a bit boring by nature&rdquo; and don&rsquo;t necessarily make a concerted effort to have fun with it.</p>
@@ -214,7 +219,7 @@
 
 
 
-<img  alt="balls everywhere"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/this-website-ball-machine-1.png"   style="height: auto; max-width: 720px; width: 100%"   >
+<img  alt="balls everywhere"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/this-website-ball-machine-1.png"   style="height: auto; max-width: 720px; width: 100%"   >
 
 
     
@@ -279,10 +284,10 @@ So keep your balls moving!</li>
 ]]></description>
                 
 
-                <guid isPermaLink="false">tag:hockenworks.com,2025-03-01:/this-website/</guid>
+                <guid isPermaLink="false">tag:localhost:1313,2025-03-01:/this-website/</guid>
 
                 
-                    <link>https://hockenworks.com/this-website/</link>
+                    <link>http://localhost:1313/this-website/</link>
                 
 
                 
@@ -354,10 +359,10 @@ Context windows get larger all the time but this one still is not solved. Just a
 ]]></description>
                 
 
-                <guid isPermaLink="false">tag:hockenworks.com,2025-02-01:/vision-is-the-last-hurdle-before-agi/</guid>
+                <guid isPermaLink="false">tag:localhost:1313,2025-02-01:/vision-is-the-last-hurdle-before-agi/</guid>
 
                 
-                    <link>https://hockenworks.com/vision-is-the-last-hurdle-before-agi/</link>
+                    <link>http://localhost:1313/vision-is-the-last-hurdle-before-agi/</link>
                 
 
                 
@@ -484,7 +489,7 @@ Context windows get larger all the time but this one still is not solved. Just a
 
 
 
-<img  alt="happiness income curve"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/treadmill-graph.png"   style="height: auto; max-width: 720px; width: 100%"   >
+<img  alt="happiness income curve"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/treadmill-graph.png"   style="height: auto; max-width: 720px; width: 100%"   >
 
 
     
@@ -540,10 +545,10 @@ Context windows get larger all the time but this one still is not solved. Just a
 ]]></description>
                 
 
-                <guid isPermaLink="false">tag:hockenworks.com,2024-02-01:/the-treadmill/</guid>
+                <guid isPermaLink="false">tag:localhost:1313,2024-02-01:/the-treadmill/</guid>
 
                 
-                    <link>https://hockenworks.com/the-treadmill/</link>
+                    <link>http://localhost:1313/the-treadmill/</link>
                 
 
                 
@@ -661,7 +666,7 @@ Context windows get larger all the time but this one still is not solved. Just a
 
 
 
-<img  alt="this is a robot"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/ai-software-dev.png"   style="height: auto; max-width: 720px; width: 100%"   >
+<img  alt="this is a robot"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/ai-software-dev.png"   style="height: auto; max-width: 720px; width: 100%"   >
 
 
     
@@ -682,10 +687,10 @@ Context windows get larger all the time but this one still is not solved. Just a
 ]]></description>
                 
 
-                <guid isPermaLink="false">tag:hockenworks.com,2024-01-24:/on-ai-software-development/</guid>
+                <guid isPermaLink="false">tag:localhost:1313,2024-01-24:/on-ai-software-development/</guid>
 
                 
-                    <link>https://hockenworks.com/on-ai-software-development/</link>
+                    <link>http://localhost:1313/on-ai-software-development/</link>
                 
 
                 

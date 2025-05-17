@@ -46,7 +46,7 @@
             
 
             
-                <link href="https://hockenworks.com/tags/apis/" rel="self" type="text/html"/>
+                <link href="http://localhost:1313/tags/apis/" rel="self" type="text/html"/>
             
         
             
@@ -54,7 +54,7 @@
             
 
             
-                <link href="https://hockenworks.com/tags/apis/rss.xml" rel="alternate" type="application/rss+xml"/>
+                <link href="http://localhost:1313/tags/apis/rss.xml" rel="alternate" type="application/rss+xml"/>
             
         
 
@@ -72,7 +72,7 @@
             <lastBuildDate>2024-01-13 00:00:00 +0000 UTC</lastBuildDate>
         
 
-        <link>https://hockenworks.com/tags/apis/</link>
+        <link>http://localhost:1313/tags/apis/</link>
 
         
 
@@ -120,10 +120,10 @@
 ]]></description>
                 
 
-                <guid isPermaLink="false">tag:hockenworks.com,2024-01-13:/postman-for-pms/</guid>
+                <guid isPermaLink="false">tag:localhost:1313,2024-01-13:/postman-for-pms/</guid>
 
                 
-                    <link>https://hockenworks.com/postman-for-pms/</link>
+                    <link>http://localhost:1313/postman-for-pms/</link>
                 
 
                 
