@@ -14,6 +14,8 @@ tags:
     "HTML",
     "CSS",
     Singularity,
+    hugo,
+    matter.js,
   ]
 ---
 
@@ -25,25 +27,19 @@ I love some of the 2010's era blogs and though mine is not going to be nearly as
 
 ---
 
-## Etymology of hockenworks
+## Etymology of "hockenworks"
 
-Brian Hockenmaier <bhockenmaier@gmail.com>
-1:58 PM (22 minutes ago)
-to me
-
-Etymology of "hockenworks"
-
-Hockenmaier is a great name. I've always loved it. Not just because it’s unique and has my favorite number of letters, but because of its meaning, at least my family’s “folk-etymology” for it.
+**Hockenmaier** is a great name. I've always loved it. Not just because it’s unique and has my favorite number of letters, but because of its meaning, at least my family’s “folk-etymology” for it.
 
 You have:
 
-> Hocken
+> **Hocken**
 
 Which can roughly translate to “sitting down, squating, settling, idling”.
 
 And then you have:
 
-> Maier
+> **Maier**
 
 Which has many different spellings, and ours has southern German roots, but all "Meyer" names come from the latin root "maior" mean steward, administrator, or more generally "worker"
 
