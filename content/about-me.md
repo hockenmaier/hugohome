@@ -11,7 +11,7 @@ tags: []
     maxwidth=200px
     caption="←me" >}}
 
-I build things mostly, and sometimes I write things, I post about all of that here. I love making games and things with VR and AI. Some of this has been cross or back-posted from my [thingiverse](https://www.thingiverse.com/hockenmaier/designs), [twitter](https://x.com/Hockenmaier), [linkedin](https://www.linkedin.com/in/hockenmaier/), and other places, but it all lives here permanently.
+I mostly build, sometimes write, and post about both here. I love making games and things with VR and AI. Some of this has been cross or back-posted from my [thingiverse](https://www.thingiverse.com/hockenmaier/designs), [twitter](https://x.com/Hockenmaier), [linkedin](https://www.linkedin.com/in/hockenmaier/), and other places, but it all lives here permanently.
 
 One of the things I built was this website and the game built into it. [Read more about that here](/this-website)
 

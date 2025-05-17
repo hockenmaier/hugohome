@@ -176,6 +176,12 @@
         
     
 
+    
+
+    
+        
+    
+
 
 
 
@@ -198,7 +204,7 @@
             
 
             
-                <link href="http://localhost:1313/" rel="self" type="text/html"/>
+                <link href="https://hockenworks.com/" rel="self" type="text/html"/>
             
         
             
@@ -206,7 +212,7 @@
             
 
             
-                <link href="http://localhost:1313/rss.xml" rel="alternate" type="application/rss+xml"/>
+                <link href="https://hockenworks.com/rss.xml" rel="alternate" type="application/rss+xml"/>
             
         
 
@@ -224,7 +230,7 @@
             <lastBuildDate>2025-05-12 00:00:00 +0000 UTC</lastBuildDate>
         
 
-        <link>http://localhost:1313/</link>
+        <link>https://hockenworks.com/</link>
 
         
 
@@ -327,10 +333,10 @@
 ]]></description>
                 
 
-                <guid isPermaLink="false">tag:localhost:1313,2025-05-12:/the-purgatory-of-aaa-gaming/</guid>
+                <guid isPermaLink="false">tag:hockenworks.com,2025-05-12:/the-purgatory-of-aaa-gaming/</guid>
 
                 
-                    <link>http://localhost:1313/the-purgatory-of-aaa-gaming/</link>
+                    <link>https://hockenworks.com/the-purgatory-of-aaa-gaming/</link>
                 
 
                 
@@ -457,7 +463,7 @@
 
 
 
-<img  alt="balls everywhere"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/this-website-ball-machine-1.png"   style="height: auto; max-width: 720px; width: 100%"   >
+<img  alt="balls everywhere"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/this-website-ball-machine-1.png"   style="height: auto; max-width: 720px; width: 100%"   >
 
 
     
@@ -516,16 +522,16 @@ So keep your balls moving!</li>
 
 <p>Resetting will erase all your drawings on all pages and reset your goal locations, unlocks, coins and everything else.</p>
 <p>If you are thinking about doing this because you want to try on another device, you don&rsquo;t need to because progress is already saved to your device. The only reason to do this is to have a fresh start on this device.</p>
-<p>Navigate <a href="/this-website/reset-ball-machine">here</a> and click reset to do that.</p>
+<p>Navigate <a href="/reset-ball-machine">here</a> and click reset to do that.</p>
 <h2 id="how-its-made">How it&rsquo;s made</h2>
 <p>I don&rsquo;t typically make complicated things like this with javascript. So when I found the perfect physics engine for the game - <a href="https://brm.io/matter-js/">matter.js</a> - I knew I would need help from our new little assistants. And though this game is a bit too structured to call it &ldquo;vibe coded&rdquo; - it&rsquo;s close. I ended up making my own tool called <a href="/context-caddy">Context Caddy</a> to help me with it. Part of the reason I leaned so hard into this is because I&rsquo;m always trying to push the limits of current AI, and I hadn&rsquo;t built a game since the GPT-4 days. The new thinking models are truly a setup above GPT-4 (this was mostly done with o3 and its minis) but they&rsquo;re still way to eager to write duplicate code, and they still don&rsquo;t &ldquo;get&rdquo; the structure of your project a lot of the time, especially with visual and physcial things like this. Still, they were a great help here.</p>
 ]]></description>
                 
 
-                <guid isPermaLink="false">tag:localhost:1313,2025-03-01:/this-website/</guid>
+                <guid isPermaLink="false">tag:hockenworks.com,2025-03-01:/this-website/</guid>
 
                 
-                    <link>http://localhost:1313/this-website/</link>
+                    <link>https://hockenworks.com/this-website/</link>
                 
 
                 
@@ -575,10 +581,10 @@ So keep your balls moving!</li>
 ]]></description>
                 
 
-                <guid isPermaLink="false">tag:localhost:1313,2025-02-13:/context-caddy/</guid>
+                <guid isPermaLink="false">tag:hockenworks.com,2025-02-13:/context-caddy/</guid>
 
                 
-                    <link>http://localhost:1313/context-caddy/</link>
+                    <link>https://hockenworks.com/context-caddy/</link>
                 
 
                 
@@ -650,10 +656,10 @@ Context windows get larger all the time but this one still is not solved. Just a
 ]]></description>
                 
 
-                <guid isPermaLink="false">tag:localhost:1313,2025-02-01:/vision-is-the-last-hurdle-before-agi/</guid>
+                <guid isPermaLink="false">tag:hockenworks.com,2025-02-01:/vision-is-the-last-hurdle-before-agi/</guid>
 
                 
-                    <link>http://localhost:1313/vision-is-the-last-hurdle-before-agi/</link>
+                    <link>https://hockenworks.com/vision-is-the-last-hurdle-before-agi/</link>
                 
 
                 
@@ -785,7 +791,7 @@ Context windows get larger all the time but this one still is not solved. Just a
 
 
 
-<img  alt="the app ui"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/make-us-smarter.jpg"   style="height: auto; max-width: 200px"   >
+<img  alt="the app ui"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/make-us-smarter.jpg"   style="height: auto; max-width: 200px"   >
 
 
     
@@ -805,10 +811,10 @@ Context windows get larger all the time but this one still is not solved. Just a
 ]]></description>
                 
 
-                <guid isPermaLink="false">tag:localhost:1313,2025-01-01:/my-experiments-with-ai-cheating/</guid>
+                <guid isPermaLink="false">tag:hockenworks.com,2025-01-01:/my-experiments-with-ai-cheating/</guid>
 
                 
-                    <link>http://localhost:1313/my-experiments-with-ai-cheating/</link>
+                    <link>https://hockenworks.com/my-experiments-with-ai-cheating/</link>
                 
 
                 
@@ -857,10 +863,10 @@ Context windows get larger all the time but this one still is not solved. Just a
 ]]></description>
                 
 
-                <guid isPermaLink="false">tag:localhost:1313,2025-01-01:/bloom-or-bust/</guid>
+                <guid isPermaLink="false">tag:hockenworks.com,2025-01-01:/bloom-or-bust/</guid>
 
                 
-                    <link>http://localhost:1313/bloom-or-bust/</link>
+                    <link>https://hockenworks.com/bloom-or-bust/</link>
                 
 
                 
@@ -984,7 +990,7 @@ Context windows get larger all the time but this one still is not solved. Just a
 
 
 
-<img  alt="Serverless Architecture of the First Ten app"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/power-grid.png"   style="height: auto; max-width: 720px; width: 100%"   >
+<img  alt="Serverless Architecture of the First Ten app"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/power-grid.png"   style="height: auto; max-width: 720px; width: 100%"   >
 
 
     
@@ -1015,10 +1021,10 @@ Context windows get larger all the time but this one still is not solved. Just a
 ]]></description>
                 
 
-                <guid isPermaLink="false">tag:localhost:1313,2025-01-01:/balloon-fight/</guid>
+                <guid isPermaLink="false">tag:hockenworks.com,2025-01-01:/balloon-fight/</guid>
 
                 
-                    <link>http://localhost:1313/balloon-fight/</link>
+                    <link>https://hockenworks.com/balloon-fight/</link>
                 
 
                 
@@ -1134,7 +1140,7 @@ Context windows get larger all the time but this one still is not solved. Just a
 
 
 
-<img  alt="Alt text"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/brian_portrait.png"   style="height: auto; max-width: 200px"   >
+<img  alt="Alt text"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/brian_portrait.png"   style="height: auto; max-width: 200px"   >
 
 
     
@@ -1236,7 +1242,7 @@ Context windows get larger all the time but this one still is not solved. Just a
 
 
 
-<img  alt="The Treekeepers Puddle Jumper"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/treekeepers_moonlight.png"   style="height: auto; max-width: 100%"   >
+<img  alt="The Treekeepers Puddle Jumper"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/treekeepers_moonlight.png"   style="height: auto; max-width: 100%"   >
 
 
     
@@ -1286,10 +1292,10 @@ This game was intended to have low art requirements and simple interaction rules
 ]]></description>
                 
 
-                <guid isPermaLink="false">tag:localhost:1313,2024-04-30:/about-me/</guid>
+                <guid isPermaLink="false">tag:hockenworks.com,2024-04-30:/about-me/</guid>
 
                 
-                    <link>http://localhost:1313/about-me/</link>
+                    <link>https://hockenworks.com/about-me/</link>
                 
 
                 
@@ -1416,7 +1422,7 @@ This game was intended to have low art requirements and simple interaction rules
 
 
 
-<img  alt="happiness income curve"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/treadmill-graph.png"   style="height: auto; max-width: 720px; width: 100%"   >
+<img  alt="happiness income curve"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/treadmill-graph.png"   style="height: auto; max-width: 720px; width: 100%"   >
 
 
     
@@ -1472,10 +1478,10 @@ This game was intended to have low art requirements and simple interaction rules
 ]]></description>
                 
 
-                <guid isPermaLink="false">tag:localhost:1313,2024-02-01:/the-treadmill/</guid>
+                <guid isPermaLink="false">tag:hockenworks.com,2024-02-01:/the-treadmill/</guid>
 
                 
-                    <link>http://localhost:1313/the-treadmill/</link>
+                    <link>https://hockenworks.com/the-treadmill/</link>
                 
 
                 
@@ -1593,7 +1599,7 @@ This game was intended to have low art requirements and simple interaction rules
 
 
 
-<img  alt="this is a robot"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/ai-software-dev.png"   style="height: auto; max-width: 720px; width: 100%"   >
+<img  alt="this is a robot"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/ai-software-dev.png"   style="height: auto; max-width: 720px; width: 100%"   >
 
 
     
@@ -1614,10 +1620,10 @@ This game was intended to have low art requirements and simple interaction rules
 ]]></description>
                 
 
-                <guid isPermaLink="false">tag:localhost:1313,2024-01-24:/on-ai-software-development/</guid>
+                <guid isPermaLink="false">tag:hockenworks.com,2024-01-24:/on-ai-software-development/</guid>
 
                 
-                    <link>http://localhost:1313/on-ai-software-development/</link>
+                    <link>https://hockenworks.com/on-ai-software-development/</link>
                 
 
                 
@@ -1668,10 +1674,10 @@ This game was intended to have low art requirements and simple interaction rules
 ]]></description>
                 
 
-                <guid isPermaLink="false">tag:localhost:1313,2024-01-13:/postman-for-pms/</guid>
+                <guid isPermaLink="false">tag:hockenworks.com,2024-01-13:/postman-for-pms/</guid>
 
                 
-                    <link>http://localhost:1313/postman-for-pms/</link>
+                    <link>https://hockenworks.com/postman-for-pms/</link>
                 
 
                 
@@ -1721,10 +1727,10 @@ This game was intended to have low art requirements and simple interaction rules
 ]]></description>
                 
 
-                <guid isPermaLink="false">tag:localhost:1313,2023-02-01:/nerfs/</guid>
+                <guid isPermaLink="false">tag:hockenworks.com,2023-02-01:/nerfs/</guid>
 
                 
-                    <link>http://localhost:1313/nerfs/</link>
+                    <link>https://hockenworks.com/nerfs/</link>
                 
 
                 
@@ -1783,10 +1789,10 @@ This game was intended to have low art requirements and simple interaction rules
 ]]></description>
                 
 
-                <guid isPermaLink="false">tag:localhost:1313,2023-01-01:/the-flapper/</guid>
+                <guid isPermaLink="false">tag:hockenworks.com,2023-01-01:/the-flapper/</guid>
 
                 
-                    <link>http://localhost:1313/the-flapper/</link>
+                    <link>https://hockenworks.com/the-flapper/</link>
                 
 
                 
@@ -1902,7 +1908,7 @@ This game was intended to have low art requirements and simple interaction rules
 
 
 
-<img  alt="The Treekeepers Puddle Jumper"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/treekeepers_moonlight.png"   style="height: auto; max-width: 100%"   >
+<img  alt="The Treekeepers Puddle Jumper"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/treekeepers_moonlight.png"   style="height: auto; max-width: 100%"   >
 
 
     
@@ -1920,10 +1926,10 @@ This game was intended to have low art requirements and simple interaction rules
 ]]></description>
                 
 
-                <guid isPermaLink="false">tag:localhost:1313,2022-10-01:/treekeepers-vr/</guid>
+                <guid isPermaLink="false">tag:hockenworks.com,2022-10-01:/treekeepers-vr/</guid>
 
                 
-                    <link>http://localhost:1313/treekeepers-vr/</link>
+                    <link>https://hockenworks.com/treekeepers-vr/</link>
                 
 
                 
@@ -1994,10 +2000,10 @@ This game was intended to have low art requirements and simple interaction rules
 ]]></description>
                 
 
-                <guid isPermaLink="false">tag:localhost:1313,2022-08-01:/social-media-is-antisocial/</guid>
+                <guid isPermaLink="false">tag:hockenworks.com,2022-08-01:/social-media-is-antisocial/</guid>
 
                 
-                    <link>http://localhost:1313/social-media-is-antisocial/</link>
+                    <link>https://hockenworks.com/social-media-is-antisocial/</link>
                 
 
                 
@@ -2170,7 +2176,7 @@ This game was intended to have low art requirements and simple interaction rules
 
 
 
-<img   class="img-fluid "  crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/human_joystick_centered.jpg"   style="display:block; height: auto; margin:0 auto; width: 60%"   >
+<img   class="img-fluid "  crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/human_joystick_centered.jpg"   style="display:block; height: auto; margin:0 auto; width: 60%"   >
 
 
 </div>
@@ -2298,7 +2304,7 @@ This game was intended to have low art requirements and simple interaction rules
 
 
 
-<img   class="img-fluid "  crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/human_joystick_moving.jpg"   style="display:block; height: auto; margin:0 auto; width: 60%"   >
+<img   class="img-fluid "  crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/human_joystick_moving.jpg"   style="display:block; height: auto; margin:0 auto; width: 60%"   >
 
 
 </div>
@@ -2313,10 +2319,10 @@ This game was intended to have low art requirements and simple interaction rules
 ]]></description>
                 
 
-                <guid isPermaLink="false">tag:localhost:1313,2020-01-01:/human-joystick/</guid>
+                <guid isPermaLink="false">tag:hockenworks.com,2020-01-01:/human-joystick/</guid>
 
                 
-                    <link>http://localhost:1313/human-joystick/</link>
+                    <link>https://hockenworks.com/human-joystick/</link>
                 
 
                 
@@ -2444,7 +2450,7 @@ This game was intended to have low art requirements and simple interaction rules
 
 
 
-<img  alt="Answering Machine homepage"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/answering_machine_uploads.png"   style="height: auto; max-width: 720px; width: 100%"   >
+<img  alt="Answering Machine homepage"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/answering_machine_uploads.png"   style="height: auto; max-width: 720px; width: 100%"   >
 
 
     
@@ -2534,7 +2540,7 @@ This game was intended to have low art requirements and simple interaction rules
 
 
 
-<img  alt="Answering Machine main view"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/answering_machine_hr.png"   style="height: auto; width: 100%"   >
+<img  alt="Answering Machine main view"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/answering_machine_hr.png"   style="height: auto; width: 100%"   >
 
 
     
@@ -2622,7 +2628,7 @@ This game was intended to have low art requirements and simple interaction rules
 
 
 
-<img  alt="Answering Machine info panel"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/answering_machine_info.png"   style="height: auto; max-width: 720px; width: 100%"   >
+<img  alt="Answering Machine info panel"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/answering_machine_info.png"   style="height: auto; max-width: 720px; width: 100%"   >
 
 
     
@@ -2712,7 +2718,7 @@ This game was intended to have low art requirements and simple interaction rules
 
 
 
-<img  alt="Answering Machine query bar"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/answering_machine_query.png"   style="height: auto; max-width: 720px; width: 100%"   >
+<img  alt="Answering Machine query bar"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/answering_machine_query.png"   style="height: auto; max-width: 720px; width: 100%"   >
 
 
     
@@ -2808,7 +2814,7 @@ This game was intended to have low art requirements and simple interaction rules
 
 
 
-<img  alt="Answering Machine response"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/answering_machine_answer.png"   style="height: auto; max-width: 720px; width: 100%"   >
+<img  alt="Answering Machine response"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/answering_machine_answer.png"   style="height: auto; max-width: 720px; width: 100%"   >
 
 
     
@@ -2903,7 +2909,7 @@ This game was intended to have low art requirements and simple interaction rules
 
 
 
-<img  alt="Answering Machine subjects and conditions"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/answering_machine_lexicon.png"   style="height: auto; max-width: 400px; width: 100%"   >
+<img  alt="Answering Machine subjects and conditions"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/answering_machine_lexicon.png"   style="height: auto; max-width: 400px; width: 100%"   >
 
 
     
@@ -2993,7 +2999,7 @@ This game was intended to have low art requirements and simple interaction rules
 
 
 
-<img  alt="Answering Machine concept"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/answering_machine_concept.png"   style="height: auto; max-width: 200px; width: 100%"   >
+<img  alt="Answering Machine concept"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/answering_machine_concept.png"   style="height: auto; max-width: 200px; width: 100%"   >
 
 
     
@@ -3088,7 +3094,7 @@ This game was intended to have low art requirements and simple interaction rules
 
 
 
-<img  alt="Serverless Architecture of the Answering Machine app"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/answering_machine_architecture.png"   style="height: auto; max-width: 720px; width: 100%"   >
+<img  alt="Serverless Architecture of the Answering Machine app"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/answering_machine_architecture.png"   style="height: auto; max-width: 720px; width: 100%"   >
 
 
     
@@ -3098,10 +3104,10 @@ This game was intended to have low art requirements and simple interaction rules
 ]]></description>
                 
 
-                <guid isPermaLink="false">tag:localhost:1313,2019-07-03:/answering-machine/</guid>
+                <guid isPermaLink="false">tag:hockenworks.com,2019-07-03:/answering-machine/</guid>
 
                 
-                    <link>http://localhost:1313/answering-machine/</link>
+                    <link>https://hockenworks.com/answering-machine/</link>
                 
 
                 
@@ -3231,7 +3237,7 @@ This is what the project looked like for my first play-test with other people 5 
 
 
 
-<img  alt="Land War 4-day MVP"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/land_war_mvp.gif"   style="height: auto; width: 100%"   >
+<img  alt="Land War 4-day MVP"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/land_war_mvp.gif"   style="height: auto; width: 100%"   >
 
 
     
@@ -3319,7 +3325,7 @@ This is what the project looked like for my first play-test with other people 5 
 
 
 
-<img  alt="Player Select screen"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/land_war_player_select.png"   style="height: auto; width: 100%"   >
+<img  alt="Player Select screen"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/land_war_player_select.png"   style="height: auto; width: 100%"   >
 
 
     
@@ -3406,7 +3412,7 @@ This is what the project looked like for my first play-test with other people 5 
 
 
 
-<img  alt="Settings menu"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/land_war_settings.png"   style="height: auto; width: 100%"   >
+<img  alt="Settings menu"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/land_war_settings.png"   style="height: auto; width: 100%"   >
 
 
     
@@ -3495,7 +3501,7 @@ This is what the project looked like for my first play-test with other people 5 
 
 
 
-<img  alt="E3 marketing material"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/land_war_e3.png"   style="height: auto; max-width: 400px; width: 100%"   >
+<img  alt="E3 marketing material"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/land_war_e3.png"   style="height: auto; max-width: 400px; width: 100%"   >
 
 
     
@@ -3512,10 +3518,10 @@ This is what the project looked like for my first play-test with other people 5 
 ]]></description>
                 
 
-                <guid isPermaLink="false">tag:localhost:1313,2019-03-01:/land-war/</guid>
+                <guid isPermaLink="false">tag:hockenworks.com,2019-03-01:/land-war/</guid>
 
                 
-                    <link>http://localhost:1313/land-war/</link>
+                    <link>https://hockenworks.com/land-war/</link>
                 
 
                 
@@ -3639,7 +3645,7 @@ This is what the project looked like for my first play-test with other people 5 
 
 
 
-<img  alt="Serverless Architecture of the First Ten app"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/first_ten_architecture.png"   style="height: auto; max-width: 720px; width: 100%"   >
+<img  alt="Serverless Architecture of the First Ten app"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/first_ten_architecture.png"   style="height: auto; max-width: 720px; width: 100%"   >
 
 
     
@@ -3649,10 +3655,10 @@ This is what the project looked like for my first play-test with other people 5 
 ]]></description>
                 
 
-                <guid isPermaLink="false">tag:localhost:1313,2018-05-19:/first-ten/</guid>
+                <guid isPermaLink="false">tag:hockenworks.com,2018-05-19:/first-ten/</guid>
 
                 
-                    <link>http://localhost:1313/first-ten/</link>
+                    <link>https://hockenworks.com/first-ten/</link>
                 
 
                 
@@ -3699,7 +3705,7 @@ This is what the project looked like for my first play-test with other people 5 
 <p>I created this panel display in 2026 to control much of the home automation I used in my Studio City apartment. Mainly a hardware project, I designed and 3D-printed a case and frame for the touchscreen and raspberry pi microcomputer in order to mount them to the wall. The software running the control panel is SaaS, but I did write a custom html wrapper to control the orientation and settings of the site, which is available on the github linked above.</p>
 <p>Update in 2025: This panel is still my main view into my home automation in my new house in Sherman Oaks, almost 10 years in with no modification!</p>
 <p>Here&rsquo;s a video to see the panel in action:</p>
-<h2 id="hahahugoshortcode278s0hbhb">
+<h2 id="hahahugoshortcode8s0hbhb">
     <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
       <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/iFGmm-ijJvE?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"></iframe>
     </div>
@@ -3708,10 +3714,10 @@ This is what the project looked like for my first play-test with other people 5 
 ]]></description>
                 
 
-                <guid isPermaLink="false">tag:localhost:1313,2016-01-01:/raspberry-pi-panel/</guid>
+                <guid isPermaLink="false">tag:hockenworks.com,2016-01-01:/raspberry-pi-panel/</guid>
 
                 
-                    <link>http://localhost:1313/raspberry-pi-panel/</link>
+                    <link>https://hockenworks.com/raspberry-pi-panel/</link>
                 
 
                 
@@ -3720,6 +3726,74 @@ This is what the project looked like for my first play-test with other people 5 
 
                 
                     <title>Raspberry Pi Control Panel</title>
+                
+            </item>
+        
+            <item>
+                
+                
+                
+                
+                
+                
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+                
+
+                
+
+                
+
+                
+                    <description><![CDATA[<span
+  style="
+    color: #ff0040;
+    font-family: 'Arial Black', Arial, sans-serif;
+    font-size: 20px;
+  "
+>
+   WARNING! This page serves a single purpose - to reset the ball machine game that runs on top of the site. 
+</span>
+
+<p>Leave this page if you don&rsquo;t want to reset all Ball Machine game data!</p>
+<a
+  href="#"
+  style="color: #cc592f; text-decoration: underline; cursor: pointer"
+  onclick="
+    localStorage.clear();
+    this.textContent = 'Cleared data';
+    this.style.color = '#3df59f';
+    this.style.textDecoration = 'none';
+    return false;
+  "
+>
+  Clear Ball Machine data
+</a>
+
+]]></description>
+                
+
+                <guid isPermaLink="false">tag:hockenworks.com,0001-01-01:/reset-ball-machine/</guid>
+
+                
+                    <link>https://hockenworks.com/reset-ball-machine/</link>
+                
+
+                
+                    <pubDate>Mon, 01 Jan 0001 00:00:00 UTC</pubDate>
+                
+
+                
+                    <title>RESET The Ball Machine</title>
                 
             </item>
         
@@ -3753,10 +3827,10 @@ This is what the project looked like for my first play-test with other people 5 
 
                 
 
-                <guid isPermaLink="false">tag:localhost:1313,0001-01-01:/treekeepers-proposal/</guid>
+                <guid isPermaLink="false">tag:hockenworks.com,0001-01-01:/treekeepers-proposal/</guid>
 
                 
-                    <link>http://localhost:1313/treekeepers-proposal/</link>
+                    <link>https://hockenworks.com/treekeepers-proposal/</link>
                 
 
                 
@@ -3795,53 +3869,10 @@ This is what the project looked like for my first play-test with other people 5 
 ]]></description>
                 
 
-                <guid isPermaLink="false">tag:localhost:1313,0001-01-01:/treekeepers-engine/</guid>
+                <guid isPermaLink="false">tag:hockenworks.com,0001-01-01:/treekeepers-engine/</guid>
 
                 
-                    <link>http://localhost:1313/treekeepers-engine/</link>
-                
-
-                
-                    <pubDate>Mon, 01 Jan 0001 00:00:00 UTC</pubDate>
-                
-
-                
-            </item>
-        
-            <item>
-                
-                
-                
-                
-                
-                
-                
-
-                
-
-                
-
-                
-
-                
-                    
-                
-
-                
-                
-
-                
-                    
-                
-
-                
-
-                
-
-                <guid isPermaLink="false">tag:localhost:1313,0001-01-01:/some-custom-gpts/</guid>
-
-                
-                    <link>http://localhost:1313/some-custom-gpts/</link>
+                    <link>https://hockenworks.com/treekeepers-engine/</link>
                 
 
                 
@@ -3881,53 +3912,10 @@ This is what the project looked like for my first play-test with other people 5 
 
                 
 
-                <guid isPermaLink="false">tag:localhost:1313,0001-01-01:/raspberry-pi-bike-tracker/</guid>
+                <guid isPermaLink="false">tag:hockenworks.com,0001-01-01:/some-custom-gpts/</guid>
 
                 
-                    <link>http://localhost:1313/raspberry-pi-bike-tracker/</link>
-                
-
-                
-                    <pubDate>Mon, 01 Jan 0001 00:00:00 UTC</pubDate>
-                
-
-                
-            </item>
-        
-            <item>
-                
-                
-                
-                
-                
-                
-                
-
-                
-
-                
-
-                
-
-                
-                    
-                
-
-                
-                
-
-                
-                    
-                
-
-                
-
-                
-
-                <guid isPermaLink="false">tag:localhost:1313,0001-01-01:/nope-game/</guid>
-
-                
-                    <link>http://localhost:1313/nope-game/</link>
+                    <link>https://hockenworks.com/some-custom-gpts/</link>
                 
 
                 
@@ -3967,10 +3955,10 @@ This is what the project looked like for my first play-test with other people 5 
 
                 
 
-                <guid isPermaLink="false">tag:localhost:1313,0001-01-01:/hocken-pocket-blokus/</guid>
+                <guid isPermaLink="false">tag:hockenworks.com,0001-01-01:/raspberry-pi-bike-tracker/</guid>
 
                 
-                    <link>http://localhost:1313/hocken-pocket-blokus/</link>
+                    <link>https://hockenworks.com/raspberry-pi-bike-tracker/</link>
                 
 
                 
@@ -4010,10 +3998,96 @@ This is what the project looked like for my first play-test with other people 5 
 
                 
 
-                <guid isPermaLink="false">tag:localhost:1313,0001-01-01:/3d-key/</guid>
+                <guid isPermaLink="false">tag:hockenworks.com,0001-01-01:/nope-game/</guid>
 
                 
-                    <link>http://localhost:1313/3d-key/</link>
+                    <link>https://hockenworks.com/nope-game/</link>
+                
+
+                
+                    <pubDate>Mon, 01 Jan 0001 00:00:00 UTC</pubDate>
+                
+
+                
+            </item>
+        
+            <item>
+                
+                
+                
+                
+                
+                
+                
+
+                
+
+                
+
+                
+
+                
+                    
+                
+
+                
+                
+
+                
+                    
+                
+
+                
+
+                
+
+                <guid isPermaLink="false">tag:hockenworks.com,0001-01-01:/hocken-pocket-blokus/</guid>
+
+                
+                    <link>https://hockenworks.com/hocken-pocket-blokus/</link>
+                
+
+                
+                    <pubDate>Mon, 01 Jan 0001 00:00:00 UTC</pubDate>
+                
+
+                
+            </item>
+        
+            <item>
+                
+                
+                
+                
+                
+                
+                
+
+                
+
+                
+
+                
+
+                
+                    
+                
+
+                
+                
+
+                
+                    
+                
+
+                
+
+                
+
+                <guid isPermaLink="false">tag:hockenworks.com,0001-01-01:/3d-key/</guid>
+
+                
+                    <link>https://hockenworks.com/3d-key/</link>
                 
 
                 

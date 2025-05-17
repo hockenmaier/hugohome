@@ -27,6 +27,12 @@ I love some of the 2010's era blogs and though mine is not going to be nearly as
 
 ---
 
+## Etymology
+
+- The lazy worker
+
+---
+
 ## Ball Machine - The Game
 
 Most blogs and personal websites are a bit boring. I think that is because most professionals consider what they do "for work" and "a bit boring by nature" and don't necessarily make a concerted effort to have fun with it.
@@ -102,7 +108,7 @@ Resetting will erase all your drawings on all pages and reset your goal location
 
 If you are thinking about doing this because you want to try on another device, you don't need to because progress is already saved to your device. The only reason to do this is to have a fresh start on this device.
 
-Navigate [here](/this-website/reset-ball-machine) and click reset to do that.
+Navigate [here](/reset-ball-machine) and click reset to do that.
 
 ## How it's made
 

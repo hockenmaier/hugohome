@@ -64,7 +64,7 @@
             
 
             
-                <link href="http://localhost:1313/tags/singularity/" rel="self" type="text/html"/>
+                <link href="https://hockenworks.com/tags/singularity/" rel="self" type="text/html"/>
             
         
             
@@ -72,7 +72,7 @@
             
 
             
-                <link href="http://localhost:1313/tags/singularity/rss.xml" rel="alternate" type="application/rss+xml"/>
+                <link href="https://hockenworks.com/tags/singularity/rss.xml" rel="alternate" type="application/rss+xml"/>
             
         
 
@@ -90,7 +90,7 @@
             <lastBuildDate>2025-03-01 00:00:00 +0000 UTC</lastBuildDate>
         
 
-        <link>http://localhost:1313/tags/singularity/</link>
+        <link>https://hockenworks.com/tags/singularity/</link>
 
         
 
@@ -214,7 +214,7 @@
 
 
 
-<img  alt="balls everywhere"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/this-website-ball-machine-1.png"   style="height: auto; max-width: 720px; width: 100%"   >
+<img  alt="balls everywhere"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/this-website-ball-machine-1.png"   style="height: auto; max-width: 720px; width: 100%"   >
 
 
     
@@ -273,16 +273,16 @@ So keep your balls moving!</li>
 
 <p>Resetting will erase all your drawings on all pages and reset your goal locations, unlocks, coins and everything else.</p>
 <p>If you are thinking about doing this because you want to try on another device, you don&rsquo;t need to because progress is already saved to your device. The only reason to do this is to have a fresh start on this device.</p>
-<p>Navigate <a href="/this-website/reset-ball-machine">here</a> and click reset to do that.</p>
+<p>Navigate <a href="/reset-ball-machine">here</a> and click reset to do that.</p>
 <h2 id="how-its-made">How it&rsquo;s made</h2>
 <p>I don&rsquo;t typically make complicated things like this with javascript. So when I found the perfect physics engine for the game - <a href="https://brm.io/matter-js/">matter.js</a> - I knew I would need help from our new little assistants. And though this game is a bit too structured to call it &ldquo;vibe coded&rdquo; - it&rsquo;s close. I ended up making my own tool called <a href="/context-caddy">Context Caddy</a> to help me with it. Part of the reason I leaned so hard into this is because I&rsquo;m always trying to push the limits of current AI, and I hadn&rsquo;t built a game since the GPT-4 days. The new thinking models are truly a setup above GPT-4 (this was mostly done with o3 and its minis) but they&rsquo;re still way to eager to write duplicate code, and they still don&rsquo;t &ldquo;get&rdquo; the structure of your project a lot of the time, especially with visual and physcial things like this. Still, they were a great help here.</p>
 ]]></description>
                 
 
-                <guid isPermaLink="false">tag:localhost:1313,2025-03-01:/this-website/</guid>
+                <guid isPermaLink="false">tag:hockenworks.com,2025-03-01:/this-website/</guid>
 
                 
-                    <link>http://localhost:1313/this-website/</link>
+                    <link>https://hockenworks.com/this-website/</link>
                 
 
                 
@@ -354,10 +354,10 @@ Context windows get larger all the time but this one still is not solved. Just a
 ]]></description>
                 
 
-                <guid isPermaLink="false">tag:localhost:1313,2025-02-01:/vision-is-the-last-hurdle-before-agi/</guid>
+                <guid isPermaLink="false">tag:hockenworks.com,2025-02-01:/vision-is-the-last-hurdle-before-agi/</guid>
 
                 
-                    <link>http://localhost:1313/vision-is-the-last-hurdle-before-agi/</link>
+                    <link>https://hockenworks.com/vision-is-the-last-hurdle-before-agi/</link>
                 
 
                 
@@ -484,7 +484,7 @@ Context windows get larger all the time but this one still is not solved. Just a
 
 
 
-<img  alt="happiness income curve"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/treadmill-graph.png"   style="height: auto; max-width: 720px; width: 100%"   >
+<img  alt="happiness income curve"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/treadmill-graph.png"   style="height: auto; max-width: 720px; width: 100%"   >
 
 
     
@@ -540,10 +540,10 @@ Context windows get larger all the time but this one still is not solved. Just a
 ]]></description>
                 
 
-                <guid isPermaLink="false">tag:localhost:1313,2024-02-01:/the-treadmill/</guid>
+                <guid isPermaLink="false">tag:hockenworks.com,2024-02-01:/the-treadmill/</guid>
 
                 
-                    <link>http://localhost:1313/the-treadmill/</link>
+                    <link>https://hockenworks.com/the-treadmill/</link>
                 
 
                 
@@ -661,7 +661,7 @@ Context windows get larger all the time but this one still is not solved. Just a
 
 
 
-<img  alt="this is a robot"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/ai-software-dev.png"   style="height: auto; max-width: 720px; width: 100%"   >
+<img  alt="this is a robot"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/ai-software-dev.png"   style="height: auto; max-width: 720px; width: 100%"   >
 
 
     
@@ -682,10 +682,10 @@ Context windows get larger all the time but this one still is not solved. Just a
 ]]></description>
                 
 
-                <guid isPermaLink="false">tag:localhost:1313,2024-01-24:/on-ai-software-development/</guid>
+                <guid isPermaLink="false">tag:hockenworks.com,2024-01-24:/on-ai-software-development/</guid>
 
                 
-                    <link>http://localhost:1313/on-ai-software-development/</link>
+                    <link>https://hockenworks.com/on-ai-software-development/</link>
                 
 
                 

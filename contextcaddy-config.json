@@ -140,7 +140,16 @@
       },
       "prePrompt": "",
       "includeFileTree": true
+    },
+    "leaf": {
+      "selectedFiles": {
+        "hugo.toml": true,
+        "content\\this-website\\index.md": true,
+        "content\\this-website\\reset-ball-machine\\index.md": true
+      },
+      "prePrompt": "",
+      "includeFileTree": true
     }
   },
-  "activeProfile": "ball-machine"
+  "activeProfile": "leaf"
 }
