@@ -32,6 +32,12 @@
         
     
 
+    
+
+    
+        
+    
+
 
 
 
@@ -58,7 +64,7 @@
             
 
             
-                <link href="https://hockenmaier.github.io/hugohome/tags/singularity/" rel="self" type="text/html"/>
+                <link href="https://hockenworks.com/tags/singularity/" rel="self" type="text/html"/>
             
         
             
@@ -66,7 +72,7 @@
             
 
             
-                <link href="https://hockenmaier.github.io/hugohome/tags/singularity/rss.xml" rel="alternate" type="application/rss+xml"/>
+                <link href="https://hockenworks.com/tags/singularity/rss.xml" rel="alternate" type="application/rss+xml"/>
             
         
 
@@ -84,7 +90,7 @@
             <lastBuildDate>2025-03-01 00:00:00 +0000 UTC</lastBuildDate>
         
 
-        <link>https://hockenmaier.github.io/hugohome/tags/singularity/</link>
+        <link>https://hockenworks.com/tags/singularity/</link>
 
         
 
@@ -119,28 +125,164 @@
 
                 
                     <description><![CDATA[<p>I&rsquo;m creating this website in 2025 after starting my first full-time role in AI, in an effort to clean up my website&rsquo;s focus and emphasize different things. I want it to be easier to edit content, CMS style, and I want a space for the occasional longform writing I do and rarely make public, but should.</p>
+<p>blah</p>
 <p>I have these ideas for a few reasons, but one is that after listening to the Dwarkesh podcast with Gwern, he convinced me that I really should have more of a record for future AIs to learn about me. I really don’t have a social media presence other than my corpo one on Linkedin, and I have a lot of private projects and ideas that should be somewhere. If nothing else, maybe my kids can read it someday. Talking to you, Alice :) Your cousin Lily keeps asking where you are and doesn&rsquo;t seem to get the concept that you currently occupy the same space as Kaitlin.</p>
+<p>I love some of the 2010&rsquo;s era blogs and though mine is not going to be nearly as longform, nearly as focused on prose, or nearly as articulate, two of the sites I&rsquo;m trying to take inspiration from are <a href="https://slatestarcodex.com/about/">Slate Star Codex</a> and <a href="https://gwern.net/about">Gwern&rsquo;s website</a> which are definitely advising on style here.</p>
 <hr>
 <h2 id="ball-machine---the-game">Ball Machine - The Game</h2>
-<p>Most personal websites of professionals are very boring. I think that is because most professionals consider what they do &ldquo;for work&rdquo; and &ldquo;a bit boring by nature&rdquo; and don&rsquo;t necessarily make a concerted effort to have fun with it.</p>
-<p>I have always tried to be the opposite, and with kids coming I am trying to make a bigger effort than ever to have fun whatever I&rsquo;m doing. Which is often working in some way or another.</p>
-<p>So for my website, I wanted it to be consciously fun. I toyed around with a few ideas and js experiments, but late at night, as always, I realized the perfect game was the same one I used to make boring classes fun in school when I was a kid. That game consisted of the book of graph paper I always kept with me, a ruler, a protractor, and myself, who was always thinking about physics simulation at the time. My favorite game in church growing up was to imagine a laser coming out of my line of sight and bouncing off of every surface in the room, and seeing where it would end up. This graph paper game was similar:</p>
+<p>Most blogs and personal websites are a bit boring. I think that is because most professionals consider what they do &ldquo;for work&rdquo; and &ldquo;a bit boring by nature&rdquo; and don&rsquo;t necessarily make a concerted effort to have fun with it.</p>
+<p>I have always tried to be the opposite, and with kids coming I am trying to make a bigger effort than ever to have fun whatever I&rsquo;m doing. Which is often working, in some way or another.</p>
+<p>So for my website, I wanted it to be intentionally fun. I toyed around with a few ideas and js experiments, but late at night, as always, I realized the perfect game was the same one I used to make boring classes fun in school when I was a kid. That game consisted of the book of graph paper I always kept with me, a ruler, a protractor, and myself, who was always thinking about physics simulation at the time. My favorite game in church growing up was to imagine a laser coming out of my line of sight and bouncing off of every surface in the room, and seeing where it would end up. This graph paper game was similar:</p>
+<div style="text-align: center; margin-bottom: 1rem;">
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<img  alt="balls everywhere"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/this-website-ball-machine-1.png"   style="height: auto; max-width: 720px; width: 100%"   >
+
+
+    
+        <span style="display: block; font-style: italic; margin-top: 0.5rem;">Some of my early playtests got pretty chaotic</span>
+    
+</div>
+
 <p>I would start by making a &ldquo;spawn point&rdquo; usually near the top left of the page, where balls would start falling. I would draw out the path of these balls a few inches from each other along their path with &ldquo;speed lines&rdquo; to denote which way they were going. Then I would add platforms, trampolines, loops, curves, &ldquo;booster&rdquo; acceleration zones, jumps, machines that would disassemble and reassemble balls, and so many other things - usually something new each sheet of paper - and I would end up with a Rube Goldberg machine of balls flying all around the sheet. The only goal was to fill the sheet with more ridiculous paths.</p>
 <p>I started calling the sheets my &ldquo;ball machines&rdquo;. I wish I still had some of these drawings. I remember them being quite intricate.. I must have reserved English class for them.</p>
-<p>So, to honor kid Brian, I am making my website a permanent ball machine. I hope you have fun with it, and that it&rsquo;s not too annoying if you&rsquo;re trying to read.</p>
+<p>So, to honor kid Brian, I am making my website a permanent ball machine. I hope you have fun with it and see all there is to unlock!</p>
 <h2 id="how-to-play">How to Play</h2>
-<p>The ball machine on this site is a gamified version of my graph paper drawings as a kid. Each time you load a page, you&rsquo;ll find a goal somewhere on the page. Your goal is to get the ball into that goal. But there is a bit of a trick - balls start out being worth 1 coin, and the longer you can keep balls around, the more they will be worth when going into the goals - this might get more and more challenging as your drawings take up more of the screen and balls start bouncing off of each other. And don&rsquo;t let balls sit around trying to get them to accumulate value too long - balls disappear when they&rsquo;ve been still too long.</p>
+<blockquote>
+<p>Quick Disclaimer: The best experience is on desktop or tablet - something with more screen real-estate than a phone.</p>
+</blockquote>
+<p>The ball machine on this site is a gamified version of my graph paper drawings as a kid. Each time you load a page, You&rsquo;ll see a little pneumatic delivery tube on the top right of the screen. This tube is where the balls show up when you click.</p>
+<p>When you spawn your first ball, you&rsquo;ll see a few things appear. First - you&rsquo;ll find a goal (look for a &ldquo;target&rdquo;) somewhere randomly on the page. Find a way to get the balls you spawn into that goal. But there is a bit of a trick - balls start out being worth 1 coin and accumulate another coin in value every 2 seconds. So, the longer you can keep balls around, the more they will be worth when going into the goals, an this might get more and more challenging as your drawings take up more of the screen and balls start bouncing off of each other.</p>
 <p>It&rsquo;s a clicker game - start by manually clicking the pneumatic tube to spawn balls, but as you accumulate coins you&rsquo;ll be able to unlock different drawables and things that will let you accumulate more coins faster.</p>
-<p>Each post on this site will be a slightly different randomized game! Try making ball machines on multiple pages at once&hellip;</p>
+<h3 id="drawables">Drawables</h3>
+<p>To start drawing your ball machine, you need to click or tap one of the drawables in the main UI:</p>
+<p>{image}</p>
+<p>Every drawable item (lines, launchers, and more) uses the following mechanics:</p>
+<p>On Desktop:</p>
+<ul>
+<li>Start drawing by clicking, drag the mouse around to see a preview, and click again when you have the drawable where you want it.</li>
+<li>Some drawables have a second action, like curved lines, that is previewed after the second click and confirmed with a third</li>
+<li>Hover over a drawn item and right click to delete it.</li>
+</ul>
+<p>On Mobile:</p>
+<ul>
+<li>Tap and drag to see a preview, and release when you have the drawable in the right spot.</li>
+<li>Second actions for the drawable will start on the next tap-and-drag.</li>
+<li>Tap and hold on a drawable to delete it - you will see it pulse before it deletes.</li>
+</ul>
+<p>If you can&rsquo;t draw an item, you probably can&rsquo;t afford it. You&rsquo;ll see the gold prices of the items flash red in the UI when this happens.</p>
+<p>When you have a Drawable tool toggled on, you won&rsquo;t be able to click other links on the site. You&rsquo;ll see this visually indicated when you choose them. Unselect the currently selected tool in order to see it</p>
+<h3 id="tips-on-making-money">Tips on Making Money</h3>
+<p>You&rsquo;ll quickly find ways to lengthen your Rube-Golberg Machines and build up value before you send balls into the goal. A couple of things to watch out for though:</p>
+<ul>
+<li>Balls have to be moving at all times. If they sit still for too long, they are considered dead and will poof out of existence.</li>
+<li>This applies to balls hitting the goal too. If your balls aren&rsquo;t moving when they hit the target, they won&rsquo;t go in.
+So keep your balls moving!</li>
+</ul>
+<p>Each post on this site will be a slightly different randomized game! Try making ball machines on multiple pages at once. Your work will be saved in realtime, and you can make money even on pages you&rsquo;re not currently playing on. Try it!</p>
+<p>Your progress is saved to your device because your contraptions will be highly dependent on the screen size the site renders to.</p>
 <p>The game works a bit differently on desktop and mobile, and the best experience is really on desktop - so try on a computer if you can!</p>
+<h3 id="resetting-the-game">Resetting the game</h3>
+<span
+  style="
+    color: #ff0040;
+    font-family: 'Arial Black', Arial, sans-serif;
+    font-size: 20px;
+  "
+>
+   WARNING! Don't navigate to the below page unless you're sure you want to reset the ball machine game
+</span>
+
+<p>Resetting will erase all your drawings on all pages and reset your goal locations, unlocks, coins and everything else.</p>
+<p>If you are thinking about doing this because you want to try on another device, you don&rsquo;t need to because progress is already saved to your device. The only reason to do this is to have a fresh start on this device.</p>
+<p>Navigate <a href="/this-website/reset-ball-machine">here</a> and click reset to do that.</p>
 <h2 id="how-its-made">How it&rsquo;s made</h2>
+<p>I don&rsquo;t typically make complicated things like this with javascript. So when I found the perfect physics engine for the game - <a href="https://brm.io/matter-js/">matter.js</a> - I knew I would need help from our new little assistants. And though this game is a bit too structured to call it &ldquo;vibe coded&rdquo; - it&rsquo;s close. I ended up making my own tool called <a href="/context-caddy">Context Caddy</a> to help me with it. Part of the reason I leaned so hard into this is because I&rsquo;m always trying to push the limits of current AI, and I hadn&rsquo;t built a game since the GPT-4 days. The new thinking models are truly a setup above GPT-4 (this was mostly done with o3 and its minis) but they&rsquo;re still way to eager to write duplicate code, and they still don&rsquo;t &ldquo;get&rdquo; the structure of your project a lot of the time, especially with visual and physcial things like this. Still, they were a great help here.</p>
 ]]></description>
                 
 
-                <guid isPermaLink="false">tag:hockenmaier.github.io,2025-03-01:/hugohome/this-website/</guid>
+                <guid isPermaLink="false">tag:hockenworks.com,2025-03-01:/this-website/</guid>
 
                 
-                    <link>https://hockenmaier.github.io/hugohome/this-website/</link>
+                    <link>https://hockenworks.com/this-website/</link>
                 
 
                 
@@ -149,6 +291,81 @@
 
                 
                     <title>This Website</title>
+                
+            </item>
+        
+            <item>
+                
+                
+                
+                
+                
+                
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+                
+
+                
+
+                
+
+                
+                    <description><![CDATA[<p>I have long been of the mind LLMs and their evolutions are truly thinking, and that they are on their way to solving all of the intellectual tasks that humans can solve today. It is just too uncanny that the technology that seems to have made the final jump to actually thinking, after a long string of attempts and architectures, is a type of neural net. It would be much easier to argue away transformer models as non-thinking stochastic parrots if we had happened to have had success with any other architecture than the one that was designed to mimic our own brains and the neurons firing off to one another within them. It&rsquo;s just too weird. They are shaped like us, they sound like us in a lot of ways, and it&rsquo;s obvious they are thinking something like us too.</p>
+<p>That&rsquo;s not to say they are AGI in the modern definition. They can&rsquo;t do every task humans can do intellectually (IE without a body, which I will get to) for several reasons:</p>
+<p>The Limitations</p>
+<ol>
+<li>
+<p>Looping reasoning.
+This was a huge problem for early transformers that had to output in one shot, and the examples were obvious. This one has been essentially solved via thinking models like o1. That was a huge unlock and a huge bone for things like programming where there is lots of nested recursion of logic that has to occur to get a reasonable answer.</p>
+</li>
+<li>
+<p>Memory and context.
+Context windows get larger all the time but this one still is not solved. Just adding a bunch of tokens into a context window doesn&rsquo;t get you much when 2 million token models lose coherence after about the first 40,000 - which they do, and which every programmer working with anything but a tiny codebase intuitively understands. But this one too will largely be solved soon, if not through architectures that actually update their weights, it&rsquo;ll be solved through nuanced memory systems that people are actively developing on top of thinking models.</p>
+</li>
+<li>
+<p>Vision</p>
+</li>
+</ol>
+<p>And this one might sound funny to someone that is paying attention to AI in particular, because GPT-4 with vision launched something like 2 years ago now. And it has been impressive for a long time, able to do things like identify what objects are in an image, where an image is from, even things that payments can&rsquo;t do glancing at an image.</p>
+<p>But the vision itself is not “good” vision. It cannot really pick out small important details, and it still behaves in many ways like vision recognition models have for years now. Now that we have a model that has both thinking and image input and editing at every step, the 03 and 04 mini series just released, we can really start to see the limitations in vision. Let me take you through 2 examples that represent the 2 types of failure modes that result from these not having true image understanding, yet.</p>
+<p>Each release from the major providers steadily knocks away my intelligence tests, which I admit are mostly programming oriented, but the ones that they can never really dent are the spatial reasoning ones where a model really has to think about images in its head or have to use an image provided for detailed work.</p>
+<p>Example 1:</p>
+<p>Every major model release, I test what models can do with OpenSCAD. I won’t get technical about it here, but OpenSCAD is a CAD program (Computer Aided Design - think 3D modeling for engineers, not the artistic kind) that is defined entirely through a programming language vs the typical mousestrokes and key presses that software like Solidworks or AutoCAD depend on.</p>
+<p>This makes OpenSCAD the perfect test platform for a model that inputs and output text primarily. I can describe a 3D model I want, and the model can output text that renders into a 3D model.</p>
+<p>But for as amazing as LLMs are at scripting in normal programming languages, they have never been good at OpenScad (link to GPT4 chair article)</p>
+<p>Here is O3’s attempt to make a</p>
+<p>Map example:</p>
+<p>I recently gave this question to the latest thinking image model, &lsquo;03: &ldquo;Here&rsquo;s an image from Google maps of the block I live on between the avenues of Burbank, hazeltine, Oxnard, and Van nuys. What is the longest continuous loop I can walk within the neighborhood without crossing my path or touching one of the avenues? This square is 1/2 mi on each side&rdquo;</p>
+<p>O3 thinks for 4 minutes about this question, zooming in to various parts of the map countless times to form the route. And then it fails on the first step, suggesting starting at tiara and stansbury, which do not intersect on the map. Any person looking at this image could tell that is true in just a few seconds.</p>
+<p>What I think is going on in these examples is that we have a limitation in training data (duh) but it isn&rsquo;t because there aren&rsquo;t a lot of images and videos on the internet, it&rsquo;s because there is so much more information in the average image then there is in the average chunk of text, and a lot more of that information is irrelevant to any given question.</p>
+<p>When I say that we have a limitation on training data, I&rsquo;m not in the typical camp of &ldquo;well, then transformer neural nets are obviously stupid because I was able to understand this thing without training on terabytes of data from the internet&rdquo;. This is always been a bad take because the average human trains on petabytes, not terabytes of data, and that data is streamed into their brains mostly in the form of images. I am also not in the camp of thinking that this means that the data &ldquo;just doesn&rsquo;t exist&rdquo; to get these models to AGI in this dimension. It&rsquo;s so clearly does exist, and it exists so abundantly that a unique mage stream can be sent to each of the billions of human brains, and they all learn the same principles that let them immediately identify the mistake that the cutting edge thinking vision model made after 4 minutes of rigor.</p>
+<p>The data exists, and we never actually had a data problem in AI. We have an instruction problem. That doesn&rsquo;t mean model architecture or data massaging really, it means that we need to plug our models into the real world where all the data streams exist. I&rsquo;m guessing that this comes in the form of robots with cameras on them, the first of which is happening on mass via Tesla full self-driving, and I&rsquo;m sure those vision neural nets are quite insane compared to what we see in the consumer transform r models, but the real leap probably comes when we get to humanoids walking around collecting and learning from vision data everyday.</p>
+<p>The Robots</p>
+<p>If you’ve ever tried to get concrete actions to take based on a vision-transformer’s outputs, you will know it’s hard.</p>
+]]></description>
+                
+
+                <guid isPermaLink="false">tag:hockenworks.com,2025-02-01:/vision-is-the-last-hurdle-before-agi/</guid>
+
+                
+                    <link>https://hockenworks.com/vision-is-the-last-hurdle-before-agi/</link>
+                
+
+                
+                    <pubDate>Sat, 01 Feb 2025 00:00:00 UTC</pubDate>
+                
+
+                
+                    <title>Vision is the last hurdle before AGI</title>
                 
             </item>
         
@@ -267,7 +484,7 @@
 
 
 
-<img  alt="happiness income curve"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenmaier.github.io/hugohome/images/treadmill-graph.png"   style="height: auto; max-width: 720px; width: 100%"   >
+<img  alt="happiness income curve"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/treadmill-graph.png"   style="height: auto; max-width: 720px; width: 100%"   >
 
 
     
@@ -317,16 +534,16 @@
 <p><strong>First</strong>, nobody does this. Instead, they spend more money. Of course, some of it will be saved, but the main thing that happens when people find themselves with far more money than needed for their family’s security is that they spend it. Bigger houses, more trips, elite schools for the kids. These make you feel well-off compared to your neighbors but don’t push you much higher on that flat curve.</p>
 <p><strong>Second</strong>, people find value in being useful. There’s a reason why so many struggle in retirement. Even with a rigid FIRE plan, you’ll still want to work afterward on something interesting. So why not find that now?</p>
 <p>What’s actually happening? Lifestyle creep. I think this is 90% of why people feel they could never work on something more fun or meaningful for less money. They’ve already started to spend their new money, and now losing those things would hurt more than gaining them felt good. That damn hedonic treadmill.</p>
-<h2 id="where-we-go-from-here">Where we go from here</h2>
-<p>What am I saying? I’m asking you to think deeply about what you value. Money isn’t a core value. Value your own time as much as your spending habits suggest you do. This is the right logic for your well-being, even if the world stays as it is. Now for my last thought:</p>
+<h2 id="what-am-i-saying">What am I saying?</h2>
+<p>I’m asking you to think deeply about what you value. Money isn’t a core value. Value your own time as much as your spending habits suggest you do. This is the right logic for your well-being, even if the world stays as it is. Now for my last thought:</p>
 <p>I’m obsessed with AI and the technological singularity. It’s a healthy time to step back, reflect on the fundamental values driving our behavior, and make changes. Wouldn’t it be silly to spend most of our waking hours working miserably on meaningless things, only to arrive in a second half of life in a world of abundance?</p>
 ]]></description>
                 
 
-                <guid isPermaLink="false">tag:hockenmaier.github.io,2024-02-01:/hugohome/the-treadmill/</guid>
+                <guid isPermaLink="false">tag:hockenworks.com,2024-02-01:/the-treadmill/</guid>
 
                 
-                    <link>https://hockenmaier.github.io/hugohome/the-treadmill/</link>
+                    <link>https://hockenworks.com/the-treadmill/</link>
                 
 
                 
@@ -444,7 +661,7 @@
 
 
 
-<img  alt="this is a robot"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenmaier.github.io/hugohome/images/ai-software-dev.png"   style="height: auto; max-width: 720px; width: 100%"   >
+<img  alt="this is a robot"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/ai-software-dev.png"   style="height: auto; max-width: 720px; width: 100%"   >
 
 
     
@@ -465,10 +682,10 @@
 ]]></description>
                 
 
-                <guid isPermaLink="false">tag:hockenmaier.github.io,2024-01-24:/hugohome/on-ai-software-development/</guid>
+                <guid isPermaLink="false">tag:hockenworks.com,2024-01-24:/on-ai-software-development/</guid>
 
                 
-                    <link>https://hockenmaier.github.io/hugohome/on-ai-software-development/</link>
+                    <link>https://hockenworks.com/on-ai-software-development/</link>
                 
 
                 

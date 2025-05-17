@@ -27,14 +27,14 @@ window.App = {
     gravity: 0.75,
     timeScale: 0.82,
     restitution: 0.95,
-    spawnX: 1.3, // x axis spawn point: 1/spawnX is the fraction of the screen width
+    spawnX: window.innerWidth < 720 ? 10 : 1.4, // mobile uses 9, desktop uses 1.3
     ballSize: 7,
     sitStillDeleteSeconds: 2,
     sitStillDeleteMargin: 0.5,
     disableDuration: 600, // milliseconds
     //textHitFadeTime: 100, //seconds  //Not yet used
     lineThickness: 5,
-    dottedLineHealth: 5,
+    dottedLineHealth: 50,
     curvedLineFidelity: 30,
     lineDeleteMobileHold: 1200,
     launcherTypes: {
@@ -54,7 +54,7 @@ window.App = {
         maxSpeed: 500,
       },
     },
-    coins: 7500, //Default for when app first loads and there's no storage
+    coins: 149, //Starting coins for when app first loads and there's nothing in storage
     costs: {
       straight: 5,
       curved: 50,
@@ -301,5 +301,9 @@ App.updateCoinsDisplay = function () {
   if (globalDisplay) globalDisplay.textContent = `${App.config.coins} coins`;
   if (App.Storage) {
     App.Storage.setItem("coins", App.config.coins);
+  }
+  // ---------- Evaluate upgrade progression ----------
+  if (App.PowerUps && typeof App.PowerUps.checkUnlocks === "function") {
+    App.PowerUps.checkUnlocks(App.config.coins);
   }
 };
