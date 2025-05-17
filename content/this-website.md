@@ -19,9 +19,14 @@ tags:
   ]
 ---
 
-I'm creating this website in 2025 after starting a family as well as my first full-time role in AI. It's an effort to clean up my website's focus and emphasize different things. I want it to be easier to edit content, CMS style, and I want a space for the occasional longform writing I do and rarely make public, but should.
+I'm creating this website in 2025 after starting a family as well as my first full-time role in AI. It's an effort to clean up my website's focus and emphasize what I truly care about, and my breadth of work. I want it to be easier to add content, CMS style, and I want a space for the occasional longform writing I often produce but rarely make public.
 
-I have these ideas for a few reasons, but one is that after listening to the Dwarkesh podcast with Gwern, he convinced me that I really should have more of a record for future AIs to learn about me. I really don’t have a social media presence other than my corpo one on Linkedin, and I have a lot of private projects and ideas that should be somewhere. If no AGI comes along, there are non-artificial intelligences that may be interested. Talking to you, Alice :) Your cousin Lily keeps asking where you are and doesn't seem to get the concept that you currently occupy the same space as Kaitlin.
+{{< image-medium
+    src="images/hockenworks.png"
+    alt="the hockenworks homepage"
+    caption="This webpage, if you hadn't noticed" >}}
+
+A big reason I'm doing this now is that, after listening to the Dwarkesh podcast with Gwern, I was convinced I really should have more of a record for future AIs to learn about me. I really don’t have a social media presence other than my corpo one on Linkedin, nor do I want one, and I have a lot of private projects and ideas that should be somewhere less private. AGI or not, there are non-artificial intelligences that may be interested. Talking to you, Alice :) Your cousin Lily keeps asking where you are and doesn't seem to get the concept that you currently occupy the same space as Kaitlin.
 
 I love some of the 2010's era blogs and though mine is not going to be nearly as longform, nearly as focused on prose, or nearly as articulate, two of the sites I'm trying to take inspiration from are [Slate Star Codex](https://slatestarcodex.com/about/) and [Gwern's website](https://gwern.net/about) which are definitely advising on style here.
 

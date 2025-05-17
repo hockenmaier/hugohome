@@ -106,7 +106,10 @@
             {{ if $toc }}
                 <div class="paige-row-wide" id="paige-toc">
                     <div class="border pe-3 ps-3 pt-3 rounded">
-                        {{ $page.TableOfContents }}
+                        {{ $tocFixed := $page.TableOfContents
+                            | replaceRE `href="#([^"]+)"` (printf `href="%s#${1}"` $page.RelPermalink)
+                            | safeHTML }}
+                        {{ $tocFixed }}
                     </div>
                 </div>
             {{ end }}
