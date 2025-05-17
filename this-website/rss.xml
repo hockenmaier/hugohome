@@ -1,0 +1,147 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+    
+        
+    
+
+
+
+
+
+
+
+    
+
+
+
+
+
+
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0"  xml:lang="en-us"  xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        
+            
+
+            
+                
+            
+
+            
+                <link href="https://hockenworks.com/this-website/" rel="self" type="text/html"/>
+            
+        
+            
+
+            
+
+            
+                <link href="https://hockenworks.com/this-website/rss.xml" rel="alternate" type="application/rss+xml"/>
+            
+        
+
+        
+
+        
+
+        <description>Recent content</description>
+
+        
+            <language>en-us</language>
+        
+
+        
+
+        <link>https://hockenworks.com/this-website/</link>
+
+        
+
+        <title>This Website · Home</title>
+
+        
+
+        
+            <item>
+                
+                
+                
+                
+                
+                
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+                
+
+                
+
+                
+
+                
+                    <description><![CDATA[<span
+  style="
+    color: #ff0040;
+    font-family: 'Arial Black', Arial, sans-serif;
+    font-size: 20px;
+  "
+>
+   WARNING! This page serves a single purpose - to reset the ball machine game that runs on top of the site. 
+</span>
+
+<p>Leave this page if you don&rsquo;t want to reset all Ball Machine game data!</p>
+<a
+  href="#"
+  style="color: #cc592f; text-decoration: underline; cursor: pointer"
+  onclick="
+    localStorage.clear();
+    this.textContent = 'Cleared data';
+    this.style.color = '#3df59f';
+    this.style.textDecoration = 'none';
+    return false;
+  "
+>
+  Clear Ball Machine data
+</a>
+
+]]></description>
+                
+
+                <guid isPermaLink="false">tag:hockenworks.com,0001-01-01:/this-website/reset-ball-machine/</guid>
+
+                
+                    <link>https://hockenworks.com/this-website/reset-ball-machine/</link>
+                
+
+                
+                    <pubDate>Mon, 01 Jan 0001 00:00:00 UTC</pubDate>
+                
+
+                
+                    <title>RESET The Ball Machine</title>
+                
+            </item>
+        
+    </channel>
+</rss>
