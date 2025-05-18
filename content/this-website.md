@@ -32,7 +32,7 @@ I love some of the 2010's era blogs and though mine is not going to be nearly as
 
 ---
 
-## Etymology of "hockenworks"
+# Etymology of "hockenworks"
 
 **Hockenmaier** is a great name. I've always loved it. Not just because it’s unique and has my favorite number of letters, but because of its meaning, at least my family’s “folk-etymology” for it.
 
@@ -58,7 +58,7 @@ So I'm proud to be the lazy worker, and this site is all about sharing my lazy w
 
 ---
 
-## Ball Machine - The Game
+# Ball Machine - The Game
 
 Most blogs and personal websites are a bit boring. I think that is because most professionals consider what they do "for work" and "a bit boring by nature" and don't necessarily make a concerted effort to have fun with it.
 
@@ -77,11 +77,19 @@ I started calling the sheets my "ball machines". I wish I still had some of thes
 
 So, to honor kid Brian, I am making my website a permanent ball machine. I hope you have fun with it and see all there is to unlock!
 
+## How it's made
+
+I don't typically make complicated things like this with javascript. So when I found the perfect physics engine for the game - [matter.js](https://brm.io/matter-js/) - I knew I would need help from our new little assistants. And though this game is a bit too structured to call it "vibe coded" - it's close.
+
+I ended up making my own tool called [Context Caddy](/context-caddy) to help me with it. Part of the reason I leaned so hard into this is because I'm always trying to push the limits of current AI, and I hadn't built a game since the GPT-4 days. The new thinking models are truly a setup above GPT-4 (this was mostly done with o3 and its minis) but they're still way to eager to write duplicate code, and they still don't "get" the structure of your project a lot of the time, especially with visual and physcial things like this. Still, they were a great help here.
+
 ## How to Play
 
 > Quick Disclaimer: The best experience is on desktop or tablet - something with more screen real-estate than a phone.
 
-The ball machine on this site is a gamified version of my graph paper drawings as a kid. Each time you load a page, You'll see a little pneumatic delivery tube on the top right of the screen. This tube is where the balls show up when you click.
+{{< image-inline-teeny src="images/ball-chute-hatch-1.png" alt="ball chute" caption="This tube creates balls when you click on it" >}}
+
+The ball machine on this site is a gamified version of my graph paper drawings as a kid. Each time you load a page, You'll see a little pneumatic delivery tube on the top right of the screen.
 
 When you spawn your first ball, you'll see a few things appear. First - you'll find a goal (look for a "target") somewhere randomly on the page. Find a way to get the balls you spawn into that goal. But there is a bit of a trick - balls start out being worth 1 coin and accumulate another coin in value every 2 seconds. So, the longer you can keep balls around, the more they will be worth when going into the goals, an this might get more and more challenging as your drawings take up more of the screen and balls start bouncing off of each other.
 
@@ -116,7 +124,7 @@ When you have a Drawable tool toggled on, you won't be able to click other links
 You'll quickly find ways to lengthen your Rube-Golberg Machines and build up value before you send balls into the goal. A couple of things to watch out for though:
 
 - Balls have to be moving at all times. If they sit still for too long, they are considered dead and will poof out of existence.
-- This applies to balls hitting the goal too. If your balls aren't moving when they hit the target, they won't go in.
+- This applies to balls hitting the goal too. If your balls aren't moving much when they hit the target, they won't go in.
   So keep your balls moving!
 
 Each post on this site will be a slightly different randomized game! Try making ball machines on multiple pages at once. Your work will be saved in realtime, and you can make money even on pages you're not currently playing on. Try it!
@@ -134,7 +142,3 @@ Resetting will erase all your drawings on all pages and reset your goal location
 If you are thinking about doing this because you want to try on another device, you don't need to because progress is already saved to your device. The only reason to do this is to have a fresh start on this device.
 
 Navigate [here](/reset-ball-machine) and click reset to do that.
-
-## How it's made
-
-I don't typically make complicated things like this with javascript. So when I found the perfect physics engine for the game - [matter.js](https://brm.io/matter-js/) - I knew I would need help from our new little assistants. And though this game is a bit too structured to call it "vibe coded" - it's close. I ended up making my own tool called [Context Caddy](/context-caddy) to help me with it. Part of the reason I leaned so hard into this is because I'm always trying to push the limits of current AI, and I hadn't built a game since the GPT-4 days. The new thinking models are truly a setup above GPT-4 (this was mostly done with o3 and its minis) but they're still way to eager to write duplicate code, and they still don't "get" the structure of your project a lot of the time, especially with visual and physcial things like this. Still, they were a great help here.

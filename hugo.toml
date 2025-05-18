@@ -11,6 +11,11 @@ category = "categories"      # For post types like project overviews, project up
 stack = "stacks"             # Technology stack used
 tags = "tags"                # Still optional, for very specific filters like "AI ethics"
 
+[markup]
+  [markup.tableOfContents]
+    startLevel = 1
+    endLevel   = 6
+
 [params.paige]
 color = "#0d1213" # Adjust to your preferred primary color
 color_scheme = "dark" # "auto" will follow system preferences for dark/light mode
