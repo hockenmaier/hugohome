@@ -3,24 +3,6 @@ blockquote {
   font-style: italic;
 }
 
-/* Lighten all standard inline links, make visited links slightly dimmer, hover effect
-a {
-    color: #87c2a5;
-    text-decoration: underline;
-  }
-  
-  a:visited {
-    color: #6fa58e;
-  }
-  
-  a:hover {
-    color: #a8d8c0;
-  }
-
-*/
-/* Only affects links inside main post content, not the nav */
-/* Normal link color */
-/* Style all desired links, excluding the nav pills */
 #paige-content a:not(.nav-link),
 .paige-latest-item a:not(.nav-link),
 article.paige-latest-item a:not(.nav-link),
@@ -41,4 +23,19 @@ article.paige-latest-item a:visited:not(.nav-link),
 article.paige-latest-item a:hover:not(.nav-link),
 .paige-latest-item p > a.link-light:hover:not(.nav-link) {
   color: #a8d8c0;
+}
+
+/* replace your current .bm-glow rule with something like */
+@keyframes bmGlowPulse {
+  0% {
+    filter: drop-shadow(0 0 1px rgba(255, 255, 255, 0.7))
+      drop-shadow(0 0 10px rgba(255, 255, 255, 0.5));
+  }
+  100% {
+    filter: drop-shadow(0 0 20px rgba(255, 255, 255, 1))
+      drop-shadow(0 0 65px rgba(255, 255, 255, 1));
+  }
+}
+#ball-spawner.bm-glow {
+  animation: bmGlowPulse 0.15s ease-in-out infinite alternate;
 }

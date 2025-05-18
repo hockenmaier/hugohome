@@ -1,73 +1,100 @@
-/*
- * spawner.js
- * Handles the clickable ball spawner and upgrade buttons.
+/* spawner.js
+ * Handles the ball-spawner click, forces a 333 ms glow before loading,
+ * then starts the simulation and spawns the first ball.
  */
-document.addEventListener("DOMContentLoaded", function () {
-  let lastClickTime = 0;
-  // Position the spawner container based on spawnX config.
+
+document.addEventListener("DOMContentLoaded", () => {
+  // Position spawner
   function positionSpawner() {
-    const container = document.getElementById("spawner-container");
-    if (!container) return;
+    const c = document.getElementById("spawner-container");
+    if (!c) return;
     const xPos = window.innerWidth / App.config.spawnX + 5;
-    container.style.left = xPos - container.offsetWidth / 2 + "px";
+    c.style.left = xPos - c.offsetWidth / 2 + "px";
   }
   positionSpawner();
   window.addEventListener("resize", positionSpawner);
 
-  const spawner = document.getElementById("ball-spawner");
-  if (spawner) {
-    spawner.addEventListener("click", function (e) {
-      const now = Date.now();
-      if (now - lastClickTime < App.config.spawnCooldown) return;
-      lastClickTime = now;
-      if (!App.simulationLoaded) {
+  const spawnerImg = document.getElementById("ball-spawner");
+  if (!spawnerImg) return console.error("ball-spawner not found");
+
+  let loadingActive = false;
+
+  function startLoadingGlow() {
+    if (loadingActive) return;
+    loadingActive = true;
+    spawnerImg.classList.add("bm-glow");
+  }
+
+  function flashPageWhite() {
+    const f = document.createElement("div");
+    Object.assign(f.style, {
+      position: "fixed",
+      inset: 0,
+      background: "#fff",
+      zIndex: 99999,
+      pointerEvents: "none",
+      opacity: "1",
+      transition: "opacity 200ms ease",
+    });
+    document.body.appendChild(f);
+    requestAnimationFrame(() => (f.style.opacity = "0"));
+    setTimeout(() => f.remove(), 220);
+  }
+
+  function stopLoadingGlow() {
+    if (!loadingActive) return;
+    loadingActive = false;
+    spawnerImg.classList.remove("bm-glow");
+    flashPageWhite();
+  }
+
+  // Whichever happens last—text colliders or 25 s timeout—removes glow
+  window.addEventListener("BallFallTextReady", stopLoadingGlow, { once: true });
+  setTimeout(stopLoadingGlow, 25000);
+
+  // Main click
+  let lastClick = 0;
+  spawnerImg.addEventListener("click", () => {
+    const now = Date.now();
+    if (now - lastClick < App.config.spawnCooldown) return;
+    lastClick = now;
+
+    if (!App.simulationLoaded) {
+      startLoadingGlow();
+      // WAIT 333 ms before any heavy loading
+      setTimeout(() => {
         App.startSimulation();
-      }
+        window.BallFall.spawnBall();
+      }, 150);
+    } else {
       window.BallFall.spawnBall();
-    });
-  } else {
-    console.error("ball-spawner element not found");
-  }
+    }
+  });
 
-  // Legacy auto-clicker upgrade handler removed.
-  // Auto-clicker purchase and upgrades are now handled exclusively
-  // by the upgrade block in ball-machine-ui.html.
+  // Legacy speed-up arrows (unchanged)
+  const inc = document.getElementById("increaseSpeed");
+  const dec = document.getElementById("decreaseSpeed");
 
-  // Speed upgrade arrows.
-  const increaseBtn = document.getElementById("increaseSpeed");
-  const decreaseBtn = document.getElementById("decreaseSpeed");
-  if (increaseBtn) {
-    increaseBtn.addEventListener("click", function (e) {
-      const currentLevel = App.config.maxUnlockedSpeedLevel;
-      const nextCost = App.config.speedUpgradeCosts[currentLevel + 1];
-      if (!nextCost) return;
-      if (App.config.coins >= nextCost) {
-        App.config.coins -= nextCost;
-        BaseDrawingTool.updateCoinsDisplay();
-        App.config.maxUnlockedSpeedLevel++;
-        const newInterval =
-          App.config.originalSpawnInterval /
-          Math.pow(2, App.config.maxUnlockedSpeedLevel);
-        App.config.spawnInterval = newInterval;
-        window.BallFall.updateSpawnInterval(newInterval);
-      } else {
-        flashElementStyle(
-          document.getElementById("coins-display"),
-          ["color", "fontSize"],
-          { color: "red", fontSize: "20px" },
-          100,
-          6
-        );
-      }
+  if (inc) {
+    inc.addEventListener("click", () => {
+      const lvl = App.config.maxUnlockedSpeedLevel + 1;
+      const cost = App.config.speedUpgradeCosts[lvl];
+      if (!cost || App.config.coins < cost)
+        return window.notifyUnaffordable(100, 6);
+      App.config.coins -= cost;
+      App.config.maxUnlockedSpeedLevel = lvl;
+      const newInt = App.config.originalSpawnInterval / Math.pow(2, lvl);
+      App.config.spawnInterval = newInt;
+      window.BallFall.updateSpawnInterval(newInt);
+      App.updateCoinsDisplay();
     });
   }
-  if (decreaseBtn) {
-    decreaseBtn.addEventListener("click", function (e) {
-      const currentInterval = App.config.spawnInterval;
-      const newInterval = currentInterval * 2;
-      if (newInterval <= App.config.originalSpawnInterval) {
-        App.config.spawnInterval = newInterval;
-        window.BallFall.updateSpawnInterval(newInterval);
+  if (dec) {
+    dec.addEventListener("click", () => {
+      const newInt = App.config.spawnInterval * 2;
+      if (newInt <= App.config.originalSpawnInterval) {
+        App.config.spawnInterval = newInt;
+        window.BallFall.updateSpawnInterval(newInt);
       }
     });
   }
