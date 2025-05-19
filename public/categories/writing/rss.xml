@@ -320,7 +320,7 @@ Context windows get larger all the time but this one still is not solved. Just a
                 
 
                 
-                    <description><![CDATA[<div style="display: flex; align-items: center; justify-content: center; gap: 10px; margin-bottom: 1rem;">
+                    <description><![CDATA[<div style="text-align: center; margin-bottom: 1rem;">
     
 
 
@@ -399,11 +399,11 @@ Context windows get larger all the time but this one still is not solved. Just a
 
 
 
-<img  alt="Alt text"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/brian-and-alice-gaming-zoom.jpg"   style="height: auto; max-width: 400px"   >
+<img  alt="Brian and Alice"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/brian-and-alice-gaming-zoom.jpg"   style="height: auto; max-width: 100%"   >
 
 
     
-        <span style="font-style: italic;">←me and Alice</span>
+        <span style="font-style: italic; margin-top: 0.5rem;">↑ me and Alice</span>
     
 </div>
 

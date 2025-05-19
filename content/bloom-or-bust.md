@@ -11,7 +11,7 @@ tags: ["Multiplayer", "Game Development", "Board Games", 3D Modeling]
 
 Here's a peek at my first major board game creation.
 
-I've made a few clones or slight alterations of games I like before (links to nope and block his pocket) but blue more bust is my first attempt at something of my own design and very high production quality.
+I've made a few clones or slight alterations of games I like before (links to nope and hocken pocket blokus) but blue more bust is my first attempt at something of my own design and very high production quality.
 
 (Pics)
 

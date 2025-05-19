@@ -1,0 +1,13 @@
+{{ $url  := .Get "file" }}
+{{ $ext  := lower (replaceRE `\.` `` (path.Ext $url)) }}
+{{ $icons := dict
+    "pdf" "file-earmark-pdf"
+    "zip" "file-earmark-zip"
+    "stl" "file-earmark"
+    "obj" "file-earmark"
+    "md" "file-earmark-text"
+  }}
+<a href="{{ $url }}" download class="d-flex align-items-center download-link">
+  <i class="bi bi-{{ index $icons $ext | default "file-earmark" }} me-1"></i>
+  {{ .Inner }}
+</a>
