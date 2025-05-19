@@ -1,8 +1,9 @@
 ---
 title: "RESET The Ball Machine"
-stack: ["hugo", "matter.js", "HTML/CSS"]
 short_description: "A page to reset the ball machine"
 disableBallMachine: true
+_build:
+  list: false
 ---
 
 {{< warning >}} WARNING! This page serves a single purpose - to reset the ball machine game that runs on top of the site. {{< /warning >}}

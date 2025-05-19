@@ -5,11 +5,10 @@ categories: ["writing"]
 tags: []
 ---
 
-{{< image-with-bottom-caption
-    src="images/brian-and-alice-gaming-zoom.jpg"
-    alt="Brian and Alice"
-    maxwidth=100%
-    caption="↑ me and Alice" >}}
+{{< image-small
+src="images/brian-and-alice-gaming-zoom.jpg"
+alt="Brian and Alice"
+caption="↑ me and Alice" >}}
 
 I mostly build, sometimes write, and post about both here. I love making games and things with VR and AI. Some of this has been cross or back-posted from my [thingiverse](https://www.thingiverse.com/hockenmaier/designs), [twitter](https://x.com/Hockenmaier), [linkedin](https://www.linkedin.com/in/hockenmaier/), and other places, but it all lives here permanently.
 
