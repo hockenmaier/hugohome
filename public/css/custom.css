@@ -58,12 +58,3 @@ article.paige-latest-item a:hover:not(.nav-link),
     padding: 0.25rem 0.5rem !important;
   }
 }
-
-#ball-spawner {
-  opacity: 0.7;
-}
-
-#coin-info div {
-  text-shadow: 1.5px 1.5px 2px rgba(5, 10, 54, 0.9),
-    -1px -1px 3px rgba(34, 30, 92, 0.9);
-}
