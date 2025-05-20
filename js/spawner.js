@@ -55,6 +55,11 @@ document.addEventListener("DOMContentLoaded", () => {
   // Main click
   let lastClick = 0;
   spawnerImg.addEventListener("click", () => {
+    gtag("event", "start_ball_machine", {
+      event_category: "Ball Machine",
+      event_label: "Spawner",
+      value: 1,
+    });
     const now = Date.now();
     if (now - lastClick < App.config.spawnCooldown) return;
     lastClick = now;
