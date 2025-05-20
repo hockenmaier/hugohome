@@ -27,7 +27,7 @@ window.App = {
     gravity: 0.75,
     timeScale: 0.82,
     restitution: 0.95,
-    spawnX: window.innerWidth < 720 ? 1.1 : 1.4, // mobile, desktop uses 1.4
+    spawnX: window.innerWidth < 720 ? 1.4 : 1.4, // mobile, desktop uses 1.4
     ballSize: 7,
     sitStillDeleteSeconds: 2,
     sitStillDeleteMargin: 0.5,

@@ -8,6 +8,9 @@ App.modules.text = (function () {
     }
 
     const { engine, world } = window.BallFall || {};
+    const off = document.createElement("canvas");
+    const ctx = off.getContext("2d");
+
     if (!engine || !world) return;
 
     const Bodies = Matter.Bodies;
@@ -62,6 +65,34 @@ App.modules.text = (function () {
       });
     }
 
+    const shapeCache = new Map();
+
+    function getCachedEdges(char, font, w, h, alphaData) {
+      const key = `${char}|${font}|${w}x${h}`;
+      if (shapeCache.has(key)) return shapeCache.get(key);
+      const raw = traceOutline(alphaData, w, h);
+      if (!raw.length) {
+        shapeCache.set(key, []);
+        return [];
+      }
+      let minX = Infinity,
+        maxX = -Infinity,
+        minY = Infinity,
+        maxY = -Infinity;
+      for (const pt of raw) {
+        if (pt.x < minX) minX = pt.x;
+        if (pt.x > maxX) maxX = pt.x;
+        if (pt.y < minY) minY = pt.y;
+        if (pt.y > maxY) maxY = pt.y;
+      }
+      const cx = (minX + maxX) / 2;
+      const cy = (minY + maxY) / 2;
+      const local = raw.map((pt) => ({ x: pt.x - cx, y: pt.y - cy }));
+      const shrunk = shrinkEdges(local, 4);
+      shapeCache.set(key, shrunk);
+      return shrunk;
+    }
+
     function wrapTextNodes(root) {
       const walker = document.createTreeWalker(
         root,
@@ -104,57 +135,36 @@ App.modules.text = (function () {
       if (rect.width < 1 || rect.height < 1) return null;
 
       const off = document.createElement("canvas");
-      off.width = Math.ceil(rect.width);
-      off.height = Math.ceil(rect.height);
-      const ctx = off.getContext("2d");
-
+      off.width = Math.ceil(rect.width * 0.8);
+      off.height = Math.ceil(rect.height * 0.8);
       ctx.font = window.getComputedStyle(letterEl).font;
+      ctx.clearRect(0, 0, off.width, off.height);
       ctx.fillStyle = "#000";
       ctx.textBaseline = "top";
       ctx.fillText(letterEl.textContent, 0, 0);
 
       const imgData = ctx.getImageData(0, 0, off.width, off.height).data;
       const alphaData = [];
-      for (let i = 3; i < imgData.length; i += 4) {
-        alphaData.push(imgData[i]);
-      }
+      for (let i = 3; i < imgData.length; i += 4) alphaData.push(imgData[i]);
 
-      const edges = traceOutline(alphaData, off.width, off.height);
-      if (!edges.length) return null;
+      const shrunk = getCachedEdges(
+        letterEl.textContent,
+        ctx.font,
+        off.width,
+        off.height,
+        alphaData
+      );
+      if (!shrunk.length) return null;
 
-      const shiftX = rect.left + window.scrollX;
-      const shiftY = rect.top + window.scrollY;
-      edges.forEach((pt) => {
-        pt.x += shiftX;
-        pt.y += shiftY;
-      });
-
-      const minX = Math.min(...edges.map((pt) => pt.x));
-      const minY = Math.min(...edges.map((pt) => pt.y));
-      const maxX = Math.max(...edges.map((pt) => pt.x));
-      const maxY = Math.max(...edges.map((pt) => pt.y));
-      const centerX = (minX + maxX) / 2;
-      const centerY = (minY + maxY) / 2;
-
-      // Move edges to local coords
-      const localEdges = edges.map((pt) => ({
-        x: pt.x - centerX,
-        y: pt.y - centerY,
-      }));
-      // Shrink polygon by 1px from center
-      const shrunk = shrinkEdges(localEdges, 4);
-
+      const centerX = rect.left + window.scrollX + rect.width / 2;
+      const centerY = rect.top + window.scrollY + rect.height / 2;
       const body = Bodies.fromVertices(
         centerX,
         centerY,
         [shrunk],
-        {
-          isStatic: true,
-          render: { visible: false },
-        },
+        { isStatic: true, render: { visible: false } },
         true
       );
-
       if (body) body.elRef = letterEl;
       return body;
     }
