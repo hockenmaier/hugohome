@@ -136,13 +136,16 @@ App.modules.lines = (function () {
     },
   };
 
+  const isTouchDevice =
+    "ontouchstart" in window || navigator.maxTouchPoints > 0;
+
   function setMode(newMode) {
     mode = newMode;
     // Cancel if switching away.
     if (newMode !== "straight" && StraightLineTool.state !== 0) {
       StraightLineTool.cancel();
     }
-    if (window.innerWidth < 720) {
+    if (isTouchDevice) {
       document.body.style.overflow = newMode !== "none" ? "hidden" : "";
     }
   }

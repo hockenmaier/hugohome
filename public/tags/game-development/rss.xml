@@ -62,6 +62,12 @@
         
     
 
+    
+
+    
+        
+    
+
 
 
 
@@ -111,7 +117,7 @@
         
 
         
-            <lastBuildDate>2025-05-12 00:00:00 +0000 UTC</lastBuildDate>
+            <lastBuildDate>2025-05-20 00:00:00 +0000 UTC</lastBuildDate>
         
 
         <link>http://localhost:1313/tags/game-development/</link>
@@ -122,6 +128,61 @@
 
         
 
+        
+            <item>
+                
+                
+                
+                
+                
+                
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+                
+
+                
+
+                
+
+                
+                    <description><![CDATA[<p>Here&rsquo;s a Download:
+
+
+
+<a href="files/corrector-v4.stl" download class="d-flex align-items-center download-link">
+  <i class="bi bi-file-earmark me-1"></i>
+  Download the STL model of my Ottoman Support
+</a>
+</p>
+<p>Here&rsquo;s a Gist:
+<script src="https://gist.github.com/hockenmaier/afb228dc7776cded521127b9edec2c94.js"></script>
+</p>
+]]></description>
+                
+
+                <guid isPermaLink="false">tag:localhost:1313,2025-05-20:/test-gist/</guid>
+
+                
+                    <link>http://localhost:1313/test-gist/</link>
+                
+
+                
+                    <pubDate>Tue, 20 May 2025 00:00:00 UTC</pubDate>
+                
+
+                
+                    <title>Test Embeds</title>
+                
+            </item>
         
             <item>
                 
