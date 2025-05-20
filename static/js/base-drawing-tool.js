@@ -24,6 +24,12 @@ class BaseDrawingTool {
   charge() {
     App.config.coins -= this.cost;
     App.updateCoinsDisplay();
+    gtag("event", "draw_action", {
+      // Record draw events in google analytics
+      event_category: "Ball Machine",
+      event_label: this.toolName, // e.g. "straight", "curved", "launcher"
+      value: 1,
+    });
   }
 
   static isValidDrag(startPoint, x, y, threshold = 5) {

@@ -187,6 +187,8 @@ window.App = {
   // In static/js/ball-machine-app.js
   startSimulation: function () {
     if (window.App.simulationLoaded) return;
+    // record the exact moment the game actually starts
+    window.gameStartTime = Date.now();
     window.App.simulationLoaded = true;
 
     // Initialize simulation modules – preserving existing comments.
@@ -307,3 +309,27 @@ App.updateCoinsDisplay = function () {
     App.PowerUps.checkUnlocks(App.config.coins);
   }
 };
+
+window.addEventListener("beforeunload", () => {
+  const duration = Math.round((Date.now() - window.gameStartTime) / 1000);
+  const totalCoins = App.config.coins;
+  // this page’s saved rev/sec
+  const pageRate = App.Persistence.loadRecurringRevenue() || 0;
+  // total rev/sec across all pages
+  let totalRate = 0;
+  for (let i = 0; i < localStorage.length; i++) {
+    const key = localStorage.key(i);
+    if (key.startsWith("game.") && key.endsWith(".revenue")) {
+      totalRate += Number(localStorage.getItem(key)) || 0;
+    }
+  }
+
+  gtag("event", "game_session_summary", {
+    event_category: "Ball Machine",
+    session_duration_sec: duration,
+    total_coins: totalCoins,
+    page_revenue_rate: pageRate,
+    total_revenue_rate: totalRate,
+    transport_type: "beacon",
+  });
+});
