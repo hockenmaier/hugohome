@@ -15,6 +15,14 @@ tags = "tags"                # Still optional, for very specific filters like "A
   [markup.tableOfContents]
     startLevel = 1
     endLevel   = 6
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+    [markup.goldmark.extensions]
+      [markup.goldmark.extensions.extras]
+        mark       = { enable = true }
+        subscript  = { enable = true }
+        superscript = { enable = true }
 
 [params.paige]
 color = "#0d1213" # Adjust to your preferred primary color

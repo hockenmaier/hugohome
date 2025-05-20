@@ -106,14 +106,15 @@
             {{ if $toc }}
                 <div class="paige-row-wide" id="paige-toc">
                     <div class="border pe-3 ps-3 pt-3 rounded">
-                        {{ $tocFixed := $page.TableOfContents
-                            | replaceRE `href="#([^"]+)"` (printf `href="%s#${1}"` $page.RelPermalink)
-                            | safeHTML }}
-                        {{ $tocFixed }}
+                    {{ $tocFixed := $page.TableOfContents
+                        | replaceRE `(?s)<li>\s*<ul>` `<ul>`
+                        | replaceRE `(?s)</ul>\s*</li>` `</ul>`
+                        | replaceRE `href="#([^"]+)"` (printf `href="%s#${1}"` $page.RelPermalink)
+                        | safeHTML }}
+                    {{ $tocFixed }}
                     </div>
                 </div>
             {{ end }}
-
             {{ if $last }}
                 {{ partial "paige/page-header-last.html" . }}
             {{ end }}

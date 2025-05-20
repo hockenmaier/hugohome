@@ -16,15 +16,15 @@ short_description: "A look at why games from today play like games from 20 years
 
 During my parental leave, I played through quite a few video games - something I love and one of the easiest ways to spend time while rocking my daughter to sleep. They include:
 
-- The Legend of Zelda: The Minish Cap
-- Carto
-- Tunic
-- Abzu
-- SteamWorld: Build
-- World of Goo 2
-- Oblivion Remastered
-- Mario Kart World
-- [Donkey Kong Bananza](https://www.nintendo.com/us/gaming-systems/switch-2/featured-games/donkey-kong-bananza/?srsltid=AfmBOoo2NFhtC_5yRr0Ne1WZoyYZOkMOwZjehQvzRZY4WvEFXcwCnXC8))
+- The Legend of Zelda: The Minish Cap ^Steam Deck^
+- Carto ^Steam on Windows^
+- Tunic ^Steam on Windows^
+- Abzu ^Steam on Windows^
+- SteamWorld: Build ^Steam on Windows^
+- World of Goo 2 ^Nintendo Switch^
+- Oblivion Remastered ^Steam on Windows^
+- Mario Kart World ^Nintendo Switch 2^
+- Donkey Kong Bananza ^Nintendo Switch 2^
 
 Most of these are indie titles, but the one I spent the most time on was the Oblivion Remaster - one which surprised me both with how good it looks and with how well it played. Oblivion is a 19 year old game, and a purely graphics-related overhaul should not have made it as good or better than modern AAA games releasing today, but in my opinion (and many others I’m reading) it absolutely did. How could this be?
 
@@ -40,9 +40,9 @@ Yes, Oblivion still has some simplistic design in terms of how landscapes are la
 
 ## Not Graphics
 
-Left unstated is why nothing else has improved. Walking around Oblivion, meeting characters that have some scripted voice lines, responding to them with 1 of 4 options, holding down the left stick to sprint, and hitting a single button on your controller to watch your character animate a full scripted sword swing are all things that happen in the best and greatest RPGs of today. The same can be said of other genres - mechanics are largely untouched for the last 20 years outside of some common quality of life changes in how menus and inventory and HUDs work.
+Left unstated is why nothing else has improved. Walking around Oblivion, meeting characters that have some scripted voice lines, responding to them with 1 of 4 options, holding down the left stick to sprint, and hitting a single button on your controller to watch your character animate a full scripted sword swing are all the standard gameplay of action-RPGs both 19 years ago and today. The same can be said of other genres - mechanics are largely untouched for the last 20 years outside of some common quality of life changes in how menus and inventory and HUDs work.
 
-Here’s my theory for why: The games industry got to the threshold of what was comfortable and possible with current input and output mechanisms for humans to interact with games in only a few years after they was technically possible. Looking at a flat screen in front of you and pressing buttons on a controller or keyboard/mouse are incredibly limiting for no other media than games. Reading, watching films, and all kinds of media in between essentially max out on one screen and limited input, but games immediately ran into them as a barrier.
+Here’s my theory for why: The games industry achieved the threshold of what was comfortable and possible with with the current human-computer input and output mechanisms only a few years after they were technically possible. And those inputs and outputs have not changed much since the 90s. Looking at a flat screen in front of you and pressing buttons on a controller or keyboard/mouse are incredibly limiting for gaming. Increasing the amount of pixels on the screen and making that controller wireless don't change the core gameplay. This is not really true for any other media than games. Reading, watching films, and all kinds of media in between essentially max out on one screen and limited input, but games immediately ran into forms of input and output as a barrier.
 
 I wrote a little about this topic in [my first post about VR and why I think it’s the future](/social-media-is-antisocial). The only true innovation in gameplay that is happening in two places:
 
@@ -53,15 +53,15 @@ AAA game developers are excluded from the first by definition and is excluded fr
 
 ## So What? My predictions
 
-Maybe people want to keep buying the same games with better graphics forever. I don't think they do. I think those decision makers that aren't investing in truly new AAA gameplay are short sighted. As long as we’ve been hearing that VR is the future and not seeing it totally come to fruition, at some point these companies that are milking the same game franchises for years will face the reality that people will only buy the same games reskinned with better graphics for so long. They'll either be replaced by companies that innovate or individuals using AI that will be plenty good at recreating the same game over and over again.
+Maybe people want to keep buying the same games with better graphics forever. I don’t think they do. I think those decision makers that aren’t investing in truly new AAA gameplay are short sighted. As long as we’ve been hearing that VR is the future and not seeing it totally come to fruition, at some point these companies that are milking the same game franchises for years will face the reality that people will only buy the same games reskinned with better graphics for so long. They’ll either be replaced by companies that innovate or individuals using AI that will be plenty good at recreating the same game over and over again.
 
 I am hoping that the current hypestorm around AI re-kindles the ideas in the hearts of AAA game studio CFOs that they might need to invest in innovation and new ideas again. Some of the things that make Oblivion just like any RPG of today (Think about the 4 option scripted discourse and stuffy voice lines as two) would be meaningfully different if AI was applied in the right way. And I think they’d be far more powerful experiences, just like I think VR games can be - so much higher fidelity and responsive to player input.
 
-Here are my predictions of things we'll see in the next decade or so, regardless of the AAA studios pioneer them or not:
+Here are my predictions of things we’ll see in the next decade or so, regardless of the AAA studios pioneer them or not:
 
-I think a decade or two from now, we will look at the period of 2005 to 2025 and see that it was a period of a great stagnation in game innovation. This will be driven by a few key technological advances and the downstream game mechanics that will flow from those, stemming mainly from the areas of AI and what is now called mixed reality.
+A decade or two from now, we will look at the period of 2005 to 2025 and see that it was a period of a great stagnation in game innovation. This will be driven by a few key technological advances and the downstream game mechanics that will flow from those, stemming mainly from the areas of AI and what is now called mixed reality.
 
-I'm going to make a few specific predictions of mechanics we will see in the future that will make the magnation of the last 20 years totally transparent:
+I’m going to make a few specific predictions of mechanics we will see in the future that will make the magnation of the last 20 years totally transparent:
 
 #### AI:
 
@@ -77,10 +77,10 @@ I'm going to make a few specific predictions of mechanics we will see in the fut
 
 #### Mixed Reality:
 
-- The first reasonable augmented reality glasses that consumers are willing to wear en masse will generate entirely new genres:
+The first reasonable augmented reality glasses that consumers are willing to wear en masse will generate entirely new genres:
 
-  - there will be a new genre of video board games, wear gameplay happens in view of a group of people in the same physical space, on a table, on the ground, in a park, etc, that will incorporate video game elements such as computations that are too complicated for typical board games, with the advantages that board games have today where players can interact with the same physical pieces, point and gesture, and socialize in person
+- A new genre of video board games, wear gameplay happens in view of a group of people in the same physical space, on a table, on the ground, in a park, etc, that will incorporate video game elements such as computations that are too complicated for typical board games, with the advantages that board games have today where players can interact with the same physical pieces, point and gesture, and socialize in person
 
-  - there will be a new genre of exercise programs combined with games. This will go far beyond current treadmills that have built-in virtual run routes or virtual exercise classes, this will be exercise incorporated as a leveling or other mechanic that will incentivize players to get some exercise. I've had a lot of hope for this category for a long time, and the one major threat to it is GLP1 drugs that may cause a serious decline in the need and desire for people to exercise daily for calorie loss
+- Another new genre of exercise programs combined with games. This will go far beyond current treadmills that have built-in virtual run routes or virtual exercise classes, this will be exercise incorporated as a leveling or other mechanic that will incentivize players to get some exercise. I've had a lot of hope for this category for a long time, and the one major threat to it is GLP1 drugs that may cause a serious decline in the need and desire for people to exercise daily for calorie loss
 
-When will these happen? We will see. The combo of a decline in AAA game spending and AI hype feel like ripe conditions for innovation to return to gaming, to me. I think they happen sooner vs later.
+When will these happen? My specific prediction is that the next 3 years will be seen as the end of the period of stagnation we are in right now, a period that will be much more apparent looking backwards than it is from within. The combo of a decline in AAA game spending and AI hype feel like ripe conditions for innovation to return to gameplay - and my hope is that all of the other potential gameplay innovations ride the same AI wave.

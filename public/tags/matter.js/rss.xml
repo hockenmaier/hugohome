@@ -46,7 +46,7 @@
             
 
             
-                <link href="https://hockenworks.com/tags/matter.js/" rel="self" type="text/html"/>
+                <link href="http://localhost:1313/tags/matter.js/" rel="self" type="text/html"/>
             
         
             
@@ -54,7 +54,7 @@
             
 
             
-                <link href="https://hockenworks.com/tags/matter.js/rss.xml" rel="alternate" type="application/rss+xml"/>
+                <link href="http://localhost:1313/tags/matter.js/rss.xml" rel="alternate" type="application/rss+xml"/>
             
         
 
@@ -72,7 +72,7 @@
             <lastBuildDate>2025-03-01 00:00:00 +0000 UTC</lastBuildDate>
         
 
-        <link>https://hockenworks.com/tags/matter.js/</link>
+        <link>http://localhost:1313/tags/matter.js/</link>
 
         
 
@@ -188,7 +188,7 @@
 
 
 
-<img  alt="the hockenworks homepage"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/hockenworks.png"   style="height: auto; max-width: 720px; width: 100%"   >
+<img  alt="the hockenworks homepage"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/hockenworks.png"   style="height: auto; max-width: 720px; width: 100%"   >
 
 
     
@@ -301,7 +301,7 @@
 
 
 
-<img  alt="balls everywhere"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/this-website-ball-machine-1.png"   style="height: auto; max-width: 720px; width: 100%"   >
+<img  alt="balls everywhere"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/this-website-ball-machine-1.png"   style="height: auto; max-width: 720px; width: 100%"   >
 
 
     
@@ -407,7 +407,7 @@
 
 
 
-<img  alt="ball chute"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/ball-chute-hatch-1.png"   style="height: auto; max-width: 200px; width: 100%"   >
+<img  alt="ball chute"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/ball-chute-hatch-1.png"   style="height: auto; max-width: 200px; width: 100%"   >
 
  
   <span style="display: block; font-style: italic; margin-top: 0.5rem">
@@ -464,10 +464,10 @@ So keep your balls moving!</li>
 ]]></description>
                 
 
-                <guid isPermaLink="false">tag:hockenworks.com,2025-03-01:/this-website/</guid>
+                <guid isPermaLink="false">tag:localhost:1313,2025-03-01:/this-website/</guid>
 
                 
-                    <link>https://hockenworks.com/this-website/</link>
+                    <link>http://localhost:1313/this-website/</link>
                 
 
                 
