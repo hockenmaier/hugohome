@@ -65,6 +65,7 @@ document.addEventListener("DOMContentLoaded", () => {
       setTimeout(() => {
         App.startSimulation();
         window.BallFall.spawnBall();
+        spawnerImg.style.opacity = 1; // ← remove the pre-load transparency
       }, 150);
     } else {
       window.BallFall.spawnBall();

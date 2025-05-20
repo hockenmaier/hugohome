@@ -3,10 +3,19 @@
    as well as recurring revenue.
 */
 (function () {
-  // Generate a unique key per page.
+  // The following two keys are used to save information.  Page Keys represent the web path AND the orientation, so that goals, drawable objects, and upgrades are saved to a specific landscape/portrait orientation
+  // However, recurring revenue ignores orientation as a page can only generate one rev/s value even if a user has built things in portrait and landscape modes
+  // Generate a unique key per page + orientation
   function pageKey(itemName) {
-    let pageId = window.location.pathname.replace(/\//g, "_") || "home";
-    return "game." + pageId + "." + itemName;
+    const pageId = window.location.pathname.replace(/\//g, "_") || "home";
+    const orient =
+      window.innerWidth > window.innerHeight ? "landscape" : "portrait";
+    return `game.${pageId}.${orient}.${itemName}`;
+  }
+  // Generate a key per page only (no orientation)
+  function rawKey(itemName) {
+    const pageId = window.location.pathname.replace(/\//g, "_") || "home";
+    return `game.${pageId}.${itemName}`;
   }
 
   App.Persistence = {
@@ -200,10 +209,10 @@
 
     // Recurring Revenue persistence:
     saveRecurringRevenue: function (rate) {
-      App.Storage.setItem(pageKey("revenue"), rate);
+      App.Storage.setItem(rawKey("revenue"), rate);
     },
     loadRecurringRevenue: function () {
-      return App.Storage.getItem(pageKey("revenue"), null);
+      return App.Storage.getItem(rawKey("revenue"), null);
     },
 
     // --- Compactor persistence functions ---
