@@ -2,11 +2,29 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://hockenworks.com/tags/3d-modeling/</loc>
+    <lastmod>2025-05-20T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://hockenworks.com/tags/board-games/</loc>
+    <lastmod>2025-05-20T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://hockenworks.com/categories/builds/</loc>
+    <lastmod>2025-05-20T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>https://hockenworks.com/categories/</loc>
-    <lastmod>2025-05-12T00:00:00+00:00</lastmod>
+    <lastmod>2025-05-20T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://hockenworks.com/tags/game-development/</loc>
-    <lastmod>2025-05-12T00:00:00+00:00</lastmod>
+    <lastmod>2025-05-20T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://hockenworks.com/tags/multiplayer/</loc>
+    <lastmod>2025-05-20T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://hockenworks.com/tags/</loc>
+    <lastmod>2025-05-20T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://hockenworks.com/test-gist/</loc>
+    <lastmod>2025-05-20T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://hockenworks.com/tags/indie-games/</loc>
     <lastmod>2025-05-12T00:00:00+00:00</lastmod>
@@ -15,9 +33,6 @@
     <lastmod>2025-05-12T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://hockenworks.com/tags/procedural-generation/</loc>
-    <lastmod>2025-05-12T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://hockenworks.com/tags/</loc>
     <lastmod>2025-05-12T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://hockenworks.com/the-purgatory-of-aaa-gaming/</loc>
@@ -31,9 +46,6 @@
   </url><url>
     <loc>https://hockenworks.com/categories/writing/</loc>
     <lastmod>2025-05-12T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://hockenworks.com/categories/builds/</loc>
-    <lastmod>2025-03-01T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://hockenworks.com/tags/css/</loc>
     <lastmod>2025-03-01T00:00:00+00:00</lastmod>
@@ -71,22 +83,13 @@
     <loc>https://hockenworks.com/</loc>
     <lastmod>2025-01-12T12:28:01-08:00</lastmod>
   </url><url>
-    <loc>https://hockenworks.com/tags/3d-modeling/</loc>
-    <lastmod>2025-01-01T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://hockenworks.com/balloon-fight/</loc>
     <lastmod>2025-01-01T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://hockenworks.com/bloom-or-bust/</loc>
     <lastmod>2025-01-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://hockenworks.com/tags/board-games/</loc>
-    <lastmod>2025-01-01T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://hockenworks.com/tags/experimental/</loc>
-    <lastmod>2025-01-01T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://hockenworks.com/tags/multiplayer/</loc>
     <lastmod>2025-01-01T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://hockenworks.com/my-experiments-with-ai-cheating/</loc>
@@ -246,8 +249,6 @@
     <loc>https://hockenworks.com/treekeepers-engine/</loc>
   </url><url>
     <loc>https://hockenworks.com/treekeepers-proposal/</loc>
-  </url><url>
-    <loc>https://hockenworks.com/reset-ball-machine/</loc>
   </url><url>
     <loc>https://hockenworks.com/stacks/</loc>
   </url>

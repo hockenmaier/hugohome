@@ -39,7 +39,13 @@ App.modules.base = (function () {
         width: window.innerWidth,
         height: window.innerHeight,
         background: "transparent",
-        wireframes: false,
+        wireframes: false, // good for physics debug
+        showConvexHulls: false, // draw hulls & verts
+        showInternalEdges: false, // multi-part bodies
+        showAxes: false, // good for physics debug
+        showPositions: false, // good for physics debug
+        showBounds: false, // good for physics debug
+        showCollisions: false, // good for physics debug
         pixelRatio: 1,
       },
     });
@@ -49,7 +55,7 @@ App.modules.base = (function () {
     Render.run(render);
 
     // Run physics substeps.
-    const substeps = 6;
+    const substeps = 2; // Tune this down for better performance, up for better physics consistency
     const baseDt = 1000 / 60;
     const dt = baseDt / substeps;
     setInterval(() => {
