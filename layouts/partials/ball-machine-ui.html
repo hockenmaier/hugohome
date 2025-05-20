@@ -248,7 +248,7 @@
     class="upgrade-icon" alt="Auto Clicker" style="display:none;" />
     <!-- Hide cost label by default -->
     <div id="autoClickerCost" class="cost-label" style="display: none">
-      <img src="{{ "images/coin-cost.png" | relURL }}" alt="Coin" /> 100
+      <img src="{{ "images/coin-cost.png" | relURL }}" alt="Coin" /> 200
     </div>
   </div>
 </div>
@@ -281,7 +281,7 @@
       <div class="toggle-wrapper">
         <img src="{{ "images/dotted-line-mode.png" | relURL }}"
         id="toggleDotted" class="line-toggle" alt="Dotted Line" />
-        <div class="cost-label">Free</div> <!-- Assuming Dotted is free -->
+        <div class="cost-label">Free</div>
       </div>
       <!-- Straight Line Toggle -->
       <div class="toggle-wrapper">
@@ -304,21 +304,21 @@
         <img src="{{ "images/DKannon250-mode.png" | relURL }}"
         id="toggleLauncher" class="line-toggle" alt="Launcher" />
         <div class="cost-label">
-          <img src="{{ "images/coin-cost.png" | relURL }}" alt="Coin" /> {{ .Site.Params.App.costs.launcher | default 200 }}
+          <img src="{{ "images/coin-cost.png" | relURL }}" alt="Coin" /> {{ .Site.Params.App.costs.launcher | default 2000 }}
         </div>
       </div>
       <div class="toggle-wrapper">
         <img src="{{ "images/DKannon250-fast-mode.png" | relURL }}"
         id="toggleFastLauncher" class="line-toggle" alt="Fast Launcher" />
         <div class="cost-label">
-          <img src="{{ "images/coin-cost.png" | relURL }}" alt="Coin" /> {{ .Site.Params.App.costs.fastLauncher | default 500 }}
+          <img src="{{ "images/coin-cost.png" | relURL }}" alt="Coin" /> {{ .Site.Params.App.costs.fastLauncher | default 5000 }}
         </div>
       </div>
       <div class="toggle-wrapper">
         <img src="{{ "images/DKannon250-insta-mode.png" | relURL }}"
         id="toggleInstaLauncher" class="line-toggle" alt="Insta Launcher" />
         <div class="cost-label">
-          <img src="{{ "images/coin-cost.png" | relURL }}" alt="Coin" /> {{ .Site.Params.App.costs.instaLauncher | default 2500 }}
+          <img src="{{ "images/coin-cost.png" | relURL }}" alt="Coin" /> {{ .Site.Params.App.costs.instaLauncher | default 25000 }}
         </div>
       </div>
       <!-- Compactor Toggle -->

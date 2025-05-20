@@ -54,32 +54,32 @@ window.App = {
         maxSpeed: 500,
       },
     },
-    coins: 149, //Starting coins for when app first loads and there's nothing in storage
+    coins: 150000000, //Starting coins for when app first loads and there's nothing in storage
     costs: {
       straight: 5,
       curved: 50,
-      launcher: 200,
-      "fast-launcher": 500,
-      "insta-launcher": 2500,
+      launcher: 2000,
+      "fast-launcher": 5000,
+      "insta-launcher": 25000,
     },
     goalMinSpeed: 0.5, //Speed balls must be traveling to trigger the goal
 
     // Economy clicker settings:
     spawnCooldown: 250, // 0.25 sec cooldown between manual spawns
-    autoClickerCost: 100, // Cost to unlock auto spawner
+    autoClickerCost: 200, // Cost to unlock auto spawner
     speedUpgradeCosts: {
-      1: 200,
-      2: 400,
-      3: 800,
-      4: 1600,
-      5: 6400,
-      6: 12800,
-      7: 25600,
-      8: 51200,
-      9: 100000,
-      10: 200000,
-      11: 400000,
-      12: 800000,
+      1: 2500,
+      2: 10000,
+      3: 40000,
+      4: 160000,
+      5: 640000,
+      6: 256000,
+      7: 1000000,
+      8: 2000000,
+      9: 4000000,
+      10: 8000000,
+      11: 16000000,
+      12: 32000000,
     },
     maxUnlockedSpeedLevel: 0, // Initially 0; increases with upgrades
     autoClicker: false, // Flag set when auto-clicker is purchased
