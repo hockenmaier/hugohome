@@ -6,6 +6,8 @@
  */
 (function () {
   // If target is a group (array) then apply a function to each
+  const REFUND_RATE = App.config.refundRate;
+
   function applyToGroup(target, fn) {
     if (Array.isArray(target)) {
       target.forEach(fn);
@@ -60,6 +62,89 @@
     });
   }
 
+  /* ---------- refund helpers ---------- */
+
+  function priceForBody(b) {
+    // compactor group
+    if (Array.isArray(b)) return App.config.compactor.cost;
+
+    // launchers
+    if (b.label === "Launcher") {
+      const t = b.selectedType || "launcher";
+      return App.config.costs[t] || 0;
+    }
+    // dotted lines are free
+    if (b.label === "DottedLine") return 0;
+
+    // curved vs straight
+    if (b.isLine) {
+      return b.parts && b.parts.length > 1
+        ? App.config.costs.curved
+        : App.config.costs.straight;
+    }
+    return 0;
+  }
+
+  function createNotification(text, x, y, opacity = 1) {
+    const el = document.createElement("div");
+    el.textContent = text;
+    Object.assign(el.style, {
+      position: "absolute",
+      left: x + "px",
+      top: y + "px",
+      transform: "translate(-50%,-50%)",
+      fontWeight: "bold",
+      fontSize: "16px",
+      color: "gold",
+      textShadow: "1px 1px 2px black",
+      zIndex: 10000,
+      opacity,
+    });
+    document.body.appendChild(el);
+    setTimeout(
+      () => {
+        el.style.transition = "opacity 500ms";
+        el.style.opacity = "0";
+        setTimeout(() => el.remove(), 500);
+      },
+      opacity === 1 ? 1000 : 0
+    ); // previews disappear immediately on hide
+  }
+
+  // expose full-opacity version for other modules (auto-clicker)
+  window.showRefundNotification = (amt, x, y) =>
+    createNotification(`+ ${amt} Coins`, x, y, 1);
+
+  /* ---------- hover preview ---------- */
+
+  let hoverPreview = null;
+
+  function showPreview(target, x, y) {
+    const refund = Math.ceil(priceForBody(target) * REFUND_RATE);
+    if (refund <= 0) return;
+    if (!hoverPreview) hoverPreview = document.createElement("div");
+
+    hoverPreview.textContent = `+ ${refund} coins`;
+    Object.assign(hoverPreview.style, {
+      position: "absolute",
+      pointerEvents: "none",
+      left: x + "px",
+      top: y + "px",
+      transform: "translate(-50%,-50%)",
+      fontWeight: "bold",
+      fontSize: "16px",
+      color: "gold",
+      opacity: "0.4",
+      zIndex: 10000,
+    });
+    if (!hoverPreview.parentNode) document.body.appendChild(hoverPreview);
+  }
+  function hidePreview() {
+    if (hoverPreview && hoverPreview.parentNode)
+      hoverPreview.parentNode.removeChild(hoverPreview);
+    hoverPreview = null;
+  }
+
   // Modified getLineAtPoint: if the point is inside any compactor part,
   // return all bodies with that persistenceId.
   function getLineAtPoint(x, y) {
@@ -106,6 +191,7 @@
   }
 
   let hoveredLine = null;
+  let pendingTarget = null;
   let pendingDeletionLine = null;
   let deletionTimer = null;
   let touchStartPos = null;
@@ -113,128 +199,143 @@
   let hoveredLineStartTime = null;
   let pendingDeletionLineStartTime = null;
 
+  // ---------- animation loop ----------
   function updatePulse() {
-    // Hover pulse.
+    /* hover pulse (unchanged) */
     if (hoveredLine) {
       if (!hoveredLineStartTime) hoveredLineStartTime = Date.now();
-      const elapsed = Date.now() - hoveredLineStartTime;
-      const t = (Math.sin(elapsed / 75 + Math.PI / 2) + 1) / 2;
-      const opacity = 0.2 + 0.8 * t;
-      applyPulse(hoveredLine, opacity);
+      const t =
+        (Math.sin((Date.now() - hoveredLineStartTime) / 75 + Math.PI / 2) + 1) /
+        2;
+      applyPulse(hoveredLine, 0.2 + 0.8 * t);
       lastHovered = hoveredLine;
     } else if (lastHovered) {
       resetLine(lastHovered);
       lastHovered = null;
       hoveredLineStartTime = null;
     }
-    // Pending deletion pulse.
-    if (pendingDeletionLine && pendingDeletionLine !== hoveredLine) {
+
+    /* long-press (mobile) pulse for delete-preview */
+    if (pendingTarget && pendingTarget !== hoveredLine) {
       if (!pendingDeletionLineStartTime)
         pendingDeletionLineStartTime = Date.now();
-      const elapsed = Date.now() - pendingDeletionLineStartTime;
-      const t = (Math.sin(elapsed / 75 + Math.PI / 2) + 1) / 2;
-      const opacity = 0.2 + 0.8 * t;
-      applyPulse(pendingDeletionLine, opacity);
+      const t =
+        (Math.sin(
+          (Date.now() - pendingDeletionLineStartTime) / 75 + Math.PI / 2
+        ) +
+          1) /
+        2;
+      applyPulse(pendingTarget, 0.2 + 0.8 * t);
     } else {
       pendingDeletionLineStartTime = null;
     }
+
     requestAnimationFrame(updatePulse);
   }
   updatePulse();
 
-  // Desktop hover: update cursor and pulse the hovered group.
+  /* ---------- desktop hover ---------- */
+
   document.addEventListener("mousemove", (e) => {
     const line = getLineAtPoint(e.pageX, e.pageY);
+
     if (line) {
       if (hoveredLine !== line) {
         if (hoveredLine) resetLine(hoveredLine);
         hoveredLine = line;
-        hoveredLineStartTime = Date.now();
       }
       document.body.style.cursor = "pointer";
+      showPreview(line, e.pageX, e.pageY);
     } else {
-      if (hoveredLine) {
-        resetLine(hoveredLine);
-        hoveredLine = null;
-        hoveredLineStartTime = null;
-      }
+      if (hoveredLine) resetLine(hoveredLine);
+      hoveredLine = null;
       document.body.style.cursor = "";
+      hidePreview();
     }
   });
 
-  // Desktop right-click deletion.
+  /* ---------- deletion & refund: desktop ---------- */
+
   document.addEventListener("contextmenu", (e) => {
     const target = getLineAtPoint(e.pageX, e.pageY);
-    if (target) {
-      // If compactor group, remove all.
-      if (Array.isArray(target)) {
-        target.forEach((body) =>
-          Matter.World.remove(window.BallFall.world, body)
-        );
-        App.Persistence.deleteCompactor(target[0].persistenceId);
-      } else {
-        Matter.Composite.remove(window.BallFall.world, target, true);
-        if (target.label === "Launcher" && target.persistenceId) {
-          App.Persistence.deleteLauncher(target.persistenceId);
-        } else if (target.persistenceId) {
-          App.Persistence.deleteLine(target.persistenceId);
-        }
-      }
-      e.preventDefault();
+    if (!target) return;
+
+    e.preventDefault();
+    hidePreview();
+
+    const refund = Math.ceil(priceForBody(target) * REFUND_RATE);
+    if (refund > 0) {
+      App.config.coins += refund;
+      App.updateCoinsDisplay();
+      window.showRefundNotification(refund, e.pageX, e.pageY);
+    }
+
+    // delete (logic unchanged)
+    if (Array.isArray(target)) {
+      target.forEach((b) => Matter.World.remove(window.BallFall.world, b));
+      App.Persistence.deleteCompactor(target[0].persistenceId);
+    } else {
+      Matter.Composite.remove(window.BallFall.world, target, true);
+      if (target.label === "Launcher")
+        App.Persistence.deleteLauncher(target.persistenceId);
+      else if (target.persistenceId)
+        App.Persistence.deleteLine(target.persistenceId);
     }
   });
 
-  // Mobile touch deletion.
+  /* ---------- mobile touch deletion & refund ---------- */
+
   document.addEventListener("touchstart", (e) => {
-    if (e.target.closest("#ballfall-ui")) return;
-    if (e.touches.length !== 1) return;
+    if (e.touches.length !== 1 || e.target.closest("#ballfall-ui")) return;
     const touch = e.touches[0];
-    const target = getLineAtPoint(touch.pageX, touch.pageY);
-    if (target) {
-      touchStartPos = { x: touch.pageX, y: touch.pageY };
-      pendingDeletionLine = target;
-      deletionTimer = setTimeout(() => {
-        if (Array.isArray(target)) {
-          target.forEach((body) =>
-            Matter.World.remove(window.BallFall.world, body)
-          );
-          App.Persistence.deleteCompactor(target[0].persistenceId);
-        } else {
-          Matter.World.remove(window.BallFall.world, target);
-          if (target.label === "Launcher" && target.persistenceId) {
-            App.Persistence.deleteLauncher(target.persistenceId);
-          } else if (target.persistenceId) {
-            App.Persistence.deleteLine(target.persistenceId);
-          }
-        }
-        pendingDeletionLine = null;
-      }, App.config.lineDeleteMobileHold);
-    }
+    const tgt = getLineAtPoint(touch.pageX, touch.pageY);
+    if (!tgt) return;
+
+    pendingTarget = tgt;
+    touchStartPos = { x: touch.pageX, y: touch.pageY };
+
+    deletionTimer = setTimeout(() => {
+      const refund = Math.ceil(priceForBody(tgt) * REFUND_RATE);
+      if (refund > 0) {
+        App.config.coins += refund;
+        App.updateCoinsDisplay();
+        window.showRefundNotification(refund, touchStartPos.x, touchStartPos.y);
+      }
+
+      if (Array.isArray(tgt)) {
+        tgt.forEach((b) => Matter.World.remove(window.BallFall.world, b));
+        App.Persistence.deleteCompactor(tgt[0].persistenceId);
+      } else {
+        Matter.World.remove(window.BallFall.world, tgt);
+        if (tgt.label === "Launcher")
+          App.Persistence.deleteLauncher(tgt.persistenceId);
+        else if (tgt.persistenceId)
+          App.Persistence.deleteLine(tgt.persistenceId);
+      }
+      pendingTarget = null;
+      hidePreview();
+    }, App.config.lineDeleteMobileHold);
   });
 
   document.addEventListener("touchmove", (e) => {
-    if (e.target.closest("#ballfall-ui")) return;
-    if (e.touches.length !== 1) return;
+    if (!pendingTarget) return;
     const touch = e.touches[0];
-    const dx = touch.pageX - (touchStartPos ? touchStartPos.x : 0);
-    const dy = touch.pageY - (touchStartPos ? touchStartPos.y : 0);
-    if (Math.sqrt(dx * dx + dy * dy) > 10) {
+    const dx = touch.pageX - touchStartPos.x,
+      dy = touch.pageY - touchStartPos.y;
+    if (Math.hypot(dx, dy) > 10) {
       clearTimeout(deletionTimer);
-      deletionTimer = null;
-      if (pendingDeletionLine) resetLine(pendingDeletionLine);
-      pendingDeletionLine = null;
-      touchStartPos = null;
+      pendingTarget = null;
+      hidePreview();
     }
   });
 
-  document.addEventListener("touchend", (e) => {
-    if (e.target.closest("#ballfall-ui")) return;
-    if (pendingDeletionLine) {
-      clearTimeout(deletionTimer);
-      deletionTimer = null;
-      resetLine(pendingDeletionLine);
-      pendingDeletionLine = null;
-      touchStartPos = null;
-    }
+  document.addEventListener("touchend", () => {
+    clearTimeout(deletionTimer);
+    pendingTarget = null;
+    hidePreview();
   });
+  /* --- expose preview helper so other modules (e.g. auto-clicker) can reuse it --- */
+  window.showRefundPreview = (amt, x, y) =>
+    createNotification(`+ ${amt} coins`, x, y, 0.4);
+  window.hideRefundPreview = hidePreview;
 })();

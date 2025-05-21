@@ -1730,6 +1730,24 @@ table {
           }
         }
       });
+      btn.addEventListener("contextmenu", e => {
+        e.preventDefault();
+        const lvl = App.config.maxUnlockedSpeedLevel;
+        if (!App.config.autoClicker || lvl === 0) return;          
+        const cost = App.config.speedUpgradeCosts[lvl];
+        const refund = Math.ceil(cost * App.config.refundRate);
+        App.config.coins += refund;
+        App.config.maxUnlockedSpeedLevel = lvl - 1;
+        const newInt = App.config.originalSpawnInterval / Math.pow(2, lvl - 1);
+        App.config.spawnInterval = newInt;
+        window.BallFall.updateSpawnInterval(newInt);
+        App.Persistence.saveAutoClicker({ purchased:true, maxSpeedLevel:lvl-1 });
+        App.updateCoinsDisplay();
+        updateAutoClickerCostDisplay();
+        if (window.showRefundNotification)
+            window.showRefundNotification(refund, e.pageX, e.pageY);
+      });
+
     }
 
     

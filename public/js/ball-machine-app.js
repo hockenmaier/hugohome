@@ -37,6 +37,7 @@ window.App = {
     dottedLineHealth: 50,
     curvedLineFidelity: 30,
     lineDeleteMobileHold: 1200,
+    refundRate: 0.5, // 50 % of original cost is returned on delete
     launcherTypes: {
       launcher: {
         delay: 750,

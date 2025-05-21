@@ -1853,7 +1853,7 @@ table {
     class="upgrade-icon" alt="Auto Clicker" style="display:none;" />
     
     <div id="autoClickerCost" class="cost-label" style="display: none">
-      <img src="http://localhost:1313/images/coin-cost.png" alt="Coin" /> 100
+      <img src="http://localhost:1313/images/coin-cost.png" alt="Coin" /> 200
     </div>
   </div>
 </div>
@@ -1886,7 +1886,7 @@ table {
       <div class="toggle-wrapper">
         <img src="http://localhost:1313/images/dotted-line-mode.png"
         id="toggleDotted" class="line-toggle" alt="Dotted Line" />
-        <div class="cost-label">Free</div> 
+        <div class="cost-label">Free</div>
       </div>
       
       <div class="toggle-wrapper">
@@ -1909,21 +1909,21 @@ table {
         <img src="http://localhost:1313/images/DKannon250-mode.png"
         id="toggleLauncher" class="line-toggle" alt="Launcher" />
         <div class="cost-label">
-          <img src="http://localhost:1313/images/coin-cost.png" alt="Coin" /> 200
+          <img src="http://localhost:1313/images/coin-cost.png" alt="Coin" /> 2000
         </div>
       </div>
       <div class="toggle-wrapper">
         <img src="http://localhost:1313/images/DKannon250-fast-mode.png"
         id="toggleFastLauncher" class="line-toggle" alt="Fast Launcher" />
         <div class="cost-label">
-          <img src="http://localhost:1313/images/coin-cost.png" alt="Coin" /> 500
+          <img src="http://localhost:1313/images/coin-cost.png" alt="Coin" /> 5000
         </div>
       </div>
       <div class="toggle-wrapper">
         <img src="http://localhost:1313/images/DKannon250-insta-mode.png"
         id="toggleInstaLauncher" class="line-toggle" alt="Insta Launcher" />
         <div class="cost-label">
-          <img src="http://localhost:1313/images/coin-cost.png" alt="Coin" /> 2500
+          <img src="http://localhost:1313/images/coin-cost.png" alt="Coin" /> 25000
         </div>
       </div>
       
@@ -2163,6 +2163,24 @@ table {
           }
         }
       });
+      btn.addEventListener("contextmenu", e => {
+        e.preventDefault();
+        const lvl = App.config.maxUnlockedSpeedLevel;
+        if (!App.config.autoClicker || lvl === 0) return;          
+        const cost = App.config.speedUpgradeCosts[lvl];
+        const refund = Math.ceil(cost * App.config.refundRate);
+        App.config.coins += refund;
+        App.config.maxUnlockedSpeedLevel = lvl - 1;
+        const newInt = App.config.originalSpawnInterval / Math.pow(2, lvl - 1);
+        App.config.spawnInterval = newInt;
+        window.BallFall.updateSpawnInterval(newInt);
+        App.Persistence.saveAutoClicker({ purchased:true, maxSpeedLevel:lvl-1 });
+        App.updateCoinsDisplay();
+        updateAutoClickerCostDisplay();
+        if (window.showRefundNotification)
+            window.showRefundNotification(refund, e.pageX, e.pageY);
+      });
+
     }
 
     
