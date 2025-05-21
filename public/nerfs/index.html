@@ -1332,100 +1332,176 @@ table {
   </script>
 
  <script>
-  
-  (function () {
-    function updateAutoClickerCostDisplay() {
-      if (!App.simulationLoaded) return; 
 
-      let cost;
-      if (!App.config.autoClicker) {
-        cost = App.config.autoClickerCost;
+
+(function () {
+   
+  function updateAutoClickerCostDisplay () {
+    if (!App.simulationLoaded) return;
+
+    let cost;
+    if (!App.config.autoClicker) {
+      cost = App.config.autoClickerCost;
+    } else {
+      const next = App.config.maxUnlockedSpeedLevel + 1;
+      cost = App.config.speedUpgradeCosts[next];
+    }
+
+    const costEl = document.getElementById("autoClickerCost");
+    if (costEl) {
+      if (cost !== undefined) {
+        costEl.innerHTML = '<img src="' + coinCostURL + '" alt="Coin" /> ' + cost;
+        costEl.style.display = 'flex';
       } else {
-        const next = App.config.maxUnlockedSpeedLevel + 1;
-        cost = App.config.speedUpgradeCosts[next];
-      }
-
-      const costEl = document.getElementById("autoClickerCost");
-      if (costEl) {
-        if (cost !== undefined) {
-          costEl.innerHTML = '<img src="' + coinCostURL + '" alt="Coin" /> ' + cost;
-          costEl.style.display = 'flex';
-        } else {
-          costEl.innerHTML = 'Max';
-          costEl.style.display = 'flex';
-        }
-      }
-
-      const btn = document.getElementById("autoClicker");
-      if (btn) {
-        if (cost === undefined && App.config.autoClicker) {
-          btn.style.cursor = 'default';
-          btn.style.opacity = '0.5';
-        } else {
-          btn.style.cursor = 'pointer';
-          btn.style.opacity = '1';
-        }
+        costEl.innerHTML = 'Max';
+        costEl.style.display = 'flex';
       }
     }
-    App.updateAutoClickerCostDisplay = updateAutoClickerCostDisplay;
 
     const btn = document.getElementById("autoClicker");
     if (btn) {
-      btn.addEventListener("click", function () {
-        if (!App.config.autoClicker) {
-          const c = App.config.autoClickerCost;
-          if (App.config.coins >= c) {
-            App.config.coins -= c;
-            App.config.autoClicker = true;
-            App.Persistence.saveAutoClicker({ purchased: true, maxSpeedLevel: 0 });
-            window.BallFall.startAutoSpawner();
-            App.updateCoinsDisplay();
-            updateAutoClickerCostDisplay();
-          } else {
-            window.notifyUnaffordable(100, 12);
-          }
-        } else {
-          const lvl = App.config.maxUnlockedSpeedLevel + 1;
-          const c = App.config.speedUpgradeCosts[lvl];
-          if (c === undefined) return;
-          if (App.config.coins >= c) {
-            App.config.coins -= c;
-            App.config.maxUnlockedSpeedLevel = lvl;
-            const ni = App.config.originalSpawnInterval / Math.pow(2, lvl);
-            App.config.spawnInterval = ni;
-            window.BallFall.updateSpawnInterval(ni);
-            App.updateCoinsDisplay();
-            updateAutoClickerCostDisplay();
-            App.Persistence.saveAutoClicker({ purchased: true, maxSpeedLevel: lvl });
-          } else {
-            window.notifyUnaffordable(100, 12);
-          }
-        }
-      });
-      btn.addEventListener("contextmenu", e => {
-        e.preventDefault();
-        const lvl = App.config.maxUnlockedSpeedLevel;
-        if (!App.config.autoClicker || lvl === 0) return;          
-        const cost = App.config.speedUpgradeCosts[lvl];
-        const refund = Math.ceil(cost * App.config.refundRate);
-        App.config.coins += refund;
-        App.config.maxUnlockedSpeedLevel = lvl - 1;
-        const newInt = App.config.originalSpawnInterval / Math.pow(2, lvl - 1);
-        App.config.spawnInterval = newInt;
-        window.BallFall.updateSpawnInterval(newInt);
-        App.Persistence.saveAutoClicker({ purchased:true, maxSpeedLevel:lvl-1 });
-        App.updateCoinsDisplay();
-        updateAutoClickerCostDisplay();
-        if (window.showRefundNotification)
-            window.showRefundNotification(refund, e.pageX, e.pageY);
-      });
-
+      if (cost === undefined && App.config.autoClicker) {
+        btn.style.cursor = 'default';
+        btn.style.opacity = '0.5';
+      } else {
+        btn.style.cursor  = 'pointer';
+        btn.style.opacity = '1';
+      }
     }
+  }
+  App.updateAutoClickerCostDisplay = updateAutoClickerCostDisplay;
 
-    
-    document.addEventListener("BallFallBaseReady", updateAutoClickerCostDisplay);
+  function refundValue () {
+    if (!App.config.autoClicker) {
+      return Math.ceil(App.config.autoClickerCost * App.config.refundRate);
+    }
+    const lvl = App.config.maxUnlockedSpeedLevel;
+    if (lvl === 0) return 0;
+    const cost = App.config.speedUpgradeCosts[lvl];
+    return Math.ceil(cost * App.config.refundRate);
+  }
+
+   
+  let acPreview = null;
+  function showACPreview (x, y) {
+    const amt = refundValue();
+    if (!amt) return;
+    if (!acPreview) {
+      acPreview = document.createElement('div');
+      Object.assign(acPreview.style, {
+        position: 'absolute',
+        fontWeight: 'bold',
+        fontSize: '16px',
+        color: 'gold',
+        textShadow: '1px 1px 2px black',
+        zIndex: 10000,
+        pointerEvents: 'none',
+        opacity: '0.4',
+      });
+      document.body.appendChild(acPreview);
+    }
+    acPreview.textContent = `+ ${amt} coins`;
+    acPreview.style.left = x + 'px';
+    acPreview.style.top  = y + 'px';
+    acPreview.style.transform = 'translate(-50%,-50%)';
+  }
+  function hideACPreview () {
+    if (acPreview && acPreview.parentNode) {
+      acPreview.parentNode.removeChild(acPreview);
+      acPreview = null;
+    }
+  }
+
+   
+  const btn = document.getElementById("autoClicker");
+  if (!btn) return;
+
+   
+  btn.addEventListener("click", () => {
+    if (!App.config.autoClicker) {
+      const c = App.config.autoClickerCost;
+      if (App.config.coins < c) return window.notifyUnaffordable(100,12);
+      App.config.coins -= c;
+      App.config.autoClicker = true;
+      App.Persistence.saveAutoClicker({ purchased:true, maxSpeedLevel:0 });
+      window.BallFall.startAutoSpawner();
+    } else {
+      const next = App.config.maxUnlockedSpeedLevel + 1;
+      const c = App.config.speedUpgradeCosts[next];
+      if (c === undefined || App.config.coins < c)
+        return window.notifyUnaffordable(100,12);
+      App.config.coins -= c;
+      App.config.maxUnlockedSpeedLevel = next;
+      const ni = App.config.originalSpawnInterval / Math.pow(2, next);
+      App.config.spawnInterval = ni;
+      window.BallFall.updateSpawnInterval(ni);
+      App.Persistence.saveAutoClicker({ purchased:true, maxSpeedLevel:next });
+    }
+    App.updateCoinsDisplay();
+    updateAutoClickerCostDisplay();
+  });
+
+   
+  btn.addEventListener("contextmenu", e => {
+    e.preventDefault();
+    doRefund(e.pageX, e.pageY);
+  });
+
+   
+  ["mouseenter","mousemove"].forEach(ev =>
+    btn.addEventListener(ev, e => showACPreview(e.pageX, e.pageY)));
+  btn.addEventListener("mouseleave", hideACPreview);
+
+   
+  (function () {
+    const HOLD = App.config.lineDeleteMobileHold;
+    let tId = null;
+
+    function clear () { clearTimeout(tId); tId = null; hideACPreview(); }
+
+    btn.addEventListener("touchstart", e => {
+      if (e.touches.length !== 1) return;
+      const t = e.touches[0];
+      showACPreview(t.pageX, t.pageY);
+      tId = setTimeout(() => {
+        doRefund(t.pageX, t.pageY);
+        clear();
+      }, HOLD);
+    });
+    btn.addEventListener("touchmove",  clear);
+    btn.addEventListener("touchend",   clear);
+    btn.addEventListener("touchcancel",clear);
+    document.addEventListener("touchend",   clear);
+    document.addEventListener("touchcancel",clear);
+
   })();
+
+   
+  function doRefund (x, y) {
+    const lvl = App.config.maxUnlockedSpeedLevel;
+    if (!App.config.autoClicker || lvl === 0) return;
+    const cost   = App.config.speedUpgradeCosts[lvl];
+    const refund = Math.ceil(cost * App.config.refundRate);
+
+    App.config.coins += refund;
+    App.config.maxUnlockedSpeedLevel = lvl - 1;
+
+    const newInt = App.config.originalSpawnInterval / Math.pow(2, lvl - 1);
+    App.config.spawnInterval = newInt;
+    window.BallFall.updateSpawnInterval(newInt);
+
+    App.Persistence.saveAutoClicker({ purchased:true, maxSpeedLevel:lvl-1 });
+    App.updateCoinsDisplay();
+    updateAutoClickerCostDisplay();
+    if (window.showRefundNotification)
+      window.showRefundNotification(refund, x, y);
+  }
+
+   
+  document.addEventListener("BallFallBaseReady", updateAutoClickerCostDisplay);
+})();
 </script>
+
 
 
   

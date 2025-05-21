@@ -578,6 +578,7 @@
 
   /* buy / speed-up */
   btn.addEventListener("click", () => {
+    hideACPreview(); 
     if (!App.config.autoClicker) {
       const c = App.config.autoClickerCost;
       if (App.config.coins < c) return window.notifyUnaffordable(100,12);
@@ -631,6 +632,7 @@
     btn.addEventListener("touchmove",  clear);
     btn.addEventListener("touchend",   clear);
     btn.addEventListener("touchcancel",clear);
+
   })();
 
   /* ---------------- refund core ---------------- */

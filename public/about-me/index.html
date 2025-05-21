@@ -1720,6 +1720,7 @@ This game was intended to have low art requirements and simple interaction rules
 
    
   btn.addEventListener("click", () => {
+    hideACPreview(); 
     if (!App.config.autoClicker) {
       const c = App.config.autoClickerCost;
       if (App.config.coins < c) return window.notifyUnaffordable(100,12);
@@ -1773,6 +1774,7 @@ This game was intended to have low art requirements and simple interaction rules
     btn.addEventListener("touchmove",  clear);
     btn.addEventListener("touchend",   clear);
     btn.addEventListener("touchcancel",clear);
+
   })();
 
    
