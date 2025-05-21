@@ -139,6 +139,7 @@ window.LauncherCreateTool = {
     if (App.modules.lines && typeof App.modules.lines.addLine === "function") {
       App.modules.lines.addLine(this.launcherPreview);
     }
+    this.launcherPreview.selectedType = this.selectedType;
     let persistentId = App.Persistence.saveLauncher({
       type: "launcher",
       selectedType: this.selectedType,

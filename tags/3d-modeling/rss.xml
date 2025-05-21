@@ -52,7 +52,7 @@
             
 
             
-                <link href="https://hockenworks.com/tags/3d-modeling/" rel="self" type="text/html"/>
+                <link href="http://localhost:1313/tags/3d-modeling/" rel="self" type="text/html"/>
             
         
             
@@ -60,7 +60,7 @@
             
 
             
-                <link href="https://hockenworks.com/tags/3d-modeling/rss.xml" rel="alternate" type="application/rss+xml"/>
+                <link href="http://localhost:1313/tags/3d-modeling/rss.xml" rel="alternate" type="application/rss+xml"/>
             
         
 
@@ -78,7 +78,7 @@
             <lastBuildDate>2025-05-20 00:00:00 +0000 UTC</lastBuildDate>
         
 
-        <link>https://hockenworks.com/tags/3d-modeling/</link>
+        <link>http://localhost:1313/tags/3d-modeling/</link>
 
         
 
@@ -112,7 +112,29 @@
                 
 
                 
-                    <description><![CDATA[<p>Here&rsquo;s a Download:
+                    <description><![CDATA[<p>X<sup>n</sup> + Y<sup>n</sup> = Z<sup>n</sup></p>
+<p><abbr title="This allows to hover for more info">Abbreviations</abbr></p>
+<p>H<sub>2</sub>O</p>
+<p><del>Strikethrough</del></p>
+<p>Press <kbd>Ctrl</kbd> + <kbd>Alt</kbd> + <kbd>Delete</kbd> to end the session.</p>
+<p><mark>This is a highlight</mark></p>
+<pre tabindex="0"><code>// ---- Removed Existing Collision Border Effect ----
+
+    const ballPositionData = {};
+    function removeBallsBelowPage() {
+      const bodies = Composite.allBodies(engine.world);
+      const pageBottom = Math.max(
+        document.body.scrollHeight,
+        document.documentElement.scrollHeight
+      );
+      bodies.forEach((body) =&gt; {
+        if (body.label === &#34;BallFallBall&#34; &amp;&amp; body.position.y &gt; pageBottom) {
+          World.remove(engine.world, body);
+          delete ballPositionData[body.id];
+        }
+      });
+    }
+</code></pre><p>Here&rsquo;s a Download:
 
 
 
@@ -127,10 +149,10 @@
 ]]></description>
                 
 
-                <guid isPermaLink="false">tag:hockenworks.com,2025-05-20:/test-gist/</guid>
+                <guid isPermaLink="false">tag:localhost:1313,2025-05-20:/test-gist/</guid>
 
                 
-                    <link>https://hockenworks.com/test-gist/</link>
+                    <link>http://localhost:1313/test-gist/</link>
                 
 
                 
@@ -179,10 +201,10 @@
 ]]></description>
                 
 
-                <guid isPermaLink="false">tag:hockenworks.com,2025-01-01:/bloom-or-bust/</guid>
+                <guid isPermaLink="false">tag:localhost:1313,2025-01-01:/bloom-or-bust/</guid>
 
                 
-                    <link>https://hockenworks.com/bloom-or-bust/</link>
+                    <link>http://localhost:1313/bloom-or-bust/</link>
                 
 
                 

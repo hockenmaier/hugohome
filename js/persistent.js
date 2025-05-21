@@ -186,6 +186,7 @@
         body.maxSpeed = App.config.launcherTypes[ld.selectedType].maxSpeed;
         body.isPreview = false;
         body.persistenceId = ld.id;
+        body.selectedType = ld.selectedType;
         Matter.World.add(window.BallFall.world, body);
         if (
           App.modules.lines &&
