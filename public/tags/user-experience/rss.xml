@@ -52,7 +52,7 @@
             
 
             
-                <link href="https://hockenworks.com/tags/user-experience/" rel="self" type="text/html"/>
+                <link href="http://localhost:1313/tags/user-experience/" rel="self" type="text/html"/>
             
         
             
@@ -60,7 +60,7 @@
             
 
             
-                <link href="https://hockenworks.com/tags/user-experience/rss.xml" rel="alternate" type="application/rss+xml"/>
+                <link href="http://localhost:1313/tags/user-experience/rss.xml" rel="alternate" type="application/rss+xml"/>
             
         
 
@@ -78,7 +78,7 @@
             <lastBuildDate>2025-01-01 00:00:00 +0000 UTC</lastBuildDate>
         
 
-        <link>https://hockenworks.com/tags/user-experience/</link>
+        <link>http://localhost:1313/tags/user-experience/</link>
 
         
 
@@ -207,7 +207,7 @@
 
 
 
-<img  alt="the app ui"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/make-us-smarter.jpg"   style="height: auto; max-width: 200px"   >
+<img  alt="the app ui"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/make-us-smarter.jpg"   style="height: auto; max-width: 200px"   >
 
 
     
@@ -227,10 +227,10 @@
 ]]></description>
                 
 
-                <guid isPermaLink="false">tag:hockenworks.com,2025-01-01:/my-experiments-with-ai-cheating/</guid>
+                <guid isPermaLink="false">tag:localhost:1313,2025-01-01:/my-experiments-with-ai-cheating/</guid>
 
                 
-                    <link>https://hockenworks.com/my-experiments-with-ai-cheating/</link>
+                    <link>http://localhost:1313/my-experiments-with-ai-cheating/</link>
                 
 
                 
@@ -403,7 +403,7 @@
 
 
 
-<img   class="img-fluid "  crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/human_joystick_centered.jpg"   style="display:block; height: auto; margin:0 auto; width: 60%"   >
+<img   class="img-fluid "  crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/human_joystick_centered.jpg"   style="display:block; height: auto; margin:0 auto; width: 60%"   >
 
 
 </div>
@@ -531,7 +531,7 @@
 
 
 
-<img   class="img-fluid "  crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/human_joystick_moving.jpg"   style="display:block; height: auto; margin:0 auto; width: 60%"   >
+<img   class="img-fluid "  crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/human_joystick_moving.jpg"   style="display:block; height: auto; margin:0 auto; width: 60%"   >
 
 
 </div>
@@ -546,10 +546,10 @@
 ]]></description>
                 
 
-                <guid isPermaLink="false">tag:hockenworks.com,2020-01-01:/human-joystick/</guid>
+                <guid isPermaLink="false">tag:localhost:1313,2020-01-01:/human-joystick/</guid>
 
                 
-                    <link>https://hockenworks.com/human-joystick/</link>
+                    <link>http://localhost:1313/human-joystick/</link>
                 
 
                 

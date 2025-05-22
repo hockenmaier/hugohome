@@ -17,9 +17,11 @@ zcoronado-herobanner.png|Lifestyle
 
 {{< /centered-text >}}
 
-Welcome to the hockenworks. I'm Brian Hockenmaier and these are my works.
+Welcome to hockenworks! I'm Brian hockenmaier [this site is full of things I work on.](/this-website/#etymology-of-hockenworks)
 
-I post here about game development, AI, VR, Home Automation, 3D printing, Money, Happiness, the Singularity, and many other things I care about. I hope you find something interesting here.
+That includes game development, AI, VR, Home Automation, 3D printing, Money, Happiness, the Singularity, and many other things I care about. I hope you find something interesting here.
+
+All work and opinion here is fully my own and not my employer's.
 
 More about this website [here](/this-website) and more about me and some of the top posts [here](/about-me)
 
@@ -34,5 +36,7 @@ Also, I still keep [my old pre-2022 website](old-site/index.html) inside this on
 ## Latest
 
 ---
+
+{{< latest-with-image >}}
 
 {{< latest-post >}}

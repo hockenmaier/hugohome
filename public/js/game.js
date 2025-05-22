@@ -20,7 +20,7 @@
       goalHeight = 40;
 
     let pageWidth, pageHeight, minY;
-    if (window.innerWidth < 720) {
+    if (window.innerWidth < 620) {
       pageWidth = window.innerWidth;
       pageHeight = window.innerHeight;
       minY = App.config.goalBaseSpawnYMobile + goalHeight / 2;
@@ -92,7 +92,7 @@
 
   // Waits for text colliders—but on mobile text colliders aren’t built, so call callback immediately.
   function waitForTextColliders(callback) {
-    if (window.innerWidth < 720) {
+    if (window.innerWidth < 620) {
       callback();
       return;
     }

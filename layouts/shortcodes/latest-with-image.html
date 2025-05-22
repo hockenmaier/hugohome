@@ -1,0 +1,57 @@
+{{/* Shortcode: latest-with-image.html Params: - pages: (optional) slice of
+pages; defaults to .Site.RegularPages - count: (optional) number of posts;
+defaults to 3 */}} {{ $ctx := . }} {{ $pages := default site.RegularPages
+($ctx.Get "pages") }} {{ $count := default 3 ($ctx.Get "count") | int }} {{
+$posts := first $count (sort $pages "Date" "desc") }}
+<div class="latest-with-image-list">
+  {{- range $posts }} {{ $p := . }} {{/* Initialize rawTag for media detection
+  */}} {{ $rawTag := "" }} {{ $match := findRE
+  `(?s)<(?:img|iframe)[^>]*src="([^"]+)"[^>]*>` $p.RawContent }} {{ if gt (len
+  $match) 0 }} {{ $rawTag = index $match 0 }} {{ else if
+  $p.Params.featured_image }} {{ $rawTag = (printf `<img src=\"%s\">`
+  $p.Params.featured_image) }} {{ end }} {{/* Clean summary: strip media tags
+  */}} {{ $rawSummary := $p.Summary }} {{ $summary := replaceRE
+  `(?s)<(?:img|iframe)[^>]*>` "" $rawSummary }}
+
+  <article class="latest-item">
+    <div class="media-column">
+      <a href="{{ $p.RelPermalink }}">
+        <div
+          class="media-container"
+          style="
+            width: 300px;
+            height: 300px;
+            overflow: hidden;
+            position: relative;
+          "
+        >
+          {{ if in $rawTag "iframe" }} {{ $src := replaceRE
+          `(?s).*src=\"([^\"]+)\".*` `$1` $rawTag }}
+          <iframe
+            src="{{ $src }}"
+            frameborder="0"
+            allowfullscreen
+            style="width: 100%; height: 100%; object-fit: cover"
+          ></iframe>
+          {{ else if in $rawTag "<img" }} {{ $src := replaceRE
+          `(?s).*src=\"([^\"]+)\".*` `$1` $rawTag }}
+          <img
+            src="{{ $src }}"
+            alt="{{ $p.Title }}"
+            style="width: 100%; height: 100%; object-fit: cover"
+          />
+          {{ else }}
+          <div style="width: 100%; height: 100%; background: #eee"></div>
+          {{ end }}
+        </div>
+      </a>
+    </div>
+    <div class="text-column">
+      <h2 class="post-title">
+        <a href="{{ $p.RelPermalink }}">{{ $p.Title }}</a>
+      </h2>
+      <p class="post-summary">{{ $summary | safeHTML }}</p>
+    </div>
+  </article>
+  {{- end }}
+</div>

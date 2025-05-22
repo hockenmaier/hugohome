@@ -9,6 +9,19 @@ short_description: "A 4 player board game where you gamble to take over a fruit 
 tags: ["Multiplayer", "Game Development", "Board Games", 3D Modeling]
 ---
 
+[paige.alert]
+message: "Get more information <a href=\"#\" class=\"alert-link\">here</a>."
+type: "primary"
+
+Quote
+{{< paige/quote cite="Hickory Dickory Dock" >}}
+Hickory dickory dock.<br>
+The mouse ran up the clock.<br>
+The clock struck one,<br>
+The mouse ran down,<br>
+Hickory dickory dock.
+{{< /paige/quote >}}
+
 X^n^ + Y^n^ = Z^n^
 
 <abbr title="This allows to hover for more info">Abbreviations</abbr>
