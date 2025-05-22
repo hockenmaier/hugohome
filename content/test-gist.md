@@ -12,7 +12,6 @@ tags: ["Multiplayer", "Game Development", "Board Games", 3D Modeling]
 [paige.alert]
 message: "Get more information <a href=\"#\" class=\"alert-link\">here</a>."
 type: "primary"
-
 Quote
 {{< paige/quote cite="Hickory Dickory Dock" >}}
 Hickory dickory dock.<br>

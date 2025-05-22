@@ -40,6 +40,8 @@ article.paige-latest-item a:hover:not(.nav-link),
   animation: bmGlowPulse 0.15s ease-in-out infinite alternate;
 }
 
+/* Custom Pill Menu Styling */
+
 @media (max-width: 620px) {
   /* prevent pills from wrapping and allow horizontal scroll */
   #paige-menu .nav {
@@ -57,4 +59,16 @@ article.paige-latest-item a:hover:not(.nav-link),
     text-align: center;
     padding: 0.25rem 0.5rem !important;
   }
+}
+
+/* Custom Header Styling */
+/* target exactly the headers in your content area,
+   and force the margin even if the theme says otherwise */
+#paige-content h1,
+#paige-content h2,
+#paige-content h3,
+#paige-content h4,
+#paige-content h5,
+#paige-content h6 {
+  margin-top: 1em !important;
 }

@@ -405,18 +405,33 @@ Context windows get larger all the time but this one still is not solved. Just a
     
 </div>
 
-<p>I mostly build, sometimes write, and post about both here. I love making games and things with VR and AI. Some of this has been cross or back-posted from my <a href="https://www.thingiverse.com/hockenmaier/designs">thingiverse</a>, <a href="https://x.com/Hockenmaier">twitter</a>, <a href="https://www.linkedin.com/in/hockenmaier/">linkedin</a>, and other places, but it all lives here permanently.</p>
-<p>One of the things I built was this website and the game built into it. <a href="/this-website">Read more about that here</a></p>
-<p>I’ve been at one company for a long time and have built a lot there, led some large teams, and released several things on my own too, in a bunch of software domains. I started on back-office stuff like billing systems, TV scheduling systems, IP rights management systems, file ingest systems for News, and several games and tools outside of work.</p>
-<p>Most recently I&rsquo;m making some pretty awesome stuff in agentic AI for the mundane work that the people at my company have to do!</p>
-<p>My bias is to build rather than talk. I&rsquo;m the one pushing to just try to build the thing, to scrap it early if needed, and to take risks releasing early. We always know more, and usually throw away our plans, when we start to build.</p>
-<p>I post here mostly about things I&rsquo;m making and occasional essays. If you’re interested in this site but don’t know where to start, try reading any of these posts that sound interesting to you. They&rsquo;re either peices or projects I put a lot of time into.</p>
+<p>I&rsquo;m Brian Hockenmaier: dad, engineer, and fun-haver.</p>
+<p>{family}</p>
+<p>{education, learn by doing}</p>
+<p>I’ve been at one company for a long time and have built a lot there, led some big teams, and released several things on my own too, in a bunch of different software domains. I started on back-office - things like billing systems, TV scheduling systems, IP rights management systems, file ingest systems for TV news content, and several games and tools outside of work. Most recently I&rsquo;m making some pretty awesome stuff in agentic AI for the mundane work that the people at my company have to do!</p>
+<p>My bias is to build rather than talk. I&rsquo;m the one pushing to just try to build the thing, to scrap it early if needed, and to take risks releasing early. We always know more, and usually throw away our plans, when we start to build. I love building strange things, useful thingss, fun things. One of the things I built was this website and the game running on top of it it. <a href="/this-website">Read more about that here</a></p>
 <hr>
-<h1 id="my-games">My Games</h1>
+<h1 id="where-to-start">Where to start</h1>
+<p>I post here mostly about things I&rsquo;m making and occasional essays. If you’re interested in this site but don’t know where to start, try reading any of these posts that sound interesting to you. They&rsquo;re either peices or projects I put a lot of time into.</p>
+<h2 id="my-games">My Games</h2>
 <blockquote>
-<p>Treekeepers VR was an ambitious game developement project I took on in 2021- my first published VR title and my first multiplayer title. The latter turned out to be the really hard part. Read more about it:</p>
+<p>Land War was my first published game. I built in in 6 months and released on Steam only, where it got a few hundred downloads and made a bit over $1000<article class="paige-latest-item py-4 text-light"><h4 class="fw-bold mb-2">
+    <a href="/land-war/" class="link-light">Land War</a>
+  </h4>
+  <p class="text-secondary">
+    <p>Land War is an 8-player strategy game I developed as a solo project and released to Steam in March of 2019.<br>
+This game was intended to have low art requirements and simple interaction rules that result in deep strategic gameplay.</p>
+<p>The core concept is that of an ultra-simplified real-time-strategy game. Each player is represented by a color and can grow their territory by moving in any direction. The strategic elements occur when players encounter other players and have to make choices about which side of their land to defend or give up. Players can use the structure of the map and the coordinated action of other players to gain defensible footholds in order to take more area and eventually be the last player on the board.</p>
+    
+      <a href="/land-war/" class="link-light">… read more</a>
+    
+  </p></article></p>
 </blockquote>
-<article class="paige-latest-item py-4 text-light"><h4 class="fw-bold mb-2">
+<p> </p>
+<hr>
+<p> </p>
+<blockquote>
+<p>Treekeepers VR was an ambitious game developement project I took on in 2021- my first published VR title and my first multiplayer title. The latter turned out to be the really hard part. Read more about it:<article class="paige-latest-item py-4 text-light"><h4 class="fw-bold mb-2">
     <a href="/treekeepers-vr/" class="link-light">Treekeepers VR</a>
   </h4>
   <p class="text-secondary">
@@ -512,128 +527,27 @@ Context windows get larger all the time but this one still is not solved. Just a
     
       <a href="/treekeepers-vr/" class="link-light">… read more</a>
     
-  </p></article>
+  </p></article></p>
+</blockquote>
+<p> </p>
 <hr>
 <p> </p>
 <blockquote>
-<p>This Website itself was quite a development project, especially the built-in game that runs on every page:</p>
-</blockquote>
-<article class="paige-latest-item py-4 text-light"><h4 class="fw-bold mb-2">
+<p>This Website itself was my 3rd video game:<article class="paige-latest-item py-4 text-light"><h4 class="fw-bold mb-2">
     <a href="/this-website/" class="link-light">This Website</a>
   </h4>
   <p class="text-secondary">
-    <p>I&rsquo;m creating this website in 2025 after starting a family as well as my first full-time role in AI. It&rsquo;s an effort to clean up my website&rsquo;s focus and emphasize what I truly care about, and my breadth of work. I want it to be easier to add content, CMS style, and I want a space for the occasional longform writing I often produce but rarely make public.</p>
-<div style="text-align: center; margin-bottom: 1rem;">
-    
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    
-
-
-
-    
-
-
-
-    
-
-
-
-
-
-    
-
-
-
-    
-
-
-
-
-
-    
-
-
-
-    
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<img  alt="the hockenworks homepage"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/hockenworks.png"   style="height: auto; max-width: 720px; width: 100%"   >
-
-
-    
-        <span style="display: block; font-style: italic; margin-top: 0.5rem;">This webpage, if you hadn&#39;t noticed</span>
-    
-</div>
-
-<p>A big reason I&rsquo;m doing this now is that, after listening to the Dwarkesh podcast with Gwern, I was convinced I really should have more of a record for future AIs to learn about me. I really don’t have a social media presence other than my corpo one on Linkedin, nor do I want one, and I have a lot of private projects and ideas that should be somewhere less private. AGI or not, there are non-artificial intelligences that may be interested. Talking to you, Alice :) Your cousin Lily keeps asking where you are and doesn&rsquo;t seem to get the concept that you currently occupy the same space as Kaitlin.</p>
+    <h1 id="what-this-place-is">What this place is</h1>
+<p>I&rsquo;m <a href="/about-me">Brian Hockenmaier</a>, and this site is full of things I build and write about. I love making games and things with VR and AI. I love DIY projects, epecially ones involving programming, engineering and 3D modeling. Some of this has been cross or back-posted from my <a href="https://www.thingiverse.com/hockenmaier/designs">thingiverse</a>, <a href="https://x.com/Hockenmaier">twitter</a>, <a href="https://www.linkedin.com/in/hockenmaier/">linkedin</a>, and other places, but it all lives here permanently.</p>
+<p>All work and opinion here is fully my own and not my employer&rsquo;s.</p>
     
       <a href="/this-website/" class="link-light">… read more</a>
     
-  </p></article>
+  </p></article></p>
+</blockquote>
+<p> </p>
 <hr>
 <p> </p>
-<blockquote>
-<p>Land War was my first published game. I built in in 6 months and released on Steam only, where it got a few hundred downloads and made a bit over $1000</p>
-</blockquote>
-<article class="paige-latest-item py-4 text-light"><h4 class="fw-bold mb-2">
-    <a href="/land-war/" class="link-light">Land War</a>
-  </h4>
-  <p class="text-secondary">
-    <p>Land War is an 8-player strategy game I developed as a solo project and released to Steam in March of 2019.<br>
-This game was intended to have low art requirements and simple interaction rules that result in deep strategic gameplay.</p>
-<p>The core concept is that of an ultra-simplified real-time-strategy game. Each player is represented by a color and can grow their territory by moving in any direction. The strategic elements occur when players encounter other players and have to make choices about which side of their land to defend or give up. Players can use the structure of the map and the coordinated action of other players to gain defensible footholds in order to take more area and eventually be the last player on the board.</p>
-    
-      <a href="/land-war/" class="link-light">… read more</a>
-    
-  </p></article>
-<hr>
 ]]></description>
                 
 

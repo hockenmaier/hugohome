@@ -19,6 +19,16 @@ tags:
   ]
 ---
 
+# What this place is
+
+I'm [Brian Hockenmaier](/about-me), and this site is full of things I build and write about. I love making games and things with VR and AI. I love DIY projects, epecially ones involving programming, engineering and 3D modeling. Some of this has been cross or back-posted from my [thingiverse](https://www.thingiverse.com/hockenmaier/designs), [twitter](https://x.com/Hockenmaier), [linkedin](https://www.linkedin.com/in/hockenmaier/), and other places, but it all lives here permanently.
+
+All work and opinion here is fully my own and not my employer's.
+
+This is an evolution of [my previous site last updated in 2022, which I still keep inside this one](old-site/index.html) for posterity and for the AIs of the future to know more about me. I like it not because of the content as much as because it was a fully custom js and html site with no framework.. and I think it's sort of fun and funny that it was like this.
+
+# Why I'm making it
+
 I'm creating this website in 2025 after starting a family as well as my first full-time role in AI. It's an effort to clean up my website's focus and emphasize what I truly care about, and my breadth of work. I want it to be easier to add content, CMS style, and I want a space for the occasional longform writing I often produce but rarely make public.
 
 {{< image-medium
@@ -48,19 +58,19 @@ And then you have:
 
 Which has many different spellings, and ours has southern German roots, but all "Meyer" names come from the latin root "maior" mean steward, administrator, or more generally "worker"
 
-I've always heard my family put these two components together as "Lazy Worker," which is very on-brand for our sense of humor, but I think it's actually quite appropriate for me.
+My family often puts these two ideas together as "Lazy Worker," which is very on-brand for our sense of humor, but I think it's not just funny, but true.
 
-“Lazy Worker” is perfect for someone who wants to get a lot done, especially in software engineering. We only have so many hours, and the best lives are lived restricting the number of hours spent on work that can't be done with people you love. So you better be efficient about it. You better be lazy. There are [many](https://blog.codinghorror.com/how-to-be-lazy-dumb-and-successful/?utm_source=chatgpt.com) [correct](https://xkcd.com/1205/?utm_source=chatgpt.com) [takes](https://thethreevirtues.com/) out there on the value of being lazy when programming.
+“Lazy Worker” is perfect for someone who wants to get a lot done, especially in software engineering. We only have so many hours, and the best lives are lived restricting the number of hours spent on work that isn't done with people you love. So you better be efficient about it. You better be lazy. There are [many](https://blog.codinghorror.com/how-to-be-lazy-dumb-and-successful/?utm_source=chatgpt.com) [correct](https://xkcd.com/1205/?utm_source=chatgpt.com) [takes](https://thethreevirtues.com/) out there on the value of being lazy when programming.
 
-Now that we are starting to have AI, it's even better. A lazy worker will not only avoid unnecessary work, but will delegate all that can be delegated to the new AI workers that are multiplying in our computers. That makes the "administrator" connotation of "Maier" all the more fitting.
+Now that we are starting to have AI, it's even better. A lazy worker like myself will not only avoid unnecessary work, but will delegate all that can be delegated to the new AI workers that are multiplying in our computers. That makes the "steward" connotation of "Maier" all the more fitting.
 
-So I'm proud to be the lazy worker, and this site is all about sharing my lazy works. My _hockenworks_.
+I'm proud to be the lazy worker, and this site is all about sharing my lazy works. My _hockenworks_.
 
 ---
 
 # Ball Machine - The Game
 
-Most blogs and personal websites are a bit boring. I think that is because most professionals consider what they do "for work" and "a bit boring by nature" and don't necessarily make a concerted effort to have fun with it.
+Most blogs and personal websites are a bit boring. I think that is because most professionals consider what they do "for work" a bit boring by its nature, and don't necessarily make a concerted effort to have fun with it.
 
 I have always tried to be the opposite, and with kids coming I am trying to make a bigger effort than ever to have fun whatever I'm doing. Which is often working, in some way or another.
 
@@ -87,37 +97,79 @@ I ended up making my own tool called [Context Caddy](/context-caddy) to help me 
 
 > Quick Disclaimer: The best experience is on desktop or tablet - something with more screen real-estate than a phone.
 
-{{< image-inline-teeny src="images/ball-chute-hatch-1.png" alt="ball chute" caption="This tube creates balls when you click on it" >}}
+{{< image-left-teeny src="images/ball-chute-hatch-1.png" alt="ball chute" caption="This tube creates balls when you click on it" >}}
 
 The ball machine on this site is a gamified version of my graph paper drawings as a kid. Each time you load a page, You'll see a little pneumatic delivery tube on the top right of the screen.
 
-When you spawn your first ball, you'll see a few things appear. First - you'll find a goal (look for a "target") somewhere randomly on the page. Find a way to get the balls you spawn into that goal. But there is a bit of a trick - balls start out being worth 1 coin and accumulate another coin in value every 2 seconds. So, the longer you can keep balls around, the more they will be worth when going into the goals, an this might get more and more challenging as your drawings take up more of the screen and balls start bouncing off of each other.
+When you spawn your first ball, you'll see a few things appear. First - you'll find a goal&nbsp;&nbsp; &nbsp;{{< image-inline-itsy src="images/goal.png" alt="auto clicker" caption="" >}} somewhere randomly on the page. Find a way to get the balls you spawn into that goal. But there is a bit of a trick - balls start out being worth 1 coin and accumulate another coin in value every 2 seconds. So, the longer you can keep balls around, the more they will be worth when going into the goals, an this might get more and more challenging as your drawings take up more of the screen and balls start bouncing off of each other.
 
-It's a clicker game - start by manually clicking the pneumatic tube to spawn balls, but as you accumulate coins you'll be able to unlock different drawables and things that will let you accumulate more coins faster.
+**Keep Clicking!**
 
-### Drawables
+It's [a clicker game](https://en.wikipedia.org/wiki/Incremental_game) - start by manually clicking the pneumatic tube to spawn balls, but as you accumulate coins you'll be able to unlock different drawables and things that will let you accumulate more coins faster.
 
-To start drawing your ball machine, you need to click or tap one of the drawables in the main UI:
+The site works across multiple pages. It works best when you're on desktop, working on one tab at a time.
 
-{image}
+&nbsp;
+
+### Controls
+
+{{< image-left-teenyweeny src="images/line-mode.png" alt="line toggle" caption="" >}}
+{{< image-left-teenyweeny src="images/curve-mode.png" alt="curved line toggle" caption="" >}}
+{{< image-left-teenyweeny src="images/compactor-mode.png" alt="compactor toggle" caption="" >}}
+
+To start drawing your ball machine, you need to <kbd>Left Click</kbd> or <kbd>Tap</kbd> one of these drawable toggles in the main UI (top left of the screen)
+
+When you have a Drawable tool toggled on, you won't be able to click other links on the site. You'll see this visually indicated when you choose them. Unselect the currently selected tool in order to see it
 
 Every drawable item (lines, launchers, and more) uses the following mechanics:
 
-On Desktop:
+&nbsp;
 
-- Start drawing by clicking, drag the mouse around to see a preview, and click again when you have the drawable where you want it.
-- Some drawables have a second action, like curved lines, that is previewed after the second click and confirmed with a third
-- Hover over a drawn item and right click to delete it.
+#### Drawing on Desktop
 
-On Mobile:
+**Spawn Balls:** <kbd>Left Click</kbd> on the pneumatic spawner tube
 
-- Tap and drag to see a preview, and release when you have the drawable in the right spot.
-- Second actions for the drawable will start on the next tap-and-drag.
-- Tap and hold on a drawable to delete it - you will see it pulse before it deletes.
+**Draw Objects:** <kbd>Left Click</kbd> and drag to see a preview, then <kbd>Left Click </kbd> to place
 
-If you can't draw an item, you probably can't afford it. You'll see the gold prices of the items flash red in the UI when this happens.
+- Some drawables have a second action, like curved lines, that is previewed after the second click and confirmed with a third click
 
-When you have a Drawable tool toggled on, you won't be able to click other links on the site. You'll see this visually indicated when you choose them. Unselect the currently selected tool in order to see it
+**Delete Objects:** Hover over a drawn item and <kbd>Right Click</kbd> to delete it, getting 50% of your money back
+
+&nbsp;
+
+#### Drawing on Mobile
+
+**Spawn Balls:** <kbd>Tap</kbd> on the pneumatic spawner tube
+
+**Draw Objects:** <kbd>Touch and Drag</kbd> to see a preview, then <kbd>Release</kbd> to place
+
+- Some drawables have a second action, like curved lines, that is previewed and confirmed on the next touch-and-drag.
+
+**Delete Objects:** <kbd>Tap and hold</kbd> an object to delete it, getting 50% of your money back. You will see it pulse before it deletes.
+
+&nbsp;
+
+{{< image-left-teenyweeny src="images/everything-has-a-price.png" alt="dotted line toggle" caption="" >}}**Everything has a price!**
+
+If you can't draw an item, you probably can't afford it. You'll see your coin counter flash red in the UI when this happens.
+
+{{< image-left-teenyweeny src="images/dotted-line-mode.png" alt="dotted line toggle" caption="" >}}**But you get what you pay for**
+
+If you every find yourself out of money, these dotted lines are free. They are not saved permanently like other lines and they go away after 50 balls hit them.
+
+&nbsp;
+
+#### The Auto-Clicker
+
+{{< image-left-teenyweeny src="images/auto-clicker.png" alt="auto clicker" caption="" >}}
+
+This is the autoclicker button that lets you pay to auto-spawn balls.
+
+<kbd>Left Click</kbd> or <kbd>Tap</kbd> to buy the first auto-clicker, or upgrade it.
+
+<kbd>Right Click</kbd> on desktop or <kbd>Tap and hold</kbd> on mobile to refund and downgrade it to the previous click frequency.
+
+&nbsp;
 
 ### Tips on Making Money
 

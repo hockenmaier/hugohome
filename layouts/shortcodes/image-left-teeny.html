@@ -1,0 +1,16 @@
+<span
+  style="
+    float: left;
+    width: 150px;
+    margin: 0 1rem 1rem 0;
+    display: inline-block;
+  "
+>
+  {{ partial "paige/image" (dict "src" (.Get "src") "alt" (.Get "alt" | default
+  "Image description") "width" "100%" "maxwidth" "200px" ) }} {{ with .Get
+  "caption" }}
+  <span style="display: block; font-style: italic; margin-top: 0.5rem">
+    {{ . }}
+  </span>
+  {{ end }}
+</span>
