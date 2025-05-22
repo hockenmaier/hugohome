@@ -71,7 +71,7 @@ I’m going to make a few specific predictions of mechanics we will see in the f
 
 - NPCs won't have recorded voice lines, but instead have voices generated in real time, and AAA games will start to make contracts with celebrity talent in order to generate their voice in games
 
-- We will see a transition from the current minorly procedural elements of gameplay to full procedural generated worlds, especially where player actions and environmental events change landscape, buildings, etc dynamically.
+- We will see a transition from the current minorly procedural elements of gameplay to full procedural generated worlds, especially where player actions and environmental events change landscape, buildings, etc dynamically
 
 - Game art will go through an incredible revolution, and we will stop having massive teams of people creating 3D meshes and textures to drop around the world, with many of these meshes and textures being generated from prompts in development, but also being generated on the fly in games
 
