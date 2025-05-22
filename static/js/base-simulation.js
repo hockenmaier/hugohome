@@ -61,7 +61,7 @@ App.modules.base = (function () {
       /Mobi|Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
         navigator.userAgent
       ) ||
-      (window.innerWidth < 6200 && navigator.hardwareConcurrency <= 4);
+      (window.innerWidth < 620 && navigator.hardwareConcurrency <= 4);
 
     const substeps = isMobileLike ? 2 : 6; // mobile 1, desktop uses 6 for better accuracy
 
