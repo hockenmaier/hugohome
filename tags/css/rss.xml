@@ -26,6 +26,12 @@
         
     
 
+    
+
+    
+        
+    
+
 
 
 
@@ -112,7 +118,11 @@
                 
 
                 
-                    <description><![CDATA[<p>I&rsquo;m creating this website in 2025 after starting a family as well as my first full-time role in AI. It&rsquo;s an effort to clean up my website&rsquo;s focus and emphasize what I truly care about, and my breadth of work. I want it to be easier to add content, CMS style, and I want a space for the occasional longform writing I often produce but rarely make public.</p>
+                    <description><![CDATA[<p>I&rsquo;m <a href="/about-me">Brian Hockenmaier</a>, and this site is full of things I build and write about. I love making games and things with VR and AI. I love DIY projects, epecially ones involving programming, engineering and 3D modeling. Some of this has been cross or back-posted from my <a href="https://www.thingiverse.com/hockenmaier/designs">thingiverse</a>, <a href="https://x.com/Hockenmaier">twitter</a>, <a href="https://www.linkedin.com/in/hockenmaier/">linkedin</a>, and other places, but it all lives here permanently.</p>
+<p>All work and opinion here is fully my own and not my employer&rsquo;s.</p>
+<p>This is an evolution of <a href="old-site/index.html">my previous site last updated in 2022, which I still keep inside this one</a> for posterity and for the AIs of the future to know more about me. I like it not because of the content as much as because it was a fully custom js and html site with no framework.. and I think it&rsquo;s sort of fun and funny that it was like this.</p>
+<h1 id="why-im-making-it">Why I&rsquo;m making it</h1>
+<p>I&rsquo;m creating this website in 2025 after starting a family as well as my first full-time role in AI. It&rsquo;s an effort to clean up my website&rsquo;s focus and emphasize what I truly care about, and my breadth of work. I want it to be easier to add content, CMS style, and I want a space for the occasional longform writing I often produce but rarely make public.</p>
 <div style="text-align: center; margin-bottom: 1rem;">
     
 
@@ -217,13 +227,13 @@
 <p><strong>Maier</strong></p>
 </blockquote>
 <p>Which has many different spellings, and ours has southern German roots, but all &ldquo;Meyer&rdquo; names come from the latin root &ldquo;maior&rdquo; mean steward, administrator, or more generally &ldquo;worker&rdquo;</p>
-<p>I&rsquo;ve always heard my family put these two components together as &ldquo;Lazy Worker,&rdquo; which is very on-brand for our sense of humor, but I think it&rsquo;s actually quite appropriate for me.</p>
-<p>“Lazy Worker” is perfect for someone who wants to get a lot done, especially in software engineering. We only have so many hours, and the best lives are lived restricting the number of hours spent on work that can&rsquo;t be done with people you love. So you better be efficient about it. You better be lazy. There are <a href="https://blog.codinghorror.com/how-to-be-lazy-dumb-and-successful/?utm_source=chatgpt.com">many</a> <a href="https://xkcd.com/1205/?utm_source=chatgpt.com">correct</a> <a href="https://thethreevirtues.com/">takes</a> out there on the value of being lazy when programming.</p>
-<p>Now that we are starting to have AI, it&rsquo;s even better. A lazy worker will not only avoid unnecessary work, but will delegate all that can be delegated to the new AI workers that are multiplying in our computers. That makes the &ldquo;administrator&rdquo; connotation of &ldquo;Maier&rdquo; all the more fitting.</p>
-<p>So I&rsquo;m proud to be the lazy worker, and this site is all about sharing my lazy works. My <em>hockenworks</em>.</p>
+<p>My family often puts these two ideas together as &ldquo;Lazy Worker,&rdquo; which is very on-brand for our sense of humor, but I think it&rsquo;s not just funny, but true.</p>
+<p>“Lazy Worker” is perfect for someone who wants to get a lot done, especially in software engineering. We only have so many hours, and the best lives are lived restricting the number of hours spent on work that isn&rsquo;t done with people you love. So you better be efficient about it. You better be lazy. There are <a href="https://blog.codinghorror.com/how-to-be-lazy-dumb-and-successful/?utm_source=chatgpt.com">many</a> <a href="https://xkcd.com/1205/?utm_source=chatgpt.com">correct</a> <a href="https://thethreevirtues.com/">takes</a> out there on the value of being lazy when programming.</p>
+<p>Now that we are starting to have AI, it&rsquo;s even better. A lazy worker like myself will not only avoid unnecessary work, but will delegate all that can be delegated to the new AI workers that are multiplying in our computers. That makes the &ldquo;steward&rdquo; connotation of &ldquo;Maier&rdquo; all the more fitting.</p>
+<p>I&rsquo;m proud to be the lazy worker, and this site is all about sharing my lazy works. My <em>hockenworks</em>.</p>
 <hr>
 <h1 id="ball-machine---the-game">Ball Machine - The Game</h1>
-<p>Most blogs and personal websites are a bit boring. I think that is because most professionals consider what they do &ldquo;for work&rdquo; and &ldquo;a bit boring by nature&rdquo; and don&rsquo;t necessarily make a concerted effort to have fun with it.</p>
+<p>Most blogs and personal websites are a bit boring. I think that is because most professionals consider what they do &ldquo;for work&rdquo; a bit boring by its nature, and don&rsquo;t necessarily make a concerted effort to have fun with it.</p>
 <p>I have always tried to be the opposite, and with kids coming I am trying to make a bigger effort than ever to have fun whatever I&rsquo;m doing. Which is often working, in some way or another.</p>
 <p>So for my website, I wanted it to be intentionally fun. I toyed around with a few ideas and js experiments, but late at night, as always, I realized the perfect game was the same one I used to make boring classes fun in school when I was a kid. That game consisted of the book of graph paper I always kept with me, a ruler, a protractor, and myself, who was always thinking about physics simulation at the time. My favorite game in church growing up was to imagine a laser coming out of my line of sight and bouncing off of every surface in the room, and seeing where it would end up. This graph paper game was similar:</p>
 <div style="text-align: center; margin-bottom: 1rem;">
@@ -423,26 +433,697 @@
 </span>
 
 <p>The ball machine on this site is a gamified version of my graph paper drawings as a kid. Each time you load a page, You&rsquo;ll see a little pneumatic delivery tube on the top right of the screen.</p>
-<p>When you spawn your first ball, you&rsquo;ll see a few things appear. First - you&rsquo;ll find a goal (look for a &ldquo;target&rdquo;) somewhere randomly on the page. Find a way to get the balls you spawn into that goal. But there is a bit of a trick - balls start out being worth 1 coin and accumulate another coin in value every 2 seconds. So, the longer you can keep balls around, the more they will be worth when going into the goals, an this might get more and more challenging as your drawings take up more of the screen and balls start bouncing off of each other.</p>
-<p>It&rsquo;s a clicker game - start by manually clicking the pneumatic tube to spawn balls, but as you accumulate coins you&rsquo;ll be able to unlock different drawables and things that will let you accumulate more coins faster.</p>
-<h3 id="drawables">Drawables</h3>
-<p>To start drawing your ball machine, you need to click or tap one of the drawables in the main UI:</p>
-<p>{image}</p>
-<p>Every drawable item (lines, launchers, and more) uses the following mechanics:</p>
-<p>On Desktop:</p>
-<ul>
-<li>Start drawing by clicking, drag the mouse around to see a preview, and click again when you have the drawable where you want it.</li>
-<li>Some drawables have a second action, like curved lines, that is previewed after the second click and confirmed with a third</li>
-<li>Hover over a drawn item and right click to delete it.</li>
-</ul>
-<p>On Mobile:</p>
-<ul>
-<li>Tap and drag to see a preview, and release when you have the drawable in the right spot.</li>
-<li>Second actions for the drawable will start on the next tap-and-drag.</li>
-<li>Tap and hold on a drawable to delete it - you will see it pulse before it deletes.</li>
-</ul>
-<p>If you can&rsquo;t draw an item, you probably can&rsquo;t afford it. You&rsquo;ll see the gold prices of the items flash red in the UI when this happens.</p>
+<p>When you spawn your first ball, you&rsquo;ll see a few things appear. First - you&rsquo;ll find a goal    <span
+  style="
+    display: inline-block;
+    width: 40px;
+    margin: 0 1rem 0 0;
+    vertical-align: middle;
+    text-align: left;
+  "
+>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<img  alt="auto clicker"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/goal.png"   style="height: auto; max-width: 40px; width: 100%"   >
+
+ 
+</span>
+ somewhere randomly on the page. Find a way to get the balls you spawn into that goal. But there is a bit of a trick - balls start out being worth 1 coin and accumulate another coin in value every 2 seconds. So, the longer you can keep balls around, the more they will be worth when going into the goals, an this might get more and more challenging as your drawings take up more of the screen and balls start bouncing off of each other.</p>
+<p><strong>Keep Clicking!</strong></p>
+<p>It&rsquo;s <a href="https://en.wikipedia.org/wiki/Incremental_game">a clicker game</a> - start by manually clicking the pneumatic tube to spawn balls, but as you accumulate coins you&rsquo;ll be able to unlock different drawables and things that will let you accumulate more coins faster.</p>
+<p>The site works across multiple pages. It works best when you&rsquo;re on desktop, working on one tab at a time.</p>
+<p> </p>
+<h3 id="controls">Controls</h3>
+<p><span
+  style="
+    display: inline-block;
+    width: 100px;
+    margin: 0 1rem 0 0;
+    vertical-align: middle;
+    text-align: left;
+  "
+>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<img  alt="line toggle"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/line-mode.png"   style="height: auto; max-width: 200px; width: 100%"   >
+
+ 
+</span>
+
+<span
+  style="
+    display: inline-block;
+    width: 100px;
+    margin: 0 1rem 0 0;
+    vertical-align: middle;
+    text-align: left;
+  "
+>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<img  alt="curved line toggle"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/curve-mode.png"   style="height: auto; max-width: 200px; width: 100%"   >
+
+ 
+</span>
+
+<span
+  style="
+    display: inline-block;
+    width: 100px;
+    margin: 0 1rem 0 0;
+    vertical-align: middle;
+    text-align: left;
+  "
+>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<img  alt="compactor toggle"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/compactor-mode.png"   style="height: auto; max-width: 200px; width: 100%"   >
+
+ 
+</span>
+</p>
+<p>To start drawing your ball machine, you need to <kbd>Left Click</kbd> or <kbd>Tap</kbd> one of these drawable toggles in the main UI (top left of the screen)</p>
 <p>When you have a Drawable tool toggled on, you won&rsquo;t be able to click other links on the site. You&rsquo;ll see this visually indicated when you choose them. Unselect the currently selected tool in order to see it</p>
+<p>Every drawable item (lines, launchers, and more) uses the following mechanics:</p>
+<p> </p>
+<h4 id="drawing-on-desktop">Drawing on Desktop</h4>
+<p><strong>Spawn Balls:</strong> <kbd>Left Click</kbd> on the pneumatic spawner tube</p>
+<p><strong>Draw Objects:</strong> <kbd>Left Click</kbd> and drag to see a preview, then <kbd>Left Click </kbd> to place</p>
+<ul>
+<li>Some drawables have a second action, like curved lines, that is previewed after the second click and confirmed with a third click</li>
+</ul>
+<p><strong>Delete Objects:</strong> Hover over a drawn item and <kbd>Right Click</kbd> to delete it, getting 50% of your money back</p>
+<p> </p>
+<h4 id="drawing-on-mobile">Drawing on Mobile</h4>
+<p><strong>Spawn Balls:</strong> <kbd>Tap</kbd> on the pneumatic spawner tube</p>
+<p><strong>Draw Objects:</strong> <kbd>Touch and Drag</kbd> to see a preview, then <kbd>Release</kbd> to place</p>
+<ul>
+<li>Some drawables have a second action, like curved lines, that is previewed and confirmed on the next touch-and-drag.</li>
+</ul>
+<p><strong>Delete Objects:</strong> <kbd>Tap and hold</kbd> an object to delete it, getting 50% of your money back. You will see it pulse before it deletes.</p>
+<p> </p>
+<p><span
+  style="
+    display: inline-block;
+    width: 100px;
+    margin: 0 1rem 0 0;
+    vertical-align: middle;
+    text-align: left;
+  "
+>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<img  alt="dotted line toggle"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/everything-has-a-price.png"   style="height: auto; max-width: 200px; width: 100%"   >
+
+ 
+</span>
+<strong>Everything has a price!</strong></p>
+<p>If you can&rsquo;t draw an item, you probably can&rsquo;t afford it. You&rsquo;ll see your coin counter flash red in the UI when this happens.</p>
+<p><span
+  style="
+    display: inline-block;
+    width: 100px;
+    margin: 0 1rem 0 0;
+    vertical-align: middle;
+    text-align: left;
+  "
+>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<img  alt="dotted line toggle"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/dotted-line-mode.png"   style="height: auto; max-width: 200px; width: 100%"   >
+
+ 
+</span>
+<strong>But you get what you pay for</strong></p>
+<p>If you every find yourself out of money, these dotted lines are free. They are not saved permanently like other lines and they go away after 50 balls hit them.</p>
+<p> </p>
+<h4 id="the-auto-clicker">The Auto-Clicker</h4>
+<span
+  style="
+    display: inline-block;
+    width: 100px;
+    margin: 0 1rem 0 0;
+    vertical-align: middle;
+    text-align: left;
+  "
+>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<img  alt="auto clicker"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/auto-clicker.png"   style="height: auto; max-width: 200px; width: 100%"   >
+
+ 
+</span>
+
+<p>This is the autoclicker button that lets you pay to auto-spawn balls.</p>
+<p><kbd>Left Click</kbd> or <kbd>Tap</kbd> to buy the first auto-clicker, or upgrade it.</p>
+<p><kbd>Right Click</kbd> on desktop or <kbd>Tap and hold</kbd> on mobile to refund and downgrade it to the previous click frequency.</p>
+<p> </p>
 <h3 id="tips-on-making-money">Tips on Making Money</h3>
 <p>You&rsquo;ll quickly find ways to lengthen your Rube-Golberg Machines and build up value before you send balls into the goal. A couple of things to watch out for though:</p>
 <ul>
@@ -510,6 +1191,791 @@ So keep your balls moving!</li>
                 
 
                 
+                    <description><![CDATA[<p>The Answering Machine is a proof-of-concept system that I built using <strong>pre-LLM</strong> natural language processing (NLP), specifically NLTK, to produce answers to questions asked about data in plain English.</p>
+<p>Looking back, this project was a great insight into what LLMs immediately allowed that was incredibly difficult before. This project was several months of work that the openAI sdk would probably have allowed in a few weeks - and that few weeks would have been mostly frontend design and a bit of prompting.</p>
+<p><strong>Try it here:</strong> <a href="http://voicequery-dev.s3-website-us-west-2.amazonaws.com/">http://voicequery-dev.s3-website-us-west-2.amazonaws.com/</a>
+<strong>Github:</strong> <a href="https://github.com/hockenmaier/voicequery">https://github.com/hockenmaier/voicequery</a></p>
+<p>The system uses natural language processing (NLP) to produce answers to questions asked about data in plain English.</p>
+<p>It is designed with simplicity in mind—upload any columnar dataset and start asking questions and getting answers. It uses advanced NLP algorithms to make assumptions about what data you&rsquo;re asking about and lets you correct those assumptions for follow-up questions if they&rsquo;re wrong.</p>
+<p>It is built entirely out of serverless components, which means there is no cost to maintain or run it other than the traffic the system receives.</p>
+<h2 id="how-to">How-to</h2>
+<p>On a desktop or tablet, click the link in the header to navigate to the Answering Machine. For now, it isn&rsquo;t optimized for smartphone-sized screens.</p>
+<p>In order to use the Answering Machine, you can either select one of the existing datasets, such as &ldquo;HR Activity Sample,&rdquo; or upload one of your own using the homepage of the site:</p>
+<div style="text-align: center; margin-bottom: 1rem;">
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<img  alt="Answering Machine homepage"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/answering_machine_uploads.png"   style="height: auto; max-width: 720px; width: 100%"   >
+
+
+    
+</div>
+
+<p>To upload your own, click in the upload area or just drag a file straight from your desktop. For now, use CSV data files. Excel and other spreadsheet programs can easily save data in the CSV format using the &ldquo;File &gt; Save As&rdquo; or similar option in the menu. Each file needs a unique name.</p>
+<p>When you hit the upload button, the site may not appear to change until the file is uploaded, at which point you&rsquo;ll see it appear in the box labeled &ldquo;Ask Your Data Anything&rdquo; below. Click on your file to start using it with the Answering Machine, or click the red trash can icon to delete it.</p>
+<p>There are no user accounts in this system yet, so the data you upload might be seen by other users using the system. Try not to use sensitive data for now.</p>
+<h3 id="asking-questions">Asking questions</h3>
+<p>When you enter a dataset, you&rsquo;ll see a view that presents you with quite a bit of information:</p>
+<div style="text-align: center; margin-bottom: 1rem;">
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+
+
+    
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<img  alt="Answering Machine main view"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/answering_machine_hr.png"   style="height: auto; width: 100%"   >
+
+
+    
+</div>
+
+<p>The only part you need to focus on right now is the information panel. This panel lists out all the fields (columns), data types of those fields, and some sample data from a few records in your dataset:</p>
+<div style="text-align: center; margin-bottom: 1rem;">
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<img  alt="Answering Machine info panel"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/answering_machine_info.png"   style="height: auto; max-width: 720px; width: 100%"   >
+
+
+    
+</div>
+
+<p>You can use this panel to start to formulate questions you might have about the data. If you see number values, you might ask about averages, maximums, or other math that might otherwise take some time to calculate. If you see a date, you can ask questions about the data in certain time periods.</p>
+<p>Many datasets also contain fields that only have a few specific allowed values. When the Answering Machine sees fewer than 15 unique values in any field, the data type will be a &ldquo;List&rdquo; and it lists them right out under the sample values table. You can use this type of value to ask questions about records containing those specific values. For example, in the HR dataset, you might only be interested in data where the &ldquo;Education&rdquo; field&rsquo;s value is &ldquo;High School.&rdquo;</p>
+<p>Now look to the query bar to start asking your data questions:</p>
+<div style="text-align: center; margin-bottom: 1rem;">
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<img  alt="Answering Machine query bar"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/answering_machine_query.png"   style="height: auto; max-width: 720px; width: 100%"   >
+
+
+    
+</div>
+
+<p>The types of questions that will currently be automatically detected and answered are:</p>
+<ul>
+<li>Counts of records where certain conditions are true</li>
+<li>Math questions such as averages, medians, maximums, and minimums</li>
+</ul>
+<p>These types of questions can be made specific by using qualifying statements with prepositional phrases like &ldquo;in 2019&rdquo; or adjective phrases like &ldquo;male&rdquo; or &ldquo;entry-level.&rdquo;</p>
+<p>Combining these two ideas, you can ask specific questions with any number of qualifiers, such as:<br>
+<em>&ldquo;What was the median salary of male employees in the engineering department 5 years ago?&rdquo;</em></p>
+<p>Upon hitting the &ldquo;Ask&rdquo; button (or hitting Enter), the Answering Machine will do its best to answer your question and will show you all of its work in this format:</p>
+<div style="text-align: center; margin-bottom: 1rem;">
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<img  alt="Answering Machine response"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/answering_machine_answer.png"   style="height: auto; max-width: 720px; width: 100%"   >
+
+
+    
+</div>
+
+<p>The last line in the response is the Answering Machine&rsquo;s answer. In this case, it is telling you the metric you asked for with all your stipulations is <strong>6871.6 dollars.</strong></p>
+<p>Moving up, you see a series of assessments that the Answering Machine has made in order to filter and identify the data you are asking about. Statements like &ldquo;Best auto-detected Numeric Subject Found: salary with column: Compensation (Monthly)&rdquo; provide a glimpse into one of the Answering Machine&rsquo;s most advanced features, which uses a selection of NLP techniques to compare words and phrases that are similar in meaning, ultimately matching things you are asking about to fields and values that actually exist in your database.</p>
+<p>At the very top of the response is how the Answering Machine&rsquo;s nested grammar parsing logic actually parsed your question, with some specific pieces color-coded:</p>
+<ul>
+<li><strong>Green</strong> chunks indicate &ldquo;subjects&rdquo; that were detected. Subjects are what the Answering Machine thinks you&rsquo;re asking &ldquo;about.&rdquo; These should represent both the main subject and other supporting subjects in your question.</li>
+<li><strong>Purple</strong> chunks are conditions. These are the things that the Answering Machine thinks you are trying to use to &ldquo;specify&rdquo; or filter data.</li>
+</ul>
+<p>Now that your question is answered, you might notice that some new green and purple colored bubbles have appeared in the sections of your screen labeled &ldquo;New Subjects&rdquo; and &ldquo;New Conditions.&rdquo; We&rsquo;ll call these &ldquo;lexicon&rdquo;:</p>
+<div style="text-align: center; margin-bottom: 1rem;">
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<img  alt="Answering Machine subjects and conditions"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/answering_machine_lexicon.png"   style="height: auto; max-width: 400px; width: 100%"   >
+
+
+    
+</div>
+
+<h3 id="forming-concepts">Forming Concepts</h3>
+<p>If the Answering Machine already understood what you were asking and successfully matched it to fields and values in your data, you don&rsquo;t have to do anything with these. But often you will be using domain-specific lexicon, or the auto-matching algorithm simply won&rsquo;t pick the correct value. These situations are what concepts are for.</p>
+<p>To create a concept, click and drag on the green or purple &ldquo;lexicon&rdquo; bubble and move it out into the blank middle area of the screen. Then click and drag the field or field value from the info-panel at the top of the screen and drop it right on top of that bubble. You&rsquo;ll see both the data bubble and the lexicon bubble included in a larger gray bubble, which represents the concept:</p>
+<div style="text-align: center; margin-bottom: 1rem;">
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<img  alt="Answering Machine concept"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/answering_machine_concept.png"   style="height: auto; max-width: 200px; width: 100%"   >
+
+
+    
+</div>
+
+<p>You can add more lexicon bubbles to this concept if they mean the same thing, but you can only use one data bubble.</p>
+<p>Concepts override the Answering Machine&rsquo;s auto-matching logic. If you ask another question containing a subject or condition that is now matched by a user to a data value, that data value will be used instead of the auto-match. If the concept isn&rsquo;t working well, you can delete it by dragging all of the nested bubbles out of it either into the blank middle area or into the colored panel they originally came from.</p>
+<p>Feel free to play around with new datasets and questions, and use the contact section of this site if you have comments or questions. When you ask questions or create/modify concepts, that data will automatically be saved to the server in real-time. You can close the page anytime and come back to your dataset to keep asking questions.</p>
+<p>Remember that there are no user accounts, meaning you can share your dataset and work in tandem with others! But again, please do not upload sensitive data to this proof-of-concept tool as it will be available for other users to see and query.</p>
+<h2 id="architecture">Architecture</h2>
+<p>The Answering Machine is a purely &ldquo;serverless&rdquo; application, meaning that there is no server hosting the various components of the application until those components are needed by a user. This is true for the database, the file storage, the static website, the backend compute, and the API orchestration.</p>
+<p>For the cloud nerds out there, <a href="https://martinfowler.com/articles/serverless.html">here is a great article</a> by Martin Fowler on what exactly &ldquo;serverless&rdquo; means, especially in terms of the backend compute portion, which is arguably the most valuable part of the application to be serverless. For reference, I am using Martin&rsquo;s 2nd definition of &ldquo;serverless&rdquo; here.</p>
+<p>This is a high-level map of all of the components that make the Answering Machine work in its current (June 2020) state. The API gateways, CloudWatch events, and some triggers &ldquo;given for free&rdquo; by AWS are left out of this for readability:</p>
+<div style="text-align: center; margin-bottom: 1rem;">
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<img  alt="Serverless Architecture of the Answering Machine app"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/answering_machine_architecture.png"   style="height: auto; max-width: 720px; width: 100%"   >
+
+
+    
+</div>
+
+<p>The full suite of lambdas and persistent storage services that make up the Answering Machine.</p>
+]]></description>
+                
+
+                <guid isPermaLink="false">tag:hockenworks.com,2019-07-03:/answering-machine/</guid>
+
+                
+                    <link>https://hockenworks.com/answering-machine/</link>
+                
+
+                
+                    <pubDate>Wed, 03 Jul 2019 00:00:00 UTC</pubDate>
+                
+
+                
+                    <title>The Answering Machine</title>
+                
+            </item>
+        
+            <item>
+                
+                
+                
+                
+                
+                
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+                
+
+                
+
+                
+
+                
                     <description><![CDATA[<p><strong>Raspberry Pi Control Panel</strong> is a hardware project I designed in 2016 to manage home automation systems. The project involved designing a custom 3D-printed case for a Raspberry Pi microcomputer with a touchscreen interface.</p>
 <p>Links:</p>
 <ul>
@@ -520,7 +1986,7 @@ So keep your balls moving!</li>
 <p>I created this panel display in 2026 to control much of the home automation I used in my Studio City apartment. Mainly a hardware project, I designed and 3D-printed a case and frame for the touchscreen and raspberry pi microcomputer in order to mount them to the wall. The software running the control panel is SaaS, but I did write a custom html wrapper to control the orientation and settings of the site, which is available on the github linked above.</p>
 <p>Update in 2025: This panel is still my main view into my home automation in my new house in Sherman Oaks, almost 10 years in with no modification!</p>
 <p>Here&rsquo;s a video to see the panel in action:</p>
-<h2 id="hahahugoshortcode8s0hbhb">
+<h2 id="hahahugoshortcode18s0hbhb">
     <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
       <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/iFGmm-ijJvE?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"></iframe>
     </div>

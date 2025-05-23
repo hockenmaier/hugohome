@@ -55,7 +55,16 @@ App.modules.base = (function () {
     Render.run(render);
 
     // Run physics substeps.
-    const substeps = 2; // Tune this down for better performance, up for better physics consistency
+    // Tune this down for better performance, up for better physics consistency
+    const isMobileLike =
+      navigator.userAgentData?.mobile === true ||
+      /Mobi|Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+        navigator.userAgent
+      ) ||
+      (window.innerWidth < 620 && navigator.hardwareConcurrency <= 4);
+
+    const substeps = isMobileLike ? 2 : 4; // mobile 1, desktop uses 6 for better accuracy
+
     const baseDt = 1000 / 60;
     const dt = baseDt / substeps;
     setInterval(() => {
@@ -242,6 +251,14 @@ App.modules.base = (function () {
       ballsList.forEach((body) => World.remove(engine.world, body));
       ballsList.length = 0;
     };
+
+    function stopAutoSpawner() {
+      if (spawnIntervalId) {
+        clearInterval(spawnIntervalId);
+        spawnIntervalId = null;
+      }
+    }
+    window.BallFall.stopAutoSpawner = stopAutoSpawner;
 
     // ---- Removed Existing Collision Border Effect ----
 

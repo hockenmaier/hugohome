@@ -42,8 +42,7 @@
 <meta property="og:url" content="https://hockenworks.com/test-gist/">
   <meta property="og:site_name" content="hockenworks">
   <meta property="og:title" content="Test Embeds">
-  <meta property="og:description" content="[paige.alert] message: “Get more information &lt;a href=&#34;#&#34; class=&#34;alert-link&#34;&gt;here.” type: “primary”
-Quote Hickory dickory dock.
+  <meta property="og:description" content="[paige.alert] message: “Get more information &lt;a href=&#34;#&#34; class=&#34;alert-link&#34;&gt;here.” type: “primary” Quote Hickory dickory dock.
 The mouse ran up the clock.
 The clock struck one,
 The mouse ran down,
@@ -56,8 +55,8 @@ This is a highlight
 // ---- Removed Existing Collision Border Effect ----const ballPositionData = {};function removeBallsBelowPage() {const bodies = Composite.allBodies(engine.world);const pageBottom = Math.max(document.body.scrollHeight,document.documentElement.scrollHeight);bodies.forEach((body) =&gt; {if (body.label === &#34;BallFallBall&#34; &amp;&amp; body.position.y &gt; pageBottom) {World.remove(engine.world, body);delete ballPositionData[body.id];}});} Here’s a Download: Download the STL model of my Ottoman Support">
   <meta property="og:locale" content="en_us">
   <meta property="og:type" content="article">
-    <meta property="article:published_time" content="2025-05-20T00:00:00+00:00">
-    <meta property="article:modified_time" content="2025-05-20T00:00:00+00:00">
+    <meta property="article:published_time" content="2020-05-20T00:00:00+00:00">
+    <meta property="article:modified_time" content="2020-05-20T00:00:00+00:00">
     <meta property="article:tag" content="Multiplayer">
     <meta property="article:tag" content="Game Development">
     <meta property="article:tag" content="Board Games">
@@ -66,8 +65,7 @@ This is a highlight
 
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Test Embeds">
-  <meta name="twitter:description" content="[paige.alert] message: “Get more information &lt;a href=&#34;#&#34; class=&#34;alert-link&#34;&gt;here.” type: “primary”
-Quote Hickory dickory dock.
+  <meta name="twitter:description" content="[paige.alert] message: “Get more information &lt;a href=&#34;#&#34; class=&#34;alert-link&#34;&gt;here.” type: “primary” Quote Hickory dickory dock.
 The mouse ran up the clock.
 The clock struck one,
 The mouse ran down,
@@ -564,7 +562,7 @@ table {
 
                     
                         <p class="paige-row-narrow text-center text-secondary" id="paige-date">
-                            <time datetime="2025-05-20">May 20, 2025</time>
+                            <time datetime="2020-05-20">May 20, 2020</time>
                         </p>
                     
 
@@ -586,8 +584,8 @@ table {
             
             <p>[paige.alert]
 message: &ldquo;Get more information &lt;a href=&quot;#&quot; class=&quot;alert-link&quot;&gt;here</a>.&rdquo;
-type: &ldquo;primary&rdquo;</p>
-<p>Quote
+type: &ldquo;primary&rdquo;
+Quote
 
 
 
@@ -669,9 +667,11 @@ Hickory dickory dock.</blockquote>
         
             <div id="paige-siblings">
                 
-                    <div class="paige-row-narrow text-center text-secondary" id="paige-next"><a class="link-secondary" href="https://hockenworks.com/the-purgatory-of-aaa-gaming/">The Purgatory of AAA Gaming</a> &rsaquo;</div>
+                    <div class="paige-row-narrow text-center text-secondary" id="paige-next"><a class="link-secondary" href="https://hockenworks.com/human-joystick/">Human Joystick VR</a> &rsaquo;</div>
                 
 
+                
+                    <div class="paige-row-narrow text-center text-secondary" id="paige-prev">&lsaquo; <a class="link-secondary" href="https://hockenworks.com/social-media-is-antisocial/">Social Media Is Anti-Social</a></div>
                 
             </div>
         
@@ -1434,15 +1434,23 @@ Hickory dickory dock.</blockquote>
   }
   App.updateAutoClickerCostDisplay = updateAutoClickerCostDisplay;
 
+   
   function refundValue () {
-    if (!App.config.autoClicker) {
+     
+    if (!App.config.autoClicker) return 0;
+
+    const lvl = App.config.maxUnlockedSpeedLevel;
+
+     
+    if (lvl === 0) {
       return Math.ceil(App.config.autoClickerCost * App.config.refundRate);
     }
-    const lvl = App.config.maxUnlockedSpeedLevel;
-    if (lvl === 0) return 0;
+
+     
     const cost = App.config.speedUpgradeCosts[lvl];
     return Math.ceil(cost * App.config.refundRate);
   }
+
 
    
   let acPreview = null;
@@ -1540,24 +1548,41 @@ Hickory dickory dock.</blockquote>
 
    
   function doRefund (x, y) {
-    const lvl = App.config.maxUnlockedSpeedLevel;
-    if (!App.config.autoClicker || lvl === 0) return;
-    const cost   = App.config.speedUpgradeCosts[lvl];
-    const refund = Math.ceil(cost * App.config.refundRate);
+    if (!App.config.autoClicker) return;   
 
+    let refund;
+
+     
+    if (App.config.maxUnlockedSpeedLevel === 0) {
+      refund = Math.ceil(App.config.autoClickerCost * App.config.refundRate);
+
+      App.config.autoClicker = false;                      
+      window.BallFall.stopAutoSpawner();                        
+      App.config.spawnInterval = App.config.originalSpawnInterval;
+      App.Persistence.saveAutoClicker({ purchased:false, maxSpeedLevel:0 });
+    }
+     
+    else {
+      const lvl   = App.config.maxUnlockedSpeedLevel;
+      const cost  = App.config.speedUpgradeCosts[lvl];
+      refund      = Math.ceil(cost * App.config.refundRate);
+
+      App.config.maxUnlockedSpeedLevel = lvl - 1;
+      const newInt = App.config.originalSpawnInterval / Math.pow(2, lvl - 1);
+      App.config.spawnInterval = newInt;
+      window.BallFall.stopAutoSpawner();                        
+      App.config.spawnInterval = App.config.originalSpawnInterval;
+      App.Persistence.saveAutoClicker({ purchased:false, maxSpeedLevel:0 });
+    }
+
+     
     App.config.coins += refund;
-    App.config.maxUnlockedSpeedLevel = lvl - 1;
-
-    const newInt = App.config.originalSpawnInterval / Math.pow(2, lvl - 1);
-    App.config.spawnInterval = newInt;
-    window.BallFall.updateSpawnInterval(newInt);
-
-    App.Persistence.saveAutoClicker({ purchased:true, maxSpeedLevel:lvl-1 });
     App.updateCoinsDisplay();
-    updateAutoClickerCostDisplay();
+    App.updateAutoClickerCostDisplay();
     if (window.showRefundNotification)
       window.showRefundNotification(refund, x, y);
   }
+
 
    
   document.addEventListener("BallFallBaseReady", updateAutoClickerCostDisplay);

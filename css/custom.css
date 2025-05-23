@@ -40,6 +40,8 @@ article.paige-latest-item a:hover:not(.nav-link),
   animation: bmGlowPulse 0.15s ease-in-out infinite alternate;
 }
 
+/* Custom Pill Menu Styling */
+
 @media (max-width: 620px) {
   /* prevent pills from wrapping and allow horizontal scroll */
   #paige-menu .nav {
@@ -57,4 +59,67 @@ article.paige-latest-item a:hover:not(.nav-link),
     text-align: center;
     padding: 0.25rem 0.5rem !important;
   }
+}
+
+/* Custom Header Styling */
+/* target exactly the headers in your content area,
+   and force the margin even if the theme says otherwise */
+#paige-content h1,
+#paige-content h2,
+#paige-content h3,
+#paige-content h4,
+#paige-content h5,
+#paige-content h6 {
+  margin-top: 1em !important;
+}
+
+/* 2-column latest view */
+.latest-with-image-list {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.latest-item {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+}
+
+.media-column {
+  flex: 0 0 auto;
+  margin-right: 1rem;
+}
+
+.media-container {
+  width: 300px;
+  height: 300px;
+  overflow: hidden;
+}
+
+.media-container img,
+.media-container iframe {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.text-column {
+  flex: 1;
+}
+
+@media (max-width: 768px) {
+  .latest-item {
+    flex-direction: column;
+  }
+  .media-column {
+    margin-right: 0;
+    margin-bottom: 1rem;
+  }
+}
+/* always crop from the top of the media */
+.media-container img,
+.media-container iframe {
+  object-fit: cover;
+  object-position: top center;
 }

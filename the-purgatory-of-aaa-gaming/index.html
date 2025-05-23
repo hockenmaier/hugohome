@@ -632,7 +632,7 @@ table {
 <p>NPCs won&rsquo;t have recorded voice lines, but instead have voices generated in real time, and AAA games will start to make contracts with celebrity talent in order to generate their voice in games</p>
 </li>
 <li>
-<p>We will see a transition from the current minorly procedural elements of gameplay to full procedural generated worlds, especially where player actions and environmental events change landscape, buildings, etc dynamically.</p>
+<p>We will see a transition from the current minorly procedural elements of gameplay to full procedural generated worlds, especially where player actions and environmental events change landscape, buildings, etc dynamically</p>
 </li>
 <li>
 <p>Game art will go through an incredible revolution, and we will stop having massive teams of people creating 3D meshes and textures to drop around the world, with many of these meshes and textures being generated from prompts in development, but also being generated on the fly in games</p>
@@ -680,8 +680,6 @@ table {
                     <div class="paige-row-narrow text-center text-secondary" id="paige-next"><a class="link-secondary" href="https://hockenworks.com/this-website/">This Website</a> &rsaquo;</div>
                 
 
-                
-                    <div class="paige-row-narrow text-center text-secondary" id="paige-prev">&lsaquo; <a class="link-secondary" href="https://hockenworks.com/test-gist/">Test Embeds</a></div>
                 
             </div>
         
@@ -1444,15 +1442,23 @@ table {
   }
   App.updateAutoClickerCostDisplay = updateAutoClickerCostDisplay;
 
+   
   function refundValue () {
-    if (!App.config.autoClicker) {
+     
+    if (!App.config.autoClicker) return 0;
+
+    const lvl = App.config.maxUnlockedSpeedLevel;
+
+     
+    if (lvl === 0) {
       return Math.ceil(App.config.autoClickerCost * App.config.refundRate);
     }
-    const lvl = App.config.maxUnlockedSpeedLevel;
-    if (lvl === 0) return 0;
+
+     
     const cost = App.config.speedUpgradeCosts[lvl];
     return Math.ceil(cost * App.config.refundRate);
   }
+
 
    
   let acPreview = null;
@@ -1550,24 +1556,41 @@ table {
 
    
   function doRefund (x, y) {
-    const lvl = App.config.maxUnlockedSpeedLevel;
-    if (!App.config.autoClicker || lvl === 0) return;
-    const cost   = App.config.speedUpgradeCosts[lvl];
-    const refund = Math.ceil(cost * App.config.refundRate);
+    if (!App.config.autoClicker) return;   
 
+    let refund;
+
+     
+    if (App.config.maxUnlockedSpeedLevel === 0) {
+      refund = Math.ceil(App.config.autoClickerCost * App.config.refundRate);
+
+      App.config.autoClicker = false;                      
+      window.BallFall.stopAutoSpawner();                        
+      App.config.spawnInterval = App.config.originalSpawnInterval;
+      App.Persistence.saveAutoClicker({ purchased:false, maxSpeedLevel:0 });
+    }
+     
+    else {
+      const lvl   = App.config.maxUnlockedSpeedLevel;
+      const cost  = App.config.speedUpgradeCosts[lvl];
+      refund      = Math.ceil(cost * App.config.refundRate);
+
+      App.config.maxUnlockedSpeedLevel = lvl - 1;
+      const newInt = App.config.originalSpawnInterval / Math.pow(2, lvl - 1);
+      App.config.spawnInterval = newInt;
+      window.BallFall.stopAutoSpawner();                        
+      App.config.spawnInterval = App.config.originalSpawnInterval;
+      App.Persistence.saveAutoClicker({ purchased:false, maxSpeedLevel:0 });
+    }
+
+     
     App.config.coins += refund;
-    App.config.maxUnlockedSpeedLevel = lvl - 1;
-
-    const newInt = App.config.originalSpawnInterval / Math.pow(2, lvl - 1);
-    App.config.spawnInterval = newInt;
-    window.BallFall.updateSpawnInterval(newInt);
-
-    App.Persistence.saveAutoClicker({ purchased:true, maxSpeedLevel:lvl-1 });
     App.updateCoinsDisplay();
-    updateAutoClickerCostDisplay();
+    App.updateAutoClickerCostDisplay();
     if (window.showRefundNotification)
       window.showRefundNotification(refund, x, y);
   }
+
 
    
   document.addEventListener("BallFallBaseReady", updateAutoClickerCostDisplay);

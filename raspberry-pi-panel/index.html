@@ -586,7 +586,7 @@ table {
 <p>I created this panel display in 2026 to control much of the home automation I used in my Studio City apartment. Mainly a hardware project, I designed and 3D-printed a case and frame for the touchscreen and raspberry pi microcomputer in order to mount them to the wall. The software running the control panel is SaaS, but I did write a custom html wrapper to control the orientation and settings of the site, which is available on the github linked above.</p>
 <p>Update in 2025: This panel is still my main view into my home automation in my new house in Sherman Oaks, almost 10 years in with no modification!</p>
 <p>Here&rsquo;s a video to see the panel in action:</p>
-<h2 id="hahahugoshortcode8s0hbhb">
+<h2 id="hahahugoshortcode18s0hbhb">
     <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
       <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/iFGmm-ijJvE?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"></iframe>
     </div>
@@ -1387,15 +1387,23 @@ table {
   }
   App.updateAutoClickerCostDisplay = updateAutoClickerCostDisplay;
 
+   
   function refundValue () {
-    if (!App.config.autoClicker) {
+     
+    if (!App.config.autoClicker) return 0;
+
+    const lvl = App.config.maxUnlockedSpeedLevel;
+
+     
+    if (lvl === 0) {
       return Math.ceil(App.config.autoClickerCost * App.config.refundRate);
     }
-    const lvl = App.config.maxUnlockedSpeedLevel;
-    if (lvl === 0) return 0;
+
+     
     const cost = App.config.speedUpgradeCosts[lvl];
     return Math.ceil(cost * App.config.refundRate);
   }
+
 
    
   let acPreview = null;
@@ -1493,24 +1501,41 @@ table {
 
    
   function doRefund (x, y) {
-    const lvl = App.config.maxUnlockedSpeedLevel;
-    if (!App.config.autoClicker || lvl === 0) return;
-    const cost   = App.config.speedUpgradeCosts[lvl];
-    const refund = Math.ceil(cost * App.config.refundRate);
+    if (!App.config.autoClicker) return;   
 
+    let refund;
+
+     
+    if (App.config.maxUnlockedSpeedLevel === 0) {
+      refund = Math.ceil(App.config.autoClickerCost * App.config.refundRate);
+
+      App.config.autoClicker = false;                      
+      window.BallFall.stopAutoSpawner();                        
+      App.config.spawnInterval = App.config.originalSpawnInterval;
+      App.Persistence.saveAutoClicker({ purchased:false, maxSpeedLevel:0 });
+    }
+     
+    else {
+      const lvl   = App.config.maxUnlockedSpeedLevel;
+      const cost  = App.config.speedUpgradeCosts[lvl];
+      refund      = Math.ceil(cost * App.config.refundRate);
+
+      App.config.maxUnlockedSpeedLevel = lvl - 1;
+      const newInt = App.config.originalSpawnInterval / Math.pow(2, lvl - 1);
+      App.config.spawnInterval = newInt;
+      window.BallFall.stopAutoSpawner();                        
+      App.config.spawnInterval = App.config.originalSpawnInterval;
+      App.Persistence.saveAutoClicker({ purchased:false, maxSpeedLevel:0 });
+    }
+
+     
     App.config.coins += refund;
-    App.config.maxUnlockedSpeedLevel = lvl - 1;
-
-    const newInt = App.config.originalSpawnInterval / Math.pow(2, lvl - 1);
-    App.config.spawnInterval = newInt;
-    window.BallFall.updateSpawnInterval(newInt);
-
-    App.Persistence.saveAutoClicker({ purchased:true, maxSpeedLevel:lvl-1 });
     App.updateCoinsDisplay();
-    updateAutoClickerCostDisplay();
+    App.updateAutoClickerCostDisplay();
     if (window.showRefundNotification)
       window.showRefundNotification(refund, x, y);
   }
+
 
    
   document.addEventListener("BallFallBaseReady", updateAutoClickerCostDisplay);

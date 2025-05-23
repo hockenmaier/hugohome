@@ -616,7 +616,7 @@ table {
 
 <div class="paige-page paige-published w-100">
     
-        <p class="paige-row-narrow paige-title text-center"><a href="https://hockenworks.com/categories/builds/">Builds</a></p>
+        <p class="paige-row-narrow paige-title text-center"><a href="https://hockenworks.com/categories/writing/">Writing</a></p>
     
 
     
@@ -631,7 +631,7 @@ table {
 
     
         <p class="paige-date text-center paige-row-narrow text-secondary">
-            <time datetime="2025-05-20">May 20, 2025</time>
+            <time datetime="2025-05-12">May 12, 2025</time>
         </p>
     
 
@@ -676,7 +676,7 @@ table {
 
 <div class="paige-page paige-published w-100">
     
-        <p class="paige-row-narrow paige-title text-center"><a href="https://hockenworks.com/categories/writing/">Writing</a></p>
+        <p class="paige-row-narrow paige-title text-center"><a href="https://hockenworks.com/categories/builds/">Builds</a></p>
     
 
     
@@ -691,7 +691,7 @@ table {
 
     
         <p class="paige-date text-center paige-row-narrow text-secondary">
-            <time datetime="2025-05-12">May 12, 2025</time>
+            <time datetime="2025-03-01">March 1, 2025</time>
         </p>
     
 
@@ -1461,15 +1461,23 @@ table {
   }
   App.updateAutoClickerCostDisplay = updateAutoClickerCostDisplay;
 
+   
   function refundValue () {
-    if (!App.config.autoClicker) {
+     
+    if (!App.config.autoClicker) return 0;
+
+    const lvl = App.config.maxUnlockedSpeedLevel;
+
+     
+    if (lvl === 0) {
       return Math.ceil(App.config.autoClickerCost * App.config.refundRate);
     }
-    const lvl = App.config.maxUnlockedSpeedLevel;
-    if (lvl === 0) return 0;
+
+     
     const cost = App.config.speedUpgradeCosts[lvl];
     return Math.ceil(cost * App.config.refundRate);
   }
+
 
    
   let acPreview = null;
@@ -1567,24 +1575,41 @@ table {
 
    
   function doRefund (x, y) {
-    const lvl = App.config.maxUnlockedSpeedLevel;
-    if (!App.config.autoClicker || lvl === 0) return;
-    const cost   = App.config.speedUpgradeCosts[lvl];
-    const refund = Math.ceil(cost * App.config.refundRate);
+    if (!App.config.autoClicker) return;   
 
+    let refund;
+
+     
+    if (App.config.maxUnlockedSpeedLevel === 0) {
+      refund = Math.ceil(App.config.autoClickerCost * App.config.refundRate);
+
+      App.config.autoClicker = false;                      
+      window.BallFall.stopAutoSpawner();                        
+      App.config.spawnInterval = App.config.originalSpawnInterval;
+      App.Persistence.saveAutoClicker({ purchased:false, maxSpeedLevel:0 });
+    }
+     
+    else {
+      const lvl   = App.config.maxUnlockedSpeedLevel;
+      const cost  = App.config.speedUpgradeCosts[lvl];
+      refund      = Math.ceil(cost * App.config.refundRate);
+
+      App.config.maxUnlockedSpeedLevel = lvl - 1;
+      const newInt = App.config.originalSpawnInterval / Math.pow(2, lvl - 1);
+      App.config.spawnInterval = newInt;
+      window.BallFall.stopAutoSpawner();                        
+      App.config.spawnInterval = App.config.originalSpawnInterval;
+      App.Persistence.saveAutoClicker({ purchased:false, maxSpeedLevel:0 });
+    }
+
+     
     App.config.coins += refund;
-    App.config.maxUnlockedSpeedLevel = lvl - 1;
-
-    const newInt = App.config.originalSpawnInterval / Math.pow(2, lvl - 1);
-    App.config.spawnInterval = newInt;
-    window.BallFall.updateSpawnInterval(newInt);
-
-    App.Persistence.saveAutoClicker({ purchased:true, maxSpeedLevel:lvl-1 });
     App.updateCoinsDisplay();
-    updateAutoClickerCostDisplay();
+    App.updateAutoClickerCostDisplay();
     if (window.showRefundNotification)
       window.showRefundNotification(refund, x, y);
   }
+
 
    
   document.addEventListener("BallFallBaseReady", updateAutoClickerCostDisplay);

@@ -614,72 +614,6 @@ table {
 
 <div class="paige-page paige-published w-100">
     
-        <p class="paige-row-narrow paige-title text-center"><a href="https://hockenworks.com/test-gist/">Test Embeds</a></p>
-    
-
-    
-
-    
-
-    
-        <p class="paige-keywords paige-row-narrow text-center text-secondary">
-            <a class="link-secondary paige-keyword paige-keyword-tag" href="https://hockenworks.com/tags/3d-modeling/">3D Modeling</a> · <a class="link-secondary paige-keyword paige-keyword-tag" href="https://hockenworks.com/tags/board-games/">Board Games</a> · <a class="link-secondary paige-keyword paige-keyword-category" href="https://hockenworks.com/categories/builds/">Builds</a> · <a class="link-secondary paige-keyword paige-keyword-tag" href="https://hockenworks.com/tags/game-development/">Game Development</a> · <a class="link-secondary paige-keyword paige-keyword-tag" href="https://hockenworks.com/tags/multiplayer/">Multiplayer</a>
-        </p>
-    
-
-    
-
-    
-
-    
-        <p class="paige-date text-center paige-row-narrow text-secondary">
-            <time datetime="2025-05-20">May 20, 2025</time>
-        </p>
-    
-
-    
-        <p class="paige-reading-time paige-row-narrow text-center text-secondary">1 minute</p>
-    
-</div>
-
-        
-            
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    
-
-
-
-
-
-<div class="paige-page paige-published w-100">
-    
         <p class="paige-row-narrow paige-title text-center"><a href="https://hockenworks.com/bloom-or-bust/">Bloom Or Bust</a></p>
     
 
@@ -903,6 +837,72 @@ table {
 
     
         <p class="paige-reading-time paige-row-narrow text-center text-secondary">3 minutes</p>
+    
+</div>
+
+        
+            
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+
+
+<div class="paige-page paige-published w-100">
+    
+        <p class="paige-row-narrow paige-title text-center"><a href="https://hockenworks.com/test-gist/">Test Embeds</a></p>
+    
+
+    
+
+    
+
+    
+        <p class="paige-keywords paige-row-narrow text-center text-secondary">
+            <a class="link-secondary paige-keyword paige-keyword-tag" href="https://hockenworks.com/tags/3d-modeling/">3D Modeling</a> · <a class="link-secondary paige-keyword paige-keyword-tag" href="https://hockenworks.com/tags/board-games/">Board Games</a> · <a class="link-secondary paige-keyword paige-keyword-category" href="https://hockenworks.com/categories/builds/">Builds</a> · <a class="link-secondary paige-keyword paige-keyword-tag" href="https://hockenworks.com/tags/game-development/">Game Development</a> · <a class="link-secondary paige-keyword paige-keyword-tag" href="https://hockenworks.com/tags/multiplayer/">Multiplayer</a>
+        </p>
+    
+
+    
+
+    
+
+    
+        <p class="paige-date text-center paige-row-narrow text-secondary">
+            <time datetime="2020-05-20">May 20, 2020</time>
+        </p>
+    
+
+    
+        <p class="paige-reading-time paige-row-narrow text-center text-secondary">1 minute</p>
     
 </div>
 
@@ -1735,15 +1735,23 @@ table {
   }
   App.updateAutoClickerCostDisplay = updateAutoClickerCostDisplay;
 
+   
   function refundValue () {
-    if (!App.config.autoClicker) {
+     
+    if (!App.config.autoClicker) return 0;
+
+    const lvl = App.config.maxUnlockedSpeedLevel;
+
+     
+    if (lvl === 0) {
       return Math.ceil(App.config.autoClickerCost * App.config.refundRate);
     }
-    const lvl = App.config.maxUnlockedSpeedLevel;
-    if (lvl === 0) return 0;
+
+     
     const cost = App.config.speedUpgradeCosts[lvl];
     return Math.ceil(cost * App.config.refundRate);
   }
+
 
    
   let acPreview = null;
@@ -1841,24 +1849,41 @@ table {
 
    
   function doRefund (x, y) {
-    const lvl = App.config.maxUnlockedSpeedLevel;
-    if (!App.config.autoClicker || lvl === 0) return;
-    const cost   = App.config.speedUpgradeCosts[lvl];
-    const refund = Math.ceil(cost * App.config.refundRate);
+    if (!App.config.autoClicker) return;   
 
+    let refund;
+
+     
+    if (App.config.maxUnlockedSpeedLevel === 0) {
+      refund = Math.ceil(App.config.autoClickerCost * App.config.refundRate);
+
+      App.config.autoClicker = false;                      
+      window.BallFall.stopAutoSpawner();                        
+      App.config.spawnInterval = App.config.originalSpawnInterval;
+      App.Persistence.saveAutoClicker({ purchased:false, maxSpeedLevel:0 });
+    }
+     
+    else {
+      const lvl   = App.config.maxUnlockedSpeedLevel;
+      const cost  = App.config.speedUpgradeCosts[lvl];
+      refund      = Math.ceil(cost * App.config.refundRate);
+
+      App.config.maxUnlockedSpeedLevel = lvl - 1;
+      const newInt = App.config.originalSpawnInterval / Math.pow(2, lvl - 1);
+      App.config.spawnInterval = newInt;
+      window.BallFall.stopAutoSpawner();                        
+      App.config.spawnInterval = App.config.originalSpawnInterval;
+      App.Persistence.saveAutoClicker({ purchased:false, maxSpeedLevel:0 });
+    }
+
+     
     App.config.coins += refund;
-    App.config.maxUnlockedSpeedLevel = lvl - 1;
-
-    const newInt = App.config.originalSpawnInterval / Math.pow(2, lvl - 1);
-    App.config.spawnInterval = newInt;
-    window.BallFall.updateSpawnInterval(newInt);
-
-    App.Persistence.saveAutoClicker({ purchased:true, maxSpeedLevel:lvl-1 });
     App.updateCoinsDisplay();
-    updateAutoClickerCostDisplay();
+    App.updateAutoClickerCostDisplay();
     if (window.showRefundNotification)
       window.showRefundNotification(refund, x, y);
   }
+
 
    
   document.addEventListener("BallFallBaseReady", updateAutoClickerCostDisplay);
