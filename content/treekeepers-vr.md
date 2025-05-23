@@ -33,7 +33,7 @@ Treekeepers VR is a networked VR game where up to 4 players can cooperate to nav
 
 Treekeepers is in production on both Quest (standalone VR) and Steam (PC VR) with full cross-play functionality. See the [Treekeepers VR Website](https://togetheragainstudios.com/treekeepersvr/) for links to all storefronts and more detail about the game.
 
----
+## <!--more-->
 
 ## Development
 

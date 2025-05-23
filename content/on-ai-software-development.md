@@ -15,6 +15,8 @@ Lots of chatter right now about AI replacing software developers.
 
 I agree - AI will take over software development. The question is: what work will be left when this happens?
 
+<!--more-->
+
 Some considerations:
 
 - Benchmarks for the best LLMs still put them solidly in the "bad at programming" category, scoring in the 5th percentile of human programmers on common tests. Meanwhile, LLMs score in the 80th-95th percentile for law exams and 85th–100th for psychology, statistics, and many other less technical fields. More scores available in the "simulated exams" section of https://openai.com/research/gpt-4.

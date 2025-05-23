@@ -35,9 +35,9 @@ I post here mostly about things I'm making and occasional essays. If you’re in
 
 ## My Games
 
-> Land War was my first published game. I built in in 6 months and released on Steam only, where it got a few hundred downloads and made a bit over $1000
+{{< single-with-image path="/land-war" width="100" height="100" >}}
 
-{{< single-with-image path="/land-war" width="400" height="250" >}}
+> Land War was my first published game. I built in in 6 months and released on Steam only, where it got a few hundred downloads and made a bit over $1000
 
 &nbsp;
 

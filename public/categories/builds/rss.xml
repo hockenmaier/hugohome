@@ -1690,8 +1690,7 @@ So keep your balls moving!</li>
 <p>If you&rsquo;re a PM, business analyst, or anyone that cares about APIs but doesn&rsquo;t like terminals and engineer-y tools like Postman, and you have ChatGPT plus, try it out. Here&rsquo;s a link:
 <a href="https://chatgpt.com/g/g-QeNbSmirA-postman-for-pms">https://chatgpt.com/g/g-QeNbSmirA-postman-for-pms</a></p>
 <p>Important disclaimer: DON&rsquo;T use ChatGPT on corporate stuff if your company doesn&rsquo;t allow it! This was a fun experiment for me and I&rsquo;m definitely not using any corporate resources on it/for it. There are plenty of free APIs to try this out on. Maybe ask ChatGPT for some suggestions</p>
-<hr>
-]]></description>
+<hr>]]></description>
                 
 
                 <guid isPermaLink="false">tag:localhost:1313,2024-01-13:/postman-for-pms/</guid>
@@ -1743,8 +1742,7 @@ So keep your balls moving!</li>
 <p>Of course, you lose a lot of the draw of NeRFs when you export the model into a 3d engine because it has to flatten all the textures and lighting, and also Luma AI cuts off 3D model exports as a jarring cube</p>
 <p>But still - I was amazed at how well just applying a day/night lighting cycle and mesh colliders worked with this. Projectile and enemy physics played well too.</p>
 <p>It’s still early days, but I could see 3D model generation from this tech getting a lot better and forming the basis for some really interesting user-generated content in the future!</p>
-<p>Neat stuff - big thanks to Luma AI for the free toolset.</p>
-]]></description>
+<p>Neat stuff - big thanks to Luma AI for the free toolset.</p>]]></description>
                 
 
                 <guid isPermaLink="false">tag:localhost:1313,2023-02-01:/nerfs/</guid>
@@ -1938,12 +1936,11 @@ So keep your balls moving!</li>
 
 <p>Treekeepers VR is a networked VR game where up to 4 players can cooperate to navigate an oversized world and save a giant tree.</p>
 <p>Treekeepers is in production on both Quest (standalone VR) and Steam (PC VR) with full cross-play functionality. See the <a href="https://togetheragainstudios.com/treekeepersvr/">Treekeepers VR Website</a> for links to all storefronts and more detail about the game.</p>
-<hr>
+<h2 id="heading"></h2>
 <h2 id="development">Development</h2>
 <p>I began working on Treekeepers in June 2021, and my primary goal was to go significantly deeper into Unity and make a fully networked game. Very few co-op games existed in VR at the time (the area is still lacking), and my intention was to answer this need and create a game that 4 players could cooperate in within a static frame of reference (players move within a ship, and the ship moves through the world) while having to solve coordination challenges together.</p>
 <p>I initially designed the project for SteamVR only using the SteamVR SDK but quickly realized that a VR game released only on PC would miss the majority of the userbase, as the (then Oculus) Quest 2 was quickly dominating the market. Treekeepers was a good fit for a mobile platform with its simple low-poly cel-shaded design, so I pivoted to using OpenXR about two months into the project to support VR interactions on both PC and mobile (Android) devices like the Quest 2.</p>
-<p>By summer 2022, I had a releasable product, albeit only with one “world” available. I decided to push the game to early access to gather rapid feedback from real players, and after getting approved for both storefronts, Treekeepers released to early access on September 30, 2022.</p>
-]]></description>
+<p>By summer 2022, I had a releasable product, albeit only with one “world” available. I decided to push the game to early access to gather rapid feedback from real players, and after getting approved for both storefronts, Treekeepers released to early access on September 30, 2022.</p>]]></description>
                 
 
                 <guid isPermaLink="false">tag:localhost:1313,2022-10-01:/treekeepers-vr/</guid>
@@ -2058,8 +2055,7 @@ Hickory dickory dock.</blockquote>
 </p>
 <p>Here&rsquo;s a Gist:
 <script src="https://gist.github.com/hockenmaier/afb228dc7776cded521127b9edec2c94.js"></script>
-</p>
-]]></description>
+</p>]]></description>
                 
 
                 <guid isPermaLink="false">tag:localhost:1313,2020-05-20:/test-embeds/</guid>
@@ -2102,12 +2098,12 @@ Hickory dickory dock.</blockquote>
                 
 
                 
-                    <description><![CDATA[
+                    <description><![CDATA[<p>The &ldquo;Human Joystick&rdquo; is an experimental VR movement system in which the player moves through the virtual environment by changing their physical location within their VR &ldquo;playspace&rdquo;.</p>
+
     <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
       <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/q_1itpdiPb4?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"></iframe>
     </div>
 
-<p>The &ldquo;Human Joystick&rdquo; is an experimental VR movement system in which the player moves through the virtual environment by changing their physical location within their VR &ldquo;playspace&rdquo;.</p>
 <p>A demo of the human joystick movement system, showing how the system can work on flat surfaces or terrain.</p>
 <p>This was my first barebones VR project. Though I knew Unity going in, VR and 3D games in general have a lot of unique aspects that I wanted to learn about while trying to solve an actual problem, rather than following tutorials or demos online.</p>
 <p>VR has some adoption problems in its current state. We all know of some of the main problems- the clunky headset, the nausea issues, and of course the pricetag. But one major problem that you don&rsquo;t really notice until you get into it, is the lack of a good solution for virtual movement.</p>
@@ -2377,8 +2373,7 @@ Hickory dickory dock.</blockquote>
 </table>
 <hr>
 <p>Eventually I found some good default values and the system worked, but there were some unforeseen problems: First, it was more difficult to center yourself within the playspace without looking at the visible guides I put at the player&rsquo;s feet than I expected. Second and more importantly, when you were already moving in one direction, it was not as simple as I thought to start moving in another direction accurately without fully returning to center, which was an immersion breaker.</p>
-<p>Ultimately I put the project up for others to view but have not expanded it into a full experience or released it on any marketplaces. Feel free to download the Unity project and try it on your own VR setup if you&rsquo;re curious.</p>
-]]></description>
+<p>Ultimately I put the project up for others to view but have not expanded it into a full experience or released it on any marketplaces. Feel free to download the Unity project and try it on your own VR setup if you&rsquo;re curious.</p>]]></description>
                 
 
                 <guid isPermaLink="false">tag:localhost:1313,2020-01-01:/human-joystick/</guid>
@@ -3767,13 +3762,12 @@ This is what the project looked like for my first play-test with other people 5 
 <p>I created this panel display in 2026 to control much of the home automation I used in my Studio City apartment. Mainly a hardware project, I designed and 3D-printed a case and frame for the touchscreen and raspberry pi microcomputer in order to mount them to the wall. The software running the control panel is SaaS, but I did write a custom html wrapper to control the orientation and settings of the site, which is available on the github linked above.</p>
 <p>Update in 2025: This panel is still my main view into my home automation in my new house in Sherman Oaks, almost 10 years in with no modification!</p>
 <p>Here&rsquo;s a video to see the panel in action:</p>
-<h2 id="hahahugoshortcode132s0hbhb">
+<h2 id="hahahugoshortcode220s0hbhb">
     <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
       <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/iFGmm-ijJvE?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"></iframe>
     </div>
 </h2>
-<p>Feel free to explore the linked repositories for schematics and source code.</p>
-]]></description>
+<p>Feel free to explore the linked repositories for schematics and source code.</p>]]></description>
                 
 
                 <guid isPermaLink="false">tag:localhost:1313,2016-01-01:/raspberry-pi-panel/</guid>

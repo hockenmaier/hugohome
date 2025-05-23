@@ -130,3 +130,14 @@ article.paige-latest-item a:hover:not(.nav-link),
   object-fit: cover;
   object-position: top center;
 }
+
+.link-green {
+  color: #87c2a5;
+  text-decoration: underline;
+}
+.link-green:visited {
+  color: #6fa58e;
+}
+.link-green:hover {
+  color: #a8d8c0;
+}

@@ -3,7 +3,7 @@ canonifyURLs = true
 languageCode = 'en-us'
 title = "hockenworks"
 theme = 'paige'
-
+summaryLength   = 100      # ← add this here
 
 [taxonomies]
 category = "categories"      # For post types like project overviews, project update, essays, thought, etc.

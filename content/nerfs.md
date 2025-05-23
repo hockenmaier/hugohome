@@ -10,6 +10,8 @@ tags: ["AI", "nerfs", "Unity", "C#", "Procedural Generation", "Video Games"]
 
 I’ve been playing around with [neural radiance fields](https://en.wikipedia.org/wiki/Neural_radiance_field) (NeRFs) lately and thought a fun way to explore them would be flying through them in the Treekeepers “Puddle Jumper” in true scale.
 
+<!--more-->
+
 {{< youtube QguH3aK90Ck >}}
 
 Of course, you lose a lot of the draw of NeRFs when you export the model into a 3d engine because it has to flatten all the textures and lighting, and also Luma AI cuts off 3D model exports as a jarring cube

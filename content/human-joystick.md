@@ -21,9 +21,11 @@ tags:
   ]
 ---
 
-{{< youtube q_1itpdiPb4 >}}
-
 The "Human Joystick" is an experimental VR movement system in which the player moves through the virtual environment by changing their physical location within their VR "playspace".
+
+<!--more-->
+
+{{< youtube q_1itpdiPb4 >}}
 
 A demo of the human joystick movement system, showing how the system can work on flat surfaces or terrain.
 

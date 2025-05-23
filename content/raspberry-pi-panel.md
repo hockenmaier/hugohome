@@ -29,6 +29,8 @@ Links:
 - [GitHub](https://github.com/hockenmaier/RaspberryPiControlPanel)
 - [Thingiverse](https://www.thingiverse.com/thing:2524560)
 
+<!--more-->
+
 ---
 
 I created this panel display in 2026 to control much of the home automation I used in my Studio City apartment. Mainly a hardware project, I designed and 3D-printed a case and frame for the touchscreen and raspberry pi microcomputer in order to mount them to the wall. The software running the control panel is SaaS, but I did write a custom html wrapper to control the orientation and settings of the site, which is available on the github linked above.

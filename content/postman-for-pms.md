@@ -10,6 +10,8 @@ tags: ["AI", "Custom GPT", "APIs"]
 
 I made "Postman for PMs," a tool to help non-engineers understand and use APIs!
 
+<!--more-->
+
 {{< youtube 3O4r_q2Ioko >}}
 
 It's a "Custom GPT" - a customized version of chatGPT. Just give it some details about the API and then tell it in English what you want to get, post, update, whatever.

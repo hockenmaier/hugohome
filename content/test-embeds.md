@@ -21,6 +21,8 @@ The mouse ran down,<br>
 Hickory dickory dock.
 {{< /paige/quote >}}
 
+<!--more-->
+
 {{< paige/quote >}}
 
 1. _"Work should be a sacrifice, and more money means more security for my family."_
