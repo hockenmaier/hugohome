@@ -3,7 +3,7 @@ title: "The Answering Machine"
 date: 2019-07-03
 categories: ["builds"]
 personal: "Y"
-stack: ["Python", "React", "AWS Lambda"]
+stack: ["Python", "React", "HTML", "CSS", "AWS Lambda"]
 project_link: "http://voicequery-dev.s3-website-us-west-2.amazonaws.com/"
 github_link: "https://github.com/hockenmaier/voicequery"
 short_description: "An NLP-driven analytics system enabling users to query their data in plain English."
@@ -16,6 +16,9 @@ tags:
     "Serverless",
     "Python",
     "React",
+    "HTML",
+    "CSS",
+    "Experimental",
     "AWS Lambda",
     "Rapid Prototyping",
     "System Design",

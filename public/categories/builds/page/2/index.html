@@ -689,7 +689,7 @@ table {
 
     
         <p class="paige-keywords paige-row-narrow text-center text-secondary">
-            <a class="link-secondary paige-keyword paige-keyword-tag" href="http://localhost:1313/tags/ai/">AI</a> · <a class="link-secondary paige-keyword paige-keyword-tag" href="http://localhost:1313/tags/analytics/">Analytics</a> · <a class="link-secondary paige-keyword paige-keyword-tag" href="http://localhost:1313/tags/aws-lambda/">AWS Lambda</a> · <a class="link-secondary paige-keyword paige-keyword-category" href="http://localhost:1313/categories/builds/">Builds</a> · <a class="link-secondary paige-keyword paige-keyword-tag" href="http://localhost:1313/tags/data-visualization/">Data Visualization</a> · <a class="link-secondary paige-keyword paige-keyword-tag" href="http://localhost:1313/tags/nlp/">NLP</a> · <a class="link-secondary paige-keyword paige-keyword-tag" href="http://localhost:1313/tags/python/">Python</a> · <a class="link-secondary paige-keyword paige-keyword-tag" href="http://localhost:1313/tags/rapid-prototyping/">Rapid Prototyping</a> · <a class="link-secondary paige-keyword paige-keyword-tag" href="http://localhost:1313/tags/react/">React</a> · <a class="link-secondary paige-keyword paige-keyword-tag" href="http://localhost:1313/tags/serverless/">Serverless</a> · <a class="link-secondary paige-keyword paige-keyword-tag" href="http://localhost:1313/tags/system-design/">System Design</a>
+            <a class="link-secondary paige-keyword paige-keyword-tag" href="http://localhost:1313/tags/ai/">AI</a> · <a class="link-secondary paige-keyword paige-keyword-tag" href="http://localhost:1313/tags/analytics/">Analytics</a> · <a class="link-secondary paige-keyword paige-keyword-tag" href="http://localhost:1313/tags/aws-lambda/">AWS Lambda</a> · <a class="link-secondary paige-keyword paige-keyword-category" href="http://localhost:1313/categories/builds/">Builds</a> · <a class="link-secondary paige-keyword paige-keyword-tag" href="http://localhost:1313/tags/css/">CSS</a> · <a class="link-secondary paige-keyword paige-keyword-tag" href="http://localhost:1313/tags/data-visualization/">Data Visualization</a> · <a class="link-secondary paige-keyword paige-keyword-tag" href="http://localhost:1313/tags/experimental/">Experimental</a> · <a class="link-secondary paige-keyword paige-keyword-tag" href="http://localhost:1313/tags/html/">HTML</a> · <a class="link-secondary paige-keyword paige-keyword-tag" href="http://localhost:1313/tags/nlp/">NLP</a> · <a class="link-secondary paige-keyword paige-keyword-tag" href="http://localhost:1313/tags/python/">Python</a> · <a class="link-secondary paige-keyword paige-keyword-tag" href="http://localhost:1313/tags/rapid-prototyping/">Rapid Prototyping</a> · <a class="link-secondary paige-keyword paige-keyword-tag" href="http://localhost:1313/tags/react/">React</a> · <a class="link-secondary paige-keyword paige-keyword-tag" href="http://localhost:1313/tags/serverless/">Serverless</a> · <a class="link-secondary paige-keyword paige-keyword-tag" href="http://localhost:1313/tags/system-design/">System Design</a>
         </p>
     
 
@@ -1699,15 +1699,23 @@ table {
   }
   App.updateAutoClickerCostDisplay = updateAutoClickerCostDisplay;
 
+   
   function refundValue () {
-    if (!App.config.autoClicker) {
+     
+    if (!App.config.autoClicker) return 0;
+
+    const lvl = App.config.maxUnlockedSpeedLevel;
+
+     
+    if (lvl === 0) {
       return Math.ceil(App.config.autoClickerCost * App.config.refundRate);
     }
-    const lvl = App.config.maxUnlockedSpeedLevel;
-    if (lvl === 0) return 0;
+
+     
     const cost = App.config.speedUpgradeCosts[lvl];
     return Math.ceil(cost * App.config.refundRate);
   }
+
 
    
   let acPreview = null;
@@ -1805,24 +1813,41 @@ table {
 
    
   function doRefund (x, y) {
-    const lvl = App.config.maxUnlockedSpeedLevel;
-    if (!App.config.autoClicker || lvl === 0) return;
-    const cost   = App.config.speedUpgradeCosts[lvl];
-    const refund = Math.ceil(cost * App.config.refundRate);
+    if (!App.config.autoClicker) return;   
 
+    let refund;
+
+     
+    if (App.config.maxUnlockedSpeedLevel === 0) {
+      refund = Math.ceil(App.config.autoClickerCost * App.config.refundRate);
+
+      App.config.autoClicker = false;                      
+      window.BallFall.stopAutoSpawner();                        
+      App.config.spawnInterval = App.config.originalSpawnInterval;
+      App.Persistence.saveAutoClicker({ purchased:false, maxSpeedLevel:0 });
+    }
+     
+    else {
+      const lvl   = App.config.maxUnlockedSpeedLevel;
+      const cost  = App.config.speedUpgradeCosts[lvl];
+      refund      = Math.ceil(cost * App.config.refundRate);
+
+      App.config.maxUnlockedSpeedLevel = lvl - 1;
+      const newInt = App.config.originalSpawnInterval / Math.pow(2, lvl - 1);
+      App.config.spawnInterval = newInt;
+      window.BallFall.stopAutoSpawner();                        
+      App.config.spawnInterval = App.config.originalSpawnInterval;
+      App.Persistence.saveAutoClicker({ purchased:false, maxSpeedLevel:0 });
+    }
+
+     
     App.config.coins += refund;
-    App.config.maxUnlockedSpeedLevel = lvl - 1;
-
-    const newInt = App.config.originalSpawnInterval / Math.pow(2, lvl - 1);
-    App.config.spawnInterval = newInt;
-    window.BallFall.updateSpawnInterval(newInt);
-
-    App.Persistence.saveAutoClicker({ purchased:true, maxSpeedLevel:lvl-1 });
     App.updateCoinsDisplay();
-    updateAutoClickerCostDisplay();
+    App.updateAutoClickerCostDisplay();
     if (window.showRefundNotification)
       window.showRefundNotification(refund, x, y);
   }
+
 
    
   document.addEventListener("BallFallBaseReady", updateAutoClickerCostDisplay);

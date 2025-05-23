@@ -252,6 +252,14 @@ App.modules.base = (function () {
       ballsList.length = 0;
     };
 
+    function stopAutoSpawner() {
+      if (spawnIntervalId) {
+        clearInterval(spawnIntervalId);
+        spawnIntervalId = null;
+      }
+    }
+    window.BallFall.stopAutoSpawner = stopAutoSpawner;
+
     // ---- Removed Existing Collision Border Effect ----
 
     const ballPositionData = {};

@@ -19,7 +19,7 @@ I went to school for industrial engineering at [Cal Poly SLO](https://www.calpol
 {{< image-small
 src="images/lego-crane.jpg"
 alt="A lego crane"
-caption="One of the few pictures I have from my time building robots with legos, showing something to my Dad" >}}
+caption="One of the few pictures I have from my time building robots with legos, showing a robotic crane to my Dad" >}}
 
 At work, I try to be high time preference, high autonomy, low consensus (even contrarian), high invention, process-light.
 

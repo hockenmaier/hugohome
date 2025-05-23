@@ -117,7 +117,7 @@
         
 
         
-            <lastBuildDate>2025-05-20 00:00:00 +0000 UTC</lastBuildDate>
+            <lastBuildDate>2025-05-12 00:00:00 +0000 UTC</lastBuildDate>
         
 
         <link>http://localhost:1313/tags/game-development/</link>
@@ -128,106 +128,6 @@
 
         
 
-        
-            <item>
-                
-                
-                
-                
-                
-                
-                
-
-                
-
-                
-
-                
-
-                
-
-                
-                
-
-                
-
-                
-
-                
-                    <description><![CDATA[<p>[paige.alert]
-message: &ldquo;Get more information &lt;a href=&quot;#&quot; class=&quot;alert-link&quot;&gt;here</a>.&rdquo;
-type: &ldquo;primary&rdquo;
-Quote
-
-
-
-
-
-
-
-<div class="paige-quote">
-<blockquote class="blockquote">Hickory dickory dock.<br>
-The mouse ran up the clock.<br>
-The clock struck one,<br>
-The mouse ran down,<br>
-Hickory dickory dock.</blockquote>
-
-
-<div class="blockquote-footer">Hickory Dickory Dock</div>
-
-</div>
-</p>
-<p>X<sup>n</sup> + Y<sup>n</sup> = Z<sup>n</sup></p>
-<p><abbr title="This allows to hover for more info">Abbreviations</abbr></p>
-<p>H<sub>2</sub>O</p>
-<p><del>Strikethrough</del></p>
-<p>Press <kbd>Ctrl</kbd> + <kbd>Alt</kbd> + <kbd>Delete</kbd> to end the session.</p>
-<p><mark>This is a highlight</mark></p>
-<pre tabindex="0"><code>// ---- Removed Existing Collision Border Effect ----
-
-    const ballPositionData = {};
-    function removeBallsBelowPage() {
-      const bodies = Composite.allBodies(engine.world);
-      const pageBottom = Math.max(
-        document.body.scrollHeight,
-        document.documentElement.scrollHeight
-      );
-      bodies.forEach((body) =&gt; {
-        if (body.label === &#34;BallFallBall&#34; &amp;&amp; body.position.y &gt; pageBottom) {
-          World.remove(engine.world, body);
-          delete ballPositionData[body.id];
-        }
-      });
-    }
-</code></pre><p>Here&rsquo;s a Download:
-
-
-
-<a href="files/corrector-v4.stl" download class="d-flex align-items-center download-link">
-  <i class="bi bi-file-earmark me-1"></i>
-  Download the STL model of my Ottoman Support
-</a>
-</p>
-<p>Here&rsquo;s a Gist:
-<script src="https://gist.github.com/hockenmaier/afb228dc7776cded521127b9edec2c94.js"></script>
-</p>
-]]></description>
-                
-
-                <guid isPermaLink="false">tag:localhost:1313,2025-05-20:/test-gist/</guid>
-
-                
-                    <link>http://localhost:1313/test-gist/</link>
-                
-
-                
-                    <pubDate>Tue, 20 May 2025 00:00:00 UTC</pubDate>
-                
-
-                
-                    <title>Test Embeds</title>
-                
-            </item>
         
             <item>
                 
@@ -359,8 +259,7 @@ Hickory dickory dock.</blockquote>
                 
 
                 
-                    <description><![CDATA[<h1 id="what-this-place-is">What this place is</h1>
-<p>I&rsquo;m <a href="/about-me">Brian Hockenmaier</a>, and this site is full of things I build and write about. I love making games and things with VR and AI. I love DIY projects, epecially ones involving programming, engineering and 3D modeling. Some of this has been cross or back-posted from my <a href="https://www.thingiverse.com/hockenmaier/designs">thingiverse</a>, <a href="https://x.com/Hockenmaier">twitter</a>, <a href="https://www.linkedin.com/in/hockenmaier/">linkedin</a>, and other places, but it all lives here permanently.</p>
+                    <description><![CDATA[<p>I&rsquo;m <a href="/about-me">Brian Hockenmaier</a>, and this site is full of things I build and write about. I love making games and things with VR and AI. I love DIY projects, epecially ones involving programming, engineering and 3D modeling. Some of this has been cross or back-posted from my <a href="https://www.thingiverse.com/hockenmaier/designs">thingiverse</a>, <a href="https://x.com/Hockenmaier">twitter</a>, <a href="https://www.linkedin.com/in/hockenmaier/">linkedin</a>, and other places, but it all lives here permanently.</p>
 <p>All work and opinion here is fully my own and not my employer&rsquo;s.</p>
 <p>This is an evolution of <a href="old-site/index.html">my previous site last updated in 2022, which I still keep inside this one</a> for posterity and for the AIs of the future to know more about me. I like it not because of the content as much as because it was a fully custom js and html site with no framework.. and I think it&rsquo;s sort of fun and funny that it was like this.</p>
 <h1 id="why-im-making-it">Why I&rsquo;m making it</h1>
@@ -1730,6 +1629,106 @@ So keep your balls moving!</li>
 
                 
                     <title>Social Media Is Anti-Social</title>
+                
+            </item>
+        
+            <item>
+                
+                
+                
+                
+                
+                
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+                
+
+                
+
+                
+
+                
+                    <description><![CDATA[<p>[paige.alert]
+message: &ldquo;Get more information &lt;a href=&quot;#&quot; class=&quot;alert-link&quot;&gt;here</a>.&rdquo;
+type: &ldquo;primary&rdquo;
+Quote
+
+
+
+
+
+
+
+<div class="paige-quote">
+<blockquote class="blockquote">Hickory dickory dock.<br>
+The mouse ran up the clock.<br>
+The clock struck one,<br>
+The mouse ran down,<br>
+Hickory dickory dock.</blockquote>
+
+
+<div class="blockquote-footer">Hickory Dickory Dock</div>
+
+</div>
+</p>
+<p>X<sup>n</sup> + Y<sup>n</sup> = Z<sup>n</sup></p>
+<p><abbr title="This allows to hover for more info">Abbreviations</abbr></p>
+<p>H<sub>2</sub>O</p>
+<p><del>Strikethrough</del></p>
+<p>Press <kbd>Ctrl</kbd> + <kbd>Alt</kbd> + <kbd>Delete</kbd> to end the session.</p>
+<p><mark>This is a highlight</mark></p>
+<pre tabindex="0"><code>// ---- Removed Existing Collision Border Effect ----
+
+    const ballPositionData = {};
+    function removeBallsBelowPage() {
+      const bodies = Composite.allBodies(engine.world);
+      const pageBottom = Math.max(
+        document.body.scrollHeight,
+        document.documentElement.scrollHeight
+      );
+      bodies.forEach((body) =&gt; {
+        if (body.label === &#34;BallFallBall&#34; &amp;&amp; body.position.y &gt; pageBottom) {
+          World.remove(engine.world, body);
+          delete ballPositionData[body.id];
+        }
+      });
+    }
+</code></pre><p>Here&rsquo;s a Download:
+
+
+
+<a href="files/corrector-v4.stl" download class="d-flex align-items-center download-link">
+  <i class="bi bi-file-earmark me-1"></i>
+  Download the STL model of my Ottoman Support
+</a>
+</p>
+<p>Here&rsquo;s a Gist:
+<script src="https://gist.github.com/hockenmaier/afb228dc7776cded521127b9edec2c94.js"></script>
+</p>
+]]></description>
+                
+
+                <guid isPermaLink="false">tag:localhost:1313,2020-05-20:/test-gist/</guid>
+
+                
+                    <link>http://localhost:1313/test-gist/</link>
+                
+
+                
+                    <pubDate>Wed, 20 May 2020 00:00:00 UTC</pubDate>
+                
+
+                
+                    <title>Test Embeds</title>
                 
             </item>
         
