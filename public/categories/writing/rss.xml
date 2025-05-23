@@ -405,11 +405,101 @@ Context windows get larger all the time but this one still is not solved. Just a
     
 </div>
 
-<p>I&rsquo;m Brian Hockenmaier: dad, engineer, and fun-haver.</p>
-<p>{family}</p>
-<p>{education, learn by doing}</p>
-<p>I’ve been at one company for a long time and have built a lot there, led some big teams, and released several things on my own too, in a bunch of different software domains. I started on back-office - things like billing systems, TV scheduling systems, IP rights management systems, file ingest systems for TV news content, and several games and tools outside of work. Most recently I&rsquo;m making some pretty awesome stuff in agentic AI for the mundane work that the people at my company have to do!</p>
-<p>My bias is to build rather than talk. I&rsquo;m the one pushing to just try to build the thing, to scrap it early if needed, and to take risks releasing early. We always know more, and usually throw away our plans, when we start to build. I love building strange things, useful thingss, fun things. One of the things I built was this website and the game running on top of it it. <a href="/this-website">Read more about that here</a></p>
+<p>I&rsquo;m Brian Hockenmaier, dad, engineer, and fun haver.</p>
+<p>I grew up in Ventura, California with two UCLA-engineer parents. Even though neither of them were engineers long-term, I was an engineering child. I was always building something, highlights including a functional submarine and weather balloon with Lego robotics.</p>
+<p>I went to school for industrial engineering at <a href="https://www.calpoly.edu/">Cal Poly SLO</a>, nearly double majored in economics, and then promptly moved out of both fields just like my parents had moved out of their education fields of mechanical and aerospace. Since then, after reading Ray Kurzweil&rsquo;s <a href="https://en.m.wikipedia.org/wiki/The_Singularity_Is_Near">The Singularity is Near</a> in 2011, feeling I needed to be closer to software and realizing I liked building systems more than anything in industrial engineering, I&rsquo;ve built a career in software and then AI.</p>
+<div style="text-align: center; margin-bottom: 1rem;">
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<img  alt="A lego crane"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/lego-crane.jpg"   style="height: auto; max-width: 400px; width: 100%"   >
+
+
+    
+        <span style="display: block; font-style: italic; margin-top: 0.5rem;">One of the few pictures I have from my time building robots with legos, showing something to my Dad</span>
+    
+</div>
+
+<p>At work, I try to be high time preference, high autonomy, low consensus (even contrarian), high invention, process-light.</p>
+<p>I&rsquo;ve been at one company for a long time for a millennial. I&rsquo;ve built a lot of enterprise software and four high performing software teams. I started on back-office stuff like billing systems, TV scheduling systems, IP rights management systems, and file ingest systems for News. Most recently I’m making some pretty awesome stuff in agentic AI for the mundane work that the people at my company have to do!</p>
+<p>My bias is to build rather than talk. I&rsquo;m the one pushing to just try to build the thing, to scrap it early if needed, and to take risks releasing early. I figure that we always know more, and usually throw away our plans, when we start to build. I love building strange things, useful thingss, fun things. One of the things I built was this website and the game running on top of it. <a href="/this-website">Read more about that here</a></p>
 <hr>
 <h1 id="where-to-start">Where to start</h1>
 <p>I post here mostly about things I&rsquo;m making and occasional essays. If you’re interested in this site but don’t know where to start, try reading any of these posts that sound interesting to you. They&rsquo;re either peices or projects I put a lot of time into.</p>
@@ -537,9 +627,9 @@ This game was intended to have low art requirements and simple interaction rules
     <a href="/this-website/" class="link-light">This Website</a>
   </h4>
   <p class="text-secondary">
-    <h1 id="what-this-place-is">What this place is</h1>
-<p>I&rsquo;m <a href="/about-me">Brian Hockenmaier</a>, and this site is full of things I build and write about. I love making games and things with VR and AI. I love DIY projects, epecially ones involving programming, engineering and 3D modeling. Some of this has been cross or back-posted from my <a href="https://www.thingiverse.com/hockenmaier/designs">thingiverse</a>, <a href="https://x.com/Hockenmaier">twitter</a>, <a href="https://www.linkedin.com/in/hockenmaier/">linkedin</a>, and other places, but it all lives here permanently.</p>
+    <p>I&rsquo;m <a href="/about-me">Brian Hockenmaier</a>, and this site is full of things I build and write about. I love making games and things with VR and AI. I love DIY projects, epecially ones involving programming, engineering and 3D modeling. Some of this has been cross or back-posted from my <a href="https://www.thingiverse.com/hockenmaier/designs">thingiverse</a>, <a href="https://x.com/Hockenmaier">twitter</a>, <a href="https://www.linkedin.com/in/hockenmaier/">linkedin</a>, and other places, but it all lives here permanently.</p>
 <p>All work and opinion here is fully my own and not my employer&rsquo;s.</p>
+<p>This is an evolution of <a href="old-site/index.html">my previous site last updated in 2022, which I still keep inside this one</a> for posterity and for the AIs of the future to know more about me. I like it not because of the content as much as because it was a fully custom js and html site with no framework.. and I think it&rsquo;s sort of fun and funny that it was like this.</p>
     
       <a href="/this-website/" class="link-light">… read more</a>
     

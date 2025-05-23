@@ -247,7 +247,12 @@
                 
 
                 
-                    <description><![CDATA[<p>I&rsquo;m creating this website in 2025 after starting a family as well as my first full-time role in AI. It&rsquo;s an effort to clean up my website&rsquo;s focus and emphasize what I truly care about, and my breadth of work. I want it to be easier to add content, CMS style, and I want a space for the occasional longform writing I often produce but rarely make public.</p>
+                    <description><![CDATA[<h1 id="what-this-place-is">What this place is</h1>
+<p>I&rsquo;m <a href="/about-me">Brian Hockenmaier</a>, and this site is full of things I build and write about. I love making games and things with VR and AI. I love DIY projects, epecially ones involving programming, engineering and 3D modeling. Some of this has been cross or back-posted from my <a href="https://www.thingiverse.com/hockenmaier/designs">thingiverse</a>, <a href="https://x.com/Hockenmaier">twitter</a>, <a href="https://www.linkedin.com/in/hockenmaier/">linkedin</a>, and other places, but it all lives here permanently.</p>
+<p>All work and opinion here is fully my own and not my employer&rsquo;s.</p>
+<p>This is an evolution of <a href="old-site/index.html">my previous site last updated in 2022, which I still keep inside this one</a> for posterity and for the AIs of the future to know more about me. I like it not because of the content as much as because it was a fully custom js and html site with no framework.. and I think it&rsquo;s sort of fun and funny that it was like this.</p>
+<h1 id="why-im-making-it">Why I&rsquo;m making it</h1>
+<p>I&rsquo;m creating this website in 2025 after starting a family as well as my first full-time role in AI. It&rsquo;s an effort to clean up my website&rsquo;s focus and emphasize what I truly care about, and my breadth of work. I want it to be easier to add content, CMS style, and I want a space for the occasional longform writing I often produce but rarely make public.</p>
 <div style="text-align: center; margin-bottom: 1rem;">
     
 
@@ -352,13 +357,13 @@
 <p><strong>Maier</strong></p>
 </blockquote>
 <p>Which has many different spellings, and ours has southern German roots, but all &ldquo;Meyer&rdquo; names come from the latin root &ldquo;maior&rdquo; mean steward, administrator, or more generally &ldquo;worker&rdquo;</p>
-<p>I&rsquo;ve always heard my family put these two components together as &ldquo;Lazy Worker,&rdquo; which is very on-brand for our sense of humor, but I think it&rsquo;s actually quite appropriate for me.</p>
-<p>“Lazy Worker” is perfect for someone who wants to get a lot done, especially in software engineering. We only have so many hours, and the best lives are lived restricting the number of hours spent on work that can&rsquo;t be done with people you love. So you better be efficient about it. You better be lazy. There are <a href="https://blog.codinghorror.com/how-to-be-lazy-dumb-and-successful/?utm_source=chatgpt.com">many</a> <a href="https://xkcd.com/1205/?utm_source=chatgpt.com">correct</a> <a href="https://thethreevirtues.com/">takes</a> out there on the value of being lazy when programming.</p>
-<p>Now that we are starting to have AI, it&rsquo;s even better. A lazy worker will not only avoid unnecessary work, but will delegate all that can be delegated to the new AI workers that are multiplying in our computers. That makes the &ldquo;administrator&rdquo; connotation of &ldquo;Maier&rdquo; all the more fitting.</p>
-<p>So I&rsquo;m proud to be the lazy worker, and this site is all about sharing my lazy works. My <em>hockenworks</em>.</p>
+<p>My family often puts these two ideas together as &ldquo;Lazy Worker,&rdquo; which is very on-brand for our sense of humor, but I think it&rsquo;s not just funny, but true.</p>
+<p>“Lazy Worker” is perfect for someone who wants to get a lot done, especially in software engineering. We only have so many hours, and the best lives are lived restricting the number of hours spent on work that isn&rsquo;t done with people you love. So you better be efficient about it. You better be lazy. There are <a href="https://blog.codinghorror.com/how-to-be-lazy-dumb-and-successful/?utm_source=chatgpt.com">many</a> <a href="https://xkcd.com/1205/?utm_source=chatgpt.com">correct</a> <a href="https://thethreevirtues.com/">takes</a> out there on the value of being lazy when programming.</p>
+<p>Now that we are starting to have AI, it&rsquo;s even better. A lazy worker like myself will not only avoid unnecessary work, but will delegate all that can be delegated to the new AI workers that are multiplying in our computers. That makes the &ldquo;steward&rdquo; connotation of &ldquo;Maier&rdquo; all the more fitting.</p>
+<p>I&rsquo;m proud to be the lazy worker, and this site is all about sharing my lazy works. My <em>hockenworks</em>.</p>
 <hr>
 <h1 id="ball-machine---the-game">Ball Machine - The Game</h1>
-<p>Most blogs and personal websites are a bit boring. I think that is because most professionals consider what they do &ldquo;for work&rdquo; and &ldquo;a bit boring by nature&rdquo; and don&rsquo;t necessarily make a concerted effort to have fun with it.</p>
+<p>Most blogs and personal websites are a bit boring. I think that is because most professionals consider what they do &ldquo;for work&rdquo; a bit boring by its nature, and don&rsquo;t necessarily make a concerted effort to have fun with it.</p>
 <p>I have always tried to be the opposite, and with kids coming I am trying to make a bigger effort than ever to have fun whatever I&rsquo;m doing. Which is often working, in some way or another.</p>
 <p>So for my website, I wanted it to be intentionally fun. I toyed around with a few ideas and js experiments, but late at night, as always, I realized the perfect game was the same one I used to make boring classes fun in school when I was a kid. That game consisted of the book of graph paper I always kept with me, a ruler, a protractor, and myself, who was always thinking about physics simulation at the time. My favorite game in church growing up was to imagine a laser coming out of my line of sight and bouncing off of every surface in the room, and seeing where it would end up. This graph paper game was similar:</p>
 <div style="text-align: center; margin-bottom: 1rem;">
@@ -558,26 +563,697 @@
 </span>
 
 <p>The ball machine on this site is a gamified version of my graph paper drawings as a kid. Each time you load a page, You&rsquo;ll see a little pneumatic delivery tube on the top right of the screen.</p>
-<p>When you spawn your first ball, you&rsquo;ll see a few things appear. First - you&rsquo;ll find a goal (look for a &ldquo;target&rdquo;) somewhere randomly on the page. Find a way to get the balls you spawn into that goal. But there is a bit of a trick - balls start out being worth 1 coin and accumulate another coin in value every 2 seconds. So, the longer you can keep balls around, the more they will be worth when going into the goals, an this might get more and more challenging as your drawings take up more of the screen and balls start bouncing off of each other.</p>
-<p>It&rsquo;s a clicker game - start by manually clicking the pneumatic tube to spawn balls, but as you accumulate coins you&rsquo;ll be able to unlock different drawables and things that will let you accumulate more coins faster.</p>
-<h3 id="drawables">Drawables</h3>
-<p>To start drawing your ball machine, you need to click or tap one of the drawables in the main UI:</p>
-<p>{image}</p>
-<p>Every drawable item (lines, launchers, and more) uses the following mechanics:</p>
-<p>On Desktop:</p>
-<ul>
-<li>Start drawing by clicking, drag the mouse around to see a preview, and click again when you have the drawable where you want it.</li>
-<li>Some drawables have a second action, like curved lines, that is previewed after the second click and confirmed with a third</li>
-<li>Hover over a drawn item and right click to delete it.</li>
-</ul>
-<p>On Mobile:</p>
-<ul>
-<li>Tap and drag to see a preview, and release when you have the drawable in the right spot.</li>
-<li>Second actions for the drawable will start on the next tap-and-drag.</li>
-<li>Tap and hold on a drawable to delete it - you will see it pulse before it deletes.</li>
-</ul>
-<p>If you can&rsquo;t draw an item, you probably can&rsquo;t afford it. You&rsquo;ll see the gold prices of the items flash red in the UI when this happens.</p>
+<p>When you spawn your first ball, you&rsquo;ll see a few things appear. First - you&rsquo;ll find a goal    <span
+  style="
+    display: inline-block;
+    width: 40px;
+    margin: 0 1rem 0 0;
+    vertical-align: middle;
+    text-align: left;
+  "
+>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<img  alt="auto clicker"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/goal.png"   style="height: auto; max-width: 40px; width: 100%"   >
+
+ 
+</span>
+ somewhere randomly on the page. Find a way to get the balls you spawn into that goal. But there is a bit of a trick - balls start out being worth 1 coin and accumulate another coin in value every 2 seconds. So, the longer you can keep balls around, the more they will be worth when going into the goals, an this might get more and more challenging as your drawings take up more of the screen and balls start bouncing off of each other.</p>
+<p><strong>Keep Clicking!</strong></p>
+<p>It&rsquo;s <a href="https://en.wikipedia.org/wiki/Incremental_game">a clicker game</a> - start by manually clicking the pneumatic tube to spawn balls, but as you accumulate coins you&rsquo;ll be able to unlock different drawables and things that will let you accumulate more coins faster.</p>
+<p>The site works across multiple pages. It works best when you&rsquo;re on desktop, working on one tab at a time.</p>
+<p> </p>
+<h3 id="controls">Controls</h3>
+<p><span
+  style="
+    display: inline-block;
+    width: 100px;
+    margin: 0 1rem 0 0;
+    vertical-align: middle;
+    text-align: left;
+  "
+>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<img  alt="line toggle"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/line-mode.png"   style="height: auto; max-width: 200px; width: 100%"   >
+
+ 
+</span>
+
+<span
+  style="
+    display: inline-block;
+    width: 100px;
+    margin: 0 1rem 0 0;
+    vertical-align: middle;
+    text-align: left;
+  "
+>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<img  alt="curved line toggle"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/curve-mode.png"   style="height: auto; max-width: 200px; width: 100%"   >
+
+ 
+</span>
+
+<span
+  style="
+    display: inline-block;
+    width: 100px;
+    margin: 0 1rem 0 0;
+    vertical-align: middle;
+    text-align: left;
+  "
+>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<img  alt="compactor toggle"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/compactor-mode.png"   style="height: auto; max-width: 200px; width: 100%"   >
+
+ 
+</span>
+</p>
+<p>To start drawing your ball machine, you need to <kbd>Left Click</kbd> or <kbd>Tap</kbd> one of these drawable toggles in the main UI (top left of the screen)</p>
 <p>When you have a Drawable tool toggled on, you won&rsquo;t be able to click other links on the site. You&rsquo;ll see this visually indicated when you choose them. Unselect the currently selected tool in order to see it</p>
+<p>Every drawable item (lines, launchers, and more) uses the following mechanics:</p>
+<p> </p>
+<h4 id="drawing-on-desktop">Drawing on Desktop</h4>
+<p><strong>Spawn Balls:</strong> <kbd>Left Click</kbd> on the pneumatic spawner tube</p>
+<p><strong>Draw Objects:</strong> <kbd>Left Click</kbd> and drag to see a preview, then <kbd>Left Click </kbd> to place</p>
+<ul>
+<li>Some drawables have a second action, like curved lines, that is previewed after the second click and confirmed with a third click</li>
+</ul>
+<p><strong>Delete Objects:</strong> Hover over a drawn item and <kbd>Right Click</kbd> to delete it, getting 50% of your money back</p>
+<p> </p>
+<h4 id="drawing-on-mobile">Drawing on Mobile</h4>
+<p><strong>Spawn Balls:</strong> <kbd>Tap</kbd> on the pneumatic spawner tube</p>
+<p><strong>Draw Objects:</strong> <kbd>Touch and Drag</kbd> to see a preview, then <kbd>Release</kbd> to place</p>
+<ul>
+<li>Some drawables have a second action, like curved lines, that is previewed and confirmed on the next touch-and-drag.</li>
+</ul>
+<p><strong>Delete Objects:</strong> <kbd>Tap and hold</kbd> an object to delete it, getting 50% of your money back. You will see it pulse before it deletes.</p>
+<p> </p>
+<p><span
+  style="
+    display: inline-block;
+    width: 100px;
+    margin: 0 1rem 0 0;
+    vertical-align: middle;
+    text-align: left;
+  "
+>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<img  alt="dotted line toggle"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/everything-has-a-price.png"   style="height: auto; max-width: 200px; width: 100%"   >
+
+ 
+</span>
+<strong>Everything has a price!</strong></p>
+<p>If you can&rsquo;t draw an item, you probably can&rsquo;t afford it. You&rsquo;ll see your coin counter flash red in the UI when this happens.</p>
+<p><span
+  style="
+    display: inline-block;
+    width: 100px;
+    margin: 0 1rem 0 0;
+    vertical-align: middle;
+    text-align: left;
+  "
+>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<img  alt="dotted line toggle"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/dotted-line-mode.png"   style="height: auto; max-width: 200px; width: 100%"   >
+
+ 
+</span>
+<strong>But you get what you pay for</strong></p>
+<p>If you every find yourself out of money, these dotted lines are free. They are not saved permanently like other lines and they go away after 50 balls hit them.</p>
+<p> </p>
+<h4 id="the-auto-clicker">The Auto-Clicker</h4>
+<span
+  style="
+    display: inline-block;
+    width: 100px;
+    margin: 0 1rem 0 0;
+    vertical-align: middle;
+    text-align: left;
+  "
+>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<img  alt="auto clicker"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/auto-clicker.png"   style="height: auto; max-width: 200px; width: 100%"   >
+
+ 
+</span>
+
+<p>This is the autoclicker button that lets you pay to auto-spawn balls.</p>
+<p><kbd>Left Click</kbd> or <kbd>Tap</kbd> to buy the first auto-clicker, or upgrade it.</p>
+<p><kbd>Right Click</kbd> on desktop or <kbd>Tap and hold</kbd> on mobile to refund and downgrade it to the previous click frequency.</p>
+<p> </p>
 <h3 id="tips-on-making-money">Tips on Making Money</h3>
 <p>You&rsquo;ll quickly find ways to lengthen your Rube-Golberg Machines and build up value before you send balls into the goal. A couple of things to watch out for though:</p>
 <ul>

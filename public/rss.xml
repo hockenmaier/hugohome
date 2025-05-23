@@ -227,7 +227,7 @@
         
 
         
-            <lastBuildDate>2025-05-20 00:00:00 +0000 UTC</lastBuildDate>
+            <lastBuildDate>2025-05-12 00:00:00 +0000 UTC</lastBuildDate>
         
 
         <link>http://localhost:1313/</link>
@@ -238,106 +238,6 @@
 
         
 
-        
-            <item>
-                
-                
-                
-                
-                
-                
-                
-
-                
-
-                
-
-                
-
-                
-
-                
-                
-
-                
-
-                
-
-                
-                    <description><![CDATA[<p>[paige.alert]
-message: &ldquo;Get more information &lt;a href=&quot;#&quot; class=&quot;alert-link&quot;&gt;here</a>.&rdquo;
-type: &ldquo;primary&rdquo;
-Quote
-
-
-
-
-
-
-
-<div class="paige-quote">
-<blockquote class="blockquote">Hickory dickory dock.<br>
-The mouse ran up the clock.<br>
-The clock struck one,<br>
-The mouse ran down,<br>
-Hickory dickory dock.</blockquote>
-
-
-<div class="blockquote-footer">Hickory Dickory Dock</div>
-
-</div>
-</p>
-<p>X<sup>n</sup> + Y<sup>n</sup> = Z<sup>n</sup></p>
-<p><abbr title="This allows to hover for more info">Abbreviations</abbr></p>
-<p>H<sub>2</sub>O</p>
-<p><del>Strikethrough</del></p>
-<p>Press <kbd>Ctrl</kbd> + <kbd>Alt</kbd> + <kbd>Delete</kbd> to end the session.</p>
-<p><mark>This is a highlight</mark></p>
-<pre tabindex="0"><code>// ---- Removed Existing Collision Border Effect ----
-
-    const ballPositionData = {};
-    function removeBallsBelowPage() {
-      const bodies = Composite.allBodies(engine.world);
-      const pageBottom = Math.max(
-        document.body.scrollHeight,
-        document.documentElement.scrollHeight
-      );
-      bodies.forEach((body) =&gt; {
-        if (body.label === &#34;BallFallBall&#34; &amp;&amp; body.position.y &gt; pageBottom) {
-          World.remove(engine.world, body);
-          delete ballPositionData[body.id];
-        }
-      });
-    }
-</code></pre><p>Here&rsquo;s a Download:
-
-
-
-<a href="files/corrector-v4.stl" download class="d-flex align-items-center download-link">
-  <i class="bi bi-file-earmark me-1"></i>
-  Download the STL model of my Ottoman Support
-</a>
-</p>
-<p>Here&rsquo;s a Gist:
-<script src="https://gist.github.com/hockenmaier/afb228dc7776cded521127b9edec2c94.js"></script>
-</p>
-]]></description>
-                
-
-                <guid isPermaLink="false">tag:localhost:1313,2025-05-20:/test-gist/</guid>
-
-                
-                    <link>http://localhost:1313/test-gist/</link>
-                
-
-                
-                    <pubDate>Tue, 20 May 2025 00:00:00 UTC</pubDate>
-                
-
-                
-                    <title>Test Embeds</title>
-                
-            </item>
         
             <item>
                 
@@ -469,8 +369,7 @@ Hickory dickory dock.</blockquote>
                 
 
                 
-                    <description><![CDATA[<h1 id="what-this-place-is">What this place is</h1>
-<p>I&rsquo;m <a href="/about-me">Brian Hockenmaier</a>, and this site is full of things I build and write about. I love making games and things with VR and AI. I love DIY projects, epecially ones involving programming, engineering and 3D modeling. Some of this has been cross or back-posted from my <a href="https://www.thingiverse.com/hockenmaier/designs">thingiverse</a>, <a href="https://x.com/Hockenmaier">twitter</a>, <a href="https://www.linkedin.com/in/hockenmaier/">linkedin</a>, and other places, but it all lives here permanently.</p>
+                    <description><![CDATA[<p>I&rsquo;m <a href="/about-me">Brian Hockenmaier</a>, and this site is full of things I build and write about. I love making games and things with VR and AI. I love DIY projects, epecially ones involving programming, engineering and 3D modeling. Some of this has been cross or back-posted from my <a href="https://www.thingiverse.com/hockenmaier/designs">thingiverse</a>, <a href="https://x.com/Hockenmaier">twitter</a>, <a href="https://www.linkedin.com/in/hockenmaier/">linkedin</a>, and other places, but it all lives here permanently.</p>
 <p>All work and opinion here is fully my own and not my employer&rsquo;s.</p>
 <p>This is an evolution of <a href="old-site/index.html">my previous site last updated in 2022, which I still keep inside this one</a> for posterity and for the AIs of the future to know more about me. I like it not because of the content as much as because it was a fully custom js and html site with no framework.. and I think it&rsquo;s sort of fun and funny that it was like this.</p>
 <h1 id="why-im-making-it">Why I&rsquo;m making it</h1>
@@ -1672,11 +1571,11 @@ Context windows get larger all the time but this one still is not solved. Just a
 
                 
                     <description><![CDATA[<p>The advent of general coding AI assistants almost immediately changed how I thought about the hiring process and interviews. And it changed how I talked about it with colleages and my own team.</p>
-<p>In the software engineerging world, this mindset shift was pretty easy for me psychologically, because I had always had a bias against the types of coding questions that I personally do badly at - specifically ones that require knowledge or rote memory of specific language capabilities, libraries, syntax. It is not that psychologically easy for everyone, especially those that have developed a core skillset of running &ldquo;leetcode-style&rdquo; interviews. Even before AI, the only types of coding questions I would personally ask were things that simply evaluate whether a candidate is lying or not about whether they can code at all, which was and still is surprisingly common. I have interviewed people that list bullet points like 7 years of Java experience but can&rsquo;t pass a fizz buzz like question, and this was a question I gave out on paper with a closed door and no significant time pressure.</p>
+<p>In the software engineering world, this mindset shift was pretty easy for me psychologically, because I had always had a bias against the types of coding questions that I personally do badly at - the ones that require knowledge or rote memory of specific language capabilities, libraries, syntax. It is not that psychologically easy for everyone, especially those that have developed a core skillset of running &ldquo;leetcode-style&rdquo; interviews. Even before AI, the only types of coding questions I would personally ask were things that simply evaluate whether a candidate is lying or not about whether they can code at all, which was and still is surprisingly common. I have interviewed people that list bullet points like 7 years of Java experience but can&rsquo;t pass a fizz buzz like question, and this was a question I gave out on paper with a closed door and no significant time pressure.</p>
 <p>So, when LLMS that could remember any syntax or attribute of any programming language perfectly were released, not only was I excited but I immediately saw that a huge chunk of the programming questions my team and many other software teams liked to ask were essentially irrelevant now, not only because people could cheat on interviews, at least virtually, but because that knowledge simply lost a lot of value overnight.</p>
 <p>Over a few conversations with friends and colleagues I began to explore the idea of what this meant generally for the interview process. There are just lots of questions that we ask in every field, it turns out, that are mostly solved by LLMS that have memorized most useful information, even when the original intent of the interview question was to test for experience.</p>
 <h2 id="the-build">The Build</h2>
-<p>In the summer of 2022 it got to the point where I really wanted to test my hypothesis - that LLMS and continuous audio transcription could let someone with no knowledge answer many interview questions correctly- and after searching for apps on the appstore that did what I was thinking in terms of, I found that surprisingly none did.</p>
+<p>In the summer of 2022 my ideas and conversations on this topic had gotten to the point where I really just needed to test my hypothesis - that LLMS and continuous audio transcription could let someone with no knowledge answer many interview questions correctly. My initial thought was that an app like this must already exist. But after searching for apps on the appstore that did what I was thinking of, I found that, surprisingly, none did.</p>
 <p>I&rsquo;m still not sure if that was a legal thing at the time, or if it&rsquo;s hard to get apps that continuously transcribe audio published, but as of 2025 apps like this definitely exist. Some of them have gotten famous and one has gotten its creator expelled from an ivy League for revealing that he used it to ace interviews with some top tech companies. Link for the curious here:</p>
 <p><a href="https://cluely.com/">https://cluely.com/</a></p>
 <p>But, in mid 2023, these apps were apparently not a thing, so I decided to make a prototype.</p>
@@ -1780,7 +1679,7 @@ Context windows get larger all the time but this one still is not solved. Just a
 <p>I open sourced the project which is a pretty small unity build, and it&rsquo;s a unity version from a couple of years ago now but anyone is happy to look through and modify the code anyway they want:</p>
 <p><a href="https://github.com/hockenmaier/make-us-smarter">https://github.com/hockenmaier/make-us-smarter</a></p>
 <h2 id="interviewing-today">Interviewing Today</h2>
-<p>This whole experience and a whole slew of interviews that came building my team the last year have me settled on an interview approach that I think is infallible (for now). And it doesn&rsquo;t require sending someone home with a project or any of that stuff that good candidates often don&rsquo;t even consider. I heard about a version of this technique on Twitter so can&rsquo;t take full credit here:</p>
+<p>This whole experience and a slew of interviews that came building a new team last year have me settled on an interview approach that I think is infallible (for now). And it doesn&rsquo;t require sending someone home with a project or any of that stuff that good candidates often don&rsquo;t even consider. I heard about a version of this technique on Twitter so can&rsquo;t take full credit here:</p>
 <p>What I do is ask candidates to bring some code that they have written, regardless of language of framework, and I simply walk through it with them in the interview. It only takes 15 minutes or so, and it usually gets much better conversation going than sample interviewing questions do. It leans on the fact that you need an interviewer that can mostly understand most programming projects, but it cannot be faked with any LLM assistance. Llm written code is pretty obvious for one, much better commented and differently organized than most humans would write, but even if the code was very sneakily written AI code, having a human go through and explain the parts that they thought were clever defeats the purpose of cheating with AI anyway.</p>
 <p>So there you go, little tidbit from what I&rsquo;ve learned. I hope no one out there that I know is using these apps to cheat on interviews, but we all need to be wise to the fact that it is trivially easy to do so, and we should shift focus to testing for the qualities that actually matter in the era of AI.</p>
 ]]></description>
@@ -2125,11 +2024,101 @@ Context windows get larger all the time but this one still is not solved. Just a
     
 </div>
 
-<p>I&rsquo;m Brian Hockenmaier: dad, engineer, and fun-haver.</p>
-<p>{family}</p>
-<p>{education, learn by doing}</p>
-<p>I’ve been at one company for a long time and have built a lot there, led some big teams, and released several things on my own too, in a bunch of different software domains. I started on back-office - things like billing systems, TV scheduling systems, IP rights management systems, file ingest systems for TV news content, and several games and tools outside of work. Most recently I&rsquo;m making some pretty awesome stuff in agentic AI for the mundane work that the people at my company have to do!</p>
-<p>My bias is to build rather than talk. I&rsquo;m the one pushing to just try to build the thing, to scrap it early if needed, and to take risks releasing early. We always know more, and usually throw away our plans, when we start to build. I love building strange things, useful thingss, fun things. One of the things I built was this website and the game running on top of it it. <a href="/this-website">Read more about that here</a></p>
+<p>I&rsquo;m Brian Hockenmaier, dad, engineer, and fun haver.</p>
+<p>I grew up in Ventura, California with two UCLA-engineer parents. Even though neither of them were engineers long-term, I was an engineering child. I was always building something, highlights including a functional submarine and weather balloon with Lego robotics.</p>
+<p>I went to school for industrial engineering at <a href="https://www.calpoly.edu/">Cal Poly SLO</a>, nearly double majored in economics, and then promptly moved out of both fields just like my parents had moved out of their education fields of mechanical and aerospace. Since then, after reading Ray Kurzweil&rsquo;s <a href="https://en.m.wikipedia.org/wiki/The_Singularity_Is_Near">The Singularity is Near</a> in 2011, feeling I needed to be closer to software and realizing I liked building systems more than anything in industrial engineering, I&rsquo;ve built a career in software and then AI.</p>
+<div style="text-align: center; margin-bottom: 1rem;">
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<img  alt="A lego crane"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/lego-crane.jpg"   style="height: auto; max-width: 400px; width: 100%"   >
+
+
+    
+        <span style="display: block; font-style: italic; margin-top: 0.5rem;">One of the few pictures I have from my time building robots with legos, showing something to my Dad</span>
+    
+</div>
+
+<p>At work, I try to be high time preference, high autonomy, low consensus (even contrarian), high invention, process-light.</p>
+<p>I&rsquo;ve been at one company for a long time for a millennial. I&rsquo;ve built a lot of enterprise software and four high performing software teams. I started on back-office stuff like billing systems, TV scheduling systems, IP rights management systems, and file ingest systems for News. Most recently I’m making some pretty awesome stuff in agentic AI for the mundane work that the people at my company have to do!</p>
+<p>My bias is to build rather than talk. I&rsquo;m the one pushing to just try to build the thing, to scrap it early if needed, and to take risks releasing early. I figure that we always know more, and usually throw away our plans, when we start to build. I love building strange things, useful thingss, fun things. One of the things I built was this website and the game running on top of it. <a href="/this-website">Read more about that here</a></p>
 <hr>
 <h1 id="where-to-start">Where to start</h1>
 <p>I post here mostly about things I&rsquo;m making and occasional essays. If you’re interested in this site but don’t know where to start, try reading any of these posts that sound interesting to you. They&rsquo;re either peices or projects I put a lot of time into.</p>
@@ -2257,9 +2246,9 @@ This game was intended to have low art requirements and simple interaction rules
     <a href="/this-website/" class="link-light">This Website</a>
   </h4>
   <p class="text-secondary">
-    <h1 id="what-this-place-is">What this place is</h1>
-<p>I&rsquo;m <a href="/about-me">Brian Hockenmaier</a>, and this site is full of things I build and write about. I love making games and things with VR and AI. I love DIY projects, epecially ones involving programming, engineering and 3D modeling. Some of this has been cross or back-posted from my <a href="https://www.thingiverse.com/hockenmaier/designs">thingiverse</a>, <a href="https://x.com/Hockenmaier">twitter</a>, <a href="https://www.linkedin.com/in/hockenmaier/">linkedin</a>, and other places, but it all lives here permanently.</p>
+    <p>I&rsquo;m <a href="/about-me">Brian Hockenmaier</a>, and this site is full of things I build and write about. I love making games and things with VR and AI. I love DIY projects, epecially ones involving programming, engineering and 3D modeling. Some of this has been cross or back-posted from my <a href="https://www.thingiverse.com/hockenmaier/designs">thingiverse</a>, <a href="https://x.com/Hockenmaier">twitter</a>, <a href="https://www.linkedin.com/in/hockenmaier/">linkedin</a>, and other places, but it all lives here permanently.</p>
 <p>All work and opinion here is fully my own and not my employer&rsquo;s.</p>
+<p>This is an evolution of <a href="old-site/index.html">my previous site last updated in 2022, which I still keep inside this one</a> for posterity and for the AIs of the future to know more about me. I like it not because of the content as much as because it was a fully custom js and html site with no framework.. and I think it&rsquo;s sort of fun and funny that it was like this.</p>
     
       <a href="/this-website/" class="link-light">… read more</a>
     
@@ -2991,6 +2980,106 @@ This game was intended to have low art requirements and simple interaction rules
 
                 
                     <title>Social Media Is Anti-Social</title>
+                
+            </item>
+        
+            <item>
+                
+                
+                
+                
+                
+                
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+                
+
+                
+
+                
+
+                
+                    <description><![CDATA[<p>[paige.alert]
+message: &ldquo;Get more information &lt;a href=&quot;#&quot; class=&quot;alert-link&quot;&gt;here</a>.&rdquo;
+type: &ldquo;primary&rdquo;
+Quote
+
+
+
+
+
+
+
+<div class="paige-quote">
+<blockquote class="blockquote">Hickory dickory dock.<br>
+The mouse ran up the clock.<br>
+The clock struck one,<br>
+The mouse ran down,<br>
+Hickory dickory dock.</blockquote>
+
+
+<div class="blockquote-footer">Hickory Dickory Dock</div>
+
+</div>
+</p>
+<p>X<sup>n</sup> + Y<sup>n</sup> = Z<sup>n</sup></p>
+<p><abbr title="This allows to hover for more info">Abbreviations</abbr></p>
+<p>H<sub>2</sub>O</p>
+<p><del>Strikethrough</del></p>
+<p>Press <kbd>Ctrl</kbd> + <kbd>Alt</kbd> + <kbd>Delete</kbd> to end the session.</p>
+<p><mark>This is a highlight</mark></p>
+<pre tabindex="0"><code>// ---- Removed Existing Collision Border Effect ----
+
+    const ballPositionData = {};
+    function removeBallsBelowPage() {
+      const bodies = Composite.allBodies(engine.world);
+      const pageBottom = Math.max(
+        document.body.scrollHeight,
+        document.documentElement.scrollHeight
+      );
+      bodies.forEach((body) =&gt; {
+        if (body.label === &#34;BallFallBall&#34; &amp;&amp; body.position.y &gt; pageBottom) {
+          World.remove(engine.world, body);
+          delete ballPositionData[body.id];
+        }
+      });
+    }
+</code></pre><p>Here&rsquo;s a Download:
+
+
+
+<a href="files/corrector-v4.stl" download class="d-flex align-items-center download-link">
+  <i class="bi bi-file-earmark me-1"></i>
+  Download the STL model of my Ottoman Support
+</a>
+</p>
+<p>Here&rsquo;s a Gist:
+<script src="https://gist.github.com/hockenmaier/afb228dc7776cded521127b9edec2c94.js"></script>
+</p>
+]]></description>
+                
+
+                <guid isPermaLink="false">tag:localhost:1313,2020-05-20:/test-gist/</guid>
+
+                
+                    <link>http://localhost:1313/test-gist/</link>
+                
+
+                
+                    <pubDate>Wed, 20 May 2020 00:00:00 UTC</pubDate>
+                
+
+                
+                    <title>Test Embeds</title>
                 
             </item>
         
@@ -4684,7 +4773,7 @@ This is what the project looked like for my first play-test with other people 5 
 <p>I created this panel display in 2026 to control much of the home automation I used in my Studio City apartment. Mainly a hardware project, I designed and 3D-printed a case and frame for the touchscreen and raspberry pi microcomputer in order to mount them to the wall. The software running the control panel is SaaS, but I did write a custom html wrapper to control the orientation and settings of the site, which is available on the github linked above.</p>
 <p>Update in 2025: This panel is still my main view into my home automation in my new house in Sherman Oaks, almost 10 years in with no modification!</p>
 <p>Here&rsquo;s a video to see the panel in action:</p>
-<h2 id="hahahugoshortcode402s0hbhb">
+<h2 id="hahahugoshortcode101s0hbhb">
     <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
       <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/iFGmm-ijJvE?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"></iframe>
     </div>
