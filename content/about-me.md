@@ -21,7 +21,7 @@ src="images/lego-crane.jpg"
 alt="A lego crane"
 caption="One of the few pictures I have from my time building robots with legos, showing a robotic crane to my Dad" >}}
 
-At work, I try to be high time preference, high autonomy, low consensus (even contrarian), high invention, process-light.
+At work, I try to be low time preference, high autonomy, low consensus (even contrarian), high invention, process-light.
 
 I've been at one company for a long time for a millennial. I've built a lot of enterprise software and four high performing software teams. I started on back-office stuff like billing systems, TV scheduling systems, IP rights management systems, and file ingest systems for News. Most recently I’m making some pretty awesome stuff in agentic AI for the mundane work that the people at my company have to do!
 
