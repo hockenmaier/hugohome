@@ -112,12 +112,12 @@
                 
 
                 
-                    <description><![CDATA[
+                    <description><![CDATA[<p>The &ldquo;Human Joystick&rdquo; is an experimental VR movement system in which the player moves through the virtual environment by changing their physical location within their VR &ldquo;playspace&rdquo;.</p>
+
     <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
       <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/q_1itpdiPb4?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"></iframe>
     </div>
 
-<p>The &ldquo;Human Joystick&rdquo; is an experimental VR movement system in which the player moves through the virtual environment by changing their physical location within their VR &ldquo;playspace&rdquo;.</p>
 <p>A demo of the human joystick movement system, showing how the system can work on flat surfaces or terrain.</p>
 <p>This was my first barebones VR project. Though I knew Unity going in, VR and 3D games in general have a lot of unique aspects that I wanted to learn about while trying to solve an actual problem, rather than following tutorials or demos online.</p>
 <p>VR has some adoption problems in its current state. We all know of some of the main problems- the clunky headset, the nausea issues, and of course the pricetag. But one major problem that you don&rsquo;t really notice until you get into it, is the lack of a good solution for virtual movement.</p>
@@ -387,8 +387,7 @@
 </table>
 <hr>
 <p>Eventually I found some good default values and the system worked, but there were some unforeseen problems: First, it was more difficult to center yourself within the playspace without looking at the visible guides I put at the player&rsquo;s feet than I expected. Second and more importantly, when you were already moving in one direction, it was not as simple as I thought to start moving in another direction accurately without fully returning to center, which was an immersion breaker.</p>
-<p>Ultimately I put the project up for others to view but have not expanded it into a full experience or released it on any marketplaces. Feel free to download the Unity project and try it on your own VR setup if you&rsquo;re curious.</p>
-]]></description>
+<p>Ultimately I put the project up for others to view but have not expanded it into a full experience or released it on any marketplaces. Feel free to download the Unity project and try it on your own VR setup if you&rsquo;re curious.</p>]]></description>
                 
 
                 <guid isPermaLink="false">tag:hockenworks.com,2020-01-01:/human-joystick/</guid>
@@ -441,13 +440,12 @@
 <p>I created this panel display in 2026 to control much of the home automation I used in my Studio City apartment. Mainly a hardware project, I designed and 3D-printed a case and frame for the touchscreen and raspberry pi microcomputer in order to mount them to the wall. The software running the control panel is SaaS, but I did write a custom html wrapper to control the orientation and settings of the site, which is available on the github linked above.</p>
 <p>Update in 2025: This panel is still my main view into my home automation in my new house in Sherman Oaks, almost 10 years in with no modification!</p>
 <p>Here&rsquo;s a video to see the panel in action:</p>
-<h2 id="hahahugoshortcode18s0hbhb">
+<h2 id="hahahugoshortcode19s0hbhb">
     <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
       <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/iFGmm-ijJvE?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"></iframe>
     </div>
 </h2>
-<p>Feel free to explore the linked repositories for schematics and source code.</p>
-]]></description>
+<p>Feel free to explore the linked repositories for schematics and source code.</p>]]></description>
                 
 
                 <guid isPermaLink="false">tag:hockenworks.com,2016-01-01:/raspberry-pi-panel/</guid>

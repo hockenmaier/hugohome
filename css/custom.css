@@ -73,7 +73,8 @@ article.paige-latest-item a:hover:not(.nav-link),
   margin-top: 1em !important;
 }
 
-/* 2-column latest view */
+/* 2-column Latest post with image view */
+
 .latest-with-image-list {
   display: flex;
   flex-direction: column;
@@ -113,8 +114,14 @@ article.paige-latest-item a:hover:not(.nav-link),
     flex-direction: column;
   }
   .media-column {
-    margin-right: 0;
-    margin-bottom: 1rem;
+    display: flex;
+    justify-content: center;
+    width: 100%; /* allow it to fill the row */
+  }
+  .media-container {
+    margin: 0 auto; /* centers it within media-column */
+    max-width: 300px; /* keep your square size if you want */
+    width: 100%; /* or scale down on small screens */
   }
 }
 /* always crop from the top of the media */
@@ -122,4 +129,15 @@ article.paige-latest-item a:hover:not(.nav-link),
 .media-container iframe {
   object-fit: cover;
   object-position: top center;
+}
+
+.link-green {
+  color: #87c2a5;
+  text-decoration: underline;
+}
+.link-green:visited {
+  color: #6fa58e;
+}
+.link-green:hover {
+  color: #a8d8c0;
 }

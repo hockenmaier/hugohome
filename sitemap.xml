@@ -83,7 +83,13 @@
     <loc>https://hockenworks.com/tags/board-games/</loc>
     <lastmod>2025-01-01T00:00:00+00:00</lastmod>
   </url><url>
+    <loc>https://hockenworks.com/tags/c%23/</loc>
+    <lastmod>2025-01-01T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>https://hockenworks.com/tags/experimental/</loc>
+    <lastmod>2025-01-01T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://hockenworks.com/tags/local-multiplayer/</loc>
     <lastmod>2025-01-01T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://hockenworks.com/tags/multiplayer/</loc>
@@ -93,6 +99,12 @@
     <lastmod>2025-01-01T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://hockenworks.com/tags/prototyping/</loc>
+    <lastmod>2025-01-01T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://hockenworks.com/tags/strategy/</loc>
+    <lastmod>2025-01-01T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://hockenworks.com/tags/unity/</loc>
     <lastmod>2025-01-01T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://hockenworks.com/tags/user-experience/</loc>
@@ -128,16 +140,10 @@
     <loc>https://hockenworks.com/postman-for-pms/</loc>
     <lastmod>2024-01-13T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://hockenworks.com/tags/c%23/</loc>
-    <lastmod>2023-02-01T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://hockenworks.com/tags/nerfs/</loc>
     <lastmod>2023-02-01T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://hockenworks.com/nerfs/</loc>
-    <lastmod>2023-02-01T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://hockenworks.com/tags/unity/</loc>
     <lastmod>2023-02-01T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://hockenworks.com/tags/co-op/</loc>
@@ -161,7 +167,7 @@
     <loc>https://hockenworks.com/social-media-is-antisocial/</loc>
     <lastmod>2022-08-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://hockenworks.com/test-gist/</loc>
+    <loc>https://hockenworks.com/test-embeds/</loc>
     <lastmod>2020-05-20T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://hockenworks.com/tags/3d-printing/</loc>
@@ -198,12 +204,6 @@
     <lastmod>2019-07-03T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://hockenworks.com/land-war/</loc>
-    <lastmod>2019-03-01T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://hockenworks.com/tags/local-multiplayer/</loc>
-    <lastmod>2019-03-01T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://hockenworks.com/tags/strategy/</loc>
     <lastmod>2019-03-01T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://hockenworks.com/tags/dialogflow/</loc>
