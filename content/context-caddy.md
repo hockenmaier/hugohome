@@ -11,6 +11,8 @@ tags: ["AI", "Rapid Prototyping", "VSCode Extension"]
 
 I built a nice little tool to help AI write code for you.
 
+<!--more-->
+
 {{< youtube R5wztMBfh0w >}}
 
 Well, really, o3-mini and o3-mini-high worked together to write this and I corrected a few things here and there. I started using this tool to write itself about 30 mins into development!

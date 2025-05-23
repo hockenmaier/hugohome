@@ -46,13 +46,11 @@
 The mouse ran up the clock.
 The clock struck one,
 The mouse ran down,
-Hickory dickory dock.Hickory Dickory DockXn &#43; Yn = Zn
+Hickory dickory dock.Hickory Dickory Dock“Work should be a sacrifice, and more money means more security for my family.” Xn &#43; Yn = Zn
 Abbreviations
 H2O
 Strikethrough
-Press Ctrl &#43; Alt &#43; Delete to end the session.
-This is a highlight
-// ---- Removed Existing Collision Border Effect ----const ballPositionData = {};function removeBallsBelowPage() {const bodies = Composite.allBodies(engine.world);const pageBottom = Math.max(document.body.scrollHeight,document.documentElement.scrollHeight);bodies.forEach((body) =&gt; {if (body.label === &#34;BallFallBall&#34; &amp;&amp; body.position.y &gt; pageBottom) {World.remove(engine.world, body);delete ballPositionData[body.id];}});} Here’s a Download: Download the STL model of my Ottoman Support">
+Press Ctrl &#43; Alt &#43; Delete to end the session.">
   <meta property="og:locale" content="en_us">
   <meta property="og:type" content="article">
     <meta property="article:published_time" content="2020-05-20T00:00:00+00:00">
@@ -69,13 +67,11 @@ This is a highlight
 The mouse ran up the clock.
 The clock struck one,
 The mouse ran down,
-Hickory dickory dock.Hickory Dickory DockXn &#43; Yn = Zn
+Hickory dickory dock.Hickory Dickory Dock“Work should be a sacrifice, and more money means more security for my family.” Xn &#43; Yn = Zn
 Abbreviations
 H2O
 Strikethrough
-Press Ctrl &#43; Alt &#43; Delete to end the session.
-This is a highlight
-// ---- Removed Existing Collision Border Effect ----const ballPositionData = {};function removeBallsBelowPage() {const bodies = Composite.allBodies(engine.world);const pageBottom = Math.max(document.body.scrollHeight,document.documentElement.scrollHeight);bodies.forEach((body) =&gt; {if (body.label === &#34;BallFallBall&#34; &amp;&amp; body.position.y &gt; pageBottom) {World.remove(engine.world, body);delete ballPositionData[body.id];}});} Here’s a Download: Download the STL model of my Ottoman Support">
+Press Ctrl &#43; Alt &#43; Delete to end the session.">
 
  
   <title>Test Embeds · hockenworks</title>
@@ -605,6 +601,22 @@ Hickory dickory dock.</blockquote>
 
 </div>
 </p>
+
+
+
+
+
+
+
+<div class="paige-quote">
+<blockquote class="blockquote"><ol>
+<li><em>&ldquo;Work should be a sacrifice, and more money means more security for my family.&rdquo;</em></li>
+</ol>
+</blockquote>
+
+
+</div>
+
 <p>X<sup>n</sup> + Y<sup>n</sup> = Z<sup>n</sup></p>
 <p><abbr title="This allows to hover for more info">Abbreviations</abbr></p>
 <p>H<sub>2</sub>O</p>
@@ -1434,15 +1446,23 @@ Hickory dickory dock.</blockquote>
   }
   App.updateAutoClickerCostDisplay = updateAutoClickerCostDisplay;
 
+   
   function refundValue () {
-    if (!App.config.autoClicker) {
+     
+    if (!App.config.autoClicker) return 0;
+
+    const lvl = App.config.maxUnlockedSpeedLevel;
+
+     
+    if (lvl === 0) {
       return Math.ceil(App.config.autoClickerCost * App.config.refundRate);
     }
-    const lvl = App.config.maxUnlockedSpeedLevel;
-    if (lvl === 0) return 0;
+
+     
     const cost = App.config.speedUpgradeCosts[lvl];
     return Math.ceil(cost * App.config.refundRate);
   }
+
 
    
   let acPreview = null;
@@ -1540,24 +1560,41 @@ Hickory dickory dock.</blockquote>
 
    
   function doRefund (x, y) {
-    const lvl = App.config.maxUnlockedSpeedLevel;
-    if (!App.config.autoClicker || lvl === 0) return;
-    const cost   = App.config.speedUpgradeCosts[lvl];
-    const refund = Math.ceil(cost * App.config.refundRate);
+    if (!App.config.autoClicker) return;   
 
+    let refund;
+
+     
+    if (App.config.maxUnlockedSpeedLevel === 0) {
+      refund = Math.ceil(App.config.autoClickerCost * App.config.refundRate);
+
+      App.config.autoClicker = false;                      
+      window.BallFall.stopAutoSpawner();                        
+      App.config.spawnInterval = App.config.originalSpawnInterval;
+      App.Persistence.saveAutoClicker({ purchased:false, maxSpeedLevel:0 });
+    }
+     
+    else {
+      const lvl   = App.config.maxUnlockedSpeedLevel;
+      const cost  = App.config.speedUpgradeCosts[lvl];
+      refund      = Math.ceil(cost * App.config.refundRate);
+
+      App.config.maxUnlockedSpeedLevel = lvl - 1;
+      const newInt = App.config.originalSpawnInterval / Math.pow(2, lvl - 1);
+      App.config.spawnInterval = newInt;
+      window.BallFall.stopAutoSpawner();                        
+      App.config.spawnInterval = App.config.originalSpawnInterval;
+      App.Persistence.saveAutoClicker({ purchased:false, maxSpeedLevel:0 });
+    }
+
+     
     App.config.coins += refund;
-    App.config.maxUnlockedSpeedLevel = lvl - 1;
-
-    const newInt = App.config.originalSpawnInterval / Math.pow(2, lvl - 1);
-    App.config.spawnInterval = newInt;
-    window.BallFall.updateSpawnInterval(newInt);
-
-    App.Persistence.saveAutoClicker({ purchased:true, maxSpeedLevel:lvl-1 });
     App.updateCoinsDisplay();
-    updateAutoClickerCostDisplay();
+    App.updateAutoClickerCostDisplay();
     if (window.showRefundNotification)
       window.showRefundNotification(refund, x, y);
   }
+
 
    
   document.addEventListener("BallFallBaseReady", updateAutoClickerCostDisplay);

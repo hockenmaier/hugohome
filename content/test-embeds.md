@@ -21,6 +21,11 @@ The mouse ran down,<br>
 Hickory dickory dock.
 {{< /paige/quote >}}
 
+{{< paige/quote >}}
+
+1. _"Work should be a sacrifice, and more money means more security for my family."_
+   {{< /paige/quote >}}
+
 X^n^ + Y^n^ = Z^n^
 
 <abbr title="This allows to hover for more info">Abbreviations</abbr>
