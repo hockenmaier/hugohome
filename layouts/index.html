@@ -1,0 +1,10 @@
+{{ define "main" }} {{ $page := . }} {{ partial "paige/page.html" $page }} {{
+$ordered := $page.Site.RegularPages.ByDate.Reverse }} {{ $pager :=
+$page.Paginate $ordered }}
+
+<div id="paige-pages">
+  {{ range $pager.Pages }} {{ partial "paige/list-item-bigimage.html" . }} {{
+  end }}
+</div>
+
+{{ template "pagination" (dict "page" $page "pager" $pager) }} {{ end }}

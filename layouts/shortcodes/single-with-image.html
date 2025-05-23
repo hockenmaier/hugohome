@@ -1,0 +1,21 @@
+{{/*
+// Shared template: layouts/partials/paige/bigimage-item.html
+// =============================================================
+// Render a “big‑image” list element reused by shortcodes *and*
+// list templates so there’s exactly **one** copy of the markup.
+//
+// Accepts a dict:
+//   page   – required .Page object
+//   width  – optional int, px (default 300)
+//   height – optional int, px (default 300)
+*/}}
+{{/* Usage: {{< single-with-image path="/my-post" width="400" height="250" >}} */}}
+{{ $ctx   := . }}
+{{ $path  := $ctx.Get "path" }}
+{{ $width := default 300 ($ctx.Get "width")  | int }}
+{{ $height:= default 300 ($ctx.Get "height") | int }}
+{{ with .Site.GetPage $path }}
+  {{ partial "paige/bigimage-item.html" (dict "page" . "width" $width "height" $height) }}
+{{ else }}
+  <p><em>Content not found: {{ $path }}</em></p>
+{{ end }}

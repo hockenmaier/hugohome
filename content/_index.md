@@ -25,10 +25,6 @@ This site is also a video game. Play around and discover it yourself or [learn h
 
 &nbsp;
 
-&nbsp;
-
 ## Latest
 
 ---
-
-{{< latest-with-image >}}

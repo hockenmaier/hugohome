@@ -35,7 +35,9 @@ I post here mostly about things I'm making and occasional essays. If you’re in
 
 ## My Games
 
-> Land War was my first published game. I built in in 6 months and released on Steam only, where it got a few hundred downloads and made a bit over $1000{{< favorite-posts favorites=`/land-war|` >}}
+> Land War was my first published game. I built in in 6 months and released on Steam only, where it got a few hundred downloads and made a bit over $1000
+
+{{< single-with-image path="/land-war" width="400" height="250" >}}
 
 &nbsp;
 
@@ -43,7 +45,11 @@ I post here mostly about things I'm making and occasional essays. If you’re in
 
 &nbsp;
 
-> Treekeepers VR was an ambitious game developement project I took on in 2021- my first published VR title and my first multiplayer title. The latter turned out to be the really hard part. Read more about it:{{< favorite-posts favorites=`/treekeepers-vr|` >}}
+> Treekeepers VR was an ambitious game developement project I took on in 2021- my first published VR title and my first multiplayer title. The latter turned out to be the really hard part. Read more about it:
+
+&nbsp;
+
+{{< single-with-image path="/treekeepers-vr" width="400" height="250" >}}
 
 &nbsp;
 
@@ -51,7 +57,9 @@ I post here mostly about things I'm making and occasional essays. If you’re in
 
 &nbsp;
 
-> This Website itself was my 3rd video game:{{< favorite-posts favorites=`/this-website|` >}}
+> This Website itself was my 3rd video game:
+
+{{< single-with-image path="/this-website" width="400" height="250" >}}
 
 &nbsp;
 

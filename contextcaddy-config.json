@@ -164,7 +164,6 @@
         "layouts\\partials\\ball-machine-ui.html": true,
         "notes\\site-description.md": true,
         "content\\_index.md": true,
-        "content\\this-website.md": true,
         "content\\about-me.md": true,
         "layouts\\shortcodes\\centered-text.html": true,
         "layouts\\shortcodes\\clear-storage.html": true,
@@ -214,7 +213,10 @@
         "themes\\paige\\layouts\\_default\\paige\\cloud.html": true,
         "themes\\paige\\layouts\\_default\\paige\\search.html": true,
         "themes\\paige\\archetypes\\default.md": true,
-        "static\\css\\custom.css": true
+        "static\\css\\custom.css": true,
+        "layouts\\shortcodes\\single-with-image.html": true,
+        "layouts\\shortcodes\\latest-with-image.html": true,
+        "content\\this-website.md": true
       },
       "prePrompt": "",
       "includeFileTree": true

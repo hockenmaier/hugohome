@@ -8,7 +8,7 @@ Params:
 */}}
 {{ $ctx := . }}
 {{ $pages := default .Site.RegularPages ($ctx.Get "pages") }}
-{{ $count := default 7 ($ctx.Get "count") | int }}
+{{ $count := default 4 ($ctx.Get "count") | int }}
 {{ $width := default 300 ($ctx.Get "width") | int }}
 {{ $height := default 300 ($ctx.Get "height") | int }}
 {{ $posts := first $count (sort $pages "Date" "desc") }}
