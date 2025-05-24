@@ -3,7 +3,7 @@ title: "On AI Software Development"
 date: 2024-01-24
 categories: ["writing"]
 personal: "Y"
-tags: ["software", "singularity", "AI"]
+tags: ["software", "singularity", "AI", "software"]
 ---
 
 {{< image-medium

@@ -182,6 +182,12 @@
         
     
 
+    
+
+    
+        
+    
+
 
 
 
@@ -227,7 +233,7 @@
         
 
         
-            <lastBuildDate>2025-05-12 00:00:00 +0000 UTC</lastBuildDate>
+            <lastBuildDate>2025-05-24 00:00:00 +0000 UTC</lastBuildDate>
         
 
         <link>http://localhost:1313/</link>
@@ -238,6 +244,218 @@
 
         
 
+        
+            <item>
+                
+                
+                
+                
+                
+                
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+                
+
+                
+
+                
+
+                
+                    <description><![CDATA[<p>Recently I read the <a href="https://ai-2027.com/scenario.pdf">AI 2027 paper</a>. I was surprised to see Scott Alexander&rsquo;s name on this paper and I was doubly surprised to see him do his <a href="https://www.dwarkesh.com/p/scott-daniel">first face reveal podcast about it with Dwarkesh</a></p>
+<p>On its face this is one of the most aggressive predictions for when we will have AGI (at least the new definition of AGI which is something that is comparable or better than humans at all non-bodily tasks) that I have read. Even as someone who has been a long believer in <a href="https://en.wikipedia.org/wiki/The_Singularity_Is_Near">Ray Kurzweil&rsquo;s Singularity predictions</a>, 2027 strikes me as very early. I realize that Kurzweil&rsquo;s AGI date was also late 2020&rsquo;s and 2045 was his singulartiy prediction - 2027 still feels early to me.</p>
+<div class="paige-row-wide">
+  <div style="display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:15px;">
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<img  alt="AI 2027"   class="rounded-4 w-100"  crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/ai-2027.png"    >
+
+
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<img  alt="Singularity Is Near"   class="rounded-4 w-100"  crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/The-Singularity-Is-Near.JPG"    >
+
+</div>
+</div>
+
+<p>I won&rsquo;t get into my full take on AI 2027 here, but the core argument comes down to the same one I was making in my <a href="/on-ai-software-development">original post on AI software development</a></p>
+<ul>
+<li>which is that, once AI agents are able to replace software engineers, instead of just assisting them, it doesn&rsquo;t matter how they are doing another realms, because they will simply be able to improve on themselves and their own software at such a rate that the difference between the time of automating software engineering jobs and the time of automating all other jobs is negligible.</li>
+</ul>
+<p>So I figured it was a good time to update on where I think AI is actually at at software engineering tasks. I&rsquo;ve had the chance to test many of the latest AI software development tools and models, and we have come a long way since my original post.</p>
+<p>&mdash;Notes&mdash;</p>
+<p>Add links to my chat with 03 about the refund feature,</p>
+<p>Add links to videos about co-pilot agents as well as codex as the state of the art actual software developers</p>
+<p>Talk a little bit about my experience using cursor and what a disappointment it was for a code base as unique as mine</p>
+<p>Add notes about cursor not handling context any more easily than context caddy - and that might be a bit of a stumbling block</p>
+<p>First feature that sonnet 3.7 consistently failed at was simply having the compactors add ball value accumulation of compacted balls</p>
+<p>Your request has been blocked as our system has detected suspicious activity from your account.If you believe this is a mistake, please contact us at <a href="mailto:hi@cursor.com">hi@cursor.com</a>.(Request ID: 997e94bb-34ee-44c0-b0aa-15bb6822add6)</p>
+<p>LOL</p>
+]]></description>
+                
+
+                <guid isPermaLink="false">tag:localhost:1313,2025-05-24:/on-ai-software-development-2/</guid>
+
+                
+                    <link>http://localhost:1313/on-ai-software-development-2/</link>
+                
+
+                
+                    <pubDate>Sat, 24 May 2025 00:00:00 UTC</pubDate>
+                
+
+                
+                    <title>On AI Software Development, 2025 Edition</title>
+                
+            </item>
         
             <item>
                 
@@ -4907,7 +5125,7 @@ This is what the project looked like for my first play-test with other people 5 
 <p>I created this panel display in 2026 to control much of the home automation I used in my Studio City apartment. Mainly a hardware project, I designed and 3D-printed a case and frame for the touchscreen and raspberry pi microcomputer in order to mount them to the wall. The software running the control panel is SaaS, but I did write a custom html wrapper to control the orientation and settings of the site, which is available on the github linked above.</p>
 <p>Update in 2025: This panel is still my main view into my home automation in my new house in Sherman Oaks, almost 10 years in with no modification!</p>
 <p>Here&rsquo;s a video to see the panel in action:</p>
-<h2 id="hahahugoshortcode20s0hbhb">
+<h2 id="hahahugoshortcode17s0hbhb">
     <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
       <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/iFGmm-ijJvE?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"></iframe>
     </div>
