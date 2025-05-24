@@ -2,10 +2,16 @@
   href="#"
   style="color: #cc592f; text-decoration: underline; cursor: pointer"
   onclick="
-    localStorage.clear();
+    // Clear all localStorage data
+    localStorage.clear(); 
+    // Update link text and styling
     this.textContent = 'Cleared data';
     this.style.color = '#3df59f';
     this.style.textDecoration = 'none';
+    // After 500 ms, navigate to the reset anchor
+    setTimeout(() => {
+      window.location.href = '/this-website';
+    }, 500);
     return false;
   "
 >
