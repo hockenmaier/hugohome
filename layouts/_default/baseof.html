@@ -66,17 +66,6 @@
             <script src="{{ "js/ui-updater.js" | absURL }}"></script>
             <script src="{{ "js/powerup-progression.js" | absURL }}"></script>
             {{ partial "ball-machine-ui.html" . }}
-
-            <script>
-            // Disable links on the main page while a drawing tool is active.
-            document.addEventListener('click', function(e) {
-                if (window.App && window.App.modules && window.App.modules.lines && window.App.modules.lines.getMode() !== "none") {
-                if (e.target.closest('a') && !e.target.closest('#ballfall-ui')) {
-                    e.preventDefault();
-                }
-                }
-            });
-            </script>
         {{ end }}
     </body>
 </html>

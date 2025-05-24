@@ -107,4 +107,22 @@
   window.flashAllLinks = flashAllLinks;
   window.notifyToggleChange = notifyToggleChange;
   window.notifyUnaffordable = notifyUnaffordable;
+
+  // Block link navigation when a drawing tool is active,
+  // and flash a red strikethrough on all links.
+
+  document.addEventListener("click", function (e) {
+    if (
+      window.App &&
+      window.App.modules &&
+      window.App.modules.lines &&
+      window.App.modules.lines.getMode() !== "none"
+    ) {
+      const link = e.target.closest("a");
+      if (link && !e.target.closest("#ballfall-ui")) {
+        e.preventDefault();
+        flashAllLinks(NOTIFICATION_STYLES.enableLinks, 100, 6);
+      }
+    }
+  });
 })();
