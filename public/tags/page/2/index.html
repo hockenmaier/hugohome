@@ -2107,9 +2107,8 @@ table {
       App.config.maxUnlockedSpeedLevel = lvl - 1;
       const newInt = App.config.originalSpawnInterval / Math.pow(2, lvl - 1);
       App.config.spawnInterval = newInt;
-      window.BallFall.stopAutoSpawner();                        
-      App.config.spawnInterval = App.config.originalSpawnInterval;
-      App.Persistence.saveAutoClicker({ purchased:false, maxSpeedLevel:0 });
+      window.BallFall.updateSpawnInterval(newInt);              
+      App.Persistence.saveAutoClicker({ purchased:true, maxSpeedLevel:lvl-1 });
     }
 
      
