@@ -250,7 +250,10 @@ App.modules.base = (function () {
     function updateSpawnInterval(newInterval) {
       if (spawnIntervalId) {
         clearInterval(spawnIntervalId);
-        spawnIntervalId = setInterval(spawnBall, newInterval);
+        spawnIntervalId = setInterval(
+          () => spawnBall(undefined, undefined, undefined, true),
+          newInterval
+        );
       }
       window.BallFall.spawnInterval = newInterval;
       App.config.spawnInterval = newInterval;
