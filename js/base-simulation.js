@@ -88,11 +88,10 @@ App.modules.base = (function () {
     resize();
 
     // ---- Media Colliders ----
-    // Create colliders for images/iframes as triggers.
-    window.BallFall.mediaColliders = []; // global array to hold media colliders
+    // Create colliders for images, iframes, and video tags as triggers.
+    window.BallFall.mediaColliders = [];
     function addMediaColliders() {
-      document.querySelectorAll("img, iframe").forEach((el) => {
-        // Skip spawner image from triggering ripples.
+      document.querySelectorAll("img, iframe, video").forEach((el) => {
         if (el.id === "ball-spawner") return;
         const rect = el.getBoundingClientRect();
         if (rect.width < 1 || rect.height < 1) return;
@@ -100,15 +99,16 @@ App.modules.base = (function () {
         const cy = rect.top + rect.height / 2 + window.scrollY;
         const box = Bodies.rectangle(cx, cy, rect.width, rect.height, {
           isStatic: true,
-          isSensor: true, // make collider a trigger
+          isSensor: true,
           render: { visible: false },
         });
         box.elRef = el;
-        box.isMedia = true; // mark as media collider
+        box.isMedia = true;
         window.BallFall.mediaColliders.push(box);
         World.add(engine.world, box);
       });
     }
+
     addMediaColliders();
 
     // ---- New Media Interaction Update ----
@@ -170,7 +170,12 @@ App.modules.base = (function () {
       }
     }
 
-    function spawnBall(initialValue, pos, originalBallsCompacted) {
+    function spawnBall(
+      initialValue,
+      pos,
+      originalBallsCompacted,
+      isAuto = false
+    ) {
       if (!window.BallFall.firstBallDropped) {
         window.BallFall.firstBallDropped = true;
         const dropIndicator = document.getElementById("spawner-indicator");
@@ -206,6 +211,7 @@ App.modules.base = (function () {
           collisionFilter: { category: BALL_CATEGORY, mask: 0xffffffff },
         });
         // ← attach persistent properties
+        ball.spawnedByAuto = isAuto;
         ball.spawnTime = Date.now();
         ball.baseValue =
           typeof initialValue !== "undefined"
@@ -234,14 +240,20 @@ App.modules.base = (function () {
     let spawnIntervalId = null;
     function startAutoSpawner() {
       if (spawnIntervalId) return;
-      spawnIntervalId = setInterval(spawnBall, App.config.spawnInterval);
+      spawnIntervalId = setInterval(
+        () => spawnBall(undefined, undefined, undefined, true),
+        App.config.spawnInterval
+      );
     }
     window.BallFall.startAutoSpawner = startAutoSpawner;
 
     function updateSpawnInterval(newInterval) {
       if (spawnIntervalId) {
         clearInterval(spawnIntervalId);
-        spawnIntervalId = setInterval(spawnBall, newInterval);
+        spawnIntervalId = setInterval(
+          () => spawnBall(undefined, undefined, undefined, true),
+          newInterval
+        );
       }
       window.BallFall.spawnInterval = newInterval;
       App.config.spawnInterval = newInterval;
@@ -451,6 +463,28 @@ App.modules.base = (function () {
 
       Matter.Render.endViewTransform(render);
     });
+
+    /* ---- Set custom surface restitution - this is needed because lines are isStatic true ---- */
+    function patchRestitution(event) {
+      event.pairs.forEach((pair) => {
+        const { bodyA: a, bodyB: b } = pair;
+        let other;
+
+        if (a.label === "BallFallBall") {
+          other = b;
+        } else if (b.label === "BallFallBall") {
+          other = a;
+        } else {
+          return;
+        }
+
+        pair.restitution = other.label === "CurvedLine" ? 0.35 : 0.95;
+      });
+    }
+
+    Matter.Events.on(engine, "collisionStart", patchRestitution);
+    Matter.Events.on(engine, "collisionActive", patchRestitution);
+    /* --------------------------------------------------------- */
 
     console.log("Base module initialized, dispatching BallFallBaseReady");
     window.dispatchEvent(new Event("BallFallBaseReady"));

@@ -81,6 +81,7 @@
                   App.config.ballIncomeIncrement;
             }
             App.config.coins += income;
+            if (other.spawnedByAuto) App.autoIncomeThisSecond += income;
             window.App.updateCoinsDisplay();
             // Use the ball's fillStyle as the notification color if available.
             const coinColor =

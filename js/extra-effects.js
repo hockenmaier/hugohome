@@ -142,8 +142,9 @@
     let container = target;
     let containerRect = target.getBoundingClientRect();
 
-    // For images: wrap them so ripple fits exactly.
-    if (target.tagName.toLowerCase() === "img") {
+    // For images + vids: wrap them so ripple fits exactly.
+    const tag = target.tagName.toLowerCase();
+    if (tag === "img" || tag === "video") {
       if (
         !target.parentElement ||
         !target.parentElement.classList.contains("ripple-container")
