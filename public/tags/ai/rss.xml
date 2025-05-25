@@ -585,7 +585,7 @@ This was a huge problem for early transformers that had to output in one shot, a
 Context windows get larger all the time but this one still is not solved. Just adding a bunch of tokens into a context window doesn&rsquo;t get you much when 2 million token models lose coherence after about the first 40,000 - which they do, and which every programmer working with anything but a tiny codebase intuitively understands. But this one too will largely be solved soon, if not through architectures that actually update their weights, it&rsquo;ll be solved through nuanced memory systems that people are actively developing on top of thinking models.</p>
 </li>
 <li>
-<p>Vision</p>
+<p><strong>Vision</strong></p>
 </li>
 </ol>
 <p>And this one might sound funny to someone that is paying attention to AI in particular, because GPT-4 with vision launched something like 2 years ago now. And it has been impressive for a long time, able to do things like identify what objects are in an image, where an image is from, even things that payments can&rsquo;t do glancing at an image.</p>
