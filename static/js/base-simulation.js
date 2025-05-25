@@ -170,7 +170,12 @@ App.modules.base = (function () {
       }
     }
 
-    function spawnBall(initialValue, pos, originalBallsCompacted) {
+    function spawnBall(
+      initialValue,
+      pos,
+      originalBallsCompacted,
+      isAuto = false
+    ) {
       if (!window.BallFall.firstBallDropped) {
         window.BallFall.firstBallDropped = true;
         const dropIndicator = document.getElementById("spawner-indicator");
@@ -206,6 +211,7 @@ App.modules.base = (function () {
           collisionFilter: { category: BALL_CATEGORY, mask: 0xffffffff },
         });
         // ← attach persistent properties
+        ball.spawnedByAuto = isAuto;
         ball.spawnTime = Date.now();
         ball.baseValue =
           typeof initialValue !== "undefined"
@@ -234,7 +240,10 @@ App.modules.base = (function () {
     let spawnIntervalId = null;
     function startAutoSpawner() {
       if (spawnIntervalId) return;
-      spawnIntervalId = setInterval(spawnBall, App.config.spawnInterval);
+      spawnIntervalId = setInterval(
+        () => spawnBall(undefined, undefined, undefined, true),
+        App.config.spawnInterval
+      );
     }
     window.BallFall.startAutoSpawner = startAutoSpawner;
 

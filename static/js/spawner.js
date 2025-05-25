@@ -77,7 +77,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  // Legacy speed-up arrows (unchanged)
   const inc = document.getElementById("increaseSpeed");
   const dec = document.getElementById("decreaseSpeed");
 

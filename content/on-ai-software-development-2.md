@@ -21,6 +21,16 @@ I won't get into my full take on AI 2027 here, but the core argument comes down 
 
 So I figured it was a good time to update on where I think AI is actually at at software engineering tasks. I've had the chance to test many of the latest AI software development tools and models, and we have come a long way since my original post.
 
+I have been doing a lot of development with AI for the last few years, especially the last couple of months on leave building the game in this site. And they are good. But the core problems with these models for software engineering are:
+
+1.  They can't deal well with contexts over 30K tokens or so (even the best models with supposed millions of token windows).
+
+This means the actual developer (me and you) are the ones picking specific files and functions to send into the context window, lest we confuse the model. This is arduous unless the codebase is small enough to fit entirely into the context window. That's exactly what I think is going on with most of the new "vibe coded" projects we see showing impressive results - these are just tiny POC apps that haven't hit more than a few thousand lines of code yet. For context, most serious enterprise apps containing the detailed logic and edge cases real use cases require are in the millions or hundreds of millions of lines of code.
+
+2.  They are biased to be "advisors" as well as "doers"
+
+This is just annoying, and I hope it gets trained out soon. Models just really _want_ you to be doing everything, and to act themselves as an advisor. It makes sense with one of the main sources of code training data being from Stackoverflow and other blogs, where developers can never seem to rid themselves of a pseudo-condescending "you should have been able to read the docs and learn this yourself" tone. It's also just a pattern exhibited by people in general - more often than not, especially in the corporate world, people are trained to be the "coaches" rather than the "worker bees". One reason why things get done so slowly in big political companies sometimes.
+
 ---Notes---
 
 Add links to my chat with 03 about the refund feature,

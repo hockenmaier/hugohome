@@ -725,6 +725,15 @@ table {
 <li>which is that, once AI agents are able to replace software engineers, instead of just assisting them, it doesn&rsquo;t matter how they are doing another realms, because they will simply be able to improve on themselves and their own software at such a rate that the difference between the time of automating software engineering jobs and the time of automating all other jobs is negligible.</li>
 </ul>
 <p>So I figured it was a good time to update on where I think AI is actually at at software engineering tasks. I&rsquo;ve had the chance to test many of the latest AI software development tools and models, and we have come a long way since my original post.</p>
+<p>I have been doing a lot of development with AI for the last few years, especially the last couple of months on leave building the game in this site. And they are good. But the core problems with these models for software engineering are:</p>
+<ol>
+<li>They can&rsquo;t deal well with contexts over 30K tokens or so (even the best models with supposed millions of token windows).</li>
+</ol>
+<p>This means the actual developer (me and you) are the ones picking specific files and functions to send into the context window, lest we confuse the model. This is arduous unless the codebase is small enough to fit entirely into the context window. That&rsquo;s exactly what I think is going on with most of the new &ldquo;vibe coded&rdquo; projects we see showing impressive results - these are just tiny POC apps that haven&rsquo;t hit more than a few thousand lines of code yet. For context, most serious enterprise apps containing the detailed logic and edge cases real use cases require are in the millions or hundreds of millions of lines of code.</p>
+<ol start="2">
+<li>They are biased to be &ldquo;advisors&rdquo; as well as &ldquo;doers&rdquo;</li>
+</ol>
+<p>This is just annoying, and I hope it gets trained out soon. Models just really <em>want</em> you to be doing everything, and to act themselves as an advisor. It makes sense with one of the main sources of code training data being from Stackoverflow and other blogs, where developers can never seem to rid themselves of a pseudo-condescending &ldquo;you should have been able to read the docs and learn this yourself&rdquo; tone. It&rsquo;s also just a pattern exhibited by people in general - more often than not, especially in the corporate world, people are trained to be the &ldquo;coaches&rdquo; rather than the &ldquo;worker bees&rdquo;. One reason why things get done so slowly in big political companies sometimes.</p>
 <p>&mdash;Notes&mdash;</p>
 <p>Add links to my chat with 03 about the refund feature,</p>
 <p>Add links to videos about co-pilot agents as well as codex as the state of the art actual software developers</p>
