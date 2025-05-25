@@ -5,7 +5,7 @@ categories: ["builds"]
 stack: ["python", "AWS Lambda"]
 project_link: "https://chatgpt.com/g/g-QeNbSmirA-postman-for-pms"
 short_description: ""
-tags: ["AI", "Custom GPT", "APIs"]
+tags: ["AI", "Custom GPT", "APIs", "software", "python", "tools"]
 ---
 
 I made "Postman for PMs," a tool to help non-engineers understand and use APIs!

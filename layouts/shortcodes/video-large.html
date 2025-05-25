@@ -1,0 +1,10 @@
+
+<div style="text-align: center; margin-bottom: 1rem;">
+  <video controls loop muted autoplay style="max-width:{{ .Get "width" | default "100%" }};">
+    <source src="{{ .Get "src" }}" type="video/mp4">
+    Your browser doesn’t support HTML5 video.
+  </video>
+  {{ with .Get "caption" }}
+    <span style="display: block; font-style: italic; margin-top: 0.5rem;">{{ . }}</span>
+  {{ end }}
+</div>

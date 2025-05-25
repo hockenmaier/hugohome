@@ -14,11 +14,13 @@ tags:
     "Hardware",
     "HTML",
     "CSS",
-    "Solidworks",
+    "3D Modeling",
     "DIY",
     "Raspberry Pi",
     "System Design",
     "Experimental",
+    "Hardware",
+    software,
   ]
 ---
 

@@ -6,7 +6,15 @@ stack: ["node.js", "O3-Mini", "vscode"]
 project_link: ""
 github_link: "https://github.com/hockenmaier/context-caddy"
 short_description: ""
-tags: ["AI", "Rapid Prototyping", "VSCode Extension"]
+tags:
+  [
+    "AI",
+    "Rapid Prototyping",
+    "VSCode Extension",
+    "software",
+    "javascript",
+    "tools",
+  ]
 ---
 
 I built a nice little tool to help AI write code for you.

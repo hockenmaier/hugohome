@@ -4,7 +4,7 @@ date: 2025-01-01
 categories: ["builds"]
 project_link: "https://github.com/hockenmaier/make-us-smarter"
 github_link: "https://github.com/hockenmaier/make-us-smarter"
-tags: ["Experimental", "AI", "Prototyping", "User Experience"]
+tags: ["Experimental", "AI", "Prototyping", "User Experience", "software"]
 ---
 
 The advent of general coding AI assistants almost immediately changed how I thought about the hiring process and interviews. And it changed how I talked about it with colleages and my own team.

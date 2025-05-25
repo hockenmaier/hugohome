@@ -6,7 +6,15 @@ stack: ["Openscad", "Bambulab"]
 project_link: ""
 github_link: ""
 short_description: "A 4 player board game where you gamble to take over a fruit tree."
-tags: ["Multiplayer", "Game Development", "Board Games", 3D Modeling]
+tags:
+  [
+    "Multiplayer",
+    "Game Development",
+    "Board Games",
+    "3D Modeling",
+    "3D Printing",
+    "Hardware",
+  ]
 ---
 
 Here's a peek at my first major board game creation.

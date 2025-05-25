@@ -11,7 +11,7 @@ tags:
   [
     "Voice Interface",
     "Serverless",
-    "Education",
+    "education",
     "AI",
     "Python",
     "AWS Lambda",

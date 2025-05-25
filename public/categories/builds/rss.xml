@@ -104,6 +104,18 @@
         
     
 
+    
+
+    
+        
+    
+
+    
+
+    
+        
+    
+
 
 
 
@@ -1680,6 +1692,146 @@ So keep your balls moving!</li>
                 
 
                 
+                    <description><![CDATA[<p>Custom GPTs are free for everyone as of yesterday, so I thought I’d post some of the best ones I’ve made over the last few months for all of you:</p>
+<p>Proofreader (<a href="https://lnkd.in/g45DGnDW)">https://lnkd.in/g45DGnDW)</a>:
+This one is super simple. Give it what you’ve written and it will provide no-BS proofreads. It’s not going to hallucinate content, just point out mistakes and parts that don’t make sense.</p>
+<div style="text-align: center; margin-bottom: 1rem;">
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<img  alt="proofreader GPT"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/proofreader-gpt.png"   style="height: auto; max-width: 200px; width: 100%"   >
+
+
+    
+</div>
+
+<p>Make Real (<a href="https://lnkd.in/gnwNTAd6)">https://lnkd.in/gnwNTAd6)</a>:
+This makes your napkin drawings into working websites. It’s got some of the same limitations other code-generating AI tools do, but it does a surprisingly good job creating simple working web frontends for your ideas!</p>
+<p>Postman for PMs (<a href="https://lnkd.in/gARtSQ6R">https://lnkd.in/gARtSQ6R</a>)
+Talk to APIs using natural language instead of downloading technical tools or writing code (only unauthenticated APIs, for now). Also a great way to learn about APIs for newbies - Postman for PMs knows about some free online APIs to get started with.</p>
+<p>The Boy (<a href="https://lnkd.in/gvwNuaXC">https://lnkd.in/gvwNuaXC</a>)
+An experimental “AI generated RPG” where you play as “The Boy” who realizes fantastic superpowers. It’s fun to play around and explore, but don’t expect too much consistent gameplay from the currently available AI models.</p>
+<p>Exciting times. Have fun!</p>
+]]></description>
+                
+
+                <guid isPermaLink="false">tag:localhost:1313,2024-06-01:/some-custom-gpts/</guid>
+
+                
+                    <link>http://localhost:1313/some-custom-gpts/</link>
+                
+
+                
+                    <pubDate>Sat, 01 Jun 2024 00:00:00 UTC</pubDate>
+                
+
+                
+                    <title>Some Custom GPTs</title>
+                
+            </item>
+        
+            <item>
+                
+                
+                
+                
+                
+                
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+                
+
+                
+
+                
+
+                
                     <description><![CDATA[<p>I made &ldquo;Postman for PMs,&rdquo; a tool to help non-engineers understand and use APIs!</p>
 
     <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
@@ -1705,6 +1857,140 @@ So keep your balls moving!</li>
 
                 
                     <title>Postman for PMs</title>
+                
+            </item>
+        
+            <item>
+                
+                
+                
+                
+                
+                
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+                
+
+                
+
+                
+
+                
+                    <description><![CDATA[<p>I have been occasionally challenging GPT to create models using openSCAD, a &ldquo;programming language for 3D models&rdquo;</p>
+<p>Both struggle, but GPT-4 has been a massive improvement. Here are both model&rsquo;s outputs after asking for an acorn and 3 messages of me giving feedback:</p>
+<div style="text-align: center; margin-bottom: 1rem;">
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<img  alt="some weird acorns"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/gpt-acorn.png"   style="height: auto; max-width: 720px; width: 100%"   >
+
+
+    
+</div>
+
+<p>For the record, it is impressive that these LLMs can get anything write with no visual input or training on shapes like these. Imagine looking at the programming reference for openSCAD and trying to do this blind</p>
+<p>The fact that the 3.5 version has a bunch of strangely intersecting primitives and some union issues has been normal in my experience. It takes quite a bit of spacial logic to get a model not to look like that</p>
+]]></description>
+                
+
+                <guid isPermaLink="false">tag:localhost:1313,2023-03-19:/3d-modeling-with-ai/</guid>
+
+                
+                    <link>http://localhost:1313/3d-modeling-with-ai/</link>
+                
+
+                
+                    <pubDate>Sun, 19 Mar 2023 00:00:00 UTC</pubDate>
+                
+
+                
+                    <title>3D Modeling With AI</title>
                 
             </item>
         
@@ -3762,7 +4048,7 @@ This is what the project looked like for my first play-test with other people 5 
 <p>I created this panel display in 2026 to control much of the home automation I used in my Studio City apartment. Mainly a hardware project, I designed and 3D-printed a case and frame for the touchscreen and raspberry pi microcomputer in order to mount them to the wall. The software running the control panel is SaaS, but I did write a custom html wrapper to control the orientation and settings of the site, which is available on the github linked above.</p>
 <p>Update in 2025: This panel is still my main view into my home automation in my new house in Sherman Oaks, almost 10 years in with no modification!</p>
 <p>Here&rsquo;s a video to see the panel in action:</p>
-<h2 id="hahahugoshortcode17s0hbhb">
+<h2 id="hahahugoshortcode21s0hbhb">
     <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
       <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/iFGmm-ijJvE?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"></iframe>
     </div>

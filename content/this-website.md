@@ -16,6 +16,7 @@ tags:
     Singularity,
     hugo,
     matter.js,
+    javascript,
   ]
 ---
 

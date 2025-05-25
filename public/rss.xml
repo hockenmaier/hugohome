@@ -188,6 +188,12 @@
         
     
 
+    
+
+    
+        
+    
+
 
 
 
@@ -482,7 +488,8 @@
                 
 
                 
-                    <description><![CDATA[<p>During my parental leave, I played through quite a few video games - something I love and one of the easiest ways to spend time while rocking my daughter to sleep. They include:</p>
+                    <description><![CDATA[<p>During my parental leave, I played through quite a few video games - something I love and one of the easiest ways to spend time while rocking my daughter to sleep.</p>
+<p>They include:</p>
 <ul>
 <li>The Legend of Zelda: The Minish Cap <sup>Steam Deck</sup></li>
 <li>Carto <sup>Steam on Windows</sup></li>
@@ -498,8 +505,18 @@
 <h2 id="graphics">Graphics</h2>
 <p>Well - I think that’s pretty clear. The only thing that has really improved about mainstream gaming in the last 20 years is graphics.</p>
 <p>And boy have the graphics improved. Oblivion not only uses new techniques like ray-tracing and revamped 4K textures and normal maps etc, it uses the full suite of global illumination provided by <a href="https://dev.epicgames.com/documentation/en-us/unreal-engine/lumen-global-illumination-and-reflections-in-unreal-engine">Unreal Engine</a>, which mean when you turn the settings up, it depends on hardly any of the typical tricks games need to use, like baked light maps, instead lighting almost everything in the game dynamically or “procedurally”, including things like reflections of reflections and lit up dust and fog.</p>
-<p>{Insert GIF from my playthrough, potentially outdoor torches in bruma in morning or afternoon with mountains in the background}</p>
-<p>Yes, Oblivion still has some simplistic design in terms of how landscapes are laid out, but that simplicity might also be why people can run it with Nvidia Lumen set up to run at ultra. Lighting is what’s really differentiating in video game graphics now, and fully simulated lighting beats or meets nearly every AAA game releasing lately that all cost 10s or 100s of millions to make.</p>
+
+<div style="text-align: center; margin-bottom: 1rem;">
+  <video controls loop muted autoplay style="max-width:100%;">
+    <source src="/videos/bruma-clip.mp4" type="video/mp4">
+    Your browser doesn’t support HTML5 video.
+  </video>
+  
+    <span style="display: block; font-style: italic; margin-top: 0.5rem;">This is from my playthrough, some outdoor torches in Bruma and mountain lighting in the background make for a pretty good use of full Lumen</span>
+  
+</div>
+
+<p>Yes, Oblivion still has some simplistic design in terms of how landscapes are laid out, but that simplicity might also be why people can run it with Nvidia Lumen set up to run at ultra. Lighting is what’s really differentiating in video game graphics now, and fully simulated lighting beats or meets nearly every AAA game releasing lately that all cost tens or hundreds of millions of dollars to make..</p>
 <h2 id="not-graphics">Not Graphics</h2>
 <p>Left unstated is why nothing else has improved. Walking around Oblivion, meeting characters that have some scripted voice lines, responding to them with 1 of 4 options, holding down the left stick to sprint, and hitting a single button on your controller to watch your character animate a full scripted sword swing are all the standard gameplay of action-RPGs both 19 years ago and today. The same can be said of other genres - mechanics are largely untouched for the last 20 years outside of some common quality of life changes in how menus and inventory and HUDs work.</p>
 <p>Here’s my theory for why: The games industry achieved the threshold of what was comfortable and possible with with the current human-computer input and output mechanisms only a few years after they were technically possible. And those inputs and outputs have not changed much since the 90s. Looking at a flat screen in front of you and pressing buttons on a controller or keyboard/mouse are incredibly limiting for gaming. Increasing the amount of pixels on the screen and making that controller wireless don&rsquo;t change the core gameplay. This is not really true for any other media than games. Reading, watching films, and all kinds of media in between essentially max out on one screen and limited input, but games immediately ran into forms of input and output as a barrier.</p>
@@ -543,8 +560,7 @@
 <p>Another new genre of exercise programs combined with games. This will go far beyond current treadmills that have built-in virtual run routes or virtual exercise classes, this will be exercise incorporated as a leveling or other mechanic that will incentivize players to get some exercise. I&rsquo;ve had a lot of hope for this category for a long time, and the one major threat to it is GLP1 drugs that may cause a serious decline in the need and desire for people to exercise daily for calorie loss</p>
 </li>
 </ul>
-<p>When will these happen? My specific prediction is that the next 3 years will be seen as the end of the period of stagnation we are in right now, a period that will be much more apparent looking backwards than it is from within. The combo of a decline in AAA game spending and AI hype feel like ripe conditions for innovation to return to gameplay - and my hope is that all of the other potential gameplay innovations ride the same AI wave.</p>
-]]></description>
+<p>When will these happen? My specific prediction is that the next 3 years will be seen as the end of the period of stagnation we are in right now, a period that will be much more apparent looking backwards than it is from within. The combo of a decline in AAA game spending and AI hype feel like ripe conditions for innovation to return to gameplay - and my hope is that all of the other potential gameplay innovations ride the same AI wave.</p>]]></description>
                 
 
                 <guid isPermaLink="false">tag:localhost:1313,2025-05-12:/the-purgatory-of-aaa-gaming/</guid>
@@ -1713,8 +1729,8 @@ So keep your balls moving!</li>
 
                 
                     <description><![CDATA[<p>I have long been of the mind LLMs and their evolutions are truly thinking, and that they are on their way to solving all of the intellectual tasks that humans can solve today. It is just too uncanny that the technology that seems to have made the final jump to actually thinking, after a long string of attempts and architectures, is a type of neural net. It would be much easier to argue away transformer models as non-thinking stochastic parrots if we had happened to have had success with any other architecture than the one that was designed to mimic our own brains and the neurons firing off to one another within them. It&rsquo;s just too weird. They are shaped like us, they sound like us in a lot of ways, and it&rsquo;s obvious they are thinking something like us too.</p>
+<h2 id="the-limitations">The Limitations</h2>
 <p>That&rsquo;s not to say they are AGI in the modern definition. They can&rsquo;t do every task humans can do intellectually (IE without a body, which I will get to) for several reasons:</p>
-<p>The Limitations</p>
 <ol>
 <li>
 <p>Looping reasoning.
@@ -1731,13 +1747,102 @@ Context windows get larger all the time but this one still is not solved. Just a
 <p>And this one might sound funny to someone that is paying attention to AI in particular, because GPT-4 with vision launched something like 2 years ago now. And it has been impressive for a long time, able to do things like identify what objects are in an image, where an image is from, even things that payments can&rsquo;t do glancing at an image.</p>
 <p>But the vision itself is not “good” vision. It cannot really pick out small important details, and it still behaves in many ways like vision recognition models have for years now. Now that we have a model that has both thinking and image input and editing at every step, the 03 and 04 mini series just released, we can really start to see the limitations in vision. Let me take you through 2 examples that represent the 2 types of failure modes that result from these not having true image understanding, yet.</p>
 <p>Each release from the major providers steadily knocks away my intelligence tests, which I admit are mostly programming oriented, but the ones that they can never really dent are the spatial reasoning ones where a model really has to think about images in its head or have to use an image provided for detailed work.</p>
-<p>Example 1:</p>
-<p>Every major model release, I test what models can do with OpenSCAD. I won’t get technical about it here, but OpenSCAD is a CAD program (Computer Aided Design - think 3D modeling for engineers, not the artistic kind) that is defined entirely through a programming language vs the typical mousestrokes and key presses that software like Solidworks or AutoCAD depend on.</p>
+<h3 id="simple-3d-modeling">Simple 3D Modeling</h3>
+<p>Every major model release, <a href="/3d-modeling-with-ai">I test what models can do with OpenSCAD</a>. I won’t get technical about it here, but OpenSCAD is a CAD program (Computer Aided Design - think 3D modeling for engineers, not the artistic kind) that is defined entirely through a programming language vs the typical mousestrokes and key presses that software like Solidworks or AutoCAD depend on.</p>
 <p>This makes OpenSCAD the perfect test platform for a model that inputs and output text primarily. I can describe a 3D model I want, and the model can output text that renders into a 3D model.</p>
 <p>But for as amazing as LLMs are at scripting in normal programming languages, they have never been good at OpenScad (link to GPT4 chair article)</p>
 <p>Here is O3’s attempt to make a</p>
-<p>Map example:</p>
+<h3 id="map-reading">Map Reading</h3>
 <p>I recently gave this question to the latest thinking image model, &lsquo;03: &ldquo;Here&rsquo;s an image from Google maps of the block I live on between the avenues of Burbank, hazeltine, Oxnard, and Van nuys. What is the longest continuous loop I can walk within the neighborhood without crossing my path or touching one of the avenues? This square is 1/2 mi on each side&rdquo;</p>
+<div style="text-align: center; margin-bottom: 1rem;">
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<img  alt="the uploaded map"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/o3-struggle-map.png"   style="height: auto; max-width: 400px; width: 100%"   >
+
+
+    
+        <span style="display: block; font-style: italic; margin-top: 0.5rem;">The image uploaded with this query</span>
+    
+</div>
+
 <p>O3 thinks for 4 minutes about this question, zooming in to various parts of the map countless times to form the route. And then it fails on the first step, suggesting starting at tiara and stansbury, which do not intersect on the map. Any person looking at this image could tell that is true in just a few seconds.</p>
 <p>What I think is going on in these examples is that we have a limitation in training data (duh) but it isn&rsquo;t because there aren&rsquo;t a lot of images and videos on the internet, it&rsquo;s because there is so much more information in the average image then there is in the average chunk of text, and a lot more of that information is irrelevant to any given question.</p>
 <p>When I say that we have a limitation on training data, I&rsquo;m not in the typical camp of &ldquo;well, then transformer neural nets are obviously stupid because I was able to understand this thing without training on terabytes of data from the internet&rdquo;. This is always been a bad take because the average human trains on petabytes, not terabytes of data, and that data is streamed into their brains mostly in the form of images. I am also not in the camp of thinking that this means that the data &ldquo;just doesn&rsquo;t exist&rdquo; to get these models to AGI in this dimension. It&rsquo;s so clearly does exist, and it exists so abundantly that a unique mage stream can be sent to each of the billions of human brains, and they all learn the same principles that let them immediately identify the mistake that the cutting edge thinking vision model made after 4 minutes of rigor.</p>
@@ -2152,6 +2257,146 @@ Context windows get larger all the time but this one still is not solved. Just a
                 
 
                 
+                    <description><![CDATA[<p>Custom GPTs are free for everyone as of yesterday, so I thought I’d post some of the best ones I’ve made over the last few months for all of you:</p>
+<p>Proofreader (<a href="https://lnkd.in/g45DGnDW)">https://lnkd.in/g45DGnDW)</a>:
+This one is super simple. Give it what you’ve written and it will provide no-BS proofreads. It’s not going to hallucinate content, just point out mistakes and parts that don’t make sense.</p>
+<div style="text-align: center; margin-bottom: 1rem;">
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<img  alt="proofreader GPT"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/proofreader-gpt.png"   style="height: auto; max-width: 200px; width: 100%"   >
+
+
+    
+</div>
+
+<p>Make Real (<a href="https://lnkd.in/gnwNTAd6)">https://lnkd.in/gnwNTAd6)</a>:
+This makes your napkin drawings into working websites. It’s got some of the same limitations other code-generating AI tools do, but it does a surprisingly good job creating simple working web frontends for your ideas!</p>
+<p>Postman for PMs (<a href="https://lnkd.in/gARtSQ6R">https://lnkd.in/gARtSQ6R</a>)
+Talk to APIs using natural language instead of downloading technical tools or writing code (only unauthenticated APIs, for now). Also a great way to learn about APIs for newbies - Postman for PMs knows about some free online APIs to get started with.</p>
+<p>The Boy (<a href="https://lnkd.in/gvwNuaXC">https://lnkd.in/gvwNuaXC</a>)
+An experimental “AI generated RPG” where you play as “The Boy” who realizes fantastic superpowers. It’s fun to play around and explore, but don’t expect too much consistent gameplay from the currently available AI models.</p>
+<p>Exciting times. Have fun!</p>
+]]></description>
+                
+
+                <guid isPermaLink="false">tag:localhost:1313,2024-06-01:/some-custom-gpts/</guid>
+
+                
+                    <link>http://localhost:1313/some-custom-gpts/</link>
+                
+
+                
+                    <pubDate>Sat, 01 Jun 2024 00:00:00 UTC</pubDate>
+                
+
+                
+                    <title>Some Custom GPTs</title>
+                
+            </item>
+        
+            <item>
+                
+                
+                
+                
+                
+                
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+                
+
+                
+
+                
+
+                
                     <description><![CDATA[<div style="text-align: center; margin-bottom: 1rem;">
     
 
@@ -2336,6 +2581,10 @@ Context windows get larger all the time but this one still is not solved. Just a
 <p>At work, I try to be low time preference, high autonomy, low consensus (even contrarian), high invention, process-light.</p>
 <p>I&rsquo;ve been at one company for a long time for a millennial. I&rsquo;ve built a lot of enterprise software and four high performing software teams. I started on back-office stuff like billing systems, TV scheduling systems, IP rights management systems, and file ingest systems for News. Most recently I’m making some pretty awesome stuff in agentic AI for the mundane work that the people at my company have to do!</p>
 <p>My bias is to build rather than talk. I&rsquo;m the one pushing to just try to build the thing, to scrap it early if needed, and to take risks releasing early. I figure that we always know more, and usually throw away our plans, when we start to build. I love building strange things, useful thingss, fun things. One of the things I built was this website and the game running on top of it. <a href="/this-website">Read more about that here</a></p>
+<p>Other Profiles:</p>
+<p>Most of my development projects are stored on public or private repos on <a href="https://github.com/hockenmaier">my github</a></p>
+<p>A collection of physical projects and 3D designs can be found on <a href="https://www.thingiverse.com/hockenmaier/designs">my thingiverse</a></p>
+<p>And my professional persona can be found on <a href="https://www.linkedin.com/in/hockenmaier/">my linkedin</a></p>
 <hr>
 <h1 id="where-to-start">Where to start</h1>
 <p>I post here mostly about things I&rsquo;m making and occasional essays. If you’re interested in this site but don’t know where to start, try reading any of these posts that sound interesting to you. They&rsquo;re either peices or projects I put a lot of time into.</p>
@@ -2359,6 +2608,8 @@ Context windows get larger all the time but this one still is not solved. Just a
 
   
   
+  
+
 
 
 
@@ -2366,15 +2617,19 @@ Context windows get larger all the time but this one still is not solved. Just a
 
 <article class="latest-item mb-4" style="display:flex; align-items:flex-start;">
   <div class="media-column">
-    <div class="media-container" style="width:100px;height:100px;">
+    <div class="media-container" style="width:300px; height:300px;">
+
       
         
         <a href="/land-war/">
           <img src="https://img.youtube.com/vi/5Q8PAuWcmQc/hqdefault.jpg" alt="Land War">
         </a>
+
       
+
     </div>
   </div>
+
   <div class="text-column" style="align-self:flex-start; margin-top:0;">
     <h2 class="post-title" style="margin-top:0 !important; margin-bottom:0 !important;">
       <a class="link-light" href="/land-war/">Land War</a>
@@ -2390,7 +2645,6 @@ This game was intended to have low art requirements and simple interaction rules
     </p>
   </div>
 </article>
-
 
 
 <blockquote>
@@ -2422,6 +2676,8 @@ This game was intended to have low art requirements and simple interaction rules
 
   
   
+  
+
 
 
 
@@ -2429,12 +2685,18 @@ This game was intended to have low art requirements and simple interaction rules
 
 <article class="latest-item mb-4" style="display:flex; align-items:flex-start;">
   <div class="media-column">
-    <div class="media-container" style="width:400px;height:250px;">
+    <div class="media-container" style="width:300px; height:300px;">
+
       
-        <a href="/treekeepers-vr/"><img src="http://localhost:1313/images/treekeepers_moonlight.png" alt="Treekeepers VR"></a>
+        <a href="/treekeepers-vr/">
+          <img src="http://localhost:1313/images/treekeepers_moonlight.png" alt="Treekeepers VR">
+        </a>
+
       
+
     </div>
   </div>
+
   <div class="text-column" style="align-self:flex-start; margin-top:0;">
     <h2 class="post-title" style="margin-top:0 !important; margin-bottom:0 !important;">
       <a class="link-light" href="/treekeepers-vr/">Treekeepers VR</a>
@@ -2539,7 +2801,6 @@ This game was intended to have low art requirements and simple interaction rules
 </article>
 
 
-
 <p> </p>
 <hr>
 <p> </p>
@@ -2565,6 +2826,8 @@ This game was intended to have low art requirements and simple interaction rules
 
   
   
+  
+
 
 
 
@@ -2572,12 +2835,18 @@ This game was intended to have low art requirements and simple interaction rules
 
 <article class="latest-item mb-4" style="display:flex; align-items:flex-start;">
   <div class="media-column">
-    <div class="media-container" style="width:400px;height:250px;">
+    <div class="media-container" style="width:300px; height:300px;">
+
       
-        <a href="/this-website/"><img src="http://localhost:1313/images/hockenworks.png" alt="This Website"></a>
+        <a href="/this-website/">
+          <img src="http://localhost:1313/images/hockenworks.png" alt="This Website">
+        </a>
+
       
+
     </div>
   </div>
+
   <div class="text-column" style="align-self:flex-start; margin-top:0;">
     <h2 class="post-title" style="margin-top:0 !important; margin-bottom:0 !important;">
       <a class="link-light" href="/this-website/">This Website</a>
@@ -2593,7 +2862,6 @@ This game was intended to have low art requirements and simple interaction rules
     </p>
   </div>
 </article>
-
 
 
 <p> </p>
@@ -3022,6 +3290,139 @@ This game was intended to have low art requirements and simple interaction rules
                 
 
                 
+                    <description><![CDATA[<p>I have been occasionally challenging GPT to create models using <a href="https://openscad.org/">OpenSCAD</a>, a &ldquo;programming language for 3D models&rdquo;</p>
+<p>Both struggle, but GPT-4 has been a massive improvement. Here are both model&rsquo;s outputs after asking for an acorn and 3 messages of me giving feedback:</p>
+<div style="text-align: center; margin-bottom: 1rem;">
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<img  alt="some weird acorns"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/gpt-acorn.png"   style="height: auto; max-width: 720px; width: 100%"   >
+
+
+    
+</div>
+
+<p>For the record, it is impressive that these LLMs can get anything right with no visual input or training on shapes like these. Imagine looking at the programming reference for openSCAD and trying to do this blind. The fact that the 3.5 version has a bunch of strangely intersecting primitives and some union issues has been normal in my experience. It takes quite a bit of spacial logic to get a model not to look like that.</p>
+]]></description>
+                
+
+                <guid isPermaLink="false">tag:localhost:1313,2023-03-19:/3d-modeling-with-ai/</guid>
+
+                
+                    <link>http://localhost:1313/3d-modeling-with-ai/</link>
+                
+
+                
+                    <pubDate>Sun, 19 Mar 2023 00:00:00 UTC</pubDate>
+                
+
+                
+                    <title>3D Modeling With AI</title>
+                
+            </item>
+        
+            <item>
+                
+                
+                
+                
+                
+                
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+                
+
+                
+
+                
+
+                
                     <description><![CDATA[<p>I’ve been playing around with <a href="https://en.wikipedia.org/wiki/Neural_radiance_field">neural radiance fields</a> (NeRFs) lately and thought a fun way to explore them would be flying through them in the Treekeepers “Puddle Jumper” in true scale.</p>
 
     <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
@@ -3274,15 +3675,101 @@ This game was intended to have low art requirements and simple interaction rules
                 
                     <description><![CDATA[<blockquote>
 <p>Editor&rsquo;s note from 2025:</p>
-<p>This article was written as part of the launch of Treekeepers VR and the sole proprietorship Together Again Studios, and represents some of my core beliefs of the value of VR and where it&rsquo;s taking us socially. Though I&rsquo;m no longer actively working on Treekeepers, I do hold that VR and AR are truly the &ldquo;endgame&rdquo; of interface and one that could save us from some of the social attitudes caused by social media of today.</p>
-<p>I hope you enjoy it!</p>
+<p>This article was written as part of the launch of <a href="/treekeepers-vr">Treekeepers VR</a> and the sole proprietorship Together Again Studios, and represents some of my core beliefs of the value of VR and where it&rsquo;s taking us socially. Though I&rsquo;m no longer actively working on Treekeepers, I do hold that VR and AR are truly the &ldquo;endgame&rdquo; of interface and one that could save us from some of the social attitudes caused by social media of today. Enjoy!</p>
 </blockquote>
-<h3 id="with-together-again-studios-and-treekeepers-vr-were-setting-out-to-solve-an-insidious-problem-we-see-all-around-us">With Together Again Studios and Treekeepers VR, we&rsquo;re setting out to solve an insidious problem we see all around us:</h3>
-<h4 id="social-media-is-anti-social">Social Media Is Anti-Social</h4>
+<div style="text-align: center; margin-bottom: 1rem;">
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<img  alt="proofreader GPT"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/together-again-studios.png"   style="height: auto; max-width: 400px; width: 100%"   >
+
+
+    
+</div>
+
+<p>With Together Again Studios and Treekeepers VR, we&rsquo;re setting out to solve an insidious problem we see all around us:</p>
+<p><strong>Social Media Is Anti-Social</strong></p>
 <p>Though Facebook, Instagram, Twitter, and Tiktok all let us share more with each other than ever before, what we are sharing is surprisingly hostile and dismissive of opinions other than our own.</p>
 <p>Though Zoom, Hangouts and Teams let us finally see each other from a distance, we still can&rsquo;t speak naturally. We depend on tools like &ldquo;mute&rdquo;. We create meeting upon meeting with different sets of the same group of people. And we don&rsquo;t form the depth of relationships we could in-person.</p>
 <p>We as humans are all-too-capable of forming us-versus-them &ldquo;tribes&rdquo; and dehumanizing those who appear too different, and this problem is becoming ever more apparent behind the curtain of the graphical user interface.</p>
-<h4 id="virtual-and-augmented-reality-are-a-way-out">Virtual and augmented reality are a way out</h4>
+<p><strong>Virtual and augmented reality are a way out</strong></p>
 <p>In 2016, thanks to pioneers like Palmer Luckey, Michael Abrash, and John Carmack, we suddenly gained access to a technology that removes the curtain and forces us to see eachother. And in 2020, an event that has permanently limited our in-person interaction arose and gave new meaning to this technology.</p>
 <p>In VR/AR, voices are no longer text on a screen, taken out of context by our social media bubbles. They&rsquo;re voices again.</p>
 <p>In VR/AR, people are no longer user profiles with one image and a tag-line. They&rsquo;re really people, with bodies, faces, and hands that can point and gesture.</p>
@@ -3290,15 +3777,15 @@ This game was intended to have low art requirements and simple interaction rules
 <p>All these abilities we used to have in-person, we have gained again in virtual reality.</p>
 <p>Soon, we&rsquo;ll go even further with this technology. We&rsquo;ll be able to make real eye contact with eachother in VR. We&rsquo;ll use AR to invite distant friends and family over to our homes.</p>
 <p>And at Together Again, we plan on using these new tools to let people like eachother again.</p>
-<h3 id="treekeepers-only-possible-in-vr">Treekeepers: Only Possible in VR</h3>
+<p><strong>Treekeepers: Only Possible in VR</strong></p>
 <p>Why is Treekeepers a VR Game?</p>
-<h4 id="multiplayer-of-this-depth-only-works-in-vr">Multiplayer of this depth only works in VR</h4>
+<p><strong>Multiplayer of this depth only works in VR</strong></p>
 <p>The challenges in Treekeepers VR hinge on player coordination and quick group decisions - Which weapon should we upgrade? Who&rsquo;s doing which job? Where are we going?</p>
 <p>In VR, you gain the ability to gesture and point to enemies and obstacles naturally.</p>
 <p>No more &ldquo;Who is the green player?&rdquo; - spend zero mental energy figuring out who you are talking to. Just turn towards them and speak.</p>
-<h4 id="scale-is-the-most-fun-when-youre-in-the-world">Scale is the most fun when you&rsquo;re in the world</h4>
+<p><strong>Scale is the most fun when you&rsquo;re in the world</strong></p>
 <p>We&rsquo;re going to be exploring oversized objects around a gigantic tree. Only VR can get the full benefit of this experience.</p>
-<h4 id="vr-can-be-uncomfortable">VR can be uncomfortable</h4>
+<p><strong>VR can be uncomfortable</strong></p>
 <p>BUT, experiencing it via a static vehicle which acts as a persistent frame of reference reduces motion sickness.</p>
 <p>No need to rotate - gameplay is based on the hot air balloon always facing one direction, and players navigating within it.</p>
 <hr>
@@ -5125,7 +5612,7 @@ This is what the project looked like for my first play-test with other people 5 
 <p>I created this panel display in 2026 to control much of the home automation I used in my Studio City apartment. Mainly a hardware project, I designed and 3D-printed a case and frame for the touchscreen and raspberry pi microcomputer in order to mount them to the wall. The software running the control panel is SaaS, but I did write a custom html wrapper to control the orientation and settings of the site, which is available on the github linked above.</p>
 <p>Update in 2025: This panel is still my main view into my home automation in my new house in Sherman Oaks, almost 10 years in with no modification!</p>
 <p>Here&rsquo;s a video to see the panel in action:</p>
-<h2 id="hahahugoshortcode17s0hbhb">
+<h2 id="hahahugoshortcode21s0hbhb">
     <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
       <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/iFGmm-ijJvE?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"></iframe>
     </div>
@@ -5224,49 +5711,6 @@ This is what the project looked like for my first play-test with other people 5 
 
                 
                     <link>http://localhost:1313/treekeepers-engine/</link>
-                
-
-                
-                    <pubDate>Mon, 01 Jan 0001 00:00:00 UTC</pubDate>
-                
-
-                
-            </item>
-        
-            <item>
-                
-                
-                
-                
-                
-                
-                
-
-                
-
-                
-
-                
-
-                
-                    
-                
-
-                
-                
-
-                
-                    
-                
-
-                
-
-                
-
-                <guid isPermaLink="false">tag:localhost:1313,0001-01-01:/some-custom-gpts/</guid>
-
-                
-                    <link>http://localhost:1313/some-custom-gpts/</link>
                 
 
                 

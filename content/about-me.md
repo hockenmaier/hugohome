@@ -27,6 +27,14 @@ I've been at one company for a long time for a millennial. I've built a lot of e
 
 My bias is to build rather than talk. I'm the one pushing to just try to build the thing, to scrap it early if needed, and to take risks releasing early. I figure that we always know more, and usually throw away our plans, when we start to build. I love building strange things, useful thingss, fun things. One of the things I built was this website and the game running on top of it. [Read more about that here](/this-website)
 
+Other Profiles:
+
+Most of my development projects are stored on public or private repos on [my github](https://github.com/hockenmaier)
+
+A collection of physical projects and 3D designs can be found on [my thingiverse](https://www.thingiverse.com/hockenmaier/designs)
+
+And my professional persona can be found on [my linkedin](https://www.linkedin.com/in/hockenmaier/)
+
 ---
 
 # Where to start
@@ -35,7 +43,7 @@ I post here mostly about things I'm making and occasional essays. If you’re in
 
 ## My Games
 
-{{< single-with-image path="/land-war" width="100" height="100" >}}
+{{< single-with-image path="/land-war">}}
 
 > Land War was my first published game. I built in in 6 months and released on Steam only, where it got a few hundred downloads and made a bit over $1000
 
@@ -49,7 +57,7 @@ I post here mostly about things I'm making and occasional essays. If you’re in
 
 &nbsp;
 
-{{< single-with-image path="/treekeepers-vr" width="400" height="250" >}}
+{{< single-with-image path="/treekeepers-vr">}}
 
 &nbsp;
 
@@ -59,7 +67,7 @@ I post here mostly about things I'm making and occasional essays. If you’re in
 
 > This Website itself was my 3rd video game:
 
-{{< single-with-image path="/this-website" width="400" height="250" >}}
+{{< single-with-image path="/this-website" >}}
 
 &nbsp;
 

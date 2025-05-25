@@ -10,11 +10,17 @@ tags:
     "Procedural Generation",
     "Video Games",
     "Invention",
+    "predictions",
+    "ai",
   ]
 short_description: "A look at why games from today play like games from 20 years ago"
 ---
 
-During my parental leave, I played through quite a few video games - something I love and one of the easiest ways to spend time while rocking my daughter to sleep. They include:
+During my parental leave, I played through quite a few video games - something I love and one of the easiest ways to spend time while rocking my daughter to sleep.
+
+ <!--more-->
+
+They include:
 
 - The Legend of Zelda: The Minish Cap ^Steam Deck^
 - Carto ^Steam on Windows^
@@ -34,9 +40,9 @@ Well - I think that’s pretty clear. The only thing that has really improved ab
 
 And boy have the graphics improved. Oblivion not only uses new techniques like ray-tracing and revamped 4K textures and normal maps etc, it uses the full suite of global illumination provided by [Unreal Engine](https://dev.epicgames.com/documentation/en-us/unreal-engine/lumen-global-illumination-and-reflections-in-unreal-engine), which mean when you turn the settings up, it depends on hardly any of the typical tricks games need to use, like baked light maps, instead lighting almost everything in the game dynamically or “procedurally”, including things like reflections of reflections and lit up dust and fog.
 
-{Insert GIF from my playthrough, potentially outdoor torches in bruma in morning or afternoon with mountains in the background}
+{{< video-large src="/videos/bruma-clip.mp4" width="100%" alt="Clip of Bruma and mountain lighting in the background make for a pretty good use of full Lumen" caption="This is from my playthrough, some outdoor torches in Bruma and mountain lighting in the background make for a pretty good use of full Lumen" >}}
 
-Yes, Oblivion still has some simplistic design in terms of how landscapes are laid out, but that simplicity might also be why people can run it with Nvidia Lumen set up to run at ultra. Lighting is what’s really differentiating in video game graphics now, and fully simulated lighting beats or meets nearly every AAA game releasing lately that all cost 10s or 100s of millions to make.
+Yes, Oblivion still has some simplistic design in terms of how landscapes are laid out, but that simplicity might also be why people can run it with Nvidia Lumen set up to run at ultra. Lighting is what’s really differentiating in video game graphics now, and fully simulated lighting beats or meets nearly every AAA game releasing lately that all cost tens or hundreds of millions of dollars to make..
 
 ## Not Graphics
 

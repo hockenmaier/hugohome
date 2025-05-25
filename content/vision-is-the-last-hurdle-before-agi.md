@@ -2,14 +2,14 @@
 title: "Vision is the last hurdle before AGI"
 date: 2025-02-01
 categories: ["writing"]
-tags: ["singularity", "AI", "Invention"]
+tags: ["singularity", "AI", "Invention", "predictions"]
 ---
 
 I have long been of the mind LLMs and their evolutions are truly thinking, and that they are on their way to solving all of the intellectual tasks that humans can solve today. It is just too uncanny that the technology that seems to have made the final jump to actually thinking, after a long string of attempts and architectures, is a type of neural net. It would be much easier to argue away transformer models as non-thinking stochastic parrots if we had happened to have had success with any other architecture than the one that was designed to mimic our own brains and the neurons firing off to one another within them. It's just too weird. They are shaped like us, they sound like us in a lot of ways, and it's obvious they are thinking something like us too.
 
-That's not to say they are AGI in the modern definition. They can't do every task humans can do intellectually (IE without a body, which I will get to) for several reasons:
+## The Limitations
 
-The Limitations
+That's not to say they are AGI in the modern definition. They can't do every task humans can do intellectually (IE without a body, which I will get to) for several reasons:
 
 1. Looping reasoning.
    This was a huge problem for early transformers that had to output in one shot, and the examples were obvious. This one has been essentially solved via thinking models like o1. That was a huge unlock and a huge bone for things like programming where there is lots of nested recursion of logic that has to occur to get a reasonable answer.
@@ -25,9 +25,9 @@ But the vision itself is not “good” vision. It cannot really pick out small 
 
 Each release from the major providers steadily knocks away my intelligence tests, which I admit are mostly programming oriented, but the ones that they can never really dent are the spatial reasoning ones where a model really has to think about images in its head or have to use an image provided for detailed work.
 
-Example 1:
+### Simple 3D Modeling
 
-Every major model release, I test what models can do with OpenSCAD. I won’t get technical about it here, but OpenSCAD is a CAD program (Computer Aided Design - think 3D modeling for engineers, not the artistic kind) that is defined entirely through a programming language vs the typical mousestrokes and key presses that software like Solidworks or AutoCAD depend on.
+Every major model release, [I test what models can do with OpenSCAD](/3d-modeling-with-ai). I won’t get technical about it here, but OpenSCAD is a CAD program (Computer Aided Design - think 3D modeling for engineers, not the artistic kind) that is defined entirely through a programming language vs the typical mousestrokes and key presses that software like Solidworks or AutoCAD depend on.
 
 This makes OpenSCAD the perfect test platform for a model that inputs and output text primarily. I can describe a 3D model I want, and the model can output text that renders into a 3D model.
 
@@ -35,9 +35,14 @@ But for as amazing as LLMs are at scripting in normal programming languages, the
 
 Here is O3’s attempt to make a
 
-Map example:
+### Map Reading
 
 I recently gave this question to the latest thinking image model, '03: "Here's an image from Google maps of the block I live on between the avenues of Burbank, hazeltine, Oxnard, and Van nuys. What is the longest continuous loop I can walk within the neighborhood without crossing my path or touching one of the avenues? This square is 1/2 mi on each side"
+
+{{< image-small
+    src="images/o3-struggle-map.png"
+    alt="the uploaded map"
+    caption="The image uploaded with this query" >}}
 
 O3 thinks for 4 minutes about this question, zooming in to various parts of the map countless times to form the route. And then it fails on the first step, suggesting starting at tiara and stansbury, which do not intersect on the map. Any person looking at this image could tell that is true in just a few seconds.
 

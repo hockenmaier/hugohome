@@ -3,7 +3,7 @@ title: "On AI Software Development, 2025 Edition"
 date: 2025-05-24
 categories: ["writing"]
 personal: "Y"
-tags: ["software", "singularity", "AI", "software"]
+tags: ["software", "singularity", "AI", "software", "predictions"]
 ---
 
 Recently I read the [AI 2027 paper](https://ai-2027.com/scenario.pdf). I was surprised to see Scott Alexander's name on this paper and I was doubly surprised to see him do his [first face reveal podcast about it with Dwarkesh](https://www.dwarkesh.com/p/scott-daniel)

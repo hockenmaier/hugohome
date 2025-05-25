@@ -3,21 +3,29 @@
 {{ $width  := default 300 $d.width | int }}
 {{ $height := default 300 $d.height | int }}
 
-{{/* ── extract first media tag or featured_image ───────────── */}}
+{{/* ── extract first <video> source or img/iframe or featured_image ───────── */}}
 {{ $raw := "" }}
 {{ $src := "" }}
-{{ $m := findRE `(?s)<(?:img|iframe)[^>]*src=\"([^\"]+)\"[^>]*>` $p.Content }}
-{{ if gt (len $m) 0 }}
-  {{ $raw = index $m 0 }}
-  {{ $src = replaceRE `(?s).*src=\"([^\"]+)\".*` `$1` $raw }}
+
+{{ if findRE `(?s)<video[^>]*>.*?<source[^>]*src="([^"]+)"` $p.Content }}
+  {{ $matches := findRE `(?s)<video[^>]*>.*?<source[^>]*src="([^"]+)"` $p.Content }}
+  {{ $raw     = index $matches 0 }}
+  {{ $src     = replaceRE `(?s).*<source[^>]*src="([^"]+)".*` `$1` $raw }}
+
+{{ else if findRE `(?s)<(?:img|iframe)[^>]*src="([^"]+)"` $p.Content }}
+  {{ $matches := findRE `(?s)<(?:img|iframe)[^>]*src="([^"]+)"` $p.Content }}
+  {{ $raw     = index $matches 0 }}
+  {{ $src     = replaceRE `(?s).*src="([^"]+)".*` `$1` $raw }}
+
 {{ else if $p.Params.featured_image }}
-  {{ $raw = printf `<img src=\"%s\">` $p.Params.featured_image }}
+  {{ $raw = printf `<img src="%s">` $p.Params.featured_image }}
   {{ $src = $p.Params.featured_image }}
 {{ end }}
 
-{{/* ── clean summary: strip img/iframe tags ───────────────── */}}
+{{/* ── clean summary ────────────────────────────────────────── */}}
 {{ $sum := $p.Summary |
     replaceRE `(?s)<iframe[^>]*>.*?</iframe>` `` |
+    replaceRE `(?s)<video[^>]*>.*?</video>` `` |
     replaceRE `(?s)<img[^>]*>` `` |
     replaceRE `(?s)<figcaption[^>]*>.*?</figcaption>` `` |
     replaceRE `(?s)<span[^>]*font-style:[^>]*>.*?</span>` `` |
@@ -25,21 +33,41 @@
 
 <article class="latest-item mb-4" style="display:flex; align-items:flex-start;">
   <div class="media-column">
-    <div class="media-container" style="width:{{ $width }}px;height:{{ $height }}px;">
-      {{ if in $src "youtube.com" }}
+    <div class="media-container" style="width:{{ $width }}px; height:{{ $height }}px;">
+
+      {{ if in $raw "<video" }}
+        <a href="{{ $p.RelPermalink }}">
+          <video controls loop muted autoplay style="width:100%; height:100%; object-fit:cover;">
+            <source src="{{ $src }}" type="video/mp4">
+            Your browser doesn’t support HTML5 video.
+          </video>
+        </a>
+
+      {{ else if in $src "youtube.com" }}
         {{ $vid := replaceRE `.*(?:embed/|v=)([^?&/]+).*` `$1` $src }}
         <a href="{{ $p.RelPermalink }}">
           <img src="https://img.youtube.com/vi/{{ $vid }}/hqdefault.jpg" alt="{{ $p.Title }}">
         </a>
+
       {{ else if in $raw "<iframe" }}
-        <a href="{{ $p.RelPermalink }}"><div class="media-placeholder"></div></a>
+        <a href="{{ $p.RelPermalink }}">
+          <div class="media-placeholder"></div>
+        </a>
+
       {{ else if in $raw "<img" }}
-        <a href="{{ $p.RelPermalink }}"><img src="{{ $src }}" alt="{{ $p.Title }}"></a>
+        <a href="{{ $p.RelPermalink }}">
+          <img src="{{ $src }}" alt="{{ $p.Title }}">
+        </a>
+
       {{ else }}
-        <a href="{{ $p.RelPermalink }}"><div class="media-placeholder"></div></a>
+        <a href="{{ $p.RelPermalink }}">
+          <div class="media-placeholder"></div>
+        </a>
       {{ end }}
+
     </div>
   </div>
+
   <div class="text-column" style="align-self:flex-start; margin-top:0;">
     <h2 class="post-title" style="margin-top:0 !important; margin-bottom:0 !important;">
       <a class="link-light" href="{{ $p.RelPermalink }}">{{ $p.Title }}</a>
@@ -53,4 +81,3 @@
     </p>
   </div>
 </article>
-

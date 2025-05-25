@@ -5,7 +5,17 @@ categories: ["builds"]
 stack: ["Unity", "C#", "luma"]
 github_link: ""
 short_description: "An experiment with NeRFs"
-tags: ["AI", "nerfs", "Unity", "C#", "Procedural Generation", "Video Games"]
+tags:
+  [
+    "AI",
+    "nerfs",
+    "Unity",
+    "C#",
+    "Procedural Generation",
+    "Video Games",
+    "software",
+    experimental,
+  ]
 ---
 
 I’ve been playing around with [neural radiance fields](https://en.wikipedia.org/wiki/Neural_radiance_field) (NeRFs) lately and thought a fun way to explore them would be flying through them in the Treekeepers “Puddle Jumper” in true scale.

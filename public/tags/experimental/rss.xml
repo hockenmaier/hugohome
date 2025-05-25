@@ -38,6 +38,24 @@
         
     
 
+    
+
+    
+        
+    
+
+    
+
+    
+        
+    
+
+    
+
+    
+        
+    
+
 
 
 
@@ -251,6 +269,254 @@
 
                 
                     <title>My Experiments with AI Cheating</title>
+                
+            </item>
+        
+            <item>
+                
+                
+                
+                
+                
+                
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+                
+
+                
+
+                
+
+                
+                    <description><![CDATA[<p>I have been occasionally challenging GPT to create models using openSCAD, a &ldquo;programming language for 3D models&rdquo;</p>
+<p>Both struggle, but GPT-4 has been a massive improvement. Here are both model&rsquo;s outputs after asking for an acorn and 3 messages of me giving feedback:</p>
+<div style="text-align: center; margin-bottom: 1rem;">
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<img  alt="some weird acorns"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/gpt-acorn.png"   style="height: auto; max-width: 720px; width: 100%"   >
+
+
+    
+</div>
+
+<p>For the record, it is impressive that these LLMs can get anything write with no visual input or training on shapes like these. Imagine looking at the programming reference for openSCAD and trying to do this blind</p>
+<p>The fact that the 3.5 version has a bunch of strangely intersecting primitives and some union issues has been normal in my experience. It takes quite a bit of spacial logic to get a model not to look like that</p>
+]]></description>
+                
+
+                <guid isPermaLink="false">tag:localhost:1313,2023-03-19:/3d-modeling-with-ai/</guid>
+
+                
+                    <link>http://localhost:1313/3d-modeling-with-ai/</link>
+                
+
+                
+                    <pubDate>Sun, 19 Mar 2023 00:00:00 UTC</pubDate>
+                
+
+                
+                    <title>3D Modeling With AI</title>
+                
+            </item>
+        
+            <item>
+                
+                
+                
+                
+                
+                
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+                
+
+                
+
+                
+
+                
+                    <description><![CDATA[<p>I’ve been playing around with <a href="https://en.wikipedia.org/wiki/Neural_radiance_field">neural radiance fields</a> (NeRFs) lately and thought a fun way to explore them would be flying through them in the Treekeepers “Puddle Jumper” in true scale.</p>
+
+    <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+      <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/QguH3aK90Ck?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"></iframe>
+    </div>
+
+<p>Of course, you lose a lot of the draw of NeRFs when you export the model into a 3d engine because it has to flatten all the textures and lighting, and also Luma AI cuts off 3D model exports as a jarring cube</p>
+<p>But still - I was amazed at how well just applying a day/night lighting cycle and mesh colliders worked with this. Projectile and enemy physics played well too.</p>
+<p>It’s still early days, but I could see 3D model generation from this tech getting a lot better and forming the basis for some really interesting user-generated content in the future!</p>
+<p>Neat stuff - big thanks to Luma AI for the free toolset.</p>]]></description>
+                
+
+                <guid isPermaLink="false">tag:localhost:1313,2023-02-01:/nerfs/</guid>
+
+                
+                    <link>http://localhost:1313/nerfs/</link>
+                
+
+                
+                    <pubDate>Wed, 01 Feb 2023 00:00:00 UTC</pubDate>
+                
+
+                
+                    <title>NeRFs in VR</title>
+                
+            </item>
+        
+            <item>
+                
+                
+                
+                
+                
+                
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+                
+
+                
+
+                
+
+                
+                    <description><![CDATA[<p>&ldquo;The Flapper&rdquo; is a project that spawned out of a simple VR movement mechanic test that I had had in my head for a while, which turned out to be surprisingly fun! The idea is to flap your arms to fly - and have it be a multiplayer battle to really get people moving.</p>
+<p>In order to start working on this game, because there was so much standard VR code that I had to write for tree keepers, I decided to make a sort of engine out of tree keepers and work off of that rather than start from scratch. That let me tie in some of the nice associated graphics, music and sound effects I had made, and a bunch of other helper functions and things I use for things like the camera following around the character, how I deal with collisions, a bunch of netcode, etc.</p>
+<p>You can see my more detailed post about that engine here: <a href="/treekeepers-engine">Treekeepers Engine</a></p>
+<h2 id="core-mechanic--gameplay">Core Mechanic &amp; Gameplay</h2>
+<p>Most of the start of this game was just tuning the movement mechanic, which borrowed from some physics realities and some elements I made up to make flapping feel good. But, the essential idea was that each arm would generate unique thrust in the direction it was moving with an exponenthel applied to how fast it was moving. It&rsquo;s hard to describe any native VR mechanic with words and videos only, but to me and the folks I demoed it to; it felt &ldquo;right&rdquo; for how flying should work if you did it by flapping your arms. I had a ton of fun just jetting around the obstacle courses I made for myself.</p>
+<p>My idea for this other than just the mechanic was to make a sort of gorilla tag-esque multiplayer game where players would fly around and try to pop each other&rsquo;s balloons in a NES balloon fight {link} style. Ideally something like 15 to 20 people would be in a lobby flying around and trying to pop each other.</p>
+<p>Like gorilla tag I didn&rsquo;t want anyone to have to &ldquo;sit out&rdquo; of the game, so it&rsquo;s essentially a deathmatch where the player who pops the most balloons wins, and is also visible who&rsquo;s winning, because they also gain the balloons that they pop. In some playtests players would have 20 or 30 balloons on their head. This was my clever idea of adding a built-in rubber-band effect to the gameplay as well, since having more balloons over your head made you a bigger target to pop. The gameplay worked well - but I never quite got the game to a place with netcode and networking engine where multiplayer felt seamless enough.</p>
+<p>Here’s a video of one of the later states of the game, where I have it fully networked and am testing with friends, though it still has a few bugs here:</p>
+
+    <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+      <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/Vxn8rDOZ7dU?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"></iframe>
+    </div>
+
+<h2 id="today">Today</h2>
+<p>I stopped working on this project after about 3 months. It turned out that flying alone with this mechanic was very compelling (and also a great workout!) but the networking engine I had used for Teeekeepers, Photon, was not up to task for how low latency a competitive game needed to be. Treekeepers was four-player co-op so photon was just fine.</p>
+<p>In the future I might pick this one back up (or maybe have an AI agent pick it up for me depending on how that goes) using space-time DB {link}</p>
+<p>which looks like a great solution for this type of game that doesn&rsquo;t require a whole ton of cloud programming and setup.</p>
+<p>You can try a build of the game here:</p>
+<p>{Download of latest build}</p>
+]]></description>
+                
+
+                <guid isPermaLink="false">tag:localhost:1313,2023-01-01:/the-flapper/</guid>
+
+                
+                    <link>http://localhost:1313/the-flapper/</link>
+                
+
+                
+                    <pubDate>Sun, 01 Jan 2023 00:00:00 UTC</pubDate>
+                
+
+                
+                    <title>The Flapper</title>
                 
             </item>
         
@@ -1392,7 +1658,7 @@
 <p>I created this panel display in 2026 to control much of the home automation I used in my Studio City apartment. Mainly a hardware project, I designed and 3D-printed a case and frame for the touchscreen and raspberry pi microcomputer in order to mount them to the wall. The software running the control panel is SaaS, but I did write a custom html wrapper to control the orientation and settings of the site, which is available on the github linked above.</p>
 <p>Update in 2025: This panel is still my main view into my home automation in my new house in Sherman Oaks, almost 10 years in with no modification!</p>
 <p>Here&rsquo;s a video to see the panel in action:</p>
-<h2 id="hahahugoshortcode17s0hbhb">
+<h2 id="hahahugoshortcode21s0hbhb">
     <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
       <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/iFGmm-ijJvE?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"></iframe>
     </div>
