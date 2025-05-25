@@ -61,7 +61,9 @@ Press <kbd>Ctrl</kbd> + <kbd>Alt</kbd> + <kbd>Delete</kbd> to end the session.
 ```
 
 Here's a Download:
-{{< download file="files/corrector-v4.stl" >}}Download the STL model of my Ottoman Support{{< /download >}}
+{{< download file="https://www.dropbox.com/scl/fo/4piy97k725ee1xp3cn4pe/AEUfIYTEgcOtlUmsc0qeT1s?rlkey=ygd4jhs57c35xq3ska7vs6xjy&dl=0" >}}
+7/24/24 Build Download
+{{< /download >}}
 
 Here's a Gist:
 {{< gist hockenmaier afb228dc7776cded521127b9edec2c94 >}}

@@ -78,3 +78,7 @@ The game is fun with multiple players, but it's still quite basic, and I'm still
 At some point I will pick this thing back up, or I will have some AI agent pick it back up for me, because the core game itself is something I really want to exist, even if it's just another land war that a few hundred people download and I play at my own get togethers.
 
 If you'd like, you can download a Windows build here, which is still very much a prototype but works with 8 connected controllers:
+
+{{< download file="https://www.dropbox.com/scl/fo/4piy97k725ee1xp3cn4pe/AEUfIYTEgcOtlUmsc0qeT1s?rlkey=ygd4jhs57c35xq3ska7vs6xjy&dl=0" >}}
+7/24/24 Build Download
+{{< /download >}}

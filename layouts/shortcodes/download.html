@@ -1,12 +1,20 @@
-{{ $url  := .Get "file" }}
-{{ $ext  := lower (replaceRE `\.` `` (path.Ext $url)) }}
-{{ $icons := dict
-    "pdf" "file-earmark-pdf"
-    "zip" "file-earmark-zip"
-    "stl" "file-earmark"
-    "obj" "file-earmark"
-    "md" "file-earmark-text"
-  }}
+{{- $url := .Get "file" -}}
+{{- if in $url "dropbox.com" -}}
+  {{- /* normalize any existing dl=X to dl=1 */ -}}
+  {{- $url = replaceRE `([\?&])dl=\d+` "${1}dl=1" $url -}}
+  {{- /* if no dl= param at all, add ?dl=1 */ -}}
+  {{- if not (findRE `dl=1` $url) -}}
+    {{- $url = printf "%s?dl=1" $url -}}
+  {{- end -}}
+{{- end -}}
+{{- $ext  := lower (replaceRE `^\.` "" (path.Ext $url)) -}}
+{{- $icons := dict
+     "pdf" "file-earmark-pdf"
+     "zip" "file-earmark-zip"
+     "stl" "file-earmark"
+     "obj" "file-earmark"
+     "md"  "file-earmark-text"
+-}}
 <a href="{{ $url }}" download class="d-flex align-items-center download-link">
   <i class="bi bi-{{ index $icons $ext | default "file-earmark" }} me-1"></i>
   {{ .Inner }}

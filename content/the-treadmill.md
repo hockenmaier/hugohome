@@ -60,8 +60,10 @@ Now this is a good argument! You could indeed retire in 5 years after making $80
 
 What’s actually happening? Lifestyle creep. I think this is 90% of why people feel they could never work on something more fun or meaningful for less money. They’ve already started to spend their new money, and now losing those things would hurt more than gaining them felt good. That damn hedonic treadmill.
 
-## What am I saying?
+## Closing Thoughts
 
-I’m asking you to think deeply about what you value. Money isn’t a core value. Value your own time as much as your spending habits suggest you do. This is the right logic for your well-being, even if the world stays as it is. Now for my last thought:
+I’m asking you to think deeply about what you value. Money is a means to an end. The way you spend your time, including work itself, has true value. Value your own time as much as your spending habits suggest you do. This is the right logic for your well-being.
 
-I’m obsessed with AI and the technological singularity. It’s a healthy time to step back, reflect on the fundamental values driving our behavior, and make changes. Wouldn’t it be silly to spend most of our waking hours working miserably on meaningless things, only to arrive in a second half of life in a world of abundance?
+My last thought on this:
+
+I’m obsessed with AI and the technological singularity. It’s a healthy time to step back, reflect on the fundamental values driving our behavior, and make changes. Wouldn’t it be silly to spend most of our waking hours working miserably on meaningless things, only to arrive in the second half of your life in a world of true abundance?
