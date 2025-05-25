@@ -88,11 +88,10 @@ App.modules.base = (function () {
     resize();
 
     // ---- Media Colliders ----
-    // Create colliders for images/iframes as triggers.
-    window.BallFall.mediaColliders = []; // global array to hold media colliders
+    // Create colliders for images, iframes, and video tags as triggers.
+    window.BallFall.mediaColliders = [];
     function addMediaColliders() {
-      document.querySelectorAll("img, iframe").forEach((el) => {
-        // Skip spawner image from triggering ripples.
+      document.querySelectorAll("img, iframe, video").forEach((el) => {
         if (el.id === "ball-spawner") return;
         const rect = el.getBoundingClientRect();
         if (rect.width < 1 || rect.height < 1) return;
@@ -100,15 +99,16 @@ App.modules.base = (function () {
         const cy = rect.top + rect.height / 2 + window.scrollY;
         const box = Bodies.rectangle(cx, cy, rect.width, rect.height, {
           isStatic: true,
-          isSensor: true, // make collider a trigger
+          isSensor: true,
           render: { visible: false },
         });
         box.elRef = el;
-        box.isMedia = true; // mark as media collider
+        box.isMedia = true;
         window.BallFall.mediaColliders.push(box);
         World.add(engine.world, box);
       });
     }
+
     addMediaColliders();
 
     // ---- New Media Interaction Update ----
