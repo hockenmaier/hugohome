@@ -614,6 +614,72 @@ table {
 
 <div class="paige-page paige-published w-100">
     
+        <p class="paige-row-narrow paige-title text-center"><a href="https://hockenworks.com/test-embeds/">Test Embeds</a></p>
+    
+
+    
+
+    
+
+    
+        <p class="paige-keywords paige-row-narrow text-center text-secondary">
+            <a class="link-secondary paige-keyword paige-keyword-tag" href="https://hockenworks.com/tags/3d-modeling/">3D Modeling</a> · <a class="link-secondary paige-keyword paige-keyword-tag" href="https://hockenworks.com/tags/board-games/">Board Games</a> · <a class="link-secondary paige-keyword paige-keyword-category" href="https://hockenworks.com/categories/builds/">Builds</a> · <a class="link-secondary paige-keyword paige-keyword-tag" href="https://hockenworks.com/tags/game-development/">Game Development</a> · <a class="link-secondary paige-keyword paige-keyword-tag" href="https://hockenworks.com/tags/multiplayer/">Multiplayer</a>
+        </p>
+    
+
+    
+
+    
+
+    
+        <p class="paige-date text-center paige-row-narrow text-secondary">
+            <time datetime="2020-05-20">May 20, 2020</time>
+        </p>
+    
+
+    
+        <p class="paige-reading-time paige-row-narrow text-center text-secondary">1 minute</p>
+    
+</div>
+
+        
+            
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+
+
+<div class="paige-page paige-published w-100">
+    
         <p class="paige-row-narrow paige-title text-center"><a href="https://hockenworks.com/human-joystick/">Human Joystick VR</a></p>
     
 
@@ -887,7 +953,7 @@ table {
 
     
         <p class="paige-keywords paige-row-narrow text-center text-secondary">
-            <a class="link-secondary paige-keyword paige-keyword-tag" href="https://hockenworks.com/tags/3d-printing/">3D Printing</a> · <a class="link-secondary paige-keyword paige-keyword-category" href="https://hockenworks.com/categories/builds/">Builds</a> · <a class="link-secondary paige-keyword paige-keyword-tag" href="https://hockenworks.com/tags/css/">CSS</a> · <a class="link-secondary paige-keyword paige-keyword-tag" href="https://hockenworks.com/tags/diy/">DIY</a> · <a class="link-secondary paige-keyword paige-keyword-tag" href="https://hockenworks.com/tags/experimental/">Experimental</a> · <a class="link-secondary paige-keyword paige-keyword-tag" href="https://hockenworks.com/tags/hardware/">Hardware</a> · <a class="link-secondary paige-keyword paige-keyword-tag" href="https://hockenworks.com/tags/home-automation/">Home Automation</a> · <a class="link-secondary paige-keyword paige-keyword-tag" href="https://hockenworks.com/tags/html/">HTML</a> · <a class="link-secondary paige-keyword paige-keyword-tag" href="https://hockenworks.com/tags/raspberry-pi/">Raspberry Pi</a> · <a class="link-secondary paige-keyword paige-keyword-tag" href="https://hockenworks.com/tags/solidworks/">Solidworks</a> · <a class="link-secondary paige-keyword paige-keyword-tag" href="https://hockenworks.com/tags/system-design/">System Design</a>
+            <a class="link-secondary paige-keyword paige-keyword-tag" href="https://hockenworks.com/tags/3d-modeling/">3D Modeling</a> · <a class="link-secondary paige-keyword paige-keyword-tag" href="https://hockenworks.com/tags/3d-printing/">3D Printing</a> · <a class="link-secondary paige-keyword paige-keyword-category" href="https://hockenworks.com/categories/builds/">Builds</a> · <a class="link-secondary paige-keyword paige-keyword-tag" href="https://hockenworks.com/tags/css/">CSS</a> · <a class="link-secondary paige-keyword paige-keyword-tag" href="https://hockenworks.com/tags/diy/">DIY</a> · <a class="link-secondary paige-keyword paige-keyword-tag" href="https://hockenworks.com/tags/experimental/">Experimental</a> · <a class="link-secondary paige-keyword paige-keyword-tag" href="https://hockenworks.com/tags/hardware/">Hardware</a> · <a class="link-secondary paige-keyword paige-keyword-tag" href="https://hockenworks.com/tags/home-automation/">Home Automation</a> · <a class="link-secondary paige-keyword paige-keyword-tag" href="https://hockenworks.com/tags/html/">HTML</a> · <a class="link-secondary paige-keyword paige-keyword-tag" href="https://hockenworks.com/tags/raspberry-pi/">Raspberry Pi</a> · <a class="link-secondary paige-keyword paige-keyword-tag" href="https://hockenworks.com/tags/software/">Software</a> · <a class="link-secondary paige-keyword paige-keyword-tag" href="https://hockenworks.com/tags/system-design/">System Design</a>
         </p>
     
 
@@ -1835,9 +1901,8 @@ table {
       App.config.maxUnlockedSpeedLevel = lvl - 1;
       const newInt = App.config.originalSpawnInterval / Math.pow(2, lvl - 1);
       App.config.spawnInterval = newInt;
-      window.BallFall.stopAutoSpawner();                        
-      App.config.spawnInterval = App.config.originalSpawnInterval;
-      App.Persistence.saveAutoClicker({ purchased:false, maxSpeedLevel:0 });
+      window.BallFall.updateSpawnInterval(newInt);              
+      App.Persistence.saveAutoClicker({ purchased:true, maxSpeedLevel:lvl-1 });
     }
 
      
@@ -1860,17 +1925,6 @@ table {
 
 </div>
 
-
-            <script>
-            
-            document.addEventListener('click', function(e) {
-                if (window.App && window.App.modules && window.App.modules.lines && window.App.modules.lines.getMode() !== "none") {
-                if (e.target.closest('a') && !e.target.closest('#ballfall-ui')) {
-                    e.preventDefault();
-                }
-                }
-            });
-            </script>
         
     </body>
 </html>

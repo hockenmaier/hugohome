@@ -140,11 +140,28 @@ App.modules.lines = (function () {
     "ontouchstart" in window || navigator.maxTouchPoints > 0;
 
   function setMode(newMode) {
-    mode = newMode;
-    // Cancel if switching away.
-    if (newMode !== "straight" && StraightLineTool.state !== 0) {
-      StraightLineTool.cancel();
+    // cancel preview of previous tool
+    switch (mode) {
+      case "straight":
+        StraightLineTool.cancel();
+        break;
+      case "curved":
+        if (window.CurvedLineTool) window.CurvedLineTool.cancel();
+        break;
+      case "dotted":
+        if (window.DottedLineTool) window.DottedLineTool.cancel();
+        break;
+      case "launcher":
+        if (window.LauncherCreateTool) LauncherCreateTool.cancel();
+        break;
+      case "compactor":
+        if (window.CompactorCreateTool) CompactorCreateTool.cancel();
+        break;
     }
+
+    mode = newMode;
+
+    // for touch, prevent scroll when any tool is active
     if (isTouchDevice) {
       document.body.style.overflow = newMode !== "none" ? "hidden" : "";
     }

@@ -26,6 +26,18 @@
         
     
 
+    
+
+    
+        
+    
+
+    
+
+    
+        
+    
+
 
 
 
@@ -75,7 +87,7 @@
         
 
         
-            <lastBuildDate>2019-07-03 00:00:00 +0000 UTC</lastBuildDate>
+            <lastBuildDate>2024-06-01 00:00:00 +0000 UTC</lastBuildDate>
         
 
         <link>https://hockenworks.com/tags/python/</link>
@@ -86,6 +98,199 @@
 
         
 
+        
+            <item>
+                
+                
+                
+                
+                
+                
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+                
+
+                
+
+                
+
+                
+                    <description><![CDATA[<p>Custom GPTs are free for everyone as of yesterday, so I thought I’d post some of the best ones I’ve made over the last few months for all of you:</p>
+<p>Proofreader (<a href="https://lnkd.in/g45DGnDW)">https://lnkd.in/g45DGnDW)</a>:
+This one is super simple. Give it what you’ve written and it will provide no-BS proofreads. It’s not going to hallucinate content, just point out mistakes and parts that don’t make sense.</p>
+<div style="text-align: center; margin-bottom: 1rem;">
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<img  alt="proofreader GPT"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/proofreader-gpt.png"   style="height: auto; max-width: 200px; width: 100%"   >
+
+
+    
+</div>
+
+<p>Make Real (<a href="https://lnkd.in/gnwNTAd6)">https://lnkd.in/gnwNTAd6)</a>:
+This makes your napkin drawings into working websites. It’s got some of the same limitations other code-generating AI tools do, but it does a surprisingly good job creating simple working web frontends for your ideas!</p>
+<p>Postman for PMs (<a href="https://lnkd.in/gARtSQ6R">https://lnkd.in/gARtSQ6R</a>)
+Talk to APIs using natural language instead of downloading technical tools or writing code (only unauthenticated APIs, for now). Also a great way to learn about APIs for newbies - Postman for PMs knows about some free online APIs to get started with.</p>
+<p>The Boy (<a href="https://lnkd.in/gvwNuaXC">https://lnkd.in/gvwNuaXC</a>)
+An experimental “AI generated RPG” where you play as “The Boy” who realizes fantastic superpowers. It’s fun to play around and explore, but don’t expect too much consistent gameplay from the currently available AI models.</p>
+<p>Exciting times. Have fun!</p>
+]]></description>
+                
+
+                <guid isPermaLink="false">tag:hockenworks.com,2024-06-01:/some-custom-gpts/</guid>
+
+                
+                    <link>https://hockenworks.com/some-custom-gpts/</link>
+                
+
+                
+                    <pubDate>Sat, 01 Jun 2024 00:00:00 UTC</pubDate>
+                
+
+                
+                    <title>Some Custom GPTs</title>
+                
+            </item>
+        
+            <item>
+                
+                
+                
+                
+                
+                
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+                
+
+                
+
+                
+
+                
+                    <description><![CDATA[<p>I made &ldquo;Postman for PMs,&rdquo; a tool to help non-engineers understand and use APIs!</p>
+
+    <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+      <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/3O4r_q2Ioko?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"></iframe>
+    </div>
+
+<p>It&rsquo;s a &ldquo;Custom GPT&rdquo; - a customized version of chatGPT. Just give it some details about the API and then tell it in English what you want to get, post, update, whatever.</p>
+<p>If you&rsquo;re a PM, business analyst, or anyone that cares about APIs but doesn&rsquo;t like terminals and engineer-y tools like Postman, and you have ChatGPT plus, try it out. Here&rsquo;s a link:
+<a href="https://chatgpt.com/g/g-QeNbSmirA-postman-for-pms">https://chatgpt.com/g/g-QeNbSmirA-postman-for-pms</a></p>
+<p>Important disclaimer: DON&rsquo;T use ChatGPT on corporate stuff if your company doesn&rsquo;t allow it! This was a fun experiment for me and I&rsquo;m definitely not using any corporate resources on it/for it. There are plenty of free APIs to try this out on. Maybe ask ChatGPT for some suggestions</p>
+<hr>]]></description>
+                
+
+                <guid isPermaLink="false">tag:hockenworks.com,2024-01-13:/postman-for-pms/</guid>
+
+                
+                    <link>https://hockenworks.com/postman-for-pms/</link>
+                
+
+                
+                    <pubDate>Sat, 13 Jan 2024 00:00:00 UTC</pubDate>
+                
+
+                
+                    <title>Postman for PMs</title>
+                
+            </item>
         
             <item>
                 
