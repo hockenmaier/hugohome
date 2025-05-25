@@ -162,7 +162,10 @@ App.modules.text = (function () {
         centerX,
         centerY,
         [shrunk],
-        { isStatic: true, render: { visible: false } },
+        {
+          isStatic: true,
+          render: { visible: false },
+        },
         true
       );
       if (body) body.elRef = letterEl;

@@ -18,30 +18,34 @@
 
   function resetLine(target) {
     applyToGroup(target, function (body) {
+      // Launcher bodies
       if (body.label === "Launcher" && body.render) {
         if (body.render.sprite) body.render.sprite.opacity = 1;
         body.render.opacity = 1;
-      } else if (body.label === "DottedLine") {
-        if (body.render) {
-          body.render.fillStyle =
-            App.config.dottedLineRender.strokeStyle || "#a8328d";
-          body.render.strokeStyle =
-            App.config.dottedLineRender.strokeStyle || "#a8328d";
-          body.render.opacity = 1;
-        }
-      } else if (body.parts && body.parts.length > 1) {
+      }
+      // Dotted lines
+      else if (body.label === "DottedLine" && body.render) {
+        body.render.fillStyle = App.config.dottedLineRender.fillStyle;
+        body.render.strokeStyle = App.config.dottedLineRender.strokeStyle;
+        body.render.lineWidth = App.config.dottedLineRender.lineWidth;
+        body.render.opacity = 1;
+      }
+      // Compound curves (multi-part) or straight lines
+      else if (body.parts && body.parts.length > 1) {
+        // We assume any multi-part is a curved line
+        const cfg = App.config.curvedLineRender;
         body.parts.forEach(function (part) {
-          part.render.fillStyle =
-            App.config.straightLineRender.fillStyle || "#956eff";
-          part.render.strokeStyle =
-            App.config.straightLineRender.strokeStyle || "#956eff";
+          part.render.fillStyle = cfg.fillStyle;
+          part.render.strokeStyle = cfg.strokeStyle;
+          part.render.lineWidth = cfg.lineWidth;
           part.render.opacity = 1;
         });
-      } else if (body.render) {
-        body.render.fillStyle =
-          App.config.straightLineRender.fillStyle || "#956eff";
-        body.render.strokeStyle =
-          App.config.straightLineRender.strokeStyle || "#956eff";
+      }
+      // Single-segment straight lines
+      else if (body.render) {
+        body.render.fillStyle = App.config.straightLineRender.fillStyle;
+        body.render.strokeStyle = App.config.straightLineRender.strokeStyle;
+        body.render.lineWidth = App.config.straightLineRender.lineWidth;
         body.render.opacity = 1;
       }
     });

@@ -452,6 +452,28 @@ App.modules.base = (function () {
       Matter.Render.endViewTransform(render);
     });
 
+    /* ---- Set custom surface restitution - this is needed because lines are isStatic true ---- */
+    function patchRestitution(event) {
+      event.pairs.forEach((pair) => {
+        const { bodyA: a, bodyB: b } = pair;
+        let other;
+
+        if (a.label === "BallFallBall") {
+          other = b;
+        } else if (b.label === "BallFallBall") {
+          other = a;
+        } else {
+          return;
+        }
+
+        pair.restitution = other.label === "CurvedLine" ? 0.35 : 0.95;
+      });
+    }
+
+    Matter.Events.on(engine, "collisionStart", patchRestitution);
+    Matter.Events.on(engine, "collisionActive", patchRestitution);
+    /* --------------------------------------------------------- */
+
     console.log("Base module initialized, dispatching BallFallBaseReady");
     window.dispatchEvent(new Event("BallFallBaseReady"));
   }

@@ -90,8 +90,8 @@
               isStatic: true,
               angle: angle,
               render: {
-                fillStyle: "#956eff",
-                strokeStyle: "#956eff",
+                fillStyle: App.config.straightLineRender.fillStyle,
+                strokeStyle: App.config.straightLineRender.strokeStyle,
                 lineWidth: 1,
               },
             }
@@ -104,8 +104,9 @@
             ld.fidelity || App.config.curvedLineFidelity,
             App.config.lineThickness,
             {
-              fillStyle: "#956eff",
-              strokeStyle: "#956eff",
+              label: "CurvedLine",
+              fillStyle: App.config.curvedLineRender.fillStyle,
+              strokeStyle: App.config.curvedLineRender.strokeStyle,
               lineWidth: 1,
             }
           );

@@ -41,8 +41,8 @@ window.CurvedLineTool = {
         y
       );
       const previewRender = App.config.curvedLinePreviewRender || {
-        fillStyle: "rgba(149,110,255,0.5)",
-        strokeStyle: "rgba(149,110,255,0.5)",
+        fillStyle: "rgba(120, 110, 255,0.5)",
+        strokeStyle: "rgba(120, 110, 255,0.5)",
         lineWidth: 1,
       };
       this.previewCompound = Matter.Bodies.rectangle(
@@ -52,6 +52,7 @@ window.CurvedLineTool = {
         App.config.lineThickness * 1.05,
         {
           isStatic: true,
+          label: "CurvedLine",
           angle: angle,
           render: previewRender,
         }
@@ -180,8 +181,8 @@ window.CurvedLineTool = {
         App.config.curvedLineFidelity,
         App.config.lineThickness * 1.05,
         App.config.curvedLineRender || {
-          fillStyle: "rgba(149,110,255,0.5)",
-          strokeStyle: "rgba(149,110,255,0.5)",
+          fillStyle: "rgba(120, 110, 255,0.5)",
+          strokeStyle: "rgba(120, 110, 255,0.5)",
           lineWidth: 1,
         }
       );
@@ -233,6 +234,7 @@ function generateCurveCompoundBody(
     const angle = Math.atan2(dy, dx);
     const segment = Matter.Bodies.rectangle(mid.x, mid.y, length, thickness, {
       isStatic: true,
+      label: "CurvedLine",
       angle: angle,
       render: renderOptions,
     });
@@ -242,6 +244,7 @@ function generateCurveCompoundBody(
   return Matter.Body.create({
     parts: parts,
     isStatic: true,
+    label: "CurvedLine",
     render: renderOptions,
   });
 }

@@ -26,7 +26,7 @@ window.App = {
     spawnInterval: 4480, // Default ball spawn interval in ms (auto-clicker rate)
     gravity: 0.75,
     timeScale: 0.82,
-    restitution: 0.95,
+    restitution: 0.95, // This is set on balls, but essentially doesn't matter due to the patchRestitution override in base-simulation.js
     spawnX: window.innerWidth < 620 ? 1.4 : 1.4, // mobile, desktop uses 1.4
     ballSize: 7,
     sitStillDeleteSeconds: 2,
@@ -132,13 +132,13 @@ window.App = {
       lineWidth: 1,
     },
     curvedLineRender: {
-      fillStyle: "#956eff",
-      strokeStyle: "#956eff",
+      fillStyle: "#4b54b8",
+      strokeStyle: "#4b54b8",
       lineWidth: 1,
     },
     curvedLinePreviewRender: {
-      fillStyle: "rgba(149,110,255,0.5)",
-      strokeStyle: "rgba(149,110,255,0.5)",
+      fillStyle: "rgba(75, 84, 184,0.5)",
+      strokeStyle: "rgba(75, 84, 184,0.5)",
       lineWidth: 1,
     },
     dottedLineRender: {
@@ -155,8 +155,8 @@ window.App = {
       lineDash: [],
     },
     launcherPreviewRender: {
-      fillStyle: "rgba(149,110,255,0.5)",
-      strokeStyle: "rgba(149,110,255,0.5)",
+      fillStyle: "rgba(149,110,255,1)",
+      strokeStyle: "rgba(149,110,255,1)",
       lineWidth: 1,
     },
 
