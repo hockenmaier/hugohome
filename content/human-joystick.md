@@ -19,6 +19,7 @@ tags:
     "Prototyping",
     "User Experience",
   ]
+featured: "images/human_joystick_centered.jpg"
 ---
 
 The "Human Joystick" is an experimental VR movement system in which the player moves through the virtual environment by changing their physical location within their VR "playspace".

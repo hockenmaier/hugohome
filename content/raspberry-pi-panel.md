@@ -22,6 +22,7 @@ tags:
     "Hardware",
     software,
   ]
+featured: "images/raspberry-featured.png"
 ---
 
 **Raspberry Pi Control Panel** is a hardware project I designed in 2016 to manage home automation systems. The project involved designing a custom 3D-printed case for a Raspberry Pi microcomputer with a touchscreen interface.

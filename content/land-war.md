@@ -20,6 +20,7 @@ tags:
     "System Design",
     "Multiplayer",
   ]
+featured: "images/land_war_e3.png" # could be a .mp4, YouTube URL, whatever
 ---
 
 Land War is an 8-player strategy game I developed as a solo project and released to Steam in March of 2019.  

@@ -1,6 +1,7 @@
 ---
 title: "The Treadmill"
 date: 2024-02-01
+publishDate: 2025-06-13
 categories: ["writing"]
 tags: ["work-life balance", "happiness", "wealth", "singularity", "AI"]
 ---

@@ -3,6 +3,7 @@ title: "Vision is the last hurdle before AGI"
 date: 2025-06-09
 categories: ["writing"]
 tags: ["singularity", "AI", "Invention", "predictions", "3D Modeling"]
+featured: "/images/o3-pinion.png" # could be a .mp4, YouTube URL, whatever
 ---
 
 I have long been of the mind LLMs and their evolutions are truly thinking, and that they are on their way to solving all of the intellectual tasks that humans can solve today. It is just too uncanny that the technology that seems to have made the final jump to actually thinking, after a long string of attempts and architectures, is a type of neural net. It would be much easier to argue away transformer models as non-thinking stochastic parrots if we had happened to have had success with any other architecture than the one that was designed to mimic our own brains and the neurons firing off to one another within them. It's just too weird. They are shaped like us, they sound like us in a lot of ways, and it's obvious they are thinking something like us too.

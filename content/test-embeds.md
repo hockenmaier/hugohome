@@ -3,6 +3,7 @@ title: "Test Embeds"
 date: 2020-05-20
 categories: ["builds"]
 stack: ["Openscad", "Bambulab"]
+draft: true
 project_link: ""
 github_link: ""
 short_description: "A 4 player board game where you gamble to take over a fruit tree."

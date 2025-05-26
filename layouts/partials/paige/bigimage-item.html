@@ -1,22 +1,47 @@
-{{ $d      := . }}
-{{ $p      := $d.page }}
+{{ $d   := . }}
+{{ $p   := $d.page }}
+{{ $raw := "" }}
+{{ $src := "" }}
 {{ $width  := default 300 $d.width | int }}
 {{ $height := default 300 $d.height | int }}
 
-{{/* ── extract first <video> source or img/iframe or featured_image ───────── */}}
-{{ $raw := "" }}
-{{ $src := "" }}
+{{/* ── explicit override via front-matter featured ──────────────────── */}}
+{{ if $p.Params.featured }}
+  {{ $feat := $p.Params.featured }}
+  {{ $fields := split $feat " " }}
 
-{{ if findRE `(?s)<video[^>]*>.*?<source[^>]*src="([^"]+)"` $p.Content }}
-  {{ $matches := findRE `(?s)<video[^>]*>.*?<source[^>]*src="([^"]+)"` $p.Content }}
-  {{ $raw     = index $matches 0 }}
-  {{ $src     = replaceRE `(?s).*<source[^>]*src="([^"]+)".*` `$1` $raw }}
+  {{/* 1) IF you want a featured "youtube ID" -  you must just make sure it's the first media in the post and not use the featured frontmatter, due to technical constraints*/}}
+
+  {{/* 2) direct .mp4 path (video-large style) */}}
+  {{ if hasSuffix $feat ".mp4" }}
+    {{ $raw = printf `<video controls loop muted autoplay style="width:100%%;height:100%%;object-fit:cover;"><source src="%s" type="video/mp4"></video>` $feat }}
+    {{ $src = $feat }}
+
+  {{/* 3) any other HTTP URL (e.g. full YouTube link) */}}
+  {{ else if hasPrefix $feat "http" }}
+    {{ $id  := replaceRE `.*(?:embed/|v=|youtu\.be/)([^?&/]+).*` `$1` $feat }}
+    {{ $raw = printf `<iframe src="https://www.youtube.com/embed/%s" frameborder="0" allowfullscreen style="width:100%%;height:100%%;object-fit:cover;"></iframe>` $id }}
+    {{ $src = printf "https://img.youtube.com/vi/%s/hqdefault.jpg" $id }}
+
+  {{/* 4) fallback to image */}}
+  {{ else }}
+    {{ $raw = printf `<img src="%s">` $feat }}
+    {{ $src = $feat }}
+  {{ end }}
+
+{{/* 5 ── otherwise fall back to first in-content media ──────────────────── */}}
 
 {{ else if findRE `(?s)<(?:img|iframe)[^>]*src="([^"]+)"` $p.Content }}
-  {{ $matches := findRE `(?s)<(?:img|iframe)[^>]*src="([^"]+)"` $p.Content }}
-  {{ $raw     = index $matches 0 }}
-  {{ $src     = replaceRE `(?s).*src="([^"]+)".*` `$1` $raw }}
+  {{ $m   := findRE `(?s)<(?:img|iframe)[^>]*src="([^"]+)"` $p.Content }}
+  {{ $raw = index $m 0 }}
+  {{ $src = replaceRE `(?s).*src="([^"]+)".*` `$1` $raw }}
 
+{{ else if findRE `(?s)<video[^>]*>.*?<source[^>]*src="([^"]+)"` $p.Content }}
+  {{ $m   := findRE `(?s)<video[^>]*>.*?<source[^>]*src="([^"]+)"` $p.Content }}
+  {{ $raw = index $m 0 }}
+  {{ $src = replaceRE `(?s).*<source[^>]*src="([^"]+)".*` `$1` $raw }}
+
+{{/* Last: fallback to hugo default featured image */}}
 {{ else if $p.Params.featured_image }}
   {{ $raw = printf `<img src="%s">` $p.Params.featured_image }}
   {{ $src = $p.Params.featured_image }}
