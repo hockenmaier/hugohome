@@ -248,12 +248,6 @@
     <loc>http://localhost:1313/raspberry-pi-panel/</loc>
     <lastmod>2016-01-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/raspberry-pi-bike-tracker/</loc>
-  </url><url>
-    <loc>http://localhost:1313/treekeepers-engine/</loc>
-  </url><url>
-    <loc>http://localhost:1313/treekeepers-proposal/</loc>
-  </url><url>
     <loc>http://localhost:1313/stacks/</loc>
   </url>
 </urlset>
