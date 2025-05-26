@@ -52,7 +52,7 @@
             
 
             
-                <link href="http://localhost:1313/tags/javascript/" rel="self" type="text/html"/>
+                <link href="https://hockenworks.com/tags/javascript/" rel="self" type="text/html"/>
             
         
             
@@ -60,7 +60,7 @@
             
 
             
-                <link href="http://localhost:1313/tags/javascript/rss.xml" rel="alternate" type="application/rss+xml"/>
+                <link href="https://hockenworks.com/tags/javascript/rss.xml" rel="alternate" type="application/rss+xml"/>
             
         
 
@@ -78,7 +78,7 @@
             <lastBuildDate>2025-03-01 00:00:00 +0000 UTC</lastBuildDate>
         
 
-        <link>http://localhost:1313/tags/javascript/</link>
+        <link>https://hockenworks.com/tags/javascript/</link>
 
         
 
@@ -198,7 +198,7 @@
 
 
 
-<img  alt="the hockenworks homepage"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/hockenworks.png"   style="height: auto; max-width: 720px; width: 100%"   >
+<img  alt="the hockenworks homepage"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/hockenworks.png"   style="height: auto; max-width: 720px; width: 100%"   >
 
 
     
@@ -311,7 +311,7 @@
 
 
 
-<img  alt="balls everywhere"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/this-website-ball-machine-1.png"   style="height: auto; max-width: 720px; width: 100%"   >
+<img  alt="balls everywhere"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/this-website-ball-machine-1.png"   style="height: auto; max-width: 720px; width: 100%"   >
 
 
     
@@ -327,7 +327,7 @@
 <p>I ended up making my own tool called <a href="/context-caddy">Context Caddy</a> to help me with it. Part of the reason I leaned so hard into this is because I&rsquo;m always trying to push the limits of current AI, and I hadn&rsquo;t built a game since the GPT-4 days. The new thinking models are truly a setup above GPT-4 (this was mostly done with o3 and its minis) but they&rsquo;re still way to eager to write duplicate code, and they still don&rsquo;t &ldquo;get&rdquo; the structure of your project a lot of the time, especially with visual and physcial things like this. Still, they were a great help here.</p>
 <h2 id="how-to-play">How to Play</h2>
 <blockquote>
-<p>Quick Disclaimer: The best experience is on desktop or tablet - something with more screen real-estate than a phone.</p>
+<p>Quick Disclaimer: The best experience is on desktop or tablet - something with more screen real-estate than a phone. If playing on phone, try landscape mode!</p>
 </blockquote>
 <span
   style="
@@ -417,7 +417,7 @@
 
 
 
-<img  alt="ball chute"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/ball-chute-hatch-1.png"   style="height: auto; max-width: 200px; width: 100%"   >
+<img  alt="ball chute"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/ball-chute-hatch-1.png"   style="height: auto; max-width: 200px; width: 100%"   >
 
  
   <span style="display: block; font-style: italic; margin-top: 0.5rem">
@@ -427,7 +427,7 @@
 </span>
 
 <p>The ball machine on this site is a gamified version of my graph paper drawings as a kid. Each time you load a page, You&rsquo;ll see a little pneumatic delivery tube on the top right of the screen.</p>
-<p>When you spawn your first ball, you&rsquo;ll see a few things appear. First - you&rsquo;ll find a goal    <span
+<p>When you spawn your first ball, you&rsquo;ll see a few things appear. First - you&rsquo;ll find a goal     <span
   style="
     display: inline-block;
     width: 40px;
@@ -516,7 +516,7 @@
 
 
 
-<img  alt="auto clicker"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/goal.png"   style="height: auto; max-width: 40px; width: 100%"   >
+<img  alt="auto clicker"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/goal.png"   style="height: auto; max-width: 40px; width: 100%"   >
 
  
 </span>
@@ -615,7 +615,7 @@
 
 
 
-<img  alt="line toggle"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/line-mode.png"   style="height: auto; max-width: 200px; width: 100%"   >
+<img  alt="line toggle"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/line-mode.png"   style="height: auto; max-width: 200px; width: 100%"   >
 
  
 </span>
@@ -709,7 +709,7 @@
 
 
 
-<img  alt="curved line toggle"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/curve-mode.png"   style="height: auto; max-width: 200px; width: 100%"   >
+<img  alt="curved line toggle"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/curve-mode.png"   style="height: auto; max-width: 200px; width: 100%"   >
 
  
 </span>
@@ -803,7 +803,7 @@
 
 
 
-<img  alt="compactor toggle"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/compactor-mode.png"   style="height: auto; max-width: 200px; width: 100%"   >
+<img  alt="compactor toggle"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/compactor-mode.png"   style="height: auto; max-width: 200px; width: 100%"   >
 
  
 </span>
@@ -827,6 +827,108 @@
 <li>Some drawables have a second action, like curved lines, that is previewed and confirmed on the next touch-and-drag.</li>
 </ul>
 <p><strong>Delete Objects:</strong> <kbd>Tap and hold</kbd> an object to delete it, getting 50% of your money back. You will see it pulse before it deletes.</p>
+<p> </p>
+<h4 id="the-auto-clicker">The Auto-Clicker</h4>
+<span
+  style="
+    display: inline-block;
+    width: 100px;
+    margin: 0 1rem 0 0;
+    vertical-align: middle;
+    text-align: left;
+  "
+>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<img  alt="auto clicker"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/auto-clicker.png"   style="height: auto; max-width: 200px; width: 100%"   >
+
+ 
+</span>
+
+<p>This is the autoclicker button that lets you pay to auto-spawn balls.</p>
+<p><kbd>Left Click</kbd> or <kbd>Tap</kbd> to buy the first auto-clicker, or upgrade it.</p>
+<p><kbd>Right Click</kbd> on desktop or <kbd>Tap and hold</kbd> on mobile to refund and downgrade it to the previous click frequency.</p>
+<p> </p>
+<h3 id="money--other-hints">Money &amp; Other Hints</h3>
+<p>You&rsquo;ll quickly find ways to lengthen your Rube-Golberg Machines and build up value before you send balls into the goal. Your money is displayed on the coin counter next to the ball spawner.</p>
 <p> </p>
 <p><span
   style="
@@ -917,7 +1019,7 @@
 
 
 
-<img  alt="dotted line toggle"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/everything-has-a-price.png"   style="height: auto; max-width: 200px; width: 100%"   >
+<img  alt="dotted line toggle"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/everything-has-a-price.png"   style="height: auto; max-width: 200px; width: 100%"   >
 
  
 </span>
@@ -1012,15 +1114,23 @@
 
 
 
-<img  alt="dotted line toggle"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/dotted-line-mode.png"   style="height: auto; max-width: 200px; width: 100%"   >
+<img  alt="dotted line toggle"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/dotted-line-mode.png"   style="height: auto; max-width: 200px; width: 100%"   >
 
  
 </span>
-<strong>But you get what you pay for</strong></p>
+<strong>You get what you pay for&hellip;</strong></p>
 <p>If you every find yourself out of money, these dotted lines are free. They are not saved permanently like other lines and they go away after 50 balls hit them.</p>
 <p> </p>
-<h4 id="the-auto-clicker">The Auto-Clicker</h4>
-<span
+<p>❌ A couple of things to watch out for when building ball machines:</p>
+<ul>
+<li>Balls have to be moving at all times. If they sit still for too long, they are considered dead and will poof out of existence.</li>
+<li>This applies to balls hitting the goal, too. If your balls aren&rsquo;t moving much when they hit the target, they won&rsquo;t go in.
+So keep your balls moving!</li>
+</ul>
+<p>😵 If you have a good run going, but it descends into chaos, it can be hard to recover. That&rsquo;s what the <kbd>Erase Balls</kbd> button above the draw tools is for!</p>
+<p> </p>
+<p>Each post on this site will be a slightly different randomized game! Try making ball machines on multiple pages at once. Your work will be saved in realtime, and you can make money even on pages you&rsquo;re not currently playing on.</p>
+<p><span
   style="
     display: inline-block;
     width: 100px;
@@ -1109,25 +1219,13 @@
 
 
 
-<img  alt="auto clicker"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/auto-clicker.png"   style="height: auto; max-width: 200px; width: 100%"   >
+<img  alt="dotted line toggle"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/page-revenue.png"   style="height: auto; max-width: 200px; width: 100%"   >
 
  
 </span>
-
-<p>This is the autoclicker button that lets you pay to auto-spawn balls.</p>
-<p><kbd>Left Click</kbd> or <kbd>Tap</kbd> to buy the first auto-clicker, or upgrade it.</p>
-<p><kbd>Right Click</kbd> on desktop or <kbd>Tap and hold</kbd> on mobile to refund and downgrade it to the previous click frequency.</p>
-<p> </p>
-<h3 id="tips-on-making-money">Tips on Making Money</h3>
-<p>You&rsquo;ll quickly find ways to lengthen your Rube-Golberg Machines and build up value before you send balls into the goal. A couple of things to watch out for though:</p>
-<ul>
-<li>Balls have to be moving at all times. If they sit still for too long, they are considered dead and will poof out of existence.</li>
-<li>This applies to balls hitting the goal too. If your balls aren&rsquo;t moving much when they hit the target, they won&rsquo;t go in.
-So keep your balls moving!</li>
-</ul>
-<p>Each post on this site will be a slightly different randomized game! Try making ball machines on multiple pages at once. Your work will be saved in realtime, and you can make money even on pages you&rsquo;re not currently playing on. Try it!</p>
+ These counters display how much <strong>sustainable</strong> coin revenue/s you&rsquo;re making on this page, and how much other pages you&rsquo;re not currently working on are contributing. Any balls that are spawned automatically and continuously travel through your contraption to hit the goal will be averaged into the top amount. When you visit other pages, you will keep making this money - that&rsquo;s what the &ldquo;Other Pages&rdquo; revenue displays.</p>
 <p>Your progress is saved to your device because your contraptions will be highly dependent on the screen size the site renders to.</p>
-<p>The game works a bit differently on desktop and mobile, and the best experience is really on desktop - so try on a computer if you can!</p>
+<p>The game works a bit differently on desktop and mobile, and the best experience is really on desktop - so try on a computer if you can! If on mobile, flip to landscape.</p>
 <h3 id="resetting-the-game">Resetting the game</h3>
 <span
   style="
@@ -1145,10 +1243,10 @@ So keep your balls moving!</li>
 ]]></description>
                 
 
-                <guid isPermaLink="false">tag:localhost:1313,2025-03-01:/this-website/</guid>
+                <guid isPermaLink="false">tag:hockenworks.com,2025-03-01:/this-website/</guid>
 
                 
-                    <link>http://localhost:1313/this-website/</link>
+                    <link>https://hockenworks.com/this-website/</link>
                 
 
                 
@@ -1197,10 +1295,10 @@ So keep your balls moving!</li>
 <hr>]]></description>
                 
 
-                <guid isPermaLink="false">tag:localhost:1313,2025-02-13:/context-caddy/</guid>
+                <guid isPermaLink="false">tag:hockenworks.com,2025-02-13:/context-caddy/</guid>
 
                 
-                    <link>http://localhost:1313/context-caddy/</link>
+                    <link>https://hockenworks.com/context-caddy/</link>
                 
 
                 

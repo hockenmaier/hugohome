@@ -52,7 +52,7 @@
             
 
             
-                <link href="http://localhost:1313/tags/board-games/" rel="self" type="text/html"/>
+                <link href="https://hockenworks.com/tags/board-games/" rel="self" type="text/html"/>
             
         
             
@@ -60,7 +60,7 @@
             
 
             
-                <link href="http://localhost:1313/tags/board-games/rss.xml" rel="alternate" type="application/rss+xml"/>
+                <link href="https://hockenworks.com/tags/board-games/rss.xml" rel="alternate" type="application/rss+xml"/>
             
         
 
@@ -78,7 +78,7 @@
             <lastBuildDate>2025-01-01 00:00:00 +0000 UTC</lastBuildDate>
         
 
-        <link>http://localhost:1313/tags/board-games/</link>
+        <link>https://hockenworks.com/tags/board-games/</link>
 
         
 
@@ -124,10 +124,10 @@
 ]]></description>
                 
 
-                <guid isPermaLink="false">tag:localhost:1313,2025-01-01:/bloom-or-bust/</guid>
+                <guid isPermaLink="false">tag:hockenworks.com,2025-01-01:/bloom-or-bust/</guid>
 
                 
-                    <link>http://localhost:1313/bloom-or-bust/</link>
+                    <link>https://hockenworks.com/bloom-or-bust/</link>
                 
 
                 
@@ -238,10 +238,10 @@ Hickory dickory dock.</blockquote>
 </p>]]></description>
                 
 
-                <guid isPermaLink="false">tag:localhost:1313,2020-05-20:/test-embeds/</guid>
+                <guid isPermaLink="false">tag:hockenworks.com,2020-05-20:/test-embeds/</guid>
 
                 
-                    <link>http://localhost:1313/test-embeds/</link>
+                    <link>https://hockenworks.com/test-embeds/</link>
                 
 
                 
