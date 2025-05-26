@@ -1115,41 +1115,12 @@ table {
  <script>
 
 
-<div popover
-     id="rotate-popover"
-     style="
-       position:fixed;
-       top:50%;
-       left:50%;
-       transform:translate(-50%,-50%);
-       padding:0.75rem 1rem;
-       background:rgba(0,0,0,0.8);
-       color:#fff;
-       border-radius:0.5rem;
-       font-size:14px;
-       z-index:10001;
-     ">
-  For more fun rotate your phone and reload ↩️
-</div>
-
-<script>
-  window.addEventListener('DOMContentLoaded', () => {
-    if (window.innerWidth < window.innerHeight) {
-      const pop = document.getElementById('rotate-popover');
-      pop.showPopover?.();
-    }
-  });
-</script>
 
 
-/* Auto-clicker upgrade & refund logic
-   – shows cost after game loads
-   – click  = buy / speed-up
-   – right-click (desktop) or long-press (mobile) = sell one level for ½ price
-   – hover / hold shows a static semi-transparent “+ N coins” preview.
-*/
+
+
 (function () {
-  /* ---------------- helpers ---------------- */
+   
   function updateAutoClickerCostDisplay () {
     if (!App.simulationLoaded) return;
 
@@ -1185,25 +1156,25 @@ table {
   }
   App.updateAutoClickerCostDisplay = updateAutoClickerCostDisplay;
 
-  /* ---------- refund preview helpers ---------- */
+   
   function refundValue () {
-    /*  not purchased   → no refund   */
+     
     if (!App.config.autoClicker) return 0;
 
     const lvl = App.config.maxUnlockedSpeedLevel;
 
-    /* purchased but still at level-0 (only the initial unlock) */
+     
     if (lvl === 0) {
       return Math.ceil(App.config.autoClickerCost * App.config.refundRate);
     }
 
-    /* regular speed-level refund */
+     
     const cost = App.config.speedUpgradeCosts[lvl];
     return Math.ceil(cost * App.config.refundRate);
   }
 
 
-  /* ---------- preview bubble (does NOT block clicks) ---------- */
+   
   let acPreview = null;
   function showACPreview (x, y) {
     const amt = refundValue();
@@ -1234,16 +1205,16 @@ table {
     }
   }
 
-  /* ---------- main button handlers ---------- */
+   
   const btn = document.getElementById("autoClicker");
   if (!btn) return;
 
-  /* buy / speed-up */
+   
   btn.addEventListener("click", () => {
     hideACPreview(); 
     if (!App.config.autoClicker) {
       const c = App.config.autoClickerCost;
-      if (App.config.coins &lt; c) return window.notifyUnaffordable(100,12);
+      if (App.config.coins < c) return window.notifyUnaffordable(100,12);
       App.config.coins -= c;
       App.config.autoClicker = true;
       App.Persistence.saveAutoClicker({ purchased:true, maxSpeedLevel:0 });
@@ -1251,7 +1222,7 @@ table {
     } else {
       const next = App.config.maxUnlockedSpeedLevel + 1;
       const c = App.config.speedUpgradeCosts[next];
-      if (c === undefined || App.config.coins &lt; c)
+      if (c === undefined || App.config.coins < c)
         return window.notifyUnaffordable(100,12);
       App.config.coins -= c;
       App.config.maxUnlockedSpeedLevel = next;
@@ -1264,18 +1235,18 @@ table {
     updateAutoClickerCostDisplay();
   });
 
-  /* sell (desktop) */
+   
   btn.addEventListener("contextmenu", e => {
     e.preventDefault();
     doRefund(e.pageX, e.pageY);
   });
 
-  /* hover preview */
+   
   ["mouseenter","mousemove"].forEach(ev =>
     btn.addEventListener(ev, e => showACPreview(e.pageX, e.pageY)));
   btn.addEventListener("mouseleave", hideACPreview);
 
-  /* sell (mobile long-press) */
+   
   (function () {
     const HOLD = App.config.lineDeleteMobileHold;
     let tId = null;
@@ -1297,22 +1268,22 @@ table {
 
   })();
 
-  /* ---------------- refund core ---------------- */
+   
   function doRefund (x, y) {
-    if (!App.config.autoClicker) return;   // nothing bought yet
+    if (!App.config.autoClicker) return;   
 
     let refund;
 
-    /* --- sell the *initial* auto-clicker unlock --- */
+     
     if (App.config.maxUnlockedSpeedLevel === 0) {
       refund = Math.ceil(App.config.autoClickerCost * App.config.refundRate);
 
-      App.config.autoClicker = false;                      // disable
-      window.BallFall.stopAutoSpawner();                        // stop the timer
+      App.config.autoClicker = false;                      
+      window.BallFall.stopAutoSpawner();                        
       App.config.spawnInterval = App.config.originalSpawnInterval;
       App.Persistence.saveAutoClicker({ purchased:false, maxSpeedLevel:0 });
     }
-    /* --- sell a normal speed level (>0) ------------- */
+     
     else {
       const lvl   = App.config.maxUnlockedSpeedLevel;
       const cost  = App.config.speedUpgradeCosts[lvl];
@@ -1321,11 +1292,11 @@ table {
       App.config.maxUnlockedSpeedLevel = lvl - 1;
       const newInt = App.config.originalSpawnInterval / Math.pow(2, lvl - 1);
       App.config.spawnInterval = newInt;
-      window.BallFall.updateSpawnInterval(newInt);              // keep timer running at new speed
+      window.BallFall.updateSpawnInterval(newInt);              
       App.Persistence.saveAutoClicker({ purchased:true, maxSpeedLevel:lvl-1 });
     }
 
-    /* apply refund & notify */
+     
     App.config.coins += refund;
     App.updateCoinsDisplay();
     App.updateAutoClickerCostDisplay();
@@ -1334,17 +1305,63 @@ table {
   }
 
 
-  /* show initial cost when physics ready */
+   
   document.addEventListener("BallFallBaseReady", updateAutoClickerCostDisplay);
 })();
 </script>
-
-
 
   
 
 </div>
 
+</div>  
+
+
+<div id="rotate-popover"
+     style="display:none;
+            position:fixed;
+            top:50%;
+            left:50%;
+            transform:translate(-50%,-50%);
+            padding:0.75rem 1rem;
+            background:rgba(0,0,0,0.8);
+            color:#fff;
+            border-radius:0.5rem;
+            font-size:14px;
+            z-index:10001;">
+  For more fun, rotate your phone to landscape and then reload ↩️
+</div>
+<script>
+(function(){
+  const pop     = document.getElementById('rotate-popover');
+  const toggles = document.querySelectorAll('.line-toggle');
+
+  function hideHint(){
+    pop.style.display = 'none';
+    document.removeEventListener('click', hideHint);
+    toggles.forEach(btn => btn.removeEventListener('click', hideHint));
+  }
+
+  function showHint(){
+    if (window.innerWidth < window.innerHeight) {
+      pop.style.display = 'block';
+      document.addEventListener('click', hideHint, { once: true });
+      toggles.forEach(btn => btn.addEventListener('click', hideHint, { once: true }));
+    }
+  }
+
+  if (window.App?.simulationLoaded) {
+    showHint();
+  } else {
+    const iv = setInterval(()=>{
+      if (window.App?.simulationLoaded) {
+        clearInterval(iv);
+        showHint();
+      }
+    }, 100);
+  }
+})();
+</script>
         
     </body>
 </html>

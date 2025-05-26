@@ -168,7 +168,13 @@ App.modules.text = (function () {
         },
         true
       );
-      if (body) body.elRef = letterEl;
+      if (body) {
+        body.elRef = letterEl;
+        // mark header text colliders for low-bounce
+        if (letterEl.closest("h1, h2, h3, h4, h5, h6")) {
+          body.isHeader = true;
+        }
+      }
       return body;
     }
 

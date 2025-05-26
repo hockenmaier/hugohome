@@ -467,18 +467,18 @@ App.modules.base = (function () {
     /* ---- Set custom surface restitution - this is needed because lines are isStatic true ---- */
     function patchRestitution(event) {
       event.pairs.forEach((pair) => {
-        const { bodyA: a, bodyB: b } = pair;
-        let other;
-
-        if (a.label === "BallFallBall") {
-          other = b;
-        } else if (b.label === "BallFallBall") {
-          other = a;
+        let other = null;
+        if (pair.bodyA.label === "BallFallBall") {
+          other = pair.bodyB;
+        } else if (pair.bodyB.label === "BallFallBall") {
+          other = pair.bodyA;
         } else {
           return;
         }
 
-        pair.restitution = other.label === "CurvedLine" ? 0.35 : 0.95;
+        // curved lines or header text bodies -> low bounce
+        pair.restitution =
+          other.label === "CurvedLine" || other.isHeader ? 0.35 : 0.95;
       });
     }
 

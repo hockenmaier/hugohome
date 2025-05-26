@@ -17,3 +17,20 @@ Always keep things as abstracted as possible. Do not rewrite blocks of code that
 It is always ok to create entirely new files for new functionality.
 
 This change may SEEM simple, but there is a lot of nested complexity to this project, and you need to consider all modifications and edge cases you can. So that I can understand your changes, always explain what you're doing and briefly why at the start of your final response. When rewriting a file or function, KEEP any descriptive comments that are currently there such as in app.js annotating what each variable does. I can’t keep and will reject changes if they don’t maintain existing comments. Here are most of the relevant files and where they are in the file tree:
+
+When making new Drawables, you must account for all changes around the codebase.
+
+The types of things that you should look for and make sure to change, are:
+-UI elements
+-UI interactions with other elements
+-How to Draw the thing
+-How to do second-actions like the curve line bezier
+-How to delete
+-How hover, hold, and pulse works
+-What is in the preview vs the finished drawn item
+-Where cost and icons go
+-Any new variables in App config
+-How data is persisted and deleted from persistence, including any new types to encode somewhere
+-All interactions with other files, and make sure to call out that shared files like line-interaction and notifications and powerup-progression
+-All desktop AND mobile controls for all actions
+-Any new files needed, and their inclusion in baseof.html
