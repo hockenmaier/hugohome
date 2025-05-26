@@ -125,7 +125,7 @@
 // --- Begin Modified Moving Average Revenue Calculation ---
 (function () {
   const history = [];
-  const maxHistory = 25;
+  const maxHistory = 60;
   let currentPageRate = 0; // This page’s moving average
   // Accumulates this second's auto-clicker income
   App.autoIncomeThisSecond = 0;
