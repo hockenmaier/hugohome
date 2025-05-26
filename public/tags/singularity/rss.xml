@@ -38,12 +38,6 @@
         
     
 
-    
-
-    
-        
-    
-
 
 
 
@@ -566,7 +560,7 @@
 <p>I ended up making my own tool called <a href="/context-caddy">Context Caddy</a> to help me with it. Part of the reason I leaned so hard into this is because I&rsquo;m always trying to push the limits of current AI, and I hadn&rsquo;t built a game since the GPT-4 days. The new thinking models are truly a setup above GPT-4 (this was mostly done with o3 and its minis) but they&rsquo;re still way to eager to write duplicate code, and they still don&rsquo;t &ldquo;get&rdquo; the structure of your project a lot of the time, especially with visual and physcial things like this. Still, they were a great help here.</p>
 <h2 id="how-to-play">How to Play</h2>
 <blockquote>
-<p>Quick Disclaimer: The best experience is on desktop or tablet - something with more screen real-estate than a phone.</p>
+<p>Quick Disclaimer: The best experience is on desktop or tablet - something with more screen real-estate than a phone. If playing on phone, try landscape mode!</p>
 </blockquote>
 <span
   style="
@@ -666,7 +660,7 @@
 </span>
 
 <p>The ball machine on this site is a gamified version of my graph paper drawings as a kid. Each time you load a page, You&rsquo;ll see a little pneumatic delivery tube on the top right of the screen.</p>
-<p>When you spawn your first ball, you&rsquo;ll see a few things appear. First - you&rsquo;ll find a goal    <span
+<p>When you spawn your first ball, you&rsquo;ll see a few things appear. First - you&rsquo;ll find a goal     <span
   style="
     display: inline-block;
     width: 40px;
@@ -1067,6 +1061,108 @@
 </ul>
 <p><strong>Delete Objects:</strong> <kbd>Tap and hold</kbd> an object to delete it, getting 50% of your money back. You will see it pulse before it deletes.</p>
 <p> </p>
+<h4 id="the-auto-clicker">The Auto-Clicker</h4>
+<span
+  style="
+    display: inline-block;
+    width: 100px;
+    margin: 0 1rem 0 0;
+    vertical-align: middle;
+    text-align: left;
+  "
+>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<img  alt="auto clicker"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/auto-clicker.png"   style="height: auto; max-width: 200px; width: 100%"   >
+
+ 
+</span>
+
+<p>This is the autoclicker button that lets you pay to auto-spawn balls.</p>
+<p><kbd>Left Click</kbd> or <kbd>Tap</kbd> to buy the first auto-clicker, or upgrade it.</p>
+<p><kbd>Right Click</kbd> on desktop or <kbd>Tap and hold</kbd> on mobile to refund and downgrade it to the previous click frequency.</p>
+<p> </p>
+<h3 id="money--other-hints">Money &amp; Other Hints</h3>
+<p>You&rsquo;ll quickly find ways to lengthen your Rube-Golberg Machines and build up value before you send balls into the goal. Your money is displayed on the coin counter next to the ball spawner.</p>
+<p> </p>
 <p><span
   style="
     display: inline-block;
@@ -1255,11 +1351,19 @@
 
  
 </span>
-<strong>But you get what you pay for</strong></p>
+<strong>You get what you pay for&hellip;</strong></p>
 <p>If you every find yourself out of money, these dotted lines are free. They are not saved permanently like other lines and they go away after 50 balls hit them.</p>
 <p> </p>
-<h4 id="the-auto-clicker">The Auto-Clicker</h4>
-<span
+<p>❌ A couple of things to watch out for when building ball machines:</p>
+<ul>
+<li>Balls have to be moving at all times. If they sit still for too long, they are considered dead and will poof out of existence.</li>
+<li>This applies to balls hitting the goal, too. If your balls aren&rsquo;t moving much when they hit the target, they won&rsquo;t go in.
+So keep your balls moving!</li>
+</ul>
+<p>😵 If you have a good run going, but it descends into chaos, it can be hard to recover. That&rsquo;s what the <kbd>Erase Balls</kbd> button above the draw tools is for!</p>
+<p> </p>
+<p>Each post on this site will be a slightly different randomized game! Try making ball machines on multiple pages at once. Your work will be saved in realtime, and you can make money even on pages you&rsquo;re not currently playing on.</p>
+<p><span
   style="
     display: inline-block;
     width: 100px;
@@ -1348,25 +1452,13 @@
 
 
 
-<img  alt="auto clicker"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/auto-clicker.png"   style="height: auto; max-width: 200px; width: 100%"   >
+<img  alt="dotted line toggle"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/page-revenue.png"   style="height: auto; max-width: 200px; width: 100%"   >
 
  
 </span>
-
-<p>This is the autoclicker button that lets you pay to auto-spawn balls.</p>
-<p><kbd>Left Click</kbd> or <kbd>Tap</kbd> to buy the first auto-clicker, or upgrade it.</p>
-<p><kbd>Right Click</kbd> on desktop or <kbd>Tap and hold</kbd> on mobile to refund and downgrade it to the previous click frequency.</p>
-<p> </p>
-<h3 id="tips-on-making-money">Tips on Making Money</h3>
-<p>You&rsquo;ll quickly find ways to lengthen your Rube-Golberg Machines and build up value before you send balls into the goal. A couple of things to watch out for though:</p>
-<ul>
-<li>Balls have to be moving at all times. If they sit still for too long, they are considered dead and will poof out of existence.</li>
-<li>This applies to balls hitting the goal too. If your balls aren&rsquo;t moving much when they hit the target, they won&rsquo;t go in.
-So keep your balls moving!</li>
-</ul>
-<p>Each post on this site will be a slightly different randomized game! Try making ball machines on multiple pages at once. Your work will be saved in realtime, and you can make money even on pages you&rsquo;re not currently playing on. Try it!</p>
+ These counters display how much <strong>sustainable</strong> coin revenue/s you&rsquo;re making on this page, and how much other pages you&rsquo;re not currently working on are contributing. Any balls that are spawned automatically and continuously travel through your contraption to hit the goal will be averaged into the top amount. When you visit other pages, you will keep making this money - that&rsquo;s what the &ldquo;Other Pages&rdquo; revenue displays.</p>
 <p>Your progress is saved to your device because your contraptions will be highly dependent on the screen size the site renders to.</p>
-<p>The game works a bit differently on desktop and mobile, and the best experience is really on desktop - so try on a computer if you can!</p>
+<p>The game works a bit differently on desktop and mobile, and the best experience is really on desktop - so try on a computer if you can! If on mobile, flip to landscape.</p>
 <h3 id="resetting-the-game">Resetting the game</h3>
 <span
   style="
@@ -1396,170 +1488,6 @@ So keep your balls moving!</li>
 
                 
                     <title>This Website</title>
-                
-            </item>
-        
-            <item>
-                
-                
-                
-                
-                
-                
-                
-
-                
-
-                
-
-                
-
-                
-
-                
-                
-
-                
-
-                
-
-                
-                    <description><![CDATA[<p>I have long been of the mind LLMs and their evolutions are truly thinking, and that they are on their way to solving all of the intellectual tasks that humans can solve today. It is just too uncanny that the technology that seems to have made the final jump to actually thinking, after a long string of attempts and architectures, is a type of neural net. It would be much easier to argue away transformer models as non-thinking stochastic parrots if we had happened to have had success with any other architecture than the one that was designed to mimic our own brains and the neurons firing off to one another within them. It&rsquo;s just too weird. They are shaped like us, they sound like us in a lot of ways, and it&rsquo;s obvious they are thinking something like us too.</p>
-<h2 id="the-limitations">The Limitations</h2>
-<p>That&rsquo;s not to say they are AGI in the modern definition. They can&rsquo;t do every task humans can do intellectually (IE without a body, which I will get to) for several reasons:</p>
-<ol>
-<li>
-<p>Looping reasoning.
-This was a huge problem for early transformers that had to output in one shot, and the examples were obvious. This one has been essentially solved via thinking models like o1. That was a huge unlock and a huge bone for things like programming where there is lots of nested recursion of logic that has to occur to get a reasonable answer.</p>
-</li>
-<li>
-<p>Memory and context.
-Context windows get larger all the time but this one still is not solved. Just adding a bunch of tokens into a context window doesn&rsquo;t get you much when 2 million token models lose coherence after about the first 40,000 - which they do, and which every programmer working with anything but a tiny codebase intuitively understands. But this one too will largely be solved soon, if not through architectures that actually update their weights, it&rsquo;ll be solved through nuanced memory systems that people are actively developing on top of thinking models.</p>
-</li>
-<li>
-<p><strong>Vision</strong></p>
-</li>
-</ol>
-<p>And this one might sound funny to someone that is paying attention to AI in particular, because GPT-4 with vision launched something like 2 years ago now. And it has been impressive for a long time, able to do things like identify what objects are in an image, where an image is from, even things that payments can&rsquo;t do glancing at an image.</p>
-<p>But the vision itself is not “good” vision. It cannot really pick out small important details, and it still behaves in many ways like vision recognition models have for years now. Now that we have a model that has both thinking and image input and editing at every step, the 03 and 04 mini series just released, we can really start to see the limitations in vision. Let me take you through 2 examples that represent the 2 types of failure modes that result from these not having true image understanding, yet.</p>
-<p>Each release from the major providers steadily knocks away my intelligence tests, which I admit are mostly programming oriented, but the ones that they can never really dent are the spatial reasoning ones where a model really has to think about images in its head or have to use an image provided for detailed work.</p>
-<h3 id="simple-3d-modeling">Simple 3D Modeling</h3>
-<p>Every major model release, <a href="/3d-modeling-with-ai">I test what models can do with OpenSCAD</a>. I won’t get technical about it here, but OpenSCAD is a CAD program (Computer Aided Design - think 3D modeling for engineers, not the artistic kind) that is defined entirely through a programming language vs the typical mousestrokes and key presses that software like Solidworks or AutoCAD depend on.</p>
-<p>This makes OpenSCAD the perfect test platform for a model that inputs and output text primarily. I can describe a 3D model I want, and the model can output text that renders into a 3D model.</p>
-<p>But for as amazing as LLMs are at scripting in normal programming languages, they have never been good at OpenScad (link to GPT4 chair article)</p>
-<p>Here is O3’s attempt to make a</p>
-<h3 id="map-reading">Map Reading</h3>
-<p>I recently gave this question to the latest thinking image model, &lsquo;03: &ldquo;Here&rsquo;s an image from Google maps of the block I live on between the avenues of Burbank, hazeltine, Oxnard, and Van nuys. What is the longest continuous loop I can walk within the neighborhood without crossing my path or touching one of the avenues? This square is 1/2 mi on each side&rdquo;</p>
-<div style="text-align: center; margin-bottom: 1rem;">
-    
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    
-
-
-
-    
-
-
-
-    
-
-
-
-
-
-    
-
-
-
-    
-
-
-
-
-
-    
-
-
-
-    
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<img  alt="the uploaded map"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/o3-struggle-map.png"   style="height: auto; max-width: 400px; width: 100%"   >
-
-
-    
-        <span style="display: block; font-style: italic; margin-top: 0.5rem;">The image uploaded with this query</span>
-    
-</div>
-
-<p>O3 thinks for 4 minutes about this question, zooming in to various parts of the map countless times to form the route. And then it fails on the first step, suggesting starting at tiara and stansbury, which do not intersect on the map. Any person looking at this image could tell that is true in just a few seconds.</p>
-<p>What I think is going on in these examples is that we have a limitation in training data (duh) but it isn&rsquo;t because there aren&rsquo;t a lot of images and videos on the internet, it&rsquo;s because there is so much more information in the average image then there is in the average chunk of text, and a lot more of that information is irrelevant to any given question.</p>
-<p>When I say that we have a limitation on training data, I&rsquo;m not in the typical camp of &ldquo;well, then transformer neural nets are obviously stupid because I was able to understand this thing without training on terabytes of data from the internet&rdquo;. This is always been a bad take because the average human trains on petabytes, not terabytes of data, and that data is streamed into their brains mostly in the form of images. I am also not in the camp of thinking that this means that the data &ldquo;just doesn&rsquo;t exist&rdquo; to get these models to AGI in this dimension. It&rsquo;s so clearly does exist, and it exists so abundantly that a unique mage stream can be sent to each of the billions of human brains, and they all learn the same principles that let them immediately identify the mistake that the cutting edge thinking vision model made after 4 minutes of rigor.</p>
-<p>The data exists, and we never actually had a data problem in AI. We have an instruction problem. That doesn&rsquo;t mean model architecture or data massaging really, it means that we need to plug our models into the real world where all the data streams exist. I&rsquo;m guessing that this comes in the form of robots with cameras on them, the first of which is happening on mass via Tesla full self-driving, and I&rsquo;m sure those vision neural nets are quite insane compared to what we see in the consumer transform r models, but the real leap probably comes when we get to humanoids walking around collecting and learning from vision data everyday.</p>
-<p>The Robots</p>
-<p>If you’ve ever tried to get concrete actions to take based on a vision-transformer’s outputs, you will know it’s hard.</p>
-]]></description>
-                
-
-                <guid isPermaLink="false">tag:localhost:1313,2025-02-01:/vision-is-the-last-hurdle-before-agi/</guid>
-
-                
-                    <link>http://localhost:1313/vision-is-the-last-hurdle-before-agi/</link>
-                
-
-                
-                    <pubDate>Sat, 01 Feb 2025 00:00:00 UTC</pubDate>
-                
-
-                
-                    <title>Vision is the last hurdle before AGI</title>
                 
             </item>
         

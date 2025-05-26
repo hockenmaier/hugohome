@@ -68,9 +68,14 @@
             <a class="nav-link {{ if hasPrefix $pagepath $tagsPath }}active fw-bold text-body-emphasis{{ end }}" href="{{ $tagsPath | relURL }}">tags</a>
           </li>
 
+          {{ $aboutPath := "/this-website/" }}
+          <li class="nav-item">
+            <a class="nav-link {{ if hasPrefix $pagepath $aboutPath }}active fw-bold text-body-emphasis{{ end }}" href="{{ $aboutPath | relURL }}">this site</a>
+          </li>
+
           {{ $aboutPath := "/about-me/" }}
           <li class="nav-item">
-            <a class="nav-link {{ if hasPrefix $pagepath $aboutPath }}active fw-bold text-body-emphasis{{ end }}" href="{{ $aboutPath | relURL }}">about / top posts</a>
+            <a class="nav-link {{ if hasPrefix $pagepath $aboutPath }}active fw-bold text-body-emphasis{{ end }}" href="{{ $aboutPath | relURL }}">about me / top posts</a>
           </li>
           
         </ul>

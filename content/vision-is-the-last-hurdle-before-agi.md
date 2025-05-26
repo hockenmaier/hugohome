@@ -1,6 +1,6 @@
 ---
 title: "Vision is the last hurdle before AGI"
-date: 2025-02-01
+date: 2025-06-09
 categories: ["writing"]
 tags: ["singularity", "AI", "Invention", "predictions", "3D Modeling"]
 ---
@@ -73,7 +73,7 @@ I recently gave this question to the latest thinking image model, o3: "Here's an
 
 O3 thinks for 4 minutes about this question, zooming in to various parts of the map countless times to form the route. And then it fails on the first step, suggesting starting at Tiara and Stansbury, which do not intersect on the map. Any person looking at this image could tell that is true in just a few seconds.
 
-This is what I mean when I say these things have bad vision - and this is the best model from the lab I think has the best vision. Vision is not about being able to identify millions of different objects, ImageNet-style. It's about seeing the detail and paying attention to the right thing. Here in this map, that means looking roughly at the lines representing Stansbury and Tiara, looking at where they would intersect, and seeing they do not.
+This is what I mean when I say these things have bad vision - and this is the best model from the lab I think has the best vision. Vision is not about being able to identify millions of different objects, [ImageNet-style](https://www.image-net.org/). It's about seeing the detail and paying attention to the right thing. Here in this map, that means looking roughly at the lines representing Stansbury and Tiara, looking at where they would intersect, and seeing they do not.
 
 &nbsp;
 

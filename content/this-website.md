@@ -94,13 +94,13 @@ I ended up making my own tool called [Context Caddy](/context-caddy) to help me 
 
 ## How to Play
 
-> Quick Disclaimer: The best experience is on desktop or tablet - something with more screen real-estate than a phone.
+> Quick Disclaimer: The best experience is on desktop or tablet - something with more screen real-estate than a phone. If playing on phone, try landscape mode!
 
 {{< image-left-teeny src="images/ball-chute-hatch-1.png" alt="ball chute" caption="This tube creates balls when you click on it" >}}
 
 The ball machine on this site is a gamified version of my graph paper drawings as a kid. Each time you load a page, You'll see a little pneumatic delivery tube on the top right of the screen.
 
-When you spawn your first ball, you'll see a few things appear. First - you'll find a goal&nbsp;&nbsp; &nbsp;{{< image-inline-itsy src="images/goal.png" alt="auto clicker" caption="" >}} somewhere randomly on the page. Find a way to get the balls you spawn into that goal. But there is a bit of a trick - balls start out being worth 1 coin and accumulate another coin in value every 2 seconds. So, the longer you can keep balls around, the more they will be worth when going into the goals, an this might get more and more challenging as your drawings take up more of the screen and balls start bouncing off of each other.
+When you spawn your first ball, you'll see a few things appear. First - you'll find a goal&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{< image-inline-itsy src="images/goal.png" alt="auto clicker" caption="" >}} somewhere randomly on the page. Find a way to get the balls you spawn into that goal. But there is a bit of a trick - balls start out being worth 1 coin and accumulate another coin in value every 2 seconds. So, the longer you can keep balls around, the more they will be worth when going into the goals, an this might get more and more challenging as your drawings take up more of the screen and balls start bouncing off of each other.
 
 **Keep Clicking!**
 
@@ -148,16 +148,6 @@ Every drawable item (lines, launchers, and more) uses the following mechanics:
 
 &nbsp;
 
-{{< image-left-teenyweeny src="images/everything-has-a-price.png" alt="dotted line toggle" caption="" >}}**Everything has a price!**
-
-If you can't draw an item, you probably can't afford it. You'll see your coin counter flash red in the UI when this happens.
-
-{{< image-left-teenyweeny src="images/dotted-line-mode.png" alt="dotted line toggle" caption="" >}}**But you get what you pay for**
-
-If you every find yourself out of money, these dotted lines are free. They are not saved permanently like other lines and they go away after 50 balls hit them.
-
-&nbsp;
-
 #### The Auto-Clicker
 
 {{< image-left-teenyweeny src="images/auto-clicker.png" alt="auto clicker" caption="" >}}
@@ -170,19 +160,39 @@ This is the autoclicker button that lets you pay to auto-spawn balls.
 
 &nbsp;
 
-### Tips on Making Money
+### Money & Other Hints
 
-You'll quickly find ways to lengthen your Rube-Golberg Machines and build up value before you send balls into the goal. A couple of things to watch out for though:
+You'll quickly find ways to lengthen your Rube-Golberg Machines and build up value before you send balls into the goal. Your money is displayed on the coin counter next to the ball spawner.
+
+&nbsp;
+
+{{< image-left-teenyweeny src="images/everything-has-a-price.png" alt="dotted line toggle" caption="" >}}**Everything has a price!**
+
+If you can't draw an item, you probably can't afford it. You'll see your coin counter flash red in the UI when this happens.
+
+{{< image-left-teenyweeny src="images/dotted-line-mode.png" alt="dotted line toggle" caption="" >}}**You get what you pay for...**
+
+If you every find yourself out of money, these dotted lines are free. They are not saved permanently like other lines and they go away after 50 balls hit them.
+
+&nbsp;
+
+❌ A couple of things to watch out for when building ball machines:
 
 - Balls have to be moving at all times. If they sit still for too long, they are considered dead and will poof out of existence.
-- This applies to balls hitting the goal too. If your balls aren't moving much when they hit the target, they won't go in.
+- This applies to balls hitting the goal, too. If your balls aren't moving much when they hit the target, they won't go in.
   So keep your balls moving!
 
-Each post on this site will be a slightly different randomized game! Try making ball machines on multiple pages at once. Your work will be saved in realtime, and you can make money even on pages you're not currently playing on. Try it!
+😵 If you have a good run going, but it descends into chaos, it can be hard to recover. That's what the <kbd>Erase Balls</kbd> button above the draw tools is for!
+
+&nbsp;
+
+Each post on this site will be a slightly different randomized game! Try making ball machines on multiple pages at once. Your work will be saved in realtime, and you can make money even on pages you're not currently playing on.
+
+{{< image-left-teenyweeny src="images/page-revenue.png" alt="dotted line toggle" caption="" >}} These counters display how much **sustainable** coin revenue/s you're making on this page, and how much other pages you're not currently working on are contributing. Any balls that are spawned automatically and continuously travel through your contraption to hit the goal will be averaged into the top amount. When you visit other pages, you will keep making this money - that's what the "Other Pages" revenue displays.
 
 Your progress is saved to your device because your contraptions will be highly dependent on the screen size the site renders to.
 
-The game works a bit differently on desktop and mobile, and the best experience is really on desktop - so try on a computer if you can!
+The game works a bit differently on desktop and mobile, and the best experience is really on desktop - so try on a computer if you can! If on mobile, flip to landscape.
 
 ### Resetting the game
 

@@ -45,7 +45,6 @@ article.paige-latest-item a:hover:not(.nav-link),
 @media (max-width: 620px) {
   /* prevent pills from wrapping and allow horizontal scroll */
   #paige-menu .nav {
-    flex-wrap: nowrap !important;
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
   }
