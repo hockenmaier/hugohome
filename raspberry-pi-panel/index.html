@@ -26,7 +26,7 @@
 
 
 
-    <meta content="3D Modeling, 3D Printing, builds, CSS, DIY, Experimental, Hardware, Home Automation, HTML, Raspberry Pi, software, System Design" name="keywords">
+    <meta content="3D Modeling, 3D Printing, builds, CSS, DIY, Electronics, Experimental, Hardware, Home Automation, HTML, Raspberry Pi, software, System Design" name="keywords">
 
 
 <meta content="#0d1213" name="msapplication-TileColor">
@@ -543,7 +543,7 @@ table {
                 <div id="paige-metadata">
                     
                         <p class=" paige-row-narrow  text-center  text-secondary " id="paige-keywords">
-                            <a class="link-secondary paige-keyword paige-keyword-tag" href="https://hockenworks.com/tags/3d-modeling/">3D Modeling</a> · <a class="link-secondary paige-keyword paige-keyword-tag" href="https://hockenworks.com/tags/3d-printing/">3D Printing</a> · <a class="link-secondary paige-keyword paige-keyword-category" href="https://hockenworks.com/categories/builds/">Builds</a> · <a class="link-secondary paige-keyword paige-keyword-tag" href="https://hockenworks.com/tags/css/">CSS</a> · <a class="link-secondary paige-keyword paige-keyword-tag" href="https://hockenworks.com/tags/diy/">DIY</a> · <a class="link-secondary paige-keyword paige-keyword-tag" href="https://hockenworks.com/tags/experimental/">Experimental</a> · <a class="link-secondary paige-keyword paige-keyword-tag" href="https://hockenworks.com/tags/hardware/">Hardware</a> · <a class="link-secondary paige-keyword paige-keyword-tag" href="https://hockenworks.com/tags/home-automation/">Home Automation</a> · <a class="link-secondary paige-keyword paige-keyword-tag" href="https://hockenworks.com/tags/html/">HTML</a> · <a class="link-secondary paige-keyword paige-keyword-tag" href="https://hockenworks.com/tags/raspberry-pi/">Raspberry Pi</a> · <a class="link-secondary paige-keyword paige-keyword-tag" href="https://hockenworks.com/tags/software/">Software</a> · <a class="link-secondary paige-keyword paige-keyword-tag" href="https://hockenworks.com/tags/system-design/">System Design</a>
+                            <a class="link-secondary paige-keyword paige-keyword-tag" href="https://hockenworks.com/tags/3d-modeling/">3D Modeling</a> · <a class="link-secondary paige-keyword paige-keyword-tag" href="https://hockenworks.com/tags/3d-printing/">3D Printing</a> · <a class="link-secondary paige-keyword paige-keyword-category" href="https://hockenworks.com/categories/builds/">Builds</a> · <a class="link-secondary paige-keyword paige-keyword-tag" href="https://hockenworks.com/tags/css/">CSS</a> · <a class="link-secondary paige-keyword paige-keyword-tag" href="https://hockenworks.com/tags/diy/">DIY</a> · <a class="link-secondary paige-keyword paige-keyword-tag" href="https://hockenworks.com/tags/electronics/">Electronics</a> · <a class="link-secondary paige-keyword paige-keyword-tag" href="https://hockenworks.com/tags/experimental/">Experimental</a> · <a class="link-secondary paige-keyword paige-keyword-tag" href="https://hockenworks.com/tags/hardware/">Hardware</a> · <a class="link-secondary paige-keyword paige-keyword-tag" href="https://hockenworks.com/tags/home-automation/">Home Automation</a> · <a class="link-secondary paige-keyword paige-keyword-tag" href="https://hockenworks.com/tags/html/">HTML</a> · <a class="link-secondary paige-keyword paige-keyword-tag" href="https://hockenworks.com/tags/raspberry-pi/">Raspberry Pi</a> · <a class="link-secondary paige-keyword paige-keyword-tag" href="https://hockenworks.com/tags/software/">Software</a> · <a class="link-secondary paige-keyword paige-keyword-tag" href="https://hockenworks.com/tags/system-design/">System Design</a>
                         </p>
                     
 
@@ -591,12 +591,66 @@ table {
 <p>I created this panel display in 2026 to control much of the home automation I used in my Studio City apartment. Mainly a hardware project, I designed and 3D-printed a case and frame for the touchscreen and raspberry pi microcomputer in order to mount them to the wall. The software running the control panel is SaaS, but I did write a custom html wrapper to control the orientation and settings of the site, which is available on the github linked above.</p>
 <p>Update in 2025: This panel is still my main view into my home automation in my new house in Sherman Oaks, almost 10 years in with no modification!</p>
 <p>Here&rsquo;s a video to see the panel in action:</p>
-<h2 id="hahahugoshortcode20s0hbhb">
+<h2 id="hahahugoshortcode24s0hbhb">
     <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
       <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/iFGmm-ijJvE?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"></iframe>
     </div>
 </h2>
 <p>Feel free to explore the linked repositories for schematics and source code.</p>
+<h2 id="instructions">Instructions<a aria-label="Link to this section" class="paige-header-link" href="https://hockenworks.com/raspberry-pi-panel/#instructions"></a></h2>
+<p>If you want to make this, all you need to do is set up a raspberry pi, download chromium (or your preferred web browser), and navigate to your action tiles panel.</p>
+<p>If you want to mount the screen vertically like mine, then I have made an easier solution than going through the trouble of actually rotating the raspberry&rsquo;s display and touch device. Just use the html below and edit it to use your own panel&rsquo;s URL in the &ldquo;iframe&rdquo; element instead of mine. This will launch the panel rotated in your browser.</p>
+<pre tabindex="0"><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;Rotated Raspberry Panel&lt;/title&gt;
+	&lt;style type=&#34;text/css&#34;&gt;
+		body {
+		   -webkit-transform: rotate(90deg);
+		   -webkit-transform-origin: bottom left;
+		   position: absolute;
+		   top: -100vw;
+		   height: 100vw;
+		   width: 100vh;
+		   background-color: #000;
+		   color: #fff;
+		   overflow: hidden;&#34;
+		}
+	   iframe{
+
+			-ms-transform: scale(0.97);
+			-moz-transform: scale(0.97);
+			-o-transform: scale(0.97);
+			-webkit-transform: scale(0.97);
+			transform: scale(0.97);
+
+			-ms-transform-origin: 0 0;
+			-moz-transform-origin: 0 0;
+			-o-transform-origin: 0 0;
+			-webkit-transform-origin: 0 0;
+			transform-origin: 0 0;
+		}
+	&lt;/style&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+	&lt;iframe src=&#34;https://app.actiontiles.com/panel/f7a7118c-236b-4144-b5b9-ccb35abeef21&#34; height=&#34;300%&#34; width=&#34;300%&#34; frameborder=&#34;0&#34;&gt;&lt;/iframe&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+</code></pre><p>Link to buy the screen:
+<a href="https://smile.amazon.com/gp/product/B01ID5BQTC/">https://smile.amazon.com/gp/product/B01ID5BQTC/</a></p>
+<p>Link to the Action Tiles web application this is running:
+<a href="https://www.actiontiles.com/">https://www.actiontiles.com/</a></p>
+<p>If you have issues getting your pi to use the full touchscreen width, try adding these setting to the /boot/config.txt file and reboot:</p>
+<pre tabindex="0"><code>max_usb_current=1
+hdmi_group=2
+hdmi_mode=1
+hdmi_mode=87
+hdmi_cvt 800 480 60 6 0 0 0
+</code></pre><p>If you want to make sure your screen doesn&rsquo;t go to sleep:</p>
+<pre tabindex="0"><code>sudo nano /etc/lightdm/lightdm.conf
+</code></pre><p>Add the following lines to the [SeatDefaults] section:</p>
+<pre tabindex="0"><code>xserver-command=X -s 0 dpms
+</code></pre>
             </main>
             
 
@@ -623,6 +677,8 @@ table {
 
         
             <div id="paige-siblings">
+                
+                    <div class="paige-row-narrow text-center text-secondary" id="paige-next"><a class="link-secondary" href="https://hockenworks.com/3d-egg-slicer/">3D Printed Egg Slicer</a> &rsaquo;</div>
                 
 
                 

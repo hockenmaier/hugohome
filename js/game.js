@@ -22,7 +22,7 @@
     let pageWidth, pageHeight, minY;
     if (window.innerWidth < 620) {
       pageWidth = window.innerWidth;
-      pageHeight = window.innerHeight;
+      pageHeight = pageHeight = document.body.scrollHeight; //We used to make this innerHeight so goals were always visible on phone mode but F that mobile users can figure it out.. it's more fun this way
       minY = App.config.goalBaseSpawnYMobile + goalHeight / 2;
     } else {
       pageWidth = document.body.scrollWidth;
