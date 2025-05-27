@@ -77,6 +77,7 @@
   // Touch events.
   document.addEventListener("touchstart", (e) => {
     if (e.touches.length !== 1) return;
+    if (e.target.closest("#ballfall-ui, #spawner-container")) return;
     const touch = e.touches[0];
     const tool = getActiveTool();
     if (tool && typeof tool.onTouchStart === "function") {

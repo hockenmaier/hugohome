@@ -18,7 +18,7 @@ tags:
     matter.js,
     javascript,
   ]
-featured: "images/this-website-ball-machine-1.png"
+featured: "images/waves2.gif"
 ---
 
 I'm [Brian Hockenmaier](/about-me), and this site is full of things I build and write about. I love making games and things with VR and AI. I love DIY projects, epecially ones involving programming, engineering and 3D modeling. Some of this has been cross or back-posted from my [thingiverse](https://www.thingiverse.com/hockenmaier/designs), [twitter](https://x.com/Hockenmaier), [linkedin](https://www.linkedin.com/in/hockenmaier/), and other places, but it all lives here permanently.
@@ -87,6 +87,11 @@ I started calling the sheets my "ball machines". I wish I still had some of thes
 
 So, to honor kid Brian, I am making my website a permanent ball machine. I hope you have fun with it and see all there is to unlock!
 
+{{< image-verysmall
+    src="images/waves2.gif"
+    alt="balls everywhere"
+    caption="Even on the limited phone version, you can create some productive chaos" >}}
+
 ## How it's made
 
 I don't typically make complicated things like this with javascript. So when I found the perfect physics engine for the game - [matter.js](https://brm.io/matter-js/) - I knew I would need help from our new little assistants. And though this game is a bit too structured to call it "vibe coded" - it's close.
@@ -95,9 +100,7 @@ I ended up making my own tool called [Context Caddy](/context-caddy) to help me 
 
 ## How to Play
 
-> Quick Disclaimer: The best experience is on desktop or tablet - something with more screen real-estate than a phone. If playing on phone, try landscape mode!
-
-{{< image-left-teeny src="images/ball-chute-hatch-1.png" alt="ball chute" caption="This tube creates balls when you click on it" >}}
+{{< image-left-teeny src="images/ball-chute-hatch-1.png" alt="ball chute" caption="This tube creates balls every time you click it" >}}
 
 The ball machine on this site is a gamified version of my graph paper drawings as a kid. Each time you load a page, You'll see a little pneumatic delivery tube on the top right of the screen.
 
@@ -110,6 +113,8 @@ It's [a clicker game](https://en.wikipedia.org/wiki/Incremental_game) - start by
 The site works across multiple pages. It works best when you're on desktop, working on one tab at a time.
 
 &nbsp;
+
+> Quick Disclaimer: This game is designed for big screens, ideally desktop computers. If you must play on a phone, try landscape mode!
 
 ### Controls
 
@@ -133,17 +138,27 @@ Every drawable item (lines, launchers, and more) uses the following mechanics:
 
 - Some drawables have a second action, like curved lines, that is previewed after the second click and confirmed with a third click
 
+**Cancel Drawing** After you've started a line or other drawing but before you've clicked again to confirm, <kbd>Right Click</kbd> to cancel it.
+
 **Delete Objects:** Hover over a drawn item and <kbd>Right Click</kbd> to delete it, getting 50% of your money back
 
 &nbsp;
 
 #### Drawing on Mobile
 
+{{< warning >}} Mobile Scroll Lock Warning:{{< /warning >}} On Mobile, scrolling the page is blocked while you're drawing to allow you to draw lines in any direction.
+
+You will need to untoggle your selected tool before you can scroll or click links.
+
+If your phone has gesture controls to reload, go back or forward, or other browser things, you should disable them if you really want to play on your phone. Or, just play on desktop!
+
 **Spawn Balls:** <kbd>Tap</kbd> on the pneumatic spawner tube
 
 **Draw Objects:** <kbd>Touch and Drag</kbd> to see a preview, then <kbd>Release</kbd> to place
 
 - Some drawables have a second action, like curved lines, that is previewed and confirmed on the next touch-and-drag.
+
+**Cancel Drawing** After you've started a line or other drawing but before you've released to confirm, go back to where you started and release around there to cancel it. The threshold to cancel is within 25 pixels of where you started.
 
 **Delete Objects:** <kbd>Tap and hold</kbd> an object to delete it, getting 50% of your money back. You will see it pulse before it deletes.
 
