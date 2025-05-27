@@ -328,6 +328,7 @@
       dy = touch.pageY - touchStartPos.y;
     if (Math.hypot(dx, dy) > 10) {
       clearTimeout(deletionTimer);
+      resetLine(pendingTarget);
       pendingTarget = null;
       hidePreview();
     }
@@ -335,6 +336,7 @@
 
   document.addEventListener("touchend", () => {
     clearTimeout(deletionTimer);
+    resetLine(pendingTarget);
     pendingTarget = null;
     hidePreview();
   });

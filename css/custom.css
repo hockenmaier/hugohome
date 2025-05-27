@@ -108,6 +108,11 @@ article.paige-latest-item a:hover:not(.nav-link),
   flex: 1;
 }
 
+.media-container {
+  border-radius: 0.5rem; /* or use your “rounded-4” value */
+  overflow: hidden;
+}
+
 @media (max-width: 768px) {
   .latest-item {
     flex-direction: column;
@@ -116,6 +121,7 @@ article.paige-latest-item a:hover:not(.nav-link),
     display: flex;
     justify-content: center;
     width: 100%; /* allow it to fill the row */
+    margin-bottom: 1rem;
   }
   .media-container {
     margin: 0 auto; /* centers it within media-column */

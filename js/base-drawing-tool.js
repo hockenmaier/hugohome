@@ -32,7 +32,7 @@ class BaseDrawingTool {
     });
   }
 
-  static isValidDrag(startPoint, x, y, threshold = 5) {
+  static isValidDrag(startPoint, x, y, threshold = 25) {
     const dx = x - startPoint.x;
     const dy = y - startPoint.y;
     return Math.sqrt(dx * dx + dy * dy) >= threshold;
