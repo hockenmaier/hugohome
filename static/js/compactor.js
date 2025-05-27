@@ -205,7 +205,8 @@
           window.BallFall.spawnBall(
             self.deletedSum,
             self.position,
-            self.deletedOriginalCount
+            self.deletedOriginalCount,
+            true
           );
           self.deletedSum = 0;
           self.deletedOriginalCount = 0;
