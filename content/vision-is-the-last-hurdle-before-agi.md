@@ -13,7 +13,7 @@ I have long been of the mind LLMs and their evolutions are truly thinking, and t
 That's not to say they are AGI in the modern definition. They can't do every task humans can do intellectually (IE without a body, which I will get to) for several reasons:
 
 1. Looping reasoning:
-   This was a huge problem for early transformers that had to output in one shot, and the examples were obvious. This one has been essentially solved via thinking models like o1. That was a huge unlock and a huge bone for things like programming where there is lots of nested recursion of logic that has to occur to get a reasonable answer.
+   This was a huge problem for early transformers that had to output in one shot, and the examples were obvious. This one has been essentially solved via thinking models like o1. That was a huge unlock and a huge boon for applications like programming where there is lots of nested recursion of logic that has to occur to get a reasonable answer.
 
 2. Memory and context:
    Context windows get larger all the time but this one still is not solved. Just adding a bunch of tokens into a context window doesn't get you much when 2 million token models lose coherence after about the first 40,000 - which they do, and which every programmer working with anything but a tiny codebase intuitively understands. But this one too will largely be solved soon, if not through architectures that actually update their weights, it'll be solved through nuanced memory systems that people are actively developing on top of thinking models.
