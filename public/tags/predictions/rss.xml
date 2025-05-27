@@ -136,7 +136,7 @@
 <ol>
 <li>
 <p>Looping reasoning:
-This was a huge problem for early transformers that had to output in one shot, and the examples were obvious. This one has been essentially solved via thinking models like o1. That was a huge unlock and a huge bone for things like programming where there is lots of nested recursion of logic that has to occur to get a reasonable answer.</p>
+This was a huge problem for early transformers that had to output in one shot, and the examples were obvious. This one has been essentially solved via thinking models like o1. That was a huge unlock and a huge boon for applications like programming where there is lots of nested recursion of logic that has to occur to get a reasonable answer.</p>
 </li>
 <li>
 <p>Memory and context:

@@ -73,4 +73,24 @@ I post here mostly about things I'm making and occasional essays. If you’re in
 
 ---
 
+## 3D Prints
+
+{{< single-with-image path="/bloom-or-bust">}}
+
+> Bloom Or Bust is my latest and best board game. Fully designed from scratch using OpenSCAD and Gravity Sketch (A very fun VR-based 3D Modeling program)
+
+&nbsp;
+
+---
+
+&nbsp;
+
+{{< single-with-image path="/3d-key">}}
+
+> One of my first great 3D printing experiments, I duplicated my apartment key in CAD shortly after getting my first 3D printer, and actually used these keys as spares.
+
+&nbsp;
+
+---
+
 &nbsp;

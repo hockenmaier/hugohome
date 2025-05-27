@@ -104,6 +104,24 @@
         
     
 
+    
+
+    
+        
+    
+
+    
+
+    
+        
+    
+
+    
+
+    
+        
+    
+
 
 
 
@@ -3995,7 +4013,7 @@ This is what the project looked like for my first play-test with other people 5 
 <p>I created this panel display in 2026 to control much of the home automation I used in my Studio City apartment. Mainly a hardware project, I designed and 3D-printed a case and frame for the touchscreen and raspberry pi microcomputer in order to mount them to the wall. The software running the control panel is SaaS, but I did write a custom html wrapper to control the orientation and settings of the site, which is available on the github linked above.</p>
 <p>Update in 2025: This panel is still my main view into my home automation in my new house in Sherman Oaks, almost 10 years in with no modification!</p>
 <p>Here&rsquo;s a video to see the panel in action:</p>
-<h2 id="hahahugoshortcode20s0hbhb">
+<h2 id="hahahugoshortcode168s0hbhb">
     <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
       <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/iFGmm-ijJvE?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"></iframe>
     </div>
@@ -4015,6 +4033,149 @@ This is what the project looked like for my first play-test with other people 5 
 
                 
                     <title>Raspberry Pi Control Panel</title>
+                
+            </item>
+        
+            <item>
+                
+                
+                
+                
+                
+                
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+                
+
+                
+
+                
+
+                
+                    <description><![CDATA[<p>This is a working 3D-printed egg slicer! Why buy it when you can print it?</p>
+<p>You can download the model for free on Thingiverse:
+<a href="http://www.thingiverse.com/thing:440150">http://www.thingiverse.com/thing:440150</a></p>
+
+    <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+      <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/1J0rH7o0R88?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"></iframe>
+    </div>]]></description>
+                
+
+                <guid isPermaLink="false">tag:localhost:1313,2014-08-24:/3d-egg-slicer/</guid>
+
+                
+                    <link>http://localhost:1313/3d-egg-slicer/</link>
+                
+
+                
+                    <pubDate>Sun, 24 Aug 2014 00:00:00 UTC</pubDate>
+                
+
+                
+                    <title>3D Printed Egg Slicer</title>
+                
+            </item>
+        
+            <item>
+                
+                
+                
+                
+                
+                
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+                
+
+                
+
+                
+
+                
+                    <description><![CDATA[<p>This switch closes a circuit when a strong magnetic field is nearby. The magnet used in the video is a rare earth magnet which is stronger than your typical refrigerator magnet.</p>
+
+    <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+      <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/b4piw_LMiRg?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"></iframe>
+    </div>]]></description>
+                
+
+                <guid isPermaLink="false">tag:localhost:1313,2013-11-25:/3d-reed-switch/</guid>
+
+                
+                    <link>http://localhost:1313/3d-reed-switch/</link>
+                
+
+                
+                    <pubDate>Mon, 25 Nov 2013 00:00:00 UTC</pubDate>
+                
+
+                
+                    <title>3D Printed Reed Switch</title>
+                
+            </item>
+        
+            <item>
+                
+                
+                
+                
+                
+                
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+                
+
+                
+
+                
+
+                
+                    <description><![CDATA[<p>I 3D Modeled and printed my apartment building&rsquo;s key with the Makergear M2. I won&rsquo;t be posting the model because it IS in fact a key to my apartment. Thanks for watching!</p>
+
+    <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+      <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/_H2W8qXUJtg?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"></iframe>
+    </div>]]></description>
+                
+
+                <guid isPermaLink="false">tag:localhost:1313,2013-05-13:/3d-key/</guid>
+
+                
+                    <link>http://localhost:1313/3d-key/</link>
+                
+
+                
+                    <pubDate>Mon, 13 May 2013 00:00:00 UTC</pubDate>
+                
+
+                
+                    <title>3D Printed Key</title>
                 
             </item>
         
