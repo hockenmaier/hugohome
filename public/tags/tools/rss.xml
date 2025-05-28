@@ -52,7 +52,7 @@
             
 
             
-                <link href="http://localhost:1313/tags/tools/" rel="self" type="text/html"/>
+                <link href="https://hockenworks.com/tags/tools/" rel="self" type="text/html"/>
             
         
             
@@ -60,7 +60,7 @@
             
 
             
-                <link href="http://localhost:1313/tags/tools/rss.xml" rel="alternate" type="application/rss+xml"/>
+                <link href="https://hockenworks.com/tags/tools/rss.xml" rel="alternate" type="application/rss+xml"/>
             
         
 
@@ -78,7 +78,7 @@
             <lastBuildDate>2025-02-13 00:00:00 +0000 UTC</lastBuildDate>
         
 
-        <link>http://localhost:1313/tags/tools/</link>
+        <link>https://hockenworks.com/tags/tools/</link>
 
         
 
@@ -124,10 +124,10 @@
 <hr>]]></description>
                 
 
-                <guid isPermaLink="false">tag:localhost:1313,2025-02-13:/context-caddy/</guid>
+                <guid isPermaLink="false">tag:hockenworks.com,2025-02-13:/context-caddy/</guid>
 
                 
-                    <link>http://localhost:1313/context-caddy/</link>
+                    <link>https://hockenworks.com/context-caddy/</link>
                 
 
                 
@@ -177,10 +177,10 @@
 <hr>]]></description>
                 
 
-                <guid isPermaLink="false">tag:localhost:1313,2024-01-13:/postman-for-pms/</guid>
+                <guid isPermaLink="false">tag:hockenworks.com,2024-01-13:/postman-for-pms/</guid>
 
                 
-                    <link>http://localhost:1313/postman-for-pms/</link>
+                    <link>https://hockenworks.com/postman-for-pms/</link>
                 
 
                 
