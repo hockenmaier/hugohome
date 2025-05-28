@@ -23,6 +23,17 @@
         if (body.render.sprite) body.render.sprite.opacity = 1;
         body.render.opacity = 1;
       }
+      /* ---- Gears ---- */
+      if (body.isGear && body.parts && body.parts.length > 1) {
+        body.parts.forEach(function (part) {
+          if (part.render) {
+            if (part.render.sprite) part.render.sprite.opacity = 1;
+            part.render.opacity = 1;
+          }
+        });
+        return;
+      }
+
       // Dotted lines
       else if (body.label === "DottedLine" && body.render) {
         body.render.fillStyle = App.config.dottedLineRender.fillStyle;
@@ -280,11 +291,13 @@
       App.Persistence.deleteCompactor(target[0].persistenceId);
     } else {
       Matter.Composite.remove(window.BallFall.world, target, true);
-      if (target.label === "Launcher")
+      if (target.isGear) {
+        App.Persistence.deleteGear(target.persistenceId);
+      } else if (target.label === "Launcher") {
         App.Persistence.deleteLauncher(target.persistenceId);
-      else if (target.persistenceId)
+      } else if (target.persistenceId) {
         App.Persistence.deleteLine(target.persistenceId);
-      else if (target.isGear) App.Persistence.deleteGear(target.persistenceId);
+      }
     }
   });
 
@@ -341,6 +354,7 @@
     pendingTarget = null;
     hidePreview();
   });
+
   /* --- expose preview helper so other modules (e.g. auto-clicker) can reuse it --- */
   window.showRefundPreview = (amt, x, y) =>
     createNotification(`+ ${amt} coins`, x, y, 0.4);

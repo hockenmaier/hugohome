@@ -32,10 +32,14 @@
 
     /* make new gears spin the moment they’re added */
     Matter.Events.on(window.BallFall.engine, "afterAdd", (ev) => {
-      ev.object.forEach?.((b) => {
+      const arr = Array.isArray(ev.object) ? ev.object : [ev.object];
+      arr.forEach((b) => {
         if (b.label === "Gear") startGearAnimation(b);
       });
     });
+
+    /* allow GearCreateTool to start one right away */
+    window.__startGearAnim = startGearAnimation;
   }
 
   window.BallFall && window.BallFall.engine

@@ -225,6 +225,21 @@
         const parts = getScaledGearParts(scale);
         parts.forEach((p) => (p.render.visible = false));
 
+        const spriteScale = scale; // matches preview
+
+        const imgPart = Matter.Bodies.rectangle(0, 0, 100, 100, {
+          isStatic: true,
+          isSensor: true,
+          render: {
+            sprite: {
+              texture: "images/gear-30.png",
+              xScale: spriteScale,
+              yScale: spriteScale,
+            },
+          },
+        });
+        parts.push(imgPart);
+
         const body = Matter.Body.create({
           parts,
           isStatic: true,

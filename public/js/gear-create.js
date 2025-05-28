@@ -1,29 +1,25 @@
 /* static/js/gear-create.js
- * One-click gear placement (desktop: click-click, mobile: tap-drag-release).
- * Follows the launcher/compactor pattern but simpler — no second-action.
+ * Places a visible gear sprite plus hidden tooth colliders.
  */
 window.GearCreateTool = {
   state: 0,
   preview: null,
-  selectedType: "gear-cw", // toggled in UI
+  selectedType: "gear-cw",
 
-  cost() {
+  price() {
     return App.config.costs[this.selectedType];
   },
 
-  /* ---------- desktop ---------- */
+  /* ────────── desktop ────────── */
   onClick(x, y) {
-    const tool = new BaseDrawingTool("gear", this.cost());
-    if (!tool.canPlace()) {
-      BaseDrawingTool.showInsufficientFunds();
-      return;
-    }
+    const tool = new BaseDrawingTool("gear", this.price());
+    if (!tool.canPlace()) return BaseDrawingTool.showInsufficientFunds();
 
     if (this.state === 0) {
-      this.startPreview(x, y);
+      this._showPreview(x, y);
       this.state = 1;
     } else {
-      this.finish(x, y);
+      this._placeGear(x, y);
       tool.charge();
     }
   },
@@ -32,7 +28,7 @@ window.GearCreateTool = {
       Matter.Body.setPosition(this.preview, { x, y });
   },
 
-  /* ---------- touch ---------- */
+  /* ────────── mobile ────────── */
   onTouchStart(x, y) {
     BaseDrawingTool.prototype.handleTouchStart.call(this, x, y, (xx, yy) =>
       this.onClick(xx, yy)
@@ -46,62 +42,77 @@ window.GearCreateTool = {
       this,
       x,
       y,
-      this.finish,
+      this._placeGear,
       this.cancel,
-      this.cost()
+      this.price()
     );
   },
 
-  /* ---------- helpers ---------- */
-  startPreview(x, y) {
+  /* ────────── helpers ────────── */
+  _showPreview(x, y) {
     const size = App.config.ballSize * App.config.gearSizeMultiplier;
     const scale = size / 100;
     this.preview = Matter.Bodies.rectangle(x, y, size, size, {
       isStatic: true,
       isSensor: true,
+      label: "GearPreview",
       render: {
         sprite: { texture: "images/gear-30.png", xScale: scale, yScale: scale },
         opacity: 0.6,
       },
-      label: "GearPreview",
     });
     Matter.World.add(window.BallFall.world, this.preview);
   },
 
-  finish(x, y) {
+  _placeGear(x, y) {
     if (!this.preview) return;
     Matter.World.remove(window.BallFall.world, this.preview);
     this.preview = null;
 
-    const size = App.config.ballSize * App.config.gearSizeMultiplier;
-    const scale = size / 100;
-    const parts = getScaledGearParts(scale);
-    parts.forEach((p) => (p.render.visible = false)); // hide physics parts
+    const scaleParts =
+      (App.config.ballSize * App.config.gearSizeMultiplier) / 100;
+    const parts = getScaledGearParts(scaleParts);
+
+    /* hide hub + teeth (parts[0…]) – Render skips parts[0] so we need a visible extra */
+    parts.forEach((p) => (p.render.visible = false));
+
+    /* extra sensor rectangle that carries the sprite and is actually rendered */
+    const spriteScale = scaleParts;
+    const imgPart = Matter.Bodies.rectangle(0, 0, 100, 100, {
+      // 100×100 base
+      isStatic: true,
+      isSensor: true,
+      label: "GearSprite",
+      render: {
+        sprite: {
+          texture: "images/gear-30.png",
+          xScale: spriteScale,
+          yScale: spriteScale,
+        },
+      },
+    });
+    parts.push(imgPart);
 
     const body = Matter.Body.create({
       parts,
-      isStatic: true, // ← real fix: static, no infinite-mass dynamics
+      isStatic: true,
       frictionAir: 0,
       label: "Gear",
-      render: {
-        sprite: { texture: "images/gear-30.png", xScale: scale, yScale: scale },
-      },
     });
     body.origin = { x, y };
     body.isGear = true;
     body.spinDir = this.selectedType === "gear-cw" ? 1 : -1;
-
     Matter.Body.setPosition(body, body.origin);
     Matter.World.add(window.BallFall.world, body);
 
-    // persist & animate
+    /* spin immediately */
+    if (window.__startGearAnim) window.__startGearAnim(body);
+
     body.persistenceId = App.Persistence.saveGear({
       type: this.selectedType,
       x,
       y,
     });
-    // gear.js will pick it up in the afterAdd hook
-
     this.state = 0;
   },
 

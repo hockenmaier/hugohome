@@ -39,8 +39,8 @@
       343.3614,
       355.5883,
     ],
-    toothLength: 30, // protrusion distance
-    toothWidth: 60, // rectangle width
+    toothLength: 30, // tooth width
+    toothWidth: 40, // protrusion distance
   };
   /* -------------------------------- */
 

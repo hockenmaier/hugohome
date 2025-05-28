@@ -62,7 +62,7 @@ window.App = {
       "gear-cw": { dir: 1, image: window.assetBase + "images/gear-30.png" },
       "gear-ccw": { dir: -1, image: window.assetBase + "images/gear-30.png" },
     },
-    gearSizeMultiplier: 5,
+    gearSizeMultiplier: 4.5,
 
     coins: 111, //Starting coins for when app first loads and there's nothing in storage
     costs: {
