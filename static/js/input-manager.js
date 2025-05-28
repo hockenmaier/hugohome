@@ -19,6 +19,8 @@
         return window.LauncherCreateTool;
       case "compactor":
         return window.CompactorCreateTool;
+      case "gear":
+        return window.GearCreateTool;
       default:
         return null;
     }

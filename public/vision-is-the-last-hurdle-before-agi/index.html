@@ -1163,6 +1163,8 @@ And this one might sound funny to someone that is paying attention to AI in part
             <script src="http://localhost:1313/js/launcher-create.js"></script>
             <script src="http://localhost:1313/js/compactor-create.js"></script>
             <script src="http://localhost:1313/js/compactor.js"></script>
+            <script src="http://localhost:1313/js/gear-create.js"></script>
+            <script src="http://localhost:1313/js/gear.js"></script>
             <script src="http://localhost:1313/js/game.js"></script>
             <script src="http://localhost:1313/js/goal.js"></script>
             <script src="http://localhost:1313/js/spawner.js"></script>
@@ -1499,6 +1501,23 @@ And this one might sound funny to someone that is paying attention to AI in part
           <img src="http://localhost:1313/images/coin-cost.png" alt="Coin" /> 1000000
         </div>
       </div>
+      
+      <div class="toggle-wrapper">
+        <img src="http://localhost:1313/images/gear-clockwise-mode.png"
+             id="toggleGearCW" class="line-toggle" alt="Gear CW">
+        <div class="cost-label">
+          <img src="http://localhost:1313/images/coin-cost.png" alt="Coin"> 750
+        </div>
+      </div>
+      
+      <div class="toggle-wrapper">
+        <img src="http://localhost:1313/images/gear-counterclockwise-mode.png"
+             id="toggleGearCCW" class="line-toggle" alt="Gear CCW">
+        <div class="cost-label">
+          <img src="http://localhost:1313/images/coin-cost.png" alt="Coin"> 750
+        </div>
+      </div>
+
     </div>
   </div>
   
@@ -1519,7 +1538,9 @@ And this one might sound funny to someone that is paying attention to AI in part
         launcherBtn = document.getElementById("toggleLauncher"),
         fastLauncherBtn = document.getElementById("toggleFastLauncher"),
         instaLauncherBtn = document.getElementById("toggleInstaLauncher"),
-        compactorBtn = document.getElementById("toggleCompactor"); 
+        compactorBtn = document.getElementById("toggleCompactor");
+        gearCWBtn     = document.getElementById("toggleGearCW"),
+        gearCCWBtn    = document.getElementById("toggleGearCCW"),
 
       const FLASH_DURATION = 100,
         FLASH_TIMES = 6;
@@ -1650,6 +1671,16 @@ And this one might sound funny to someone that is paying attention to AI in part
         setActive(
             window.App.modules.lines.getMode() === "compactor" ? "none" : "compactor"
         );
+      });
+      gearCWBtn.addEventListener("click", e=>{
+        e.stopPropagation();
+        const m = App.modules.lines.getMode(), t = GearCreateTool.selectedType;
+        setActive( (m==="gear" && t==="gear-cw") ? "none" : "gear", "gear-cw");
+      });
+      gearCCWBtn.addEventListener("click", e=>{
+        e.stopPropagation();
+        const m = App.modules.lines.getMode(), t = GearCreateTool.selectedType;
+        setActive( (m==="gear" && t==="gear-ccw") ? "none" : "gear", "gear-ccw");
       });
 
       setInterval(updateDropRateDisplay, 1000);

@@ -55,6 +55,15 @@ window.App = {
         maxSpeed: 500,
       },
     },
+    /* --- Gear settings ---------------------------------------------------- */
+    gearRotationDuration: 30000, // ← one rev every 30 s
+    gearTypes: {
+      // meta for future use
+      "gear-cw": { dir: 1, image: window.assetBase + "images/gear-30.png" },
+      "gear-ccw": { dir: -1, image: window.assetBase + "images/gear-30.png" },
+    },
+    gearSizeMultiplier: 5,
+
     coins: 111, //Starting coins for when app first loads and there's nothing in storage
     costs: {
       straight: 5,
@@ -62,6 +71,8 @@ window.App = {
       launcher: 2000,
       "fast-launcher": 5000,
       "insta-launcher": 25000,
+      "gear-cw": 750,
+      "gear-ccw": 750,
     },
     goalMinSpeed: 0.5, //Speed balls must be traveling to trigger the goal
 

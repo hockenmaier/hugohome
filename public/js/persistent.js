@@ -198,6 +198,40 @@
       });
     },
 
+    /* ------------- Gear persistence ------------- */
+    saveGear(data) {
+      if (!data.id)
+        data.id = Date.now() + "-" + Math.random().toString(36).substr(2, 9);
+      const arr = App.Storage.getItem(pageKey("gears"), []);
+      arr.push(data);
+      App.Storage.setItem(pageKey("gears"), arr);
+      return data.id;
+    },
+    loadGears() {
+      return App.Storage.getItem(pageKey("gears"), []);
+    },
+    deleteGear(id) {
+      let arr = App.Storage.getItem(pageKey("gears"), []);
+      App.Storage.setItem(
+        pageKey("gears"),
+        arr.filter((g) => g.id !== id)
+      );
+    },
+    rebuildGears() {
+      const gears = this.loadGears();
+      gears.forEach((g) => {
+        const gear = createGear({ x: g.x, y: g.y }, g.type);
+        const body = gear.sprite;
+        body.isGear = true;
+        body.persistenceId = g.id;
+
+        body.isGear = true;
+        body.spinDir = g.type === "gear-cw" ? 1 : -1;
+        body.persistenceId = g.id;
+        Matter.World.add(window.BallFall.world, body);
+      });
+    },
+
     // AutoClicker persistence:
     saveAutoClicker: function (autoData) {
       App.Storage.setItem(pageKey("autoclicker"), autoData);
@@ -264,5 +298,6 @@
     App.Persistence.rebuildLines();
     App.Persistence.rebuildLaunchers();
     App.Persistence.rebuildCompactors();
+    App.Persistence.rebuildGears();
   });
 })();

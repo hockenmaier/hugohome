@@ -329,6 +329,23 @@
           <img src="{{ "images/coin-cost.png" | relURL }}" alt="Coin" /> {{ .Site.Params.App.compactor.cost | default 1000000 }}
         </div>
       </div>
+      <!-- Gear CW -->
+      <div class="toggle-wrapper">
+        <img src="{{ "images/gear-clockwise-mode.png" | relURL }}"
+             id="toggleGearCW" class="line-toggle" alt="Gear CW">
+        <div class="cost-label">
+          <img src="{{ "images/coin-cost.png" | relURL }}" alt="Coin"> 750
+        </div>
+      </div>
+      <!-- Gear CCW -->
+      <div class="toggle-wrapper">
+        <img src="{{ "images/gear-counterclockwise-mode.png" | relURL }}"
+             id="toggleGearCCW" class="line-toggle" alt="Gear CCW">
+        <div class="cost-label">
+          <img src="{{ "images/coin-cost.png" | relURL }}" alt="Coin"> 750
+        </div>
+      </div>
+
     </div>
   </div>
   <!-- Scripts remain unchanged -->
@@ -349,7 +366,9 @@
         launcherBtn = document.getElementById("toggleLauncher"),
         fastLauncherBtn = document.getElementById("toggleFastLauncher"),
         instaLauncherBtn = document.getElementById("toggleInstaLauncher"),
-        compactorBtn = document.getElementById("toggleCompactor"); // Added compactor button reference
+        compactorBtn = document.getElementById("toggleCompactor"),
+        gearCWBtn     = document.getElementById("toggleGearCW"),
+        gearCCWBtn    = document.getElementById("toggleGearCCW");
 
       const FLASH_DURATION = 100,
         FLASH_TIMES = 6;
@@ -388,8 +407,9 @@
           FLASH_TIMES
         );
 
-        // Clear selected type if switching away from launcher/compactor
+        // Clear selected type if switching away from launcher/compactor/gear
         if (newMode !== 'launcher') window.LauncherCreateTool.selectedType = null;
+        if (newMode !== 'gear')      window.GearCreateTool.selectedType     = null;
         // if (newMode !== 'compactor') { /* No specific state to clear for compactor tool itself */ }
 
 
@@ -416,6 +436,12 @@
         } else if (newMode === "compactor") {
             compactorBtn.classList.add("selected");
             window.App.modules.lines.setMode("compactor");
+        } else if (newMode === "gear") {
+            if (!launcherType) launcherType = "gear-cw";        // default subtype
+            window.GearCreateTool.selectedType = launcherType;
+            if (launcherType === "gear-cw") gearCWBtn.classList.add("selected");
+            else gearCCWBtn.classList.add("selected");
+            window.App.modules.lines.setMode("gear");
         } else {
           // Setting mode to 'none'
           window.App.modules.lines.setMode("none");
@@ -480,6 +506,16 @@
         setActive(
             window.App.modules.lines.getMode() === "compactor" ? "none" : "compactor"
         );
+      });
+      gearCWBtn.addEventListener("click", e=>{
+        e.stopPropagation();
+        const m = App.modules.lines.getMode(), t = GearCreateTool.selectedType;
+        setActive( (m==="gear" && t==="gear-cw") ? "none" : "gear", "gear-cw");
+      });
+      gearCCWBtn.addEventListener("click", e=>{
+        e.stopPropagation();
+        const m = App.modules.lines.getMode(), t = GearCreateTool.selectedType;
+        setActive( (m==="gear" && t==="gear-ccw") ? "none" : "gear", "gear-ccw");
       });
 
       setInterval(updateDropRateDisplay, 1000);

@@ -19,7 +19,7 @@
   function resetLine(target) {
     applyToGroup(target, function (body) {
       // Launcher bodies
-      if (body.label === "Launcher" && body.render) {
+      if ((body.label === "Launcher" || body.isGear) && body.render) {
         if (body.render.sprite) body.render.sprite.opacity = 1;
         body.render.opacity = 1;
       }
@@ -86,6 +86,10 @@
         ? App.config.costs.curved
         : App.config.costs.straight;
     }
+
+    if (b.isGear)
+      return App.config.costs[b.spinDir === 1 ? "gear-cw" : "gear-ccw"];
+
     return 0;
   }
 
@@ -169,6 +173,19 @@
               );
             }
           }
+          // finally check gears (iterate their parts for accurate hit)
+          for (let body of bodies) {
+            if (body.isGear) {
+              if (body.parts && body.parts.length > 1) {
+                for (let i = 1; i < body.parts.length; i++) {
+                  if (Matter.Vertices.contains(body.parts[i].vertices, point))
+                    return body;
+                }
+              } else if (Matter.Vertices.contains(body.vertices, point)) {
+                return body;
+              }
+            }
+          }
         } else {
           if (Matter.Vertices.contains(body.vertices, point)) {
             return bodies.filter(
@@ -178,6 +195,12 @@
         }
       }
     }
+    if (body.isGear && body.persistenceId) {
+      return bodies.filter(
+        (b) => b.isGear && b.persistenceId === body.persistenceId
+      );
+    }
+
     // If no compactor hit, check normal lines.
     for (let body of bodies) {
       if (body.isLine) {
@@ -284,6 +307,7 @@
         App.Persistence.deleteLauncher(target.persistenceId);
       else if (target.persistenceId)
         App.Persistence.deleteLine(target.persistenceId);
+      else if (target.isGear) App.Persistence.deleteGear(target.persistenceId);
     }
   });
 

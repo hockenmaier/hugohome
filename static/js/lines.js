@@ -157,6 +157,9 @@ App.modules.lines = (function () {
       case "compactor":
         if (window.CompactorCreateTool) CompactorCreateTool.cancel();
         break;
+      case "gear":
+        if (window.GearCreateTool) GearCreateTool.cancel();
+        break;
     }
 
     mode = newMode;
