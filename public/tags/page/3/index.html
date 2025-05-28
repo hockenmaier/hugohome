@@ -1429,6 +1429,8 @@ table {
             <script src="http://localhost:1313/js/matter-wrap.min.js"></script>
             <script src="http://localhost:1313/js/ball-machine-app.js"></script>
             <script src="http://localhost:1313/js/base-simulation.js"></script>
+            
+            <script src="http://localhost:1313/js/gear-config.js"></script>
             <script src="http://localhost:1313/js/persistent.js"></script>
             <script src="http://localhost:1313/js/text.js"></script>
             <script src="http://localhost:1313/js/base-drawing-tool.js"></script>
@@ -1819,9 +1821,9 @@ table {
         launcherBtn = document.getElementById("toggleLauncher"),
         fastLauncherBtn = document.getElementById("toggleFastLauncher"),
         instaLauncherBtn = document.getElementById("toggleInstaLauncher"),
-        compactorBtn = document.getElementById("toggleCompactor");
+        compactorBtn = document.getElementById("toggleCompactor"),
         gearCWBtn     = document.getElementById("toggleGearCW"),
-        gearCCWBtn    = document.getElementById("toggleGearCCW"),
+        gearCCWBtn    = document.getElementById("toggleGearCCW");
 
       const FLASH_DURATION = 100,
         FLASH_TIMES = 6;
@@ -1862,6 +1864,7 @@ table {
 
         
         if (newMode !== 'launcher') window.LauncherCreateTool.selectedType = null;
+        if (newMode !== 'gear')      window.GearCreateTool.selectedType     = null;
         
 
 
@@ -1888,6 +1891,12 @@ table {
         } else if (newMode === "compactor") {
             compactorBtn.classList.add("selected");
             window.App.modules.lines.setMode("compactor");
+        } else if (newMode === "gear") {
+            if (!launcherType) launcherType = "gear-cw";        
+            window.GearCreateTool.selectedType = launcherType;
+            if (launcherType === "gear-cw") gearCWBtn.classList.add("selected");
+            else gearCCWBtn.classList.add("selected");
+            window.App.modules.lines.setMode("gear");
         } else {
           
           window.App.modules.lines.setMode("none");

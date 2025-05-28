@@ -72,11 +72,21 @@ window.GearCreateTool = {
     const sizePx = App.config.ballSize * App.config.gearSizeMultiplier; // overall diameter in px
     const scale = sizePx / 100; // sprite 100 px base
 
-    const g = createGear({ x, y }, this.selectedType);
-    const body = g.sprite; // use sprite body as sentinel for hover/delete
+    /* physics parts (invisible) */
+    const parts = getScaledGearParts(scale); // circle + 30 teeth
+
+    const body = Matter.Body.create({
+      parts,
+      isStatic: false, // must be dynamic to rotate
+      frictionAir: 0,
+      label: "Gear",
+      render: { sprite: { texture: tex, xScale: scale, yScale: scale } },
+    });
+    body.origin = { x, y }; // remember anchor for pin-back
+    Matter.Body.setPosition(body, body.origin);
     body.isGear = true;
     body.spinDir = this.selectedType === "gear-cw" ? 1 : -1;
-    body.isGear = true;
+
     Matter.World.add(window.BallFall.world, body);
 
     // persistence

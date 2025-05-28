@@ -220,10 +220,23 @@
     rebuildGears() {
       const gears = this.loadGears();
       gears.forEach((g) => {
-        const gear = createGear({ x: g.x, y: g.y }, g.type);
-        const body = gear.sprite;
-        body.isGear = true;
-        body.persistenceId = g.id;
+        const sizePx = App.config.ballSize * App.config.gearSizeMultiplier;
+        const scale = sizePx / 100;
+        const body = Matter.Body.create({
+          parts: getScaledGearParts(scale),
+          isStatic: false,
+          frictionAir: 0,
+          label: "Gear",
+          render: {
+            sprite: {
+              texture: "images/gear-30.png",
+              xScale: scale,
+              yScale: scale,
+            },
+          },
+        });
+        body.origin = { x: g.x, y: g.y };
+        Matter.Body.setPosition(body, body.origin);
 
         body.isGear = true;
         body.spinDir = g.type === "gear-cw" ? 1 : -1;
