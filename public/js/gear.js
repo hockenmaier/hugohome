@@ -1,24 +1,43 @@
 /* static/js/gear.js
- * Attaches rotation to every Gear body each engine tick.
+ * Gives every Gear body its own GSAP timeline so it spins forever
+ * without relying on mass or Engine updates (mirrors compactor style).
  */
 (function () {
-  function spinGears() {
-    if (!window.BallFall) return;
-    const step =
-      (((2 * Math.PI) / App.config.gearRotationDuration) *
-        (window.BallFall.engine.timing.lastDelta || 16.6)) /
-      1000;
+  const TWO_PI = Math.PI * 2;
 
-    Matter.Composite.allBodies(window.BallFall.world).forEach((b) => {
-      if (b.label === "Gear") {
-        Matter.Body.rotate(b, step * (b.spinDir || 1));
-        if (b.origin) Matter.Body.setPosition(b, b.origin); // keep from drifting
-      }
+  /** build + start an endless rotation timeline for one gear body */
+  function startGearAnimation(body) {
+    // One param object so we can animate a scalar 0→1 and convert to angle
+    const prog = { t: 0 };
+    const dir = body.spinDir || 1;
+    const dur = App.config.gearRotationDuration / 1000; // ms→s
+
+    gsap.to(prog, {
+      t: 1,
+      duration: dur,
+      ease: "none",
+      repeat: -1,
+      onUpdate() {
+        Matter.Body.setAngle(body, prog.t * TWO_PI * dir);
+        if (body.origin) Matter.Body.setPosition(body, body.origin); // keep pinned
+      },
     });
   }
+
+  /* after physics is ready, find any gears already in the world and animate */
   function init() {
-    Matter.Events.on(window.BallFall.engine, "afterUpdate", spinGears);
+    Matter.Composite.allBodies(window.BallFall.world).forEach((b) => {
+      if (b.label === "Gear") startGearAnimation(b);
+    });
+
+    /* make new gears spin the moment they’re added */
+    Matter.Events.on(window.BallFall.engine, "afterAdd", (ev) => {
+      ev.object.forEach?.((b) => {
+        if (b.label === "Gear") startGearAnimation(b);
+      });
+    });
   }
+
   window.BallFall && window.BallFall.engine
     ? init()
     : window.addEventListener("BallFallBaseReady", init);

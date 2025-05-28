@@ -53,7 +53,12 @@
     const parts = [];
 
     /* hub circle */
-    parts.push(Matter.Bodies.circle(0, 0, R, { isStatic: true }));
+    parts.push(
+      Matter.Bodies.circle(0, 0, R, {
+        isStatic: true,
+        render: { visible: false },
+      })
+    );
 
     /* each tooth is a rectangle centred at (R+TL/2) and rotated to angle */
     p.toothAngles.forEach((deg) => {
@@ -61,10 +66,13 @@
       const cx = (R + TL / 2) * Math.cos(rad);
       const cy = (R + TL / 2) * Math.sin(rad);
       parts.push(
-        Matter.Bodies.rectangle(cx, cy, TW, TL, { isStatic: true, angle: rad })
+        Matter.Bodies.rectangle(cx, cy, TW, TL, {
+          isStatic: true,
+          angle: rad,
+          render: { visible: false },
+        })
       );
     });
-
     return parts;
   };
 })();

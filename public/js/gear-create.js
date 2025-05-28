@@ -1,17 +1,17 @@
 /* static/js/gear-create.js
- * One-click gear placement (desktop: click-click, mobile: tap-drag-release)
- * Behaviour mirrors LauncherCreateTool pattern.
+ * One-click gear placement (desktop: click-click, mobile: tap-drag-release).
+ * Follows the launcher/compactor pattern but simpler — no second-action.
  */
 window.GearCreateTool = {
   state: 0,
-  previewBody: null,
-  selectedType: "gear-cw", // or "gear-ccw"
+  preview: null,
+  selectedType: "gear-cw", // toggled in UI
 
   cost() {
     return App.config.costs[this.selectedType];
   },
 
-  // ----- desktop handlers -----
+  /* ---------- desktop ---------- */
   onClick(x, y) {
     const tool = new BaseDrawingTool("gear", this.cost());
     if (!tool.canPlace()) {
@@ -28,14 +28,15 @@ window.GearCreateTool = {
     }
   },
   onMove(x, y) {
-    if (this.state !== 1 || !this.previewBody) return;
-    Matter.Body.setPosition(this.previewBody, { x, y });
+    if (this.state === 1 && this.preview)
+      Matter.Body.setPosition(this.preview, { x, y });
   },
-  // ----- touch handlers -----
+
+  /* ---------- touch ---------- */
   onTouchStart(x, y) {
-    BaseDrawingTool.prototype.handleTouchStart.call(this, x, y, (xx, yy) => {
-      this.onClick(xx, yy);
-    });
+    BaseDrawingTool.prototype.handleTouchStart.call(this, x, y, (xx, yy) =>
+      this.onClick(xx, yy)
+    );
   },
   onTouchMove(x, y) {
     BaseDrawingTool.prototype.handleTouchMove.call(this, x, y, this.onMove);
@@ -50,61 +51,63 @@ window.GearCreateTool = {
       this.cost()
     );
   },
-  // ----- helpers -----
+
+  /* ---------- helpers ---------- */
   startPreview(x, y) {
-    const tex = "images/gear-30.png";
-    const size = App.config.ballSize * App.config.gearSizeMultiplier; // visually ~8× ball
-    const scale = size / 100; // png is 100 px
-    this.previewBody = Matter.Bodies.rectangle(x, y, size, size, {
+    const size = App.config.ballSize * App.config.gearSizeMultiplier;
+    const scale = size / 100;
+    this.preview = Matter.Bodies.rectangle(x, y, size, size, {
       isStatic: true,
+      isSensor: true,
       render: {
-        sprite: { texture: tex, xScale: scale, yScale: scale },
+        sprite: { texture: "images/gear-30.png", xScale: scale, yScale: scale },
         opacity: 0.6,
       },
       label: "GearPreview",
     });
-    Matter.World.add(window.BallFall.world, this.previewBody);
+    Matter.World.add(window.BallFall.world, this.preview);
   },
-  finish(x, y) {
-    if (!this.previewBody) return;
-    Matter.World.remove(window.BallFall.world, this.previewBody);
-    const tex = "images/gear-30.png";
-    const sizePx = App.config.ballSize * App.config.gearSizeMultiplier; // overall diameter in px
-    const scale = sizePx / 100; // sprite 100 px base
 
-    /* physics parts (invisible) */
-    const parts = getScaledGearParts(scale); // circle + 30 teeth
+  finish(x, y) {
+    if (!this.preview) return;
+    Matter.World.remove(window.BallFall.world, this.preview);
+    this.preview = null;
+
+    const size = App.config.ballSize * App.config.gearSizeMultiplier;
+    const scale = size / 100;
+    const parts = getScaledGearParts(scale);
+    parts.forEach((p) => (p.render.visible = false)); // hide physics parts
 
     const body = Matter.Body.create({
       parts,
-      isStatic: false, // must be dynamic to rotate
+      isStatic: true, // ← real fix: static, no infinite-mass dynamics
       frictionAir: 0,
       label: "Gear",
-      render: { sprite: { texture: tex, xScale: scale, yScale: scale } },
+      render: {
+        sprite: { texture: "images/gear-30.png", xScale: scale, yScale: scale },
+      },
     });
-    body.origin = { x, y }; // remember anchor for pin-back
-    Matter.Body.setPosition(body, body.origin);
+    body.origin = { x, y };
     body.isGear = true;
     body.spinDir = this.selectedType === "gear-cw" ? 1 : -1;
 
+    Matter.Body.setPosition(body, body.origin);
     Matter.World.add(window.BallFall.world, body);
 
-    // persistence
-    const id = App.Persistence.saveGear({
-      id: null,
+    // persist & animate
+    body.persistenceId = App.Persistence.saveGear({
       type: this.selectedType,
       x,
       y,
     });
-    body.persistenceId = id;
+    // gear.js will pick it up in the afterAdd hook
 
-    this.previewBody = null;
     this.state = 0;
   },
+
   cancel() {
-    if (this.previewBody)
-      Matter.World.remove(window.BallFall.world, this.previewBody);
-    this.previewBody = null;
+    if (this.preview) Matter.World.remove(window.BallFall.world, this.preview);
+    this.preview = null;
     this.state = 0;
   },
 };

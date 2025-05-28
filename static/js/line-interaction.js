@@ -155,63 +155,40 @@
 
   // Modified getLineAtPoint: if the point is inside any compactor part,
   // return all bodies with that persistenceId.
+  // --- hit-testing helper : returns body (or array) under point -------------
   function getLineAtPoint(x, y) {
     if (!window.BallFall || !window.BallFall.world) return null;
     const point = { x, y };
     const bodies = Matter.Composite.allBodies(window.BallFall.world);
-    // First check for any compactor part hit.
-    for (let body of bodies) {
-      if (body.isCompactor && body.persistenceId) {
-        // Use the first part check.
-        if (body.parts && body.parts.length > 1) {
-          for (let i = 1; i < body.parts.length; i++) {
-            if (Matter.Vertices.contains(body.parts[i].vertices, point)) {
-              // Found one compactor hit.
-              // Now group all bodies with the same persistenceId.
-              return bodies.filter(
-                (b) => b.isCompactor && b.persistenceId === body.persistenceId
-              );
-            }
-          }
-          // finally check gears (iterate their parts for accurate hit)
-          for (let body of bodies) {
-            if (body.isGear) {
-              if (body.parts && body.parts.length > 1) {
-                for (let i = 1; i < body.parts.length; i++) {
-                  if (Matter.Vertices.contains(body.parts[i].vertices, point))
-                    return body;
-                }
-              } else if (Matter.Vertices.contains(body.vertices, point)) {
-                return body;
-              }
-            }
-          }
-        } else {
-          if (Matter.Vertices.contains(body.vertices, point)) {
-            return bodies.filter(
-              (b) => b.isCompactor && b.persistenceId === body.persistenceId
-            );
-          }
-        }
+
+    /* 1) compactor group (unchanged) */
+    for (let b of bodies) {
+      if (b.isCompactor && b.persistenceId) {
+        const targetParts = b.parts?.length > 1 ? b.parts.slice(1) : [b];
+        if (
+          targetParts.some((p) => Matter.Vertices.contains(p.vertices, point))
+        )
+          return bodies.filter(
+            (bb) => bb.isCompactor && bb.persistenceId === b.persistenceId
+          );
       }
     }
-    if (body.isGear && body.persistenceId) {
-      return bodies.filter(
-        (b) => b.isGear && b.persistenceId === body.persistenceId
-      );
+
+    /* 2) gears */
+    for (let b of bodies) {
+      if (b.isGear) {
+        const parts = b.parts?.length > 1 ? b.parts.slice(1) : [b];
+        if (parts.some((p) => Matter.Vertices.contains(p.vertices, point)))
+          return b;
+      }
     }
 
-    // If no compactor hit, check normal lines.
-    for (let body of bodies) {
-      if (body.isLine) {
-        if (body.parts && body.parts.length > 1) {
-          for (let i = 1; i < body.parts.length; i++) {
-            if (Matter.Vertices.contains(body.parts[i].vertices, point))
-              return body;
-          }
-        } else {
-          if (Matter.Vertices.contains(body.vertices, point)) return body;
-        }
+    /* 3) normal lines */
+    for (let b of bodies) {
+      if (b.isLine) {
+        const parts = b.parts?.length > 1 ? b.parts.slice(1) : [b];
+        if (parts.some((p) => Matter.Vertices.contains(p.vertices, point)))
+          return b;
       }
     }
     return null;

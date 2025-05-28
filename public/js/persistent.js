@@ -220,11 +220,14 @@
     rebuildGears() {
       const gears = this.loadGears();
       gears.forEach((g) => {
-        const sizePx = App.config.ballSize * App.config.gearSizeMultiplier;
-        const scale = sizePx / 100;
+        const size = App.config.ballSize * App.config.gearSizeMultiplier;
+        const scale = size / 100;
+        const parts = getScaledGearParts(scale);
+        parts.forEach((p) => (p.render.visible = false));
+
         const body = Matter.Body.create({
-          parts: getScaledGearParts(scale),
-          isStatic: false,
+          parts,
+          isStatic: true,
           frictionAir: 0,
           label: "Gear",
           render: {
@@ -237,11 +240,12 @@
         });
         body.origin = { x: g.x, y: g.y };
         Matter.Body.setPosition(body, body.origin);
-
         body.isGear = true;
         body.spinDir = g.type === "gear-cw" ? 1 : -1;
         body.persistenceId = g.id;
+
         Matter.World.add(window.BallFall.world, body);
+        // gear.js picks it up and starts its GSAP rotation
       });
     },
 
