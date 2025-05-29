@@ -55,6 +55,15 @@ window.App = {
         maxSpeed: 500,
       },
     },
+    /* --- Gear settings ---------------------------------------------------- */
+    gearRotationDuration: 30000, // ← one rev every 30 s
+    gearTypes: {
+      // meta for future use
+      "gear-cw": { dir: 1, image: window.assetBase + "images/gear-30.png" },
+      "gear-ccw": { dir: -1, image: window.assetBase + "images/gear-30.png" },
+    },
+    gearSizeMultiplier: 4.5,
+
     coins: 111, //Starting coins for when app first loads and there's nothing in storage
     costs: {
       straight: 5,
@@ -62,6 +71,8 @@ window.App = {
       launcher: 2000,
       "fast-launcher": 5000,
       "insta-launcher": 25000,
+      "gear-cw": 300,
+      "gear-ccw": 300,
     },
     goalMinSpeed: 0.5, //Speed balls must be traveling to trigger the goal
 
@@ -69,18 +80,19 @@ window.App = {
     spawnCooldown: 250, // 0.25 sec cooldown between manual spawns
     autoClickerCost: 200, // Cost to unlock auto spawner
     speedUpgradeCosts: {
-      1: 2500,
-      2: 10000,
-      3: 40000,
-      4: 160000,
-      5: 640000,
-      6: 256000,
-      7: 1000000,
-      8: 2000000,
-      9: 4000000,
-      10: 8000000,
-      11: 16000000,
-      12: 32000000,
+      // 1: every 2.2, 2: 1.1, 3: 1.8/s, 4: 3.6/s
+      1: 500,
+      2: 1250,
+      3: 3200,
+      4: 8000,
+      5: 20000,
+      6: 50000,
+      7: 125000,
+      8: 500000,
+      9: 1000000,
+      10: 4000000,
+      11: 8000000,
+      12: 16000000,
     },
     maxUnlockedSpeedLevel: 0, // Initially 0; increases with upgrades
     autoClicker: false, // Flag set when auto-clicker is purchased

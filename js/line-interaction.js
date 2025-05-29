@@ -19,10 +19,21 @@
   function resetLine(target) {
     applyToGroup(target, function (body) {
       // Launcher bodies
-      if (body.label === "Launcher" && body.render) {
+      if ((body.label === "Launcher" || body.isGear) && body.render) {
         if (body.render.sprite) body.render.sprite.opacity = 1;
         body.render.opacity = 1;
       }
+      /* ---- Gears ---- */
+      if (body.isGear && body.parts && body.parts.length > 1) {
+        body.parts.forEach(function (part) {
+          if (part.render) {
+            if (part.render.sprite) part.render.sprite.opacity = 1;
+            part.render.opacity = 1;
+          }
+        });
+        return;
+      }
+
       // Dotted lines
       else if (body.label === "DottedLine" && body.render) {
         body.render.fillStyle = App.config.dottedLineRender.fillStyle;
@@ -86,6 +97,10 @@
         ? App.config.costs.curved
         : App.config.costs.straight;
     }
+
+    if (b.isGear)
+      return App.config.costs[b.spinDir === 1 ? "gear-cw" : "gear-ccw"];
+
     return 0;
   }
 
@@ -151,44 +166,40 @@
 
   // Modified getLineAtPoint: if the point is inside any compactor part,
   // return all bodies with that persistenceId.
+  // --- hit-testing helper : returns body (or array) under point -------------
   function getLineAtPoint(x, y) {
     if (!window.BallFall || !window.BallFall.world) return null;
     const point = { x, y };
     const bodies = Matter.Composite.allBodies(window.BallFall.world);
-    // First check for any compactor part hit.
-    for (let body of bodies) {
-      if (body.isCompactor && body.persistenceId) {
-        // Use the first part check.
-        if (body.parts && body.parts.length > 1) {
-          for (let i = 1; i < body.parts.length; i++) {
-            if (Matter.Vertices.contains(body.parts[i].vertices, point)) {
-              // Found one compactor hit.
-              // Now group all bodies with the same persistenceId.
-              return bodies.filter(
-                (b) => b.isCompactor && b.persistenceId === body.persistenceId
-              );
-            }
-          }
-        } else {
-          if (Matter.Vertices.contains(body.vertices, point)) {
-            return bodies.filter(
-              (b) => b.isCompactor && b.persistenceId === body.persistenceId
-            );
-          }
-        }
+
+    /* 1) compactor group (unchanged) */
+    for (let b of bodies) {
+      if (b.isCompactor && b.persistenceId) {
+        const targetParts = b.parts?.length > 1 ? b.parts.slice(1) : [b];
+        if (
+          targetParts.some((p) => Matter.Vertices.contains(p.vertices, point))
+        )
+          return bodies.filter(
+            (bb) => bb.isCompactor && bb.persistenceId === b.persistenceId
+          );
       }
     }
-    // If no compactor hit, check normal lines.
-    for (let body of bodies) {
-      if (body.isLine) {
-        if (body.parts && body.parts.length > 1) {
-          for (let i = 1; i < body.parts.length; i++) {
-            if (Matter.Vertices.contains(body.parts[i].vertices, point))
-              return body;
-          }
-        } else {
-          if (Matter.Vertices.contains(body.vertices, point)) return body;
-        }
+
+    /* 2) gears */
+    for (let b of bodies) {
+      if (b.isGear) {
+        const parts = b.parts?.length > 1 ? b.parts.slice(1) : [b];
+        if (parts.some((p) => Matter.Vertices.contains(p.vertices, point)))
+          return b;
+      }
+    }
+
+    /* 3) normal lines */
+    for (let b of bodies) {
+      if (b.isLine) {
+        const parts = b.parts?.length > 1 ? b.parts.slice(1) : [b];
+        if (parts.some((p) => Matter.Vertices.contains(p.vertices, point)))
+          return b;
       }
     }
     return null;
@@ -280,10 +291,13 @@
       App.Persistence.deleteCompactor(target[0].persistenceId);
     } else {
       Matter.Composite.remove(window.BallFall.world, target, true);
-      if (target.label === "Launcher")
+      if (target.isGear) {
+        App.Persistence.deleteGear(target.persistenceId);
+      } else if (target.label === "Launcher") {
         App.Persistence.deleteLauncher(target.persistenceId);
-      else if (target.persistenceId)
+      } else if (target.persistenceId) {
         App.Persistence.deleteLine(target.persistenceId);
+      }
     }
   });
 
@@ -340,6 +354,7 @@
     pendingTarget = null;
     hidePreview();
   });
+
   /* --- expose preview helper so other modules (e.g. auto-clicker) can reuse it --- */
   window.showRefundPreview = (amt, x, y) =>
     createNotification(`+ ${amt} coins`, x, y, 0.4);

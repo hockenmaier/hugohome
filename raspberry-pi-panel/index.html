@@ -591,7 +591,7 @@ table {
 <p>I created this panel display in 2026 to control much of the home automation I used in my Studio City apartment. Mainly a hardware project, I designed and 3D-printed a case and frame for the touchscreen and raspberry pi microcomputer in order to mount them to the wall. The software running the control panel is SaaS, but I did write a custom html wrapper to control the orientation and settings of the site, which is available on the github linked above.</p>
 <p>Update in 2025: This panel is still my main view into my home automation in my new house in Sherman Oaks, almost 10 years in with no modification!</p>
 <p>Here&rsquo;s a video to see the panel in action:</p>
-<h2 id="hahahugoshortcode24s0hbhb">
+<h2 id="hahahugoshortcode23s0hbhb">
     <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
       <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/iFGmm-ijJvE?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"></iframe>
     </div>
@@ -896,6 +896,8 @@ hdmi_cvt 800 480 60 6 0 0 0
             <script src="https://hockenworks.com/js/matter-wrap.min.js"></script>
             <script src="https://hockenworks.com/js/ball-machine-app.js"></script>
             <script src="https://hockenworks.com/js/base-simulation.js"></script>
+            
+            <script src="https://hockenworks.com/js/gear-config.js"></script>
             <script src="https://hockenworks.com/js/persistent.js"></script>
             <script src="https://hockenworks.com/js/text.js"></script>
             <script src="https://hockenworks.com/js/base-drawing-tool.js"></script>
@@ -911,6 +913,8 @@ hdmi_cvt 800 480 60 6 0 0 0
             <script src="https://hockenworks.com/js/launcher-create.js"></script>
             <script src="https://hockenworks.com/js/compactor-create.js"></script>
             <script src="https://hockenworks.com/js/compactor.js"></script>
+            <script src="https://hockenworks.com/js/gear-create.js"></script>
+            <script src="https://hockenworks.com/js/gear.js"></script>
             <script src="https://hockenworks.com/js/game.js"></script>
             <script src="https://hockenworks.com/js/goal.js"></script>
             <script src="https://hockenworks.com/js/spawner.js"></script>
@@ -1219,6 +1223,22 @@ hdmi_cvt 800 480 60 6 0 0 0
       </div>
       
       <div class="toggle-wrapper">
+        <img src="https://hockenworks.com/images/gear-clockwise-mode.png"
+             id="toggleGearCW" class="line-toggle" alt="Gear CW">
+        <div class="cost-label">
+          <img src="https://hockenworks.com/images/coin-cost.png" alt="Coin"> 300
+        </div>
+      </div>
+      
+      <div class="toggle-wrapper">
+        <img src="https://hockenworks.com/images/gear-counterclockwise-mode.png"
+             id="toggleGearCCW" class="line-toggle" alt="Gear CCW">
+        <div class="cost-label">
+          <img src="https://hockenworks.com/images/coin-cost.png" alt="Coin"> 300
+        </div>
+      </div>
+      
+      <div class="toggle-wrapper">
         <img src="https://hockenworks.com/images/DKannon250-mode.png"
         id="toggleLauncher" class="line-toggle" alt="Launcher" />
         <div class="cost-label">
@@ -1247,6 +1267,8 @@ hdmi_cvt 800 480 60 6 0 0 0
           <img src="https://hockenworks.com/images/coin-cost.png" alt="Coin" /> 1000000
         </div>
       </div>
+      
+
     </div>
   </div>
   
@@ -1267,7 +1289,9 @@ hdmi_cvt 800 480 60 6 0 0 0
         launcherBtn = document.getElementById("toggleLauncher"),
         fastLauncherBtn = document.getElementById("toggleFastLauncher"),
         instaLauncherBtn = document.getElementById("toggleInstaLauncher"),
-        compactorBtn = document.getElementById("toggleCompactor"); 
+        compactorBtn = document.getElementById("toggleCompactor"),
+        gearCWBtn     = document.getElementById("toggleGearCW"),
+        gearCCWBtn    = document.getElementById("toggleGearCCW");
 
       const FLASH_DURATION = 100,
         FLASH_TIMES = 6;
@@ -1308,6 +1332,7 @@ hdmi_cvt 800 480 60 6 0 0 0
 
         
         if (newMode !== 'launcher') window.LauncherCreateTool.selectedType = null;
+        if (newMode !== 'gear')      window.GearCreateTool.selectedType     = null;
         
 
 
@@ -1334,6 +1359,12 @@ hdmi_cvt 800 480 60 6 0 0 0
         } else if (newMode === "compactor") {
             compactorBtn.classList.add("selected");
             window.App.modules.lines.setMode("compactor");
+        } else if (newMode === "gear") {
+            if (!launcherType) launcherType = "gear-cw";        
+            window.GearCreateTool.selectedType = launcherType;
+            if (launcherType === "gear-cw") gearCWBtn.classList.add("selected");
+            else gearCCWBtn.classList.add("selected");
+            window.App.modules.lines.setMode("gear");
         } else {
           
           window.App.modules.lines.setMode("none");
@@ -1398,6 +1429,16 @@ hdmi_cvt 800 480 60 6 0 0 0
         setActive(
             window.App.modules.lines.getMode() === "compactor" ? "none" : "compactor"
         );
+      });
+      gearCWBtn.addEventListener("click", e=>{
+        e.stopPropagation();
+        const m = App.modules.lines.getMode(), t = GearCreateTool.selectedType;
+        setActive( (m==="gear" && t==="gear-cw") ? "none" : "gear", "gear-cw");
+      });
+      gearCCWBtn.addEventListener("click", e=>{
+        e.stopPropagation();
+        const m = App.modules.lines.getMode(), t = GearCreateTool.selectedType;
+        setActive( (m==="gear" && t==="gear-ccw") ? "none" : "gear", "gear-ccw");
       });
 
       setInterval(updateDropRateDisplay, 1000);

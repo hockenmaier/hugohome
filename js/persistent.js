@@ -198,6 +198,72 @@
       });
     },
 
+    /* ------------- Gear persistence ------------- */
+    saveGear(data) {
+      if (!data.id)
+        data.id = Date.now() + "-" + Math.random().toString(36).substr(2, 9);
+      const arr = App.Storage.getItem(pageKey("gears"), []);
+      arr.push(data);
+      App.Storage.setItem(pageKey("gears"), arr);
+      return data.id;
+    },
+    loadGears() {
+      return App.Storage.getItem(pageKey("gears"), []);
+    },
+    deleteGear(id) {
+      let arr = App.Storage.getItem(pageKey("gears"), []);
+      App.Storage.setItem(
+        pageKey("gears"),
+        arr.filter((g) => g.id !== id)
+      );
+    },
+    rebuildGears() {
+      const gears = this.loadGears();
+      gears.forEach((g) => {
+        const size = App.config.ballSize * App.config.gearSizeMultiplier;
+        const scale = size / 100;
+        const parts = getScaledGearParts(scale);
+        parts.forEach((p) => (p.render.visible = false));
+
+        const spriteScale = scale; // matches preview
+
+        const imgPart = Matter.Bodies.rectangle(0, 0, 100, 100, {
+          isStatic: true,
+          isSensor: true,
+          render: {
+            sprite: {
+              texture: "images/gear-30.png",
+              xScale: spriteScale,
+              yScale: spriteScale,
+            },
+          },
+        });
+        parts.push(imgPart);
+
+        const body = Matter.Body.create({
+          parts,
+          isStatic: true,
+          frictionAir: 0,
+          label: "Gear",
+          render: {
+            sprite: {
+              texture: "images/gear-30.png",
+              xScale: scale,
+              yScale: scale,
+            },
+          },
+        });
+        body.origin = { x: g.x, y: g.y };
+        Matter.Body.setPosition(body, body.origin);
+        body.isGear = true;
+        body.spinDir = g.type === "gear-cw" ? 1 : -1;
+        body.persistenceId = g.id;
+
+        Matter.World.add(window.BallFall.world, body);
+        // gear.js picks it up and starts its GSAP rotation
+      });
+    },
+
     // AutoClicker persistence:
     saveAutoClicker: function (autoData) {
       App.Storage.setItem(pageKey("autoclicker"), autoData);
@@ -264,5 +330,6 @@
     App.Persistence.rebuildLines();
     App.Persistence.rebuildLaunchers();
     App.Persistence.rebuildCompactors();
+    App.Persistence.rebuildGears();
   });
 })();

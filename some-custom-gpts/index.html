@@ -916,6 +916,8 @@ An experimental “AI generated RPG” where you play as “The Boy” who reali
             <script src="https://hockenworks.com/js/matter-wrap.min.js"></script>
             <script src="https://hockenworks.com/js/ball-machine-app.js"></script>
             <script src="https://hockenworks.com/js/base-simulation.js"></script>
+            
+            <script src="https://hockenworks.com/js/gear-config.js"></script>
             <script src="https://hockenworks.com/js/persistent.js"></script>
             <script src="https://hockenworks.com/js/text.js"></script>
             <script src="https://hockenworks.com/js/base-drawing-tool.js"></script>
@@ -931,6 +933,8 @@ An experimental “AI generated RPG” where you play as “The Boy” who reali
             <script src="https://hockenworks.com/js/launcher-create.js"></script>
             <script src="https://hockenworks.com/js/compactor-create.js"></script>
             <script src="https://hockenworks.com/js/compactor.js"></script>
+            <script src="https://hockenworks.com/js/gear-create.js"></script>
+            <script src="https://hockenworks.com/js/gear.js"></script>
             <script src="https://hockenworks.com/js/game.js"></script>
             <script src="https://hockenworks.com/js/goal.js"></script>
             <script src="https://hockenworks.com/js/spawner.js"></script>
@@ -1239,6 +1243,22 @@ An experimental “AI generated RPG” where you play as “The Boy” who reali
       </div>
       
       <div class="toggle-wrapper">
+        <img src="https://hockenworks.com/images/gear-clockwise-mode.png"
+             id="toggleGearCW" class="line-toggle" alt="Gear CW">
+        <div class="cost-label">
+          <img src="https://hockenworks.com/images/coin-cost.png" alt="Coin"> 300
+        </div>
+      </div>
+      
+      <div class="toggle-wrapper">
+        <img src="https://hockenworks.com/images/gear-counterclockwise-mode.png"
+             id="toggleGearCCW" class="line-toggle" alt="Gear CCW">
+        <div class="cost-label">
+          <img src="https://hockenworks.com/images/coin-cost.png" alt="Coin"> 300
+        </div>
+      </div>
+      
+      <div class="toggle-wrapper">
         <img src="https://hockenworks.com/images/DKannon250-mode.png"
         id="toggleLauncher" class="line-toggle" alt="Launcher" />
         <div class="cost-label">
@@ -1267,6 +1287,8 @@ An experimental “AI generated RPG” where you play as “The Boy” who reali
           <img src="https://hockenworks.com/images/coin-cost.png" alt="Coin" /> 1000000
         </div>
       </div>
+      
+
     </div>
   </div>
   
@@ -1287,7 +1309,9 @@ An experimental “AI generated RPG” where you play as “The Boy” who reali
         launcherBtn = document.getElementById("toggleLauncher"),
         fastLauncherBtn = document.getElementById("toggleFastLauncher"),
         instaLauncherBtn = document.getElementById("toggleInstaLauncher"),
-        compactorBtn = document.getElementById("toggleCompactor"); 
+        compactorBtn = document.getElementById("toggleCompactor"),
+        gearCWBtn     = document.getElementById("toggleGearCW"),
+        gearCCWBtn    = document.getElementById("toggleGearCCW");
 
       const FLASH_DURATION = 100,
         FLASH_TIMES = 6;
@@ -1328,6 +1352,7 @@ An experimental “AI generated RPG” where you play as “The Boy” who reali
 
         
         if (newMode !== 'launcher') window.LauncherCreateTool.selectedType = null;
+        if (newMode !== 'gear')      window.GearCreateTool.selectedType     = null;
         
 
 
@@ -1354,6 +1379,12 @@ An experimental “AI generated RPG” where you play as “The Boy” who reali
         } else if (newMode === "compactor") {
             compactorBtn.classList.add("selected");
             window.App.modules.lines.setMode("compactor");
+        } else if (newMode === "gear") {
+            if (!launcherType) launcherType = "gear-cw";        
+            window.GearCreateTool.selectedType = launcherType;
+            if (launcherType === "gear-cw") gearCWBtn.classList.add("selected");
+            else gearCCWBtn.classList.add("selected");
+            window.App.modules.lines.setMode("gear");
         } else {
           
           window.App.modules.lines.setMode("none");
@@ -1418,6 +1449,16 @@ An experimental “AI generated RPG” where you play as “The Boy” who reali
         setActive(
             window.App.modules.lines.getMode() === "compactor" ? "none" : "compactor"
         );
+      });
+      gearCWBtn.addEventListener("click", e=>{
+        e.stopPropagation();
+        const m = App.modules.lines.getMode(), t = GearCreateTool.selectedType;
+        setActive( (m==="gear" && t==="gear-cw") ? "none" : "gear", "gear-cw");
+      });
+      gearCCWBtn.addEventListener("click", e=>{
+        e.stopPropagation();
+        const m = App.modules.lines.getMode(), t = GearCreateTool.selectedType;
+        setActive( (m==="gear" && t==="gear-ccw") ? "none" : "gear", "gear-ccw");
       });
 
       setInterval(updateDropRateDisplay, 1000);
