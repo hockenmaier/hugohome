@@ -17,7 +17,12 @@ tags:
   ]
 ---
 
-Here's a peek at my first major board game creation.
+Here's a peek at my first major board game creation!
+
+{{< image-medium
+    src="images/bloom-or-bust-characters.jpg"
+    alt=""
+    caption="The Characters" >}}
 
 I've made a few clones or slight alterations of games I like before (links to nope and hocken pocket blokus) but blue more bust is my first attempt at something of my own design and very high production quality.
 

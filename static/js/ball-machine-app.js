@@ -69,8 +69,8 @@ window.App = {
       straight: 5,
       curved: 50,
       launcher: 2000,
-      "fast-launcher": 5000,
-      "insta-launcher": 25000,
+      "fast-launcher": 10000,
+      "insta-launcher": 50000,
       "gear-cw": 300,
       "gear-ccw": 300,
     },
@@ -81,18 +81,18 @@ window.App = {
     autoClickerCost: 200, // Cost to unlock auto spawner
     speedUpgradeCosts: {
       // 1: every 2.2, 2: 1.1, 3: 1.8/s, 4: 3.6/s
-      1: 500,
-      2: 1250,
-      3: 3200,
-      4: 8000,
-      5: 20000,
-      6: 50000,
-      7: 125000,
-      8: 500000,
-      9: 1000000,
-      10: 4000000,
-      11: 8000000,
-      12: 16000000,
+      1: 800,
+      2: 2000,
+      3: 8000,
+      4: 50000,
+      5: 200000,
+      6: 500000,
+      7: 1000000,
+      8: 4000000,
+      9: 16000000,
+      10: 40000000,
+      11: 80000000,
+      12: 160000000,
     },
     maxUnlockedSpeedLevel: 0, // Initially 0; increases with upgrades
     autoClicker: false, // Flag set when auto-clicker is purchased
@@ -174,7 +174,7 @@ window.App = {
 
     // Compactor globals.
     compactor: {
-      cost: 1000000,
+      cost: 250000,
       naturalDimensions: {
         left: { width: 475, height: 811 },
         middle: { width: 470, height: 811 },

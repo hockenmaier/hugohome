@@ -76,7 +76,7 @@
             
 
             
-                <link href="http://localhost:1313/tags/3d-printing/" rel="self" type="text/html"/>
+                <link href="https://hockenworks.com/tags/3d-printing/" rel="self" type="text/html"/>
             
         
             
@@ -84,7 +84,7 @@
             
 
             
-                <link href="http://localhost:1313/tags/3d-printing/rss.xml" rel="alternate" type="application/rss+xml"/>
+                <link href="https://hockenworks.com/tags/3d-printing/rss.xml" rel="alternate" type="application/rss+xml"/>
             
         
 
@@ -102,7 +102,7 @@
             <lastBuildDate>2025-01-01 00:00:00 +0000 UTC</lastBuildDate>
         
 
-        <link>http://localhost:1313/tags/3d-printing/</link>
+        <link>https://hockenworks.com/tags/3d-printing/</link>
 
         
 
@@ -136,7 +136,96 @@
                 
 
                 
-                    <description><![CDATA[<p>Here&rsquo;s a peek at my first major board game creation.</p>
+                    <description><![CDATA[<p>Here&rsquo;s a peek at my first major board game creation!</p>
+<div style="text-align: center; margin-bottom: 1rem;">
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<img  alt="Image description"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/bloom-or-bust-characters.jpg"   style="height: auto; max-width: 720px; width: 100%"   >
+
+
+    
+        <span style="display: block; font-style: italic; margin-top: 0.5rem;">The Characters</span>
+    
+</div>
+
 <p>I&rsquo;ve made a few clones or slight alterations of games I like before (links to nope and hocken pocket blokus) but blue more bust is my first attempt at something of my own design and very high production quality.</p>
 <p>(Pics)</p>
 <p>This is a risk-taking game where players compete to take over a tree with their specific type of fruit. Trees and bees are becoming a recurring theme in my games!</p>
@@ -148,10 +237,10 @@
 ]]></description>
                 
 
-                <guid isPermaLink="false">tag:localhost:1313,2025-01-01:/bloom-or-bust/</guid>
+                <guid isPermaLink="false">tag:hockenworks.com,2025-01-01:/bloom-or-bust/</guid>
 
                 
-                    <link>http://localhost:1313/bloom-or-bust/</link>
+                    <link>https://hockenworks.com/bloom-or-bust/</link>
                 
 
                 
@@ -324,7 +413,7 @@
 
 
 
-<img   class="img-fluid "  crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/human_joystick_centered.jpg"   style="display:block; height: auto; margin:0 auto; width: 60%"   >
+<img   class="img-fluid "  crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/human_joystick_centered.jpg"   style="display:block; height: auto; margin:0 auto; width: 60%"   >
 
 
 </div>
@@ -452,7 +541,7 @@
 
 
 
-<img   class="img-fluid "  crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/human_joystick_moving.jpg"   style="display:block; height: auto; margin:0 auto; width: 60%"   >
+<img   class="img-fluid "  crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/human_joystick_moving.jpg"   style="display:block; height: auto; margin:0 auto; width: 60%"   >
 
 
 </div>
@@ -466,10 +555,10 @@
 <p>Ultimately I put the project up for others to view but have not expanded it into a full experience or released it on any marketplaces. Feel free to download the Unity project and try it on your own VR setup if you&rsquo;re curious.</p>]]></description>
                 
 
-                <guid isPermaLink="false">tag:localhost:1313,2020-01-01:/human-joystick/</guid>
+                <guid isPermaLink="false">tag:hockenworks.com,2020-01-01:/human-joystick/</guid>
 
                 
-                    <link>http://localhost:1313/human-joystick/</link>
+                    <link>https://hockenworks.com/human-joystick/</link>
                 
 
                 
@@ -578,10 +667,10 @@ hdmi_cvt 800 480 60 6 0 0 0
 </code></pre>]]></description>
                 
 
-                <guid isPermaLink="false">tag:localhost:1313,2016-01-01:/raspberry-pi-panel/</guid>
+                <guid isPermaLink="false">tag:hockenworks.com,2016-01-01:/raspberry-pi-panel/</guid>
 
                 
-                    <link>http://localhost:1313/raspberry-pi-panel/</link>
+                    <link>https://hockenworks.com/raspberry-pi-panel/</link>
                 
 
                 
@@ -639,10 +728,10 @@ Print in ABS if possible. ABS is dishwasher safe (will not warp) and PLA is not.
 <p>Soak in warm soapy water to wash it before storing.</p>]]></description>
                 
 
-                <guid isPermaLink="false">tag:localhost:1313,2014-08-24:/3d-egg-slicer/</guid>
+                <guid isPermaLink="false">tag:hockenworks.com,2014-08-24:/3d-egg-slicer/</guid>
 
                 
-                    <link>http://localhost:1313/3d-egg-slicer/</link>
+                    <link>https://hockenworks.com/3d-egg-slicer/</link>
                 
 
                 
@@ -692,10 +781,10 @@ Print two of the attached STL files (one of the mountable variety if you plan to
 <p>The hot glue lets the metal move slightly, so that one metal piece bends to touch the other when a magnet is near either side of the switch, completing the circuit between the two metal ends still sticking out.</p>]]></description>
                 
 
-                <guid isPermaLink="false">tag:localhost:1313,2013-11-25:/3d-reed-switch/</guid>
+                <guid isPermaLink="false">tag:hockenworks.com,2013-11-25:/3d-reed-switch/</guid>
 
                 
-                    <link>http://localhost:1313/3d-reed-switch/</link>
+                    <link>https://hockenworks.com/3d-reed-switch/</link>
                 
 
                 
@@ -739,10 +828,10 @@ Print two of the attached STL files (one of the mountable variety if you plan to
     </div>]]></description>
                 
 
-                <guid isPermaLink="false">tag:localhost:1313,2013-05-13:/3d-key/</guid>
+                <guid isPermaLink="false">tag:hockenworks.com,2013-05-13:/3d-key/</guid>
 
                 
-                    <link>http://localhost:1313/3d-key/</link>
+                    <link>https://hockenworks.com/3d-key/</link>
                 
 
                 
