@@ -56,6 +56,24 @@
         
     
 
+    
+
+    
+        
+    
+
+    
+
+    
+        
+    
+
+    
+
+    
+        
+    
+
 
 
 
@@ -82,7 +100,7 @@
             
 
             
-                <link href="http://localhost:1313/tags/3d-printing/" rel="self" type="text/html"/>
+                <link href="https://hockenworks.com/tags/3d-printing/" rel="self" type="text/html"/>
             
         
             
@@ -90,7 +108,7 @@
             
 
             
-                <link href="http://localhost:1313/tags/3d-printing/rss.xml" rel="alternate" type="application/rss+xml"/>
+                <link href="https://hockenworks.com/tags/3d-printing/rss.xml" rel="alternate" type="application/rss+xml"/>
             
         
 
@@ -108,7 +126,7 @@
             <lastBuildDate>2025-01-01 00:00:00 +0000 UTC</lastBuildDate>
         
 
-        <link>http://localhost:1313/tags/3d-printing/</link>
+        <link>https://hockenworks.com/tags/3d-printing/</link>
 
         
 
@@ -143,6 +161,7 @@
 
                 
                     <description><![CDATA[<p>Here&rsquo;s a peek at my first major board game creation!</p>
+<p>I&rsquo;ve made a few clones or slight enhancements of games I like before like <a href="/nope-game">Nope</a> and <a href="/hocken-pocket-blokus">Hocken-Pocket-Blokus</a>, but Bloom or Bust is my first attempt at something of my own design with very high production quality.</p>
 <div style="text-align: center; margin-bottom: 1rem;">
     
 
@@ -224,29 +243,489 @@
 
 
 
-<img  alt="Image description"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/bloom-or-bust-characters.jpg"   style="height: auto; max-width: 720px; width: 100%"   >
+<img  alt="Image description"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/bloom-or-bust-characters.jpg"   style="height: auto; max-width: 720px; width: 100%"   >
 
 
     
-        <span style="display: block; font-style: italic; margin-top: 0.5rem;">The Characters</span>
+        <span style="display: block; font-style: italic; margin-top: 0.5rem;">The Cast</span>
     
 </div>
 
-<p>I&rsquo;ve made a few clones or slight alterations of games I like before (links to nope and hocken pocket blokus) but blue more bust is my first attempt at something of my own design and very high production quality.</p>
-<p>(Pics)</p>
 <p>This is a risk-taking game where players compete to take over a tree with their specific type of fruit. Trees and bees are becoming a recurring theme in my games!</p>
 <p>All parts of this game or hand designed by me, mostly in VR with a tool called gravity Sketch, blender, and one of my favorite programmer&rsquo;s 3D tools called OpenSCAD.</p>
-<p>(Link those)</p>
+<div class="paige-row-wide">
+  <div style="display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:15px;">
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<img   class="rounded-3 w-100"  crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/bloom-or-bust-7.jpg"    >
+
+
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<img   class="rounded-3 w-100"  crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/bloom-or-bust-4.jpg"    >
+
+</div>
+</div>
+
+<div class="paige-row-wide">
+  <div style="display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:15px;">
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<img   class="rounded-3 w-100"  crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/bloom-or-bust-3.jpg"    >
+
+
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<img   class="rounded-3 w-100"  crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/bloom-or-bust-8.jpg"    >
+
+</div>
+</div>
+
 <p>Of all my models, this one takes most advantage of my multicolor BambuLab printer. All parts including the custom box which cleverly incorporates the instructions and game board itself are printed in bamboo lab Matte PLA, which in my opinion is probably the most beautiful way to print.</p>
-<p>Production is batched with 80 to 150 of each fruit or bee on a build plate, but heavily limited by the game board and latching box each requiring a separate print.</p>
-<p>I have looked into outsourcing production of this game so that I can actually distribute it but that has not happened yet since its design is so dependent on multicolor 3D printing, and most print farms would require nearly 30 bucks to produce it, let alone shipping it and my own margin. Injection molding is an option but also gets expensive with this level of detailed color, and requires remodeling in several significant ways. It still might happen. Or I might put it out on a site that lets people buy the model and print it themselves.</p>
+<p>Production is batched with 80 to 150 of each fruit or bee on a build plate, with overall production heavily limited by the game board and latching box each requiring a separate print.</p>
+<div class="paige-row-wide">
+  <div style="display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:15px;">
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<img   class="rounded-3 w-100"  crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/bloom-or-bust-2.jpg"    >
+
+
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<img   class="rounded-3 w-100"  crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/bloom-or-bust-9.jpg"    >
+
+</div>
+</div>
+
+<p>I have looked into outsourcing production of this game so that I can actually distribute it, but that has not happened yet. Its design is totally dependent on multicolor 3D printing, and most print farms would require nearly $30 just to produce it, let alone shipping it and any margin. Injection molding is an option but also gets expensive with this level of detailed color, and requires remodeling in several significant ways. It still might happen. Or I might put it out on a site that lets people buy the model and print it themselves.</p>
+<p>I&rsquo;ll post in the future about how I decide to distribute this. If you really want to buy one now, contact me - but as of now I need to charge about $100 for a set.</p>
 ]]></description>
                 
 
-                <guid isPermaLink="false">tag:localhost:1313,2025-01-01:/bloom-or-bust/</guid>
+                <guid isPermaLink="false">tag:hockenworks.com,2025-01-01:/bloom-or-bust/</guid>
 
                 
-                    <link>http://localhost:1313/bloom-or-bust/</link>
+                    <link>https://hockenworks.com/bloom-or-bust/</link>
                 
 
                 
@@ -254,7 +733,580 @@
                 
 
                 
-                    <title>Bloom Or Bust</title>
+                    <title>Bloom Or Bust!</title>
+                
+            </item>
+        
+            <item>
+                
+                
+                
+                
+                
+                
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+                
+
+                
+
+                
+
+                
+                    <description><![CDATA[<p>This was a board game I &ldquo;cloned&rdquo; back in 2015, but newly redesigned in 2024 with resized pieces and a self-contained custom game box and instructions printed right into the box.</p>
+<p>I love small games that travel well, and this game is about the same depth and nearly 1/4th the area of the original box - thus &ldquo;pocket&rdquo;. It&rsquo;s a snug fit but nicely sectioned out for all pieces. Have fun!</p>
+<div class="paige-row-wide">
+  <div style="display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:15px;">
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<img   class="rounded-3 w-100"  crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/hocken-pocket-blokus-1.png"    >
+
+
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<img   class="rounded-3 w-100"  crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/hocken-pocket-blokus-2.png"    >
+
+</div>
+</div>
+
+<h2 id="hocken-pocket-blokus-print-instructions">Hocken-Pocket-Blokus Print Instructions</h2>
+<p>If you have a multi-filament printer, check out the new 3mf for &ldquo;Hocken Pocket Blokus&rdquo; - a self contained full blokus game and box with a hinged lid, and game instructions printed into the box.</p>
+<p>You can also print the lid and box STLs separately, but if you choose to do that, remember: the pocket version that the box and lid are made for requires scaling the board and pieces: X scaled to 70%, Y scaled to 70% and Z scaled to 115%.</p>
+<h2 id="original-print-instructions">Original Print Instructions</h2>
+<p>To print the board, print 4 of the &ldquo;Playing Board Quarter&rdquo; file. These should have the right level of tolerance to fit snugly but not too tight.</p>
+<p>To print the pieces, you can either use the full plate set of 21 pieces, or pick and choose from the individual files. The file names represent the number of squares in each piece, as well as a word description of what the piece looks like.</p>
+<p>Make sure the board and all sets of pieces are distinct colors of plastic.</p>
+<p>Here is a link on how to play the game:</p>
+<p><a href="http://entertainment.howstuffworks.com/leisure/brain-games/blokus1.htm">http://entertainment.howstuffworks.com/leisure/brain-games/blokus1.htm</a></p>
+]]></description>
+                
+
+                <guid isPermaLink="false">tag:hockenworks.com,2024-01-03:/hocken-pocket-blokus/</guid>
+
+                
+                    <link>https://hockenworks.com/hocken-pocket-blokus/</link>
+                
+
+                
+                    <pubDate>Wed, 03 Jan 2024 00:00:00 UTC</pubDate>
+                
+
+                
+                    <title>Hocken-Pocket-Blokus</title>
+                
+            </item>
+        
+            <item>
+                
+                
+                
+                
+                
+                
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+                
+
+                
+
+                
+
+                
+                    <description><![CDATA[<p>If you like retro video games and also drinking things, you&rsquo;re in luck!
+Print them for your living room! Print them for your friends!
+I hope these characters remind you of some of your favorite series.</p>
+<p>I returned to <a href="/8-bit-coasters">this project</a> after 10 years to make more coasters, including some designs for multi-plastic printers and a reinforced 4-coaster holder!</p>
+<div class="paige-row-wide">
+  <div style="display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:15px;">
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<img   class="rounded-3 w-100"  crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/2023-8-bit-set-2.jpg"    >
+
+
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<img   class="rounded-3 w-100"  crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/2023-8-bit-set-1.jpg"    >
+
+</div>
+</div>
+
+<div class="paige-row-wide">
+  <div style="display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:15px;">
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<img   class="rounded-3 w-100"  crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/2023-8-bit-set-3.jpg"    >
+
+
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<img   class="rounded-3 w-100"  crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/2023-8-bit-set-4.jpg"    >
+
+</div>
+</div>
+
+<p>It was super fun returning to this project! I was able to fix a few things that I had noticed failing over the years, like the new reinforced sides to the &ldquo;? Block&rdquo; holder. Now that multi-color prints are proliferating more widely, I&rsquo;m hoping people can use the new colored files - they really pop with the Silk+Matte PLA combo I used here. Links to those filaments:</p>
+<p><a href="https://us.store.bambulab.com/products/pla-matte">https://us.store.bambulab.com/products/pla-matte</a>
+<a href="https://us.store.bambulab.com/products/pla-silk-upgrade">https://us.store.bambulab.com/products/pla-silk-upgrade</a></p>
+<p>Download on Thingiverse:
+<a href="https://www.thingiverse.com/thing:6158533">https://www.thingiverse.com/thing:6158533</a></p>
+<p>If you have a Bambulab printer, there is an included .3mf file with coloring and print settings ready to go!</p>
+<p>Here&rsquo;s the original thing: <a href="https://www.thingiverse.com/thing:115150">https://www.thingiverse.com/thing:115150</a></p>
+<p>Also pictured (third to last picture) are 18 of my favorite remixed coasters from my original thing. Find them in the remixes of the link above!</p>
+<p>I&rsquo;ve included an openscad file for customizing multiple sizes of pixel art for your own designs, based on the awesome customizable version by ahtly here:
+<a href="http://www.thingiverse.com/thing:139754">http://www.thingiverse.com/thing:139754</a></p>
+]]></description>
+                
+
+                <guid isPermaLink="false">tag:hockenworks.com,2023-08-06:/8-bit-coasters-10-year/</guid>
+
+                
+                    <link>https://hockenworks.com/8-bit-coasters-10-year/</link>
+                
+
+                
+                    <pubDate>Sun, 06 Aug 2023 00:00:00 UTC</pubDate>
+                
+
+                
+                    <title>8-Bit Videogame Coasters, 10 Year Anniversary Edition</title>
                 
             </item>
         
@@ -419,7 +1471,7 @@
 
 
 
-<img   class="img-fluid "  crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/human_joystick_centered.jpg"   style="display:block; height: auto; margin:0 auto; width: 60%"   >
+<img   class="img-fluid "  crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/human_joystick_centered.jpg"   style="display:block; height: auto; margin:0 auto; width: 60%"   >
 
 
 </div>
@@ -547,7 +1599,7 @@
 
 
 
-<img   class="img-fluid "  crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/human_joystick_moving.jpg"   style="display:block; height: auto; margin:0 auto; width: 60%"   >
+<img   class="img-fluid "  crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/human_joystick_moving.jpg"   style="display:block; height: auto; margin:0 auto; width: 60%"   >
 
 
 </div>
@@ -561,10 +1613,10 @@
 <p>Ultimately I put the project up for others to view but have not expanded it into a full experience or released it on any marketplaces. Feel free to download the Unity project and try it on your own VR setup if you&rsquo;re curious.</p>]]></description>
                 
 
-                <guid isPermaLink="false">tag:localhost:1313,2020-01-01:/human-joystick/</guid>
+                <guid isPermaLink="false">tag:hockenworks.com,2020-01-01:/human-joystick/</guid>
 
                 
-                    <link>http://localhost:1313/human-joystick/</link>
+                    <link>https://hockenworks.com/human-joystick/</link>
                 
 
                 
@@ -611,7 +1663,7 @@
 <p>I created this panel display in 2026 to control much of the home automation I used in my Studio City apartment. Mainly a hardware project, I designed and 3D-printed a case and frame for the touchscreen and raspberry pi microcomputer in order to mount them to the wall. The software running the control panel is SaaS, but I did write a custom html wrapper to control the orientation and settings of the site, which is available on the github linked above.</p>
 <p>Update in 2025: This panel is still my main view into my home automation in my new house in Sherman Oaks, almost 10 years in with no modification!</p>
 <p>Here&rsquo;s a video to see the panel in action:</p>
-<h2 id="hahahugoshortcode24s0hbhb">
+<h2 id="hahahugoshortcode26s0hbhb">
     <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
       <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/iFGmm-ijJvE?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"></iframe>
     </div>
@@ -673,10 +1725,10 @@ hdmi_cvt 800 480 60 6 0 0 0
 </code></pre>]]></description>
                 
 
-                <guid isPermaLink="false">tag:localhost:1313,2016-01-01:/raspberry-pi-panel/</guid>
+                <guid isPermaLink="false">tag:hockenworks.com,2016-01-01:/raspberry-pi-panel/</guid>
 
                 
-                    <link>http://localhost:1313/raspberry-pi-panel/</link>
+                    <link>https://hockenworks.com/raspberry-pi-panel/</link>
                 
 
                 
@@ -788,7 +1840,7 @@ hdmi_cvt 800 480 60 6 0 0 0
 
 
 
-<img  alt="nope"   class="rounded-3 w-100"  crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/nope-1.jpg"    >
+<img  alt="nope"   class="rounded-3 w-100"  crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/nope-1.jpg"    >
 
 
       
@@ -863,7 +1915,7 @@ hdmi_cvt 800 480 60 6 0 0 0
 
 
 
-<img  alt="nope"   class="rounded-3 w-100"  crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/nope-2.jpg"    >
+<img  alt="nope"   class="rounded-3 w-100"  crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/nope-2.jpg"    >
 
 </div>
 </div>
@@ -942,7 +1994,7 @@ hdmi_cvt 800 480 60 6 0 0 0
 
 
 
-<img  alt="nope"   class="rounded-3 w-100"  crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/nope-3.jpg"    >
+<img  alt="nope"   class="rounded-3 w-100"  crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/nope-3.jpg"    >
 
 
       
@@ -1017,7 +2069,7 @@ hdmi_cvt 800 480 60 6 0 0 0
 
 
 
-<img  alt="nope"   class="rounded-3 w-100"  crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/nope-4.jpg"    >
+<img  alt="nope"   class="rounded-3 w-100"  crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/nope-4.jpg"    >
 
 </div>
 </div>
@@ -1036,13 +2088,13 @@ hdmi_cvt 800 480 60 6 0 0 0
 <a href="https://cdn.1j1ju.com/medias/17/c3/3c-no-thanks-rulebook.pdf">https://cdn.1j1ju.com/medias/17/c3/3c-no-thanks-rulebook.pdf</a></p>
 <p>The 6-8 player instructions are almost exactly the same as the 3-5 player game:
 -All players still receive 11 tokens at the beginning of the game.
--play with the 3-46 deck, shuffle the deck, and remove 11 cards instead of 9 cards before playing.</p>]]></description>
+-Play with the 3-46 deck, shuffle the deck, and remove 11 cards instead of 9 cards before playing.</p>]]></description>
                 
 
-                <guid isPermaLink="false">tag:localhost:1313,2015-01-19:/nope-game/</guid>
+                <guid isPermaLink="false">tag:hockenworks.com,2015-01-19:/nope-game/</guid>
 
                 
-                    <link>http://localhost:1313/nope-game/</link>
+                    <link>https://hockenworks.com/nope-game/</link>
                 
 
                 
@@ -1100,10 +2152,10 @@ Print in ABS if possible. ABS is dishwasher safe (will not warp) and PLA is not.
 <p>Soak in warm soapy water to wash it before storing.</p>]]></description>
                 
 
-                <guid isPermaLink="false">tag:localhost:1313,2014-08-24:/3d-egg-slicer/</guid>
+                <guid isPermaLink="false">tag:hockenworks.com,2014-08-24:/3d-egg-slicer/</guid>
 
                 
-                    <link>http://localhost:1313/3d-egg-slicer/</link>
+                    <link>https://hockenworks.com/3d-egg-slicer/</link>
                 
 
                 
@@ -1153,10 +2205,10 @@ Print two of the attached STL files (one of the mountable variety if you plan to
 <p>The hot glue lets the metal move slightly, so that one metal piece bends to touch the other when a magnet is near either side of the switch, completing the circuit between the two metal ends still sticking out.</p>]]></description>
                 
 
-                <guid isPermaLink="false">tag:localhost:1313,2013-11-25:/3d-reed-switch/</guid>
+                <guid isPermaLink="false">tag:hockenworks.com,2013-11-25:/3d-reed-switch/</guid>
 
                 
-                    <link>http://localhost:1313/3d-reed-switch/</link>
+                    <link>https://hockenworks.com/3d-reed-switch/</link>
                 
 
                 
@@ -1193,6 +2245,367 @@ Print two of the attached STL files (one of the mountable variety if you plan to
                 
 
                 
+                    <description><![CDATA[<blockquote>
+<p>Editor&rsquo;s note from 2025:</p>
+<p>This was my most-downloaded original 3D print, and my first design to be featured on the homepage.
+I&rsquo;ve redesigned and re-released these coasters! <a href="/8-bit-coasters-10-year">Check out the 10 year anniversary edition.</a></p>
+</blockquote>
+<p>If you like retro video games and also drinking things, you&rsquo;re in luck!
+This full set of 8 unique video game coasters comes with themed coaster holders for sets of either 4 or 8! Print them for your living room! Print them for your friends!
+I hope these characters remind you of some of your favorite series.</p>
+<div class="paige-row-wide">
+  <div style="display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:15px;">
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<img   class="rounded-3 w-100"  crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/2013-8-bit-set-1.jpg"    >
+
+
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<img   class="rounded-3 w-100"  crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/2013-8-bit-set-2.jpg"    >
+
+</div>
+</div>
+
+<div class="paige-row-wide">
+  <div style="display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:15px;">
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<img   class="rounded-3 w-100"  crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/2013-8-bit-set-3.jpg"    >
+
+
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<img   class="rounded-3 w-100"  crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/2013-8-bit-set-4.jpg"    >
+
+</div>
+</div>
+
+<p>Also find an awesome customizable version by ahtly here:
+<a href="http://www.thingiverse.com/thing:139754">http://www.thingiverse.com/thing:139754</a></p>
+]]></description>
+                
+
+                <guid isPermaLink="false">tag:hockenworks.com,2013-07-09:/8-bit-coasters/</guid>
+
+                
+                    <link>https://hockenworks.com/8-bit-coasters/</link>
+                
+
+                
+                    <pubDate>Tue, 09 Jul 2013 00:00:00 UTC</pubDate>
+                
+
+                
+                    <title>8-Bit Videogame Coasters</title>
+                
+            </item>
+        
+            <item>
+                
+                
+                
+                
+                
+                
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+                
+
+                
+
+                
+
+                
                     <description><![CDATA[<p>I 3D Modeled and printed my apartment building&rsquo;s key with the Makergear M2. I won&rsquo;t be posting the model because it IS in fact a key to my apartment. Thanks for watching!</p>
 
     <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
@@ -1200,10 +2613,10 @@ Print two of the attached STL files (one of the mountable variety if you plan to
     </div>]]></description>
                 
 
-                <guid isPermaLink="false">tag:localhost:1313,2013-05-13:/3d-key/</guid>
+                <guid isPermaLink="false">tag:hockenworks.com,2013-05-13:/3d-key/</guid>
 
                 
-                    <link>http://localhost:1313/3d-key/</link>
+                    <link>https://hockenworks.com/3d-key/</link>
                 
 
                 

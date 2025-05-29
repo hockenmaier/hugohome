@@ -20,6 +20,24 @@
         
     
 
+    
+
+    
+        
+    
+
+    
+
+    
+        
+    
+
+    
+
+    
+        
+    
+
 
 
 
@@ -46,7 +64,7 @@
             
 
             
-                <link href="http://localhost:1313/tags/makergear-m2/" rel="self" type="text/html"/>
+                <link href="https://hockenworks.com/tags/makergear-m2/" rel="self" type="text/html"/>
             
         
             
@@ -54,7 +72,7 @@
             
 
             
-                <link href="http://localhost:1313/tags/makergear-m2/rss.xml" rel="alternate" type="application/rss+xml"/>
+                <link href="https://hockenworks.com/tags/makergear-m2/rss.xml" rel="alternate" type="application/rss+xml"/>
             
         
 
@@ -69,10 +87,10 @@
         
 
         
-            <lastBuildDate>2025-01-01 00:00:00 +0000 UTC</lastBuildDate>
+            <lastBuildDate>2014-08-24 00:00:00 +0000 UTC</lastBuildDate>
         
 
-        <link>http://localhost:1313/tags/makergear-m2/</link>
+        <link>https://hockenworks.com/tags/makergear-m2/</link>
 
         
 
@@ -97,7 +115,66 @@
                 
 
                 
-                    
+
+                
+                
+
+                
+
+                
+
+                
+                    <description><![CDATA[<p>This is a working 3D-printed egg slicer! Why buy it when you can print it?</p>
+<p>Both parts are printable without support and minimal bridging.</p>
+<p>You can download the model for free on Thingiverse:
+<a href="http://www.thingiverse.com/thing:440150">http://www.thingiverse.com/thing:440150</a></p>
+
+    <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+      <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/1J0rH7o0R88?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"></iframe>
+    </div>
+
+<h2 id="instructions">Instructions</h2>
+<p>Printing:
+Print in ABS if possible. ABS is dishwasher safe (will not warp) and PLA is not. Print it hot to make it waterproof, if possible. I used .15 mm layers for the top and .25 mm layers for the base, and 30% fill for both. I would highly recommend a layer height of .15 or less for the top part, as there are a lot of small features you don&rsquo;t want your printer glossing over.</p>
+<h3 id="assembly">Assembly:</h3>
+<p>You&rsquo;ll need some small-gauge wire and pliers to finish the assembly of this thing. I used 28 gauge stainless steel wire, but anything 28 gauge or smaller and waterproof should work. Don&rsquo;t use fishing line because it flexes too much to work. Actual metal wire is needed.</p>
+<p>Loop and tie the wire through one of the four mounting holes near the four corners of the top piece. Then weave the rest of the wire through the 20 holes (10 on each side) starting with the one immediately below the mounting hole you started with. Try to keep the wire as tight as possible with each weave. Finish by tying the other end of your wire to the remaining mounting hole on the side you started on.</p>
+<p>Your wires are probably not tight enough at this point. Make sure the two ends are tied securely, and then grab your pliers. There is a small, vertical, raised wall with a notch it it between each hole on the outer edge of the top piece. Using the pliers, lift the wire into the notch on as many of the outer wire loops as possible in order to tighten it.</p>
+<h3 id="operation">Operation:</h3>
+<p>Peel your hard-boiled egg and place it on the base sideways. Push the top peice through the base and the wires. If you want your egg diced, lift it off the base, remove the top peices of the slicer, put the egg back down rotated 90 degrees and proceed to dice your egg.</p>
+<p>Soak in warm soapy water to wash it before storing.</p>]]></description>
+                
+
+                <guid isPermaLink="false">tag:hockenworks.com,2014-08-24:/3d-egg-slicer/</guid>
+
+                
+                    <link>https://hockenworks.com/3d-egg-slicer/</link>
+                
+
+                
+                    <pubDate>Sun, 24 Aug 2014 00:00:00 UTC</pubDate>
+                
+
+                
+                    <title>3D Printed Egg Slicer</title>
+                
+            </item>
+        
+            <item>
+                
+                
+                
+                
+                
+                
+                
+
+                
+
+                
+
+                
+
                 
 
                 
@@ -108,19 +185,439 @@
                 
 
                 
+                    <description><![CDATA[<p>This switch closes a circuit when a strong magnetic field is nearby. The magnet used in the video is a rare earth magnet which is stronger than your typical refrigerator magnet.</p>
+<p>Thingiverse Download: <a href="https://www.thingiverse.com/thing:190218">https://www.thingiverse.com/thing:190218</a></p>
 
-                <guid isPermaLink="false">tag:localhost:1313,2025-01-01:/8-bit-coasters/</guid>
+    <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+      <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/b4piw_LMiRg?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"></iframe>
+    </div>
+
+<h2 id="instructions">Instructions</h2>
+<p>You will need two 4mm-wide wall hooks (the kind used to mount pictures). Make sure they conduct and are attracted to magnets. You will also need a hot glue gun.
+Print two of the attached STL files (one of the mountable variety if you plan to mount it). Flatten the wall hooks with a hammer to get them completely flat, and lay the first one on on of your printed pieces leaving about a half an inch to spare from one end, and hanging out the other. Place a dab of hot glue on the end where it is hanging off. Do the same with the other half, and then place the halves together so the metal pieces are not quite touching in the middle. Seal the metal in place with hot glue.</p>
+<p>The hot glue lets the metal move slightly, so that one metal piece bends to touch the other when a magnet is near either side of the switch, completing the circuit between the two metal ends still sticking out.</p>]]></description>
+                
+
+                <guid isPermaLink="false">tag:hockenworks.com,2013-11-25:/3d-reed-switch/</guid>
 
                 
-                    <link>http://localhost:1313/8-bit-coasters/</link>
+                    <link>https://hockenworks.com/3d-reed-switch/</link>
                 
 
                 
-                    <pubDate>Wed, 01 Jan 2025 00:00:00 UTC</pubDate>
+                    <pubDate>Mon, 25 Nov 2013 00:00:00 UTC</pubDate>
                 
 
                 
-                    <title>8-Bit Videogame Coaster</title>
+                    <title>3D Printed Reed Switch</title>
+                
+            </item>
+        
+            <item>
+                
+                
+                
+                
+                
+                
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+                
+
+                
+
+                
+
+                
+                    <description><![CDATA[<blockquote>
+<p>Editor&rsquo;s note from 2025:</p>
+<p>This was my most-downloaded original 3D print, and my first design to be featured on the homepage.
+I&rsquo;ve redesigned and re-released these coasters! <a href="/8-bit-coasters-10-year">Check out the 10 year anniversary edition.</a></p>
+</blockquote>
+<p>If you like retro video games and also drinking things, you&rsquo;re in luck!
+This full set of 8 unique video game coasters comes with themed coaster holders for sets of either 4 or 8! Print them for your living room! Print them for your friends!
+I hope these characters remind you of some of your favorite series.</p>
+<div class="paige-row-wide">
+  <div style="display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:15px;">
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<img   class="rounded-3 w-100"  crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/2013-8-bit-set-1.jpg"    >
+
+
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<img   class="rounded-3 w-100"  crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/2013-8-bit-set-2.jpg"    >
+
+</div>
+</div>
+
+<div class="paige-row-wide">
+  <div style="display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:15px;">
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<img   class="rounded-3 w-100"  crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/2013-8-bit-set-3.jpg"    >
+
+
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<img   class="rounded-3 w-100"  crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/2013-8-bit-set-4.jpg"    >
+
+</div>
+</div>
+
+<p>Also find an awesome customizable version by ahtly here:
+<a href="http://www.thingiverse.com/thing:139754">http://www.thingiverse.com/thing:139754</a></p>
+]]></description>
+                
+
+                <guid isPermaLink="false">tag:hockenworks.com,2013-07-09:/8-bit-coasters/</guid>
+
+                
+                    <link>https://hockenworks.com/8-bit-coasters/</link>
+                
+
+                
+                    <pubDate>Tue, 09 Jul 2013 00:00:00 UTC</pubDate>
+                
+
+                
+                    <title>8-Bit Videogame Coasters</title>
+                
+            </item>
+        
+            <item>
+                
+                
+                
+                
+                
+                
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+                
+
+                
+
+                
+
+                
+                    <description><![CDATA[<p>I 3D Modeled and printed my apartment building&rsquo;s key with the Makergear M2. I won&rsquo;t be posting the model because it IS in fact a key to my apartment. Thanks for watching!</p>
+
+    <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+      <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/_H2W8qXUJtg?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"></iframe>
+    </div>]]></description>
+                
+
+                <guid isPermaLink="false">tag:hockenworks.com,2013-05-13:/3d-key/</guid>
+
+                
+                    <link>https://hockenworks.com/3d-key/</link>
+                
+
+                
+                    <pubDate>Mon, 13 May 2013 00:00:00 UTC</pubDate>
+                
+
+                
+                    <title>3D Printed Key</title>
                 
             </item>
         

@@ -26,6 +26,12 @@
         
     
 
+    
+
+    
+        
+    
+
 
 
 
@@ -52,7 +58,7 @@
             
 
             
-                <link href="http://localhost:1313/tags/board-games/" rel="self" type="text/html"/>
+                <link href="https://hockenworks.com/tags/board-games/" rel="self" type="text/html"/>
             
         
             
@@ -60,7 +66,7 @@
             
 
             
-                <link href="http://localhost:1313/tags/board-games/rss.xml" rel="alternate" type="application/rss+xml"/>
+                <link href="https://hockenworks.com/tags/board-games/rss.xml" rel="alternate" type="application/rss+xml"/>
             
         
 
@@ -78,7 +84,7 @@
             <lastBuildDate>2025-01-01 00:00:00 +0000 UTC</lastBuildDate>
         
 
-        <link>http://localhost:1313/tags/board-games/</link>
+        <link>https://hockenworks.com/tags/board-games/</link>
 
         
 
@@ -113,6 +119,7 @@
 
                 
                     <description><![CDATA[<p>Here&rsquo;s a peek at my first major board game creation!</p>
+<p>I&rsquo;ve made a few clones or slight enhancements of games I like before like <a href="/nope-game">Nope</a> and <a href="/hocken-pocket-blokus">Hocken-Pocket-Blokus</a>, but Bloom or Bust is my first attempt at something of my own design with very high production quality.</p>
 <div style="text-align: center; margin-bottom: 1rem;">
     
 
@@ -194,29 +201,489 @@
 
 
 
-<img  alt="Image description"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/bloom-or-bust-characters.jpg"   style="height: auto; max-width: 720px; width: 100%"   >
+<img  alt="Image description"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/bloom-or-bust-characters.jpg"   style="height: auto; max-width: 720px; width: 100%"   >
 
 
     
-        <span style="display: block; font-style: italic; margin-top: 0.5rem;">The Characters</span>
+        <span style="display: block; font-style: italic; margin-top: 0.5rem;">The Cast</span>
     
 </div>
 
-<p>I&rsquo;ve made a few clones or slight alterations of games I like before (links to nope and hocken pocket blokus) but blue more bust is my first attempt at something of my own design and very high production quality.</p>
-<p>(Pics)</p>
 <p>This is a risk-taking game where players compete to take over a tree with their specific type of fruit. Trees and bees are becoming a recurring theme in my games!</p>
 <p>All parts of this game or hand designed by me, mostly in VR with a tool called gravity Sketch, blender, and one of my favorite programmer&rsquo;s 3D tools called OpenSCAD.</p>
-<p>(Link those)</p>
+<div class="paige-row-wide">
+  <div style="display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:15px;">
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<img   class="rounded-3 w-100"  crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/bloom-or-bust-7.jpg"    >
+
+
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<img   class="rounded-3 w-100"  crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/bloom-or-bust-4.jpg"    >
+
+</div>
+</div>
+
+<div class="paige-row-wide">
+  <div style="display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:15px;">
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<img   class="rounded-3 w-100"  crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/bloom-or-bust-3.jpg"    >
+
+
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<img   class="rounded-3 w-100"  crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/bloom-or-bust-8.jpg"    >
+
+</div>
+</div>
+
 <p>Of all my models, this one takes most advantage of my multicolor BambuLab printer. All parts including the custom box which cleverly incorporates the instructions and game board itself are printed in bamboo lab Matte PLA, which in my opinion is probably the most beautiful way to print.</p>
-<p>Production is batched with 80 to 150 of each fruit or bee on a build plate, but heavily limited by the game board and latching box each requiring a separate print.</p>
-<p>I have looked into outsourcing production of this game so that I can actually distribute it but that has not happened yet since its design is so dependent on multicolor 3D printing, and most print farms would require nearly 30 bucks to produce it, let alone shipping it and my own margin. Injection molding is an option but also gets expensive with this level of detailed color, and requires remodeling in several significant ways. It still might happen. Or I might put it out on a site that lets people buy the model and print it themselves.</p>
+<p>Production is batched with 80 to 150 of each fruit or bee on a build plate, with overall production heavily limited by the game board and latching box each requiring a separate print.</p>
+<div class="paige-row-wide">
+  <div style="display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:15px;">
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<img   class="rounded-3 w-100"  crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/bloom-or-bust-2.jpg"    >
+
+
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<img   class="rounded-3 w-100"  crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/bloom-or-bust-9.jpg"    >
+
+</div>
+</div>
+
+<p>I have looked into outsourcing production of this game so that I can actually distribute it, but that has not happened yet. Its design is totally dependent on multicolor 3D printing, and most print farms would require nearly $30 just to produce it, let alone shipping it and any margin. Injection molding is an option but also gets expensive with this level of detailed color, and requires remodeling in several significant ways. It still might happen. Or I might put it out on a site that lets people buy the model and print it themselves.</p>
+<p>I&rsquo;ll post in the future about how I decide to distribute this. If you really want to buy one now, contact me - but as of now I need to charge about $100 for a set.</p>
 ]]></description>
                 
 
-                <guid isPermaLink="false">tag:localhost:1313,2025-01-01:/bloom-or-bust/</guid>
+                <guid isPermaLink="false">tag:hockenworks.com,2025-01-01:/bloom-or-bust/</guid>
 
                 
-                    <link>http://localhost:1313/bloom-or-bust/</link>
+                    <link>https://hockenworks.com/bloom-or-bust/</link>
                 
 
                 
@@ -224,7 +691,215 @@
                 
 
                 
-                    <title>Bloom Or Bust</title>
+                    <title>Bloom Or Bust!</title>
+                
+            </item>
+        
+            <item>
+                
+                
+                
+                
+                
+                
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+                
+
+                
+
+                
+
+                
+                    <description><![CDATA[<p>This was a board game I &ldquo;cloned&rdquo; back in 2015, but newly redesigned in 2024 with resized pieces and a self-contained custom game box and instructions printed right into the box.</p>
+<p>I love small games that travel well, and this game is about the same depth and nearly 1/4th the area of the original box - thus &ldquo;pocket&rdquo;. It&rsquo;s a snug fit but nicely sectioned out for all pieces. Have fun!</p>
+<div class="paige-row-wide">
+  <div style="display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:15px;">
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<img   class="rounded-3 w-100"  crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/hocken-pocket-blokus-1.png"    >
+
+
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<img   class="rounded-3 w-100"  crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/hocken-pocket-blokus-2.png"    >
+
+</div>
+</div>
+
+<h2 id="hocken-pocket-blokus-print-instructions">Hocken-Pocket-Blokus Print Instructions</h2>
+<p>If you have a multi-filament printer, check out the new 3mf for &ldquo;Hocken Pocket Blokus&rdquo; - a self contained full blokus game and box with a hinged lid, and game instructions printed into the box.</p>
+<p>You can also print the lid and box STLs separately, but if you choose to do that, remember: the pocket version that the box and lid are made for requires scaling the board and pieces: X scaled to 70%, Y scaled to 70% and Z scaled to 115%.</p>
+<h2 id="original-print-instructions">Original Print Instructions</h2>
+<p>To print the board, print 4 of the &ldquo;Playing Board Quarter&rdquo; file. These should have the right level of tolerance to fit snugly but not too tight.</p>
+<p>To print the pieces, you can either use the full plate set of 21 pieces, or pick and choose from the individual files. The file names represent the number of squares in each piece, as well as a word description of what the piece looks like.</p>
+<p>Make sure the board and all sets of pieces are distinct colors of plastic.</p>
+<p>Here is a link on how to play the game:</p>
+<p><a href="http://entertainment.howstuffworks.com/leisure/brain-games/blokus1.htm">http://entertainment.howstuffworks.com/leisure/brain-games/blokus1.htm</a></p>
+]]></description>
+                
+
+                <guid isPermaLink="false">tag:hockenworks.com,2024-01-03:/hocken-pocket-blokus/</guid>
+
+                
+                    <link>https://hockenworks.com/hocken-pocket-blokus/</link>
+                
+
+                
+                    <pubDate>Wed, 03 Jan 2024 00:00:00 UTC</pubDate>
+                
+
+                
+                    <title>Hocken-Pocket-Blokus</title>
                 
             </item>
         
@@ -328,7 +1003,7 @@
 
 
 
-<img  alt="nope"   class="rounded-3 w-100"  crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/nope-1.jpg"    >
+<img  alt="nope"   class="rounded-3 w-100"  crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/nope-1.jpg"    >
 
 
       
@@ -403,7 +1078,7 @@
 
 
 
-<img  alt="nope"   class="rounded-3 w-100"  crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/nope-2.jpg"    >
+<img  alt="nope"   class="rounded-3 w-100"  crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/nope-2.jpg"    >
 
 </div>
 </div>
@@ -482,7 +1157,7 @@
 
 
 
-<img  alt="nope"   class="rounded-3 w-100"  crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/nope-3.jpg"    >
+<img  alt="nope"   class="rounded-3 w-100"  crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/nope-3.jpg"    >
 
 
       
@@ -557,7 +1232,7 @@
 
 
 
-<img  alt="nope"   class="rounded-3 w-100"  crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/nope-4.jpg"    >
+<img  alt="nope"   class="rounded-3 w-100"  crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/nope-4.jpg"    >
 
 </div>
 </div>
@@ -576,13 +1251,13 @@
 <a href="https://cdn.1j1ju.com/medias/17/c3/3c-no-thanks-rulebook.pdf">https://cdn.1j1ju.com/medias/17/c3/3c-no-thanks-rulebook.pdf</a></p>
 <p>The 6-8 player instructions are almost exactly the same as the 3-5 player game:
 -All players still receive 11 tokens at the beginning of the game.
--play with the 3-46 deck, shuffle the deck, and remove 11 cards instead of 9 cards before playing.</p>]]></description>
+-Play with the 3-46 deck, shuffle the deck, and remove 11 cards instead of 9 cards before playing.</p>]]></description>
                 
 
-                <guid isPermaLink="false">tag:localhost:1313,2015-01-19:/nope-game/</guid>
+                <guid isPermaLink="false">tag:hockenworks.com,2015-01-19:/nope-game/</guid>
 
                 
-                    <link>http://localhost:1313/nope-game/</link>
+                    <link>https://hockenworks.com/nope-game/</link>
                 
 
                 
