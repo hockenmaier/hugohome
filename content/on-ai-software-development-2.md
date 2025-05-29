@@ -12,7 +12,7 @@ On its face this is one of the most aggressive predictions for when we will have
 
 {{< round-gallery >}}
 images/ai-2027.png|AI 2027,
-images/The-Singularity-Is-Near.JPG|Singularity Is Near
+images/The-Singularity-Is-Near.jpg|Singularity Is Near
 {{< /round-gallery >}}
 
 I won't get into my full take on AI 2027 here, but the core argument comes down to the same one I was making in my [original post on AI software development](/on-ai-software-development)

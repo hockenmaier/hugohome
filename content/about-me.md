@@ -17,7 +17,7 @@ I grew up in Ventura, California with two UCLA-engineer parents. Even though nei
 I went to school for industrial engineering at [Cal Poly SLO](https://www.calpoly.edu/), nearly double majored in economics, and then promptly moved out of both fields just like my parents had moved out of their education fields of mechanical and aerospace. Since then, after reading Ray Kurzweil's [The Singularity is Near](https://en.m.wikipedia.org/wiki/The_Singularity_Is_Near) in 2011, feeling I needed to be closer to software and realizing I liked building systems more than anything in industrial engineering, I've built a career in software and then AI.
 
 {{< image-small
-src="images/lego-crane.jpg"
+src="images/lego-crane.JPG"
 alt="A lego crane"
 caption="One of the few pictures I have from my time building robots with legos, showing a robotic crane to my Dad" >}}
 
