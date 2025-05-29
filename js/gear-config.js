@@ -7,7 +7,7 @@
 (function () {
   /* ---------- tweak here ---------- */
   window.GEAR_SETTINGS = {
-    circleRadius: 377, // inner hub radius (px before scaling)
+    circleRadius: 388, // inner hub radius (px before scaling)
     toothAngles: [
       8.002,
       20.2289,

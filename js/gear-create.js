@@ -74,7 +74,7 @@ window.GearCreateTool = {
     const parts = getScaledGearParts(scaleParts);
 
     /* hide hub + teeth (parts[0…]) – Render skips parts[0] so we need a visible extra */
-    parts.forEach((p) => (p.render.visible = false));
+    parts.forEach((p) => ((p.render.visible = false), (p.isGear = true)));
 
     /* extra sensor rectangle that carries the sprite and is actually rendered */
     const spriteScale = scaleParts;

@@ -50,6 +50,12 @@
         
     
 
+    
+
+    
+        
+    
+
 
 
 
@@ -273,6 +279,237 @@
 
                 
                     <title>8 Player Balloon Fighter</title>
+                
+            </item>
+        
+            <item>
+                
+                
+                
+                
+                
+                
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+                
+
+                
+
+                
+
+                
+                    <description><![CDATA[<p>I made my latest Unity project into a multi-application &ldquo;engine&rdquo;. I am now building and releasing two applications from one project. Let me show you how it works.</p>
+<div style="text-align: center; margin-bottom: 1rem;">
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<img  alt="Switching apps in the treekeepers engine"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/treekeepers-app-switcher-1.gif"   style="height: auto; max-width: 720px; width: 100%"   >
+
+
+    
+        <span style="display: block; font-style: italic; margin-top: 0.5rem;">Switching apps in the treekeepers engine</span>
+    
+</div>
+
+<p>I did this because I had a lot of assets and code in Treekeepers that would directly translate to a new project I was prototyping. I considered other approaches - git submodules, unity packages, just cloning my old project. After a cost-benefit writeup I decided on this.</p>
+<p>Now when I change variables, I edit a class called “Application Definition” for each application, which look like this:</p>
+<div style="text-align: center; margin-bottom: 1rem;">
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<img  alt="An applictaion definition in the editor"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/treekeepers-app-switcher-2.png"   style="height: auto; max-width: 400px; width: 100%"   >
+
+
+    
+</div>
+
+<p>My plan is to use this new &ldquo;Engine project&rdquo; to not only update multiple games with common assets and code easily, but also as an instant starting point for any new networked VR/AR prototype.</p>
+<p>As I go, any code I refactor to be generic across all projects goes in an Engine folder. Same for prefabs, materials, etc.</p>
+<p>This way, if this gets cumbersome in the future, I can make a git submodule out of everything in &ldquo;Engine&rdquo; and import that into a new project.</p>
+<p>Here are the scripts. The first runs via the Editor UI and takes variables for anything that needs to be different by project. The second file has the application definition classes you saw in the image above.</p>
+<p><a href="https://gist.github.com/hockenmaier/14d50ff0bb90aece1cc6de1b9fc5419d">https://gist.github.com/hockenmaier/14d50ff0bb90aece1cc6de1b9fc5419d</a></p>
+<script src="https://gist.github.com/hockenmaier/14d50ff0bb90aece1cc6de1b9fc5419d.js"></script>
+
+<p>The files are free to use. Check them out if you&rsquo;re in a similar situation, but be warned there are still some hard-coded things and references you’ll need to change.</p>
+<p>Has anyone taken this approach before? Curious on other&rsquo;s take or approaches to similar problems!</p>
+]]></description>
+                
+
+                <guid isPermaLink="false">tag:hockenworks.com,2023-03-17:/treekeepers-engine/</guid>
+
+                
+                    <link>https://hockenworks.com/treekeepers-engine/</link>
+                
+
+                
+                    <pubDate>Fri, 17 Mar 2023 00:00:00 UTC</pubDate>
+                
+
+                
+                    <title>Treekeepers Engine</title>
                 
             </item>
         
