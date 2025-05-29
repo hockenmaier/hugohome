@@ -41,43 +41,59 @@ And my professional persona can be found on [my linkedin](https://www.linkedin.c
 
 I post here mostly about things I'm making and occasional essays. If you’re interested in this site but don’t know where to start, try reading any of these posts that sound interesting to you. They're either peices or projects I put a lot of time into.
 
-## My Games
+## Video Games
+
+I've been developing video games on and off since 2017 or so. This has entailed more than 6 project starts and 3 finishes - those are below.
+
+&nbsp;
 
 {{< single-with-image path="/land-war">}}
 
-> Land War was my first published game. I built in in 6 months and released on Steam only, where it got a few hundred downloads and made a bit over $1000
+> Land War was my first published video game, released using Unity after many unfinished starts in HTML5 and Unreal Engine. I put myself on a tight timeline, built in 6 months in my spare time and released on Steam only, where it got a few hundred downloads and made a bit over $1000
 
 &nbsp;
 
 ---
-
-&nbsp;
-
-> Treekeepers VR was an ambitious game developement project I took on in 2021- my first published VR title and my first multiplayer title. The latter turned out to be the really hard part. Read more about it:
 
 &nbsp;
 
 {{< single-with-image path="/treekeepers-vr">}}
 
+> Treekeepers VR was an ambitious game developement project I took on in 2021- my first published VR title and my first multiplayer title. The latter turned out to be the really hard part. It's now free on two platforms. Read more about it:
+
 &nbsp;
 
 ---
 
 &nbsp;
-
-> This Website itself was my 3rd video game:
 
 {{< single-with-image path="/this-website" >}}
 
+> This Website itself was my 3rd released video game
+
 &nbsp;
 
 ---
 
-## 3D Prints
+## Top 3D Prints
+
+I've been 3D Modeling since Cal Poly and printing since I got my first printer - the MakerGearM2 - in 2013. I have dozens of designs on thingiverse, some of which got pretty popular. A lot of my best work is made up of 3D printed games and game paraphernalia.
+
+&nbsp;
 
 {{< single-with-image path="/bloom-or-bust">}}
 
 > Bloom Or Bust is my latest and best board game. Fully designed from scratch using OpenSCAD and Gravity Sketch (A very fun VR-based 3D Modeling program)
+
+&nbsp;
+
+---
+
+&nbsp;
+
+{{< single-with-image path="/nope-game">}}
+
+> My first custom game, NOPE is an expanded version of No Thanks that I released for free on Thingiverse
 
 &nbsp;
 

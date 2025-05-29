@@ -482,9 +482,9 @@ App.modules.base = (function () {
             ? 0.35
             : 0.95;
 
-        // if (other.isGear) {
-        //   pair.friction = 1;
-        // }
+        if (other.isGear) {
+          pair.friction = 0.7;
+        }
       });
     }
 

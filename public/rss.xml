@@ -172,6 +172,18 @@
         
     
 
+    
+
+    
+        
+    
+
+    
+
+    
+        
+    
+
 
 
 
@@ -3255,7 +3267,9 @@ An experimental “AI generated RPG” where you play as “The Boy” who reali
 <hr>
 <h1 id="where-to-start">Where to start</h1>
 <p>I post here mostly about things I&rsquo;m making and occasional essays. If you’re interested in this site but don’t know where to start, try reading any of these posts that sound interesting to you. They&rsquo;re either peices or projects I put a lot of time into.</p>
-<h2 id="my-games">My Games</h2>
+<h2 id="video-games">Video Games</h2>
+<p>I&rsquo;ve been developing video games on and off since 2017 or so. This has entailed more than 6 project starts and 3 finishes - those are below.</p>
+<p> </p>
 
 
 
@@ -3322,14 +3336,10 @@ This game was intended to have low art requirements and simple interaction rules
 
 
 <blockquote>
-<p>Land War was my first published game. I built in in 6 months and released on Steam only, where it got a few hundred downloads and made a bit over $1000</p>
+<p>Land War was my first published video game, released using Unity after many unfinished starts in HTML5 and Unreal Engine. I put myself on a tight timeline, built in 6 months in my spare time and released on Steam only, where it got a few hundred downloads and made a bit over $1000</p>
 </blockquote>
 <p> </p>
 <hr>
-<p> </p>
-<blockquote>
-<p>Treekeepers VR was an ambitious game developement project I took on in 2021- my first published VR title and my first multiplayer title. The latter turned out to be the really hard part. Read more about it:</p>
-</blockquote>
 <p> </p>
 
 
@@ -3474,12 +3484,12 @@ This game was intended to have low art requirements and simple interaction rules
 </article>
 
 
+<blockquote>
+<p>Treekeepers VR was an ambitious game developement project I took on in 2021- my first published VR title and my first multiplayer title. The latter turned out to be the really hard part. It&rsquo;s now free on two platforms. Read more about it:</p>
+</blockquote>
 <p> </p>
 <hr>
 <p> </p>
-<blockquote>
-<p>This Website itself was my 3rd video game:</p>
-</blockquote>
 
 
 
@@ -3545,9 +3555,14 @@ This game was intended to have low art requirements and simple interaction rules
 </article>
 
 
+<blockquote>
+<p>This Website itself was my 3rd released video game</p>
+</blockquote>
 <p> </p>
 <hr>
-<h2 id="3d-prints">3D Prints</h2>
+<h2 id="top-3d-prints">Top 3D Prints</h2>
+<p>I&rsquo;ve been 3D Modeling since Cal Poly and printing since I got my first printer - the MakerGearM2 - in 2013. I have dozens of designs on thingiverse, some of which got pretty popular. A lot of my best work is made up of 3D printed games and game paraphernalia.</p>
+<p> </p>
 
 
 
@@ -3697,6 +3712,66 @@ This game was intended to have low art requirements and simple interaction rules
 
 <blockquote>
 <p>Bloom Or Bust is my latest and best board game. Fully designed from scratch using OpenSCAD and Gravity Sketch (A very fun VR-based 3D Modeling program)</p>
+</blockquote>
+<p> </p>
+<hr>
+<p> </p>
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  
+  
+  
+
+
+
+
+
+
+<article class="latest-item mb-4" style="display:flex; align-items:flex-start;">
+  <div class="media-column">
+    <div class="media-container" style="width:300px; height:300px;">
+
+      
+        <a href="/nope-game/">
+          <img src="http://localhost:1313/images/nope-1.jpg" alt="NOPE - A 3D and 2D Printed Card Game">
+        </a>
+
+      
+
+    </div>
+  </div>
+
+  <div class="text-column" style="align-self:flex-start; margin-top:0;">
+    <h2 class="post-title" style="margin-top:0 !important; margin-bottom:0 !important;">
+      <a class="link-light" href="/nope-game/">NOPE - A 3D and 2D Printed Card Game</a>
+    </h2>
+    <div class="post-summary" style="margin-top:0; margin-bottom:.5rem;">
+      <p>This game is based off of a similar card game called &ldquo;No Thanks!&rdquo; but expands the number of players to 8.</p>
+    </div>
+    <p class="read-more text-secondary fst-italic" style="margin:0;">
+      January 19, 2015 · 2 minutes ·
+      <a href="/nope-game/">Read more →</a>
+    </p>
+  </div>
+</article>
+
+
+<blockquote>
+<p>My first custom game, NOPE is an expanded version of No Thanks that I released for free on Thingiverse</p>
 </blockquote>
 <p> </p>
 <hr>
@@ -4104,6 +4179,237 @@ This game was intended to have low art requirements and simple interaction rules
 
                 
                     <title>3D Modeling With AI</title>
+                
+            </item>
+        
+            <item>
+                
+                
+                
+                
+                
+                
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+                
+
+                
+
+                
+
+                
+                    <description><![CDATA[<p>I made my latest Unity project into a multi-application &ldquo;engine&rdquo;. I am now building and releasing two applications from one project. Let me show you how it works.</p>
+<div style="text-align: center; margin-bottom: 1rem;">
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<img  alt="Switching apps in the treekeepers engine"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/treekeepers-app-switcher-1.gif"   style="height: auto; max-width: 720px; width: 100%"   >
+
+
+    
+        <span style="display: block; font-style: italic; margin-top: 0.5rem;">Switching apps in the treekeepers engine</span>
+    
+</div>
+
+<p>I did this because I had a lot of assets and code in Treekeepers that would directly translate to a new project I was prototyping. I considered other approaches - git submodules, unity packages, just cloning my old project. After a cost-benefit writeup I decided on this.</p>
+<p>Now when I change variables, I edit a class called “Application Definition” for each application, which look like this:</p>
+<div style="text-align: center; margin-bottom: 1rem;">
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<img  alt="An applictaion definition in the editor"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/treekeepers-app-switcher-2.png"   style="height: auto; max-width: 400px; width: 100%"   >
+
+
+    
+</div>
+
+<p>My plan is to use this new &ldquo;Engine project&rdquo; to not only update multiple games with common assets and code easily, but also as an instant starting point for any new networked VR/AR prototype.</p>
+<p>As I go, any code I refactor to be generic across all projects goes in an Engine folder. Same for prefabs, materials, etc.</p>
+<p>This way, if this gets cumbersome in the future, I can make a git submodule out of everything in &ldquo;Engine&rdquo; and import that into a new project.</p>
+<p>Here are the scripts. The first runs via the Editor UI and takes variables for anything that needs to be different by project. The second file has the application definition classes you saw in the image above.</p>
+<p><a href="https://gist.github.com/hockenmaier/14d50ff0bb90aece1cc6de1b9fc5419d">https://gist.github.com/hockenmaier/14d50ff0bb90aece1cc6de1b9fc5419d</a></p>
+<script src="https://gist.github.com/hockenmaier/14d50ff0bb90aece1cc6de1b9fc5419d.js"></script>
+
+<p>The files are free to use. Check them out if you&rsquo;re in a similar situation, but be warned there are still some hard-coded things and references you’ll need to change.</p>
+<p>Has anyone taken this approach before? Curious on other&rsquo;s take or approaches to similar problems!</p>
+]]></description>
+                
+
+                <guid isPermaLink="false">tag:localhost:1313,2023-03-17:/treekeepers-engine/</guid>
+
+                
+                    <link>http://localhost:1313/treekeepers-engine/</link>
+                
+
+                
+                    <pubDate>Fri, 17 Mar 2023 00:00:00 UTC</pubDate>
+                
+
+                
+                    <title>Treekeepers Engine</title>
                 
             </item>
         
@@ -6280,6 +6586,372 @@ hdmi_cvt 800 480 60 6 0 0 0
 
                 
                     <title>Raspberry Pi Control Panel</title>
+                
+            </item>
+        
+            <item>
+                
+                
+                
+                
+                
+                
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+                
+
+                
+
+                
+
+                
+                    <description><![CDATA[<p>This game is based off of a similar card game called &ldquo;No Thanks!&rdquo; but expands the number of players to 8.</p>
+<div class="paige-row-wide">
+  <div style="display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:15px;">
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<img  alt="nope"   class="rounded-3 w-100"  crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/nope-1.jpg"    >
+
+
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<img  alt="nope"   class="rounded-3 w-100"  crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/nope-2.jpg"    >
+
+</div>
+</div>
+
+<div class="paige-row-wide">
+  <div style="display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:15px;">
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<img  alt="nope"   class="rounded-3 w-100"  crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/nope-3.jpg"    >
+
+
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<img  alt="nope"   class="rounded-3 w-100"  crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/nope-4.jpg"    >
+
+</div>
+</div>
+
+<p>Play time is about 20 minutes for the 3-5 player version, and 25-30 minutes for the 6-8 player version. Learning how to play the game takes 1-5 minutes depending on the attention span of the players. Have fun!</p>
+<p>See Thingiverse for all of the files:
+<a href="https://www.thingiverse.com/thing:643099">https://www.thingiverse.com/thing:643099</a></p>
+<h1 id="print-instructions">Print Instructions</h1>
+<p>3D-Print 88 tokens.</p>
+<p>2D-Print the 2 included PDFs back-to-back, so that the numbers appear on the one side and the identical backsides are on the back. Or, leave out the backs as they are not necessary to play the game. Cut 9 cards out of each paper when they&rsquo;re done printing, along the gray lines.</p>
+<p>It is recommended to either print on heavy duty paper, or to laminate the resulting cards.</p>
+<p>You can also choose to make your own layout with larger or smaller cards using the included zip file of images.</p>
+<p>For the 3-5 player game, print the cards numbered 3 to 35. For the 6-8 player game, print the cards numbered 3 to 46.</p>
+<h1 id="to-play">To Play:</h1>
+<p>Here is a link to the 3-5 player instructions:
+<a href="https://cdn.1j1ju.com/medias/17/c3/3c-no-thanks-rulebook.pdf">https://cdn.1j1ju.com/medias/17/c3/3c-no-thanks-rulebook.pdf</a></p>
+<p>The 6-8 player instructions are almost exactly the same as the 3-5 player game:
+-All players still receive 11 tokens at the beginning of the game.
+-play with the 3-46 deck, shuffle the deck, and remove 11 cards instead of 9 cards before playing.</p>]]></description>
+                
+
+                <guid isPermaLink="false">tag:localhost:1313,2015-01-19:/nope-game/</guid>
+
+                
+                    <link>http://localhost:1313/nope-game/</link>
+                
+
+                
+                    <pubDate>Mon, 19 Jan 2015 00:00:00 UTC</pubDate>
+                
+
+                
+                    <title>NOPE - A 3D and 2D Printed Card Game</title>
                 
             </item>
         
