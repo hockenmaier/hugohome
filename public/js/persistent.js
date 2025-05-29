@@ -223,7 +223,7 @@
         const size = App.config.ballSize * App.config.gearSizeMultiplier;
         const scale = size / 100;
         const parts = getScaledGearParts(scale);
-        parts.forEach((p) => (p.render.visible = false));
+        parts.forEach((p) => ((p.render.visible = false), (p.isGear = true)));
 
         const spriteScale = scale; // matches preview
 

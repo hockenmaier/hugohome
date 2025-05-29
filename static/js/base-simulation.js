@@ -478,7 +478,13 @@ App.modules.base = (function () {
 
         // curved lines or header text bodies -> low bounce
         pair.restitution =
-          other.label === "CurvedLine" || other.isHeader ? 0.35 : 0.95;
+          other.label === "CurvedLine" || other.isHeader || other.isGear
+            ? 0.35
+            : 0.95;
+
+        if (other.isGear) {
+          pair.friction = 0.7;
+        }
       });
     }
 
