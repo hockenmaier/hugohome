@@ -53,4 +53,4 @@ https://cdn.1j1ju.com/medias/17/c3/3c-no-thanks-rulebook.pdf
 
 The 6-8 player instructions are almost exactly the same as the 3-5 player game:
 -All players still receive 11 tokens at the beginning of the game.
--play with the 3-46 deck, shuffle the deck, and remove 11 cards instead of 9 cards before playing.
+-Play with the 3-46 deck, shuffle the deck, and remove 11 cards instead of 9 cards before playing.

@@ -3,7 +3,15 @@ title: "3D Printed Reed Switch"
 categories: ["builds"]
 date: 2013-11-25
 draft: false
-tags: ["3D Modeling", "3D Printing", "Hardware", "Experimental", Electronics]
+tags:
+  [
+    "3D Modeling",
+    "3D Printing",
+    "Hardware",
+    "Experimental",
+    Electronics,
+    "Makergear M2",
+  ]
 ---
 
 This switch closes a circuit when a strong magnetic field is nearby. The magnet used in the video is a rare earth magnet which is stronger than your typical refrigerator magnet.

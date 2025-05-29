@@ -184,6 +184,24 @@
         
     
 
+    
+
+    
+        
+    
+
+    
+
+    
+        
+    
+
+    
+
+    
+        
+    
+
 
 
 
@@ -2631,6 +2649,7 @@ So keep your balls moving!</li>
 
                 
                     <description><![CDATA[<p>Here&rsquo;s a peek at my first major board game creation!</p>
+<p>I&rsquo;ve made a few clones or slight enhancements of games I like before like <a href="/nope-game">Nope</a> and <a href="/hocken-pocket-blokus">Hocken-Pocket-Blokus</a>, but Bloom or Bust is my first attempt at something of my own design with very high production quality.</p>
 <div style="text-align: center; margin-bottom: 1rem;">
     
 
@@ -2716,18 +2735,478 @@ So keep your balls moving!</li>
 
 
     
-        <span style="display: block; font-style: italic; margin-top: 0.5rem;">The Characters</span>
+        <span style="display: block; font-style: italic; margin-top: 0.5rem;">The Cast</span>
     
 </div>
 
-<p>I&rsquo;ve made a few clones or slight alterations of games I like before (links to nope and hocken pocket blokus) but blue more bust is my first attempt at something of my own design and very high production quality.</p>
-<p>(Pics)</p>
 <p>This is a risk-taking game where players compete to take over a tree with their specific type of fruit. Trees and bees are becoming a recurring theme in my games!</p>
 <p>All parts of this game or hand designed by me, mostly in VR with a tool called gravity Sketch, blender, and one of my favorite programmer&rsquo;s 3D tools called OpenSCAD.</p>
-<p>(Link those)</p>
+<div class="paige-row-wide">
+  <div style="display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:15px;">
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<img   class="rounded-3 w-100"  crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/bloom-or-bust-7.jpg"    >
+
+
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<img   class="rounded-3 w-100"  crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/bloom-or-bust-4.jpg"    >
+
+</div>
+</div>
+
+<div class="paige-row-wide">
+  <div style="display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:15px;">
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<img   class="rounded-3 w-100"  crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/bloom-or-bust-3.jpg"    >
+
+
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<img   class="rounded-3 w-100"  crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/bloom-or-bust-8.jpg"    >
+
+</div>
+</div>
+
 <p>Of all my models, this one takes most advantage of my multicolor BambuLab printer. All parts including the custom box which cleverly incorporates the instructions and game board itself are printed in bamboo lab Matte PLA, which in my opinion is probably the most beautiful way to print.</p>
-<p>Production is batched with 80 to 150 of each fruit or bee on a build plate, but heavily limited by the game board and latching box each requiring a separate print.</p>
-<p>I have looked into outsourcing production of this game so that I can actually distribute it but that has not happened yet since its design is so dependent on multicolor 3D printing, and most print farms would require nearly 30 bucks to produce it, let alone shipping it and my own margin. Injection molding is an option but also gets expensive with this level of detailed color, and requires remodeling in several significant ways. It still might happen. Or I might put it out on a site that lets people buy the model and print it themselves.</p>
+<p>Production is batched with 80 to 150 of each fruit or bee on a build plate, with overall production heavily limited by the game board and latching box each requiring a separate print.</p>
+<div class="paige-row-wide">
+  <div style="display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:15px;">
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<img   class="rounded-3 w-100"  crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/bloom-or-bust-2.jpg"    >
+
+
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<img   class="rounded-3 w-100"  crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/bloom-or-bust-9.jpg"    >
+
+</div>
+</div>
+
+<p>I have looked into outsourcing production of this game so that I can actually distribute it, but that has not happened yet. Its design is totally dependent on multicolor 3D printing, and most print farms would require nearly $30 just to produce it, let alone shipping it and any margin. Injection molding is an option but also gets expensive with this level of detailed color, and requires remodeling in several significant ways. It still might happen. Or I might put it out on a site that lets people buy the model and print it themselves.</p>
+<p>I&rsquo;ll post in the future about how I decide to distribute this. If you really want to buy one now, contact me - but as of now I need to charge about $100 for a set.</p>
 ]]></description>
                 
 
@@ -2742,7 +3221,7 @@ So keep your balls moving!</li>
                 
 
                 
-                    <title>Bloom Or Bust</title>
+                    <title>Bloom Or Bust!</title>
                 
             </item>
         
@@ -3594,7 +4073,7 @@ This game was intended to have low art requirements and simple interaction rules
 
       
         <a href="/bloom-or-bust/">
-          <img src="http://localhost:1313/images/bloom-or-bust-characters.jpg" alt="Bloom Or Bust">
+          <img src="http://localhost:1313/images/bloom-or-bust-characters.jpg" alt="Bloom Or Bust!">
         </a>
 
       
@@ -3604,10 +4083,11 @@ This game was intended to have low art requirements and simple interaction rules
 
   <div class="text-column" style="align-self:flex-start; margin-top:0;">
     <h2 class="post-title" style="margin-top:0 !important; margin-bottom:0 !important;">
-      <a class="link-light" href="/bloom-or-bust/">Bloom Or Bust</a>
+      <a class="link-light" href="/bloom-or-bust/">Bloom Or Bust!</a>
     </h2>
     <div class="post-summary" style="margin-top:0; margin-bottom:.5rem;">
       <p>Here&rsquo;s a peek at my first major board game creation!</p>
+<p>I&rsquo;ve made a few clones or slight enhancements of games I like before like <a href="/nope-game">Nope</a> and <a href="/hocken-pocket-blokus">Hocken-Pocket-Blokus</a>, but Bloom or Bust is my first attempt at something of my own design with very high production quality.</p>
 <div style="text-align: center; margin-bottom: 1rem;">
     
 
@@ -3697,8 +4177,6 @@ This game was intended to have low art requirements and simple interaction rules
     
 </div>
 
-<p>I&rsquo;ve made a few clones or slight alterations of games I like before (links to nope and hocken pocket blokus) but blue more bust is my first attempt at something of my own design and very high production quality.</p>
-<p>(Pics)</p>
 <p>This is a risk-taking game where players compete to take over a tree with their specific type of fruit. Trees and bees are becoming a recurring theme in my games!</p>
 <p>All parts of this game or hand designed by me, mostly in VR with a tool called gravity Sketch, blender, and one of my favorite programmer&rsquo;s 3D tools called OpenSCAD.</p>
     </div>
@@ -4046,6 +4524,579 @@ This game was intended to have low art requirements and simple interaction rules
 
                 
                     <title>Postman for PMs</title>
+                
+            </item>
+        
+            <item>
+                
+                
+                
+                
+                
+                
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+                
+
+                
+
+                
+
+                
+                    <description><![CDATA[<p>This was a board game I &ldquo;cloned&rdquo; back in 2015, but newly redesigned in 2024 with resized pieces and a self-contained custom game box and instructions printed right into the box.</p>
+<p>I love small games that travel well, and this game is about the same depth and nearly 1/4th the area of the original box - thus &ldquo;pocket&rdquo;. It&rsquo;s a snug fit but nicely sectioned out for all pieces. Have fun!</p>
+<div class="paige-row-wide">
+  <div style="display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:15px;">
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<img   class="rounded-3 w-100"  crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/hocken-pocket-blokus-1.png"    >
+
+
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<img   class="rounded-3 w-100"  crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/hocken-pocket-blokus-2.png"    >
+
+</div>
+</div>
+
+<h2 id="hocken-pocket-blokus-print-instructions">Hocken-Pocket-Blokus Print Instructions</h2>
+<p>If you have a multi-filament printer, check out the new 3mf for &ldquo;Hocken Pocket Blokus&rdquo; - a self contained full blokus game and box with a hinged lid, and game instructions printed into the box.</p>
+<p>You can also print the lid and box STLs separately, but if you choose to do that, remember: the pocket version that the box and lid are made for requires scaling the board and pieces: X scaled to 70%, Y scaled to 70% and Z scaled to 115%.</p>
+<h2 id="original-print-instructions">Original Print Instructions</h2>
+<p>To print the board, print 4 of the &ldquo;Playing Board Quarter&rdquo; file. These should have the right level of tolerance to fit snugly but not too tight.</p>
+<p>To print the pieces, you can either use the full plate set of 21 pieces, or pick and choose from the individual files. The file names represent the number of squares in each piece, as well as a word description of what the piece looks like.</p>
+<p>Make sure the board and all sets of pieces are distinct colors of plastic.</p>
+<p>Here is a link on how to play the game:</p>
+<p><a href="http://entertainment.howstuffworks.com/leisure/brain-games/blokus1.htm">http://entertainment.howstuffworks.com/leisure/brain-games/blokus1.htm</a></p>
+]]></description>
+                
+
+                <guid isPermaLink="false">tag:localhost:1313,2024-01-03:/hocken-pocket-blokus/</guid>
+
+                
+                    <link>http://localhost:1313/hocken-pocket-blokus/</link>
+                
+
+                
+                    <pubDate>Wed, 03 Jan 2024 00:00:00 UTC</pubDate>
+                
+
+                
+                    <title>Hocken-Pocket-Blokus</title>
+                
+            </item>
+        
+            <item>
+                
+                
+                
+                
+                
+                
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+                
+
+                
+
+                
+
+                
+                    <description><![CDATA[<p>If you like retro video games and also drinking things, you&rsquo;re in luck!
+Print them for your living room! Print them for your friends!
+I hope these characters remind you of some of your favorite series.</p>
+<p>I returned to <a href="/8-bit-coasters">this project</a> after 10 years to make more coasters, including some designs for multi-plastic printers and a reinforced 4-coaster holder!</p>
+<div class="paige-row-wide">
+  <div style="display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:15px;">
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<img   class="rounded-3 w-100"  crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/2023-8-bit-set-2.jpg"    >
+
+
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<img   class="rounded-3 w-100"  crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/2023-8-bit-set-1.jpg"    >
+
+</div>
+</div>
+
+<div class="paige-row-wide">
+  <div style="display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:15px;">
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<img   class="rounded-3 w-100"  crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/2023-8-bit-set-3.jpg"    >
+
+
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<img   class="rounded-3 w-100"  crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/2023-8-bit-set-4.jpg"    >
+
+</div>
+</div>
+
+<p>It was super fun returning to this project! I was able to fix a few things that I had noticed failing over the years, like the new reinforced sides to the &ldquo;? Block&rdquo; holder. Now that multi-color prints are proliferating more widely, I&rsquo;m hoping people can use the new colored files - they really pop with the Silk+Matte PLA combo I used here. Links to those filaments:</p>
+<p><a href="https://us.store.bambulab.com/products/pla-matte">https://us.store.bambulab.com/products/pla-matte</a>
+<a href="https://us.store.bambulab.com/products/pla-silk-upgrade">https://us.store.bambulab.com/products/pla-silk-upgrade</a></p>
+<p>Download on Thingiverse:
+<a href="https://www.thingiverse.com/thing:6158533">https://www.thingiverse.com/thing:6158533</a></p>
+<p>If you have a Bambulab printer, there is an included .3mf file with coloring and print settings ready to go!</p>
+<p>Here&rsquo;s the original thing: <a href="https://www.thingiverse.com/thing:115150">https://www.thingiverse.com/thing:115150</a></p>
+<p>Also pictured (third to last picture) are 18 of my favorite remixed coasters from my original thing. Find them in the remixes of the link above!</p>
+<p>I&rsquo;ve included an openscad file for customizing multiple sizes of pixel art for your own designs, based on the awesome customizable version by ahtly here:
+<a href="http://www.thingiverse.com/thing:139754">http://www.thingiverse.com/thing:139754</a></p>
+]]></description>
+                
+
+                <guid isPermaLink="false">tag:localhost:1313,2023-08-06:/8-bit-coasters-10-year/</guid>
+
+                
+                    <link>http://localhost:1313/8-bit-coasters-10-year/</link>
+                
+
+                
+                    <pubDate>Sun, 06 Aug 2023 00:00:00 UTC</pubDate>
+                
+
+                
+                    <title>8-Bit Videogame Coasters, 10 Year Anniversary Edition</title>
                 
             </item>
         
@@ -6512,7 +7563,7 @@ This is what the project looked like for my first play-test with other people 5 
 <p>I created this panel display in 2026 to control much of the home automation I used in my Studio City apartment. Mainly a hardware project, I designed and 3D-printed a case and frame for the touchscreen and raspberry pi microcomputer in order to mount them to the wall. The software running the control panel is SaaS, but I did write a custom html wrapper to control the orientation and settings of the site, which is available on the github linked above.</p>
 <p>Update in 2025: This panel is still my main view into my home automation in my new house in Sherman Oaks, almost 10 years in with no modification!</p>
 <p>Here&rsquo;s a video to see the panel in action:</p>
-<h2 id="hahahugoshortcode24s0hbhb">
+<h2 id="hahahugoshortcode138s0hbhb">
     <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
       <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/iFGmm-ijJvE?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"></iframe>
     </div>
@@ -6937,7 +7988,7 @@ hdmi_cvt 800 480 60 6 0 0 0
 <a href="https://cdn.1j1ju.com/medias/17/c3/3c-no-thanks-rulebook.pdf">https://cdn.1j1ju.com/medias/17/c3/3c-no-thanks-rulebook.pdf</a></p>
 <p>The 6-8 player instructions are almost exactly the same as the 3-5 player game:
 -All players still receive 11 tokens at the beginning of the game.
--play with the 3-46 deck, shuffle the deck, and remove 11 cards instead of 9 cards before playing.</p>]]></description>
+-Play with the 3-46 deck, shuffle the deck, and remove 11 cards instead of 9 cards before playing.</p>]]></description>
                 
 
                 <guid isPermaLink="false">tag:localhost:1313,2015-01-19:/nope-game/</guid>
@@ -7066,6 +8117,367 @@ Print two of the attached STL files (one of the mountable variety if you plan to
 
                 
                     <title>3D Printed Reed Switch</title>
+                
+            </item>
+        
+            <item>
+                
+                
+                
+                
+                
+                
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+                
+
+                
+
+                
+
+                
+                    <description><![CDATA[<blockquote>
+<p>Editor&rsquo;s note from 2025:</p>
+<p>This was my most-downloaded original 3D print, and my first design to be featured on the homepage.
+I&rsquo;ve redesigned and re-released these coasters! <a href="/8-bit-coasters-10-year">Check out the 10 year anniversary edition.</a></p>
+</blockquote>
+<p>If you like retro video games and also drinking things, you&rsquo;re in luck!
+This full set of 8 unique video game coasters comes with themed coaster holders for sets of either 4 or 8! Print them for your living room! Print them for your friends!
+I hope these characters remind you of some of your favorite series.</p>
+<div class="paige-row-wide">
+  <div style="display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:15px;">
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<img   class="rounded-3 w-100"  crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/2013-8-bit-set-1.jpg"    >
+
+
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<img   class="rounded-3 w-100"  crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/2013-8-bit-set-2.jpg"    >
+
+</div>
+</div>
+
+<div class="paige-row-wide">
+  <div style="display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:15px;">
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<img   class="rounded-3 w-100"  crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/2013-8-bit-set-3.jpg"    >
+
+
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<img   class="rounded-3 w-100"  crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/2013-8-bit-set-4.jpg"    >
+
+</div>
+</div>
+
+<p>Also find an awesome customizable version by ahtly here:
+<a href="http://www.thingiverse.com/thing:139754">http://www.thingiverse.com/thing:139754</a></p>
+]]></description>
+                
+
+                <guid isPermaLink="false">tag:localhost:1313,2013-07-09:/8-bit-coasters/</guid>
+
+                
+                    <link>http://localhost:1313/8-bit-coasters/</link>
+                
+
+                
+                    <pubDate>Tue, 09 Jul 2013 00:00:00 UTC</pubDate>
+                
+
+                
+                    <title>8-Bit Videogame Coasters</title>
                 
             </item>
         

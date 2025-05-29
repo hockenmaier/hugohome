@@ -3,7 +3,7 @@ title: "3D Printed Egg Slicer"
 categories: ["builds"]
 date: 2014-08-24
 draft: false
-tags: ["3D Modeling", "3D Printing", "Hardware"]
+tags: ["3D Modeling", "3D Printing", "Hardware", "Makergear M2"]
 ---
 
 This is a working 3D-printed egg slicer! Why buy it when you can print it?

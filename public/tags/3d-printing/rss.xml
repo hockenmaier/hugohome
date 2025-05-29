@@ -50,6 +50,12 @@
         
     
 
+    
+
+    
+        
+    
+
 
 
 
@@ -679,6 +685,372 @@ hdmi_cvt 800 480 60 6 0 0 0
 
                 
                     <title>Raspberry Pi Control Panel</title>
+                
+            </item>
+        
+            <item>
+                
+                
+                
+                
+                
+                
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+                
+
+                
+
+                
+
+                
+                    <description><![CDATA[<p>This game is based off of a similar card game called &ldquo;No Thanks!&rdquo; but expands the number of players to 8.</p>
+<div class="paige-row-wide">
+  <div style="display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:15px;">
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<img  alt="nope"   class="rounded-3 w-100"  crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/nope-1.jpg"    >
+
+
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<img  alt="nope"   class="rounded-3 w-100"  crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/nope-2.jpg"    >
+
+</div>
+</div>
+
+<div class="paige-row-wide">
+  <div style="display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:15px;">
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<img  alt="nope"   class="rounded-3 w-100"  crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/nope-3.jpg"    >
+
+
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<img  alt="nope"   class="rounded-3 w-100"  crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/nope-4.jpg"    >
+
+</div>
+</div>
+
+<p>Play time is about 20 minutes for the 3-5 player version, and 25-30 minutes for the 6-8 player version. Learning how to play the game takes 1-5 minutes depending on the attention span of the players. Have fun!</p>
+<p>See Thingiverse for all of the files:
+<a href="https://www.thingiverse.com/thing:643099">https://www.thingiverse.com/thing:643099</a></p>
+<h1 id="print-instructions">Print Instructions</h1>
+<p>3D-Print 88 tokens.</p>
+<p>2D-Print the 2 included PDFs back-to-back, so that the numbers appear on the one side and the identical backsides are on the back. Or, leave out the backs as they are not necessary to play the game. Cut 9 cards out of each paper when they&rsquo;re done printing, along the gray lines.</p>
+<p>It is recommended to either print on heavy duty paper, or to laminate the resulting cards.</p>
+<p>You can also choose to make your own layout with larger or smaller cards using the included zip file of images.</p>
+<p>For the 3-5 player game, print the cards numbered 3 to 35. For the 6-8 player game, print the cards numbered 3 to 46.</p>
+<h1 id="to-play">To Play:</h1>
+<p>Here is a link to the 3-5 player instructions:
+<a href="https://cdn.1j1ju.com/medias/17/c3/3c-no-thanks-rulebook.pdf">https://cdn.1j1ju.com/medias/17/c3/3c-no-thanks-rulebook.pdf</a></p>
+<p>The 6-8 player instructions are almost exactly the same as the 3-5 player game:
+-All players still receive 11 tokens at the beginning of the game.
+-play with the 3-46 deck, shuffle the deck, and remove 11 cards instead of 9 cards before playing.</p>]]></description>
+                
+
+                <guid isPermaLink="false">tag:localhost:1313,2015-01-19:/nope-game/</guid>
+
+                
+                    <link>http://localhost:1313/nope-game/</link>
+                
+
+                
+                    <pubDate>Mon, 19 Jan 2015 00:00:00 UTC</pubDate>
+                
+
+                
+                    <title>NOPE - A 3D and 2D Printed Card Game</title>
                 
             </item>
         
