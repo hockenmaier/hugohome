@@ -2057,7 +2057,96 @@ So keep your balls moving!</li>
                 
 
                 
-                    <description><![CDATA[<p>Here&rsquo;s a peek at my first major board game creation.</p>
+                    <description><![CDATA[<p>Here&rsquo;s a peek at my first major board game creation!</p>
+<div style="text-align: center; margin-bottom: 1rem;">
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<img  alt="Image description"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/bloom-or-bust-characters.jpg"   style="height: auto; max-width: 720px; width: 100%"   >
+
+
+    
+        <span style="display: block; font-style: italic; margin-top: 0.5rem;">The Characters</span>
+    
+</div>
+
 <p>I&rsquo;ve made a few clones or slight alterations of games I like before (links to nope and hocken pocket blokus) but blue more bust is my first attempt at something of my own design and very high production quality.</p>
 <p>(Pics)</p>
 <p>This is a risk-taking game where players compete to take over a tree with their specific type of fruit. Trees and bees are becoming a recurring theme in my games!</p>
@@ -2914,6 +3003,11 @@ This game was intended to have low art requirements and simple interaction rules
 
 
 
+  
+  
+  
+
+
 
 
 
@@ -2924,8 +3018,9 @@ This game was intended to have low art requirements and simple interaction rules
 
       
         <a href="/bloom-or-bust/">
-          <div class="media-placeholder"></div>
+          <img src="https://hockenworks.com/images/bloom-or-bust-characters.jpg" alt="Bloom Or Bust">
         </a>
+
       
 
     </div>
@@ -2936,7 +3031,96 @@ This game was intended to have low art requirements and simple interaction rules
       <a class="link-light" href="/bloom-or-bust/">Bloom Or Bust</a>
     </h2>
     <div class="post-summary" style="margin-top:0; margin-bottom:.5rem;">
-      <p>Here&rsquo;s a peek at my first major board game creation.</p>
+      <p>Here&rsquo;s a peek at my first major board game creation!</p>
+<div style="text-align: center; margin-bottom: 1rem;">
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+        
+    
+</div>
+
 <p>I&rsquo;ve made a few clones or slight alterations of games I like before (links to nope and hocken pocket blokus) but blue more bust is my first attempt at something of my own design and very high production quality.</p>
 <p>(Pics)</p>
 <p>This is a risk-taking game where players compete to take over a tree with their specific type of fruit. Trees and bees are becoming a recurring theme in my games!</p>
@@ -5461,7 +5645,7 @@ This is what the project looked like for my first play-test with other people 5 
 <p>I created this panel display in 2026 to control much of the home automation I used in my Studio City apartment. Mainly a hardware project, I designed and 3D-printed a case and frame for the touchscreen and raspberry pi microcomputer in order to mount them to the wall. The software running the control panel is SaaS, but I did write a custom html wrapper to control the orientation and settings of the site, which is available on the github linked above.</p>
 <p>Update in 2025: This panel is still my main view into my home automation in my new house in Sherman Oaks, almost 10 years in with no modification!</p>
 <p>Here&rsquo;s a video to see the panel in action:</p>
-<h2 id="hahahugoshortcode23s0hbhb">
+<h2 id="hahahugoshortcode24s0hbhb">
     <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
       <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/iFGmm-ijJvE?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"></iframe>
     </div>
