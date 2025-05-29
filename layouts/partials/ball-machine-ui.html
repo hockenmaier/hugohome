@@ -299,6 +299,22 @@
           <img src="{{ "images/coin-cost.png" | relURL }}" alt="Coin" /> {{ .Site.Params.App.costs.curved | default 50 }}
         </div>
       </div>
+      <!-- Gear CW -->
+      <div class="toggle-wrapper">
+        <img src="{{ "images/gear-clockwise-mode.png" | relURL }}"
+             id="toggleGearCW" class="line-toggle" alt="Gear CW">
+        <div class="cost-label">
+          <img src="{{ "images/coin-cost.png" | relURL }}" alt="Coin"> 300
+        </div>
+      </div>
+      <!-- Gear CCW -->
+      <div class="toggle-wrapper">
+        <img src="{{ "images/gear-counterclockwise-mode.png" | relURL }}"
+             id="toggleGearCCW" class="line-toggle" alt="Gear CCW">
+        <div class="cost-label">
+          <img src="{{ "images/coin-cost.png" | relURL }}" alt="Coin"> 300
+        </div>
+      </div>
       <!-- Launcher Toggles -->
       <div class="toggle-wrapper">
         <img src="{{ "images/DKannon250-mode.png" | relURL }}"
@@ -329,22 +345,7 @@
           <img src="{{ "images/coin-cost.png" | relURL }}" alt="Coin" /> {{ .Site.Params.App.compactor.cost | default 1000000 }}
         </div>
       </div>
-      <!-- Gear CW -->
-      <div class="toggle-wrapper">
-        <img src="{{ "images/gear-clockwise-mode.png" | relURL }}"
-             id="toggleGearCW" class="line-toggle" alt="Gear CW">
-        <div class="cost-label">
-          <img src="{{ "images/coin-cost.png" | relURL }}" alt="Coin"> 750
-        </div>
-      </div>
-      <!-- Gear CCW -->
-      <div class="toggle-wrapper">
-        <img src="{{ "images/gear-counterclockwise-mode.png" | relURL }}"
-             id="toggleGearCCW" class="line-toggle" alt="Gear CCW">
-        <div class="cost-label">
-          <img src="{{ "images/coin-cost.png" | relURL }}" alt="Coin"> 750
-        </div>
-      </div>
+      
 
     </div>
   </div>

@@ -7,6 +7,15 @@
   // ---------- configurable map ----------
   const defs = {
     curved: { cost: App.config.costs.curved, el: "toggleCurved" },
+
+    "gear-cw": {
+      cost: App.config.costs["gear-cw"],
+      el: "toggleGearCW",
+    },
+    "gear-ccw": {
+      cost: App.config.costs["gear-ccw"],
+      el: "toggleGearCCW",
+    },
     launcher: { cost: App.config.costs.launcher, el: "toggleLauncher" },
     "fast-launcher": {
       cost: App.config.costs["fast-launcher"],
