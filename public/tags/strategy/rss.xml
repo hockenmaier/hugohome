@@ -20,12 +20,6 @@
         
     
 
-    
-
-    
-        
-    
-
 
 
 
@@ -52,7 +46,7 @@
             
 
             
-                <link href="https://hockenworks.com/tags/strategy/" rel="self" type="text/html"/>
+                <link href="http://localhost:1313/tags/strategy/" rel="self" type="text/html"/>
             
         
             
@@ -60,7 +54,7 @@
             
 
             
-                <link href="https://hockenworks.com/tags/strategy/rss.xml" rel="alternate" type="application/rss+xml"/>
+                <link href="http://localhost:1313/tags/strategy/rss.xml" rel="alternate" type="application/rss+xml"/>
             
         
 
@@ -75,10 +69,10 @@
         
 
         
-            <lastBuildDate>2025-01-01 00:00:00 +0000 UTC</lastBuildDate>
+            <lastBuildDate>2019-03-01 00:00:00 +0000 UTC</lastBuildDate>
         
 
-        <link>https://hockenworks.com/tags/strategy/</link>
+        <link>http://localhost:1313/tags/strategy/</link>
 
         
 
@@ -86,171 +80,6 @@
 
         
 
-        
-            <item>
-                
-                
-                
-                
-                
-                
-                
-
-                
-
-                
-
-                
-
-                
-
-                
-                
-
-                
-
-                
-
-                
-                    <description><![CDATA[<p>Today&rsquo;s post is about another half finished game that either I or AI will finish one day. I&rsquo;m gaining a bit of a repertoire of those. This is one that I started when AI image generation started to become decent. It&rsquo;s a game that I&rsquo;ve always wanted to exist but with my current skill sets, I could never pull off without a lot of commissioning due to the art requirements.</p>
-<p>The idea is not as original as some of my games but it&rsquo;s very fun when played in a large group. Essentially, I combine the gameplay of the NES classic balloon fight with eight-player multiplayer. If you&rsquo;ve played my game Land war, you might know that I&rsquo;m a bit obsessed with eight player multiplayer, or really specifically anything that&rsquo;s more than four players which is where most video games typically max out.</p>
-<h1 id="eight-player-video-games">Eight-player video games</h1>
-<p>Kaitlin and I love to have people over to socialize, and I love to game. I think they are honestly one of the best ways to have productive, good natured socialization where people can do things like band together, rib on each other a bit, and sometimes even feel like they&rsquo;ve seen something beautiful or had a new experience together. I know that&rsquo;s a little philosophical and sappy, but I think there&rsquo;s a huge place for video games in actual socialization, similar to how board games have a place.</p>
-<p>And I love board games. I play them all the time. But so often when playing board games you run into mechanics that are only there because the game doesn&rsquo;t have a computer involved, can&rsquo;t count for you, can&rsquo;t add things up, can&rsquo;t simulate multiple players turns at the same time, and though it&rsquo;s nice to not have any screens in front of anybody, I think the limitations of board games hold people back from playing games as a group in general more often than not.</p>
-<p>My favorite example of this is power grid.</p>
-<div style="text-align: center; margin-bottom: 1rem;">
-    
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    
-
-
-
-    
-
-
-
-    
-
-
-
-
-
-    
-
-
-
-    
-
-
-
-
-
-    
-
-
-
-    
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<img  alt="an image of the cover art for Power Grid"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/power-grid.png"   style="height: auto; max-width: 200px; width: 100%"   >
-
-
-    
-</div>
-
-<p>Power Grid is a clever game that would be really quite fun if it didn&rsquo;t require players to spend half their time literally doing simple math in their heads or on paper while other people waited. A modern video game with similar dynamics would never do that; it would just let you play the fun part. Many such cases in board gaming.</p>
-<p>But video games have their own limitations and requirements. Aside from the stuff that we aren&rsquo;t getting around anytime before true augmented reality is on everybody&rsquo;s faces, like getting a controller and everybody&rsquo;s hands, and getting them over the fact that they are looking at a screen to socialize, video games have one fundamental limitation most of the time which is that they only go up to four players. And most social gatherings involve more than four people.</p>
-<p>This is the core reason I wanted to make land war an eight-player strategy game, and this setting of group gatherings was also why the controls for land war are so dead simple. More about land war <a href="/land-war">here</a></p>
-<h1 id="generated-art-first-edition">Generated Art, First Edition</h1>
-<p>The reason I waited to make a game like this is because I&rsquo;m no artist. I like to think I have taste but it certainly is not in my wheelhouse to make beautiful artwork, even for a simple sprite based game I want to make here.</p>
-<p>The models I was mostly working with on this project were Mid journey 6 and Dalle3, both diffusion models which is the best you could get at the time. If you&rsquo;ve worked with diffusion models before, you know you can get some pretty beautiful and creative stuff, but there are always a little artifacts that will be noticed if someone stares at it long enough, which is always going to be a case for a video game sprite. So I found myself having to do a lot of cleaning and filtering and processing of the images, and I landed on an oil painting filter that worked pretty well to disguise some of the noise and my own edits that I would inevitably have to apply to the images of my characters, power-ups, etc.</p>
-<p>It was a lot of work just to get a decent looking single sprite, not animated. Animation is where I ran into the real challenges.</p>
-<p>Diffusion models without some very complicated hard work in the form of techniques like LORAs (link) just can&rsquo;t iterate on the same image over and over again. Character consistency is not really a thing, and that&rsquo;s what&rsquo;s needed to make a multi-frame sprite that animates. This is the real impasse I ran into, and the core reason that I stopped working on this game. I wanted to spend 80% of my time on the gameplay, logic, and testing of this game, and 20% prompting for art, but it started to be about 50/50. And the results were not amazing.</p>
-<h1 id="the-state-of-generated-art-in-2025">The State of Generated Art in 2025</h1>
-<p>So fast forward to now. We all knew this has been coming for a long time, but finally we have transformer models that do image generation. And part of what that means is that conversation history, including past image generations and reference images, can be included in the neural context of the next generation. We probably all seen this with image <a href="https://www.reuters.com/technology/artificial-intelligence/ghibli-effect-chatgpt-usage-hits-record-after-rollout-viral-feature-2025-04-01/">&ldquo;Ghiblification&rdquo;</a>.</p>
-<p>OpenAI was yet again the first to release this type of capability, at least in a serious way. Technically there was a Gemini model that did native image gen maybe a month before OpenAI released theirs, but it was pretty garbage in comparison. And, unexpectedly, the new OpenAI image gen can also generate images on transparent PNG backgrounds, which is absolutely crucial for any image that&rsquo;s going to be set against some dynamic background - this is all game art.</p>
-<p>I have since taken a few attempts at making some multi-frame spray animations, and it&rsquo;s almost there, but it&rsquo;s still a lot of work unlike what you might be led to believe by excited Twitter posts with whole sprite sheets generated. The models just still aren&rsquo;t consistent enough to produce images that don&rsquo;t require a heavy amount of editing to get the same amount of background space, fallout actual sprite sheet specs, keep characters absolutely consistent. But I think they will get there soon.</p>
-<h1 id="generated-music">Generated Music</h1>
-<p>Generated music was a surprising high point of this project. Great quality sound effect and music generators were on my checklist of things that I knew would come soon, but I got super lucky when udio (link) came out about a month and two prototyping this thing. Check out these tracks I put into the game:</p>
-<p>(Media)</p>
-<p>I will say generated sound effects are still not there, similar to art. You can occasionally get something that sounds like what you intended but in general there&rsquo;s a lot of noise, a lot of strange lead-ins, and in general just strangeness.</p>
-<h1 id="current-state-of-the-game">Current State of the Game</h1>
-<p>So here&rsquo;s where I&rsquo;m at, check out this video which is just me playing against seven bots but you can start to get the idea:</p>
-<p>{youtube embed}</p>
-<p>The game is fun with multiple players, but it&rsquo;s still quite basic, and I&rsquo;m still waiting on image generation that would make the graphics good rather than the stand-ins that are mostly still from the diffusion era of image generation.</p>
-<p>At some point I will pick this thing back up, or I will have some AI agent pick it back up for me, because the core game itself is something I really want to exist, even if it&rsquo;s just another land war that a few hundred people download and I play at my own get togethers.</p>
-<p>If you&rsquo;d like, you can download a Windows build here, which is still very much a prototype but works with 8 connected controllers:</p>
-<a href="https://www.dropbox.com/scl/fo/4piy97k725ee1xp3cn4pe/AEUfIYTEgcOtlUmsc0qeT1s?rlkey=ygd4jhs57c35xq3ska7vs6xjy&amp;dl=1" download class="d-flex align-items-center download-link">
-  <i class="bi bi-file-earmark me-1"></i>
-  
-7/24/24 Build Download
-
-</a>
-
-]]></description>
-                
-
-                <guid isPermaLink="false">tag:hockenworks.com,2025-01-01:/balloon-fight/</guid>
-
-                
-                    <link>https://hockenworks.com/balloon-fight/</link>
-                
-
-                
-                    <pubDate>Wed, 01 Jan 2025 00:00:00 UTC</pubDate>
-                
-
-                
-                    <title>8 Player Balloon Fighter</title>
-                
-            </item>
         
             <item>
                 
@@ -370,7 +199,7 @@ This is what the project looked like for my first play-test with other people 5 
 
 
 
-<img  alt="Land War 4-day MVP"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/land_war_mvp.gif"   style="height: auto; width: 100%"   >
+<img  alt="Land War 4-day MVP"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/land_war_mvp.gif"   style="height: auto; width: 100%"   >
 
 
     
@@ -458,7 +287,7 @@ This is what the project looked like for my first play-test with other people 5 
 
 
 
-<img  alt="Player Select screen"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/land_war_player_select.png"   style="height: auto; width: 100%"   >
+<img  alt="Player Select screen"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/land_war_player_select.png"   style="height: auto; width: 100%"   >
 
 
     
@@ -545,7 +374,7 @@ This is what the project looked like for my first play-test with other people 5 
 
 
 
-<img  alt="Settings menu"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/land_war_settings.png"   style="height: auto; width: 100%"   >
+<img  alt="Settings menu"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/land_war_settings.png"   style="height: auto; width: 100%"   >
 
 
     
@@ -634,7 +463,7 @@ This is what the project looked like for my first play-test with other people 5 
 
 
 
-<img  alt="E3 marketing material"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/land_war_e3.png"   style="height: auto; max-width: 400px; width: 100%"   >
+<img  alt="E3 marketing material"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/land_war_e3.png"   style="height: auto; max-width: 400px; width: 100%"   >
 
 
     
@@ -651,10 +480,10 @@ This is what the project looked like for my first play-test with other people 5 
 ]]></description>
                 
 
-                <guid isPermaLink="false">tag:hockenworks.com,2019-03-01:/land-war/</guid>
+                <guid isPermaLink="false">tag:localhost:1313,2019-03-01:/land-war/</guid>
 
                 
-                    <link>https://hockenworks.com/land-war/</link>
+                    <link>http://localhost:1313/land-war/</link>
                 
 
                 

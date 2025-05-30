@@ -224,7 +224,14 @@
         "content\\this-website.md": true,
         "layouts\\partials\\paige\\bigimage-item.html": true,
         "layouts\\partials\\paige\\list-item-bigimage.html": true,
-        "layouts\\index.html": true
+        "layouts\\index.html": true,
+        "layouts\\partials\\paige\\head-last.html": true,
+        "layouts\\partials\\paige\\site-footer.html": true,
+        "layouts\\shortcodes\\image-inline-itsy.html": true,
+        "layouts\\shortcodes\\image-left-teeny.html": true,
+        "layouts\\shortcodes\\image-left-teenyweeny.html": true,
+        "layouts\\shortcodes\\image-verysmall.html": true,
+        "layouts\\shortcodes\\video-large.html": true
       },
       "prePrompt": "",
       "includeFileTree": true
@@ -293,5 +300,5 @@
       "includeFileTree": false
     }
   },
-  "activeProfile": "ball-machine"
+  "activeProfile": "anchor-issue"
 }

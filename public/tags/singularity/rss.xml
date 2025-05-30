@@ -26,12 +26,6 @@
         
     
 
-    
-
-    
-        
-    
-
 
 
 
@@ -58,7 +52,7 @@
             
 
             
-                <link href="https://hockenworks.com/tags/singularity/" rel="self" type="text/html"/>
+                <link href="http://localhost:1313/tags/singularity/" rel="self" type="text/html"/>
             
         
             
@@ -66,7 +60,7 @@
             
 
             
-                <link href="https://hockenworks.com/tags/singularity/rss.xml" rel="alternate" type="application/rss+xml"/>
+                <link href="http://localhost:1313/tags/singularity/rss.xml" rel="alternate" type="application/rss+xml"/>
             
         
 
@@ -81,10 +75,10 @@
         
 
         
-            <lastBuildDate>2025-05-24 00:00:00 +0000 UTC</lastBuildDate>
+            <lastBuildDate>2025-05-28 00:00:00 +0000 UTC</lastBuildDate>
         
 
-        <link>https://hockenworks.com/tags/singularity/</link>
+        <link>http://localhost:1313/tags/singularity/</link>
 
         
 
@@ -92,227 +86,6 @@
 
         
 
-        
-            <item>
-                
-                
-                
-                
-                
-                
-                
-
-                
-
-                
-
-                
-
-                
-
-                
-                
-
-                
-
-                
-
-                
-                    <description><![CDATA[<p>Recently I read the <a href="https://ai-2027.com/scenario.pdf">AI 2027 paper</a>. I was surprised to see Scott Alexander&rsquo;s name on this paper and I was doubly surprised to see him do his <a href="https://www.dwarkesh.com/p/scott-daniel">first face reveal podcast about it with Dwarkesh</a></p>
-<p>On its face this is one of the most aggressive predictions for when we will have AGI (at least the new definition of AGI which is something that is comparable or better than humans at all non-bodily tasks) that I have read. Even as someone who has been a long believer in <a href="https://en.wikipedia.org/wiki/The_Singularity_Is_Near">Ray Kurzweil&rsquo;s Singularity predictions</a>, 2027 strikes me as very early. I realize that Kurzweil&rsquo;s AGI date was also late 2020&rsquo;s and 2045 was his singulartiy prediction - 2027 still feels early to me.</p>
-<div class="paige-row-wide">
-  <div style="display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:15px;">
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    
-
-
-
-
-
-
-
-
-
-
-
-
-
-    
-
-
-
-    
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<img  alt="AI 2027"   class="rounded-3 w-100"  crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/ai-2027.png"    >
-
-
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    
-
-
-
-
-
-
-
-
-
-
-
-
-
-    
-
-
-
-    
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<img  alt="Singularity Is Near"   class="rounded-3 w-100"  crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/The-Singularity-Is-Near.jpg"    >
-
-</div>
-</div>
-
-<p>I won&rsquo;t get into my full take on AI 2027 here, but the core argument comes down to the same one I was making in my <a href="/on-ai-software-development">original post on AI software development</a></p>
-<ul>
-<li>which is that, once AI agents are able to replace software engineers, instead of just assisting them, it doesn&rsquo;t matter how they are doing another realms, because they will simply be able to improve on themselves and their own software at such a rate that the difference between the time of automating software engineering jobs and the time of automating all other jobs is negligible.</li>
-</ul>
-<p>So I figured it was a good time to update on where I think AI is actually at at software engineering tasks. I&rsquo;ve had the chance to test many of the latest AI software development tools and models, and we have come a long way since my original post.</p>
-<p>I have been doing a lot of development with AI for the last few years, especially the last couple of months on leave building the game in this site. And they are good. But the core problems with these models for software engineering are:</p>
-<ol>
-<li>They can&rsquo;t deal well with contexts over 30K tokens or so (even the best models with supposed millions of token windows).</li>
-</ol>
-<p>This means the actual developer (me and you) are the ones picking specific files and functions to send into the context window, lest we confuse the model. This is arduous unless the codebase is small enough to fit entirely into the context window. That&rsquo;s exactly what I think is going on with most of the new &ldquo;vibe coded&rdquo; projects we see showing impressive results - these are just tiny POC apps that haven&rsquo;t hit more than a few thousand lines of code yet. For context, most serious enterprise apps containing the detailed logic and edge cases real use cases require are in the millions or hundreds of millions of lines of code.</p>
-<ol start="2">
-<li>They are biased to be &ldquo;advisors&rdquo; as well as &ldquo;doers&rdquo;</li>
-</ol>
-<p>This is just annoying, and I hope it gets trained out soon. Models just really <em>want</em> you to be doing everything, and to act themselves as an advisor. It makes sense with one of the main sources of code training data being from Stackoverflow and other blogs, where developers can never seem to rid themselves of a pseudo-condescending &ldquo;you should have been able to read the docs and learn this yourself&rdquo; tone. It&rsquo;s also just a pattern exhibited by people in general - more often than not, especially in the corporate world, people are trained to be the &ldquo;coaches&rdquo; rather than the &ldquo;worker bees&rdquo;. One reason why things get done so slowly in big political companies sometimes.</p>
-<p>&mdash;Notes&mdash;</p>
-<p>Add links to my chat with 03 about the refund feature,</p>
-<p>Add links to videos about co-pilot agents as well as codex as the state of the art actual software developers</p>
-<p>Talk a little bit about my experience using cursor and what a disappointment it was for a code base as unique as mine</p>
-<p>Add notes about cursor not handling context any more easily than context caddy - and that might be a bit of a stumbling block</p>
-<p>First feature that sonnet 3.7 consistently failed at was simply having the compactors add ball value accumulation of compacted balls</p>
-<p>Your request has been blocked as our system has detected suspicious activity from your account.If you believe this is a mistake, please contact us at <a href="mailto:hi@cursor.com">hi@cursor.com</a>.(Request ID: 997e94bb-34ee-44c0-b0aa-15bb6822add6)</p>
-<p>LOL</p>
-]]></description>
-                
-
-                <guid isPermaLink="false">tag:hockenworks.com,2025-05-24:/on-ai-software-development-2/</guid>
-
-                
-                    <link>https://hockenworks.com/on-ai-software-development-2/</link>
-                
-
-                
-                    <pubDate>Sat, 24 May 2025 00:00:00 UTC</pubDate>
-                
-
-                
-                    <title>On AI Software Development, 2025 Edition</title>
-                
-            </item>
         
             <item>
                 
@@ -425,7 +198,7 @@
 
 
 
-<img  alt="the hockenworks homepage"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/hockenworks.png"   style="height: auto; max-width: 720px; width: 100%"   >
+<img  alt="the hockenworks homepage"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/hockenworks.png"   style="height: auto; max-width: 720px; width: 100%"   >
 
 
     
@@ -538,7 +311,7 @@
 
 
 
-<img  alt="balls everywhere"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/this-website-ball-machine-1.png"   style="height: auto; max-width: 720px; width: 100%"   >
+<img  alt="balls everywhere"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/this-website-ball-machine-1.png"   style="height: auto; max-width: 720px; width: 100%"   >
 
 
     
@@ -630,7 +403,7 @@
 
 
 
-<img  alt="balls everywhere"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/waves2.gif"   style="height: auto; max-width: 300px; width: 100%"   >
+<img  alt="balls everywhere"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/waves2.gif"   style="height: auto; max-width: 300px; width: 100%"   >
 
 
     
@@ -730,7 +503,7 @@
 
 
 
-<img  alt="ball chute"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/ball-chute-hatch-1.png"   style="height: auto; max-width: 200px; width: 100%"   >
+<img  alt="ball chute"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/ball-chute-hatch-1.png"   style="height: auto; max-width: 200px; width: 100%"   >
 
  
   <span style="display: block; font-style: italic; margin-top: 0.5rem">
@@ -829,7 +602,7 @@
 
 
 
-<img  alt="auto clicker"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/goal.png"   style="height: auto; max-width: 40px; width: 100%"   >
+<img  alt="auto clicker"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/goal.png"   style="height: auto; max-width: 40px; width: 100%"   >
 
  
 </span>
@@ -931,7 +704,7 @@
 
 
 
-<img  alt="line toggle"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/line-mode.png"   style="height: auto; max-width: 200px; width: 100%"   >
+<img  alt="line toggle"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/line-mode.png"   style="height: auto; max-width: 200px; width: 100%"   >
 
  
 </span>
@@ -1025,7 +798,7 @@
 
 
 
-<img  alt="curved line toggle"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/curve-mode.png"   style="height: auto; max-width: 200px; width: 100%"   >
+<img  alt="curved line toggle"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/curve-mode.png"   style="height: auto; max-width: 200px; width: 100%"   >
 
  
 </span>
@@ -1119,7 +892,7 @@
 
 
 
-<img  alt="compactor toggle"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/compactor-mode.png"   style="height: auto; max-width: 200px; width: 100%"   >
+<img  alt="compactor toggle"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/compactor-mode.png"   style="height: auto; max-width: 200px; width: 100%"   >
 
  
 </span>
@@ -1248,7 +1021,7 @@
 
 
 
-<img  alt="auto clicker"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/auto-clicker.png"   style="height: auto; max-width: 200px; width: 100%"   >
+<img  alt="auto clicker"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/auto-clicker.png"   style="height: auto; max-width: 200px; width: 100%"   >
 
  
 </span>
@@ -1349,7 +1122,7 @@
 
 
 
-<img  alt="dotted line toggle"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/everything-has-a-price.png"   style="height: auto; max-width: 200px; width: 100%"   >
+<img  alt="dotted line toggle"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/everything-has-a-price.png"   style="height: auto; max-width: 200px; width: 100%"   >
 
  
 </span>
@@ -1444,7 +1217,7 @@
 
 
 
-<img  alt="dotted line toggle"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/dotted-line-mode.png"   style="height: auto; max-width: 200px; width: 100%"   >
+<img  alt="dotted line toggle"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/dotted-line-mode.png"   style="height: auto; max-width: 200px; width: 100%"   >
 
  
 </span>
@@ -1549,7 +1322,7 @@ So keep your balls moving!</li>
 
 
 
-<img  alt="dotted line toggle"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/page-revenue.png"   style="height: auto; max-width: 200px; width: 100%"   >
+<img  alt="dotted line toggle"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/page-revenue.png"   style="height: auto; max-width: 200px; width: 100%"   >
 
  
 </span>
@@ -1573,14 +1346,14 @@ So keep your balls moving!</li>
 ]]></description>
                 
 
-                <guid isPermaLink="false">tag:hockenworks.com,2025-03-01:/this-website/</guid>
+                <guid isPermaLink="false">tag:localhost:1313,2025-05-28:/this-website/</guid>
 
                 
-                    <link>https://hockenworks.com/this-website/</link>
+                    <link>http://localhost:1313/this-website/</link>
                 
 
                 
-                    <pubDate>Sat, 01 Mar 2025 00:00:00 UTC</pubDate>
+                    <pubDate>Wed, 28 May 2025 00:00:00 UTC</pubDate>
                 
 
                 
@@ -1694,7 +1467,7 @@ So keep your balls moving!</li>
 
 
 
-<img  alt="this is a robot"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/ai-software-dev.png"   style="height: auto; max-width: 720px; width: 100%"   >
+<img  alt="this is a robot"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/ai-software-dev.png"   style="height: auto; max-width: 720px; width: 100%"   >
 
 
     
@@ -1714,10 +1487,10 @@ So keep your balls moving!</li>
 <p>These are my thoughts at what seems to be the beginning of the next AI revolution in early 2024. I plan to revisit this topic and see if I&rsquo;m right in future posts.</p>]]></description>
                 
 
-                <guid isPermaLink="false">tag:hockenworks.com,2024-01-24:/on-ai-software-development/</guid>
+                <guid isPermaLink="false">tag:localhost:1313,2024-01-24:/on-ai-software-development/</guid>
 
                 
-                    <link>https://hockenworks.com/on-ai-software-development/</link>
+                    <link>http://localhost:1313/on-ai-software-development/</link>
                 
 
                 

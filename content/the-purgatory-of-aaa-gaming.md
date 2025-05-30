@@ -1,6 +1,6 @@
 ---
 title: "The Purgatory of AAA Gaming"
-date: 2025-05-12
+date: 2025-07-28
 categories: ["writing"]
 tags:
   [

@@ -93,6 +93,13 @@
                         </p>
                     {{ end }}
 
+                    {{ with .Params.project_date }}
+                        <p class="paige-row-narrow text-center text-secondary" id="paige-project-date">
+                            Project Date: <time datetime="{{ . }}">{{ dateFormat $dateformat . }}</time>
+                        </p>
+                    {{ end }}
+
+
                     {{ with $readingtime }}
                         <p class="paige-row-narrow text-center text-secondary" id="paige-reading-time">{{ . }} {{ i18n "paige_minutes" . }}</p>
                     {{ end }}

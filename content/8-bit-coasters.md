@@ -16,7 +16,7 @@ This full set of 8 unique video game coasters comes with themed coaster holders 
 I hope these characters remind you of some of your favorite series.
 
 {{< round-gallery >}}
-images/2013-8-bit-set-1.jpg|,
+images/2013-8-bit-set-1.png|,
 images/2013-8-bit-set-2.jpg|
 {{< /round-gallery >}}
 
