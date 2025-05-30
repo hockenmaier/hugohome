@@ -170,7 +170,6 @@
         "hugo.toml": true,
         "layouts\\partials\\ball-machine-ui.html": true,
         "notes\\site-description.md": true,
-        "content\\_index.md": true,
         "content\\about-me.md": true,
         "layouts\\shortcodes\\centered-text.html": true,
         "layouts\\shortcodes\\clear-storage.html": true,
@@ -233,7 +232,8 @@
         "layouts\\shortcodes\\image-left-teeny.html": true,
         "layouts\\shortcodes\\image-left-teenyweeny.html": true,
         "layouts\\shortcodes\\image-verysmall.html": true,
-        "layouts\\shortcodes\\video-large.html": true
+        "layouts\\shortcodes\\video-large.html": true,
+        "content\\_index.md": true
       },
       "prePrompt": "",
       "includeFileTree": true
@@ -302,5 +302,5 @@
       "includeFileTree": false
     }
   },
-  "activeProfile": "ball-machine"
+  "activeProfile": "anchor-issue"
 }

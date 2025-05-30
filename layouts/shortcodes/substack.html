@@ -1,0 +1,22 @@
+{{ $w := (default "340" (.Get "width")) | int }}
+<div style="
+    width: {{ $w }}px;
+    margin: 2em auto;
+    text-align: center;
+">
+  <p style="color: #6c757d; margin: 0 0 0.5em;">Subscribe for Email Updates</p>
+  <div style="
+      height: 50px;
+      overflow: hidden;
+      border-radius: 0.5rem;
+  ">
+    <iframe
+      src="https://brianhockenmaier.substack.com/embed"
+      width="{{ add $w 140 }}"
+      height="110"
+      style="border:0; width: calc(100% + 140px); margin-left: -70px; display: block;"
+      frameborder="0"
+      scrolling="no"
+    ></iframe>
+  </div>
+</div>

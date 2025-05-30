@@ -1,0 +1,12 @@
+{{/* layouts/shortcodes/substack.html */}}
+{{ $domain := .Get "newsletter" | default "brianhockenmaier" }}
+
+<div id="get-verified-to-access-code"></div>
+<script>
+window.exampleCode = {
+  exampleUrl: "{{ $domain }}.substack.com",
+  placeholderText: "you@example.com",
+  buttonText: "Subscribe"
+};
+</script>
+<script src="https://getverified.com/verify.js" async></script>

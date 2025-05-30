@@ -21,9 +21,9 @@ Welcome to hockenworks! I'm [Brian Hockenmaier](/about-me) and [this site is ful
 
 This site is also a video game. Play around and discover it yourself or [learn how to play here](/this-website/#ball-machine---the-game)
 
-{Subscribe to get updates - TODO}
+{{< substack >}}
 
-&nbsp;
+{{< substack-api >}}
 
 ## Latest
 

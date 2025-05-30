@@ -105,7 +105,6 @@ App.modules.base = (function () {
         box.elRef = el;
         box.isMedia = true;
         window.BallFall.mediaColliders.push(box);
-        World.add(engine.world, box);
       });
     }
 
