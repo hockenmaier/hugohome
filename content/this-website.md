@@ -21,7 +21,7 @@ tags:
 featured: "images/waves2.gif"
 ---
 
-I'm [Brian Hockenmaier](/about-me), and this site is full of things I build and write about. I love making games and things with VR and AI. I love DIY projects, epecially ones involving programming, engineering and 3D modeling. Some of this has been cross or back-posted from my [thingiverse](https://www.thingiverse.com/hockenmaier/designs), [twitter](https://x.com/Hockenmaier), [linkedin](https://www.linkedin.com/in/hockenmaier/), and other places, but it all lives here permanently.
+I'm [Brian Hockenmaier](/about-me), and this site is full of things I build and write about. I love making games and things with VR and AI. I love DIY projects, especially ones involving programming, engineering and 3D modeling. Some of this has been cross or back-posted from my [thingiverse](https://www.thingiverse.com/hockenmaier/designs), [twitter](https://x.com/Hockenmaier), [linkedin](https://www.linkedin.com/in/hockenmaier/), and other places, but it all lives here permanently.
 
 All work and opinion here is fully my own and not my employer's.
 
@@ -50,13 +50,13 @@ You have:
 
 > **Hocken**
 
-Which can roughly translate to “sitting down, squating, settling, idling”.
+Which can roughly translate to “sitting down, squatting, settling, idling”.
 
 And then you have:
 
 > **Maier**
 
-Which has many different spellings, and ours has southern German roots, but all "Meyer" names come from the latin root "maior" mean steward, administrator, or more generally "worker"
+Which has many different spellings, and ours has southern German roots, but all "Meyer" names come from the latin root "maior" meaning steward, administrator, or more generally "worker"
 
 My family often puts these two ideas together as "Lazy Worker," which is very on-brand for our sense of humor, but I think it's not just funny, but true.
 
@@ -96,7 +96,7 @@ So, to honor kid Brian, I am making my website a permanent ball machine. I hope 
 
 I don't typically make complicated things like this with javascript. So when I found the perfect physics engine for the game - [matter.js](https://brm.io/matter-js/) - I knew I would need help from our new little assistants. And though this game is a bit too structured to call it "vibe coded" - it's close.
 
-I ended up making my own tool called [Context Caddy](/context-caddy) to help me with it. Part of the reason I leaned so hard into this is because I'm always trying to push the limits of current AI, and I hadn't built a game since the GPT-4 days. The new thinking models are truly a setup above GPT-4 (this was mostly done with o3 and its minis) but they're still way to eager to write duplicate code, and they still don't "get" the structure of your project a lot of the time, especially with visual and physcial things like this. Still, they were a great help here.
+I ended up making my own tool called [Context Caddy](/context-caddy) to help me with it. Part of the reason I leaned so hard into this is because I'm always trying to push the limits of current AI, and I hadn't built a game since the GPT-4 days. The new thinking models are truly a step above GPT-4 (this was mostly done with o3 and its minis) but they're still way too eager to write duplicate code, and they still don't "get" the structure of your project a lot of the time, especially with visual and physical things like this. Still, they were a great help here.
 
 ## How to Play
 
@@ -104,7 +104,7 @@ I ended up making my own tool called [Context Caddy](/context-caddy) to help me 
 
 The ball machine on this site is a gamified version of my graph paper drawings as a kid. Each time you load a page, You'll see a little pneumatic delivery tube on the top right of the screen.
 
-When you spawn your first ball, you'll see a few things appear. First - you'll find a goal&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{< image-inline-itsy src="images/goal.png" alt="auto clicker" caption="" >}} somewhere randomly on the page. Find a way to get the balls you spawn into that goal. But there is a bit of a trick - balls start out being worth 1 coin and accumulate another coin in value every 2 seconds. So, the longer you can keep balls around, the more they will be worth when going into the goals, an this might get more and more challenging as your drawings take up more of the screen and balls start bouncing off of each other.
+When you spawn your first ball, you'll see a few things appear. First - you'll find a goal&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{< image-inline-itsy src="images/goal.png" alt="auto clicker" caption="" >}} somewhere randomly on the page. Find a way to get the balls you spawn into that goal. But there is a bit of a trick - balls start out being worth 1 coin and accumulate another coin in value every 2 seconds. So, the longer you can keep balls around, the more they will be worth when going into the goals, and this might get more and more challenging as your drawings take up more of the screen and balls start bouncing off of each other.
 
 **Keep Clicking!**
 
@@ -124,7 +124,7 @@ The site works across multiple pages. It works best when you're on desktop, work
 
 To start drawing your ball machine, you need to <kbd>Left Click</kbd> or <kbd>Tap</kbd> one of these drawable toggles in the main UI (top left of the screen)
 
-When you have a Drawable tool toggled on, you won't be able to click other links on the site. You'll see this visually indicated when you choose them. Unselect the currently selected tool in order to see it
+When you have a drawable tool toggled on, you won't be able to click other links on the site. You'll see this visually indicated when you choose them. Unselect the currently selected tool in order to see it
 
 Every drawable item (lines, launchers, and more) uses the following mechanics:
 
@@ -188,7 +188,7 @@ If you can't draw an item, you probably can't afford it. You'll see your coin co
 
 {{< image-left-teenyweeny src="images/dotted-line-mode.png" alt="dotted line toggle" caption="" >}}**You get what you pay for...**
 
-If you every find yourself out of money, these dotted lines are free. They are not saved permanently like other lines and they go away after 50 balls hit them.
+If you ever find yourself out of money, these dotted lines are free. They are not saved permanently like other lines and they go away after 50 balls hit them.
 
 &nbsp;
 

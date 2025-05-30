@@ -213,7 +213,7 @@ App.modules.text = (function () {
     const elements = Array.from(document.querySelectorAll("span.BallFallChar"));
 
     let charCount = 0;
-    const THRESHOLD = 6000; // After this many characters, we simplify and start drawing boxes around whole lines according to the margins above
+    const THRESHOLD = 4000; // After this many characters, we simplify and start drawing boxes around whole lines according to the margins above
     const deferred = [];
 
     // first: up to THRESHOLD individual triangles
