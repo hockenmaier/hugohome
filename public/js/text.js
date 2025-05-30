@@ -143,7 +143,7 @@ App.modules.text = (function () {
         if (
           node.nodeValue.trim() &&
           node.parentNode &&
-          !node.parentNode.closest("#ballfall-ui") && // Skip UI Elements
+          !node.parentNode.closest("#ballfall-ui, #spawner-container") && // Skip UI Elements
           !["SCRIPT", "STYLE"].includes(node.parentNode.tagName)
         ) {
           textNodes.push(node);
@@ -158,6 +158,7 @@ App.modules.text = (function () {
         for (let char of text) {
           const span = document.createElement("span");
           span.textContent = char;
+          span.classList.add("BallFallChar"); // <<< mark it
           frag.appendChild(span);
         }
         parent.replaceChild(frag, node);
@@ -190,7 +191,7 @@ App.modules.text = (function () {
         centerX,
         centerY,
         [verts],
-        { isStatic: true, render: { visible: true } },
+        { isStatic: true, render: { visible: false } },
         true
       );
       if (body) {
@@ -202,17 +203,20 @@ App.modules.text = (function () {
       return body;
     }
 
-    // after wrapTextNodes(document.body);
+    // tunable margins per side (px)
+    const MARGIN_TOP = 9;
+    const MARGIN_RIGHT = 2;
+    const MARGIN_BOTTOM = 2;
+    const MARGIN_LEFT = 2;
 
-    const elements = Array.from(document.querySelectorAll("span, img")).filter(
-      (el) => !el.closest("#ballfall-ui")
-    );
+    // only the spans we created above
+    const elements = Array.from(document.querySelectorAll("span.BallFallChar"));
 
     let charCount = 0;
-    const THRESHOLD = 6000;
+    const THRESHOLD = 6000; // After this many characters, we simplify and start drawing boxes around whole lines according to the margins above
     const deferred = [];
 
-    // first pass: individual triangle bodies up to THRESHOLD
+    // first: up to THRESHOLD individual triangles
     elements.forEach((el) => {
       if (charCount < THRESHOLD) {
         const body = letterToBody(el);
@@ -225,28 +229,47 @@ App.modules.text = (function () {
       }
     });
 
-    // … after your first-pass loop that fills `deferred` …
-
-    // second pass: batch the rest by paragraph (parentNode)
+    // second: batch remaining spans by line
     if (deferred.length) {
-      const groups = new Map();
+      const lines = new Map();
       deferred.forEach((el) => {
-        const parent = el.parentNode;
-        if (!groups.has(parent)) groups.set(parent, []);
-        groups.get(parent).push(el);
+        const top = Math.round(el.getBoundingClientRect().top);
+        if (!lines.has(top)) lines.set(top, []);
+        lines.get(top).push(el);
       });
 
-      groups.forEach((els, parent) => {
-        const r = parent.getBoundingClientRect();
-        const width = r.right - r.left;
-        const height = r.bottom - r.top;
-        const centerX = r.left + width / 2 + window.scrollX;
-        const centerY = r.top + height / 2 + window.scrollY;
+      lines.forEach((group) => {
+        let minX = Infinity,
+          minY = Infinity;
+        let maxX = -Infinity,
+          maxY = -Infinity;
+
+        group.forEach((el) => {
+          const r = el.getBoundingClientRect();
+          minX = Math.min(minX, r.left);
+          maxX = Math.max(maxX, r.right);
+          minY = Math.min(minY, r.top);
+          maxY = Math.max(maxY, r.bottom);
+        });
+
+        // apply per-side margins
+        minX += MARGIN_LEFT;
+        minY += MARGIN_TOP;
+        maxX -= MARGIN_RIGHT;
+        maxY -= MARGIN_BOTTOM;
+        if (maxX <= minX || maxY <= minY) return;
+
+        const width = maxX - minX;
+        const height = maxY - minY;
+        const centerX = minX + width / 2 + window.scrollX;
+        const centerY = minY + height / 2 + window.scrollY;
 
         const batchBody = Bodies.rectangle(centerX, centerY, width, height, {
           isStatic: true,
-          render: { visible: true },
+          render: { visible: false },
         });
+        // attach all the span elements so we can color them later
+        batchBody.elRefs = group;
         World.add(world, batchBody);
       });
     }
@@ -284,20 +307,30 @@ App.modules.text = (function () {
     // Collision handler: detect collisions between text letters and balls.
     Events.on(engine, "collisionStart", (evt) => {
       evt.pairs.forEach((pair) => {
-        if (
-          pair.bodyA.elRef &&
-          pair.bodyA.elRef.tagName &&
-          pair.bodyA.elRef.tagName.toUpperCase() === "SPAN" &&
-          pair.bodyB.label === "BallFallBall"
-        ) {
-          applyBallHitEffect(pair.bodyA, pair.bodyB);
-        } else if (
-          pair.bodyB.elRef &&
-          pair.bodyB.elRef.tagName &&
-          pair.bodyB.elRef.tagName.toUpperCase() === "SPAN" &&
+        // identify ball vs other
+        const ball =
           pair.bodyA.label === "BallFallBall"
-        ) {
-          applyBallHitEffect(pair.bodyB, pair.bodyA);
+            ? pair.bodyA
+            : pair.bodyB.label === "BallFallBall"
+            ? pair.bodyB
+            : null;
+        const other =
+          ball === pair.bodyA
+            ? pair.bodyB
+            : ball === pair.bodyB
+            ? pair.bodyA
+            : null;
+        if (!ball || !other) return;
+
+        // single-char collider
+        if (other.elRef) {
+          applyBallHitEffect(other, ball);
+        }
+        // batched line collider: apply to each char
+        else if (other.elRefs && Array.isArray(other.elRefs)) {
+          other.elRefs.forEach((el) => {
+            applyBallHitEffect({ elRef: el }, ball);
+          });
         }
       });
     });
