@@ -23,6 +23,7 @@ tags:
     "SteamVR SDK",
     Experimental,
   ]
+featured: "/images/flapper-feature.png"
 ---
 
 "The Flapper" is a project that spawned out of a simple VR movement mechanic test that I had had in my head for a while, which turned out to be surprisingly fun! The idea is to flap your arms to fly - and have it be a multiplayer battle to really get people moving.

@@ -56,6 +56,18 @@
         
     
 
+    
+
+    
+        
+    
+
+    
+
+    
+        
+    
+
 
 
 
@@ -82,7 +94,7 @@
             
 
             
-                <link href="https://hockenworks.com/tags/experimental/" rel="self" type="text/html"/>
+                <link href="http://localhost:1313/tags/experimental/" rel="self" type="text/html"/>
             
         
             
@@ -90,7 +102,7 @@
             
 
             
-                <link href="https://hockenworks.com/tags/experimental/rss.xml" rel="alternate" type="application/rss+xml"/>
+                <link href="http://localhost:1313/tags/experimental/rss.xml" rel="alternate" type="application/rss+xml"/>
             
         
 
@@ -105,10 +117,10 @@
         
 
         
-            <lastBuildDate>2023-03-19 00:00:00 +0000 UTC</lastBuildDate>
+            <lastBuildDate>2025-06-23 00:00:00 +0000 UTC</lastBuildDate>
         
 
-        <link>https://hockenworks.com/tags/experimental/</link>
+        <link>http://localhost:1313/tags/experimental/</link>
 
         
 
@@ -116,6 +128,223 @@
 
         
 
+        
+            <item>
+                
+                
+                
+                
+                
+                
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+                
+
+                
+
+                
+
+                
+                    <description><![CDATA[<p>The advent of general coding AI assistants almost immediately changed how I thought about the hiring process and interviews. And it changed how I talked about it with colleages and my own team.</p>
+<p>In the software engineering world, this mindset shift was pretty easy for me psychologically, because I had always had a bias against the types of coding questions that I personally do badly at - the ones that require knowledge or rote memory of specific language capabilities, libraries, syntax. It is not that psychologically easy for everyone, especially those that have developed a core skillset of running &ldquo;leetcode-style&rdquo; interviews. Even before AI, the only types of coding questions I would personally ask were things that simply evaluate whether a candidate is lying or not about whether they can code at all, which was and still is surprisingly common. I have interviewed people that list bullet points like 7 years of Java experience but can&rsquo;t pass a fizz buzz like question, and this was a question I gave out on paper with a closed door and no significant time pressure.</p>
+<p>So, when LLMS that could remember any syntax or attribute of any programming language perfectly were released, not only was I excited but I immediately saw that a huge chunk of the programming questions my team and many other software teams liked to ask were essentially irrelevant now, not only because people could cheat on interviews, at least virtually, but because that knowledge simply lost a lot of value overnight.</p>
+<p>Over a few conversations with friends and colleagues I began to explore the idea of what this meant generally for the interview process. There are just lots of questions that we ask in every field, it turns out, that are mostly solved by LLMS that have memorized most useful information, even when the original intent of the interview question was to test for experience.</p>
+<h2 id="the-build">The Build</h2>
+<p>In the summer of 2022 my ideas and conversations on this topic had gotten to the point where I really just needed to test my hypothesis - that LLMS and continuous audio transcription could let someone with no knowledge answer many interview questions correctly. My initial thought was that an app like this must already exist. But after searching for apps on the appstore that did what I was thinking of, I found that, surprisingly, none did.</p>
+<p>I&rsquo;m still not sure if that was a legal thing at the time, or if it&rsquo;s hard to get apps that continuously transcribe audio published, but as of 2025 apps like this definitely exist. Some of them have gotten famous and one has gotten its creator expelled from an ivy League for revealing that he used it to ace interviews with some top tech companies. Link for the curious here:</p>
+<p><a href="https://cluely.com/">https://cluely.com/</a></p>
+<p>But, in mid 2023, these apps were apparently not a thing, so I decided to make a prototype.</p>
+<p>My basic requirements were simply something that could continuously transcribe words being spoken in a meeting or over a call, group them up into meaningfully long chunks, and then send those to two different AI passes:</p>
+<ol>
+<li>An AI pass that would try to make meaningful questions out of the transcribed potential gibberish</li>
+<li>An AI pass that would answer those questions</li>
+</ol>
+<p>My tech stack for this was a little weird, but I know unity well and I don&rsquo;t know other ways of deploying mobile apps well, and this definitely need to be a mobile app if it was going to sit on the phone and continuously transcribe audio. Web has all kinds of restrictions on their APIs and I don&rsquo;t know native mobile web very well anyway.</p>
+<p>This was surprisingly easy to do, even in 2023. I ran into a few hiccups mainly around continuous audio transcription, but for an app that I wasn&rsquo;t going to publish that I was directly putting onto my own Android device, I got around that by simply starting up a new audio transcription thread every time one closed.</p>
+<div style="display: flex; align-items: center; justify-content: center; gap: 10px; margin-bottom: 1rem;">
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+    
+
+
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<img  alt="the app ui"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/make-us-smarter.jpg"   style="height: auto; max-width: 200px"   >
+
+
+    
+        <span style="font-style: italic;">Super barebones UI just showing the continuously auto-transcribed words, questions derived from those words, and answers to those questions.  This particular screen was grabbed long after my api key had expired and is only here to show the basic output of the app, transcription building continuously in the background and detected questions and answers in the foreground.</span>
+    
+</div>
+
+<p>And the results were surprisingly compelling. Of course I was using some of the very first versions of GPT-4 and AI is still not perfect, but the main result of this was that occasionally questions were picked up that were not actually implied by the meeting audio, and occasionally real questions were missed. The part that I knew was going to work did indeed work incredibly well: when I simulated some fizz-buzz style questions and there were no major audio transcription issues, the second question-answering AI nailed them and was able to put a succinct script to answer the question on screen within a few seconds.</p>
+<p>There was clearly more work to be done on UI and also the flow between the AI passes, and more agentic APIs of today could definitely do this all more seamlessly.</p>
+<p>But for me, my question was answered: My hunch was right and we should definitely not be asking questions about basic constructs of programming languages or simple scripts in interviews anymore.</p>
+<p>I open sourced the project which is a pretty small unity build, and it&rsquo;s a unity version from a couple of years ago now but anyone is happy to look through and modify the code anyway they want:</p>
+<p><a href="https://github.com/hockenmaier/make-us-smarter">https://github.com/hockenmaier/make-us-smarter</a></p>
+<h2 id="interviewing-today">Interviewing Today</h2>
+<p>This whole experience and a slew of interviews that came building a new team last year have me settled on an interview approach that I think is infallible (for now). And it doesn&rsquo;t require sending someone home with a project or any of that stuff that good candidates often don&rsquo;t even consider. I heard about a version of this technique on Twitter so can&rsquo;t take full credit here:</p>
+<p>What I do is ask candidates to bring some code that they have written, regardless of language of framework, and I simply walk through it with them in the interview. It only takes 15 minutes or so, and it usually gets much better conversation going than sample interviewing questions do. It leans on the fact that you need an interviewer that can mostly understand most programming projects, but it cannot be faked with any LLM assistance. Llm written code is pretty obvious for one, much better commented and differently organized than most humans would write, but even if the code was very sneakily written AI code, having a human go through and explain the parts that they thought were clever defeats the purpose of cheating with AI anyway.</p>
+<p>So there you go, little tidbit from what I&rsquo;ve learned. I hope no one out there that I know is using these apps to cheat on interviews, but we all need to be wise to the fact that it is trivially easy to do so, and we should shift focus to testing for the qualities that actually matter in the era of AI.</p>
+]]></description>
+                
+
+                <guid isPermaLink="false">tag:localhost:1313,2025-06-23:/my-experiments-with-ai-cheating/</guid>
+
+                
+                    <link>http://localhost:1313/my-experiments-with-ai-cheating/</link>
+                
+
+                
+                    <pubDate>Mon, 23 Jun 2025 00:00:00 UTC</pubDate>
+                
+
+                
+                    <title>My Experiments with AI Cheating</title>
+                
+            </item>
+        
+            <item>
+                
+                
+                
+                
+                
+                
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+                
+
+                
+
+                
+
+                
+                    <description><![CDATA[<p>&ldquo;The Flapper&rdquo; is a project that spawned out of a simple VR movement mechanic test that I had had in my head for a while, which turned out to be surprisingly fun! The idea is to flap your arms to fly - and have it be a multiplayer battle to really get people moving.</p>
+<p>In order to start working on this game, because there was so much standard VR code that I had to write for tree keepers, I decided to make a sort of engine out of tree keepers and work off of that rather than start from scratch. That let me tie in some of the nice associated graphics, music and sound effects I had made, and a bunch of other helper functions and things I use for things like the camera following around the character, how I deal with collisions, a bunch of netcode, etc.</p>
+<p>You can see my more detailed post about that engine here: <a href="/treekeepers-engine">Treekeepers Engine</a></p>
+<h2 id="core-mechanic--gameplay">Core Mechanic &amp; Gameplay</h2>
+<p>Most of the start of this game was just tuning the movement mechanic, which borrowed from some physics realities and some elements I made up to make flapping feel good. But, the essential idea was that each arm would generate unique thrust in the direction it was moving with an exponenthel applied to how fast it was moving. It&rsquo;s hard to describe any native VR mechanic with words and videos only, but to me and the folks I demoed it to; it felt &ldquo;right&rdquo; for how flying should work if you did it by flapping your arms. I had a ton of fun just jetting around the obstacle courses I made for myself.</p>
+<p>My idea for this other than just the mechanic was to make a sort of gorilla tag-esque multiplayer game where players would fly around and try to pop each other&rsquo;s balloons in a NES balloon fight {link} style. Ideally something like 15 to 20 people would be in a lobby flying around and trying to pop each other.</p>
+<p>Like gorilla tag I didn&rsquo;t want anyone to have to &ldquo;sit out&rdquo; of the game, so it&rsquo;s essentially a deathmatch where the player who pops the most balloons wins, and is also visible who&rsquo;s winning, because they also gain the balloons that they pop. In some playtests players would have 20 or 30 balloons on their head. This was my clever idea of adding a built-in rubber-band effect to the gameplay as well, since having more balloons over your head made you a bigger target to pop. The gameplay worked well - but I never quite got the game to a place with netcode and networking engine where multiplayer felt seamless enough.</p>
+<p>Here’s a video of one of the later states of the game, where I have it fully networked and am testing with friends, though it still has a few bugs here:</p>
+
+    <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+      <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/Vxn8rDOZ7dU?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"></iframe>
+    </div>
+
+<h2 id="today">Today</h2>
+<p>I stopped working on this project after about 3 months. It turned out that flying alone with this mechanic was very compelling (and also a great workout!) but the networking engine I had used for Teeekeepers, Photon, was not up to task for how low latency a competitive game needed to be. Treekeepers was four-player co-op so photon was just fine.</p>
+<p>In the future I might pick this one back up (or maybe have an AI agent pick it up for me depending on how that goes) using space-time DB {link}</p>
+<p>which looks like a great solution for this type of game that doesn&rsquo;t require a whole ton of cloud programming and setup.</p>
+<p>You can try a build of the game here:</p>
+<p>{Download of latest build}</p>
+]]></description>
+                
+
+                <guid isPermaLink="false">tag:localhost:1313,2025-06-16:/the-flapper/</guid>
+
+                
+                    <link>http://localhost:1313/the-flapper/</link>
+                
+
+                
+                    <pubDate>Mon, 16 Jun 2025 00:00:00 UTC</pubDate>
+                
+
+                
+                    <title>The Flapper - A Physical VR Multiplayer Game</title>
+                
+            </item>
         
             <item>
                 
@@ -225,7 +454,7 @@
 
 
 
-<img  alt="some weird acorns"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/gpt-acorn.png"   style="height: auto; max-width: 720px; width: 100%"   >
+<img  alt="some weird acorns"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/gpt-acorn.png"   style="height: auto; max-width: 720px; width: 100%"   >
 
 
     
@@ -235,10 +464,10 @@
 ]]></description>
                 
 
-                <guid isPermaLink="false">tag:hockenworks.com,2023-03-19:/3d-modeling-with-ai/</guid>
+                <guid isPermaLink="false">tag:localhost:1313,2023-03-19:/3d-modeling-with-ai/</guid>
 
                 
-                    <link>https://hockenworks.com/3d-modeling-with-ai/</link>
+                    <link>http://localhost:1313/3d-modeling-with-ai/</link>
                 
 
                 
@@ -287,10 +516,10 @@
 <p>Neat stuff - big thanks to Luma AI for the free toolset.</p>]]></description>
                 
 
-                <guid isPermaLink="false">tag:hockenworks.com,2023-02-01:/nerfs/</guid>
+                <guid isPermaLink="false">tag:localhost:1313,2023-02-01:/nerfs/</guid>
 
                 
-                    <link>https://hockenworks.com/nerfs/</link>
+                    <link>http://localhost:1313/nerfs/</link>
                 
 
                 
@@ -463,7 +692,7 @@
 
 
 
-<img   class="img-fluid "  crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/human_joystick_centered.jpg"   style="display:block; height: auto; margin:0 auto; width: 60%"   >
+<img   class="img-fluid "  crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/human_joystick_centered.jpg"   style="display:block; height: auto; margin:0 auto; width: 60%"   >
 
 
 </div>
@@ -591,7 +820,7 @@
 
 
 
-<img   class="img-fluid "  crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/human_joystick_moving.jpg"   style="display:block; height: auto; margin:0 auto; width: 60%"   >
+<img   class="img-fluid "  crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/human_joystick_moving.jpg"   style="display:block; height: auto; margin:0 auto; width: 60%"   >
 
 
 </div>
@@ -605,10 +834,10 @@
 <p>Ultimately I put the project up for others to view but have not expanded it into a full experience or released it on any marketplaces. Feel free to download the Unity project and try it on your own VR setup if you&rsquo;re curious.</p>]]></description>
                 
 
-                <guid isPermaLink="false">tag:hockenworks.com,2020-01-01:/human-joystick/</guid>
+                <guid isPermaLink="false">tag:localhost:1313,2020-01-01:/human-joystick/</guid>
 
                 
-                    <link>https://hockenworks.com/human-joystick/</link>
+                    <link>http://localhost:1313/human-joystick/</link>
                 
 
                 
@@ -736,7 +965,7 @@
 
 
 
-<img  alt="Answering Machine homepage"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/answering_machine_uploads.png"   style="height: auto; max-width: 720px; width: 100%"   >
+<img  alt="Answering Machine homepage"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/answering_machine_uploads.png"   style="height: auto; max-width: 720px; width: 100%"   >
 
 
     
@@ -826,7 +1055,7 @@
 
 
 
-<img  alt="Answering Machine main view"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/answering_machine_hr.png"   style="height: auto; width: 100%"   >
+<img  alt="Answering Machine main view"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/answering_machine_hr.png"   style="height: auto; width: 100%"   >
 
 
     
@@ -914,7 +1143,7 @@
 
 
 
-<img  alt="Answering Machine info panel"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/answering_machine_info.png"   style="height: auto; max-width: 720px; width: 100%"   >
+<img  alt="Answering Machine info panel"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/answering_machine_info.png"   style="height: auto; max-width: 720px; width: 100%"   >
 
 
     
@@ -1004,7 +1233,7 @@
 
 
 
-<img  alt="Answering Machine query bar"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/answering_machine_query.png"   style="height: auto; max-width: 720px; width: 100%"   >
+<img  alt="Answering Machine query bar"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/answering_machine_query.png"   style="height: auto; max-width: 720px; width: 100%"   >
 
 
     
@@ -1100,7 +1329,7 @@
 
 
 
-<img  alt="Answering Machine response"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/answering_machine_answer.png"   style="height: auto; max-width: 720px; width: 100%"   >
+<img  alt="Answering Machine response"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/answering_machine_answer.png"   style="height: auto; max-width: 720px; width: 100%"   >
 
 
     
@@ -1195,7 +1424,7 @@
 
 
 
-<img  alt="Answering Machine subjects and conditions"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/answering_machine_lexicon.png"   style="height: auto; max-width: 400px; width: 100%"   >
+<img  alt="Answering Machine subjects and conditions"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/answering_machine_lexicon.png"   style="height: auto; max-width: 400px; width: 100%"   >
 
 
     
@@ -1285,7 +1514,7 @@
 
 
 
-<img  alt="Answering Machine concept"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/answering_machine_concept.png"   style="height: auto; max-width: 200px; width: 100%"   >
+<img  alt="Answering Machine concept"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/answering_machine_concept.png"   style="height: auto; max-width: 200px; width: 100%"   >
 
 
     
@@ -1380,7 +1609,7 @@
 
 
 
-<img  alt="Serverless Architecture of the Answering Machine app"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/answering_machine_architecture.png"   style="height: auto; max-width: 720px; width: 100%"   >
+<img  alt="Serverless Architecture of the Answering Machine app"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/answering_machine_architecture.png"   style="height: auto; max-width: 720px; width: 100%"   >
 
 
     
@@ -1390,10 +1619,10 @@
 ]]></description>
                 
 
-                <guid isPermaLink="false">tag:hockenworks.com,2019-07-03:/answering-machine/</guid>
+                <guid isPermaLink="false">tag:localhost:1313,2019-07-03:/answering-machine/</guid>
 
                 
-                    <link>https://hockenworks.com/answering-machine/</link>
+                    <link>http://localhost:1313/answering-machine/</link>
                 
 
                 
@@ -1502,10 +1731,10 @@ hdmi_cvt 800 480 60 6 0 0 0
 </code></pre>]]></description>
                 
 
-                <guid isPermaLink="false">tag:hockenworks.com,2016-01-01:/raspberry-pi-panel/</guid>
+                <guid isPermaLink="false">tag:localhost:1313,2016-01-01:/raspberry-pi-panel/</guid>
 
                 
-                    <link>https://hockenworks.com/raspberry-pi-panel/</link>
+                    <link>http://localhost:1313/raspberry-pi-panel/</link>
                 
 
                 
@@ -1555,10 +1784,10 @@ Print two of the attached STL files (one of the mountable variety if you plan to
 <p>The hot glue lets the metal move slightly, so that one metal piece bends to touch the other when a magnet is near either side of the switch, completing the circuit between the two metal ends still sticking out.</p>]]></description>
                 
 
-                <guid isPermaLink="false">tag:hockenworks.com,2013-11-25:/3d-reed-switch/</guid>
+                <guid isPermaLink="false">tag:localhost:1313,2013-11-25:/3d-reed-switch/</guid>
 
                 
-                    <link>https://hockenworks.com/3d-reed-switch/</link>
+                    <link>http://localhost:1313/3d-reed-switch/</link>
                 
 
                 
@@ -1602,10 +1831,10 @@ Print two of the attached STL files (one of the mountable variety if you plan to
     </div>]]></description>
                 
 
-                <guid isPermaLink="false">tag:hockenworks.com,2013-05-13:/3d-key/</guid>
+                <guid isPermaLink="false">tag:localhost:1313,2013-05-13:/3d-key/</guid>
 
                 
-                    <link>https://hockenworks.com/3d-key/</link>
+                    <link>http://localhost:1313/3d-key/</link>
                 
 
                 

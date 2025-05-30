@@ -1,0 +1,177 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+        
+    
+
+    
+        
+    
+
+
+
+
+
+
+
+    
+
+    
+
+
+
+
+
+
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0"  xml:lang="en-us"  xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        
+            
+
+            
+                
+            
+
+            
+                <link href="http://localhost:1313/tags/locomotion/" rel="self" type="text/html"/>
+            
+        
+            
+
+            
+
+            
+                <link href="http://localhost:1313/tags/locomotion/rss.xml" rel="alternate" type="application/rss+xml"/>
+            
+        
+
+        
+
+        
+
+        <description>Recent content</description>
+
+        
+            <language>en-us</language>
+        
+
+        
+            <lastBuildDate>2020-01-01 00:00:00 +0000 UTC</lastBuildDate>
+        
+
+        <link>http://localhost:1313/tags/locomotion/</link>
+
+        
+
+        <title>Locomotion · Tags · Home</title>
+
+        
+
+        
+            <item>
+                
+                
+                
+                
+                
+                
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+                
+
+                
+
+                
+
+                
+                    <description><![CDATA[<p><img src="/images/human_joystick_centered.jpg" alt="Human Joystick centered"></p>
+<p><strong>Human Joystick VR</strong> explores a hybrid locomotion system where players move through a virtual environment by physically changing their position within their VR playspace.</p>
+<p>Link to the project: <a href="https://github.com/hockenmaier/humanjoystick">Human Joystick on Github</a></p>
+<hr>
+<h2 id="concept">Concept</h2>
+<p>The &ldquo;Human Joystick&rdquo; solves a common VR problem: providing natural movement in large virtual environments. Players can physically move within a playspace, but once they approach the edge, the system detects the movement vector and shifts the playspace accordingly.</p>
+<p>This allows players to explore vast virtual spaces while maintaining immersion and reducing nausea.</p>
+<hr>
+<h2 id="development">Development</h2>
+<p>This project was my first VR experience, designed to address virtual movement challenges. Inspired by consumer VR’s limitations in 2016, I aimed to merge physical and artificial locomotion for a more natural experience.</p>
+<h3 id="key-features">Key Features:</h3>
+<ol>
+<li>
+<p><strong>Deadzone and active zone</strong>:</p>
+<ul>
+<li>Players remain stationary when in the center (deadzone).</li>
+<li>Movement starts when stepping into the active zone.</li>
+</ul>
+</li>
+<li>
+<p><strong>Adjustable speed and direction</strong>:</p>
+<ul>
+<li>Speed scales with distance from the center.</li>
+<li>Supports smooth transitions between directions.</li>
+</ul>
+</li>
+</ol>
+<hr>
+<h2 id="challenges">Challenges</h2>
+<p>Despite achieving basic functionality, there were usability issues:</p>
+<ul>
+<li><strong>Recentering difficulty</strong>: Players struggled to naturally return to the center without visual aids.</li>
+<li><strong>Directional accuracy</strong>: Switching movement directions without recentralizing was less intuitive than expected.</li>
+</ul>
+<hr>
+<h2 id="demonstration">Demonstration</h2>
+<p>Watch the system in action:</p>
+
+    <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+      <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/q_1itpdiPb4?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"></iframe>
+    </div>
+
+<p><img src="/images/human_joystick_centered.jpg" alt="Deadzone view"><br>
+<em>View from the player&rsquo;s perspective in the deadzone.</em></p>
+<p><img src="/images/human_joystick_moving.jpg" alt="Active zone movement"><br>
+<em>Moving forward and left in the active zone at half max speed.</em></p>
+<hr>
+<h2 id="conclusion">Conclusion</h2>
+<p>Though the project remains a prototype, the system demonstrates the potential of combining physical and artificial movement for immersive VR. The code is available for download and experimentation on GitHub.</p>
+]]></description>
+                
+
+                <guid isPermaLink="false">tag:localhost:1313,2020-01-01:/human-joystick/</guid>
+
+                
+                    <link>http://localhost:1313/human-joystick/</link>
+                
+
+                
+                    <pubDate>Wed, 01 Jan 2020 00:00:00 UTC</pubDate>
+                
+
+                
+                    <title>Human Joystick VR</title>
+                
+            </item>
+        
+    </channel>
+</rss>

@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:media="http://search.yahoo.com/mrss/" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tags on Brian Hockenmaier&#39;s Homepage</title>
+    <link>http://localhost:1313/tags/</link>
+    <description>Recent content in Tags on Brian Hockenmaier&#39;s Homepage</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 14 Jan 2025 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Experimental</title>
+      <link>http://localhost:1313/tags/experimental/</link>
+      <pubDate>Tue, 14 Jan 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/experimental/</guid><description>&lt;no value&gt;</description></item>
+    <item>
+      <title>Hardware</title>
+      <link>http://localhost:1313/tags/hardware/</link>
+      <pubDate>Tue, 14 Jan 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/hardware/</guid><description>&lt;no value&gt;</description></item>
+    <item>
+      <title>Home Automation</title>
+      <link>http://localhost:1313/tags/home-automation/</link>
+      <pubDate>Tue, 14 Jan 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/home-automation/</guid><description>&lt;no value&gt;</description></item>
+    <item>
+      <title>Locomotion</title>
+      <link>http://localhost:1313/tags/locomotion/</link>
+      <pubDate>Tue, 14 Jan 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/locomotion/</guid><description>&lt;no value&gt;</description></item>
+    <item>
+      <title>Raspberry Pi</title>
+      <link>http://localhost:1313/tags/raspberry-pi/</link>
+      <pubDate>Tue, 14 Jan 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/raspberry-pi/</guid><description>&lt;no value&gt;</description></item>
+    <item>
+      <title>VR</title>
+      <link>http://localhost:1313/tags/vr/</link>
+      <pubDate>Tue, 14 Jan 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/vr/</guid><description>&lt;no value&gt;</description></item>
+    <item>
+      <title>Indie</title>
+      <link>http://localhost:1313/tags/indie/</link>
+      <pubDate>Fri, 01 Mar 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/indie/</guid><description>&lt;no value&gt;</description></item>
+    <item>
+      <title>Multiplayer</title>
+      <link>http://localhost:1313/tags/multiplayer/</link>
+      <pubDate>Fri, 01 Mar 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/multiplayer/</guid><description>&lt;no value&gt;</description></item>
+    <item>
+      <title>Strategy</title>
+      <link>http://localhost:1313/tags/strategy/</link>
+      <pubDate>Fri, 01 Mar 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/strategy/</guid><description>&lt;no value&gt;</description></item>
+    <item>
+      <title>Co-Op</title>
+      <link>http://localhost:1313/tags/co-op/</link>
+      <pubDate>Sat, 01 Oct 2022 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/co-op/</guid><description>&lt;no value&gt;</description></item>
+    <item>
+      <title>Crossplay</title>
+      <link>http://localhost:1313/tags/crossplay/</link>
+      <pubDate>Sat, 01 Oct 2022 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/crossplay/</guid><description>&lt;no value&gt;</description></item>
+    <item>
+      <title>Networking</title>
+      <link>http://localhost:1313/tags/networking/</link>
+      <pubDate>Sat, 01 Oct 2022 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/networking/</guid><description>&lt;no value&gt;</description></item>
+    <item>
+      <title>Data Analytics</title>
+      <link>http://localhost:1313/tags/data-analytics/</link>
+      <pubDate>Wed, 03 Jul 2019 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/data-analytics/</guid><description>&lt;no value&gt;</description></item>
+    <item>
+      <title>NLP</title>
+      <link>http://localhost:1313/tags/nlp/</link>
+      <pubDate>Wed, 03 Jul 2019 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/nlp/</guid><description>&lt;no value&gt;</description></item>
+    <item>
+      <title>Serverless</title>
+      <link>http://localhost:1313/tags/serverless/</link>
+      <pubDate>Wed, 03 Jul 2019 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/serverless/</guid><description>&lt;no value&gt;</description></item>
+    <item>
+      <title>Education</title>
+      <link>http://localhost:1313/tags/education/</link>
+      <pubDate>Sat, 19 May 2018 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/education/</guid><description>&lt;no value&gt;</description></item>
+    <item>
+      <title>Voice Interface</title>
+      <link>http://localhost:1313/tags/voice-interface/</link>
+      <pubDate>Sat, 19 May 2018 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/voice-interface/</guid><description>&lt;no value&gt;</description></item>
+    <item>
+      <title>VUI</title>
+      <link>http://localhost:1313/tags/vui/</link>
+      <pubDate>Sat, 19 May 2018 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/vui/</guid><description>&lt;no value&gt;</description></item>
+  </channel>
+</rss>

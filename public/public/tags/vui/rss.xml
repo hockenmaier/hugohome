@@ -1,0 +1,139 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+        
+    
+
+    
+        
+    
+
+
+
+
+
+
+
+    
+
+    
+
+
+
+
+
+
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0"  xml:lang="en-us"  xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        
+            
+
+            
+                
+            
+
+            
+                <link href="http://localhost:1313/tags/vui/" rel="self" type="text/html"/>
+            
+        
+            
+
+            
+
+            
+                <link href="http://localhost:1313/tags/vui/rss.xml" rel="alternate" type="application/rss+xml"/>
+            
+        
+
+        
+
+        
+
+        <description>Recent content</description>
+
+        
+            <language>en-us</language>
+        
+
+        
+            <lastBuildDate>2018-05-19 00:00:00 +0000 UTC</lastBuildDate>
+        
+
+        <link>http://localhost:1313/tags/vui/</link>
+
+        
+
+        <title>VUI · Tags · Home</title>
+
+        
+
+        
+            <item>
+                
+                
+                
+                
+                
+                
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+                
+
+                
+
+                
+
+                
+                    <description><![CDATA[<p><strong>First Ten</strong> is an educational app that provides information about the U.S. Bill of Rights. It’s a voice-only experience, available through Google devices and smart speakers.</p>
+<p><strong>Try it here:</strong> <a href="https://assistant.google.com/services/a/uid/00000036f6a580ed">https://assistant.google.com/services/a/uid/00000036f6a580ed</a>
+<strong>Github:</strong> <a href="https://github.com/hockenmaier/billofrights">https://github.com/hockenmaier/billofrights</a></p>
+<p><img src="/images/first_ten_architecture.png" alt="Serverless Architecture of the First Ten app"></p>
+<p>To try it, simply ask your Google Home or Android device, “Can I speak to First Ten?”</p>
+<p>Try it out on</p>
+<hr>
+<h2 id="development">Development</h2>
+<p>First Ten is powered by a serverless backend built on AWS Lambda and DynamoDB. The voice input is processed by Google&rsquo;s Dialogflow, which extracts user intents and parameters to guide interactions.</p>
+<p>This project leverages the potential of Voice User Interfaces (VUI), offering a hands-free way to learn about the U.S. Bill of Rights, similar to Alexa Skills. Users can interact with the app by asking natural-language questions or commands.</p>
+<hr>
+]]></description>
+                
+
+                <guid isPermaLink="false">tag:localhost:1313,2018-05-19:/first-ten/</guid>
+
+                
+                    <link>http://localhost:1313/first-ten/</link>
+                
+
+                
+                    <pubDate>Sat, 19 May 2018 00:00:00 UTC</pubDate>
+                
+
+                
+                    <title>First Ten</title>
+                
+            </item>
+        
+    </channel>
+</rss>
