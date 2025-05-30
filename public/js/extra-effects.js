@@ -120,77 +120,49 @@
 
   // Media ripple effect moved from base-simulation.js.
   window.triggerMediaRipple = function (collider, ball) {
-    const ballColor =
-      ball.render && ball.render.fillStyle
-        ? ball.render.fillStyle
-        : "rgba(0,0,255,0.5)";
+    const elRect = collider.elRef.getBoundingClientRect();
+    const pageX = elRect.left + window.scrollX;
+    const pageY = elRect.top + window.scrollY;
+
+    /* overlay clipped to media bounds */
+    const overlay = document.createElement("div");
+    overlay.style.cssText = `
+    position:absolute; left:${pageX}px; top:${pageY}px;
+    width:${elRect.width}px; height:${elRect.height}px;
+    overflow:hidden; pointer-events:none; z-index:9999;
+  `;
+    effectContainer.appendChild(overlay);
+
+    /* ripple inside that overlay */
+    const INITIAL = 20,
+      FINAL = 60;
     const ripple = document.createElement("div");
-    ripple.className = "media-ripple";
-    ripple.style.position = "absolute";
-    // initial size; center will be adjusted by half of this
-    const initialSize = 20;
-    ripple.style.width = initialSize + "px";
-    ripple.style.height = initialSize + "px";
-    ripple.style.border = "2px solid " + ballColor;
-    ripple.style.borderRadius = "50%";
-    ripple.style.pointerEvents = "none";
-    ripple.style.opacity = "1";
-    ripple.style.transition = "all 0.8s ease-out";
-    ripple.style.zIndex = 9999;
+    ripple.style.cssText = `
+    position:absolute; width:${INITIAL}px; height:${INITIAL}px;
+    left:${ball.position.x - pageX - INITIAL / 2}px;
+    top:${ball.position.y - pageY - INITIAL / 2}px;
+    border:2px solid ${
+      (ball.render && ball.render.fillStyle) || "rgba(0,0,255,0.5)"
+    };
+    border-radius:50%; opacity:1; pointer-events:none;
+    transition:all .8s ease-out;
+  `;
+    overlay.appendChild(ripple);
 
-    let target = collider.elRef;
-    let container = target;
-    let containerRect = target.getBoundingClientRect();
+    /* animate */
+    requestAnimationFrame(() => {
+      ripple.style.width = `${FINAL}px`;
+      ripple.style.height = `${FINAL}px`;
+      ripple.style.left = `${
+        parseFloat(ripple.style.left) - (FINAL - INITIAL) / 2
+      }px`;
+      ripple.style.top = `${
+        parseFloat(ripple.style.top) - (FINAL - INITIAL) / 2
+      }px`;
+      ripple.style.opacity = "0";
+    });
 
-    // For images + vids: wrap them so ripple fits exactly.
-    const tag = target.tagName.toLowerCase();
-    if (tag === "img" || tag === "video") {
-      if (
-        !target.parentElement ||
-        !target.parentElement.classList.contains("ripple-container")
-      ) {
-        const wrapper = document.createElement("div");
-        wrapper.className = "ripple-container";
-        wrapper.style.position = "relative";
-        wrapper.style.display = "inline-block";
-        wrapper.style.width = containerRect.width + "px";
-        wrapper.style.height = containerRect.height + "px";
-        wrapper.style.overflow = "hidden";
-        target.parentNode.insertBefore(wrapper, target);
-        wrapper.appendChild(target);
-        container = wrapper;
-        containerRect = wrapper.getBoundingClientRect();
-      } else {
-        container = target.parentElement;
-        containerRect = container.getBoundingClientRect();
-      }
-    }
-    // For iframes: use parent element and ensure relative positioning.
-    else if (target.tagName.toLowerCase() === "iframe") {
-      container = target.parentElement;
-      if (container && getComputedStyle(container).position === "static") {
-        container.style.position = "relative";
-      }
-      containerRect = container.getBoundingClientRect();
-    }
-
-    // Compute ripple position relative to container.
-    const relX = ball.position.x - containerRect.left - window.scrollX;
-    const relY = ball.position.y - containerRect.top - window.scrollY;
-    const halfInitialSize = initialSize / 2;
-    ripple.style.left = relX - halfInitialSize + "px";
-    ripple.style.top = relY - halfInitialSize + "px";
-
-    container.appendChild(ripple);
-    // Force reflow and animate ripple.
-    void ripple.offsetWidth;
-    ripple.style.width = "60px";
-    ripple.style.height = "60px";
-    ripple.style.left = parseFloat(ripple.style.left) - 20 + "px";
-    ripple.style.top = parseFloat(ripple.style.top) - 20 + "px";
-    ripple.style.opacity = "0";
-    setTimeout(() => {
-      if (ripple.parentNode) ripple.parentNode.removeChild(ripple);
-    }, 800);
+    /* cleanup */
+    setTimeout(() => overlay.remove(), 800);
   };
 })();
