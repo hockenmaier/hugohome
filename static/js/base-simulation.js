@@ -125,8 +125,8 @@ App.modules.base = (function () {
             }
           }
           if (insideCollider) {
-            if (body.frictionAir !== 0.1) {
-              body.frictionAir = 0.1;
+            if (body.frictionAir !== 0.05) {
+              body.frictionAir = 0.05;
             }
             if (!body.inMedia) {
               body.inMedia = true;

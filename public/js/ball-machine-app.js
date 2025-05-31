@@ -185,11 +185,11 @@ window.App = {
       closedInset: 15, // positive number to offset closed positions (set to 0 if you want edges to meet exactly)
 
       timeline: {
-        idleDuration: 2, // seconds to idle
+        idleDuration: 0.57, // seconds to idle
         crushDuration: 0.12, // seconds to crush (close)
         shakeDuration: 0.06, // seconds per shake
         shakeRepeat: 3, // number of shake repeats (yoyo)
-        openDuration: 0.5, // seconds to open
+        openDuration: 0.25, // seconds to open
       },
     },
   },
