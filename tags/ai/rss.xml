@@ -62,6 +62,12 @@
         
     
 
+    
+
+    
+        
+    
+
 
 
 
@@ -639,6 +645,79 @@ An experimental “AI generated RPG” where you play as “The Boy” who reali
 
                 
                     <title>3D Modeling With AI</title>
+                
+            </item>
+        
+            <item>
+                
+                
+                
+                
+                
+                
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+                
+
+                
+
+                
+
+                
+                    <description><![CDATA[<p>I&rsquo;m writing this post retrospectively as I never published it at the time of creation. It will live here as a &ldquo;stake in the ground&rdquo; of AI software capabilities as of March 2023. Note- if you&rsquo;re reading on substack, this post won&rsquo;t work. Go to <a href="hockenworks.com/gpt-4-solar-system/">hockenworks.com/gpt-4-solar-system</a>.</p>
+<p>The interactive solar system below was created with minimal help from me, by the very first version of GPT-4, before even function calling was a feature. It was the first of an ongoing series of experiments to see what frontier models could do by themselves - and I&rsquo;m posting it here because it was the earliest example I saved.</p>
+<p>Here&rsquo;s a link to the chat where it was created, though it&rsquo;s not possible to continue this conversation directly since the model involved has long since been deprecated: <a href="https://chatgpt.com/share/683b5680-8ac8-8006-9493-37add8749387">https://chatgpt.com/share/683b5680-8ac8-8006-9493-37add8749387</a></p>
+
+<div style="width:100%; max-width:1000px; margin:1em auto; position:relative; padding-top:70%;">
+  <iframe
+    src="/html/solar-system-self-contained.html"
+    style="position:absolute; top:0; left:0; width:100%; height:100%; border:1px solid #ccc;"
+  ></iframe>
+</div>
+
+<div style="text-align: center; margin-bottom: 1rem;">
+    
+        <span style="display: block; font-style: italic; margin-top: 0.5rem;">GPT-4 only wrote this for desktop, sorry phone users</span>
+    
+</div>
+
+<p><strong>Controls</strong></p>
+<p><kbd>Mouse Click + Drag</kbd> to move the solar system around</p>
+<p><kbd>Mouse Wheel Up</kbd> to zoom in from the cursor location</p>
+<p><kbd>Mouse Wheel Down</kbd> to zoom out</p>
+<p>If you get lost, reload the page. That&rsquo;s an edge case GPT-4 didn&rsquo;t account for :)</p>
+<p>Here was the initial prompt:</p>
+<blockquote>
+<p>This might be a long output, so if you need to break and I&rsquo;ll ask you to continue in another message feel free to do that. But please limit any non-code text prose to only essential statements to help mitigate this</p>
+<p>I want you to make me a dynamic website. It should look good on mobile or on desktop, and I would like you to pick a nice dark background color and an interesting font to use across the page.</p>
+<p>The page is intended to show the scale of the solar system in an interactive way, primarily designed for children to zoom in and out of different parts of the solar system and see planets and the Sun in relative scale. Mouse controls should also include panning around the model solar system, and should include text around planets with some statistics about their size, gravity, atmospheres, and any other fun facts you think would be educational and fun for 10-12 year olds.</p>
+</blockquote>
+<p>Then I had to give it 4 more short prompts, one for a technical hint (to use html-5 since it was going a strange direction) and 3 for visual and mouse control misses.</p>
+<p>It works - but missed some of the relatively simple directions, like the planet stats and rendering/controls for mobile. Still, I think it&rsquo;s cool to see the true scale of the planets on a zoomable canvas. And, it only goes to Neptune, the last true planet&hellip; don&rsquo;t go looking for Pluto.</p>
+<p>For March 2023, this result was revolutionary - I was truly impressed. In 2025, it&rsquo;s not very impressive at all. How quickly we get used to progress!</p>]]></description>
+                
+
+                <guid isPermaLink="false">tag:hockenworks.com,2023-03-18:/gpt-4-solar-system/</guid>
+
+                
+                    <link>https://hockenworks.com/gpt-4-solar-system/</link>
+                
+
+                
+                    <pubDate>Sat, 18 Mar 2023 00:00:00 UTC</pubDate>
+                
+
+                
+                    <title>GPT-4 Solar System</title>
                 
             </item>
         

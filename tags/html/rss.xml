@@ -32,6 +32,12 @@
         
     
 
+    
+
+    
+        
+    
+
 
 
 
@@ -118,7 +124,7 @@
                 
 
                 
-                    <description><![CDATA[<p>I&rsquo;m <a href="/about-me">Brian Hockenmaier</a>, and this site is full of things I build and write about. I love making games and things with VR and AI. I love DIY projects, epecially ones involving programming, engineering and 3D modeling. Some of this has been cross or back-posted from my <a href="https://www.thingiverse.com/hockenmaier/designs">thingiverse</a>, <a href="https://x.com/Hockenmaier">twitter</a>, <a href="https://www.linkedin.com/in/hockenmaier/">linkedin</a>, and other places, but it all lives here permanently.</p>
+                    <description><![CDATA[<p>I&rsquo;m <a href="/about-me">Brian Hockenmaier</a>, and this site is full of things I build and write about. I love making games and things with VR and AI. I love DIY projects, especially ones involving programming, engineering and 3D modeling. Some of this has been cross or back-posted from my <a href="https://www.thingiverse.com/hockenmaier/designs">thingiverse</a>, <a href="https://x.com/Hockenmaier">twitter</a>, <a href="https://www.linkedin.com/in/hockenmaier/">linkedin</a>, and other places, but it all lives here permanently.</p>
 <p>All work and opinion here is fully my own and not my employer&rsquo;s.</p>
 <p>This is an evolution of <a href="old-site/index.html">my previous site last updated in 2022, which I still keep inside this one</a> for posterity and for the AIs of the future to know more about me. I like it not because of the content as much as because it was a fully custom js and html site with no framework.. and I think it&rsquo;s sort of fun and funny that it was like this.</p>
 <h1 id="why-im-making-it">Why I&rsquo;m making it</h1>
@@ -221,12 +227,12 @@
 <blockquote>
 <p><strong>Hocken</strong></p>
 </blockquote>
-<p>Which can roughly translate to “sitting down, squating, settling, idling”.</p>
+<p>Which can roughly translate to “sitting down, squatting, settling, idling”.</p>
 <p>And then you have:</p>
 <blockquote>
 <p><strong>Maier</strong></p>
 </blockquote>
-<p>Which has many different spellings, and ours has southern German roots, but all &ldquo;Meyer&rdquo; names come from the latin root &ldquo;maior&rdquo; mean steward, administrator, or more generally &ldquo;worker&rdquo;</p>
+<p>Which has many different spellings, and ours has southern German roots, but all &ldquo;Meyer&rdquo; names come from the latin root &ldquo;maior&rdquo; meaning steward, administrator, or more generally &ldquo;worker&rdquo;</p>
 <p>My family often puts these two ideas together as &ldquo;Lazy Worker,&rdquo; which is very on-brand for our sense of humor, but I think it&rsquo;s not just funny, but true.</p>
 <p>“Lazy Worker” is perfect for someone who wants to get a lot done, especially in software engineering. We only have so many hours, and the best lives are lived restricting the number of hours spent on work that isn&rsquo;t done with people you love. So you better be efficient about it. You better be lazy. There are <a href="https://blog.codinghorror.com/how-to-be-lazy-dumb-and-successful/?utm_source=chatgpt.com">many</a> <a href="https://xkcd.com/1205/?utm_source=chatgpt.com">correct</a> <a href="https://thethreevirtues.com/">takes</a> out there on the value of being lazy when programming.</p>
 <p>Now that we are starting to have AI, it&rsquo;s even better. A lazy worker like myself will not only avoid unnecessary work, but will delegate all that can be delegated to the new AI workers that are multiplying in our computers. That makes the &ldquo;steward&rdquo; connotation of &ldquo;Maier&rdquo; all the more fitting.</p>
@@ -419,7 +425,7 @@
 
 <h2 id="how-its-made">How it&rsquo;s made</h2>
 <p>I don&rsquo;t typically make complicated things like this with javascript. So when I found the perfect physics engine for the game - <a href="https://brm.io/matter-js/">matter.js</a> - I knew I would need help from our new little assistants. And though this game is a bit too structured to call it &ldquo;vibe coded&rdquo; - it&rsquo;s close.</p>
-<p>I ended up making my own tool called <a href="/context-caddy">Context Caddy</a> to help me with it. Part of the reason I leaned so hard into this is because I&rsquo;m always trying to push the limits of current AI, and I hadn&rsquo;t built a game since the GPT-4 days. The new thinking models are truly a setup above GPT-4 (this was mostly done with o3 and its minis) but they&rsquo;re still way to eager to write duplicate code, and they still don&rsquo;t &ldquo;get&rdquo; the structure of your project a lot of the time, especially with visual and physcial things like this. Still, they were a great help here.</p>
+<p>I ended up making my own tool called <a href="/context-caddy">Context Caddy</a> to help me with it. Part of the reason I leaned so hard into this is because I&rsquo;m always trying to push the limits of current AI, and I hadn&rsquo;t built a game since the GPT-4 days. The new thinking models are truly a step above GPT-4 (this was mostly done with o3 and its minis) but they&rsquo;re still way too eager to write duplicate code, and they still don&rsquo;t &ldquo;get&rdquo; the structure of your project a lot of the time, especially with visual and physical things like this. Still, they were a great help here.</p>
 <h2 id="how-to-play">How to Play</h2>
 <span
   style="
@@ -612,7 +618,7 @@
 
  
 </span>
- somewhere randomly on the page. Find a way to get the balls you spawn into that goal. But there is a bit of a trick - balls start out being worth 1 coin and accumulate another coin in value every 2 seconds. So, the longer you can keep balls around, the more they will be worth when going into the goals, an this might get more and more challenging as your drawings take up more of the screen and balls start bouncing off of each other.</p>
+ somewhere randomly on the page. Find a way to get the balls you spawn into that goal. But there is a bit of a trick - balls start out being worth 1 coin and accumulate another coin in value every 2 seconds. So, the longer you can keep balls around, the more they will be worth when going into the goals, and this might get more and more challenging as your drawings take up more of the screen and balls start bouncing off of each other.</p>
 <p><strong>Keep Clicking!</strong></p>
 <p>It&rsquo;s <a href="https://en.wikipedia.org/wiki/Incremental_game">a clicker game</a> - start by manually clicking the pneumatic tube to spawn balls, but as you accumulate coins you&rsquo;ll be able to unlock different drawables and things that will let you accumulate more coins faster.</p>
 <p>The site works across multiple pages. It works best when you&rsquo;re on desktop, working on one tab at a time.</p>
@@ -904,7 +910,7 @@
 </span>
 </p>
 <p>To start drawing your ball machine, you need to <kbd>Left Click</kbd> or <kbd>Tap</kbd> one of these drawable toggles in the main UI (top left of the screen)</p>
-<p>When you have a Drawable tool toggled on, you won&rsquo;t be able to click other links on the site. You&rsquo;ll see this visually indicated when you choose them. Unselect the currently selected tool in order to see it</p>
+<p>When you have a drawable tool toggled on, you won&rsquo;t be able to click other links on the site. You&rsquo;ll see this visually indicated when you choose them. Unselect the currently selected tool in order to see it</p>
 <p>Every drawable item (lines, launchers, and more) uses the following mechanics:</p>
 <p> </p>
 <h4 id="drawing-on-desktop">Drawing on Desktop</h4>
@@ -1228,7 +1234,7 @@
  
 </span>
 <strong>You get what you pay for&hellip;</strong></p>
-<p>If you every find yourself out of money, these dotted lines are free. They are not saved permanently like other lines and they go away after 50 balls hit them.</p>
+<p>If you ever find yourself out of money, these dotted lines are free. They are not saved permanently like other lines and they go away after 50 balls hit them.</p>
 <p> </p>
 <p>❌ A couple of things to watch out for when building ball machines:</p>
 <ul>
@@ -1364,6 +1370,79 @@ So keep your balls moving!</li>
 
                 
                     <title>This Website</title>
+                
+            </item>
+        
+            <item>
+                
+                
+                
+                
+                
+                
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+                
+
+                
+
+                
+
+                
+                    <description><![CDATA[<p>I&rsquo;m writing this post retrospectively as I never published it at the time of creation. It will live here as a &ldquo;stake in the ground&rdquo; of AI software capabilities as of March 2023. Note- if you&rsquo;re reading on substack, this post won&rsquo;t work. Go to <a href="hockenworks.com/gpt-4-solar-system/">hockenworks.com/gpt-4-solar-system</a>.</p>
+<p>The interactive solar system below was created with minimal help from me, by the very first version of GPT-4, before even function calling was a feature. It was the first of an ongoing series of experiments to see what frontier models could do by themselves - and I&rsquo;m posting it here because it was the earliest example I saved.</p>
+<p>Here&rsquo;s a link to the chat where it was created, though it&rsquo;s not possible to continue this conversation directly since the model involved has long since been deprecated: <a href="https://chatgpt.com/share/683b5680-8ac8-8006-9493-37add8749387">https://chatgpt.com/share/683b5680-8ac8-8006-9493-37add8749387</a></p>
+
+<div style="width:100%; max-width:1000px; margin:1em auto; position:relative; padding-top:70%;">
+  <iframe
+    src="/html/solar-system-self-contained.html"
+    style="position:absolute; top:0; left:0; width:100%; height:100%; border:1px solid #ccc;"
+  ></iframe>
+</div>
+
+<div style="text-align: center; margin-bottom: 1rem;">
+    
+        <span style="display: block; font-style: italic; margin-top: 0.5rem;">GPT-4 only wrote this for desktop, sorry phone users</span>
+    
+</div>
+
+<p><strong>Controls</strong></p>
+<p><kbd>Mouse Click + Drag</kbd> to move the solar system around</p>
+<p><kbd>Mouse Wheel Up</kbd> to zoom in from the cursor location</p>
+<p><kbd>Mouse Wheel Down</kbd> to zoom out</p>
+<p>If you get lost, reload the page. That&rsquo;s an edge case GPT-4 didn&rsquo;t account for :)</p>
+<p>Here was the initial prompt:</p>
+<blockquote>
+<p>This might be a long output, so if you need to break and I&rsquo;ll ask you to continue in another message feel free to do that. But please limit any non-code text prose to only essential statements to help mitigate this</p>
+<p>I want you to make me a dynamic website. It should look good on mobile or on desktop, and I would like you to pick a nice dark background color and an interesting font to use across the page.</p>
+<p>The page is intended to show the scale of the solar system in an interactive way, primarily designed for children to zoom in and out of different parts of the solar system and see planets and the Sun in relative scale. Mouse controls should also include panning around the model solar system, and should include text around planets with some statistics about their size, gravity, atmospheres, and any other fun facts you think would be educational and fun for 10-12 year olds.</p>
+</blockquote>
+<p>Then I had to give it 4 more short prompts, one for a technical hint (to use html-5 since it was going a strange direction) and 3 for visual and mouse control misses.</p>
+<p>It works - but missed some of the relatively simple directions, like the planet stats and rendering/controls for mobile. Still, I think it&rsquo;s cool to see the true scale of the planets on a zoomable canvas. And, it only goes to Neptune, the last true planet&hellip; don&rsquo;t go looking for Pluto.</p>
+<p>For March 2023, this result was revolutionary - I was truly impressed. In 2025, it&rsquo;s not very impressive at all. How quickly we get used to progress!</p>]]></description>
+                
+
+                <guid isPermaLink="false">tag:hockenworks.com,2023-03-18:/gpt-4-solar-system/</guid>
+
+                
+                    <link>https://hockenworks.com/gpt-4-solar-system/</link>
+                
+
+                
+                    <pubDate>Sat, 18 Mar 2023 00:00:00 UTC</pubDate>
+                
+
+                
+                    <title>GPT-4 Solar System</title>
                 
             </item>
         
@@ -2187,7 +2266,7 @@ So keep your balls moving!</li>
 <p>I created this panel display in 2026 to control much of the home automation I used in my Studio City apartment. Mainly a hardware project, I designed and 3D-printed a case and frame for the touchscreen and raspberry pi microcomputer in order to mount them to the wall. The software running the control panel is SaaS, but I did write a custom html wrapper to control the orientation and settings of the site, which is available on the github linked above.</p>
 <p>Update in 2025: This panel is still my main view into my home automation in my new house in Sherman Oaks, almost 10 years in with no modification!</p>
 <p>Here&rsquo;s a video to see the panel in action:</p>
-<h2 id="hahahugoshortcode24s0hbhb">
+<h2 id="hahahugoshortcode27s0hbhb">
     <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
       <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/iFGmm-ijJvE?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"></iframe>
     </div>

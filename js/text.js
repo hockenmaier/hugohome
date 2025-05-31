@@ -18,38 +18,58 @@ App.modules.text = (function () {
     const Events = Matter.Events;
 
     function traceOutline(alphaData, w, h) {
-      const edges = [];
-      function alphaAt(x, y) {
-        if (x < 0 || y < 0 || x >= w || y >= h) return 0;
-        return alphaData[y * w + x];
+      // find the first (top) row that has any opaque pixel
+      let topRow = -1;
+      for (let y = 0; y < h; y++) {
+        for (let x = 0; x < w; x++) {
+          if (alphaData[y * w + x] > 0) {
+            topRow = y;
+            break;
+          }
+        }
+        if (topRow !== -1) break;
       }
-      for (let y = 0; y < h - 1; y++) {
-        for (let x = 0; x < w - 1; x++) {
-          const topLeft = alphaAt(x, y);
-          const topRight = alphaAt(x + 1, y);
-          const bottomLeft = alphaAt(x, y + 1);
-          const bottomRight = alphaAt(x + 1, y + 1);
-          const squareIdx =
-            (topLeft > 0 ? 8 : 0) +
-            (topRight > 0 ? 4 : 0) +
-            (bottomRight > 0 ? 2 : 0) +
-            (bottomLeft > 0 ? 1 : 0);
+      if (topRow === -1) return [];
 
-          if (squareIdx === 1 || squareIdx === 14)
-            edges.push({ x, y: y + 0.5 }, { x: x + 0.5, y: y + 1 });
-          else if (squareIdx === 2 || squareIdx === 13)
-            edges.push({ x: x + 0.5, y: y + 1 }, { x: x + 1, y: y + 0.5 });
-          else if (squareIdx === 4 || squareIdx === 11)
-            edges.push({ x: x + 0.5, y }, { x: x + 1, y: y + 0.5 });
-          else if (squareIdx === 8 || squareIdx === 7)
-            edges.push({ x, y: y + 0.5 }, { x: x + 0.5, y });
-          else if (squareIdx === 3 || squareIdx === 12)
-            edges.push({ x, y: y + 0.5 }, { x: x + 1, y: y + 0.5 });
-          else if (squareIdx === 6 || squareIdx === 9)
-            edges.push({ x: x + 0.5, y }, { x: x + 0.5, y: y + 1 });
+      // find leftmost and rightmost x on that top row
+      let leftTop = w,
+        rightTop = -1;
+      for (let x = 0; x < w; x++) {
+        if (alphaData[topRow * w + x] > 0) {
+          leftTop = Math.min(leftTop, x);
+          rightTop = Math.max(rightTop, x);
         }
       }
-      return edges;
+
+      // find the last (bottom) row that has any opaque pixel
+      let bottomRow = -1;
+      for (let y = h - 1; y >= 0; y--) {
+        for (let x = 0; x < w; x++) {
+          if (alphaData[y * w + x] > 0) {
+            bottomRow = y;
+            break;
+          }
+        }
+        if (bottomRow !== -1) break;
+      }
+
+      // find leftmost and rightmost x on that bottom row
+      let leftBot = w,
+        rightBot = -1;
+      for (let x = 0; x < w; x++) {
+        if (alphaData[bottomRow * w + x] > 0) {
+          leftBot = Math.min(leftBot, x);
+          rightBot = Math.max(rightBot, x);
+        }
+      }
+
+      // build the triangle: top-left, top-right, and bottom-center
+      const bottomCenter = (leftBot + rightBot) / 2;
+      return [
+        { x: leftTop, y: topRow },
+        { x: rightTop, y: topRow },
+        { x: bottomCenter, y: bottomRow },
+      ];
     }
 
     // Shifts each point inward by a fixed distance from the shape’s center
@@ -67,30 +87,47 @@ App.modules.text = (function () {
 
     const shapeCache = new Map();
 
-    function getCachedEdges(char, font, w, h, alphaData) {
+    function getCachedEdges(char, font, w, h) {
       const key = `${char}|${font}|${w}x${h}`;
-      if (shapeCache.has(key)) return shapeCache.get(key);
+      if (shapeCache.has(key)) {
+        return shapeCache.get(key);
+      }
+
+      // draw the character once into an offscreen canvas
+      const off = document.createElement("canvas");
+      off.width = w;
+      off.height = h;
+      const ctx = off.getContext("2d");
+      ctx.clearRect(0, 0, w, h);
+      ctx.font = font;
+      ctx.textBaseline = "top";
+      ctx.fillStyle = "#000";
+      ctx.fillText(char, 0, 0);
+
+      // extract alpha channel
+      const data = ctx.getImageData(0, 0, w, h).data;
+      const alphaData = new Uint8Array(w * h);
+      for (let i = 3, j = 0; i < data.length; i += 4, j++) {
+        alphaData[j] = data[i];
+      }
+
+      // compute the 3-point outline
       const raw = traceOutline(alphaData, w, h);
       if (!raw.length) {
         shapeCache.set(key, []);
         return [];
       }
-      let minX = Infinity,
-        maxX = -Infinity,
-        minY = Infinity,
-        maxY = -Infinity;
-      for (const pt of raw) {
-        if (pt.x < minX) minX = pt.x;
-        if (pt.x > maxX) maxX = pt.x;
-        if (pt.y < minY) minY = pt.y;
-        if (pt.y > maxY) maxY = pt.y;
-      }
-      const cx = (minX + maxX) / 2;
-      const cy = (minY + maxY) / 2;
-      const local = raw.map((pt) => ({ x: pt.x - cx, y: pt.y - cy }));
-      const shrunk = shrinkEdges(local, 4);
-      shapeCache.set(key, shrunk);
-      return shrunk;
+
+      // center points around canvas midpoint
+      const cx = w / 2,
+        cy = h / 2;
+      const local = raw.map((pt) => ({
+        x: pt.x - cx,
+        y: pt.y - cy,
+      }));
+
+      shapeCache.set(key, local);
+      return local;
     }
 
     function wrapTextNodes(root) {
@@ -106,7 +143,7 @@ App.modules.text = (function () {
         if (
           node.nodeValue.trim() &&
           node.parentNode &&
-          !node.parentNode.closest("#ballfall-ui") && // Skip UI Elements
+          !node.parentNode.closest("#ballfall-ui, #spawner-container") && // Skip UI Elements
           !["SCRIPT", "STYLE"].includes(node.parentNode.tagName)
         ) {
           textNodes.push(node);
@@ -121,6 +158,7 @@ App.modules.text = (function () {
         for (let char of text) {
           const span = document.createElement("span");
           span.textContent = char;
+          span.classList.add("BallFallChar"); // <<< mark it
           frag.appendChild(span);
         }
         parent.replaceChild(frag, node);
@@ -129,48 +167,35 @@ App.modules.text = (function () {
     wrapTextNodes(document.body);
 
     function letterToBody(letterEl) {
-      if (letterEl.tagName === "IMG" && letterEl.closest("#ballfall-ui"))
+      if (letterEl.tagName === "IMG" && letterEl.closest("#ballfall-ui")) {
         return null;
+      }
       const rect = letterEl.getBoundingClientRect();
       if (rect.width < 1 || rect.height < 1) return null;
 
-      const off = document.createElement("canvas");
-      off.width = Math.ceil(rect.width * 0.8);
-      off.height = Math.ceil(rect.height * 0.8);
-      ctx.font = window.getComputedStyle(letterEl).font;
-      ctx.clearRect(0, 0, off.width, off.height);
-      ctx.fillStyle = "#000";
-      ctx.textBaseline = "top";
-      ctx.fillText(letterEl.textContent, 0, 0);
+      // compute canvas size
+      const w = Math.ceil(rect.width * 0.8);
+      const h = Math.ceil(rect.height * 0.8);
+      if (w < 1 || h < 1) return null;
 
-      const imgData = ctx.getImageData(0, 0, off.width, off.height).data;
-      const alphaData = [];
-      for (let i = 3; i < imgData.length; i += 4) alphaData.push(imgData[i]);
+      // get or build the collider once per unique char/font/size
+      const font = window.getComputedStyle(letterEl).font;
+      const verts = getCachedEdges(letterEl.textContent, font, w, h);
+      if (!verts.length) return null;
 
-      const shrunk = getCachedEdges(
-        letterEl.textContent,
-        ctx.font,
-        off.width,
-        off.height,
-        alphaData
-      );
-      if (!shrunk.length) return null;
-
+      // position at element center
       const centerX = rect.left + window.scrollX + rect.width / 2;
       const centerY = rect.top + window.scrollY + rect.height / 2;
+
       const body = Bodies.fromVertices(
         centerX,
         centerY,
-        [shrunk],
-        {
-          isStatic: true,
-          render: { visible: false },
-        },
+        [verts],
+        { isStatic: true, render: { visible: false } },
         true
       );
       if (body) {
         body.elRef = letterEl;
-        // mark header text colliders for low-bounce
         if (letterEl.closest("h1, h2, h3, h4, h5, h6")) {
           body.isHeader = true;
         }
@@ -178,14 +203,76 @@ App.modules.text = (function () {
       return body;
     }
 
-    const elements = Array.from(document.querySelectorAll("span, img")).filter(
-      (el) => !el.closest("#ballfall-ui")
-    );
+    // tunable margins per side (px)
+    const MARGIN_TOP = 9;
+    const MARGIN_RIGHT = 2;
+    const MARGIN_BOTTOM = 2;
+    const MARGIN_LEFT = 2;
 
+    // only the spans we created above
+    const elements = Array.from(document.querySelectorAll("span.BallFallChar"));
+
+    let charCount = 0;
+    const THRESHOLD = 4000; // After this many characters, we simplify and start drawing boxes around whole lines according to the margins above
+    const deferred = [];
+
+    // first: up to THRESHOLD individual triangles
     elements.forEach((el) => {
-      const body = letterToBody(el);
-      if (body) World.add(world, body);
+      if (charCount < THRESHOLD) {
+        const body = letterToBody(el);
+        if (body) {
+          World.add(world, body);
+          charCount++;
+        }
+      } else {
+        deferred.push(el);
+      }
     });
+
+    // second: batch remaining spans by line
+    if (deferred.length) {
+      const lines = new Map();
+      deferred.forEach((el) => {
+        const top = Math.round(el.getBoundingClientRect().top);
+        if (!lines.has(top)) lines.set(top, []);
+        lines.get(top).push(el);
+      });
+
+      lines.forEach((group) => {
+        let minX = Infinity,
+          minY = Infinity;
+        let maxX = -Infinity,
+          maxY = -Infinity;
+
+        group.forEach((el) => {
+          const r = el.getBoundingClientRect();
+          minX = Math.min(minX, r.left);
+          maxX = Math.max(maxX, r.right);
+          minY = Math.min(minY, r.top);
+          maxY = Math.max(maxY, r.bottom);
+        });
+
+        // apply per-side margins
+        minX += MARGIN_LEFT;
+        minY += MARGIN_TOP;
+        maxX -= MARGIN_RIGHT;
+        maxY -= MARGIN_BOTTOM;
+        if (maxX <= minX || maxY <= minY) return;
+
+        const width = maxX - minX;
+        const height = maxY - minY;
+        const centerX = minX + width / 2 + window.scrollX;
+        const centerY = minY + height / 2 + window.scrollY;
+
+        const batchBody = Bodies.rectangle(centerX, centerY, width, height, {
+          isStatic: true,
+          render: { visible: false },
+        });
+        // attach all the span elements so we can color them later
+        batchBody.elRefs = group;
+        World.add(world, batchBody);
+      });
+    }
 
     // Helper: change the text color to match the ball's color.
     // Additionally, if the letter element is an <a> tag (or within one), boost the ball's speed by multiplying it by 1.5.
@@ -220,20 +307,30 @@ App.modules.text = (function () {
     // Collision handler: detect collisions between text letters and balls.
     Events.on(engine, "collisionStart", (evt) => {
       evt.pairs.forEach((pair) => {
-        if (
-          pair.bodyA.elRef &&
-          pair.bodyA.elRef.tagName &&
-          pair.bodyA.elRef.tagName.toUpperCase() === "SPAN" &&
-          pair.bodyB.label === "BallFallBall"
-        ) {
-          applyBallHitEffect(pair.bodyA, pair.bodyB);
-        } else if (
-          pair.bodyB.elRef &&
-          pair.bodyB.elRef.tagName &&
-          pair.bodyB.elRef.tagName.toUpperCase() === "SPAN" &&
+        // identify ball vs other
+        const ball =
           pair.bodyA.label === "BallFallBall"
-        ) {
-          applyBallHitEffect(pair.bodyB, pair.bodyA);
+            ? pair.bodyA
+            : pair.bodyB.label === "BallFallBall"
+            ? pair.bodyB
+            : null;
+        const other =
+          ball === pair.bodyA
+            ? pair.bodyB
+            : ball === pair.bodyB
+            ? pair.bodyA
+            : null;
+        if (!ball || !other) return;
+
+        // single-char collider
+        if (other.elRef) {
+          applyBallHitEffect(other, ball);
+        }
+        // batched line collider: apply to each char
+        else if (other.elRefs && Array.isArray(other.elRefs)) {
+          other.elRefs.forEach((el) => {
+            applyBallHitEffect({ elRef: el }, ball);
+          });
         }
       });
     });
