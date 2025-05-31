@@ -23,8 +23,6 @@ This site is also a video game. Play around and discover it yourself or [learn h
 
 {{< substack >}}
 
-{{< substack-api >}}
-
 ## Latest
 
 ---
