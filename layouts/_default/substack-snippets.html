@@ -1,0 +1,7 @@
+{{ define "main" }} {{ partial "paige/page.html" . }}
+
+<div id="paige-pages">
+  {{ range .Site.RegularPages.ByDate.Reverse }} {{ partial
+  "substack-snippet.html" (dict "page" .) }} {{ end }}
+</div>
+{{ end }}
