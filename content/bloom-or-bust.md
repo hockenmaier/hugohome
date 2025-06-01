@@ -30,7 +30,7 @@ I've made a few clones or slight enhancements of games I like before like [Nope]
 
 This is a risk-taking game where players compete to take over a tree with their specific type of fruit. Trees and bees are becoming a recurring theme in my games!
 
-All parts of this game or hand designed by me, mostly in VR with a tool called gravity Sketch, blender, and one of my favorite programmer's 3D tools called OpenSCAD.
+All parts of this game are hand-designed by me, mostly in VR with a tool called gravity Sketch, blender, and one of my favorite programmer's 3D tools called OpenSCAD.
 
 {{< round-gallery >}}
 images/bloom-or-bust-7.jpg|,
@@ -42,7 +42,7 @@ images/bloom-or-bust-3.jpg|,
 images/bloom-or-bust-8.jpg|
 {{< /round-gallery >}}
 
-Of all my models, this one takes most advantage of my multicolor BambuLab printer. All parts including the custom box which cleverly incorporates the instructions and game board itself are printed in bamboo lab Matte PLA, which in my opinion is probably the most beautiful way to print.
+Of all my models, this one takes most advantage of my multicolor BambuLab printer. All parts including the custom box which cleverly incorporates the instructions and game board itself are printed in BambuLab Matte PLA, which in my opinion is the most beautiful way to print.
 
 Production is batched with 80 to 150 of each fruit or bee on a build plate, with overall production heavily limited by the game board and latching box each requiring a separate print.
 

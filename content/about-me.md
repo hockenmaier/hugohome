@@ -25,7 +25,7 @@ At work, I try to be low time preference, high autonomy, low consensus (even con
 
 I've been at one company for a long time for a millennial. I've built a lot of enterprise software and four high performing software teams. I started on back-office stuff like billing systems, TV scheduling systems, IP rights management systems, and file ingest systems for News. Most recently I’m making some pretty awesome stuff in agentic AI for the mundane work that the people at my company have to do!
 
-My bias is to build rather than talk. I'm the one pushing to just try to build the thing, to scrap it early if needed, and to take risks releasing early. I figure that we always know more, and usually throw away our plans, when we start to build. I love building strange things, useful thingss, fun things. One of the things I built was this website and the game running on top of it. [Read more about that here](/this-website)
+My bias is to build rather than talk. I'm the one pushing to just try to build the thing, to scrap it early if needed, and to take risks releasing early. I figure that we always know more, and usually throw away our plans, when we start to build. I love building strange things, useful things, fun things. One of the things I built was this website and the game running on top of it. [Read more about that here](/this-website)
 
 Other Profiles:
 
@@ -39,7 +39,7 @@ And my professional persona can be found on [my linkedin](https://www.linkedin.c
 
 # Where to start
 
-I post here mostly about things I'm making and occasional essays. If you’re interested in this site but don’t know where to start, try reading any of these posts that sound interesting to you. They're either peices or projects I put a lot of time into.
+I post here mostly about things I'm making and occasional essays. If you’re interested in this site but don’t know where to start, try reading any of these posts that sound interesting to you. They're either pieces or projects I put a lot of time into.
 
 ## Video Games
 
@@ -59,7 +59,7 @@ I've been developing video games on and off since 2017 or so. This has entailed 
 
 {{< single-with-image path="/treekeepers-vr">}}
 
-> Treekeepers VR was an ambitious game developement project I took on in 2021- my first published VR title and my first multiplayer title. The latter turned out to be the really hard part. It's now free on two platforms. Read more about it:
+> Treekeepers VR was an ambitious game development project I took on in 2021- my first published VR title and my first multiplayer title. The latter turned out to be the really hard part. It's now free on two platforms. Read more about it:
 
 &nbsp;
 

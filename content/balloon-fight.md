@@ -58,11 +58,11 @@ So fast forward to now. We all knew this has been coming for a long time, but fi
 
 OpenAI was yet again the first to release this type of capability, at least in a serious way. Technically there was a Gemini model that did native image gen maybe a month before OpenAI released theirs, but it was pretty garbage in comparison. And, unexpectedly, the new OpenAI image gen can also generate images on transparent PNG backgrounds, which is absolutely crucial for any image that's going to be set against some dynamic background - this is all game art.
 
-I have since taken a few attempts at making some multi-frame spray animations, and it's almost there, but it's still a lot of work unlike what you might be led to believe by excited Twitter posts with whole sprite sheets generated. The models just still aren't consistent enough to produce images that don't require a heavy amount of editing to get the same amount of background space, fallout actual sprite sheet specs, keep characters absolutely consistent. But I think they will get there soon.
+I have since taken a few attempts at making some multi-frame spray animations, and it's almost there, but it's still a lot of work unlike what you might be led to believe by excited Twitter posts with whole sprite sheets generated. The models just still aren't consistent enough to produce images that don't require a heavy amount of editing to get the same amount of background space, full actual sprite sheet specs, keep characters absolutely consistent, etc. But I think they will get there soon.
 
 # Generated Music
 
-Generated music was a surprising high point of this project. Great quality sound effect and music generators were on my checklist of things that I knew would come soon, but I got super lucky when udio (link) came out about a month and two prototyping this thing. Check out these tracks I put into the game:
+Generated music was a surprising high point of this project. Great quality sound effect and music generators were on my checklist of things that I knew would come soon, but I got super lucky when udio (link) came out about a month or two into prototyping this thing. Check out these tracks I put into the game:
 
 (Media)
 

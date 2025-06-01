@@ -32,7 +32,7 @@ Looking back, this project was a great insight into what LLMs immediately allowe
 **Try it here:** [http://voicequery-dev.s3-website-us-west-2.amazonaws.com/](http://voicequery-dev.s3-website-us-west-2.amazonaws.com/)
 **Github:** [https://github.com/hockenmaier/voicequery](https://github.com/hockenmaier/voicequery)
 
-The system uses natural language processing (NLP) to produce answers to questions asked about data in plain English.
+The system uses natural language processing to produce answers to questions asked about data in plain English.
 
 It is designed with simplicity in mind—upload any columnar dataset and start asking questions and getting answers. It uses advanced NLP algorithms to make assumptions about what data you're asking about and lets you correct those assumptions for follow-up questions if they're wrong.
 

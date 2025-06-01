@@ -28,10 +28,10 @@ You'll need some small-gauge wire and pliers to finish the assembly of this thin
 
 Loop and tie the wire through one of the four mounting holes near the four corners of the top piece. Then weave the rest of the wire through the 20 holes (10 on each side) starting with the one immediately below the mounting hole you started with. Try to keep the wire as tight as possible with each weave. Finish by tying the other end of your wire to the remaining mounting hole on the side you started on.
 
-Your wires are probably not tight enough at this point. Make sure the two ends are tied securely, and then grab your pliers. There is a small, vertical, raised wall with a notch it it between each hole on the outer edge of the top piece. Using the pliers, lift the wire into the notch on as many of the outer wire loops as possible in order to tighten it.
+Your wires are probably not tight enough at this point. Make sure the two ends are tied securely, and then grab your pliers. There is a small, vertical, raised wall with a notch in it between each hole on the outer edge of the top piece. Using the pliers, lift the wire into the notch on as many of the outer wire loops as possible in order to tighten it.
 
 ### Operation:
 
-Peel your hard-boiled egg and place it on the base sideways. Push the top peice through the base and the wires. If you want your egg diced, lift it off the base, remove the top peices of the slicer, put the egg back down rotated 90 degrees and proceed to dice your egg.
+Peel your hard-boiled egg and place it on the base sideways. Push the top piece through the base and the wires. If you want your egg diced, lift it off the base, remove the top pieces of the slicer, put the egg back down rotated 90 degrees and proceed to dice your egg.
 
 Soak in warm soapy water to wash it before storing.
