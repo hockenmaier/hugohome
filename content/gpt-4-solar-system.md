@@ -1,7 +1,7 @@
 ---
 title: "GPT-4 Solar System"
 date: 2023-03-18
-categories: ["writing"]
+categories: ["builds"]
 tags: [AI, "Experimental", software, html, javascript, css, "Rapid Prototyping"]
 featured: "/images/gpt-4-solar-system-featured.png"
 ---
