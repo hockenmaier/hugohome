@@ -30,7 +30,7 @@ I've made a few clones or slight enhancements of games I like before like [Nope]
 
 This is a risk-taking game where players compete to take over a tree with their specific type of fruit. Trees and bees are becoming a recurring theme in my games!
 
-All parts of this game are hand-designed by me, mostly in VR with a tool called gravity Sketch, blender, and one of my favorite programmer's 3D tools called OpenSCAD.
+All parts of this game are hand-designed by me, mostly in VR with a tool called Gravity Sketch, blender, and one of my favorite programmer's 3D tools called OpenSCAD.
 
 {{< round-gallery >}}
 images/bloom-or-bust-7.jpg|,

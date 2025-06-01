@@ -82,17 +82,17 @@ window.App = {
     speedUpgradeCosts: {
       // 1: every 2.2, 2: 1.1, 3: 1.8/s, 4: 3.6/s
       1: 800,
-      2: 3000,
+      2: 5000,
       3: 30000,
-      4: 75000,
+      4: 100000,
       5: 250000,
-      6: 500000,
-      7: 1000000,
+      6: 1000000,
+      7: 2000000,
       8: 4000000,
-      9: 16000000,
-      10: 40000000,
-      11: 80000000,
-      12: 160000000,
+      9: 8000000,
+      10: 16000000,
+      11: 32000000,
+      12: 64000000,
     },
     maxUnlockedSpeedLevel: 0, // Initially 0; increases with upgrades
     autoClicker: false, // Flag set when auto-clicker is purchased
@@ -174,7 +174,7 @@ window.App = {
 
     // Compactor globals.
     compactor: {
-      cost: 250000,
+      cost: 1000000,
       naturalDimensions: {
         left: { width: 475, height: 811 },
         middle: { width: 470, height: 811 },

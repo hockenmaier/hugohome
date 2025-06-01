@@ -166,7 +166,6 @@
         "layouts\\partials\\paige\\tag-head.html": true,
         "static\\js\\ball-machine-app.js": true,
         "static\\js\\spawner.js": true,
-        "static\\js\\base-simulation.js": true,
         "hugo.toml": true,
         "layouts\\partials\\ball-machine-ui.html": true,
         "notes\\site-description.md": true,
@@ -270,7 +269,8 @@
         "themes\\paige\\static\\mstile-310x150.png": true,
         "themes\\paige\\static\\mstile-310x310.png": true,
         "themes\\paige\\static\\mstile-70x70.png": true,
-        "themes\\paige\\static\\safari-pinned-tab.svg": true
+        "themes\\paige\\static\\safari-pinned-tab.svg": true,
+        "static\\js\\base-simulation.js": true
       },
       "prePrompt": "",
       "includeFileTree": true

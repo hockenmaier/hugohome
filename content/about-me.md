@@ -23,7 +23,7 @@ caption="One of the few pictures I have from my time building robots with legos,
 
 At work, I try to be low time preference, high autonomy, low consensus (even contrarian), high invention, process-light.
 
-I've been at one company for a long time for a millennial. I've built a lot of enterprise software and four high performing software teams. I started on back-office stuff like billing systems, TV scheduling systems, IP rights management systems, and file ingest systems for News. Most recently I’m making some pretty awesome stuff in agentic AI for the mundane work that the people at my company have to do!
+I've been at one company for a long time for a millennial. I've built a lot of enterprise software and four high-performing software teams. I started on back-office stuff like billing systems, TV scheduling systems, IP rights management systems, and file ingest systems for News. Most recently I’m making some pretty awesome stuff in agentic AI for the mundane work that the people at my company have to do!
 
 My bias is to build rather than talk. I'm the one pushing to just try to build the thing, to scrap it early if needed, and to take risks releasing early. I figure that we always know more, and usually throw away our plans, when we start to build. I love building strange things, useful things, fun things. One of the things I built was this website and the game running on top of it. [Read more about that here](/this-website)
 
