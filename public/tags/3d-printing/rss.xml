@@ -252,7 +252,7 @@
 </div>
 
 <p>This is a risk-taking game where players compete to take over a tree with their specific type of fruit. Trees and bees are becoming a recurring theme in my games!</p>
-<p>All parts of this game or hand designed by me, mostly in VR with a tool called gravity Sketch, blender, and one of my favorite programmer&rsquo;s 3D tools called OpenSCAD.</p>
+<p>All parts of this game are hand-designed by me, mostly in VR with a tool called gravity Sketch, blender, and one of my favorite programmer&rsquo;s 3D tools called OpenSCAD.</p>
 <div class="paige-row-wide">
   <div style="display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:15px;">
       
@@ -561,7 +561,7 @@
 </div>
 </div>
 
-<p>Of all my models, this one takes most advantage of my multicolor BambuLab printer. All parts including the custom box which cleverly incorporates the instructions and game board itself are printed in bamboo lab Matte PLA, which in my opinion is probably the most beautiful way to print.</p>
+<p>Of all my models, this one takes most advantage of my multicolor BambuLab printer. All parts including the custom box which cleverly incorporates the instructions and game board itself are printed in BambuLab Matte PLA, which in my opinion is the most beautiful way to print.</p>
 <p>Production is batched with 80 to 150 of each fruit or bee on a build plate, with overall production heavily limited by the game board and latching box each requiring a separate print.</p>
 <div class="paige-row-wide">
   <div style="display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:15px;">
@@ -1660,10 +1660,10 @@ I hope these characters remind you of some of your favorite series.</p>
 <li><a href="https://www.thingiverse.com/thing:2524560">Thingiverse</a></li>
 </ul>
 <hr>
-<p>I created this panel display in 2026 to control much of the home automation I used in my Studio City apartment. Mainly a hardware project, I designed and 3D-printed a case and frame for the touchscreen and raspberry pi microcomputer in order to mount them to the wall. The software running the control panel is SaaS, but I did write a custom html wrapper to control the orientation and settings of the site, which is available on the github linked above.</p>
+<p>I created this panel display in 2016 to control much of the home automation I used in my Studio City apartment. Mainly a hardware project, I designed and 3D-printed a case and frame for the touchscreen and raspberry pi microcomputer in order to mount them to the wall. The software running the control panel is SaaS, but I did write a custom html wrapper to control the orientation and settings of the site, which is available on the github linked above.</p>
 <p>Update in 2025: This panel is still my main view into my home automation in my new house in Sherman Oaks, almost 10 years in with no modification!</p>
 <p>Here&rsquo;s a video to see the panel in action:</p>
-<h2 id="hahahugoshortcode27s0hbhb">
+<h2 id="hahahugoshortcode28s0hbhb">
     <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
       <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/iFGmm-ijJvE?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"></iframe>
     </div>
@@ -2146,9 +2146,9 @@ Print in ABS if possible. ABS is dishwasher safe (will not warp) and PLA is not.
 <h3 id="assembly">Assembly:</h3>
 <p>You&rsquo;ll need some small-gauge wire and pliers to finish the assembly of this thing. I used 28 gauge stainless steel wire, but anything 28 gauge or smaller and waterproof should work. Don&rsquo;t use fishing line because it flexes too much to work. Actual metal wire is needed.</p>
 <p>Loop and tie the wire through one of the four mounting holes near the four corners of the top piece. Then weave the rest of the wire through the 20 holes (10 on each side) starting with the one immediately below the mounting hole you started with. Try to keep the wire as tight as possible with each weave. Finish by tying the other end of your wire to the remaining mounting hole on the side you started on.</p>
-<p>Your wires are probably not tight enough at this point. Make sure the two ends are tied securely, and then grab your pliers. There is a small, vertical, raised wall with a notch it it between each hole on the outer edge of the top piece. Using the pliers, lift the wire into the notch on as many of the outer wire loops as possible in order to tighten it.</p>
+<p>Your wires are probably not tight enough at this point. Make sure the two ends are tied securely, and then grab your pliers. There is a small, vertical, raised wall with a notch in it between each hole on the outer edge of the top piece. Using the pliers, lift the wire into the notch on as many of the outer wire loops as possible in order to tighten it.</p>
 <h3 id="operation">Operation:</h3>
-<p>Peel your hard-boiled egg and place it on the base sideways. Push the top peice through the base and the wires. If you want your egg diced, lift it off the base, remove the top peices of the slicer, put the egg back down rotated 90 degrees and proceed to dice your egg.</p>
+<p>Peel your hard-boiled egg and place it on the base sideways. Push the top piece through the base and the wires. If you want your egg diced, lift it off the base, remove the top pieces of the slicer, put the egg back down rotated 90 degrees and proceed to dice your egg.</p>
 <p>Soak in warm soapy water to wash it before storing.</p>]]></description>
                 
 
@@ -2201,7 +2201,7 @@ Print in ABS if possible. ABS is dishwasher safe (will not warp) and PLA is not.
 
 <h2 id="instructions">Instructions</h2>
 <p>You will need two 4mm-wide wall hooks (the kind used to mount pictures). Make sure they conduct and are attracted to magnets. You will also need a hot glue gun.
-Print two of the attached STL files (one of the mountable variety if you plan to mount it). Flatten the wall hooks with a hammer to get them completely flat, and lay the first one on on of your printed pieces leaving about a half an inch to spare from one end, and hanging out the other. Place a dab of hot glue on the end where it is hanging off. Do the same with the other half, and then place the halves together so the metal pieces are not quite touching in the middle. Seal the metal in place with hot glue.</p>
+Print two of the attached STL files (one of the mountable variety if you plan to mount it). Flatten the wall hooks with a hammer to get them completely flat, and lay the first one on one of your printed pieces leaving about a half an inch to spare from one end, and hanging out the other. Place a dab of hot glue on the end where it is hanging off. Do the same with the other half, and then place the halves together so the metal pieces are not quite touching in the middle. Seal the metal in place with hot glue.</p>
 <p>The hot glue lets the metal move slightly, so that one metal piece bends to touch the other when a magnet is near either side of the switch, completing the circuit between the two metal ends still sticking out.</p>]]></description>
                 
 
