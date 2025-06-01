@@ -19,19 +19,20 @@
       goalWidth = 40,
       goalHeight = 40;
 
-    let pageWidth, pageHeight, minY;
+    let pageWidth, pageHeight, minY, maxX, maxY;
     if (window.innerWidth < 620) {
       pageWidth = window.innerWidth;
-      pageHeight = pageHeight = document.body.scrollHeight; //We used to make this innerHeight so goals were always visible on phone mode but F that mobile users can figure it out.. it's more fun this way
+      pageHeight = document.body.scrollHeight;
       minY = App.config.goalBaseSpawnYMobile + goalHeight / 2;
+      maxY = pageHeight - 50 - goalHeight / 2;
     } else {
       pageWidth = document.body.scrollWidth;
       pageHeight = document.body.scrollHeight;
       minY = App.config.goalBaseSpawnYDesktop + goalHeight / 2;
+      maxY = pageHeight - goalHeight / 2;
     }
-    const maxX = pageWidth - goalWidth / 2,
-      maxY = pageHeight - goalHeight / 2,
-      maxAttempts = 100;
+    maxX = pageWidth - goalWidth / 2;
+    const maxAttempts = 100;
     let attempt = 0,
       candidate;
 
