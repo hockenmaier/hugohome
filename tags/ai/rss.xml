@@ -207,7 +207,7 @@
 
                 
                     <description><![CDATA[<p>Custom GPTs are free for everyone as of yesterday, so I thought I’d post some of the best ones I’ve made over the last few months for all of you:</p>
-<p>Proofreader (<a href="https://lnkd.in/g45DGnDW)">https://lnkd.in/g45DGnDW)</a>:
+<p>Proofreader (<a href="https://chatgpt.com/g/g-hjaNCJ8PU-proofreader)">https://chatgpt.com/g/g-hjaNCJ8PU-proofreader)</a>:
 This one is super simple. Give it what you’ve written and it will provide no-BS proofreads. It’s not going to hallucinate content, just point out mistakes and parts that don’t make sense.</p>
 <div style="text-align: center; margin-bottom: 1rem;">
     
@@ -296,11 +296,11 @@ This one is super simple. Give it what you’ve written and it will provide no-B
     
 </div>
 
-<p>Make Real (<a href="https://lnkd.in/gnwNTAd6)">https://lnkd.in/gnwNTAd6)</a>:
+<p>Make Real (<a href="https://chatgpt.com/g/g-Hw8qvqqey-make-real)">https://chatgpt.com/g/g-Hw8qvqqey-make-real)</a>:
 This makes your napkin drawings into working websites. It’s got some of the same limitations other code-generating AI tools do, but it does a surprisingly good job creating simple working web frontends for your ideas!</p>
-<p>Postman for PMs (<a href="https://lnkd.in/gARtSQ6R">https://lnkd.in/gARtSQ6R</a>)
+<p>Postman for PMs (<a href="https://chatgpt.com/g/g-QeNbSmirA-postman-for-pms">https://chatgpt.com/g/g-QeNbSmirA-postman-for-pms</a>)
 Talk to APIs using natural language instead of downloading technical tools or writing code (only unauthenticated APIs, for now). Also a great way to learn about APIs for newbies - Postman for PMs knows about some free online APIs to get started with.</p>
-<p>The Boy (<a href="https://lnkd.in/gvwNuaXC">https://lnkd.in/gvwNuaXC</a>)
+<p>The Boy (<a href="https://chatgpt.com/g/g-efYNPIDrz-the-boy">https://chatgpt.com/g/g-efYNPIDrz-the-boy</a>)
 An experimental “AI generated RPG” where you play as “The Boy” who realizes fantastic superpowers. It’s fun to play around and explore, but don’t expect too much consistent gameplay from the currently available AI models.</p>
 <p>Exciting times. Have fun!</p>
 ]]></description>
@@ -541,7 +541,7 @@ An experimental “AI generated RPG” where you play as “The Boy” who reali
 
                 
                     <description><![CDATA[<p>I have been occasionally challenging GPT to create models using <a href="https://openscad.org/">OpenSCAD</a>, a &ldquo;programming language for 3D models&rdquo;</p>
-<p>Both struggle, but GPT-4 has been a massive improvement. Here are both model&rsquo;s outputs after asking for an acorn and 3 messages of me giving feedback:</p>
+<p>Both struggle, but GPT-4 has been a massive improvement. Here are both models&rsquo; outputs after asking for an acorn and 3 messages of me giving feedback:</p>
 <div style="text-align: center; margin-bottom: 1rem;">
     
 
@@ -629,7 +629,7 @@ An experimental “AI generated RPG” where you play as “The Boy” who reali
     
 </div>
 
-<p>For the record, it is impressive that these LLMs can get anything right with no visual input or training on shapes like these. Imagine looking at the programming reference for openSCAD and trying to do this blind. The fact that the 3.5 version has a bunch of strangely intersecting primitives and some union issues has been normal in my experience. It takes quite a bit of spacial logic to get a model not to look like that.</p>
+<p>For the record, it is impressive that these LLMs can get anything right with no visual input or training on shapes like these. Imagine looking at the programming reference for openSCAD and trying to do this blind. The fact that the 3.5 version has a bunch of strangely intersecting primitives and some union issues has been normal in my experience. It takes quite a bit of spatial logic to get a model not to look like that.</p>
 ]]></description>
                 
 
@@ -802,7 +802,7 @@ An experimental “AI generated RPG” where you play as “The Boy” who reali
 <p>Looking back, this project was a great insight into what LLMs immediately allowed that was incredibly difficult before. This project was several months of work that the openAI sdk would probably have allowed in a few weeks - and that few weeks would have been mostly frontend design and a bit of prompting.</p>
 <p><strong>Try it here:</strong> <a href="http://voicequery-dev.s3-website-us-west-2.amazonaws.com/">http://voicequery-dev.s3-website-us-west-2.amazonaws.com/</a>
 <strong>Github:</strong> <a href="https://github.com/hockenmaier/voicequery">https://github.com/hockenmaier/voicequery</a></p>
-<p>The system uses natural language processing (NLP) to produce answers to questions asked about data in plain English.</p>
+<p>The system uses natural language processing to produce answers to questions asked about data in plain English.</p>
 <p>It is designed with simplicity in mind—upload any columnar dataset and start asking questions and getting answers. It uses advanced NLP algorithms to make assumptions about what data you&rsquo;re asking about and lets you correct those assumptions for follow-up questions if they&rsquo;re wrong.</p>
 <p>It is built entirely out of serverless components, which means there is no cost to maintain or run it other than the traffic the system receives.</p>
 <h2 id="how-to">How-to</h2>
