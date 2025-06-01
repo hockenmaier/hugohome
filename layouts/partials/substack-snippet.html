@@ -1,35 +1,28 @@
-{{ $d   := . }}
-{{ $p   := $d.page }}
-{{ $raw := "" }}
-{{ $src := "" }}
-{{ $width  := default 300 $d.width | int }}
+{{/* ---------- VARIABLES ---------- */}}
+{{ $d      := . }}
+{{ $p      := $d.page }}
+{{ $raw    := "" }}
+{{ $src    := "" }}
+{{ $width  := default 300 $d.width  | int }}
 {{ $height := default 300 $d.height | int }}
 
-{{/* ── explicit override via front-matter featured ──────────────────── */}}
+{{/* ---------- PICK FEATURED MEDIA ---------- */}}
 {{ if $p.Params.featured }}
   {{ $feat := $p.Params.featured }}
-  {{ $fields := split $feat " " }}
 
-  {{/* 1) IF you want a featured "youtube ID" -  you must just make sure it's the first media in the post and not use the featured frontmatter, due to technical constraints*/}}
-
-  {{/* 2) direct .mp4 path (video-large style) */}}
   {{ if hasSuffix $feat ".mp4" }}
     {{ $raw = printf `<video controls loop muted autoplay style="width:100%%;height:100%%;object-fit:cover;"><source src="%s" type="video/mp4"></video>` $feat }}
     {{ $src = $feat }}
 
-  {{/* 3) any other HTTP URL (e.g. full YouTube link) */}}
   {{ else if hasPrefix $feat "http" }}
     {{ $id  := replaceRE `.*(?:embed/|v=|youtu\.be/)([^?&/]+).*` `$1` $feat }}
     {{ $raw = printf `<iframe src="https://www.youtube.com/embed/%s" frameborder="0" allowfullscreen style="width:100%%;height:100%%;object-fit:cover;"></iframe>` $id }}
     {{ $src = printf "https://img.youtube.com/vi/%s/hqdefault.jpg" $id }}
 
-  {{/* 4) fallback to image */}}
   {{ else }}
     {{ $raw = printf `<img src="%s">` $feat }}
     {{ $src = $feat }}
   {{ end }}
-
-{{/* 5 ── otherwise fall back to first in-content media ──────────────────── */}}
 
 {{ else if findRE `(?s)<(?:img|iframe)[^>]*src="([^"]+)"` $p.Content }}
   {{ $m   := findRE `(?s)<(?:img|iframe)[^>]*src="([^"]+)"` $p.Content }}
@@ -41,13 +34,12 @@
   {{ $raw = index $m 0 }}
   {{ $src = replaceRE `(?s).*<source[^>]*src="([^"]+)".*` `$1` $raw }}
 
-{{/* Last: fallback to hugo default featured image */}}
 {{ else if $p.Params.featured_image }}
   {{ $raw = printf `<img src="%s">` $p.Params.featured_image }}
   {{ $src = $p.Params.featured_image }}
 {{ end }}
 
-{{/* ── clean summary ────────────────────────────────────────── */}}
+{{/* ---------- CLEAN SUMMARY ---------- */}}
 {{ $sum := $p.Summary |
     replaceRE `(?s)<iframe[^>]*>.*?</iframe>` `` |
     replaceRE `(?s)<video[^>]*>.*?</video>` `` |
@@ -56,7 +48,23 @@
     replaceRE `(?s)<span[^>]*font-style:[^>]*>.*?</span>` `` |
     safeHTML }}
 
-<article class="latest-item mb-4" style="display:flex; align-items:flex-start;">
+{{/* ---------- OUTPUT ---------- */}}
+<div class="post-header" style="margin-bottom:1rem;">
+  <h2 class="post-title" style="margin:0;">
+    <a class="link-light" href="{{ $p.RelPermalink }}">{{ $p.Title }}</a>
+  </h2>
+
+  <p class="permalink" style="margin:0 0 1rem;">
+    <a href="https://hockenworks.com{{ $p.RelPermalink }}">https://hockenworks.com{{ $p.RelPermalink }}</a>
+  </p>
+
+  <div class="copy-buttons" style="margin-bottom:1rem;">
+    <button id="copy-all-btn"      style="margin-right:.5rem; padding:.5rem 1rem; cursor:pointer;">Copy All</button>
+    <button id="copy-linkback-btn" style="padding:.5rem 1rem; cursor:pointer;">Copy LinkBack</button>
+  </div>
+</div>
+
+<article id="copy-content" class="latest-item mb-4" style="display:flex; align-items:flex-start;">
   <div class="media-column">
     <div class="media-container" style="width:{{ $width }}px; height:{{ $height }}px;">
 
@@ -75,34 +83,83 @@
         </a>
 
       {{ else if in $raw "<iframe" }}
-        <a href="{{ $p.RelPermalink }}">
-          <div class="media-placeholder"></div>
-        </a>
+        <a href="{{ $p.RelPermalink }}"><div class="media-placeholder"></div></a>
 
       {{ else if in $raw "<img" }}
-        <a href="{{ $p.RelPermalink }}">
-          <img src="{{ $src }}" alt="{{ $p.Title }}">
-        </a>
+        <a href="{{ $p.RelPermalink }}"><img src="{{ $src }}" alt="{{ $p.Title }}"></a>
 
       {{ else }}
-        <a href="{{ $p.RelPermalink }}">
-          <div class="media-placeholder"></div>
-        </a>
+        <a href="{{ $p.RelPermalink }}"><div class="media-placeholder"></div></a>
       {{ end }}
 
     </div>
   </div>
 
   <div class="text-column" style="align-self:flex-start; margin-top:0;">
-    <h2 class="post-title" style="margin-top:0 !important; margin-bottom:0 !important;">
-      <a class="link-light" href="{{ $p.RelPermalink }}">{{ $p.Title }}</a>
-    </h2>
     <div class="post-summary" style="margin-top:0; margin-bottom:.5rem;">
       {{ $sum }}
     </div>
+
     <p class="read-more text-secondary fst-italic" style="margin:0;">
       {{ $p.ReadingTime }} {{ i18n "paige_minutes" $p.ReadingTime }} ·
-      <a href="{{ $p.RelPermalink }}">This post is a hockenworks build.  Play and read more at hockenworks →</a>
+      <a href="{{ $p.RelPermalink }}">This post is a hockenworks build. Play and read more at hockenworks →</a>
     </p>
+
+    {{/* Link-back image always after text */}}
+    <div id="linkback-content" class="linkback-image" style="margin-top:1rem;">
+      <a href="{{ $p.RelPermalink }}">
+        <img src="/images/hockenworks-linkback.png" alt="Link back to post" style="max-width:100%; height:auto;">
+      </a>
+    </div>
   </div>
 </article>
+
+{{/* ---------- COPY SCRIPT ---------- */}}
+<script>
+(() => {
+  /* Select and copy rich content (HTML + images/links) */
+  function copyRich(selector) {
+    const source = document.querySelector(selector);
+    if (!source) { console.error('copyRich: selector not found ->', selector); return; }
+
+    /* Create a hidden clone for selection */
+    const tmp = source.cloneNode(true);
+    tmp.style.position = 'absolute';
+    tmp.style.left = '-99999px';
+    document.body.appendChild(tmp);
+
+    const range = document.createRange();
+    range.selectNodeContents(tmp);
+    const sel = window.getSelection();
+    sel.removeAllRanges();
+    sel.addRange(range);
+
+    /* Try the old execCommand first (handles rich HTML in many browsers) */
+    let success = false;
+    try {
+      success = document.execCommand('copy');
+      console.log('execCommand copy:', success);
+    } catch (err) {
+      console.warn('execCommand failed:', err);
+    }
+
+    /* Fallback to Clipboard API with HTML */
+    if (!success && navigator.clipboard && window.ClipboardItem) {
+      const blob = new Blob([tmp.innerHTML], { type: 'text/html' });
+      navigator.clipboard.write([new ClipboardItem({ 'text/html': blob })])
+        .then(() => console.log('navigator.clipboard.write success'))
+        .catch(e => console.error('navigator.clipboard.write failed:', e));
+    }
+
+    /* Clean up */
+    sel.removeAllRanges();
+    document.body.removeChild(tmp);
+  }
+
+  document.getElementById('copy-all-btn')
+          .addEventListener('click', () => copyRich('#copy-content'));
+
+  document.getElementById('copy-linkback-btn')
+          .addEventListener('click', () => copyRich('#linkback-content'));
+})();
+</script>
