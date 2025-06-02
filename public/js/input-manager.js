@@ -28,6 +28,9 @@
     }
   }
 
+  /* make it globally accessible for other modules */
+  window.getActiveTool = getActiveTool;
+
   // Mouse move event.
   document.addEventListener("mousemove", (e) => {
     const tool = getActiveTool();

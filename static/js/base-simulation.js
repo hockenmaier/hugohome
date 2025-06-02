@@ -109,6 +109,7 @@ App.modules.base = (function () {
         box.elRef = el;
         box.isMedia = true;
         window.BallFall.mediaColliders.push(box);
+        Matter.World.add(window.BallFall.world, box); // ← keep them in the grid, or else goals will spawn there.
       });
     }
 
@@ -470,7 +471,7 @@ App.modules.base = (function () {
           //   context.strokeStyle = "#ffffff";
           //   context.strokeText(ballValue, body.position.x, body.position.y);
           // }  //How we do stroke
-          if (ballValue >= 250) {
+          if (ballValue >= 500) {
             // draw white fill
             context.fillStyle = "#ffffff";
           } else {

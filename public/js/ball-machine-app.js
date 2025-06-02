@@ -124,10 +124,10 @@ window.App = {
       { value: 20, color: "#ffd12e" }, //almost orange-yellow
       { value: 25, color: "#ffc600" }, //orange-yellow
       { value: 100, color: "#26ff00" }, //green
-      { value: 250, color: "#000dff" }, //blue
-      { value: 1000, color: "#ff00ff" }, //purple
-      { value: 5000, color: "#ff0000" }, //red
-      { value: 10000, color: "#000000" }, //black
+      { value: 500, color: "#000dff" }, //blue
+      { value: 5000, color: "#ff00ff" }, //purple
+      { value: 50000, color: "#ff0000" }, //red
+      { value: 1000000, color: "#000000" }, //black
     ],
 
     // --- New Revenue Tracking ---

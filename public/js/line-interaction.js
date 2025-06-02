@@ -280,6 +280,9 @@
   /* ---------- deletion & refund: desktop ---------- */
 
   document.addEventListener("contextmenu", (e) => {
+    const tool = window.getActiveTool && window.getActiveTool();
+    if (tool && tool.state && tool.state !== 0) return; // if preview in progress → skip delete
+
     const target = getLineAtPoint(e.pageX, e.pageY);
     if (!target) return;
 
@@ -340,7 +343,7 @@
         if (tgt.isGear) {
           App.Persistence.deleteGear(tgt.persistenceId);
         } else if (tgt.label === "Launcher") {
-        /* existing cases */
+          /* existing cases */
           App.Persistence.deleteLauncher(tgt.persistenceId);
         } else if (tgt.isBubbleWand) {
           App.Persistence.deleteBubbleWand(tgt.persistenceId);

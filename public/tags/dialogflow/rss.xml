@@ -46,7 +46,7 @@
             
 
             
-                <link href="https://hockenworks.com/tags/dialogflow/" rel="self" type="text/html"/>
+                <link href="http://localhost:1313/tags/dialogflow/" rel="self" type="text/html"/>
             
         
             
@@ -54,7 +54,7 @@
             
 
             
-                <link href="https://hockenworks.com/tags/dialogflow/rss.xml" rel="alternate" type="application/rss+xml"/>
+                <link href="http://localhost:1313/tags/dialogflow/rss.xml" rel="alternate" type="application/rss+xml"/>
             
         
 
@@ -72,7 +72,7 @@
             <lastBuildDate>2018-05-19 00:00:00 +0000 UTC</lastBuildDate>
         
 
-        <link>https://hockenworks.com/tags/dialogflow/</link>
+        <link>http://localhost:1313/tags/dialogflow/</link>
 
         
 
@@ -193,7 +193,7 @@
 
 
 
-<img  alt="Serverless Architecture of the First Ten app"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/first_ten_architecture.png"   style="height: auto; max-width: 720px; width: 100%"   >
+<img  alt="Serverless Architecture of the First Ten app"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/first_ten_architecture.png"   style="height: auto; max-width: 720px; width: 100%"   >
 
 
     
@@ -203,10 +203,10 @@
 ]]></description>
                 
 
-                <guid isPermaLink="false">tag:hockenworks.com,2018-05-19:/first-ten/</guid>
+                <guid isPermaLink="false">tag:localhost:1313,2018-05-19:/first-ten/</guid>
 
                 
-                    <link>https://hockenworks.com/first-ten/</link>
+                    <link>http://localhost:1313/first-ten/</link>
                 
 
                 

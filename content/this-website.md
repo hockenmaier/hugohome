@@ -18,7 +18,7 @@ tags:
     matter.js,
     javascript,
   ]
-featured: "images/waves2.gif"
+featured: "images/bubble4.gif"
 ---
 
 I'm [Brian Hockenmaier](/about-me), and this site is full of things I build and write about. I love making games and things with VR and AI. I love DIY projects, especially ones involving programming, engineering and 3D modeling. Some of this has been cross or back-posted from my [thingiverse](https://www.thingiverse.com/hockenmaier/designs), [twitter](https://x.com/Hockenmaier), [linkedin](https://www.linkedin.com/in/hockenmaier/), and other places, but it all lives here permanently.
@@ -69,6 +69,11 @@ I'm proud to be the lazy worker, and this site is all about sharing my lazy work
 ---
 
 # Ball Machine - The Game
+
+{{< image-medium
+    src="images/bubble4.gif"
+    alt="A ball machine"
+    caption="The Ball Machine" >}}
 
 Most blogs and personal websites are a bit boring. I think that is because most professionals consider what they do "for work" a bit boring by its nature, and don't necessarily make a concerted effort to have fun with it.
 
