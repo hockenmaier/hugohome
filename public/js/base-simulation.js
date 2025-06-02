@@ -226,8 +226,13 @@ App.modules.base = (function () {
         ball.originalBallsCompacted = originalBallsCompacted || 1;
         // ← schedule per-ball value increments
         ball._valueInterval = setInterval(() => {
-          ball.value +=
-            App.config.ballIncomeIncrement * (ball.originalBallsCompacted || 1);
+          // respect bubble cooldown
+          const t = ball.lastBubblePopTime;
+          if (!t || Date.now() - t > App.config.bubbleWand.bubbleCooldownMs) {
+            ball.value +=
+              App.config.ballIncomeIncrement *
+              (ball.originalBallsCompacted || 1);
+          }
         }, App.config.ballIncomeTimeStep);
 
         // disable immediate re-collision

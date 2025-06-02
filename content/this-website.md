@@ -74,14 +74,14 @@ Most blogs and personal websites are a bit boring. I think that is because most 
 
 I have always tried to be the opposite, and with kids coming I am trying to make a bigger effort than ever to have fun whatever I'm doing. Which is often working, in some way or another.
 
-So for my website, I wanted it to be intentionally fun. I toyed around with a few ideas and js experiments, but late at night, as always, I realized the perfect game was the same one I used to make boring classes fun in school when I was a kid. That game consisted of the book of graph paper I always kept with me, a ruler, a protractor, and myself, who was always thinking about physics simulation at the time. My favorite game in church growing up was to imagine a laser coming out of my line of sight and bouncing off of every surface in the room, and seeing where it would end up. This graph paper game was similar:
+So for my website, I wanted it to be intentionally fun. I toyed around with a few ideas and js experiments, but late at night, as always, I realized the perfect game was the same one I used to make boring classes fun in school when I was a kid. That game consisted of the book of graph paper I always kept with me, plus a pencil, a ruler, and a protractor. I was a bit obsessed with physics simulation at the time. My favorite game in church growing up, where I was often daydreaming and looking at the huge arched ceiling, was to imagine a laser coming out of my line of sight and bouncing off of every surface in the room, to see where it would end up. This graph paper game I played was similar.
 
 {{< image-medium
     src="images/this-website-ball-machine-1.png"
     alt="balls everywhere"
     caption="Some of my early playtests got pretty chaotic" >}}
 
-I would start by making a "spawn point" usually near the top left of the page, where balls would start falling. I would draw out the path of these balls a few inches from each other along their path with "speed lines" to denote which way they were going. Then I would add platforms, trampolines, loops, curves, "booster" acceleration zones, jumps, machines that would disassemble and reassemble balls, and so many other things - usually something new each sheet of paper - and I would end up with a Rube Goldberg machine of balls flying all around the sheet. The only goal was to fill the sheet with more ridiculous paths.
+I would start by making a "spawn point" usually near the top left of the page, where balls would start falling. I would draw out the path of these balls a few inches from each other along their path with "speed lines" to denote which way they were going, and how fast. Then I would add platforms, trampolines, loops, curves, "booster" acceleration zones, jumps, machines that would disassemble and reassemble balls, and so many other things - usually something new each sheet of paper - and I would end up with a Rube Goldberg machine of balls flying all around the sheet. The only goal was to fill the sheet with more ridiculous paths.
 
 I started calling the sheets my "ball machines". I wish I still had some of these drawings. I remember them being quite intricate.. I must have reserved English class for them.
 
@@ -94,9 +94,13 @@ So, to honor kid Brian, I am making my website a permanent ball machine. I hope 
 
 ## How it's made
 
-I don't typically make complicated things like this with javascript. So when I found the perfect physics engine for the game - [matter.js](https://brm.io/matter-js/) - I knew I would need help from our new little assistants. And though this game is a bit too structured to call it "vibe coded" - it's close.
+I don't typically make complicated things like this with JavaScript. So when I found the perfect physics engine for the game - [matter.js](https://brm.io/matter-js/) - I knew I would need help from our new little assistants. And though this game is a bit too structured to call it "vibe coded" - at times, it was close.
 
-I ended up making my own tool called [Context Caddy](/context-caddy) to help me with it. Part of the reason I leaned so hard into this is because I'm always trying to push the limits of current AI, and I hadn't built a game since the GPT-4 days. The new thinking models are truly a step above GPT-4 (this was mostly done with o3 and its minis) but they're still way too eager to write duplicate code, and they still don't "get" the structure of your project a lot of the time, especially with visual and physical things like this. Still, they were a great help here.
+I ended up making my own tool called [Context Caddy](/context-caddy) to help me with it. Part of the reason I leaned so hard into this is because I'm always trying to push the limits of current AI, and I hadn't built a game since the GPT-4 days (I'll post about that soon). The new thinking models are truly a step above GPT-4 (this was mostly done with o3 and its minis) but they're still way too eager to write duplicate code, and they still don't "get" the structure of your project a lot of the time, especially with visual and physical things like this. Still, they were a great help here.
+
+This game is made extra complicated by the fact that it runs on top of [hugo](https://gohugo.io/), which is the static site generator behind the "content" part of this site. This probably doubled or tripled the effort of making this game. But, the balls on my "ball machines" growing up would interact with my text notes and drawings, so this ball machine needed to do so as well.
+
+There is quite a bit going on under the hood to make these two very distinct types of development projects work in tandem, and for both of them to work well. The Ball Machine would love to eat up all of the resources and make the site content unresponsive, and the content was quite a lot to dynamically build physical bodies and colliders around. I like the end result. But I like it a lot better on desktop, where the two can really interact, so I think you should play it on a real computer with a mouse.
 
 ## How to Play
 
@@ -104,11 +108,11 @@ I ended up making my own tool called [Context Caddy](/context-caddy) to help me 
 
 The ball machine on this site is a gamified version of my graph paper drawings as a kid. Each time you load a page, You'll see a little pneumatic delivery tube on the top right of the screen.
 
-When you spawn your first ball, you'll see a few things appear. First - you'll find a goal&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{< image-inline-itsy src="images/goal.png" alt="auto clicker" caption="" >}} somewhere randomly on the page. Find a way to get the balls you spawn into that goal. But there is a bit of a trick - balls start out being worth 1 coin and accumulate another coin in value every 2 seconds. So, the longer you can keep balls around, the more they will be worth when going into the goals, and this might get more and more challenging as your drawings take up more of the screen and balls start bouncing off of each other.
+When you spawn your first ball, you'll see a few things appear. First - you'll find a goal&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{< image-inline-itsy src="images/goal.png" alt="the goal" caption="" >}} somewhere randomly on the page. Find a way to get the balls you spawn into that goal. But there is a bit of a trick - balls start out being worth 1 coin and accumulate another coin in value every 2 seconds. So, the longer you can keep balls around, the more they will be worth when going into the goals, and this might get more and more challenging as your drawings take up more of the screen and balls start bouncing off of each other.
 
 **Keep Clicking!**
 
-It's [a clicker game](https://en.wikipedia.org/wiki/Incremental_game) - start by manually clicking the pneumatic tube to spawn balls, but as you accumulate coins you'll be able to unlock different drawables and things that will let you accumulate more coins faster.
+It's [a clicker game](https://en.wikipedia.org/wiki/Incremental_game) - start by manually clicking the pneumatic delivery tube to spawn balls, but as you accumulate coins you'll be able to unlock different drawables and things that will let you accumulate more coins faster.
 
 The site works across multiple pages. It works best when you're on desktop, working on one tab at a time.
 
@@ -210,12 +214,22 @@ Your progress is saved to your device because your contraptions will be highly d
 
 The game works a bit differently on desktop and mobile, and the best experience is really on desktop - so try on a computer if you can! If on mobile, flip to landscape.
 
-### Resetting the game
+### The End of the Game
+
+Right now, the Ball Machine doesn't end, but you will be surprised the amount of money you can make across the whole site! Eventually, there will be other ways to spend coins on this site and potentially "beat" the ball machine. For now though, you'll know you've unlocked everything when you get this item:
+
+{{< image-inline-itsy
+    src="images/bubblewand-nospace.png"
+    alt="The final item"
+    caption="" >}}
+I won't tell you what it does, but know that it and some of the other late game items change the game in very interesting ways! I hope you make some fun runs on my website.
+
+### Resetting the Game
 
 {{< warning >}} WARNING! Don't navigate to the below page unless you're sure you want to reset the ball machine game{{< /warning >}}
 
-Resetting will erase all your drawings on all pages and reset your goal locations, unlocks, coins and everything else.
+Resetting will erase all of your drawings on all pages and reset your goal locations, unlocks, coins and everything else.
 
-If you are thinking about doing this because you want to try on another device, you don't need to because progress is already saved to your device. The only reason to do this is to have a fresh start on this device.
+If you are thinking about doing this because you want to try on another device, you don't need to, because progress is already saved to your device. The only reason to do this is to have a fresh start on this device.
 
 Navigate [here](/reset-ball-machine) and click reset to do that.

@@ -198,6 +198,7 @@ window.App = {
     bubbleWand: {
       diameterMultiplier: 6, // sprite size relative to ball
       sensorRadiusMultiplier: 1.5, // sensor size relative to ball
+      bubbleCooldownMs: 11000,
     },
   },
   modules: {},

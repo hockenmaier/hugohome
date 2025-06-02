@@ -84,7 +84,8 @@
         const now = Date.now();
         if (now - (other._lastGoalHit || 0) < 200) return; // debounce
         other._lastGoalHit = now;
-        other.hasBubble = false;
+        other.hasBubble = false; //Pop!
+        other.lastBubblePopTime = Date.now(); // new: start cooldown timer
       } else {
         /* Remove ball entirely. */
         Matter.World.remove(window.BallFall.world, other);
