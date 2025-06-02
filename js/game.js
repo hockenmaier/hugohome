@@ -176,10 +176,8 @@
         : "";
     }
 
-    // 5) persist if auto-clicker’s active
-    if (App.config.autoClicker) {
-      App.Persistence.saveRecurringRevenue(currentPageRate);
-    }
+    // 5) persist ALWAYS even if auto-clicker’s not active, because now we are checking for if revenue comes from autoclicker balls directly.  The below check that was here before was causing revenue not to be saved after the autoclicker was refunded.
+    App.Persistence.saveRecurringRevenue(currentPageRate);
 
     // 6) reset for next interval
     App.autoIncomeThisSecond = 0;
