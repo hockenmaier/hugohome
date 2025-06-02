@@ -67,13 +67,14 @@ App.modules.base = (function () {
       ) ||
       (window.innerWidth < 620 && navigator.hardwareConcurrency <= 4);
 
+    /* base-simulation.js */
+
     const baseDt = 1000 / 60;
     let substeps = isMobileLike ? 2 : 4;
-    let frame = 0;
 
     setInterval(() => {
-      if ((frame++ & 0x3f) === 0) {
-        // every 64 engine ticks
+      /* --- recompute every 30 engine ticks (~0.5 s) ---------------------- */
+      if (engine.timing.timestamp % 30 === 0) {
         let maxV = 0;
         Matter.Composite.allBodies(engine.world).forEach((b) => {
           if (b.label === "BallFallBall") {
@@ -81,11 +82,17 @@ App.modules.base = (function () {
             if (v > maxV) maxV = v;
           }
         });
-        const target = maxV > 16 ? 4 : maxV > 8 ? 2 : 1;
-        substeps = Math.max(target, isMobileLike ? 1 : 2); // keep mobile lower
+
+        /* map speed → substeps (1‒5) */
+        let target =
+          maxV > 16 ? 5 : maxV > 12 ? 4 : maxV > 6 ? 3 : maxV > 4 ? 2 : 1;
+
+        /* mobile caps at 2 */
+        if (isMobileLike && target > 2) target = 2;
+        substeps = target;
       }
 
-      const dt = baseDt / substeps; // recompute after change
+      const dt = baseDt / substeps;
       for (let i = 0; i < substeps; i++) {
         Matter.Engine.update(engine, dt * engine.timing.timeScale);
       }
@@ -447,44 +454,54 @@ App.modules.base = (function () {
       Matter.Render.startViewTransform(render);
       const bodies = Composite.allBodies(engine.world);
 
-      const view = render.bounds; // current camera bounds
-      const pad = 40; // small margin so draws don’t pop
-
       bodies.forEach((body) => {
-        if (body.label !== "BallFallBall") return;
+        if (body.label === "BallFallBall") {
+          const ballValue = body.value || 0;
+          if (ballValue !== body.lastBallValue) {
+            body.render.fillStyle = getBallColor(ballValue);
+            body.lastBallValue = ballValue;
+          }
+          context.save();
+          /* draw bubble overlay if present */
+          if (body.hasBubble) {
+            const r = body.circleRadius + 4; // bubble slightly bigger
+            context.drawImage(
+              bubbleImg,
+              body.position.x - r,
+              body.position.y - r,
+              r * 2,
+              r * 2
+            );
+          }
 
-        const { x, y } = body.position;
-        if (
-          x < view.min.x - pad ||
-          x > view.max.x + pad ||
-          y < view.min.y - pad ||
-          y > view.max.y + pad
-        ) {
-          return; // skip off-screen ball completely
+          const fontSize =
+            ballValue < 100
+              ? 10
+              : ballValue < 1000
+              ? 7
+              : ballValue < 10000
+              ? 6
+              : 4;
+
+          context.font = `bold ${fontSize}px Consolas`;
+          context.textAlign = "center";
+          context.textBaseline = "middle";
+          // if (ballValue >= 100) {
+          //   // draw white outline
+          //   context.lineWidth = 1;
+          //   context.strokeStyle = "#ffffff";
+          //   context.strokeText(ballValue, body.position.x, body.position.y);
+          // }  //How we do stroke
+          if (ballValue >= 500) {
+            // draw white fill
+            context.fillStyle = "#ffffff";
+          } else {
+            // draw black fill
+            context.fillStyle = "#1f1b0a";
+          }
+          context.fillText(ballValue, body.position.x, body.position.y);
+          context.restore();
         }
-
-        const val = body.value | 0;
-        if (val !== body.lastBallValue) {
-          body.render.fillStyle = getBallColor(val);
-          body.lastBallValue = val;
-        }
-
-        context.save();
-
-        /* bubble overlay */
-        if (body.hasBubble) {
-          const r = body.circleRadius + 4;
-          context.drawImage(bubbleImg, x - r, y - r, r * 2, r * 2);
-        }
-
-        const fontSize = val < 100 ? 10 : val < 1000 ? 7 : val < 10000 ? 6 : 4;
-        context.font = `bold ${fontSize}px Consolas`;
-        context.textAlign = "center";
-        context.textBaseline = "middle";
-        context.fillStyle = val >= 500 ? "#ffffff" : "#1f1b0a";
-        context.fillText(val, x, y);
-
-        context.restore();
       });
 
       Matter.Render.endViewTransform(render);
