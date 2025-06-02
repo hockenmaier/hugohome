@@ -4,24 +4,17 @@
       "selectedFiles": {
         "layouts\\_default\\baseof.html": true,
         "hugo.toml": true,
-        "static\\js\\ball-machine-app.js": true,
         "static\\js\\lines.js": true,
-        "static\\js\\launcher-create.js": true,
-        "static\\js\\launcher.js": true,
-        "static\\js\\curved-line.js": true,
         "content\\_index.md": true,
         "static\\js\\persistent.js": true,
         "static\\js\\input-manager.js": true,
         "static\\js\\line-interaction.js": true,
-        "static\\js\\dotted-line.js": true,
         "static\\js\\compactor-create.js": true,
         "static\\js\\compactor.js": true,
         "static\\js\\base-simulation.js": true,
         "static\\js\\base-drawing-tool.js": true,
         "static\\js\\goal.js": true,
         "static\\js\\game.js": true,
-        "static\\js\\spawner.js": true,
-        "static\\js\\text.js": true,
         "static\\js\\ui-updater.js": true,
         "static\\js\\extra-effects.js": true,
         "content\\this-website.md": true,
@@ -29,12 +22,9 @@
         "static\\js\\compactor-config.js": true,
         "layouts\\partials\\ball-machine-ui.html": true,
         "notes\\ball-machine-context.md": true,
-        "static\\js\\gear.js": true,
-        "static\\js\\gear-create.js": true,
-        "static\\js\\gear-config.js": true,
         "static\\js\\powerup-progression.js": true,
-        "layouts\\shortcodes\\image-left-teenyweeny.html": true,
-        "layouts\\shortcodes\\image-medium.html": true
+        "static\\js\\spawner.js": true,
+        "static\\js\\ball-machine-app.js": true
       },
       "prePrompt": "This task is part of a little fun physics simulation game called “The Ball Machine” that runs on top of my hugo cms personal website, which runs the paige theme.    Here are the most important files to understand  base-simulation.js sets up matter.js and controls ball spawning and physics variables -ball-machine-app.js is a holder for general app functionality and most global variables and style variables. -game.js controls meta-game state including how goals are spawned, cross page interaction and some load order stuff. -lines.js, curved-line.js, dotted-lines.js, launcher-create.js, and similar control tool types that are “drawable elements” the player uses to impact the ball simulation and direct balls to the goal. -persistent.js controls most of how data is persisted in local storage for saving drawn objects and coins/s values. -notifications.js controls how the player is notified of things like insufficient funds and whether or not links are clickable, but doesn’t control object-specific notifications like the ones the goal displays on ball collisions. -baseof.html is how the files are inserted into the rest of the site.  -ball-machine-ui.html is the main UI for the game. -ui-updater.js is just a container for some load-order workarounds and shouldn’t be used for much else.  When giving back changes, it's best when reasonable to return a whole file to replace.  If not, choose an entire code block like a few consecutive methods wherever possible for easy replacement. But whatever you do, DO NOT alter contents you aren't intending to, including removing existing comments.   Always keep things as abstracted as possible.  Do not rewrite blocks of code that are largely the same as other places in the codebase.  When tasked with writing a feature that is largely the same as something else, proactively create the abstraction - it’s ok to edit more files than I thought were necessary to do this, just tell me that’s what you’re doing if you do.  It is always ok to create entirely new files for new functionality.  This change may SEEM simple, but there is a lot of nested complexity to this project, and you need to consider all modifications and edge cases you can.  So that I can understand your changes, always explain what you're doing and briefly why at the start of your final response.  When rewriting a file or function, KEEP any descriptive comments that are currently there such as in app.js annotating what each variable does.  I can’t keep and will reject changes if they don’t maintain existing comments. Here are most of the relevant files and where they are in the file tree:",
       "includeFileTree": true
@@ -376,5 +366,5 @@
       "includeFileTree": false
     }
   },
-  "activeProfile": "anchor-issue"
+  "activeProfile": "ball-machine"
 }

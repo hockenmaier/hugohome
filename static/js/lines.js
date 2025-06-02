@@ -160,6 +160,9 @@ App.modules.lines = (function () {
       case "gear":
         if (window.GearCreateTool) GearCreateTool.cancel();
         break;
+      case "bubble-wand":
+        if (window.BubbleWandCreateTool) BubbleWandCreateTool.cancel();
+        break;
     }
 
     mode = newMode;

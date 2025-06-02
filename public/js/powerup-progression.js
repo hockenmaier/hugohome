@@ -26,6 +26,11 @@
       el: "toggleInstaLauncher",
     },
     compactor: { cost: App.config.compactor.cost, el: "toggleCompactor" },
+    "bubble-wand": {
+      cost: App.config.costs["bubble-wand"],
+      el: "toggleBubbleWand",
+    },
+
     // straight & dotted are always visible by design
   };
 

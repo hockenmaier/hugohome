@@ -10,6 +10,10 @@ App.modules.base = (function () {
       Composite = Matter.Composite,
       Events = Matter.Events;
 
+    /* Bubble overlay */
+    const bubbleImg = new Image();
+    bubbleImg.src = "images/bubble.png";
+
     Matter.use("matter-wrap");
 
     // Inject canvas style if missing
@@ -173,7 +177,8 @@ App.modules.base = (function () {
       initialValue,
       pos,
       originalBallsCompacted,
-      isAuto = false
+      isAuto = false,
+      withBubble = false
     ) {
       if (!window.BallFall.firstBallDropped) {
         window.BallFall.firstBallDropped = true;
@@ -217,6 +222,7 @@ App.modules.base = (function () {
             ? initialValue
             : App.config.ballStartValue;
         ball.value = ball.baseValue;
+        ball.hasBubble = withBubble;
         ball.originalBallsCompacted = originalBallsCompacted || 1;
         // ← schedule per-ball value increments
         ball._valueInterval = setInterval(() => {
@@ -429,6 +435,17 @@ App.modules.base = (function () {
             body.lastBallValue = ballValue;
           }
           context.save();
+          /* draw bubble overlay if present */
+          if (body.hasBubble) {
+            const r = body.circleRadius + 4; // bubble slightly bigger
+            context.drawImage(
+              bubbleImg,
+              body.position.x - r,
+              body.position.y - r,
+              r * 2,
+              r * 2
+            );
+          }
 
           const fontSize =
             ballValue < 100

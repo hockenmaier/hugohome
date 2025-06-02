@@ -55,6 +55,7 @@
       if (pair.bodyA === goalBody || pair.bodyB === goalBody) {
         const other = pair.bodyA === goalBody ? pair.bodyB : pair.bodyA;
         if (other.label === "BallFallBall") {
+          let income = other.lastBallValue ?? other.value ?? 0;
           // Calculate the speed of the ball using its velocity vector.
           const speed = Math.hypot(other.velocity.x, other.velocity.y);
           const minSpeed = App.config.goalMinSpeed;
@@ -65,33 +66,32 @@
               pair.collision.supports[0]) ||
             goalBody.position;
           if (speed >= minSpeed) {
-            // Remove the ball and update coins if the impact is strong enough.
-            Matter.World.remove(window.BallFall.world, other);
-            // Calculate the ball's income based on its age:
-            // income = ballStartValue + floor((currentTime - spawnTime)/ballIncomeTimeStep) * ballIncomeIncrement
-            let income;
-            if (other.lastBallValue !== undefined) {
-              income = other.lastBallValue;
-            } else {
+            if (other.hasBubble) {
               const now = Date.now();
-              const age = now - (other.spawnTime || now);
-              income =
-                App.config.ballStartValue +
-                Math.floor(age / App.config.ballIncomeTimeStep) *
-                  App.config.ballIncomeIncrement;
+              if (!other._lastGoalHit || now - other._lastGoalHit > 200) {
+                other._lastGoalHit = now; // 200 ms debounce
+                other.hasBubble = false; // pop!
+                income = other.lastBallValue ?? 0;
+                App.config.coins += income;
+                if (other.spawnedByAuto) App.autoIncomeThisSecond += income;
+                window.App.updateCoinsDisplay();
+                displayGoalNotification(
+                  "+" + income + " Coins",
+                  coinColor,
+                  collisionPoint
+                );
+              }
+            } else {
+              Matter.World.remove(window.BallFall.world, other);
+              App.config.coins += income;
+              if (other.spawnedByAuto) App.autoIncomeThisSecond += income;
+              window.App.updateCoinsDisplay();
+              displayGoalNotification(
+                "+" + income + " Coins",
+                coinColor,
+                collisionPoint
+              );
             }
-            App.config.coins += income;
-            if (other.spawnedByAuto) App.autoIncomeThisSecond += income;
-            window.App.updateCoinsDisplay();
-            // Use the ball's fillStyle as the notification color if available.
-            const coinColor =
-              (other.render && other.render.fillStyle) || "gold";
-            // Show coin notification (big bold text in ball's color) at collision point.
-            displayGoalNotification(
-              "+" + income + " Coins",
-              coinColor,
-              collisionPoint
-            );
           } else {
             // Ball was too slow; show notification (big bold red text) at collision point.
             displayGoalNotification("Too Slow!", "red", collisionPoint);

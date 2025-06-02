@@ -101,6 +101,8 @@
     if (b.isGear)
       return App.config.costs[b.spinDir === 1 ? "gear-cw" : "gear-ccw"];
 
+    if (b.isBubbleWand) return App.config.costs["bubble-wand"];
+
     return 0;
   }
 
@@ -192,6 +194,12 @@
         if (parts.some((p) => Matter.Vertices.contains(p.vertices, point)))
           return b;
       }
+    }
+
+    /* 3) bubble-wand */
+    for (let b of bodies) {
+      if (b.isBubbleWand && Matter.Vertices.contains(b.vertices, point))
+        return b;
     }
 
     /* 3) normal lines */

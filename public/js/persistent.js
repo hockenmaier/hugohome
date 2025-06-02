@@ -323,6 +323,32 @@
         ]);
       });
     },
+
+    /* --- Bubble-Wand persistence --- */
+    saveBubbleWand(data) {
+      if (!data.id)
+        data.id = Date.now() + "-" + Math.random().toString(36).substr(2, 9);
+      const arr = App.Storage.getItem(pageKey("bubblewands"), []);
+      arr.push(data);
+      App.Storage.setItem(pageKey("bubblewands"), arr);
+      return data.id;
+    },
+    loadBubbleWands() {
+      return App.Storage.getItem(pageKey("bubblewands"), []);
+    },
+    deleteBubbleWand(id) {
+      const arr = App.Storage.getItem(pageKey("bubblewands"), []);
+      App.Storage.setItem(
+        pageKey("bubblewands"),
+        arr.filter((b) => b.id !== id)
+      );
+    },
+    rebuildBubbleWands() {
+      this.loadBubbleWands().forEach((d) => {
+        const bw = new BubbleWand(d.position, d.angle);
+        bw.body.persistenceId = d.id;
+      });
+    },
   };
 
   window.addEventListener("BallFallBaseReady", function () {
@@ -331,5 +357,6 @@
     App.Persistence.rebuildLaunchers();
     App.Persistence.rebuildCompactors();
     App.Persistence.rebuildGears();
+    App.Persistence.rebuildBubbleWands();
   });
 })();

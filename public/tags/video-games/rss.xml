@@ -68,6 +68,24 @@
         
     
 
+    
+
+    
+        
+    
+
+    
+
+    
+        
+    
+
+    
+
+    
+        
+    
+
 
 
 
@@ -94,7 +112,7 @@
             
 
             
-                <link href="https://hockenworks.com/tags/video-games/" rel="self" type="text/html"/>
+                <link href="http://localhost:1313/tags/video-games/" rel="self" type="text/html"/>
             
         
             
@@ -102,7 +120,7 @@
             
 
             
-                <link href="https://hockenworks.com/tags/video-games/rss.xml" rel="alternate" type="application/rss+xml"/>
+                <link href="http://localhost:1313/tags/video-games/rss.xml" rel="alternate" type="application/rss+xml"/>
             
         
 
@@ -117,10 +135,10 @@
         
 
         
-            <lastBuildDate>2025-05-28 00:00:00 +0000 UTC</lastBuildDate>
+            <lastBuildDate>2025-07-28 00:00:00 +0000 UTC</lastBuildDate>
         
 
-        <link>https://hockenworks.com/tags/video-games/</link>
+        <link>http://localhost:1313/tags/video-games/</link>
 
         
 
@@ -128,6 +146,348 @@
 
         
 
+        
+            <item>
+                
+                
+                
+                
+                
+                
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+                
+
+                
+
+                
+
+                
+                    <description><![CDATA[<p>During my parental leave, I played through quite a few video games - something I love and one of the easiest ways to spend time while rocking my daughter to sleep.</p>
+<p>They include:</p>
+<ul>
+<li>The Legend of Zelda: The Minish Cap <sup>Steam Deck</sup></li>
+<li>Carto <sup>Steam on Windows</sup></li>
+<li>Tunic <sup>Steam on Windows</sup></li>
+<li>Abzu <sup>Steam on Windows</sup></li>
+<li>SteamWorld: Build <sup>Steam on Windows</sup></li>
+<li>World of Goo 2 <sup>Nintendo Switch</sup></li>
+<li>Oblivion Remastered <sup>Steam on Windows</sup></li>
+<li>Mario Kart World <sup>Nintendo Switch 2</sup></li>
+<li>Donkey Kong Bananza <sup>Nintendo Switch 2</sup></li>
+</ul>
+<p>Most of these are indie titles, but the one I spent the most time on was the Oblivion Remaster - one which surprised me both with how good it looks and with how well it played. Oblivion is a 19 year old game, and a purely graphics-related overhaul should not have made it as good or better than modern AAA games releasing today, but in my opinion (and many others I’m reading) it absolutely did. How could this be?</p>
+<h2 id="graphics">Graphics</h2>
+<p>Well - I think that’s pretty clear. The only thing that has really improved about mainstream gaming in the last 20 years is graphics.</p>
+<p>And boy have the graphics improved. Oblivion not only uses new techniques like ray-tracing and revamped 4K textures and normal maps etc, it uses the full suite of global illumination provided by <a href="https://dev.epicgames.com/documentation/en-us/unreal-engine/lumen-global-illumination-and-reflections-in-unreal-engine">Unreal Engine</a>, which means when you turn the settings up, it depends on hardly any of the typical tricks games need to use, like baked light maps, instead lighting almost everything in the game dynamically or “procedurally”, including things like reflections of reflections and lit up dust and fog.</p>
+
+<div style="text-align: center; margin-bottom: 1rem;">
+  <video controls loop muted autoplay style="max-width:100%;">
+    <source src="/videos/bruma-clip.mp4" type="video/mp4">
+    Your browser doesn’t support HTML5 video.
+  </video>
+  
+    <span style="display: block; font-style: italic; margin-top: 0.5rem;">This is from my playthrough, some outdoor torches in Bruma and mountain lighting in the background make for a pretty good use of full Lumen</span>
+  
+</div>
+
+<p>Yes, Oblivion still has some simplistic design in terms of how landscapes are laid out, but that simplicity might also be why people can run it with Nvidia Lumen set up to run at ultra. Lighting is what’s really differentiating in video game graphics now, and fully simulated lighting beats or meets nearly every AAA game releasing lately that all cost tens or hundreds of millions of dollars to make.</p>
+<h2 id="not-graphics">Not Graphics</h2>
+<p>Left unstated is why nothing else has improved. Walking around Oblivion, meeting characters that have some scripted voice lines, responding to them with 1 of 4 options, holding down the left stick to sprint, and hitting a single button on your controller to watch your character animate a full scripted sword swing are all the standard gameplay of action-RPGs both 19 years ago and today. The same can be said of other genres - mechanics are largely untouched for the last 20 years outside of some common quality of life changes in how menus and inventory and HUDs work.</p>
+<p>Here’s my theory for why: The games industry achieved the threshold of what was comfortable and possible with the current human-computer input and output mechanisms only a few years after they were technically possible. And those inputs and outputs have not changed much since the 90s. Looking at a flat screen in front of you and pressing buttons on a controller or keyboard/mouse are incredibly limiting for gaming. Increasing the amount of pixels on the screen and making that controller wireless don&rsquo;t change the core gameplay. This is not really true for any other media than games. Reading, watching films, and all kinds of media in between essentially max out on one screen and limited input, but games immediately ran into forms of input and output as a barrier.</p>
+<p>I wrote a little about this topic in <a href="/social-media-is-antisocial">my first post about VR and why I think it’s the future</a>. The only true innovation in gameplay that is happening in two places:</p>
+<ul>
+<li>Indie, where one-man teams can come up with strange mashups and mechanics can execute on a vision spending very little. These are almost never totally genre defining, but they are inventive.</li>
+<li>VR, where we have only scratched the surface of mechanics that work and what is possible when the player’s entire hands and 3D field of view are in the game.</li>
+</ul>
+<p>AAA game developers are excluded from the first by definition and are excluded from the second by their own financial decision makers.</p>
+<h2 id="so-what-my-predictions">So What? My predictions</h2>
+<p>Maybe people want to keep buying the same games with better graphics forever. I don’t think they do. I think those decision makers that aren’t investing in truly new AAA gameplay are short sighted. As long as we’ve been hearing that VR is the future and not seeing it totally come to fruition, at some point these companies that are milking the same game franchises for years will face the reality that people will only buy the same games reskinned with better graphics for so long. They’ll either be replaced by companies that innovate or individuals using AI that will be plenty good at recreating the same game over and over again.</p>
+<p>I am hoping that the current hypestorm around AI re-kindles the ideas in the hearts of AAA game studio CFOs that they might need to invest in innovation and new ideas again. Some of the things that make Oblivion just like any RPG of today (Think about the four-option scripted discourse and stuffy voice lines as two) would be meaningfully different if AI was applied in the right way. And I think they’d be far more powerful experiences, just like I think VR games can be - so much higher fidelity and responsive to player input.</p>
+<p>Here are my predictions of things we’ll see in the next decade or so, regardless of the AAA studios pioneer them or not:</p>
+<p>A decade or two from now, we will look at the period of 2005 to 2025 and see that it was a period of a great stagnation in game innovation. This will be driven by a few key technological advances and the downstream game mechanics that will flow from those, stemming mainly from the areas of AI and what is now called mixed reality.</p>
+<p>I’m going to make a few specific predictions of mechanics we will see in the future that will make the stagnation of the last 20 years totally transparent:</p>
+<h4 id="ai">AI:</h4>
+<ul>
+<li>
+<p>In open world games, it will become standard for non-player characters to have fully generated dialogues based on motivations and incentives rather than scripts</p>
+</li>
+<li>
+<p>In open world games, players will speak directly or engage directly in some way with their own words that NPCs will understand and react to intelligently</p>
+</li>
+<li>
+<p>NPCs won&rsquo;t have recorded voice lines, but will instead have voices generated in real time, and AAA games will start to make contracts with celebrity talent in order to generate their voice in games</p>
+</li>
+<li>
+<p>We will see a transition from the current minorly procedural elements of gameplay to full procedural generated worlds, especially where player actions and environmental events change landscape, buildings, etc dynamically</p>
+</li>
+<li>
+<p>Game art will go through an incredible revolution, and we will stop having massive teams of people creating 3D meshes and textures to drop around the world, with many of these meshes and textures being generated from prompts in development, but also being generated on the fly in games</p>
+</li>
+</ul>
+<h4 id="mixed-reality">Mixed Reality:</h4>
+<p>The first reasonable augmented reality glasses that consumers are willing to wear en masse will generate entirely new genres:</p>
+<ul>
+<li>
+<p>A new genre of video board games, where gameplay happens in view of a group of people in the same physical space, on a table, on the ground, in a park, etc, that will incorporate video game elements such as computations that are too complicated for typical board games, with the advantages that board games have today where players can interact with the same physical pieces, point and gesture, and socialize in person</p>
+</li>
+<li>
+<p>Another new genre of exercise programs combined with games. This will go far beyond current treadmills that have built-in virtual run routes or virtual exercise classes, this will be exercise incorporated as a leveling or other mechanic that will incentivize players to get some exercise. I&rsquo;ve had a lot of hope for this category for a long time, and the one major threat to it is GLP-1 drugs that may cause a serious decline in the need and desire for people to exercise daily for calorie loss</p>
+</li>
+</ul>
+<p>When will these happen? My specific prediction is that the next 3 years will be seen as the end of the period of stagnation we are in right now, a period that will be much more apparent looking backwards than it is from within. The combo of a decline in AAA game spending and AI hype feel like ripe conditions for innovation to return to gameplay - and my hope is that all of the other potential gameplay innovations ride the same AI wave.</p>]]></description>
+                
+
+                <guid isPermaLink="false">tag:localhost:1313,2025-07-28:/the-purgatory-of-aaa-gaming/</guid>
+
+                
+                    <link>http://localhost:1313/the-purgatory-of-aaa-gaming/</link>
+                
+
+                
+                    <pubDate>Mon, 28 Jul 2025 00:00:00 UTC</pubDate>
+                
+
+                
+                    <title>The Purgatory of AAA Gaming</title>
+                
+            </item>
+        
+            <item>
+                
+                
+                
+                
+                
+                
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+                
+
+                
+
+                
+
+                
+                    <description><![CDATA[<p>Today&rsquo;s post is about another half finished game that either I or AI will finish one day. I&rsquo;m gaining a bit of a repertoire of those. This is one that I started when AI image generation started to become decent. It&rsquo;s a game that I&rsquo;ve always wanted to exist but with my current skill sets, I could never pull off without a lot of commissioning due to the art requirements.</p>
+<p>The idea is not as original as some of my games but it&rsquo;s very fun when played in a large group. Essentially, I combine the gameplay of the NES classic balloon fight with eight-player multiplayer. If you&rsquo;ve played my game Land war, you might know that I&rsquo;m a bit obsessed with eight player multiplayer, or really specifically anything that&rsquo;s more than four players which is where most video games typically max out.</p>
+<h1 id="eight-player-video-games">Eight-player video games</h1>
+<p>Kaitlin and I love to have people over to socialize, and I love to game. I think they are honestly one of the best ways to have productive, good natured socialization where people can do things like band together, rib on each other a bit, and sometimes even feel like they&rsquo;ve seen something beautiful or had a new experience together. I know that&rsquo;s a little philosophical and sappy, but I think there&rsquo;s a huge place for video games in actual socialization, similar to how board games have a place.</p>
+<p>And I love board games. I play them all the time. But so often when playing board games you run into mechanics that are only there because the game doesn&rsquo;t have a computer involved, can&rsquo;t count for you, can&rsquo;t add things up, can&rsquo;t simulate multiple players turns at the same time, and though it&rsquo;s nice to not have any screens in front of anybody, I think the limitations of board games hold people back from playing games as a group in general more often than not.</p>
+<p>My favorite example of this is power grid.</p>
+<div style="text-align: center; margin-bottom: 1rem;">
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<img  alt="an image of the cover art for Power Grid"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/power-grid.png"   style="height: auto; max-width: 200px; width: 100%"   >
+
+
+    
+</div>
+
+<p>Power Grid is a clever game that would be really quite fun if it didn&rsquo;t require players to spend half their time literally doing simple math in their heads or on paper while other people waited. A modern video game with similar dynamics would never do that; it would just let you play the fun part. Many such cases in board gaming.</p>
+<p>But video games have their own limitations and requirements. Aside from the stuff that we aren&rsquo;t getting around anytime before true augmented reality is on everybody&rsquo;s faces, like getting a controller and everybody&rsquo;s hands, and getting them over the fact that they are looking at a screen to socialize, video games have one fundamental limitation most of the time which is that they only go up to four players. And most social gatherings involve more than four people.</p>
+<p>This is the core reason I wanted to make land war an eight-player strategy game, and this setting of group gatherings was also why the controls for land war are so dead simple. More about land war <a href="/land-war">here</a></p>
+<h1 id="generated-art-first-edition">Generated Art, First Edition</h1>
+<p>The reason I waited to make a game like this is because I&rsquo;m no artist. I like to think I have taste but it certainly is not in my wheelhouse to make beautiful artwork, even for a simple sprite based game I want to make here.</p>
+<p>The models I was mostly working with on this project were Mid journey 6 and Dalle3, both diffusion models which is the best you could get at the time. If you&rsquo;ve worked with diffusion models before, you know you can get some pretty beautiful and creative stuff, but there are always a little artifacts that will be noticed if someone stares at it long enough, which is always going to be a case for a video game sprite. So I found myself having to do a lot of cleaning and filtering and processing of the images, and I landed on an oil painting filter that worked pretty well to disguise some of the noise and my own edits that I would inevitably have to apply to the images of my characters, power-ups, etc.</p>
+<p>It was a lot of work just to get a decent looking single sprite, not animated. Animation is where I ran into the real challenges.</p>
+<p>Diffusion models without some very complicated hard work in the form of techniques like LORAs (link) just can&rsquo;t iterate on the same image over and over again. Character consistency is not really a thing, and that&rsquo;s what&rsquo;s needed to make a multi-frame sprite that animates. This is the real impasse I ran into, and the core reason that I stopped working on this game. I wanted to spend 80% of my time on the gameplay, logic, and testing of this game, and 20% prompting for art, but it started to be about 50/50. And the results were not amazing.</p>
+<h1 id="the-state-of-generated-art-in-2025">The State of Generated Art in 2025</h1>
+<p>So fast forward to now. We all knew this has been coming for a long time, but finally we have transformer models that do image generation. And part of what that means is that conversation history, including past image generations and reference images, can be included in the neural context of the next generation. We probably all seen this with image <a href="https://www.reuters.com/technology/artificial-intelligence/ghibli-effect-chatgpt-usage-hits-record-after-rollout-viral-feature-2025-04-01/">&ldquo;Ghiblification&rdquo;</a>.</p>
+<p>OpenAI was yet again the first to release this type of capability, at least in a serious way. Technically there was a Gemini model that did native image gen maybe a month before OpenAI released theirs, but it was pretty garbage in comparison. And, unexpectedly, the new OpenAI image gen can also generate images on transparent PNG backgrounds, which is absolutely crucial for any image that&rsquo;s going to be set against some dynamic background - this is all game art.</p>
+<p>I have since taken a few attempts at making some multi-frame spray animations, and it&rsquo;s almost there, but it&rsquo;s still a lot of work unlike what you might be led to believe by excited Twitter posts with whole sprite sheets generated. The models just still aren&rsquo;t consistent enough to produce images that don&rsquo;t require a heavy amount of editing to get the same amount of background space, full actual sprite sheet specs, keep characters absolutely consistent, etc. But I think they will get there soon.</p>
+<h1 id="generated-music">Generated Music</h1>
+<p>Generated music was a surprising high point of this project. Great quality sound effect and music generators were on my checklist of things that I knew would come soon, but I got super lucky when udio (link) came out about a month or two into prototyping this thing. Check out these tracks I put into the game:</p>
+<p>(Media)</p>
+<p>I will say generated sound effects are still not there, similar to art. You can occasionally get something that sounds like what you intended but in general there&rsquo;s a lot of noise, a lot of strange lead-ins, and in general just strangeness.</p>
+<h1 id="current-state-of-the-game">Current State of the Game</h1>
+<p>So here&rsquo;s where I&rsquo;m at, check out this video which is just me playing against seven bots but you can start to get the idea:</p>
+<p>{youtube embed}</p>
+<p>The game is fun with multiple players, but it&rsquo;s still quite basic, and I&rsquo;m still waiting on image generation that would make the graphics good rather than the stand-ins that are mostly still from the diffusion era of image generation.</p>
+<p>At some point I will pick this thing back up, or I will have some AI agent pick it back up for me, because the core game itself is something I really want to exist, even if it&rsquo;s just another land war that a few hundred people download and I play at my own get togethers.</p>
+<p>If you&rsquo;d like, you can download a Windows build here, which is still very much a prototype but works with 8 connected controllers:</p>
+<a href="https://www.dropbox.com/scl/fo/4piy97k725ee1xp3cn4pe/AEUfIYTEgcOtlUmsc0qeT1s?rlkey=ygd4jhs57c35xq3ska7vs6xjy&amp;dl=1" download class="d-flex align-items-center download-link">
+  <i class="bi bi-file-earmark me-1"></i>
+  
+7/24/24 Build Download
+
+</a>
+
+]]></description>
+                
+
+                <guid isPermaLink="false">tag:localhost:1313,2025-07-21:/balloon-fight/</guid>
+
+                
+                    <link>http://localhost:1313/balloon-fight/</link>
+                
+
+                
+                    <pubDate>Mon, 21 Jul 2025 00:00:00 UTC</pubDate>
+                
+
+                
+                    <title>8 Player Balloon Fighter</title>
+                
+            </item>
+        
+            <item>
+                
+                
+                
+                
+                
+                
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+                
+
+                
+
+                
+
+                
+                    <description><![CDATA[<p>&ldquo;The Flapper&rdquo; is a project that spawned out of a simple VR movement mechanic test that I had had in my head for a while, which turned out to be surprisingly fun! The idea is to flap your arms to fly - and have it be a multiplayer battle to really get people moving.</p>
+<p>In order to start working on this game, because there was so much standard VR code that I had to write for tree keepers, I decided to make a sort of engine out of tree keepers and work off of that rather than start from scratch. That let me tie in some of the nice associated graphics, music and sound effects I had made, and a bunch of other helper functions and things I use for things like the camera following around the character, how I deal with collisions, a bunch of netcode, etc.</p>
+<p>You can see my more detailed post about that engine here: <a href="/treekeepers-engine">Treekeepers Engine</a></p>
+<h2 id="core-mechanic--gameplay">Core Mechanic &amp; Gameplay</h2>
+<p>Most of the start of this game was just tuning the movement mechanic, which borrowed from some physics realities and some elements I made up to make flapping feel good. But, the essential idea was that each arm would generate unique thrust in the direction it was moving with an exponenthel applied to how fast it was moving. It&rsquo;s hard to describe any native VR mechanic with words and videos only, but to me and the folks I demoed it to; it felt &ldquo;right&rdquo; for how flying should work if you did it by flapping your arms. I had a ton of fun just jetting around the obstacle courses I made for myself.</p>
+<p>My idea for this other than just the mechanic was to make a sort of gorilla tag-esque multiplayer game where players would fly around and try to pop each other&rsquo;s balloons in a NES balloon fight {link} style. Ideally something like 15 to 20 people would be in a lobby flying around and trying to pop each other.</p>
+<p>Like gorilla tag I didn&rsquo;t want anyone to have to &ldquo;sit out&rdquo; of the game, so it&rsquo;s essentially a deathmatch where the player who pops the most balloons wins, and is also visible who&rsquo;s winning, because they also gain the balloons that they pop. In some playtests players would have 20 or 30 balloons on their head. This was my clever idea of adding a built-in rubber-band effect to the gameplay as well, since having more balloons over your head made you a bigger target to pop. The gameplay worked well - but I never quite got the game to a place with netcode and networking engine where multiplayer felt seamless enough.</p>
+<p>Here’s a video of one of the later states of the game, where I have it fully networked and am testing with friends, though it still has a few bugs here:</p>
+
+    <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+      <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/Vxn8rDOZ7dU?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"></iframe>
+    </div>
+
+<h2 id="today">Today</h2>
+<p>I stopped working on this project after about 3 months. It turned out that flying alone with this mechanic was very compelling (and also a great workout!) but the networking engine I had used for Teeekeepers, Photon, was not up to task for how low latency a competitive game needed to be. Treekeepers was four-player co-op so photon was just fine.</p>
+<p>In the future I might pick this one back up (or maybe have an AI agent pick it up for me depending on how that goes) using space-time DB {link}</p>
+<p>which looks like a great solution for this type of game that doesn&rsquo;t require a whole ton of cloud programming and setup.</p>
+<p>You can try a build of the game here:</p>
+<p>{Download of latest build}</p>
+]]></description>
+                
+
+                <guid isPermaLink="false">tag:localhost:1313,2025-06-16:/the-flapper/</guid>
+
+                
+                    <link>http://localhost:1313/the-flapper/</link>
+                
+
+                
+                    <pubDate>Mon, 16 Jun 2025 00:00:00 UTC</pubDate>
+                
+
+                
+                    <title>The Flapper - A Physical VR Multiplayer Game</title>
+                
+            </item>
         
             <item>
                 
@@ -240,7 +600,7 @@
 
 
 
-<img  alt="the hockenworks homepage"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/hockenworks.png"   style="height: auto; max-width: 720px; width: 100%"   >
+<img  alt="the hockenworks homepage"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/hockenworks.png"   style="height: auto; max-width: 720px; width: 100%"   >
 
 
     
@@ -353,7 +713,7 @@
 
 
 
-<img  alt="balls everywhere"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/this-website-ball-machine-1.png"   style="height: auto; max-width: 720px; width: 100%"   >
+<img  alt="balls everywhere"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/this-website-ball-machine-1.png"   style="height: auto; max-width: 720px; width: 100%"   >
 
 
     
@@ -445,7 +805,7 @@
 
 
 
-<img  alt="balls everywhere"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/waves2.gif"   style="height: auto; max-width: 300px; width: 100%"   >
+<img  alt="balls everywhere"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/waves2.gif"   style="height: auto; max-width: 300px; width: 100%"   >
 
 
     
@@ -545,7 +905,7 @@
 
 
 
-<img  alt="ball chute"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/ball-chute-hatch-1.png"   style="height: auto; max-width: 200px; width: 100%"   >
+<img  alt="ball chute"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/ball-chute-hatch-1.png"   style="height: auto; max-width: 200px; width: 100%"   >
 
  
   <span style="display: block; font-style: italic; margin-top: 0.5rem">
@@ -644,7 +1004,7 @@
 
 
 
-<img  alt="auto clicker"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/goal.png"   style="height: auto; max-width: 40px; width: 100%"   >
+<img  alt="auto clicker"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/goal.png"   style="height: auto; max-width: 40px; width: 100%"   >
 
  
 </span>
@@ -746,7 +1106,7 @@
 
 
 
-<img  alt="line toggle"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/line-mode.png"   style="height: auto; max-width: 200px; width: 100%"   >
+<img  alt="line toggle"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/line-mode.png"   style="height: auto; max-width: 200px; width: 100%"   >
 
  
 </span>
@@ -840,7 +1200,7 @@
 
 
 
-<img  alt="curved line toggle"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/curve-mode.png"   style="height: auto; max-width: 200px; width: 100%"   >
+<img  alt="curved line toggle"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/curve-mode.png"   style="height: auto; max-width: 200px; width: 100%"   >
 
  
 </span>
@@ -934,7 +1294,7 @@
 
 
 
-<img  alt="compactor toggle"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/compactor-mode.png"   style="height: auto; max-width: 200px; width: 100%"   >
+<img  alt="compactor toggle"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/compactor-mode.png"   style="height: auto; max-width: 200px; width: 100%"   >
 
  
 </span>
@@ -1063,7 +1423,7 @@
 
 
 
-<img  alt="auto clicker"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/auto-clicker.png"   style="height: auto; max-width: 200px; width: 100%"   >
+<img  alt="auto clicker"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/auto-clicker.png"   style="height: auto; max-width: 200px; width: 100%"   >
 
  
 </span>
@@ -1164,7 +1524,7 @@
 
 
 
-<img  alt="dotted line toggle"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/everything-has-a-price.png"   style="height: auto; max-width: 200px; width: 100%"   >
+<img  alt="dotted line toggle"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/everything-has-a-price.png"   style="height: auto; max-width: 200px; width: 100%"   >
 
  
 </span>
@@ -1259,7 +1619,7 @@
 
 
 
-<img  alt="dotted line toggle"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/dotted-line-mode.png"   style="height: auto; max-width: 200px; width: 100%"   >
+<img  alt="dotted line toggle"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/dotted-line-mode.png"   style="height: auto; max-width: 200px; width: 100%"   >
 
  
 </span>
@@ -1364,7 +1724,7 @@ So keep your balls moving!</li>
 
 
 
-<img  alt="dotted line toggle"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/page-revenue.png"   style="height: auto; max-width: 200px; width: 100%"   >
+<img  alt="dotted line toggle"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/page-revenue.png"   style="height: auto; max-width: 200px; width: 100%"   >
 
  
 </span>
@@ -1388,10 +1748,10 @@ So keep your balls moving!</li>
 ]]></description>
                 
 
-                <guid isPermaLink="false">tag:hockenworks.com,2025-05-28:/this-website/</guid>
+                <guid isPermaLink="false">tag:localhost:1313,2025-05-28:/this-website/</guid>
 
                 
-                    <link>https://hockenworks.com/this-website/</link>
+                    <link>http://localhost:1313/this-website/</link>
                 
 
                 
@@ -1506,7 +1866,7 @@ I hope these characters remind you of some of your favorite series.</p>
 
 
 
-<img   class="rounded-3 w-100"  crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/2023-8-bit-set-2.jpg"    >
+<img   class="rounded-3 w-100"  crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/2023-8-bit-set-2.jpg"    >
 
 
       
@@ -1581,7 +1941,7 @@ I hope these characters remind you of some of your favorite series.</p>
 
 
 
-<img   class="rounded-3 w-100"  crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/2023-8-bit-set-1.jpg"    >
+<img   class="rounded-3 w-100"  crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/2023-8-bit-set-1.jpg"    >
 
 </div>
 </div>
@@ -1660,7 +2020,7 @@ I hope these characters remind you of some of your favorite series.</p>
 
 
 
-<img   class="rounded-3 w-100"  crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/2023-8-bit-set-3.jpg"    >
+<img   class="rounded-3 w-100"  crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/2023-8-bit-set-3.jpg"    >
 
 
       
@@ -1735,7 +2095,7 @@ I hope these characters remind you of some of your favorite series.</p>
 
 
 
-<img   class="rounded-3 w-100"  crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/2023-8-bit-set-4.jpg"    >
+<img   class="rounded-3 w-100"  crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/2023-8-bit-set-4.jpg"    >
 
 </div>
 </div>
@@ -1753,10 +2113,10 @@ I hope these characters remind you of some of your favorite series.</p>
 ]]></description>
                 
 
-                <guid isPermaLink="false">tag:hockenworks.com,2023-08-06:/8-bit-coasters-10-year/</guid>
+                <guid isPermaLink="false">tag:localhost:1313,2023-08-06:/8-bit-coasters-10-year/</guid>
 
                 
-                    <link>https://hockenworks.com/8-bit-coasters-10-year/</link>
+                    <link>http://localhost:1313/8-bit-coasters-10-year/</link>
                 
 
                 
@@ -1875,7 +2235,7 @@ I hope these characters remind you of some of your favorite series.</p>
 
 
 
-<img  alt="Switching apps in the treekeepers engine"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/treekeepers-app-switcher-1.gif"   style="height: auto; max-width: 720px; width: 100%"   >
+<img  alt="Switching apps in the treekeepers engine"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/treekeepers-app-switcher-1.gif"   style="height: auto; max-width: 720px; width: 100%"   >
 
 
     
@@ -1966,7 +2326,7 @@ I hope these characters remind you of some of your favorite series.</p>
 
 
 
-<img  alt="An applictaion definition in the editor"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/treekeepers-app-switcher-2.png"   style="height: auto; max-width: 400px; width: 100%"   >
+<img  alt="An applictaion definition in the editor"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/treekeepers-app-switcher-2.png"   style="height: auto; max-width: 400px; width: 100%"   >
 
 
     
@@ -1984,10 +2344,10 @@ I hope these characters remind you of some of your favorite series.</p>
 ]]></description>
                 
 
-                <guid isPermaLink="false">tag:hockenworks.com,2023-03-17:/treekeepers-engine/</guid>
+                <guid isPermaLink="false">tag:localhost:1313,2023-03-17:/treekeepers-engine/</guid>
 
                 
-                    <link>https://hockenworks.com/treekeepers-engine/</link>
+                    <link>http://localhost:1313/treekeepers-engine/</link>
                 
 
                 
@@ -2036,10 +2396,10 @@ I hope these characters remind you of some of your favorite series.</p>
 <p>Neat stuff - big thanks to Luma AI for the free toolset.</p>]]></description>
                 
 
-                <guid isPermaLink="false">tag:hockenworks.com,2023-02-01:/nerfs/</guid>
+                <guid isPermaLink="false">tag:localhost:1313,2023-02-01:/nerfs/</guid>
 
                 
-                    <link>https://hockenworks.com/nerfs/</link>
+                    <link>http://localhost:1313/nerfs/</link>
                 
 
                 
@@ -2155,7 +2515,7 @@ I hope these characters remind you of some of your favorite series.</p>
 
 
 
-<img  alt="The Treekeepers Puddle Jumper"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/treekeepers_moonlight.png"   style="height: auto; max-width: 100%"   >
+<img  alt="The Treekeepers Puddle Jumper"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/treekeepers_moonlight.png"   style="height: auto; max-width: 100%"   >
 
 
     
@@ -2172,10 +2532,10 @@ I hope these characters remind you of some of your favorite series.</p>
 <p>By summer 2022, I had a releasable product, albeit only with one “world” available. I decided to push the game to early access to gather rapid feedback from real players, and after getting approved for both storefronts, Treekeepers released to early access on September 30, 2022.</p>]]></description>
                 
 
-                <guid isPermaLink="false">tag:hockenworks.com,2022-10-01:/treekeepers-vr/</guid>
+                <guid isPermaLink="false">tag:localhost:1313,2022-10-01:/treekeepers-vr/</guid>
 
                 
-                    <link>https://hockenworks.com/treekeepers-vr/</link>
+                    <link>http://localhost:1313/treekeepers-vr/</link>
                 
 
                 
@@ -2297,7 +2657,7 @@ I hope these characters remind you of some of your favorite series.</p>
 
 
 
-<img  alt="proofreader GPT"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/together-again-studios.png"   style="height: auto; max-width: 400px; width: 100%"   >
+<img  alt="proofreader GPT"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/together-again-studios.png"   style="height: auto; max-width: 400px; width: 100%"   >
 
 
     
@@ -2332,10 +2692,10 @@ I hope these characters remind you of some of your favorite series.</p>
 ]]></description>
                 
 
-                <guid isPermaLink="false">tag:hockenworks.com,2022-08-01:/social-media-is-antisocial/</guid>
+                <guid isPermaLink="false">tag:localhost:1313,2022-08-01:/social-media-is-antisocial/</guid>
 
                 
-                    <link>https://hockenworks.com/social-media-is-antisocial/</link>
+                    <link>http://localhost:1313/social-media-is-antisocial/</link>
                 
 
                 
@@ -2508,7 +2868,7 @@ I hope these characters remind you of some of your favorite series.</p>
 
 
 
-<img   class="img-fluid "  crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/human_joystick_centered.jpg"   style="display:block; height: auto; margin:0 auto; width: 60%"   >
+<img   class="img-fluid "  crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/human_joystick_centered.jpg"   style="display:block; height: auto; margin:0 auto; width: 60%"   >
 
 
 </div>
@@ -2636,7 +2996,7 @@ I hope these characters remind you of some of your favorite series.</p>
 
 
 
-<img   class="img-fluid "  crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/human_joystick_moving.jpg"   style="display:block; height: auto; margin:0 auto; width: 60%"   >
+<img   class="img-fluid "  crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/human_joystick_moving.jpg"   style="display:block; height: auto; margin:0 auto; width: 60%"   >
 
 
 </div>
@@ -2650,10 +3010,10 @@ I hope these characters remind you of some of your favorite series.</p>
 <p>Ultimately I put the project up for others to view but have not expanded it into a full experience or released it on any marketplaces. Feel free to download the Unity project and try it on your own VR setup if you&rsquo;re curious.</p>]]></description>
                 
 
-                <guid isPermaLink="false">tag:hockenworks.com,2020-01-01:/human-joystick/</guid>
+                <guid isPermaLink="false">tag:localhost:1313,2020-01-01:/human-joystick/</guid>
 
                 
-                    <link>https://hockenworks.com/human-joystick/</link>
+                    <link>http://localhost:1313/human-joystick/</link>
                 
 
                 
@@ -2783,7 +3143,7 @@ This is what the project looked like for my first play-test with other people 5 
 
 
 
-<img  alt="Land War 4-day MVP"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/land_war_mvp.gif"   style="height: auto; width: 100%"   >
+<img  alt="Land War 4-day MVP"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/land_war_mvp.gif"   style="height: auto; width: 100%"   >
 
 
     
@@ -2871,7 +3231,7 @@ This is what the project looked like for my first play-test with other people 5 
 
 
 
-<img  alt="Player Select screen"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/land_war_player_select.png"   style="height: auto; width: 100%"   >
+<img  alt="Player Select screen"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/land_war_player_select.png"   style="height: auto; width: 100%"   >
 
 
     
@@ -2958,7 +3318,7 @@ This is what the project looked like for my first play-test with other people 5 
 
 
 
-<img  alt="Settings menu"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/land_war_settings.png"   style="height: auto; width: 100%"   >
+<img  alt="Settings menu"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/land_war_settings.png"   style="height: auto; width: 100%"   >
 
 
     
@@ -3047,7 +3407,7 @@ This is what the project looked like for my first play-test with other people 5 
 
 
 
-<img  alt="E3 marketing material"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/land_war_e3.png"   style="height: auto; max-width: 400px; width: 100%"   >
+<img  alt="E3 marketing material"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/land_war_e3.png"   style="height: auto; max-width: 400px; width: 100%"   >
 
 
     
@@ -3064,10 +3424,10 @@ This is what the project looked like for my first play-test with other people 5 
 ]]></description>
                 
 
-                <guid isPermaLink="false">tag:hockenworks.com,2019-03-01:/land-war/</guid>
+                <guid isPermaLink="false">tag:localhost:1313,2019-03-01:/land-war/</guid>
 
                 
-                    <link>https://hockenworks.com/land-war/</link>
+                    <link>http://localhost:1313/land-war/</link>
                 
 
                 
@@ -3186,7 +3546,7 @@ I hope these characters remind you of some of your favorite series.</p>
 
 
 
-<img   class="rounded-3 w-100"  crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/2013-8-bit-set-1.png"    >
+<img   class="rounded-3 w-100"  crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/2013-8-bit-set-1.png"    >
 
 
       
@@ -3261,7 +3621,7 @@ I hope these characters remind you of some of your favorite series.</p>
 
 
 
-<img   class="rounded-3 w-100"  crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/2013-8-bit-set-2.jpg"    >
+<img   class="rounded-3 w-100"  crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/2013-8-bit-set-2.jpg"    >
 
 </div>
 </div>
@@ -3340,7 +3700,7 @@ I hope these characters remind you of some of your favorite series.</p>
 
 
 
-<img   class="rounded-3 w-100"  crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/2013-8-bit-set-3.jpg"    >
+<img   class="rounded-3 w-100"  crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/2013-8-bit-set-3.jpg"    >
 
 
       
@@ -3415,7 +3775,7 @@ I hope these characters remind you of some of your favorite series.</p>
 
 
 
-<img   class="rounded-3 w-100"  crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/2013-8-bit-set-4.jpg"    >
+<img   class="rounded-3 w-100"  crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/2013-8-bit-set-4.jpg"    >
 
 </div>
 </div>
@@ -3425,10 +3785,10 @@ I hope these characters remind you of some of your favorite series.</p>
 ]]></description>
                 
 
-                <guid isPermaLink="false">tag:hockenworks.com,2013-07-09:/8-bit-coasters/</guid>
+                <guid isPermaLink="false">tag:localhost:1313,2013-07-09:/8-bit-coasters/</guid>
 
                 
-                    <link>https://hockenworks.com/8-bit-coasters/</link>
+                    <link>http://localhost:1313/8-bit-coasters/</link>
                 
 
                 

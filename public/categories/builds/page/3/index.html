@@ -621,6 +621,72 @@ table {
 
 <div class="paige-page paige-published w-100">
     
+        <p class="paige-row-narrow paige-title text-center"><a href="http://localhost:1313/raspberry-pi-panel/">Raspberry Pi Control Panel</a></p>
+    
+
+    
+
+    
+
+    
+        <p class="paige-keywords paige-row-narrow text-center text-secondary">
+            <a class="link-secondary paige-keyword paige-keyword-tag" href="http://localhost:1313/tags/3d-modeling/">3D Modeling</a> · <a class="link-secondary paige-keyword paige-keyword-tag" href="http://localhost:1313/tags/3d-printing/">3D Printing</a> · <a class="link-secondary paige-keyword paige-keyword-category" href="http://localhost:1313/categories/builds/">Builds</a> · <a class="link-secondary paige-keyword paige-keyword-tag" href="http://localhost:1313/tags/css/">CSS</a> · <a class="link-secondary paige-keyword paige-keyword-tag" href="http://localhost:1313/tags/diy/">DIY</a> · <a class="link-secondary paige-keyword paige-keyword-tag" href="http://localhost:1313/tags/electronics/">Electronics</a> · <a class="link-secondary paige-keyword paige-keyword-tag" href="http://localhost:1313/tags/experimental/">Experimental</a> · <a class="link-secondary paige-keyword paige-keyword-tag" href="http://localhost:1313/tags/hardware/">Hardware</a> · <a class="link-secondary paige-keyword paige-keyword-tag" href="http://localhost:1313/tags/home-automation/">Home Automation</a> · <a class="link-secondary paige-keyword paige-keyword-tag" href="http://localhost:1313/tags/html/">HTML</a> · <a class="link-secondary paige-keyword paige-keyword-tag" href="http://localhost:1313/tags/raspberry-pi/">Raspberry Pi</a> · <a class="link-secondary paige-keyword paige-keyword-tag" href="http://localhost:1313/tags/software/">Software</a> · <a class="link-secondary paige-keyword paige-keyword-tag" href="http://localhost:1313/tags/system-design/">System Design</a>
+        </p>
+    
+
+    
+
+    
+
+    
+        <p class="paige-date text-center paige-row-narrow text-secondary">
+            <time datetime="2016-01-01">January 1, 2016</time>
+        </p>
+    
+
+    
+        <p class="paige-reading-time paige-row-narrow text-center text-secondary">2 minutes</p>
+    
+</div>
+
+        
+            
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+
+
+<div class="paige-page paige-published w-100">
+    
         <p class="paige-row-narrow paige-title text-center"><a href="http://localhost:1313/nope-game/">NOPE - A 3D and 2D Printed Card Game</a></p>
     
 
@@ -1276,8 +1342,7 @@ table {
             <script src="http://localhost:1313/js/gsap.min.js"></script>
             <script src="http://localhost:1313/js/matter-wrap.min.js"></script>
             <script src="http://localhost:1313/js/ball-machine-app.js"></script>
-            <script src="http://localhost:1313/js/base-simulation.js"></script>
-            
+            <script src="http://localhost:1313/js/base-simulation.js"></script>            
             <script src="http://localhost:1313/js/gear-config.js"></script>
             <script src="http://localhost:1313/js/persistent.js"></script>
             <script src="http://localhost:1313/js/text.js"></script>
@@ -1294,6 +1359,9 @@ table {
             <script src="http://localhost:1313/js/launcher-create.js"></script>
             <script src="http://localhost:1313/js/compactor-create.js"></script>
             <script src="http://localhost:1313/js/compactor.js"></script>
+            <script src="http://localhost:1313/js/bubblewand-config.js"></script>
+            <script src="http://localhost:1313/js/bubblewand-create.js"></script>
+            <script src="http://localhost:1313/js/bubblewand.js"></script>
             <script src="http://localhost:1313/js/gear-create.js"></script>
             <script src="http://localhost:1313/js/gear.js"></script>
             <script src="http://localhost:1313/js/game.js"></script>
@@ -1649,7 +1717,13 @@ table {
         </div>
       </div>
       
-
+      <div class="toggle-wrapper">
+        <img src="http://localhost:1313/images/bubblewand-mode.png"
+             id="toggleBubbleWand" class="line-toggle" alt="Bubble Wand">
+        <div class="cost-label">
+          <img src="http://localhost:1313/images/coin-cost.png" alt="Coin"> 5000000
+        </div>
+      </div>
     </div>
   </div>
   
@@ -1672,8 +1746,8 @@ table {
         instaLauncherBtn = document.getElementById("toggleInstaLauncher"),
         compactorBtn = document.getElementById("toggleCompactor"),
         gearCWBtn     = document.getElementById("toggleGearCW"),
-        gearCCWBtn    = document.getElementById("toggleGearCCW");
-
+        gearCCWBtn    = document.getElementById("toggleGearCCW"),
+        bubbleWandBtn = document.getElementById("toggleBubbleWand");
       const FLASH_DURATION = 100,
         FLASH_TIMES = 6;
 
@@ -1746,6 +1820,9 @@ table {
             if (launcherType === "gear-cw") gearCWBtn.classList.add("selected");
             else gearCCWBtn.classList.add("selected");
             window.App.modules.lines.setMode("gear");
+        } else if (newMode === "bubble-wand") {
+          bubbleWandBtn.classList.add("selected");
+          window.App.modules.lines.setMode("bubble-wand");
         } else {
           
           window.App.modules.lines.setMode("none");

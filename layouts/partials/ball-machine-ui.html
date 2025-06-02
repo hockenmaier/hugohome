@@ -345,8 +345,14 @@
           <img src="{{ "images/coin-cost.png" | relURL }}" alt="Coin" /> {{ .Site.Params.App.compactor.cost | default 1000000 }}
         </div>
       </div>
-      
-
+      <!-- Bubble-Wand Toggle -->
+      <div class="toggle-wrapper">
+        <img src="{{ "images/bubblewand-mode.png" | relURL }}"
+             id="toggleBubbleWand" class="line-toggle" alt="Bubble Wand">
+        <div class="cost-label">
+          <img src="{{ "images/coin-cost.png" | relURL }}" alt="Coin"> 5000000
+        </div>
+      </div>
     </div>
   </div>
   <!-- Scripts remain unchanged -->
@@ -369,8 +375,8 @@
         instaLauncherBtn = document.getElementById("toggleInstaLauncher"),
         compactorBtn = document.getElementById("toggleCompactor"),
         gearCWBtn     = document.getElementById("toggleGearCW"),
-        gearCCWBtn    = document.getElementById("toggleGearCCW");
-
+        gearCCWBtn    = document.getElementById("toggleGearCCW"),
+        bubbleWandBtn = document.getElementById("toggleBubbleWand");
       const FLASH_DURATION = 100,
         FLASH_TIMES = 6;
 
@@ -443,6 +449,9 @@
             if (launcherType === "gear-cw") gearCWBtn.classList.add("selected");
             else gearCCWBtn.classList.add("selected");
             window.App.modules.lines.setMode("gear");
+        } else if (newMode === "bubble-wand") {
+          bubbleWandBtn.classList.add("selected");
+          window.App.modules.lines.setMode("bubble-wand");
         } else {
           // Setting mode to 'none'
           window.App.modules.lines.setMode("none");
@@ -517,6 +526,14 @@
         e.stopPropagation();
         const m = App.modules.lines.getMode(), t = GearCreateTool.selectedType;
         setActive( (m==="gear" && t==="gear-ccw") ? "none" : "gear", "gear-ccw");
+      });
+      bubbleWandBtn.addEventListener("click", e => {
+        e.stopPropagation();
+        setActive(
+          App.modules.lines.getMode() === "bubble-wand"
+            ? "none"
+            : "bubble-wand"
+        );
       });
 
       setInterval(updateDropRateDisplay, 1000);

@@ -162,6 +162,7 @@
 
     this.deletedSum = 0;
     this.deletedOriginalCount = 0; // sum of originalBallsCompacted for crushed balls
+    this.bubbledValue = 0;
     this.isCrushing = false;
     this.handleCollision = this.handleCollision.bind(this);
     Matter.Events.on(
@@ -201,15 +202,16 @@
       },
       onComplete: () => {
         if (self.deletedSum > 0) {
-          // spawn with both summed value & originals
+          const majorityBubble =
+            self.bubbledValue > self.deletedSum - self.bubbledValue;
           window.BallFall.spawnBall(
             self.deletedSum,
             self.position,
             self.deletedOriginalCount,
-            true
+            true,
+            majorityBubble
           );
-          self.deletedSum = 0;
-          self.deletedOriginalCount = 0;
+          self.deletedSum = self.bubbledValue = self.deletedOriginalCount = 0;
         }
         self.isCrushing = false;
       },
@@ -289,6 +291,7 @@
           if (ball._valueInterval) clearInterval(ball._valueInterval);
           // ← read its live value
           const ballValue = ball.value || 0;
+          if (ball.hasBubble) this.bubbledValue += ballValue;
           this.deletedSum += ballValue;
           this.deletedOriginalCount += ball.originalBallsCompacted || 1;
           // ← visual remove
@@ -310,6 +313,7 @@
           ball._compacted = true;
           if (ball._valueInterval) clearInterval(ball._valueInterval);
           const ballValue = ball.value || 0;
+          if (ball.hasBubble) this.bubbledValue += ballValue;
           this.deletedSum += ballValue;
           this.deletedOriginalCount += ball.originalBallsCompacted || 1;
           if (typeof window.glitchAndRemove === "function") {
