@@ -941,8 +941,7 @@ table {
             <script src="https://hockenworks.com/js/gsap.min.js"></script>
             <script src="https://hockenworks.com/js/matter-wrap.min.js"></script>
             <script src="https://hockenworks.com/js/ball-machine-app.js"></script>
-            <script src="https://hockenworks.com/js/base-simulation.js"></script>
-            
+            <script src="https://hockenworks.com/js/base-simulation.js"></script>            
             <script src="https://hockenworks.com/js/gear-config.js"></script>
             <script src="https://hockenworks.com/js/persistent.js"></script>
             <script src="https://hockenworks.com/js/text.js"></script>
@@ -959,6 +958,9 @@ table {
             <script src="https://hockenworks.com/js/launcher-create.js"></script>
             <script src="https://hockenworks.com/js/compactor-create.js"></script>
             <script src="https://hockenworks.com/js/compactor.js"></script>
+            <script src="https://hockenworks.com/js/bubblewand-config.js"></script>
+            <script src="https://hockenworks.com/js/bubblewand-create.js"></script>
+            <script src="https://hockenworks.com/js/bubblewand.js"></script>
             <script src="https://hockenworks.com/js/gear-create.js"></script>
             <script src="https://hockenworks.com/js/gear.js"></script>
             <script src="https://hockenworks.com/js/game.js"></script>
@@ -1314,7 +1316,13 @@ table {
         </div>
       </div>
       
-
+      <div class="toggle-wrapper">
+        <img src="https://hockenworks.com/images/bubblewand-mode.png"
+             id="toggleBubbleWand" class="line-toggle" alt="Bubble Wand">
+        <div class="cost-label">
+          <img src="https://hockenworks.com/images/coin-cost.png" alt="Coin"> 5000000
+        </div>
+      </div>
     </div>
   </div>
   
@@ -1337,8 +1345,8 @@ table {
         instaLauncherBtn = document.getElementById("toggleInstaLauncher"),
         compactorBtn = document.getElementById("toggleCompactor"),
         gearCWBtn     = document.getElementById("toggleGearCW"),
-        gearCCWBtn    = document.getElementById("toggleGearCCW");
-
+        gearCCWBtn    = document.getElementById("toggleGearCCW"),
+        bubbleWandBtn = document.getElementById("toggleBubbleWand");
       const FLASH_DURATION = 100,
         FLASH_TIMES = 6;
 
@@ -1411,6 +1419,9 @@ table {
             if (launcherType === "gear-cw") gearCWBtn.classList.add("selected");
             else gearCCWBtn.classList.add("selected");
             window.App.modules.lines.setMode("gear");
+        } else if (newMode === "bubble-wand") {
+          bubbleWandBtn.classList.add("selected");
+          window.App.modules.lines.setMode("bubble-wand");
         } else {
           
           window.App.modules.lines.setMode("none");
@@ -1485,6 +1496,14 @@ table {
         e.stopPropagation();
         const m = App.modules.lines.getMode(), t = GearCreateTool.selectedType;
         setActive( (m==="gear" && t==="gear-ccw") ? "none" : "gear", "gear-ccw");
+      });
+      bubbleWandBtn.addEventListener("click", e => {
+        e.stopPropagation();
+        setActive(
+          App.modules.lines.getMode() === "bubble-wand"
+            ? "none"
+            : "bubble-wand"
+        );
       });
 
       setInterval(updateDropRateDisplay, 1000);

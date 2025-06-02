@@ -936,8 +936,7 @@ Hickory dickory dock.</blockquote>
             <script src="http://localhost:1313/js/gsap.min.js"></script>
             <script src="http://localhost:1313/js/matter-wrap.min.js"></script>
             <script src="http://localhost:1313/js/ball-machine-app.js"></script>
-            <script src="http://localhost:1313/js/base-simulation.js"></script>
-            
+            <script src="http://localhost:1313/js/base-simulation.js"></script>            
             <script src="http://localhost:1313/js/gear-config.js"></script>
             <script src="http://localhost:1313/js/persistent.js"></script>
             <script src="http://localhost:1313/js/text.js"></script>
@@ -954,6 +953,9 @@ Hickory dickory dock.</blockquote>
             <script src="http://localhost:1313/js/launcher-create.js"></script>
             <script src="http://localhost:1313/js/compactor-create.js"></script>
             <script src="http://localhost:1313/js/compactor.js"></script>
+            <script src="http://localhost:1313/js/bubblewand-config.js"></script>
+            <script src="http://localhost:1313/js/bubblewand-create.js"></script>
+            <script src="http://localhost:1313/js/bubblewand.js"></script>
             <script src="http://localhost:1313/js/gear-create.js"></script>
             <script src="http://localhost:1313/js/gear.js"></script>
             <script src="http://localhost:1313/js/game.js"></script>
@@ -1309,7 +1311,13 @@ Hickory dickory dock.</blockquote>
         </div>
       </div>
       
-
+      <div class="toggle-wrapper">
+        <img src="http://localhost:1313/images/bubblewand-mode.png"
+             id="toggleBubbleWand" class="line-toggle" alt="Bubble Wand">
+        <div class="cost-label">
+          <img src="http://localhost:1313/images/coin-cost.png" alt="Coin"> 5000000
+        </div>
+      </div>
     </div>
   </div>
   
@@ -1332,8 +1340,8 @@ Hickory dickory dock.</blockquote>
         instaLauncherBtn = document.getElementById("toggleInstaLauncher"),
         compactorBtn = document.getElementById("toggleCompactor"),
         gearCWBtn     = document.getElementById("toggleGearCW"),
-        gearCCWBtn    = document.getElementById("toggleGearCCW");
-
+        gearCCWBtn    = document.getElementById("toggleGearCCW"),
+        bubbleWandBtn = document.getElementById("toggleBubbleWand");
       const FLASH_DURATION = 100,
         FLASH_TIMES = 6;
 
@@ -1406,6 +1414,9 @@ Hickory dickory dock.</blockquote>
             if (launcherType === "gear-cw") gearCWBtn.classList.add("selected");
             else gearCCWBtn.classList.add("selected");
             window.App.modules.lines.setMode("gear");
+        } else if (newMode === "bubble-wand") {
+          bubbleWandBtn.classList.add("selected");
+          window.App.modules.lines.setMode("bubble-wand");
         } else {
           
           window.App.modules.lines.setMode("none");
@@ -1480,6 +1491,14 @@ Hickory dickory dock.</blockquote>
         e.stopPropagation();
         const m = App.modules.lines.getMode(), t = GearCreateTool.selectedType;
         setActive( (m==="gear" && t==="gear-ccw") ? "none" : "gear", "gear-ccw");
+      });
+      bubbleWandBtn.addEventListener("click", e => {
+        e.stopPropagation();
+        setActive(
+          App.modules.lines.getMode() === "bubble-wand"
+            ? "none"
+            : "bubble-wand"
+        );
       });
 
       setInterval(updateDropRateDisplay, 1000);

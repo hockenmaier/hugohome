@@ -41,7 +41,7 @@
 <meta property="og:url" content="https://hockenworks.com/">
   <meta property="og:site_name" content="hockenworks">
   <meta property="og:title" content="hockenworks">
-  <meta property="og:description" content="Welcome. Welcome to hockenworks! I’m Brian Hockenmaier and this site is full of things I work on. That includes game development, AI, VR, DIY, Home Automation, 3D printing, Money, Happiness, the Singularity, and more. I hope you find something interesting here.
+  <meta property="og:description" content="Welcome. Welcome to hockenworks! I’m Brian Hockenmaier and this site is full of things I work and write on. That includes game development, AI, VR, DIY, Home Automation, 3D printing, Money, Happiness, the Singularity, and more. I hope you find something interesting here.
 This site is also a video game. Play around and discover it yourself or learn how to play here
 Subscribe for Email Updates via Substack
 Latest">
@@ -51,7 +51,7 @@ Latest">
 
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="hockenworks">
-  <meta name="twitter:description" content="Welcome. Welcome to hockenworks! I’m Brian Hockenmaier and this site is full of things I work on. That includes game development, AI, VR, DIY, Home Automation, 3D printing, Money, Happiness, the Singularity, and more. I hope you find something interesting here.
+  <meta name="twitter:description" content="Welcome. Welcome to hockenworks! I’m Brian Hockenmaier and this site is full of things I work and write on. That includes game development, AI, VR, DIY, Home Automation, 3D printing, Money, Happiness, the Singularity, and more. I hope you find something interesting here.
 This site is also a video game. Play around and discover it yourself or learn how to play here
 Subscribe for Email Updates via Substack
 Latest">
@@ -852,7 +852,7 @@ table {
 
 </div>
 
-<p>Welcome to hockenworks! I&rsquo;m <a href="https://hockenworks.com/about-me">Brian Hockenmaier</a> and <a href="https://hockenworks.com/this-website/#etymology-of-hockenworks">this site is full of things I work on.</a> That includes game development, AI, VR, DIY, Home Automation, 3D printing, Money, Happiness, the Singularity, and more. I hope you find something interesting here.</p>
+<p>Welcome to hockenworks! I&rsquo;m <a href="https://hockenworks.com/about-me">Brian Hockenmaier</a> and <a href="https://hockenworks.com/this-website/#etymology-of-hockenworks">this site is full of things I work and write on.</a> That includes game development, AI, VR, DIY, Home Automation, 3D printing, Money, Happiness, the Singularity, and more. I hope you find something interesting here.</p>
 <p>This site is also a video game. Play around and discover it yourself or <a href="https://hockenworks.com/this-website/#ball-machine---the-game">learn how to play here</a></p>
 
 <div style="
@@ -1967,8 +1967,7 @@ This game was intended to have low art requirements and simple interaction rules
             <script src="https://hockenworks.com/js/gsap.min.js"></script>
             <script src="https://hockenworks.com/js/matter-wrap.min.js"></script>
             <script src="https://hockenworks.com/js/ball-machine-app.js"></script>
-            <script src="https://hockenworks.com/js/base-simulation.js"></script>
-            
+            <script src="https://hockenworks.com/js/base-simulation.js"></script>            
             <script src="https://hockenworks.com/js/gear-config.js"></script>
             <script src="https://hockenworks.com/js/persistent.js"></script>
             <script src="https://hockenworks.com/js/text.js"></script>
@@ -1985,6 +1984,9 @@ This game was intended to have low art requirements and simple interaction rules
             <script src="https://hockenworks.com/js/launcher-create.js"></script>
             <script src="https://hockenworks.com/js/compactor-create.js"></script>
             <script src="https://hockenworks.com/js/compactor.js"></script>
+            <script src="https://hockenworks.com/js/bubblewand-config.js"></script>
+            <script src="https://hockenworks.com/js/bubblewand-create.js"></script>
+            <script src="https://hockenworks.com/js/bubblewand.js"></script>
             <script src="https://hockenworks.com/js/gear-create.js"></script>
             <script src="https://hockenworks.com/js/gear.js"></script>
             <script src="https://hockenworks.com/js/game.js"></script>
@@ -2340,7 +2342,13 @@ This game was intended to have low art requirements and simple interaction rules
         </div>
       </div>
       
-
+      <div class="toggle-wrapper">
+        <img src="https://hockenworks.com/images/bubblewand-mode.png"
+             id="toggleBubbleWand" class="line-toggle" alt="Bubble Wand">
+        <div class="cost-label">
+          <img src="https://hockenworks.com/images/coin-cost.png" alt="Coin"> 5000000
+        </div>
+      </div>
     </div>
   </div>
   
@@ -2363,8 +2371,8 @@ This game was intended to have low art requirements and simple interaction rules
         instaLauncherBtn = document.getElementById("toggleInstaLauncher"),
         compactorBtn = document.getElementById("toggleCompactor"),
         gearCWBtn     = document.getElementById("toggleGearCW"),
-        gearCCWBtn    = document.getElementById("toggleGearCCW");
-
+        gearCCWBtn    = document.getElementById("toggleGearCCW"),
+        bubbleWandBtn = document.getElementById("toggleBubbleWand");
       const FLASH_DURATION = 100,
         FLASH_TIMES = 6;
 
@@ -2437,6 +2445,9 @@ This game was intended to have low art requirements and simple interaction rules
             if (launcherType === "gear-cw") gearCWBtn.classList.add("selected");
             else gearCCWBtn.classList.add("selected");
             window.App.modules.lines.setMode("gear");
+        } else if (newMode === "bubble-wand") {
+          bubbleWandBtn.classList.add("selected");
+          window.App.modules.lines.setMode("bubble-wand");
         } else {
           
           window.App.modules.lines.setMode("none");
@@ -2511,6 +2522,14 @@ This game was intended to have low art requirements and simple interaction rules
         e.stopPropagation();
         const m = App.modules.lines.getMode(), t = GearCreateTool.selectedType;
         setActive( (m==="gear" && t==="gear-ccw") ? "none" : "gear", "gear-ccw");
+      });
+      bubbleWandBtn.addEventListener("click", e => {
+        e.stopPropagation();
+        setActive(
+          App.modules.lines.getMode() === "bubble-wand"
+            ? "none"
+            : "bubble-wand"
+        );
       });
 
       setInterval(updateDropRateDisplay, 1000);

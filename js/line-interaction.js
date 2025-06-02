@@ -101,6 +101,8 @@
     if (b.isGear)
       return App.config.costs[b.spinDir === 1 ? "gear-cw" : "gear-ccw"];
 
+    if (b.isBubbleWand) return App.config.costs["bubble-wand"];
+
     return 0;
   }
 
@@ -192,6 +194,12 @@
         if (parts.some((p) => Matter.Vertices.contains(p.vertices, point)))
           return b;
       }
+    }
+
+    /* 3) bubble-wand */
+    for (let b of bodies) {
+      if (b.isBubbleWand && Matter.Vertices.contains(b.vertices, point))
+        return b;
     }
 
     /* 3) normal lines */
@@ -293,6 +301,8 @@
       Matter.Composite.remove(window.BallFall.world, target, true);
       if (target.isGear) {
         App.Persistence.deleteGear(target.persistenceId);
+      } else if (target.isBubbleWand) {
+        App.Persistence.deleteBubbleWand(target.persistenceId);
       } else if (target.label === "Launcher") {
         App.Persistence.deleteLauncher(target.persistenceId);
       } else if (target.persistenceId) {
@@ -325,10 +335,18 @@
         App.Persistence.deleteCompactor(tgt[0].persistenceId);
       } else {
         Matter.World.remove(window.BallFall.world, tgt);
-        if (tgt.label === "Launcher")
+
+        /* NEW → gear deletion parity with desktop */
+        if (tgt.isGear) {
+          App.Persistence.deleteGear(tgt.persistenceId);
+        } else if (tgt.label === "Launcher") {
+        /* existing cases */
           App.Persistence.deleteLauncher(tgt.persistenceId);
-        else if (tgt.persistenceId)
+        } else if (tgt.isBubbleWand) {
+          App.Persistence.deleteBubbleWand(tgt.persistenceId);
+        } else if (tgt.persistenceId) {
           App.Persistence.deleteLine(tgt.persistenceId);
+        }
       }
       pendingTarget = null;
       hidePreview();

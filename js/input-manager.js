@@ -21,6 +21,8 @@
         return window.CompactorCreateTool;
       case "gear":
         return window.GearCreateTool;
+      case "bubble-wand":
+        return window.BubbleWandCreateTool;
       default:
         return null;
     }

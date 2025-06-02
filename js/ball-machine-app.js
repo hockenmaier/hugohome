@@ -56,7 +56,7 @@ window.App = {
       },
     },
     /* --- Gear settings ---------------------------------------------------- */
-    gearRotationDuration: 30000, // ← one rev every 30 s
+    gearRotationDuration: 30000, // ← one rev every 30s, about 1 ball/s (same as compactor)
     gearTypes: {
       // meta for future use
       "gear-cw": { dir: 1, image: window.assetBase + "images/gear-30.png" },
@@ -73,6 +73,7 @@ window.App = {
       "insta-launcher": 50000,
       "gear-cw": 300,
       "gear-ccw": 300,
+      "bubble-wand": 5000000,
     },
     goalMinSpeed: 0.5, //Speed balls must be traveling to trigger the goal
 
@@ -81,7 +82,7 @@ window.App = {
     autoClickerCost: 200, // Cost to unlock auto spawner
     speedUpgradeCosts: {
       // 1: every 2.2, 2: 1.1, 3: 1.8/s, 4: 3.6/s
-      1: 800,
+      1: 1000,
       2: 5000,
       3: 30000,
       4: 100000,
@@ -185,12 +186,19 @@ window.App = {
       closedInset: 15, // positive number to offset closed positions (set to 0 if you want edges to meet exactly)
 
       timeline: {
+        //Overall timeline is 1 per second, same as gear
         idleDuration: 0.57, // seconds to idle
         crushDuration: 0.12, // seconds to crush (close)
         shakeDuration: 0.06, // seconds per shake
         shakeRepeat: 3, // number of shake repeats (yoyo)
         openDuration: 0.25, // seconds to open
       },
+    },
+    /* Bubble-Wand tunables */
+    bubbleWand: {
+      diameterMultiplier: 6, // sprite size relative to ball
+      sensorRadiusMultiplier: 1.5, // sensor size relative to ball
+      bubbleCooldownMs: 11000,
     },
   },
   modules: {},
