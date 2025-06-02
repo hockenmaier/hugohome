@@ -301,6 +301,8 @@
       Matter.Composite.remove(window.BallFall.world, target, true);
       if (target.isGear) {
         App.Persistence.deleteGear(target.persistenceId);
+      } else if (target.isBubbleWand) {
+        App.Persistence.deleteBubbleWand(target.persistenceId);
       } else if (target.label === "Launcher") {
         App.Persistence.deleteLauncher(target.persistenceId);
       } else if (target.persistenceId) {

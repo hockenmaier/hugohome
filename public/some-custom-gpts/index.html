@@ -1500,6 +1500,14 @@ An experimental “AI generated RPG” where you play as “The Boy” who reali
         const m = App.modules.lines.getMode(), t = GearCreateTool.selectedType;
         setActive( (m==="gear" && t==="gear-ccw") ? "none" : "gear", "gear-ccw");
       });
+      bubbleWandBtn.addEventListener("click", e => {
+        e.stopPropagation();
+        setActive(
+          App.modules.lines.getMode() === "bubble-wand"
+            ? "none"
+            : "bubble-wand"
+        );
+      });
 
       setInterval(updateDropRateDisplay, 1000);
       updateDropRateDisplay(); 

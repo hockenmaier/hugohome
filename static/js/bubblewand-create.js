@@ -31,14 +31,26 @@ window.BubbleWandCreateTool = {
       Matter.World.add(window.BallFall.world, this.preview);
       this.state = 1;
     } else {
-      // finalise
+      // Second click: finish placement.
       const dx = x - this.startPoint.x,
-        dy = y - this.startPoint.y;
-      const angle = Math.atan2(dy, dx);
+        dy = y - this.startPoint.y,
+        angle = Math.atan2(dy, dx);
+
       Matter.World.remove(window.BallFall.world, this.preview);
-      new BubbleWand(this.startPoint, angle);
+      const bwObj = new BubbleWand(this.startPoint, angle);
+
+      /* ---- persistence ---- */
+      const id = App.Persistence.saveBubbleWand({
+        position: this.startPoint,
+        angle: angle,
+      });
+      if (bwObj && bwObj.body) bwObj.body.persistenceId = id;
+
+      /* ---- charge player ---- */
       App.config.coins -= this.cost;
       App.updateCoinsDisplay();
+
+      /* reset tool */
       this.state = 0;
       this.startPoint = this.preview = null;
     }

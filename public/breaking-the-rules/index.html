@@ -1408,6 +1408,14 @@ The more people from groups that don&rsquo;t build are involved in a project, th
         const m = App.modules.lines.getMode(), t = GearCreateTool.selectedType;
         setActive( (m==="gear" && t==="gear-ccw") ? "none" : "gear", "gear-ccw");
       });
+      bubbleWandBtn.addEventListener("click", e => {
+        e.stopPropagation();
+        setActive(
+          App.modules.lines.getMode() === "bubble-wand"
+            ? "none"
+            : "bubble-wand"
+        );
+      });
 
       setInterval(updateDropRateDisplay, 1000);
       updateDropRateDisplay(); 

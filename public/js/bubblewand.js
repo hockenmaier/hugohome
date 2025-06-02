@@ -1,5 +1,6 @@
 /* static/js/bubblewand.js
- * A static sensor: balls that pass through gain `hasBubble=true`.
+ * A static sensor: balls that pass through gain `hasBubble = true`.
+ * Now returns an object { body } so callers can attach persistenceId.
  */
 (function () {
   const p = BubbleWandConfig.getParams();
@@ -9,6 +10,7 @@
       isStatic: true,
       isSensor: true,
       angle,
+      label: "BubbleWandSensor",
       render: {
         sprite: {
           texture: "images/bubblewand.png",
@@ -16,27 +18,24 @@
           yScale: p.scale,
         },
       },
-      label: "BubbleWandSensor",
     });
-    body.isBubbleWand = true;
+    body.isBubbleWand = true; // ← so line-interaction can recognise it
     Matter.World.add(window.BallFall.world, body);
 
-    // collision handler – grant bubble once per entry
+    /* grant a bubble once per entry */
     Matter.Events.on(window.BallFall.engine, "collisionStart", (e) => {
       e.pairs.forEach((pair) => {
-        let ball, sensor;
-        if (pair.bodyA.label === "BallFallBall" && pair.bodyB === body) {
-          ball = pair.bodyA;
-          sensor = pair.bodyB;
-        } else if (pair.bodyB.label === "BallFallBall" && pair.bodyA === body) {
+        let ball;
+        if (pair.bodyA === body && pair.bodyB.label === "BallFallBall") {
           ball = pair.bodyB;
-          sensor = pair.bodyA;
+        } else if (pair.bodyB === body && pair.bodyA.label === "BallFallBall") {
+          ball = pair.bodyA;
         }
-        if (!ball || !sensor) return;
-        if (!ball.hasBubble) {
-          ball.hasBubble = true;
-        }
+        if (ball && !ball.hasBubble) ball.hasBubble = true;
       });
     });
+
+    /* returned so the creator can tag persistenceId */
+    return { body };
   };
 })();

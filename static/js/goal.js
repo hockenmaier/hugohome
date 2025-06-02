@@ -5,6 +5,8 @@
   const GOAL_NOTIF_FADE_TIME = 500; // Fade-out duration (ms).
   const GOAL_NOTIF_JITTER = 18; // Random offset (in pixels, ±18) for both X and Y.
 
+  const coinColor = window.coinColor || "#ffd700"; // gold
+
   // Reference to the current goal body
   let goalBody;
 
@@ -55,7 +57,6 @@
       if (pair.bodyA === goalBody || pair.bodyB === goalBody) {
         const other = pair.bodyA === goalBody ? pair.bodyB : pair.bodyA;
         if (other.label === "BallFallBall") {
-          let income = other.lastBallValue ?? other.value ?? 0;
           // Calculate the speed of the ball using its velocity vector.
           const speed = Math.hypot(other.velocity.x, other.velocity.y);
           const minSpeed = App.config.goalMinSpeed;
