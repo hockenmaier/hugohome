@@ -335,10 +335,18 @@
         App.Persistence.deleteCompactor(tgt[0].persistenceId);
       } else {
         Matter.World.remove(window.BallFall.world, tgt);
-        if (tgt.label === "Launcher")
+
+        /* NEW → gear deletion parity with desktop */
+        if (tgt.isGear) {
+          App.Persistence.deleteGear(tgt.persistenceId);
+        } else if (tgt.label === "Launcher") {
+        /* existing cases */
           App.Persistence.deleteLauncher(tgt.persistenceId);
-        else if (tgt.persistenceId)
+        } else if (tgt.isBubbleWand) {
+          App.Persistence.deleteBubbleWand(tgt.persistenceId);
+        } else if (tgt.persistenceId) {
           App.Persistence.deleteLine(tgt.persistenceId);
+        }
       }
       pendingTarget = null;
       hidePreview();
