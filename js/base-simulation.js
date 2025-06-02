@@ -74,7 +74,7 @@ App.modules.base = (function () {
 
     setInterval(() => {
       /* --- recompute every 30 engine ticks (~0.5 s) ---------------------- */
-      if (engine.timing.timestamp % 30 === 0) {
+      if (engine.timing.timestamp % 10 === 0) {
         let maxV = 0;
         Matter.Composite.allBodies(engine.world).forEach((b) => {
           if (b.label === "BallFallBall") {
