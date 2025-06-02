@@ -73,7 +73,7 @@ window.App = {
       "insta-launcher": 50000,
       "gear-cw": 300,
       "gear-ccw": 300,
-      "bubble-wand": 50000,
+      "bubble-wand": 5000000,
     },
     goalMinSpeed: 0.5, //Speed balls must be traveling to trigger the goal
 
@@ -197,7 +197,7 @@ window.App = {
     /* Bubble-Wand tunables */
     bubbleWand: {
       diameterMultiplier: 6, // sprite size relative to ball
-      sensorRadiusMultiplier: 3.2, // sensor size relative to ball
+      sensorRadiusMultiplier: 1.5, // sensor size relative to ball
     },
   },
   modules: {},
