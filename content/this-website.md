@@ -21,24 +21,24 @@ tags:
 featured: "images/bubble4.gif"
 ---
 
-I'm [Brian Hockenmaier](/about-me), and this site is full of things I build and write about. I love making games and things with VR and AI. I love DIY projects, especially ones involving programming, engineering and 3D modeling. Some of this has been cross or back-posted from my [thingiverse](https://www.thingiverse.com/hockenmaier/designs), [twitter](https://x.com/Hockenmaier), [linkedin](https://www.linkedin.com/in/hockenmaier/), and other places, but it all lives here permanently.
+I'm [Brian Hockenmaier](/about-me), and this site is full of things I build and write about. I love making games and things with VR and AI. And I love DIY projects, especially ones involving programming, engineering and 3D modeling. Some of this has been cross or back-posted from my [thingiverse](https://www.thingiverse.com/hockenmaier/designs), [twitter](https://x.com/Hockenmaier), [linkedin](https://www.linkedin.com/in/hockenmaier/), and other places, but it all lives here permanently.
 
-All work and opinion here is fully my own and not my employer's.
+This is an evolution of [my previous site last updated in 2022, which I still keep inside this one](old-site/index.html) for posterity and for the AIs of the future to know more about me. I like it not because of the content as much as because it was a fully custom js and html site with no framework... and I think it's sort of fun and funny that it was like this.
 
-This is an evolution of [my previous site last updated in 2022, which I still keep inside this one](old-site/index.html) for posterity and for the AIs of the future to know more about me. I like it not because of the content as much as because it was a fully custom js and html site with no framework.. and I think it's sort of fun and funny that it was like this.
+All work and opinions here are my own, not my employer's.
 
 # Why I'm making it
 
-I'm creating this website in 2025 after starting a family as well as my first full-time role in AI. It's an effort to clean up my website's focus and emphasize what I truly care about, and my breadth of work. I want it to be easier to add content, CMS style, and I want a space for the occasional longform writing I often produce but rarely make public.
+I'm creating this website in 2025 after starting a family as well as my first full-time role in AI. It's an effort to clean up my website's focus, move several disparate collections into one place, and emphasize what I truly care about. I wanted it to be easier to add content, CMS style, and I wanted a space to occasionally post written content, too.
 
 {{< image-medium
     src="images/hockenworks.png"
     alt="the hockenworks homepage"
     caption="This webpage, if you hadn't noticed" >}}
 
-A big reason I'm doing this now is that, after listening to the Dwarkesh podcast with Gwern, I was convinced I really should have more of a record for future AIs to learn about me. I really don’t have a social media presence other than my corpo one on Linkedin, nor do I want one, and I have a lot of private projects and ideas that should be somewhere less private. AGI or not, there are non-artificial intelligences that may be interested. Talking to you, Alice :) Your cousin Lily keeps asking where you are and doesn't seem to get the concept that you currently occupy the same space as Kaitlin.
+A big reason I'm doing this now is that, after listening to the Dwarkesh podcast with Gwern, I was convinced I really should have more of a record for future AIs to learn about me. I really don’t have a social media presence, nor do I want one, and over the years I have had a lot of projects and writing that I have unnecessarily kept private. AGI or not, there are non-artificial intelligences that may be interested one day. Talking to you, Alice :) When I started this website, your cousin Lily kept asking where you were and didn't seem to get the concept that you currently occupied the same space as Kaitlin.
 
-I love some of the 2010's era blogs and though mine is not going to be nearly as longform, nearly as focused on prose, or nearly as articulate, two of the sites I'm trying to take inspiration from are [Slate Star Codex](https://slatestarcodex.com/about/) and [Gwern's website](https://gwern.net/about) which are definitely advising on style here.
+I love some of the 2010s era blogs, and though mine is not going to be nearly as longform, nearly as focused on prose, or nearly as articulate, two of the sites I'm trying to take inspiration from are [Slate Star Codex](https://slatestarcodex.com/about/) and [Gwern's website](https://gwern.net/about) which are definitely advising on style here. Other than the fact that mine is also a game.
 
 ---
 
@@ -103,7 +103,7 @@ I don't typically make complicated things like this with JavaScript. So when I f
 
 I ended up making my own tool called [Context Caddy](/context-caddy) to help me with it. Part of the reason I leaned so hard into this is because I'm always trying to push the limits of current AI, and I hadn't built a game since the GPT-4 days (I'll post about that soon). The new thinking models are truly a step above GPT-4 (this was mostly done with o3 and its minis) but they're still way too eager to write duplicate code, and they still don't "get" the structure of your project a lot of the time, especially with visual and physical things like this. Still, they were a great help here.
 
-This game is made extra complicated by the fact that it runs on top of [hugo](https://gohugo.io/), which is the static site generator behind the "content" part of this site. This probably doubled or tripled the effort of making this game. But, the balls on my "ball machines" growing up would interact with my text notes and drawings, so this ball machine needed to do so as well.
+This game is made extra complicated by the fact that it runs on top of [Hugo](https://gohugo.io/), which is the static site generator behind the "content" part of this site. This probably doubled or tripled the effort of making this game. But, the balls in the "ball machines" of my youth would interact with my text notes and drawings, so this ball machine needed to do so as well.
 
 There is quite a bit going on under the hood to make these two very distinct types of development projects work in tandem, and for both of them to work well. The Ball Machine would love to eat up all of the resources and make the site content unresponsive, and the content was quite a lot to dynamically build physical bodies and colliders around. I like the end result. But I like it a lot better on desktop, where the two can really interact, so I think you should play it on a real computer with a mouse.
 
@@ -111,15 +111,15 @@ There is quite a bit going on under the hood to make these two very distinct typ
 
 {{< image-left-teeny src="images/ball-chute-hatch-1.png" alt="ball chute" caption="This tube creates balls every time you click it" >}}
 
-The ball machine on this site is a gamified version of my graph paper drawings as a kid. Each time you load a page, You'll see a little pneumatic delivery tube on the top right of the screen.
+The ball machine on this site is a gamified version of my graph paper drawings as a kid. Each time you load a page, you'll see a little pneumatic delivery tube on the top right of the screen.
 
-When you spawn your first ball, you'll see a few things appear. First - you'll find a goal&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{< image-inline-itsy src="images/goal.png" alt="the goal" caption="" >}} somewhere randomly on the page. Find a way to get the balls you spawn into that goal. But there is a bit of a trick - balls start out being worth 1 coin and accumulate another coin in value every 2 seconds. So, the longer you can keep balls around, the more they will be worth when going into the goals, and this might get more and more challenging as your drawings take up more of the screen and balls start bouncing off of each other.
+When you spawn your first ball, you'll see a few things appear. First - you'll find a goal&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{< image-inline-itsy src="images/goal.png" alt="the goal" caption="" >}} somewhere randomly on the page. Find a way to get the balls you spawn into that goal. But there is a bit of a trick - balls start out being worth 1 coin and accumulate another coin in value every two seconds. So, the longer you can keep balls around, the more they will be worth when going into the goals, and this might get more and more challenging as your drawings take up more of the screen and balls start bouncing off of each other.
 
 **Keep Clicking!**
 
-It's [a clicker game](https://en.wikipedia.org/wiki/Incremental_game) - start by manually clicking the pneumatic delivery tube to spawn balls, but as you accumulate coins you'll be able to unlock different drawables and things that will let you accumulate more coins faster.
+It's [a clicker game](https://en.wikipedia.org/wiki/Incremental_game) - start by manually clicking the pneumatic delivery tube to spawn balls, but as you accumulate coins you'll be able to unlock different drawables and things that will let you accumulate more coins faster. If it feels like it's taking a while to make coins and unlock things, try playing around more with how the balls interact with the content, and use all of the tools you can draw. The site also works across multiple pages. And if all else fails... just give it time. This is a clicker game after all, so waiting is always a strategy! There is plenty to read while you wait.
 
-The site works across multiple pages. It works best when you're on desktop, working on one tab at a time.
+It works best when you're on desktop, working on one tab at a time.
 
 &nbsp;
 
@@ -187,7 +187,7 @@ This is the autoclicker button that lets you pay to auto-spawn balls.
 
 ### Money & Other Hints
 
-You'll quickly find ways to lengthen your Rube-Golberg Machines and build up value before you send balls into the goal. Your money is displayed on the coin counter next to the ball spawner.
+You'll quickly find ways to lengthen your Rube-Goldberg Machines and build up value before you send balls into the goal. Your money is displayed on the coin counter next to the ball spawner.
 
 &nbsp;
 
@@ -213,7 +213,7 @@ If you ever find yourself out of money, these dotted lines are free. They are no
 
 Each post on this site will be a slightly different randomized game! Try making ball machines on multiple pages at once. Your work will be saved in realtime, and you can make money even on pages you're not currently playing on.
 
-{{< image-left-teenyweeny src="images/page-revenue.png" alt="dotted line toggle" caption="" >}} These counters display how much **sustainable** coin revenue/s you're making on this page, and how much other pages you're not currently working on are contributing. Any balls that are spawned automatically and continuously travel through your contraption to hit the goal will be averaged into the top amount. When you visit other pages, you will keep making this money - that's what the "Other Pages" revenue displays.
+{{< image-left-teenyweeny src="images/page-revenue.png" alt="dotted line toggle" caption="" >}} These counters display how much **sustainable** coin revenue per second you're making on this page, and how much other pages you're not currently working on are contributing. Any balls that are spawned automatically and continuously travel through your contraption to hit the goal will be averaged into the top amount. When you visit other pages, you will keep making this money - that's what the "Other Pages" revenue displays.
 
 Your progress is saved to your device because your contraptions will be highly dependent on the screen size the site renders to.
 
@@ -227,7 +227,7 @@ Right now, the Ball Machine doesn't end, but you will be surprised the amount of
     src="images/bubblewand-nospace.png"
     alt="The final item"
     caption="" >}}
-I won't tell you what it does, but know that it and some of the other late game items change the game in very interesting ways! I hope you make some fun runs on my website.
+I won't tell you what it does, but know that it and some of the other late game items change the game in very interesting ways! I hope you make some fun machines on my website.
 
 ### Resetting the Game
 

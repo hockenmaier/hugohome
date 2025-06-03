@@ -74,7 +74,7 @@ App.modules.base = (function () {
 
     setInterval(() => {
       /* --- recompute every 30 engine ticks (~0.5 s) ---------------------- */
-      if (engine.timing.timestamp % 10 === 0) {
+      if (engine.timing.timestamp % 20 === 0) {
         let maxV = 0;
         Matter.Composite.allBodies(engine.world).forEach((b) => {
           if (b.label === "BallFallBall") {
@@ -85,7 +85,7 @@ App.modules.base = (function () {
 
         /* map speed → substeps (1‒5) */
         let target =
-          maxV > 16 ? 5 : maxV > 12 ? 4 : maxV > 6 ? 3 : maxV > 4 ? 2 : 1;
+          maxV > 16 ? 5 : maxV > 8 ? 4 : maxV > 5 ? 3 : maxV > 4 ? 2 : 1;
 
         /* mobile caps at 2 */
         if (isMobileLike && target > 2) target = 2;
