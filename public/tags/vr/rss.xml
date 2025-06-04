@@ -38,18 +38,6 @@
         
     
 
-    
-
-    
-        
-    
-
-    
-
-    
-        
-    
-
 
 
 
@@ -76,7 +64,7 @@
             
 
             
-                <link href="http://localhost:1313/tags/vr/" rel="self" type="text/html"/>
+                <link href="https://the.hockenworks.com/tags/vr/" rel="self" type="text/html"/>
             
         
             
@@ -84,7 +72,7 @@
             
 
             
-                <link href="http://localhost:1313/tags/vr/rss.xml" rel="alternate" type="application/rss+xml"/>
+                <link href="https://the.hockenworks.com/tags/vr/rss.xml" rel="alternate" type="application/rss+xml"/>
             
         
 
@@ -99,10 +87,10 @@
         
 
         
-            <lastBuildDate>2025-07-28 00:00:00 +0000 UTC</lastBuildDate>
+            <lastBuildDate>2023-03-17 00:00:00 +0000 UTC</lastBuildDate>
         
 
-        <link>http://localhost:1313/tags/vr/</link>
+        <link>https://the.hockenworks.com/tags/vr/</link>
 
         
 
@@ -110,183 +98,6 @@
 
         
 
-        
-            <item>
-                
-                
-                
-                
-                
-                
-                
-
-                
-
-                
-
-                
-
-                
-
-                
-                
-
-                
-
-                
-
-                
-                    <description><![CDATA[<p>During my parental leave, I played through quite a few video games - something I love and one of the easiest ways to spend time while rocking my daughter to sleep.</p>
-<p>They include:</p>
-<ul>
-<li>The Legend of Zelda: The Minish Cap <sup>Steam Deck</sup></li>
-<li>Carto <sup>Steam on Windows</sup></li>
-<li>Tunic <sup>Steam on Windows</sup></li>
-<li>Abzu <sup>Steam on Windows</sup></li>
-<li>SteamWorld: Build <sup>Steam on Windows</sup></li>
-<li>World of Goo 2 <sup>Nintendo Switch</sup></li>
-<li>Oblivion Remastered <sup>Steam on Windows</sup></li>
-<li>Mario Kart World <sup>Nintendo Switch 2</sup></li>
-<li>Donkey Kong Bananza <sup>Nintendo Switch 2</sup></li>
-</ul>
-<p>Most of these are indie titles, but the one I spent the most time on was the Oblivion Remaster - one which surprised me both with how good it looks and with how well it played. Oblivion is a 19 year old game, and a purely graphics-related overhaul should not have made it as good or better than modern AAA games releasing today, but in my opinion (and many others I’m reading) it absolutely did. How could this be?</p>
-<h2 id="graphics">Graphics</h2>
-<p>Well - I think that’s pretty clear. The only thing that has really improved about mainstream gaming in the last 20 years is graphics.</p>
-<p>And boy have the graphics improved. Oblivion not only uses new techniques like ray-tracing and revamped 4K textures and normal maps etc, it uses the full suite of global illumination provided by <a href="https://dev.epicgames.com/documentation/en-us/unreal-engine/lumen-global-illumination-and-reflections-in-unreal-engine">Unreal Engine</a>, which means when you turn the settings up, it depends on hardly any of the typical tricks games need to use, like baked light maps, instead lighting almost everything in the game dynamically or “procedurally”, including things like reflections of reflections and lit up dust and fog.</p>
-
-<div style="text-align: center; margin-bottom: 1rem;">
-  <video controls loop muted autoplay style="max-width:100%;">
-    <source src="/videos/bruma-clip.mp4" type="video/mp4">
-    Your browser doesn’t support HTML5 video.
-  </video>
-  
-    <span style="display: block; font-style: italic; margin-top: 0.5rem;">This is from my playthrough, some outdoor torches in Bruma and mountain lighting in the background make for a pretty good use of full Lumen</span>
-  
-</div>
-
-<p>Yes, Oblivion still has some simplistic design in terms of how landscapes are laid out, but that simplicity might also be why people can run it with Nvidia Lumen set up to run at ultra. Lighting is what’s really differentiating in video game graphics now, and fully simulated lighting beats or meets nearly every AAA game releasing lately that all cost tens or hundreds of millions of dollars to make.</p>
-<h2 id="not-graphics">Not Graphics</h2>
-<p>Left unstated is why nothing else has improved. Walking around Oblivion, meeting characters that have some scripted voice lines, responding to them with 1 of 4 options, holding down the left stick to sprint, and hitting a single button on your controller to watch your character animate a full scripted sword swing are all the standard gameplay of action-RPGs both 19 years ago and today. The same can be said of other genres - mechanics are largely untouched for the last 20 years outside of some common quality of life changes in how menus and inventory and HUDs work.</p>
-<p>Here’s my theory for why: The games industry achieved the threshold of what was comfortable and possible with the current human-computer input and output mechanisms only a few years after they were technically possible. And those inputs and outputs have not changed much since the 90s. Looking at a flat screen in front of you and pressing buttons on a controller or keyboard/mouse are incredibly limiting for gaming. Increasing the amount of pixels on the screen and making that controller wireless don&rsquo;t change the core gameplay. This is not really true for any other media than games. Reading, watching films, and all kinds of media in between essentially max out on one screen and limited input, but games immediately ran into forms of input and output as a barrier.</p>
-<p>I wrote a little about this topic in <a href="/social-media-is-antisocial">my first post about VR and why I think it’s the future</a>. The only true innovation in gameplay that is happening in two places:</p>
-<ul>
-<li>Indie, where one-man teams can come up with strange mashups and mechanics can execute on a vision spending very little. These are almost never totally genre defining, but they are inventive.</li>
-<li>VR, where we have only scratched the surface of mechanics that work and what is possible when the player’s entire hands and 3D field of view are in the game.</li>
-</ul>
-<p>AAA game developers are excluded from the first by definition and are excluded from the second by their own financial decision makers.</p>
-<h2 id="so-what-my-predictions">So What? My predictions</h2>
-<p>Maybe people want to keep buying the same games with better graphics forever. I don’t think they do. I think those decision makers that aren’t investing in truly new AAA gameplay are short sighted. As long as we’ve been hearing that VR is the future and not seeing it totally come to fruition, at some point these companies that are milking the same game franchises for years will face the reality that people will only buy the same games reskinned with better graphics for so long. They’ll either be replaced by companies that innovate or individuals using AI that will be plenty good at recreating the same game over and over again.</p>
-<p>I am hoping that the current hypestorm around AI re-kindles the ideas in the hearts of AAA game studio CFOs that they might need to invest in innovation and new ideas again. Some of the things that make Oblivion just like any RPG of today (Think about the four-option scripted discourse and stuffy voice lines as two) would be meaningfully different if AI was applied in the right way. And I think they’d be far more powerful experiences, just like I think VR games can be - so much higher fidelity and responsive to player input.</p>
-<p>Here are my predictions of things we’ll see in the next decade or so, regardless of the AAA studios pioneer them or not:</p>
-<p>A decade or two from now, we will look at the period of 2005 to 2025 and see that it was a period of a great stagnation in game innovation. This will be driven by a few key technological advances and the downstream game mechanics that will flow from those, stemming mainly from the areas of AI and what is now called mixed reality.</p>
-<p>I’m going to make a few specific predictions of mechanics we will see in the future that will make the stagnation of the last 20 years totally transparent:</p>
-<h4 id="ai">AI:</h4>
-<ul>
-<li>
-<p>In open world games, it will become standard for non-player characters to have fully generated dialogues based on motivations and incentives rather than scripts</p>
-</li>
-<li>
-<p>In open world games, players will speak directly or engage directly in some way with their own words that NPCs will understand and react to intelligently</p>
-</li>
-<li>
-<p>NPCs won&rsquo;t have recorded voice lines, but will instead have voices generated in real time, and AAA games will start to make contracts with celebrity talent in order to generate their voice in games</p>
-</li>
-<li>
-<p>We will see a transition from the current minorly procedural elements of gameplay to full procedural generated worlds, especially where player actions and environmental events change landscape, buildings, etc dynamically</p>
-</li>
-<li>
-<p>Game art will go through an incredible revolution, and we will stop having massive teams of people creating 3D meshes and textures to drop around the world, with many of these meshes and textures being generated from prompts in development, but also being generated on the fly in games</p>
-</li>
-</ul>
-<h4 id="mixed-reality">Mixed Reality:</h4>
-<p>The first reasonable augmented reality glasses that consumers are willing to wear en masse will generate entirely new genres:</p>
-<ul>
-<li>
-<p>A new genre of video board games, where gameplay happens in view of a group of people in the same physical space, on a table, on the ground, in a park, etc, that will incorporate video game elements such as computations that are too complicated for typical board games, with the advantages that board games have today where players can interact with the same physical pieces, point and gesture, and socialize in person</p>
-</li>
-<li>
-<p>Another new genre of exercise programs combined with games. This will go far beyond current treadmills that have built-in virtual run routes or virtual exercise classes, this will be exercise incorporated as a leveling or other mechanic that will incentivize players to get some exercise. I&rsquo;ve had a lot of hope for this category for a long time, and the one major threat to it is GLP-1 drugs that may cause a serious decline in the need and desire for people to exercise daily for calorie loss</p>
-</li>
-</ul>
-<p>When will these happen? My specific prediction is that the next 3 years will be seen as the end of the period of stagnation we are in right now, a period that will be much more apparent looking backwards than it is from within. The combo of a decline in AAA game spending and AI hype feel like ripe conditions for innovation to return to gameplay - and my hope is that all of the other potential gameplay innovations ride the same AI wave.</p>]]></description>
-                
-
-                <guid isPermaLink="false">tag:localhost:1313,2025-07-28:/the-purgatory-of-aaa-gaming/</guid>
-
-                
-                    <link>http://localhost:1313/the-purgatory-of-aaa-gaming/</link>
-                
-
-                
-                    <pubDate>Mon, 28 Jul 2025 00:00:00 UTC</pubDate>
-                
-
-                
-                    <title>The Purgatory of AAA Gaming</title>
-                
-            </item>
-        
-            <item>
-                
-                
-                
-                
-                
-                
-                
-
-                
-
-                
-
-                
-
-                
-
-                
-                
-
-                
-
-                
-
-                
-                    <description><![CDATA[<p>&ldquo;The Flapper&rdquo; is a project that spawned out of a simple VR movement mechanic test that I had had in my head for a while, which turned out to be surprisingly fun! The idea is to flap your arms to fly - and have it be a multiplayer battle to really get people moving.</p>
-<p>In order to start working on this game, because there was so much standard VR code that I had to write for tree keepers, I decided to make a sort of engine out of tree keepers and work off of that rather than start from scratch. That let me tie in some of the nice associated graphics, music and sound effects I had made, and a bunch of other helper functions and things I use for things like the camera following around the character, how I deal with collisions, a bunch of netcode, etc.</p>
-<p>You can see my more detailed post about that engine here: <a href="/treekeepers-engine">Treekeepers Engine</a></p>
-<h2 id="core-mechanic--gameplay">Core Mechanic &amp; Gameplay</h2>
-<p>Most of the start of this game was just tuning the movement mechanic, which borrowed from some physics realities and some elements I made up to make flapping feel good. But, the essential idea was that each arm would generate unique thrust in the direction it was moving with an exponenthel applied to how fast it was moving. It&rsquo;s hard to describe any native VR mechanic with words and videos only, but to me and the folks I demoed it to; it felt &ldquo;right&rdquo; for how flying should work if you did it by flapping your arms. I had a ton of fun just jetting around the obstacle courses I made for myself.</p>
-<p>My idea for this other than just the mechanic was to make a sort of gorilla tag-esque multiplayer game where players would fly around and try to pop each other&rsquo;s balloons in a NES balloon fight {link} style. Ideally something like 15 to 20 people would be in a lobby flying around and trying to pop each other.</p>
-<p>Like gorilla tag I didn&rsquo;t want anyone to have to &ldquo;sit out&rdquo; of the game, so it&rsquo;s essentially a deathmatch where the player who pops the most balloons wins, and is also visible who&rsquo;s winning, because they also gain the balloons that they pop. In some playtests players would have 20 or 30 balloons on their head. This was my clever idea of adding a built-in rubber-band effect to the gameplay as well, since having more balloons over your head made you a bigger target to pop. The gameplay worked well - but I never quite got the game to a place with netcode and networking engine where multiplayer felt seamless enough.</p>
-<p>Here’s a video of one of the later states of the game, where I have it fully networked and am testing with friends, though it still has a few bugs here:</p>
-
-    <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
-      <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/Vxn8rDOZ7dU?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"></iframe>
-    </div>
-
-<h2 id="today">Today</h2>
-<p>I stopped working on this project after about 3 months. It turned out that flying alone with this mechanic was very compelling (and also a great workout!) but the networking engine I had used for Teeekeepers, Photon, was not up to task for how low latency a competitive game needed to be. Treekeepers was four-player co-op so photon was just fine.</p>
-<p>In the future I might pick this one back up (or maybe have an AI agent pick it up for me depending on how that goes) using space-time DB {link}</p>
-<p>which looks like a great solution for this type of game that doesn&rsquo;t require a whole ton of cloud programming and setup.</p>
-<p>You can try a build of the game here:</p>
-<p>{Download of latest build}</p>
-]]></description>
-                
-
-                <guid isPermaLink="false">tag:localhost:1313,2025-06-16:/the-flapper/</guid>
-
-                
-                    <link>http://localhost:1313/the-flapper/</link>
-                
-
-                
-                    <pubDate>Mon, 16 Jun 2025 00:00:00 UTC</pubDate>
-                
-
-                
-                    <title>The Flapper - A Physical VR Multiplayer Game</title>
-                
-            </item>
         
             <item>
                 
@@ -395,7 +206,7 @@
 
 
 
-<img  alt="Switching apps in the treekeepers engine"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/treekeepers-app-switcher-1.gif"   style="height: auto; max-width: 720px; width: 100%"   >
+<img  alt="Switching apps in the treekeepers engine"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://the.hockenworks.com/images/treekeepers-app-switcher-1.gif"   style="height: auto; max-width: 720px; width: 100%"   >
 
 
     
@@ -486,7 +297,7 @@
 
 
 
-<img  alt="An applictaion definition in the editor"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/treekeepers-app-switcher-2.png"   style="height: auto; max-width: 400px; width: 100%"   >
+<img  alt="An applictaion definition in the editor"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://the.hockenworks.com/images/treekeepers-app-switcher-2.png"   style="height: auto; max-width: 400px; width: 100%"   >
 
 
     
@@ -504,10 +315,10 @@
 ]]></description>
                 
 
-                <guid isPermaLink="false">tag:localhost:1313,2023-03-17:/treekeepers-engine/</guid>
+                <guid isPermaLink="false">tag:the.hockenworks.com,2023-03-17:/treekeepers-engine/</guid>
 
                 
-                    <link>http://localhost:1313/treekeepers-engine/</link>
+                    <link>https://the.hockenworks.com/treekeepers-engine/</link>
                 
 
                 
@@ -623,7 +434,7 @@
 
 
 
-<img  alt="The Treekeepers Puddle Jumper"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/treekeepers_moonlight.png"   style="height: auto; max-width: 100%"   >
+<img  alt="The Treekeepers Puddle Jumper"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://the.hockenworks.com/images/treekeepers_moonlight.png"   style="height: auto; max-width: 100%"   >
 
 
     
@@ -640,10 +451,10 @@
 <p>By summer 2022, I had a releasable product, albeit only with one “world” available. I decided to push the game to early access to gather rapid feedback from real players, and after getting approved for both storefronts, Treekeepers released to early access on September 30, 2022.</p>]]></description>
                 
 
-                <guid isPermaLink="false">tag:localhost:1313,2022-10-01:/treekeepers-vr/</guid>
+                <guid isPermaLink="false">tag:the.hockenworks.com,2022-10-01:/treekeepers-vr/</guid>
 
                 
-                    <link>http://localhost:1313/treekeepers-vr/</link>
+                    <link>https://the.hockenworks.com/treekeepers-vr/</link>
                 
 
                 
@@ -765,7 +576,7 @@
 
 
 
-<img  alt="proofreader GPT"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/together-again-studios.png"   style="height: auto; max-width: 400px; width: 100%"   >
+<img  alt="proofreader GPT"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://the.hockenworks.com/images/together-again-studios.png"   style="height: auto; max-width: 400px; width: 100%"   >
 
 
     
@@ -800,10 +611,10 @@
 ]]></description>
                 
 
-                <guid isPermaLink="false">tag:localhost:1313,2022-08-01:/social-media-is-antisocial/</guid>
+                <guid isPermaLink="false">tag:the.hockenworks.com,2022-08-01:/social-media-is-antisocial/</guid>
 
                 
-                    <link>http://localhost:1313/social-media-is-antisocial/</link>
+                    <link>https://the.hockenworks.com/social-media-is-antisocial/</link>
                 
 
                 
@@ -976,7 +787,7 @@
 
 
 
-<img   class="img-fluid "  crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/human_joystick_centered.jpg"   style="display:block; height: auto; margin:0 auto; width: 60%"   >
+<img   class="img-fluid "  crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://the.hockenworks.com/images/human_joystick_centered.jpg"   style="display:block; height: auto; margin:0 auto; width: 60%"   >
 
 
 </div>
@@ -1104,7 +915,7 @@
 
 
 
-<img   class="img-fluid "  crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/human_joystick_moving.jpg"   style="display:block; height: auto; margin:0 auto; width: 60%"   >
+<img   class="img-fluid "  crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://the.hockenworks.com/images/human_joystick_moving.jpg"   style="display:block; height: auto; margin:0 auto; width: 60%"   >
 
 
 </div>
@@ -1118,10 +929,10 @@
 <p>Ultimately I put the project up for others to view but have not expanded it into a full experience or released it on any marketplaces. Feel free to download the Unity project and try it on your own VR setup if you&rsquo;re curious.</p>]]></description>
                 
 
-                <guid isPermaLink="false">tag:localhost:1313,2020-01-01:/human-joystick/</guid>
+                <guid isPermaLink="false">tag:the.hockenworks.com,2020-01-01:/human-joystick/</guid>
 
                 
-                    <link>http://localhost:1313/human-joystick/</link>
+                    <link>https://the.hockenworks.com/human-joystick/</link>
                 
 
                 

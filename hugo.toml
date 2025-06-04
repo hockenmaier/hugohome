@@ -1,4 +1,4 @@
-baseURL = "https://the.hockenworks.com/"
+baseURL = "https://hockenworks.com/"
 canonifyURLs = true
 languageCode = 'en-us'
 title = "hockenworks"
