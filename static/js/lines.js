@@ -152,16 +152,16 @@ App.modules.lines = (function () {
         if (window.DottedLineTool) window.DottedLineTool.cancel();
         break;
       case "launcher":
-        if (window.LauncherCreateTool) LauncherCreateTool.cancel();
+        if (window.LauncherCreateTool) window.LauncherCreateTool.cancel();
         break;
       case "compactor":
-        if (window.CompactorCreateTool) CompactorCreateTool.cancel();
+        if (window.CompactorCreateTool) window.CompactorCreateTool.cancel();
         break;
       case "gear":
-        if (window.GearCreateTool) GearCreateTool.cancel();
+        if (window.GearCreateTool) window.GearCreateTool.cancel();
         break;
       case "bubble-wand":
-        if (window.BubbleWandCreateTool) BubbleWandCreateTool.cancel();
+        if (window.BubbleWandCreateTool) window.BubbleWandCreateTool.cancel();
         break;
     }
 
