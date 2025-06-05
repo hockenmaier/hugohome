@@ -5,6 +5,10 @@ title = "hockenworks"
 theme = 'paige'
 summaryLength   = 100      # ← add this here
 
+
+[params]
+  description = "hockenworks is a site for Brian Hockenmaier's personal projects, essays, and a click-to-run Matter.js physics game on each page called "The Ball Machine."
+
 [taxonomies]
 category = "categories"      # For post types like project overviews, project update, essays, thought, etc.
 #personal = "personal"        # Binary for personal vs professional projects: personal-Y or personal-N
