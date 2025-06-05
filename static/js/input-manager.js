@@ -92,14 +92,24 @@
     }
   });
 
-  document.addEventListener("touchmove", (e) => {
-    if (e.touches.length !== 1) return;
-    const touch = e.touches[0];
-    const tool = getActiveTool();
-    if (tool && typeof tool.onTouchMove === "function") {
-      tool.onTouchMove(touch.pageX, touch.pageY);
-    }
-  });
+  // Touch move – block page scroll while a tool is active (iPad Safari issue)
+  document.addEventListener(
+    "touchmove",
+    (e) => {
+      if (e.touches.length !== 1) return;
+
+      const tool = getActiveTool();
+      if (tool && App.modules.lines.getMode() !== "none") {
+        e.preventDefault(); // stop vertical page scroll
+      }
+
+      const touch = e.touches[0];
+      if (tool && typeof tool.onTouchMove === "function") {
+        tool.onTouchMove(touch.pageX, touch.pageY);
+      }
+    },
+    { passive: false }
+  );
 
   document.addEventListener("touchend", (e) => {
     const touch = e.changedTouches[0];
