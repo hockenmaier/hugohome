@@ -77,10 +77,14 @@ class BaseDrawingTool {
 
   // Generic mobile touch handling
   handleTouchEnd(x, y, onEnd, onCancel, cost) {
-    // If there was no drag or the movement is too small, cancel.
+    /* Only the very first drag gesture needs to pass the 25 px check
+       – except for Gears which should always finalise immediately. */
+    const mustValidate = this.state === 0 && this.toolName !== "gear";
+
     if (
-      !this._hasMoved ||
-      !BaseDrawingTool.isValidDrag(this._mobileStartPoint, x, y)
+      mustValidate &&
+      (!this._hasMoved ||
+        !BaseDrawingTool.isValidDrag(this._mobileStartPoint, x, y))
     ) {
       if (onCancel) onCancel.call(this);
       BaseDrawingTool.ignoreNextClick = true;
