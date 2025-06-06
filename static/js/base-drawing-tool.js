@@ -77,9 +77,9 @@ class BaseDrawingTool {
 
   // Generic mobile touch handling
   handleTouchEnd(x, y, onEnd, onCancel, cost) {
-    /* Only the very first drag gesture needs to pass the 25 px check.
-       Subsequent steps (state > 0) may finish exactly where they started. */
-    const mustValidate = this.state === 0;
+    /* Only the very first drag gesture needs to pass the 25 px check
+       – except for Gears which should always finalise immediately. */
+    const mustValidate = this.state === 0 && this.toolName !== "gear";
 
     if (
       mustValidate &&
