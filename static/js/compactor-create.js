@@ -57,6 +57,7 @@ window.CompactorCreateTool = {
               xScale: scaleFactor,
               yScale: scaleFactor,
             },
+            opacity: previewOpts.render.opacity,
           },
         })
       );
@@ -73,6 +74,7 @@ window.CompactorCreateTool = {
               xScale: scaleFactor,
               yScale: scaleFactor,
             },
+            opacity: previewOpts.render.opacity,
           },
         })
       );
@@ -89,6 +91,7 @@ window.CompactorCreateTool = {
               xScale: scaleFactor,
               yScale: scaleFactor,
             },
+            opacity: previewOpts.render.opacity,
           },
         })
       );
