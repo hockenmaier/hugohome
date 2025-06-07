@@ -1,6 +1,6 @@
 ---
 title: "Vision is the last hurdle before AGI"
-date: 2025-06-09
+date: 2025-06-16
 categories: ["writing"]
 tags: ["singularity", "AI", "Invention", "predictions", "3D Modeling"]
 featured: "/images/vision-feature.png" # could be a .mp4, YouTube URL, whatever

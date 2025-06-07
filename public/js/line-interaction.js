@@ -385,6 +385,7 @@
     hidePreview();
   });
 
+
   /* --- expose preview helper so other modules (e.g. auto-clicker) can reuse it --- */
   window.showRefundPreview = (amt, x, y) =>
     createNotification(`+ ${amt} coins`, x, y, 0.4);

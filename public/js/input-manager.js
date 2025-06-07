@@ -118,4 +118,13 @@
       tool.onTouchEnd(touch.pageX, touch.pageY);
     }
   });
+
+  // Propagate touch cancellations to the active tool if supported
+  document.addEventListener("touchcancel", (e) => {
+    const tool = getActiveTool();
+    if (tool && typeof tool.onTouchCancel === "function") {
+      const touch = e.changedTouches[0];
+      tool.onTouchCancel(touch?.pageX, touch?.pageY);
+    }
+  });
 })();
