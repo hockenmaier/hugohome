@@ -147,6 +147,8 @@ window.LauncherCreateTool = {
       endPoint: { x, y },
     });
     this.launcherPreview.persistenceId = persistentId;
+    if (App.Achievements && App.Achievements.recordDrawable)
+      App.Achievements.recordDrawable();
     this.launcherPreview = null;
     this.state = 0;
     this.startPoint = null;

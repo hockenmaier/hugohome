@@ -238,3 +238,7 @@ Resetting will erase all of your drawings on all pages and reset your goal locat
 If you are thinking about doing this because you want to try on another device, you don't need to, because progress is already saved to your device. The only reason to do this is to have a fresh start on this device.
 
 Navigate [here](/reset-ball-machine) and click reset to do that.
+
+### Achievements
+
+{{< achievements >}}

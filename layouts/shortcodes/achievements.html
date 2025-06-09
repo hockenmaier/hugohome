@@ -1,0 +1,26 @@
+<div id="achievements-list"></div>
+<script>
+(function(){
+  var defs = (window.App && App.Achievements && App.Achievements.defs) || [];
+  var unlocked = JSON.parse(localStorage.getItem('game.achievementsUnlocked') || '{}');
+  var yes = '{{ "images/achievement-yes.png" | relURL }}';
+  var no = '{{ "images/achievement-no.png" | relURL }}';
+  var container = document.getElementById('achievements-list');
+  defs.forEach(function(a){
+    var row = document.createElement('div');
+    var img = document.createElement('img');
+    var got = unlocked[a.id];
+    img.src = got ? yes : no;
+    img.alt = got ? 'Unlocked' : 'Locked';
+    img.style.width = '16px';
+    img.style.height = '16px';
+    img.style.marginRight = '4px';
+    row.appendChild(img);
+    var b = document.createElement('b');
+    b.textContent = a.name + ' – ';
+    row.appendChild(b);
+    row.appendChild(document.createTextNode(a.desc));
+    container.appendChild(row);
+  });
+})();
+</script>

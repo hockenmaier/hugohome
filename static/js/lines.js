@@ -96,6 +96,8 @@ App.modules.lines = (function () {
         p2: { x, y },
       });
       lineBody.persistenceId = persistentId;
+      if (App.Achievements && App.Achievements.recordDrawable)
+        App.Achievements.recordDrawable();
       this.state = 0;
       this.firstPoint = null;
       lastFinishTime = Date.now();

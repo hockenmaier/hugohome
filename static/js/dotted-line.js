@@ -117,6 +117,8 @@
       ) {
         window.App.modules.lines.addLine(dottedLine);
       }
+      if (App.Achievements && App.Achievements.recordDrawable)
+        App.Achievements.recordDrawable();
       this.state = 0;
       this.firstPoint = null;
     },

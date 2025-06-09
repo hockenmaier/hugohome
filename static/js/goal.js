@@ -95,6 +95,11 @@
       App.config.coins += income;
       if (other.spawnedByAuto) App.autoIncomeThisSecond += income;
       window.App.updateCoinsDisplay();
+      if (App.Achievements && App.Achievements.checkBallLifetime) {
+        const life = (Date.now() - (other.spawnTime || Date.now())) / 1000;
+        App.Achievements.checkBallLifetime(life);
+        if (App.Achievements.checkNightShift) App.Achievements.checkNightShift();
+      }
 
       displayGoalNotification(`+${income} Coins`, notifColor, hitPos);
     });
