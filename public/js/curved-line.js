@@ -9,6 +9,7 @@ window.CurvedLineTool = {
   startPoint: null,
   endPoint: null,
   previewCompound: null,
+  currentControl: null,
 
   onClick(x, y) {
     if (this.state === 0) {
@@ -63,9 +64,10 @@ window.CurvedLineTool = {
         Matter.World.remove(window.BallFall.world, this.previewCompound);
         this.previewCompound = null;
       }
+      this.currentControl = { x, y };
       this.previewCompound = generateCurveCompoundBody(
         this.startPoint,
-        { x, y },
+        this.currentControl,
         this.endPoint,
         App.config.curvedLineFidelity,
         App.config.lineThickness * 1.05,
@@ -114,6 +116,7 @@ window.CurvedLineTool = {
     this.state = 0;
     this.startPoint = null;
     this.endPoint = null;
+    this.currentControl = null;
     if (
       App.modules.lines &&
       typeof App.modules.lines.setIgnoreNextClick === "function"
@@ -130,6 +133,7 @@ window.CurvedLineTool = {
     this.state = 0;
     this.startPoint = null;
     this.endPoint = null;
+    this.currentControl = null;
   },
 
   onTouchStart(x, y) {
@@ -174,9 +178,10 @@ window.CurvedLineTool = {
         x: (this.startPoint.x + this.endPoint.x) / 2,
         y: (this.startPoint.y + this.endPoint.y) / 2,
       };
+      this.currentControl = defaultControl;
       this.previewCompound = generateCurveCompoundBody(
         this.startPoint,
-        defaultControl,
+        this.currentControl,
         this.endPoint,
         App.config.curvedLineFidelity,
         App.config.lineThickness * 1.05,
@@ -196,10 +201,27 @@ window.CurvedLineTool = {
         y,
         function (x, y) {
           this.finish(x, y);
+          this.currentControl = null;
         },
         this.cancel,
         App.config.costs.curved
       );
+    }
+  },
+
+  onTouchCancel(x, y) {
+    if (this.state === 2) {
+      const ctrl = this.currentControl || { x, y };
+      const tool = new BaseDrawingTool("curved", App.config.costs.curved);
+      if (!tool.canPlace()) {
+        BaseDrawingTool.showInsufficientFunds();
+        this.cancel();
+        return;
+      }
+      this.finish(ctrl.x, ctrl.y);
+      tool.charge();
+    } else {
+      this.cancel();
     }
   },
 };
