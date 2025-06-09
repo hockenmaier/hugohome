@@ -163,12 +163,34 @@
     if (pages.length == 1 && rps >= 1000000) unlock("one_tab_army");
   }
 
+  function checkSavedCoins() {
+    const coins = App.config && App.config.coins ? App.config.coins : 0;
+    if (coins >= 1) unlock("minimum_viable_product");
+    if (coins >= 1000) unlock("thousandaire");
+    if (coins >= 1000000) unlock("millionaire");
+    if (coins >= 1000000000) unlock("billionaire");
+  }
+
+  function checkSavedRps() {
+    let total = 0;
+    for (let i = 0; i < localStorage.length; i++) {
+      const k = localStorage.key(i);
+      if (k.startsWith("game.") && k.endsWith(".revenue")) {
+        const r = JSON.parse(localStorage.getItem(k));
+        total += Number(r) || 0;
+      }
+    }
+    if (total > 0) checkRps(total);
+  }
+
   function init() {
     updateCounter();
     checkReturn();
     checkPagesThisSession();
     checkPages();
     checkUpgrades();
+    checkSavedCoins();
+    checkSavedRps();
   }
 
   App.Achievements = {
