@@ -221,13 +221,25 @@ The game works a bit differently on desktop and mobile, and the best experience 
 
 ### The End of the Game
 
-Right now, the Ball Machine doesn't end, but you will be surprised the amount of money you can make across the whole site! Eventually, there will be other ways to spend coins on this site and potentially "beat" the ball machine. For now though, you'll know you've unlocked everything when you get this item:
+Right now, the Ball Machine doesn't end, but you will be surprised the amount of money you can make across the whole site! Eventually, there will be other ways to spend coins on this site and potentially "beat" the ball machine. The late game items change the game in very interesting ways! I hope you make some fun machines on my website.
 
-{{< image-inline-itsy
-    src="images/bubblewand-nospace.png"
-    alt="The final item"
-    caption="" >}}
-I won't tell you what it does, but know that it and some of the other late game items change the game in very interesting ways! I hope you make some fun machines on my website.
+You'll know you've done about all there is to do by tracking the achievements below!
+
+#### Achievements
+
+{{< achievements >}}
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
 
 ### Resetting the Game
 
@@ -238,7 +250,3 @@ Resetting will erase all of your drawings on all pages and reset your goal locat
 If you are thinking about doing this because you want to try on another device, you don't need to, because progress is already saved to your device. The only reason to do this is to have a fresh start on this device.
 
 Navigate [here](/reset-ball-machine) and click reset to do that.
-
-### Achievements
-
-{{< achievements >}}

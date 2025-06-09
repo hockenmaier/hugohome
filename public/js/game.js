@@ -163,6 +163,10 @@
     currentPageRate = Math.round(
       history.reduce((sum, v) => sum + v, 0) / history.length
     );
+    if (App.Achievements && App.Achievements.checkRps)
+      App.Achievements.checkRps(currentPageRate);
+    if (App.Achievements && App.Achievements.checkPages)
+      App.Achievements.checkPages();
 
     // 4) update the on-page display
     const thisDisplay = document.getElementById("thispage-revenue-display");
@@ -237,6 +241,10 @@
           currentPageRate +
           " /s";
       }
+      if (App.Achievements && App.Achievements.checkRps)
+        App.Achievements.checkRps(currentPageRate);
+      if (App.Achievements && App.Achievements.checkPages)
+        App.Achievements.checkPages();
     }
     App.updateCoinsDisplay();
     setInterval(updateRevenue, 1000);

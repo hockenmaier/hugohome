@@ -130,6 +130,8 @@ window.CompactorCreateTool = {
       compactor.leftBody.isCompactor = true;
       compactor.middleBody.isCompactor = true;
       compactor.rightBody.isCompactor = true;
+      if (App.Achievements && App.Achievements.recordDrawable)
+        App.Achievements.recordDrawable();
       this.state = 0;
       this.startPoint = null;
     }

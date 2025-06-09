@@ -49,6 +49,8 @@ window.BubbleWandCreateTool = {
       /* ---- charge player ---- */
       App.config.coins -= this.cost;
       App.updateCoinsDisplay();
+      if (App.Achievements && App.Achievements.recordDrawable)
+        App.Achievements.recordDrawable();
 
       /* reset tool */
       this.state = 0;

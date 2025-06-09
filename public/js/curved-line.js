@@ -113,6 +113,8 @@ window.CurvedLineTool = {
       fidelity: App.config.curvedLineFidelity,
     });
     compound.persistenceId = persistentId;
+    if (App.Achievements && App.Achievements.recordDrawable)
+      App.Achievements.recordDrawable();
     this.state = 0;
     this.startPoint = null;
     this.endPoint = null;
