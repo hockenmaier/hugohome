@@ -2,261 +2,304 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://hockenworks.com/tags/3d-modeling/</loc>
+    <loc>http://localhost:1313/tags/ai/</loc>
+    <lastmod>2025-07-28T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/categories/</loc>
+    <lastmod>2025-07-28T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/game-development/</loc>
+    <lastmod>2025-07-28T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/indie-games/</loc>
+    <lastmod>2025-07-28T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/invention/</loc>
+    <lastmod>2025-07-28T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/predictions/</loc>
+    <lastmod>2025-07-28T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/procedural-generation/</loc>
+    <lastmod>2025-07-28T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/</loc>
+    <lastmod>2025-07-28T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/the-purgatory-of-aaa-gaming/</loc>
+    <lastmod>2025-07-28T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/video-games/</loc>
+    <lastmod>2025-07-28T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/vr/</loc>
+    <lastmod>2025-07-28T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/categories/writing/</loc>
+    <lastmod>2025-07-28T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/balloon-fight/</loc>
+    <lastmod>2025-07-21T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/categories/builds/</loc>
+    <lastmod>2025-07-21T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/c%23/</loc>
+    <lastmod>2025-07-21T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/local-multiplayer/</loc>
+    <lastmod>2025-07-21T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/multiplayer/</loc>
+    <lastmod>2025-07-21T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/strategy/</loc>
+    <lastmod>2025-07-21T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/unity/</loc>
+    <lastmod>2025-07-21T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/happiness/</loc>
+    <lastmod>2025-07-14T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/singularity/</loc>
+    <lastmod>2025-07-14T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/the-treadmill/</loc>
+    <lastmod>2025-07-14T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/wealth/</loc>
+    <lastmod>2025-07-14T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/work-life-balance/</loc>
+    <lastmod>2025-07-14T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/on-ai-software-development-2/</loc>
+    <lastmod>2025-07-07T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/software/</loc>
+    <lastmod>2025-07-07T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/experimental/</loc>
+    <lastmod>2025-06-23T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/my-experiments-with-ai-cheating/</loc>
+    <lastmod>2025-06-23T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/prototyping/</loc>
+    <lastmod>2025-06-23T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/user-experience/</loc>
+    <lastmod>2025-06-23T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/3d-modeling/</loc>
+    <lastmod>2025-06-16T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/co-op/</loc>
+    <lastmod>2025-06-16T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/crossplay/</loc>
+    <lastmod>2025-06-16T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/networking/</loc>
+    <lastmod>2025-06-16T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/steamvr-sdk/</loc>
+    <lastmod>2025-06-16T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/the-flapper/</loc>
+    <lastmod>2025-06-16T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/vision-is-the-last-hurdle-before-agi/</loc>
+    <lastmod>2025-06-16T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/3d-printing/</loc>
     <lastmod>2025-05-28T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://hockenworks.com/tags/3d-printing/</loc>
+    <loc>http://localhost:1313/tags/bambulab-x1/</loc>
     <lastmod>2025-05-28T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://hockenworks.com/tags/bambulab-x1/</loc>
+    <loc>http://localhost:1313/bloom-or-bust/</loc>
     <lastmod>2025-05-28T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://hockenworks.com/bloom-or-bust/</loc>
+    <loc>http://localhost:1313/tags/board-games/</loc>
     <lastmod>2025-05-28T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://hockenworks.com/tags/board-games/</loc>
+    <loc>http://localhost:1313/tags/css/</loc>
     <lastmod>2025-05-28T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://hockenworks.com/categories/builds/</loc>
+    <loc>http://localhost:1313/tags/hardware/</loc>
     <lastmod>2025-05-28T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://hockenworks.com/categories/</loc>
+    <loc>http://localhost:1313/tags/html/</loc>
     <lastmod>2025-05-28T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://hockenworks.com/tags/css/</loc>
+    <loc>http://localhost:1313/tags/hugo/</loc>
     <lastmod>2025-05-28T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://hockenworks.com/tags/game-development/</loc>
+    <loc>http://localhost:1313/tags/javascript/</loc>
     <lastmod>2025-05-28T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://hockenworks.com/tags/hardware/</loc>
+    <loc>http://localhost:1313/tags/matter.js/</loc>
     <lastmod>2025-05-28T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://hockenworks.com/tags/html/</loc>
+    <loc>http://localhost:1313/this-website/</loc>
     <lastmod>2025-05-28T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://hockenworks.com/tags/hugo/</loc>
-    <lastmod>2025-05-28T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://hockenworks.com/tags/javascript/</loc>
-    <lastmod>2025-05-28T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://hockenworks.com/tags/matter.js/</loc>
-    <lastmod>2025-05-28T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://hockenworks.com/tags/multiplayer/</loc>
-    <lastmod>2025-05-28T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://hockenworks.com/tags/procedural-generation/</loc>
-    <lastmod>2025-05-28T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://hockenworks.com/tags/singularity/</loc>
-    <lastmod>2025-05-28T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://hockenworks.com/tags/</loc>
-    <lastmod>2025-05-28T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://hockenworks.com/this-website/</loc>
-    <lastmod>2025-05-28T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://hockenworks.com/tags/video-games/</loc>
-    <lastmod>2025-05-28T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://hockenworks.com/tags/ai/</loc>
+    <loc>http://localhost:1313/context-caddy/</loc>
     <lastmod>2025-02-13T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://hockenworks.com/context-caddy/</loc>
+    <loc>http://localhost:1313/tags/rapid-prototyping/</loc>
     <lastmod>2025-02-13T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://hockenworks.com/tags/rapid-prototyping/</loc>
+    <loc>http://localhost:1313/tags/tools/</loc>
     <lastmod>2025-02-13T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://hockenworks.com/tags/software/</loc>
+    <loc>http://localhost:1313/tags/vscode-extension/</loc>
     <lastmod>2025-02-13T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://hockenworks.com/tags/tools/</loc>
-    <lastmod>2025-02-13T00:00:00+00:00</lastmod>
+    <loc>http://localhost:1313/breaking-the-rules/</loc>
+    <lastmod>2025-02-04T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://hockenworks.com/tags/vscode-extension/</loc>
-    <lastmod>2025-02-13T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://hockenworks.com/</loc>
+    <loc>http://localhost:1313/</loc>
     <lastmod>2025-01-12T12:28:01-08:00</lastmod>
   </url><url>
-    <loc>https://hockenworks.com/tags/apis/</loc>
+    <loc>http://localhost:1313/gpt-wrapper/</loc>
+    <lastmod>2025-01-01T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/apis/</loc>
     <lastmod>2024-06-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://hockenworks.com/tags/custom-gpt/</loc>
+    <loc>http://localhost:1313/tags/custom-gpt/</loc>
     <lastmod>2024-06-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://hockenworks.com/tags/python/</loc>
+    <loc>http://localhost:1313/tags/python/</loc>
     <lastmod>2024-06-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://hockenworks.com/some-custom-gpts/</loc>
+    <loc>http://localhost:1313/some-custom-gpts/</loc>
     <lastmod>2024-06-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://hockenworks.com/about-me/</loc>
+    <loc>http://localhost:1313/about-me/</loc>
     <lastmod>2024-04-30T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://hockenworks.com/categories/writing/</loc>
-    <lastmod>2024-04-30T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://hockenworks.com/on-ai-software-development/</loc>
+    <loc>http://localhost:1313/on-ai-software-development/</loc>
     <lastmod>2024-01-24T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://hockenworks.com/tags/predictions/</loc>
-    <lastmod>2024-01-24T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://hockenworks.com/postman-for-pms/</loc>
+    <loc>http://localhost:1313/postman-for-pms/</loc>
     <lastmod>2024-01-13T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://hockenworks.com/hocken-pocket-blokus/</loc>
+    <loc>http://localhost:1313/hocken-pocket-blokus/</loc>
     <lastmod>2024-01-03T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://hockenworks.com/8-bit-coasters-10-year/</loc>
+    <loc>http://localhost:1313/8-bit-coasters-10-year/</loc>
     <lastmod>2023-08-06T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://hockenworks.com/3d-modeling-with-ai/</loc>
+    <loc>http://localhost:1313/3d-modeling-with-ai/</loc>
     <lastmod>2023-03-19T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://hockenworks.com/tags/experimental/</loc>
-    <lastmod>2023-03-19T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://hockenworks.com/gpt-4-solar-system/</loc>
+    <loc>http://localhost:1313/gpt-4-solar-system/</loc>
     <lastmod>2023-03-18T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://hockenworks.com/tags/abstraction/</loc>
+    <loc>http://localhost:1313/tags/abstraction/</loc>
     <lastmod>2023-03-17T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://hockenworks.com/tags/c%23/</loc>
+    <loc>http://localhost:1313/treekeepers-engine/</loc>
     <lastmod>2023-03-17T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://hockenworks.com/tags/co-op/</loc>
-    <lastmod>2023-03-17T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://hockenworks.com/tags/crossplay/</loc>
-    <lastmod>2023-03-17T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://hockenworks.com/tags/indie-games/</loc>
-    <lastmod>2023-03-17T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://hockenworks.com/tags/networking/</loc>
-    <lastmod>2023-03-17T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://hockenworks.com/tags/steamvr-sdk/</loc>
-    <lastmod>2023-03-17T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://hockenworks.com/treekeepers-engine/</loc>
-    <lastmod>2023-03-17T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://hockenworks.com/tags/unity/</loc>
-    <lastmod>2023-03-17T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://hockenworks.com/tags/vr/</loc>
-    <lastmod>2023-03-17T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://hockenworks.com/tags/nerfs/</loc>
+    <loc>http://localhost:1313/tags/nerfs/</loc>
     <lastmod>2023-02-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://hockenworks.com/nerfs/</loc>
+    <loc>http://localhost:1313/nerfs/</loc>
     <lastmod>2023-02-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://hockenworks.com/treekeepers-vr/</loc>
+    <loc>http://localhost:1313/treekeepers-vr/</loc>
     <lastmod>2022-10-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://hockenworks.com/tags/invention/</loc>
+    <loc>http://localhost:1313/social-media-is-antisocial/</loc>
     <lastmod>2022-08-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://hockenworks.com/social-media-is-antisocial/</loc>
-    <lastmod>2022-08-01T00:00:00+00:00</lastmod>
+    <loc>http://localhost:1313/test-embeds/</loc>
+    <lastmod>2020-05-20T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://hockenworks.com/human-joystick/</loc>
+    <loc>http://localhost:1313/human-joystick/</loc>
     <lastmod>2020-01-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://hockenworks.com/tags/prototyping/</loc>
-    <lastmod>2020-01-01T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://hockenworks.com/tags/user-experience/</loc>
-    <lastmod>2020-01-01T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://hockenworks.com/tags/analytics/</loc>
+    <loc>http://localhost:1313/tags/analytics/</loc>
     <lastmod>2019-07-03T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://hockenworks.com/tags/aws-lambda/</loc>
+    <loc>http://localhost:1313/tags/aws-lambda/</loc>
     <lastmod>2019-07-03T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://hockenworks.com/tags/data-visualization/</loc>
+    <loc>http://localhost:1313/tags/data-visualization/</loc>
     <lastmod>2019-07-03T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://hockenworks.com/tags/nlp/</loc>
+    <loc>http://localhost:1313/tags/nlp/</loc>
     <lastmod>2019-07-03T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://hockenworks.com/tags/react/</loc>
+    <loc>http://localhost:1313/tags/react/</loc>
     <lastmod>2019-07-03T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://hockenworks.com/tags/serverless/</loc>
+    <loc>http://localhost:1313/tags/serverless/</loc>
     <lastmod>2019-07-03T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://hockenworks.com/tags/system-design/</loc>
+    <loc>http://localhost:1313/tags/system-design/</loc>
     <lastmod>2019-07-03T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://hockenworks.com/answering-machine/</loc>
+    <loc>http://localhost:1313/answering-machine/</loc>
     <lastmod>2019-07-03T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://hockenworks.com/land-war/</loc>
+    <loc>http://localhost:1313/land-war/</loc>
     <lastmod>2019-03-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://hockenworks.com/tags/local-multiplayer/</loc>
-    <lastmod>2019-03-01T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://hockenworks.com/tags/strategy/</loc>
-    <lastmod>2019-03-01T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://hockenworks.com/tags/dialogflow/</loc>
+    <loc>http://localhost:1313/tags/dialogflow/</loc>
     <lastmod>2018-05-19T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://hockenworks.com/tags/education/</loc>
+    <loc>http://localhost:1313/tags/education/</loc>
     <lastmod>2018-05-19T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://hockenworks.com/first-ten/</loc>
+    <loc>http://localhost:1313/first-ten/</loc>
     <lastmod>2018-05-19T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://hockenworks.com/tags/voice-interface/</loc>
+    <loc>http://localhost:1313/tags/voice-interface/</loc>
     <lastmod>2018-05-19T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://hockenworks.com/tags/diy/</loc>
+    <loc>http://localhost:1313/tags/diy/</loc>
     <lastmod>2016-01-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://hockenworks.com/tags/electronics/</loc>
+    <loc>http://localhost:1313/tags/electronics/</loc>
     <lastmod>2016-01-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://hockenworks.com/tags/home-automation/</loc>
+    <loc>http://localhost:1313/tags/home-automation/</loc>
     <lastmod>2016-01-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://hockenworks.com/tags/raspberry-pi/</loc>
+    <loc>http://localhost:1313/tags/raspberry-pi/</loc>
     <lastmod>2016-01-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://hockenworks.com/raspberry-pi-panel/</loc>
+    <loc>http://localhost:1313/raspberry-pi-panel/</loc>
     <lastmod>2016-01-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://hockenworks.com/nope-game/</loc>
+    <loc>http://localhost:1313/nope-game/</loc>
     <lastmod>2015-01-19T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://hockenworks.com/3d-egg-slicer/</loc>
+    <loc>http://localhost:1313/3d-egg-slicer/</loc>
     <lastmod>2014-08-24T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://hockenworks.com/tags/makergear-m2/</loc>
+    <loc>http://localhost:1313/tags/makergear-m2/</loc>
     <lastmod>2014-08-24T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://hockenworks.com/3d-reed-switch/</loc>
+    <loc>http://localhost:1313/3d-reed-switch/</loc>
     <lastmod>2013-11-25T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://hockenworks.com/8-bit-coasters/</loc>
+    <loc>http://localhost:1313/8-bit-coasters/</loc>
     <lastmod>2013-07-09T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://hockenworks.com/3d-key/</loc>
+    <loc>http://localhost:1313/3d-key/</loc>
     <lastmod>2013-05-13T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://hockenworks.com/stacks/</loc>
+    <loc>http://localhost:1313/raspberry-pi-bike-tracker/</loc>
+  </url><url>
+    <loc>http://localhost:1313/stacks/</loc>
+  </url><url>
+    <loc>http://localhost:1313/treekeepers-proposal/</loc>
   </url>
 </urlset>

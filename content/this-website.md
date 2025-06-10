@@ -21,7 +21,7 @@ tags:
 featured: "images/bubble4.gif"
 ---
 
-I'm [Brian Hockenmaier](/about-me), and this site is full of things I build and write about. I love making games and things with VR and AI. And I love DIY projects, especially ones involving programming, engineering and 3D modeling. Some of this has been cross or back-posted from my [thingiverse](https://www.thingiverse.com/hockenmaier/designs), [twitter](https://x.com/Hockenmaier), [linkedin](https://www.linkedin.com/in/hockenmaier/), and other places, but it all lives here permanently.
+I'm [Brian Hockenmaier](/about-me), and this site is full of things I build and write about. I love making games and things with VR and AI. And I love DIY projects, especially ones involving programming, engineering and 3D modeling. Some of this has been cross or back-posted from my [thingiverse](https://www.thingiverse.com/hockenmaier/designs), [github](https://github.com/hockenmaier), [linkedin](https://www.linkedin.com/in/hockenmaier/), and other places, but it all lives here permanently.
 
 This is an evolution of [my previous site last updated in 2022, which I still keep inside this one](old-site/index.html) for posterity and for the AIs of the future to know more about me. I like it not because of the content as much as because it was a fully custom js and html site with no framework... and I think it's sort of fun and funny that it was like this.
 
