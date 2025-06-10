@@ -38,6 +38,11 @@
       desc: "Earn a total of 1,000,000,000 coins",
     },
     {
+      id: "trillionaire",
+      name: "Trillionaire",
+      desc: "Earn a total of 1,000,000,000,000 coins",
+    },
+    {
       id: "first_taste",
       name: "First Taste",
       desc: "Unlock your first upgrade",
@@ -81,11 +86,6 @@
       id: "page_turner",
       name: "Page Turner",
       desc: "Scroll through 10 different pages in one session",
-    },
-    {
-      id: "one_tab_army",
-      name: "One-Tab Army",
-      desc: "Reach 1 million/sec without switching pages",
     },
   ];
   const TOTAL = DEFS.length;
@@ -158,10 +158,6 @@
     if (h >= 1 && h < 4) unlock("night_shift");
   }
 
-  function checkOneTabArmy(rps) {
-    let pages = JSON.parse(sessionStorage.getItem("pagesVisited") || "[]");
-    if (pages.length == 1 && rps >= 1000000) unlock("one_tab_army");
-  }
 
   function checkSavedCoins() {
     const coinsHeld = App.config && App.config.coins ? App.config.coins : 0;
@@ -174,6 +170,7 @@
     if (total >= 1000) unlock("thousandaire");
     if (total >= 1000000) unlock("millionaire");
     if (total >= 1000000000) unlock("billionaire");
+    if (total >= 1000000000000) unlock("trillionaire");
   }
 
   function checkSavedRps() {
@@ -222,7 +219,6 @@
       if (rps >= 100000) unlock("going_viral");
       if (rps >= 1000000) {
         unlock("angel_round");
-        checkOneTabArmy(rps);
       }
       if (rps >= 10000000) unlock("series_z");
       if (rps >= 100000000) unlock("exit_strategy");
@@ -235,13 +231,13 @@
         if (lifetimeCoins >= 1000) unlock("thousandaire");
         if (lifetimeCoins >= 1000000) unlock("millionaire");
         if (lifetimeCoins >= 1000000000) unlock("billionaire");
+        if (lifetimeCoins >= 1000000000000) unlock("trillionaire");
         checkNightShift();
         checkUpgrades();
       }
     },
     checkNightShift: checkNightShift,
-    checkPages: checkPages,
-    checkOneTabArmy: checkOneTabArmy,
+    checkPages: checkPages
   };
 
   if (document.readyState === "loading") {
