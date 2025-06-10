@@ -1566,8 +1566,8 @@ document.addEventListener('DOMContentLoaded', function(){
   try {
     var defs = (window.App && App.Achievements && App.Achievements.defs) || [];
     var unlocked = JSON.parse(localStorage.getItem('game.achievementsUnlocked') || '{}');
-    var yes = 'https:\/\/hockenworks.com\/images\/achievement-yes.png';
-    var no = 'https:\/\/hockenworks.com\/images\/achievement-no.png';
+    var yes = '\/images\/achievement-yes.png';
+    var no = '\/images\/achievement-no.png';
     if(!defs.length){
       console.warn('No achievements definitions found');
     }
