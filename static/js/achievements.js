@@ -70,8 +70,8 @@
       desc: "A ball lives 5+ minutes before scoring",
     },
     { id: "sketchy_start", name: "Sketchy Start", desc: "Place 50 drawables" },
-    { id: "line_cook", name: "Line Cook", desc: "Place 500 drawables" },
-    { id: "draw_god", name: "Draw God", desc: "Place 5,000 drawables" },
+    { id: "line_cook", name: "Line Cook", desc: "Place 200 drawables" },
+    { id: "artiste", name: "The Artiste", desc: "Place 1,000 drawables" },
     {
       id: "night_shift",
       name: "Night Shift",
@@ -158,7 +158,6 @@
     if (h >= 1 && h < 4) unlock("night_shift");
   }
 
-
   function checkSavedCoins() {
     const coinsHeld = App.config && App.config.coins ? App.config.coins : 0;
     const total = Math.max(lifetimeCoins, coinsHeld);
@@ -202,8 +201,8 @@
       drawables++;
       saveDraw();
       if (drawables >= 50) unlock("sketchy_start");
-      if (drawables >= 500) unlock("line_cook");
-      if (drawables >= 5000) unlock("draw_god");
+      if (drawables >= 200) unlock("line_cook");
+      if (drawables >= 1000) unlock("artiste");
     },
     checkBallLifetime: function (sec) {
       if (sec >= 20) unlock("they_grow_up_so_fast");
@@ -237,7 +236,7 @@
       }
     },
     checkNightShift: checkNightShift,
-    checkPages: checkPages
+    checkPages: checkPages,
   };
 
   if (document.readyState === "loading") {

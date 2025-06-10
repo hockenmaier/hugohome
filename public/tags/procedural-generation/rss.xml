@@ -1799,117 +1799,9 @@ So keep your balls moving!</li>
 <p>Your progress is saved to your device because your contraptions will be highly dependent on the screen size the site renders to.</p>
 <p>The game works a bit differently on desktop and mobile, and the best experience is really on desktop - so try on a computer if you can! If on mobile, flip to landscape.</p>
 <h3 id="the-end-of-the-game">The End of the Game</h3>
-<p>Right now, the Ball Machine doesn&rsquo;t end, but you will be surprised the amount of money you can make across the whole site! Eventually, there will be other ways to spend coins on this site and potentially &ldquo;beat&rdquo; the ball machine. For now though, you&rsquo;ll know you&rsquo;ve unlocked everything when you get this item:</p>
-<p><span
-  style="
-    display: inline-block;
-    width: 40px;
-    margin: 0 1rem 0 0;
-    vertical-align: middle;
-    text-align: left;
-  "
->
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    
-
-
-
-    
-
-
-
-    
-
-
-
-
-
-    
-
-
-
-    
-
-
-
-
-
-    
-
-
-
-    
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<img  alt="The final item"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/bubblewand-nospace.png"   style="height: auto; max-width: 40px; width: 100%"   >
-
- 
-</span>
-
-I won&rsquo;t tell you what it does, but know that it and some of the other late game items change the game in very interesting ways! I hope you make some fun machines on my website.</p>
-<h3 id="resetting-the-game">Resetting the Game</h3>
-<span
-  style="
-    color: #ff0040;
-    font-family: 'Arial Black', Arial, sans-serif;
-    font-size: 20px;
-  "
->
-   WARNING! Don't navigate to the below page unless you're sure you want to reset the ball machine game
-</span>
-
-<p>Resetting will erase all of your drawings on all pages and reset your goal locations, unlocks, coins and everything else.</p>
-<p>If you are thinking about doing this because you want to try on another device, you don&rsquo;t need to, because progress is already saved to your device. The only reason to do this is to have a fresh start on this device.</p>
-<p>Navigate <a href="/reset-ball-machine">here</a> and click reset to do that.</p>
-<h3 id="achievements">Achievements</h3>
+<p>Right now, the Ball Machine doesn&rsquo;t end, but you will be surprised the amount of money you can make across the whole site! Eventually, there will be other ways to spend coins on this site and potentially &ldquo;beat&rdquo; the ball machine. The late game items change the game in very interesting ways! I hope you make some fun machines on my website.</p>
+<p>You&rsquo;ll know you&rsquo;ve done about all there is to do by tracking the achievements below!</p>
+<h4 id="achievements">Achievements</h4>
 <div id="achievements-list"></div>
 <script>
 document.addEventListener('DOMContentLoaded', function(){
@@ -1934,11 +1826,19 @@ document.addEventListener('DOMContentLoaded', function(){
       img.style.marginRight = '4px';
       row.appendChild(img);
       var b = document.createElement('b');
-      b.textContent = a.name + ' – ';
+      b.textContent = a.name;
       row.appendChild(b);
-      row.appendChild(document.createTextNode(a.desc));
+      if(got){
+        row.appendChild(document.createTextNode(' – ' + a.desc));
+      }
       container.appendChild(row);
     });
+    if (location.hash && location.hash.includes('achievements')) {
+      var anchor = document.getElementById('achievements');
+      if (anchor) {
+        setTimeout(function(){ anchor.scrollIntoView(); }, 50);
+      }
+    }
   } catch(e){
     console.error('Failed to render achievements', e);
     container.textContent = 'Error loading achievements.';
@@ -1946,6 +1846,26 @@ document.addEventListener('DOMContentLoaded', function(){
 });
 </script>
 
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h3 id="resetting-the-game">Resetting the Game</h3>
+<span
+  style="
+    color: #ff0040;
+    font-family: 'Arial Black', Arial, sans-serif;
+    font-size: 20px;
+  "
+>
+   WARNING! Don't navigate to the below page unless you're sure you want to reset the ball machine game
+</span>
+
+<p>Resetting will erase all of your drawings on all pages and reset your goal locations, unlocks, coins and everything else.</p>
+<p>If you are thinking about doing this because you want to try on another device, you don&rsquo;t need to, because progress is already saved to your device. The only reason to do this is to have a fresh start on this device.</p>
+<p>Navigate <a href="/reset-ball-machine">here</a> and click reset to do that.</p>
 ]]></description>
                 
 

@@ -1114,7 +1114,7 @@ table {
 <div id="spawner-container">
   
   <div id="coin-info" style="display: none">
-    <div id="achievement-link" style="cursor:pointer;" onclick="window.open('/this-website/#achievements','_blank')">
+    <div id="achievement-link" style="cursor:pointer;">
       <img src="http://localhost:1313/images/achievement-yes.png" style="width:12px;height:12px;margin-right:2px;" alt="Achievements" />
       <span id="achievement-counter">0/27</span>
     </div>
@@ -1260,6 +1260,7 @@ table {
 
     (function () {
       const clearBallsBtn = document.getElementById("clearBallsBtn"),
+        achievementLink = document.getElementById("achievement-link"),
         dropRateValue = document.getElementById("bfui-drop-rate-value"),
         dottedBtn = document.getElementById("toggleDotted"),
         straightBtn = document.getElementById("toggleStraight"),
@@ -1291,6 +1292,19 @@ table {
         e.stopPropagation(); 
         window.BallFall.clearBalls();
       });
+
+      if (achievementLink) {
+        achievementLink.addEventListener("click", (e) => {
+          const tool = window.getActiveTool ? window.getActiveTool() : null;
+          if (tool && tool.state && tool.state !== 0) {
+            e.preventDefault();
+            e.stopPropagation();
+            if (typeof tool.cancel === "function") tool.cancel();
+            return;
+          }
+          window.open('/this-website/#achievements', '_blank');
+        });
+      }
 
       
 
