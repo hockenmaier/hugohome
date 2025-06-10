@@ -224,7 +224,7 @@
 <div id="spawner-container">
   <!-- New Coin Info Container (displayed if any recurring revenue exists or simulation has started) -->
   <div id="coin-info" style="display: none">
-    <div id="achievement-link" style="cursor:pointer;" onclick="window.open('/this-website/#achievements','_blank')">
+    <div id="achievement-link" style="cursor:pointer;">
       <img src="{{ "images/achievement-yes.png" | relURL }}" style="width:12px;height:12px;margin-right:2px;" alt="Achievements" />
       <span id="achievement-counter">0/27</span>
     </div>
@@ -370,6 +370,7 @@
 
     (function () {
       const clearBallsBtn = document.getElementById("clearBallsBtn"),
+        achievementLink = document.getElementById("achievement-link"),
         dropRateValue = document.getElementById("bfui-drop-rate-value"),
         dottedBtn = document.getElementById("toggleDotted"),
         straightBtn = document.getElementById("toggleStraight"),
@@ -401,6 +402,19 @@
         e.stopPropagation(); // Prevent click from bubbling up (e.g., to document click listeners)
         window.BallFall.clearBalls();
       });
+
+      if (achievementLink) {
+        achievementLink.addEventListener("click", (e) => {
+          const tool = window.getActiveTool ? window.getActiveTool() : null;
+          if (tool && tool.state && tool.state !== 0) {
+            e.preventDefault();
+            e.stopPropagation();
+            if (typeof tool.cancel === "function") tool.cancel();
+            return;
+          }
+          window.open('/this-website/#achievements', '_blank');
+        });
+      }
 
       // HELP button doesn't need a listener as it's a simple link.
 

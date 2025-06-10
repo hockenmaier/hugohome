@@ -27,6 +27,12 @@ document.addEventListener('DOMContentLoaded', function(){
       row.appendChild(document.createTextNode(a.desc));
       container.appendChild(row);
     });
+    if (location.hash && location.hash.includes('achievements')) {
+      var anchor = document.getElementById('achievements');
+      if (anchor) {
+        setTimeout(function(){ anchor.scrollIntoView(); }, 50);
+      }
+    }
   } catch(e){
     console.error('Failed to render achievements', e);
     container.textContent = 'Error loading achievements.';
