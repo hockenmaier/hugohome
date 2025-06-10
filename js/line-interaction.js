@@ -171,6 +171,15 @@
   // --- hit-testing helper : returns body (or array) under point -------------
   function getLineAtPoint(x, y) {
     if (!window.BallFall || !window.BallFall.world) return null;
+
+    /* ----- compensate for iOS pinch-zoom -------------------------------- */
+    if (window.visualViewport && window.visualViewport.scale !== 1) {
+      const vv = window.visualViewport;
+      x = x / vv.scale + (vv.offsetLeft || 0);
+      y = y / vv.scale + (vv.offsetTop || 0);
+    }
+    /* -------------------------------------------------------------------- */
+
     const point = { x, y };
     const bodies = Matter.Composite.allBodies(window.BallFall.world);
 
@@ -375,6 +384,7 @@
     pendingTarget = null;
     hidePreview();
   });
+
 
   /* --- expose preview helper so other modules (e.g. auto-clicker) can reuse it --- */
   window.showRefundPreview = (amt, x, y) =>

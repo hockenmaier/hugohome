@@ -971,6 +971,7 @@ An experimental “AI generated RPG” where you play as “The Boy” who reali
             <script src="https://hockenworks.com/js/spawner.js"></script>
             <script src="https://hockenworks.com/js/ui-updater.js"></script>
             <script src="https://hockenworks.com/js/powerup-progression.js"></script>
+            <script src="https://hockenworks.com/js/achievements.js"></script>
             
 <style>
    
@@ -1197,6 +1198,10 @@ An experimental “AI generated RPG” where you play as “The Boy” who reali
 <div id="spawner-container">
   
   <div id="coin-info" style="display: none">
+    <div id="achievement-link" style="cursor:pointer;">
+      <img src="https://hockenworks.com/images/achievement-yes.png" style="width:12px;height:12px;margin-right:2px;" alt="Achievements" />
+      <span id="achievement-counter">0/27</span>
+    </div>
     <div id="global-coins-display">
       
       0 coins
@@ -1339,6 +1344,7 @@ An experimental “AI generated RPG” where you play as “The Boy” who reali
 
     (function () {
       const clearBallsBtn = document.getElementById("clearBallsBtn"),
+        achievementLink = document.getElementById("achievement-link"),
         dropRateValue = document.getElementById("bfui-drop-rate-value"),
         dottedBtn = document.getElementById("toggleDotted"),
         straightBtn = document.getElementById("toggleStraight"),
@@ -1370,6 +1376,19 @@ An experimental “AI generated RPG” where you play as “The Boy” who reali
         e.stopPropagation(); 
         window.BallFall.clearBalls();
       });
+
+      if (achievementLink) {
+        achievementLink.addEventListener("click", (e) => {
+          const tool = window.getActiveTool ? window.getActiveTool() : null;
+          if (tool && tool.state && tool.state !== 0) {
+            e.preventDefault();
+            e.stopPropagation();
+            if (typeof tool.cancel === "function") tool.cancel();
+            return;
+          }
+          window.open('/this-website/#achievements', '_blank');
+        });
+      }
 
       
 

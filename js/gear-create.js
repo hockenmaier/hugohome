@@ -113,6 +113,8 @@ window.GearCreateTool = {
       x,
       y,
     });
+    if (App.Achievements && App.Achievements.recordDrawable)
+      App.Achievements.recordDrawable();
     this.state = 0;
   },
 

@@ -584,7 +584,10 @@ table {
                 <li><a href="https://hockenworks.com/this-website/#the-auto-clicker">The Auto-Clicker</a></li>
               </ul>
             <li><a href="https://hockenworks.com/this-website/#money--other-hints">Money &amp; Other Hints</a></li>
-            <li><a href="https://hockenworks.com/this-website/#the-end-of-the-game">The End of the Game</a></li>
+            <li><a href="https://hockenworks.com/this-website/#the-end-of-the-game">The End of the Game</a>
+              <ul>
+                <li><a href="https://hockenworks.com/this-website/#achievements">Achievements</a></li>
+              </ul>
             <li><a href="https://hockenworks.com/this-website/#resetting-the-game">Resetting the Game</a></li>
           </ul>
       </ul>
@@ -1919,102 +1922,59 @@ So keep your balls moving!</li>
 <p>Your progress is saved to your device because your contraptions will be highly dependent on the screen size the site renders to.</p>
 <p>The game works a bit differently on desktop and mobile, and the best experience is really on desktop - so try on a computer if you can! If on mobile, flip to landscape.</p>
 <h3 id="the-end-of-the-game">The End of the Game<a aria-label="Link to this section" class="paige-header-link" href="https://hockenworks.com/this-website/#the-end-of-the-game"></a></h3>
-<p>Right now, the Ball Machine doesn&rsquo;t end, but you will be surprised the amount of money you can make across the whole site! Eventually, there will be other ways to spend coins on this site and potentially &ldquo;beat&rdquo; the ball machine. For now though, you&rsquo;ll know you&rsquo;ve unlocked everything when you get this item:</p>
-<p><span
-  style="
-    display: inline-block;
-    width: 40px;
-    margin: 0 1rem 0 0;
-    vertical-align: middle;
-    text-align: left;
-  "
->
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    
-
-
-
-    
-
-
-
-    
-
-
-
-
-
-    
-
-
-
-    
-
-
-
-
-
-    
-
-
-
-    
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<img  alt="The final item"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/bubblewand-nospace.png"   style="height: auto; max-width: 40px; width: 100%"   >
-
- 
-</span>
-
-I won&rsquo;t tell you what it does, but know that it and some of the other late game items change the game in very interesting ways! I hope you make some fun machines on my website.</p>
+<p>Right now, the Ball Machine doesn&rsquo;t end, but you will be surprised the amount of money you can make across the whole site! Eventually, there will be other ways to spend coins on this site and potentially &ldquo;beat&rdquo; the ball machine. The late game items change the game in very interesting ways! I hope you make some fun machines on my website.</p>
+<p>You&rsquo;ll know you&rsquo;ve done about all there is to do by tracking the achievements below!</p>
+<h4 id="achievements">Achievements<a aria-label="Link to this section" class="paige-header-link" href="https://hockenworks.com/this-website/#achievements"></a></h4>
+<div id="achievements-list"></div>
+<script>
+document.addEventListener('DOMContentLoaded', function(){
+  var container = document.getElementById('achievements-list');
+  if(!container){ console.error('Achievements container missing'); return; }
+  try {
+    var defs = (window.App && App.Achievements && App.Achievements.defs) || [];
+    var unlocked = JSON.parse(localStorage.getItem('game.achievementsUnlocked') || '{}');
+    var yes = '\/images\/achievement-yes.png';
+    var no = '\/images\/achievement-no.png';
+    if(!defs.length){
+      console.warn('No achievements definitions found');
+    }
+    defs.forEach(function(a){
+      var row = document.createElement('div');
+      var img = document.createElement('img');
+      var got = unlocked[a.id];
+      img.src = got ? yes : no;
+      img.alt = got ? 'Unlocked' : 'Locked';
+      img.style.width = '16px';
+      img.style.height = '16px';
+      img.style.marginRight = '4px';
+      row.appendChild(img);
+      var b = document.createElement('b');
+      b.textContent = a.name;
+      row.appendChild(b);
+      if(got){
+        row.appendChild(document.createTextNode(' – ' + a.desc));
+      }
+      container.appendChild(row);
+    });
+    if (location.hash && location.hash.includes('achievements')) {
+      var anchor = document.getElementById('achievements');
+      if (anchor) {
+        setTimeout(function(){ anchor.scrollIntoView(); }, 50);
+      }
+    }
+  } catch(e){
+    console.error('Failed to render achievements', e);
+    container.textContent = 'Error loading achievements.';
+  }
+});
+</script>
+
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
 <h3 id="resetting-the-game">Resetting the Game<a aria-label="Link to this section" class="paige-header-link" href="https://hockenworks.com/this-website/#resetting-the-game"></a></h3>
 <span
   style="
@@ -2327,6 +2287,7 @@ I won&rsquo;t tell you what it does, but know that it and some of the other late
             <script src="https://hockenworks.com/js/spawner.js"></script>
             <script src="https://hockenworks.com/js/ui-updater.js"></script>
             <script src="https://hockenworks.com/js/powerup-progression.js"></script>
+            <script src="https://hockenworks.com/js/achievements.js"></script>
             
 <style>
    
@@ -2553,6 +2514,10 @@ I won&rsquo;t tell you what it does, but know that it and some of the other late
 <div id="spawner-container">
   
   <div id="coin-info" style="display: none">
+    <div id="achievement-link" style="cursor:pointer;">
+      <img src="https://hockenworks.com/images/achievement-yes.png" style="width:12px;height:12px;margin-right:2px;" alt="Achievements" />
+      <span id="achievement-counter">0/27</span>
+    </div>
     <div id="global-coins-display">
       
       0 coins
@@ -2695,6 +2660,7 @@ I won&rsquo;t tell you what it does, but know that it and some of the other late
 
     (function () {
       const clearBallsBtn = document.getElementById("clearBallsBtn"),
+        achievementLink = document.getElementById("achievement-link"),
         dropRateValue = document.getElementById("bfui-drop-rate-value"),
         dottedBtn = document.getElementById("toggleDotted"),
         straightBtn = document.getElementById("toggleStraight"),
@@ -2726,6 +2692,19 @@ I won&rsquo;t tell you what it does, but know that it and some of the other late
         e.stopPropagation(); 
         window.BallFall.clearBalls();
       });
+
+      if (achievementLink) {
+        achievementLink.addEventListener("click", (e) => {
+          const tool = window.getActiveTool ? window.getActiveTool() : null;
+          if (tool && tool.state && tool.state !== 0) {
+            e.preventDefault();
+            e.stopPropagation();
+            if (typeof tool.cancel === "function") tool.cancel();
+            return;
+          }
+          window.open('/this-website/#achievements', '_blank');
+        });
+      }
 
       
 

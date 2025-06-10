@@ -318,6 +318,12 @@ if (window.localStorage) {
 }
 
 App.updateCoinsDisplay = function () {
+  const prev = App.__prevCoins || App.config.coins;
+  const delta = App.config.coins - prev;
+  App.__prevCoins = App.config.coins;
+  if (App.Achievements && typeof App.Achievements.onCoinsChange === "function") {
+    App.Achievements.onCoinsChange(delta);
+  }
   const display = document.getElementById("coins-display");
   if (display) display.textContent = `${App.config.coins} coins`;
   const globalDisplay = document.getElementById("global-coins-display");

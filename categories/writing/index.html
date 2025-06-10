@@ -40,12 +40,14 @@
 <meta property="og:url" content="https://hockenworks.com/categories/writing/">
   <meta property="og:site_name" content="hockenworks">
   <meta property="og:title" content="Writing">
+  <meta property="og:description" content="hockenworks is a site for Brian Hockenmaiers personal projects, essays, and a click-to-run Matter.js physics game on each page called The Ball Machine.">
   <meta property="og:locale" content="en_us">
   <meta property="og:type" content="website">
 
 
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Writing">
+  <meta name="twitter:description" content="hockenworks is a site for Brian Hockenmaiers personal projects, essays, and a click-to-run Matter.js physics game on each page called The Ball Machine.">
 
  
   <title>Writing · Categories · hockenworks</title>
@@ -1085,6 +1087,7 @@ table {
             <script src="https://hockenworks.com/js/spawner.js"></script>
             <script src="https://hockenworks.com/js/ui-updater.js"></script>
             <script src="https://hockenworks.com/js/powerup-progression.js"></script>
+            <script src="https://hockenworks.com/js/achievements.js"></script>
             
 <style>
    
@@ -1311,6 +1314,10 @@ table {
 <div id="spawner-container">
   
   <div id="coin-info" style="display: none">
+    <div id="achievement-link" style="cursor:pointer;">
+      <img src="https://hockenworks.com/images/achievement-yes.png" style="width:12px;height:12px;margin-right:2px;" alt="Achievements" />
+      <span id="achievement-counter">0/27</span>
+    </div>
     <div id="global-coins-display">
       
       0 coins
@@ -1453,6 +1460,7 @@ table {
 
     (function () {
       const clearBallsBtn = document.getElementById("clearBallsBtn"),
+        achievementLink = document.getElementById("achievement-link"),
         dropRateValue = document.getElementById("bfui-drop-rate-value"),
         dottedBtn = document.getElementById("toggleDotted"),
         straightBtn = document.getElementById("toggleStraight"),
@@ -1484,6 +1492,19 @@ table {
         e.stopPropagation(); 
         window.BallFall.clearBalls();
       });
+
+      if (achievementLink) {
+        achievementLink.addEventListener("click", (e) => {
+          const tool = window.getActiveTool ? window.getActiveTool() : null;
+          if (tool && tool.state && tool.state !== 0) {
+            e.preventDefault();
+            e.stopPropagation();
+            if (typeof tool.cancel === "function") tool.cancel();
+            return;
+          }
+          window.open('/this-website/#achievements', '_blank');
+        });
+      }
 
       
 
