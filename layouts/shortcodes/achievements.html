@@ -22,9 +22,11 @@ document.addEventListener('DOMContentLoaded', function(){
       img.style.marginRight = '4px';
       row.appendChild(img);
       var b = document.createElement('b');
-      b.textContent = a.name + ' – ';
+      b.textContent = a.name;
       row.appendChild(b);
-      row.appendChild(document.createTextNode(a.desc));
+      if(got){
+        row.appendChild(document.createTextNode(' – ' + a.desc));
+      }
       container.appendChild(row);
     });
     if (location.hash && location.hash.includes('achievements')) {

@@ -164,11 +164,16 @@
   }
 
   function checkSavedCoins() {
-    const coins = App.config && App.config.coins ? App.config.coins : 0;
-    if (coins >= 1) unlock("minimum_viable_product");
-    if (coins >= 1000) unlock("thousandaire");
-    if (coins >= 1000000) unlock("millionaire");
-    if (coins >= 1000000000) unlock("billionaire");
+    const coinsHeld = App.config && App.config.coins ? App.config.coins : 0;
+    const total = Math.max(lifetimeCoins, coinsHeld);
+    if (total > lifetimeCoins) {
+      lifetimeCoins = total;
+      saveCoins();
+    }
+    if (total >= 1) unlock("minimum_viable_product");
+    if (total >= 1000) unlock("thousandaire");
+    if (total >= 1000000) unlock("millionaire");
+    if (total >= 1000000000) unlock("billionaire");
   }
 
   function checkSavedRps() {
