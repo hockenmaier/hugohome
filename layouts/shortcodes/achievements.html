@@ -6,8 +6,8 @@ document.addEventListener('DOMContentLoaded', function(){
   try {
     var defs = (window.App && App.Achievements && App.Achievements.defs) || [];
     var unlocked = JSON.parse(localStorage.getItem('game.achievementsUnlocked') || '{}');
-    var yes = '{{ "images/achievement-yes.png" | relURL }}';
-    var no = '{{ "images/achievement-no.png" | relURL }}';
+    var yes = '{{ "images/achievement-yes.png" | absURL }}';
+    var no = '{{ "images/achievement-no.png" | absURL }}';
     if(!defs.length){
       console.warn('No achievements definitions found');
     }

@@ -225,7 +225,7 @@
   <!-- New Coin Info Container (displayed if any recurring revenue exists or simulation has started) -->
   <div id="coin-info" style="display: none">
     <div id="achievement-link" style="cursor:pointer;">
-      <img src="{{ "images/achievement-yes.png" | relURL }}" style="width:12px;height:12px;margin-right:2px;" alt="Achievements" />
+      <img src="{{ "images/achievement-yes.png" | absURL }}" style="width:12px;height:12px;margin-right:2px;" alt="Achievements" />
       <span id="achievement-counter">0/27</span>
     </div>
     <div id="global-coins-display">
@@ -241,25 +241,25 @@
       Other pages: 0 /s
     </div>
   </div>
-  <img src="{{ "images/ball-chute-hatch-1.png" | relURL }}" id="ball-spawner"
+  <img src="{{ "images/ball-chute-hatch-1.png" | absURL }}" id="ball-spawner"
   alt="Ball Spawner" />
   <!-- Removed up and down arrows; auto-clicker now handles upgrades -->
   <div
     id="autoClicker-wrapper"
     style="display: inline-block; text-align: center"
   >
-    <img src="{{ "images/auto-clicker.png" | relURL }}" id="autoClicker"
+    <img src="{{ "images/auto-clicker.png" | absURL }}" id="autoClicker"
     class="upgrade-icon" alt="Auto Clicker" style="display:none;" />
     <!-- Hide cost label by default -->
     <div id="autoClickerCost" class="cost-label" style="display: none">
-      <img src="{{ "images/coin-cost.png" | relURL }}" alt="Coin" /> 200
+      <img src="{{ "images/coin-cost.png" | absURL }}" alt="Coin" /> 200
     </div>
   </div>
 </div>
 
 <!-- Main UI panel -->
 <div id="ballfall-ui">
-  <img src="{{ "images/ball-machine.png" | relURL }}" id="bfui-image" alt="Ball
+  <img src="{{ "images/ball-machine.png" | absURL }}" id="bfui-image" alt="Ball
   Machine" />
   <!-- Clear Balls Button -->
   <button class="bfui-button" id="clearBallsBtn">
@@ -283,78 +283,78 @@
     <div id="line-mode-toggle">
       <!-- Dotted Line Toggle -->
       <div class="toggle-wrapper">
-        <img src="{{ "images/dotted-line-mode.png" | relURL }}"
+        <img src="{{ "images/dotted-line-mode.png" | absURL }}"
         id="toggleDotted" class="line-toggle" alt="Dotted Line" />
         <div class="cost-label">Free</div>
       </div>
       <!-- Straight Line Toggle -->
       <div class="toggle-wrapper">
-        <img src="{{ "images/line-mode.png" | relURL }}" id="toggleStraight"
+        <img src="{{ "images/line-mode.png" | absURL }}" id="toggleStraight"
         class="line-toggle" alt="Straight Line" />
         <div class="cost-label">
-          <img src="{{ "images/coin-cost.png" | relURL }}" alt="Coin" /> {{ .Site.Params.App.costs.straight | default 5 }}
+          <img src="{{ "images/coin-cost.png" | absURL }}" alt="Coin" /> {{ .Site.Params.App.costs.straight | default 5 }}
         </div>
       </div>
       <!-- Curved Line Toggle -->
       <div class="toggle-wrapper">
-        <img src="{{ "images/curve-mode.png" | relURL }}" id="toggleCurved"
+        <img src="{{ "images/curve-mode.png" | absURL }}" id="toggleCurved"
         class="line-toggle" alt="Curved Line" />
         <div class="cost-label">
-          <img src="{{ "images/coin-cost.png" | relURL }}" alt="Coin" /> {{ .Site.Params.App.costs.curved | default 50 }}
+          <img src="{{ "images/coin-cost.png" | absURL }}" alt="Coin" /> {{ .Site.Params.App.costs.curved | default 50 }}
         </div>
       </div>
       <!-- Gear CW -->
       <div class="toggle-wrapper">
-        <img src="{{ "images/gear-clockwise-mode.png" | relURL }}"
+        <img src="{{ "images/gear-clockwise-mode.png" | absURL }}"
              id="toggleGearCW" class="line-toggle" alt="Gear CW">
         <div class="cost-label">
-          <img src="{{ "images/coin-cost.png" | relURL }}" alt="Coin"> 300
+          <img src="{{ "images/coin-cost.png" | absURL }}" alt="Coin"> 300
         </div>
       </div>
       <!-- Gear CCW -->
       <div class="toggle-wrapper">
-        <img src="{{ "images/gear-counterclockwise-mode.png" | relURL }}"
+        <img src="{{ "images/gear-counterclockwise-mode.png" | absURL }}"
              id="toggleGearCCW" class="line-toggle" alt="Gear CCW">
         <div class="cost-label">
-          <img src="{{ "images/coin-cost.png" | relURL }}" alt="Coin"> 300
+          <img src="{{ "images/coin-cost.png" | absURL }}" alt="Coin"> 300
         </div>
       </div>
       <!-- Launcher Toggles -->
       <div class="toggle-wrapper">
-        <img src="{{ "images/DKannon250-mode.png" | relURL }}"
+        <img src="{{ "images/DKannon250-mode.png" | absURL }}"
         id="toggleLauncher" class="line-toggle" alt="Launcher" />
         <div class="cost-label">
-          <img src="{{ "images/coin-cost.png" | relURL }}" alt="Coin" /> {{ .Site.Params.App.costs.launcher | default 2000 }}
+          <img src="{{ "images/coin-cost.png" | absURL }}" alt="Coin" /> {{ .Site.Params.App.costs.launcher | default 2000 }}
         </div>
       </div>
       <div class="toggle-wrapper">
-        <img src="{{ "images/DKannon250-fast-mode.png" | relURL }}"
+        <img src="{{ "images/DKannon250-fast-mode.png" | absURL }}"
         id="toggleFastLauncher" class="line-toggle" alt="Fast Launcher" />
         <div class="cost-label">
-          <img src="{{ "images/coin-cost.png" | relURL }}" alt="Coin" /> {{ .Site.Params.App.costs.fastLauncher | default 10000 }}
+          <img src="{{ "images/coin-cost.png" | absURL }}" alt="Coin" /> {{ .Site.Params.App.costs.fastLauncher | default 10000 }}
         </div>
       </div>
       <div class="toggle-wrapper">
-        <img src="{{ "images/DKannon250-insta-mode.png" | relURL }}"
+        <img src="{{ "images/DKannon250-insta-mode.png" | absURL }}"
         id="toggleInstaLauncher" class="line-toggle" alt="Insta Launcher" />
         <div class="cost-label">
-          <img src="{{ "images/coin-cost.png" | relURL }}" alt="Coin" /> {{ .Site.Params.App.costs.instaLauncher | default 50000 }}
+          <img src="{{ "images/coin-cost.png" | absURL }}" alt="Coin" /> {{ .Site.Params.App.costs.instaLauncher | default 50000 }}
         </div>
       </div>
       <!-- Compactor Toggle -->
       <div class="toggle-wrapper">
-        <img src="{{ "images/compactor-mode.png" | relURL }}"
+        <img src="{{ "images/compactor-mode.png" | absURL }}"
         id="toggleCompactor" class="line-toggle" alt="Compactor" />
         <div class="cost-label">
-          <img src="{{ "images/coin-cost.png" | relURL }}" alt="Coin" /> {{ .Site.Params.App.compactor.cost | default 1000000 }}
+          <img src="{{ "images/coin-cost.png" | absURL }}" alt="Coin" /> {{ .Site.Params.App.compactor.cost | default 1000000 }}
         </div>
       </div>
       <!-- Bubble-Wand Toggle -->
       <div class="toggle-wrapper">
-        <img src="{{ "images/bubblewand-mode.png" | relURL }}"
+        <img src="{{ "images/bubblewand-mode.png" | absURL }}"
              id="toggleBubbleWand" class="line-toggle" alt="Bubble Wand">
         <div class="cost-label">
-          <img src="{{ "images/coin-cost.png" | relURL }}" alt="Coin"> 5000000
+          <img src="{{ "images/coin-cost.png" | absURL }}" alt="Coin"> 5000000
         </div>
       </div>
     </div>
