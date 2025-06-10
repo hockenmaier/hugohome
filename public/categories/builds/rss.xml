@@ -140,48 +140,6 @@
         
     
 
-    
-
-    
-        
-    
-
-    
-
-    
-        
-    
-
-    
-
-    
-        
-    
-
-    
-
-    
-        
-    
-
-    
-
-    
-        
-    
-
-    
-
-    
-        
-    
-
-    
-
-    
-        
-    
-
 
 
 
@@ -208,7 +166,7 @@
             
 
             
-                <link href="http://localhost:1313/categories/builds/" rel="self" type="text/html"/>
+                <link href="https://hockenworks.com/categories/builds/" rel="self" type="text/html"/>
             
         
             
@@ -216,7 +174,7 @@
             
 
             
-                <link href="http://localhost:1313/categories/builds/rss.xml" rel="alternate" type="application/rss+xml"/>
+                <link href="https://hockenworks.com/categories/builds/rss.xml" rel="alternate" type="application/rss+xml"/>
             
         
 
@@ -231,10 +189,10 @@
         
 
         
-            <lastBuildDate>2025-07-21 00:00:00 +0000 UTC</lastBuildDate>
+            <lastBuildDate>2025-05-28 00:00:00 +0000 UTC</lastBuildDate>
         
 
-        <link>http://localhost:1313/categories/builds/</link>
+        <link>https://hockenworks.com/categories/builds/</link>
 
         
 
@@ -242,388 +200,6 @@
 
         
 
-        
-            <item>
-                
-                
-                
-                
-                
-                
-                
-
-                
-
-                
-
-                
-
-                
-
-                
-                
-
-                
-
-                
-
-                
-                    <description><![CDATA[<p>Today&rsquo;s post is about another half finished game that either I or AI will finish one day. I&rsquo;m gaining a bit of a repertoire of those. This is one that I started when AI image generation started to become decent. It&rsquo;s a game that I&rsquo;ve always wanted to exist but with my current skill sets, I could never pull off without a lot of commissioning due to the art requirements.</p>
-<p>The idea is not as original as some of my games but it&rsquo;s very fun when played in a large group. Essentially, I combine the gameplay of the NES classic balloon fight with eight-player multiplayer. If you&rsquo;ve played my game Land war, you might know that I&rsquo;m a bit obsessed with eight player multiplayer, or really specifically anything that&rsquo;s more than four players which is where most video games typically max out.</p>
-<h1 id="eight-player-video-games">Eight-player video games</h1>
-<p>Kaitlin and I love to have people over to socialize, and I love to game. I think they are honestly one of the best ways to have productive, good natured socialization where people can do things like band together, rib on each other a bit, and sometimes even feel like they&rsquo;ve seen something beautiful or had a new experience together. I know that&rsquo;s a little philosophical and sappy, but I think there&rsquo;s a huge place for video games in actual socialization, similar to how board games have a place.</p>
-<p>And I love board games. I play them all the time. But so often when playing board games you run into mechanics that are only there because the game doesn&rsquo;t have a computer involved, can&rsquo;t count for you, can&rsquo;t add things up, can&rsquo;t simulate multiple players turns at the same time, and though it&rsquo;s nice to not have any screens in front of anybody, I think the limitations of board games hold people back from playing games as a group in general more often than not.</p>
-<p>My favorite example of this is power grid.</p>
-<div style="text-align: center; margin-bottom: 1rem;">
-    
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    
-
-
-
-    
-
-
-
-    
-
-
-
-
-
-    
-
-
-
-    
-
-
-
-
-
-    
-
-
-
-    
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<img  alt="an image of the cover art for Power Grid"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/power-grid.png"   style="height: auto; max-width: 200px; width: 100%"   >
-
-
-    
-</div>
-
-<p>Power Grid is a clever game that would be really quite fun if it didn&rsquo;t require players to spend half their time literally doing simple math in their heads or on paper while other people waited. A modern video game with similar dynamics would never do that; it would just let you play the fun part. Many such cases in board gaming.</p>
-<p>But video games have their own limitations and requirements. Aside from the stuff that we aren&rsquo;t getting around anytime before true augmented reality is on everybody&rsquo;s faces, like getting a controller and everybody&rsquo;s hands, and getting them over the fact that they are looking at a screen to socialize, video games have one fundamental limitation most of the time which is that they only go up to four players. And most social gatherings involve more than four people.</p>
-<p>This is the core reason I wanted to make land war an eight-player strategy game, and this setting of group gatherings was also why the controls for land war are so dead simple. More about land war <a href="/land-war">here</a></p>
-<h1 id="generated-art-first-edition">Generated Art, First Edition</h1>
-<p>The reason I waited to make a game like this is because I&rsquo;m no artist. I like to think I have taste but it certainly is not in my wheelhouse to make beautiful artwork, even for a simple sprite based game I want to make here.</p>
-<p>The models I was mostly working with on this project were Mid journey 6 and Dalle3, both diffusion models which is the best you could get at the time. If you&rsquo;ve worked with diffusion models before, you know you can get some pretty beautiful and creative stuff, but there are always a little artifacts that will be noticed if someone stares at it long enough, which is always going to be a case for a video game sprite. So I found myself having to do a lot of cleaning and filtering and processing of the images, and I landed on an oil painting filter that worked pretty well to disguise some of the noise and my own edits that I would inevitably have to apply to the images of my characters, power-ups, etc.</p>
-<p>It was a lot of work just to get a decent looking single sprite, not animated. Animation is where I ran into the real challenges.</p>
-<p>Diffusion models without some very complicated hard work in the form of techniques like LORAs (link) just can&rsquo;t iterate on the same image over and over again. Character consistency is not really a thing, and that&rsquo;s what&rsquo;s needed to make a multi-frame sprite that animates. This is the real impasse I ran into, and the core reason that I stopped working on this game. I wanted to spend 80% of my time on the gameplay, logic, and testing of this game, and 20% prompting for art, but it started to be about 50/50. And the results were not amazing.</p>
-<h1 id="the-state-of-generated-art-in-2025">The State of Generated Art in 2025</h1>
-<p>So fast forward to now. We all knew this has been coming for a long time, but finally we have transformer models that do image generation. And part of what that means is that conversation history, including past image generations and reference images, can be included in the neural context of the next generation. We probably all seen this with image <a href="https://www.reuters.com/technology/artificial-intelligence/ghibli-effect-chatgpt-usage-hits-record-after-rollout-viral-feature-2025-04-01/">&ldquo;Ghiblification&rdquo;</a>.</p>
-<p>OpenAI was yet again the first to release this type of capability, at least in a serious way. Technically there was a Gemini model that did native image gen maybe a month before OpenAI released theirs, but it was pretty garbage in comparison. And, unexpectedly, the new OpenAI image gen can also generate images on transparent PNG backgrounds, which is absolutely crucial for any image that&rsquo;s going to be set against some dynamic background - this is all game art.</p>
-<p>I have since taken a few attempts at making some multi-frame spray animations, and it&rsquo;s almost there, but it&rsquo;s still a lot of work unlike what you might be led to believe by excited Twitter posts with whole sprite sheets generated. The models just still aren&rsquo;t consistent enough to produce images that don&rsquo;t require a heavy amount of editing to get the same amount of background space, full actual sprite sheet specs, keep characters absolutely consistent, etc. But I think they will get there soon.</p>
-<h1 id="generated-music">Generated Music</h1>
-<p>Generated music was a surprising high point of this project. Great quality sound effect and music generators were on my checklist of things that I knew would come soon, but I got super lucky when udio (link) came out about a month or two into prototyping this thing. Check out these tracks I put into the game:</p>
-<p>(Media)</p>
-<p>I will say generated sound effects are still not there, similar to art. You can occasionally get something that sounds like what you intended but in general there&rsquo;s a lot of noise, a lot of strange lead-ins, and in general just strangeness.</p>
-<h1 id="current-state-of-the-game">Current State of the Game</h1>
-<p>So here&rsquo;s where I&rsquo;m at, check out this video which is just me playing against seven bots but you can start to get the idea:</p>
-<p>{youtube embed}</p>
-<p>The game is fun with multiple players, but it&rsquo;s still quite basic, and I&rsquo;m still waiting on image generation that would make the graphics good rather than the stand-ins that are mostly still from the diffusion era of image generation.</p>
-<p>At some point I will pick this thing back up, or I will have some AI agent pick it back up for me, because the core game itself is something I really want to exist, even if it&rsquo;s just another land war that a few hundred people download and I play at my own get togethers.</p>
-<p>If you&rsquo;d like, you can download a Windows build here, which is still very much a prototype but works with 8 connected controllers:</p>
-<a href="https://www.dropbox.com/scl/fo/4piy97k725ee1xp3cn4pe/AEUfIYTEgcOtlUmsc0qeT1s?rlkey=ygd4jhs57c35xq3ska7vs6xjy&amp;dl=1" download class="d-flex align-items-center download-link">
-  <i class="bi bi-file-earmark me-1"></i>
-  
-7/24/24 Build Download
-
-</a>
-
-]]></description>
-                
-
-                <guid isPermaLink="false">tag:localhost:1313,2025-07-21:/balloon-fight/</guid>
-
-                
-                    <link>http://localhost:1313/balloon-fight/</link>
-                
-
-                
-                    <pubDate>Mon, 21 Jul 2025 00:00:00 UTC</pubDate>
-                
-
-                
-                    <title>8 Player Balloon Fighter</title>
-                
-            </item>
-        
-            <item>
-                
-                
-                
-                
-                
-                
-                
-
-                
-
-                
-
-                
-
-                
-
-                
-                
-
-                
-
-                
-
-                
-                    <description><![CDATA[<p>The advent of general coding AI assistants almost immediately changed how I thought about the hiring process and interviews. And it changed how I talked about it with colleages and my own team.</p>
-<p>In the software engineering world, this mindset shift was pretty easy for me psychologically, because I had always had a bias against the types of coding questions that I personally do badly at - the ones that require knowledge or rote memory of specific language capabilities, libraries, syntax. It is not that psychologically easy for everyone, especially those that have developed a core skillset of running &ldquo;leetcode-style&rdquo; interviews. Even before AI, the only types of coding questions I would personally ask were things that simply evaluate whether a candidate is lying or not about whether they can code at all, which was and still is surprisingly common. I have interviewed people that list bullet points like 7 years of Java experience but can&rsquo;t pass a fizz buzz like question, and this was a question I gave out on paper with a closed door and no significant time pressure.</p>
-<p>So, when LLMS that could remember any syntax or attribute of any programming language perfectly were released, not only was I excited but I immediately saw that a huge chunk of the programming questions my team and many other software teams liked to ask were essentially irrelevant now, not only because people could cheat on interviews, at least virtually, but because that knowledge simply lost a lot of value overnight.</p>
-<p>Over a few conversations with friends and colleagues I began to explore the idea of what this meant generally for the interview process. There are just lots of questions that we ask in every field, it turns out, that are mostly solved by LLMS that have memorized most useful information, even when the original intent of the interview question was to test for experience.</p>
-<h2 id="the-build">The Build</h2>
-<p>In the summer of 2022 my ideas and conversations on this topic had gotten to the point where I really just needed to test my hypothesis - that LLMS and continuous audio transcription could let someone with no knowledge answer many interview questions correctly. My initial thought was that an app like this must already exist. But after searching for apps on the appstore that did what I was thinking of, I found that, surprisingly, none did.</p>
-<p>I&rsquo;m still not sure if that was a legal thing at the time, or if it&rsquo;s hard to get apps that continuously transcribe audio published, but as of 2025 apps like this definitely exist. Some of them have gotten famous and one has gotten its creator expelled from an ivy League for revealing that he used it to ace interviews with some top tech companies. Link for the curious here:</p>
-<p><a href="https://cluely.com/">https://cluely.com/</a></p>
-<p>But, in mid 2023, these apps were apparently not a thing, so I decided to make a prototype.</p>
-<p>My basic requirements were simply something that could continuously transcribe words being spoken in a meeting or over a call, group them up into meaningfully long chunks, and then send those to two different AI passes:</p>
-<ol>
-<li>An AI pass that would try to make meaningful questions out of the transcribed potential gibberish</li>
-<li>An AI pass that would answer those questions</li>
-</ol>
-<p>My tech stack for this was a little weird, but I know unity well and I don&rsquo;t know other ways of deploying mobile apps well, and this definitely need to be a mobile app if it was going to sit on the phone and continuously transcribe audio. Web has all kinds of restrictions on their APIs and I don&rsquo;t know native mobile web very well anyway.</p>
-<p>This was surprisingly easy to do, even in 2023. I ran into a few hiccups mainly around continuous audio transcription, but for an app that I wasn&rsquo;t going to publish that I was directly putting onto my own Android device, I got around that by simply starting up a new audio transcription thread every time one closed.</p>
-<div style="display: flex; align-items: center; justify-content: center; gap: 10px; margin-bottom: 1rem;">
-    
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    
-
-
-
-    
-
-
-
-    
-
-
-
-
-
-    
-
-
-
-
-
-
-
-    
-
-
-
-    
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<img  alt="the app ui"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/make-us-smarter.jpg"   style="height: auto; max-width: 200px"   >
-
-
-    
-        <span style="font-style: italic;">Super barebones UI just showing the continuously auto-transcribed words, questions derived from those words, and answers to those questions.  This particular screen was grabbed long after my api key had expired and is only here to show the basic output of the app, transcription building continuously in the background and detected questions and answers in the foreground.</span>
-    
-</div>
-
-<p>And the results were surprisingly compelling. Of course I was using some of the very first versions of GPT-4 and AI is still not perfect, but the main result of this was that occasionally questions were picked up that were not actually implied by the meeting audio, and occasionally real questions were missed. The part that I knew was going to work did indeed work incredibly well: when I simulated some fizz-buzz style questions and there were no major audio transcription issues, the second question-answering AI nailed them and was able to put a succinct script to answer the question on screen within a few seconds.</p>
-<p>There was clearly more work to be done on UI and also the flow between the AI passes, and more agentic APIs of today could definitely do this all more seamlessly.</p>
-<p>But for me, my question was answered: My hunch was right and we should definitely not be asking questions about basic constructs of programming languages or simple scripts in interviews anymore.</p>
-<p>I open sourced the project which is a pretty small unity build, and it&rsquo;s a unity version from a couple of years ago now but anyone is happy to look through and modify the code anyway they want:</p>
-<p><a href="https://github.com/hockenmaier/make-us-smarter">https://github.com/hockenmaier/make-us-smarter</a></p>
-<h2 id="interviewing-today">Interviewing Today</h2>
-<p>This whole experience and a slew of interviews that came building a new team last year have me settled on an interview approach that I think is infallible (for now). And it doesn&rsquo;t require sending someone home with a project or any of that stuff that good candidates often don&rsquo;t even consider. I heard about a version of this technique on Twitter so can&rsquo;t take full credit here:</p>
-<p>What I do is ask candidates to bring some code that they have written, regardless of language of framework, and I simply walk through it with them in the interview. It only takes 15 minutes or so, and it usually gets much better conversation going than sample interviewing questions do. It leans on the fact that you need an interviewer that can mostly understand most programming projects, but it cannot be faked with any LLM assistance. Llm written code is pretty obvious for one, much better commented and differently organized than most humans would write, but even if the code was very sneakily written AI code, having a human go through and explain the parts that they thought were clever defeats the purpose of cheating with AI anyway.</p>
-<p>So there you go, little tidbit from what I&rsquo;ve learned. I hope no one out there that I know is using these apps to cheat on interviews, but we all need to be wise to the fact that it is trivially easy to do so, and we should shift focus to testing for the qualities that actually matter in the era of AI.</p>
-]]></description>
-                
-
-                <guid isPermaLink="false">tag:localhost:1313,2025-06-23:/my-experiments-with-ai-cheating/</guid>
-
-                
-                    <link>http://localhost:1313/my-experiments-with-ai-cheating/</link>
-                
-
-                
-                    <pubDate>Mon, 23 Jun 2025 00:00:00 UTC</pubDate>
-                
-
-                
-                    <title>My Experiments with AI Cheating</title>
-                
-            </item>
-        
-            <item>
-                
-                
-                
-                
-                
-                
-                
-
-                
-
-                
-
-                
-
-                
-
-                
-                
-
-                
-
-                
-
-                
-                    <description><![CDATA[<p>&ldquo;The Flapper&rdquo; is a project that spawned out of a simple VR movement mechanic test that I had had in my head for a while, which turned out to be surprisingly fun! The idea is to flap your arms to fly - and have it be a multiplayer battle to really get people moving.</p>
-<p>In order to start working on this game, because there was so much standard VR code that I had to write for tree keepers, I decided to make a sort of engine out of tree keepers and work off of that rather than start from scratch. That let me tie in some of the nice associated graphics, music and sound effects I had made, and a bunch of other helper functions and things I use for things like the camera following around the character, how I deal with collisions, a bunch of netcode, etc.</p>
-<p>You can see my more detailed post about that engine here: <a href="/treekeepers-engine">Treekeepers Engine</a></p>
-<h2 id="core-mechanic--gameplay">Core Mechanic &amp; Gameplay</h2>
-<p>Most of the start of this game was just tuning the movement mechanic, which borrowed from some physics realities and some elements I made up to make flapping feel good. But, the essential idea was that each arm would generate unique thrust in the direction it was moving with an exponenthel applied to how fast it was moving. It&rsquo;s hard to describe any native VR mechanic with words and videos only, but to me and the folks I demoed it to; it felt &ldquo;right&rdquo; for how flying should work if you did it by flapping your arms. I had a ton of fun just jetting around the obstacle courses I made for myself.</p>
-<p>My idea for this other than just the mechanic was to make a sort of gorilla tag-esque multiplayer game where players would fly around and try to pop each other&rsquo;s balloons in a NES balloon fight {link} style. Ideally something like 15 to 20 people would be in a lobby flying around and trying to pop each other.</p>
-<p>Like gorilla tag I didn&rsquo;t want anyone to have to &ldquo;sit out&rdquo; of the game, so it&rsquo;s essentially a deathmatch where the player who pops the most balloons wins, and is also visible who&rsquo;s winning, because they also gain the balloons that they pop. In some playtests players would have 20 or 30 balloons on their head. This was my clever idea of adding a built-in rubber-band effect to the gameplay as well, since having more balloons over your head made you a bigger target to pop. The gameplay worked well - but I never quite got the game to a place with netcode and networking engine where multiplayer felt seamless enough.</p>
-<p>Here’s a video of one of the later states of the game, where I have it fully networked and am testing with friends, though it still has a few bugs here:</p>
-
-    <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
-      <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/Vxn8rDOZ7dU?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"></iframe>
-    </div>
-
-<h2 id="today">Today</h2>
-<p>I stopped working on this project after about 3 months. It turned out that flying alone with this mechanic was very compelling (and also a great workout!) but the networking engine I had used for Teeekeepers, Photon, was not up to task for how low latency a competitive game needed to be. Treekeepers was four-player co-op so photon was just fine.</p>
-<p>In the future I might pick this one back up (or maybe have an AI agent pick it up for me depending on how that goes) using space-time DB {link}</p>
-<p>which looks like a great solution for this type of game that doesn&rsquo;t require a whole ton of cloud programming and setup.</p>
-<p>You can try a build of the game here:</p>
-<p>{Download of latest build}</p>
-]]></description>
-                
-
-                <guid isPermaLink="false">tag:localhost:1313,2025-06-16:/the-flapper/</guid>
-
-                
-                    <link>http://localhost:1313/the-flapper/</link>
-                
-
-                
-                    <pubDate>Mon, 16 Jun 2025 00:00:00 UTC</pubDate>
-                
-
-                
-                    <title>The Flapper - A Physical VR Multiplayer Game</title>
-                
-            </item>
         
             <item>
                 
@@ -736,7 +312,7 @@
 
 
 
-<img  alt="the hockenworks homepage"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/hockenworks.png"   style="height: auto; max-width: 720px; width: 100%"   >
+<img  alt="the hockenworks homepage"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/hockenworks.png"   style="height: auto; max-width: 720px; width: 100%"   >
 
 
     
@@ -846,7 +422,7 @@
 
 
 
-<img  alt="A ball machine"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/bubble4.gif"   style="height: auto; max-width: 720px; width: 100%"   >
+<img  alt="A ball machine"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/bubble4.gif"   style="height: auto; max-width: 720px; width: 100%"   >
 
 
     
@@ -938,7 +514,7 @@
 
 
 
-<img  alt="balls everywhere"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/this-website-ball-machine-1.png"   style="height: auto; max-width: 720px; width: 100%"   >
+<img  alt="balls everywhere"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/this-website-ball-machine-1.png"   style="height: auto; max-width: 720px; width: 100%"   >
 
 
     
@@ -1030,7 +606,7 @@
 
 
 
-<img  alt="balls everywhere"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/waves2.gif"   style="height: auto; max-width: 300px; width: 100%"   >
+<img  alt="balls everywhere"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/waves2.gif"   style="height: auto; max-width: 300px; width: 100%"   >
 
 
     
@@ -1132,7 +708,7 @@
 
 
 
-<img  alt="ball chute"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/ball-chute-hatch-1.png"   style="height: auto; max-width: 200px; width: 100%"   >
+<img  alt="ball chute"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/ball-chute-hatch-1.png"   style="height: auto; max-width: 200px; width: 100%"   >
 
  
   <span style="display: block; font-style: italic; margin-top: 0.5rem">
@@ -1231,7 +807,7 @@
 
 
 
-<img  alt="the goal"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/goal.png"   style="height: auto; max-width: 40px; width: 100%"   >
+<img  alt="the goal"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/goal.png"   style="height: auto; max-width: 40px; width: 100%"   >
 
  
 </span>
@@ -1333,7 +909,7 @@
 
 
 
-<img  alt="line toggle"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/line-mode.png"   style="height: auto; max-width: 200px; width: 100%"   >
+<img  alt="line toggle"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/line-mode.png"   style="height: auto; max-width: 200px; width: 100%"   >
 
  
 </span>
@@ -1427,7 +1003,7 @@
 
 
 
-<img  alt="curved line toggle"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/curve-mode.png"   style="height: auto; max-width: 200px; width: 100%"   >
+<img  alt="curved line toggle"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/curve-mode.png"   style="height: auto; max-width: 200px; width: 100%"   >
 
  
 </span>
@@ -1521,7 +1097,7 @@
 
 
 
-<img  alt="compactor toggle"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/compactor-mode.png"   style="height: auto; max-width: 200px; width: 100%"   >
+<img  alt="compactor toggle"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/compactor-mode.png"   style="height: auto; max-width: 200px; width: 100%"   >
 
  
 </span>
@@ -1650,7 +1226,7 @@
 
 
 
-<img  alt="auto clicker"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/auto-clicker.png"   style="height: auto; max-width: 200px; width: 100%"   >
+<img  alt="auto clicker"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/auto-clicker.png"   style="height: auto; max-width: 200px; width: 100%"   >
 
  
 </span>
@@ -1751,7 +1327,7 @@
 
 
 
-<img  alt="dotted line toggle"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/everything-has-a-price.png"   style="height: auto; max-width: 200px; width: 100%"   >
+<img  alt="dotted line toggle"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/everything-has-a-price.png"   style="height: auto; max-width: 200px; width: 100%"   >
 
  
 </span>
@@ -1846,7 +1422,7 @@
 
 
 
-<img  alt="dotted line toggle"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/dotted-line-mode.png"   style="height: auto; max-width: 200px; width: 100%"   >
+<img  alt="dotted line toggle"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/dotted-line-mode.png"   style="height: auto; max-width: 200px; width: 100%"   >
 
  
 </span>
@@ -1951,7 +1527,7 @@ So keep your balls moving!</li>
 
 
 
-<img  alt="dotted line toggle"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/page-revenue.png"   style="height: auto; max-width: 200px; width: 100%"   >
+<img  alt="dotted line toggle"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/page-revenue.png"   style="height: auto; max-width: 200px; width: 100%"   >
 
  
 </span>
@@ -2029,10 +1605,10 @@ document.addEventListener('DOMContentLoaded', function(){
 ]]></description>
                 
 
-                <guid isPermaLink="false">tag:localhost:1313,2025-05-28:/this-website/</guid>
+                <guid isPermaLink="false">tag:hockenworks.com,2025-05-28:/this-website/</guid>
 
                 
-                    <link>http://localhost:1313/this-website/</link>
+                    <link>https://hockenworks.com/this-website/</link>
                 
 
                 
@@ -2152,7 +1728,7 @@ document.addEventListener('DOMContentLoaded', function(){
 
 
 
-<img  alt="Image description"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/bloom-or-bust-characters.jpg"   style="height: auto; max-width: 720px; width: 100%"   >
+<img  alt="Image description"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/bloom-or-bust-characters.jpg"   style="height: auto; max-width: 720px; width: 100%"   >
 
 
     
@@ -2236,7 +1812,7 @@ document.addEventListener('DOMContentLoaded', function(){
 
 
 
-<img   class="rounded-3 w-100"  crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/bloom-or-bust-7.jpg"    >
+<img   class="rounded-3 w-100"  crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/bloom-or-bust-7.jpg"    >
 
 
       
@@ -2311,7 +1887,7 @@ document.addEventListener('DOMContentLoaded', function(){
 
 
 
-<img   class="rounded-3 w-100"  crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/bloom-or-bust-4.jpg"    >
+<img   class="rounded-3 w-100"  crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/bloom-or-bust-4.jpg"    >
 
 </div>
 </div>
@@ -2390,7 +1966,7 @@ document.addEventListener('DOMContentLoaded', function(){
 
 
 
-<img   class="rounded-3 w-100"  crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/bloom-or-bust-3.jpg"    >
+<img   class="rounded-3 w-100"  crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/bloom-or-bust-3.jpg"    >
 
 
       
@@ -2465,7 +2041,7 @@ document.addEventListener('DOMContentLoaded', function(){
 
 
 
-<img   class="rounded-3 w-100"  crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/bloom-or-bust-8.jpg"    >
+<img   class="rounded-3 w-100"  crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/bloom-or-bust-8.jpg"    >
 
 </div>
 </div>
@@ -2546,7 +2122,7 @@ document.addEventListener('DOMContentLoaded', function(){
 
 
 
-<img   class="rounded-3 w-100"  crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/bloom-or-bust-2.jpg"    >
+<img   class="rounded-3 w-100"  crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/bloom-or-bust-2.jpg"    >
 
 
       
@@ -2621,7 +2197,7 @@ document.addEventListener('DOMContentLoaded', function(){
 
 
 
-<img   class="rounded-3 w-100"  crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/bloom-or-bust-9.jpg"    >
+<img   class="rounded-3 w-100"  crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/bloom-or-bust-9.jpg"    >
 
 </div>
 </div>
@@ -2631,10 +2207,10 @@ document.addEventListener('DOMContentLoaded', function(){
 ]]></description>
                 
 
-                <guid isPermaLink="false">tag:localhost:1313,2025-05-28:/bloom-or-bust/</guid>
+                <guid isPermaLink="false">tag:hockenworks.com,2025-05-28:/bloom-or-bust/</guid>
 
                 
-                    <link>http://localhost:1313/bloom-or-bust/</link>
+                    <link>https://hockenworks.com/bloom-or-bust/</link>
                 
 
                 
@@ -2683,10 +2259,10 @@ document.addEventListener('DOMContentLoaded', function(){
 <hr>]]></description>
                 
 
-                <guid isPermaLink="false">tag:localhost:1313,2025-02-13:/context-caddy/</guid>
+                <guid isPermaLink="false">tag:hockenworks.com,2025-02-13:/context-caddy/</guid>
 
                 
-                    <link>http://localhost:1313/context-caddy/</link>
+                    <link>https://hockenworks.com/context-caddy/</link>
                 
 
                 
@@ -2695,50 +2271,6 @@ document.addEventListener('DOMContentLoaded', function(){
 
                 
                     <title>Context Caddy</title>
-                
-            </item>
-        
-            <item>
-                
-                
-                
-                
-                
-                
-                
-
-                
-
-                
-
-                
-
-                
-
-                
-                
-
-                
-
-                
-
-                
-                    <description><![CDATA[<p>This is a simple tool-calling GPT wrapper app I made with a friend. It&rsquo;s not too complicated but it&rsquo;s clean python, has a simple frontend with voice input using OpenAI whisper, and it calls real APIs in the background to answer questions.</p>
-]]></description>
-                
-
-                <guid isPermaLink="false">tag:localhost:1313,2025-01-01:/gpt-wrapper/</guid>
-
-                
-                    <link>http://localhost:1313/gpt-wrapper/</link>
-                
-
-                
-                    <pubDate>Wed, 01 Jan 2025 00:00:00 UTC</pubDate>
-                
-
-                
-                    <title>GPT Wrapper</title>
                 
             </item>
         
@@ -2851,7 +2383,7 @@ This one is super simple. Give it what you’ve written and it will provide no-B
 
 
 
-<img  alt="proofreader GPT"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/proofreader-gpt.png"   style="height: auto; max-width: 200px; width: 100%"   >
+<img  alt="proofreader GPT"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/proofreader-gpt.png"   style="height: auto; max-width: 200px; width: 100%"   >
 
 
     
@@ -2867,10 +2399,10 @@ An experimental “AI generated RPG” where you play as “The Boy” who reali
 ]]></description>
                 
 
-                <guid isPermaLink="false">tag:localhost:1313,2024-06-01:/some-custom-gpts/</guid>
+                <guid isPermaLink="false">tag:hockenworks.com,2024-06-01:/some-custom-gpts/</guid>
 
                 
-                    <link>http://localhost:1313/some-custom-gpts/</link>
+                    <link>https://hockenworks.com/some-custom-gpts/</link>
                 
 
                 
@@ -2920,10 +2452,10 @@ An experimental “AI generated RPG” where you play as “The Boy” who reali
 <hr>]]></description>
                 
 
-                <guid isPermaLink="false">tag:localhost:1313,2024-01-13:/postman-for-pms/</guid>
+                <guid isPermaLink="false">tag:hockenworks.com,2024-01-13:/postman-for-pms/</guid>
 
                 
-                    <link>http://localhost:1313/postman-for-pms/</link>
+                    <link>https://hockenworks.com/postman-for-pms/</link>
                 
 
                 
@@ -3036,7 +2568,7 @@ An experimental “AI generated RPG” where you play as “The Boy” who reali
 
 
 
-<img   class="rounded-3 w-100"  crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/hocken-pocket-blokus-1.png"    >
+<img   class="rounded-3 w-100"  crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/hocken-pocket-blokus-1.png"    >
 
 
       
@@ -3111,7 +2643,7 @@ An experimental “AI generated RPG” where you play as “The Boy” who reali
 
 
 
-<img   class="rounded-3 w-100"  crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/hocken-pocket-blokus-2.png"    >
+<img   class="rounded-3 w-100"  crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/hocken-pocket-blokus-2.png"    >
 
 </div>
 </div>
@@ -3128,10 +2660,10 @@ An experimental “AI generated RPG” where you play as “The Boy” who reali
 ]]></description>
                 
 
-                <guid isPermaLink="false">tag:localhost:1313,2024-01-03:/hocken-pocket-blokus/</guid>
+                <guid isPermaLink="false">tag:hockenworks.com,2024-01-03:/hocken-pocket-blokus/</guid>
 
                 
-                    <link>http://localhost:1313/hocken-pocket-blokus/</link>
+                    <link>https://hockenworks.com/hocken-pocket-blokus/</link>
                 
 
                 
@@ -3246,7 +2778,7 @@ I hope these characters remind you of some of your favorite series.</p>
 
 
 
-<img   class="rounded-3 w-100"  crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/2023-8-bit-set-2.jpg"    >
+<img   class="rounded-3 w-100"  crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/2023-8-bit-set-2.jpg"    >
 
 
       
@@ -3321,7 +2853,7 @@ I hope these characters remind you of some of your favorite series.</p>
 
 
 
-<img   class="rounded-3 w-100"  crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/2023-8-bit-set-1.jpg"    >
+<img   class="rounded-3 w-100"  crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/2023-8-bit-set-1.jpg"    >
 
 </div>
 </div>
@@ -3400,7 +2932,7 @@ I hope these characters remind you of some of your favorite series.</p>
 
 
 
-<img   class="rounded-3 w-100"  crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/2023-8-bit-set-3.jpg"    >
+<img   class="rounded-3 w-100"  crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/2023-8-bit-set-3.jpg"    >
 
 
       
@@ -3475,7 +3007,7 @@ I hope these characters remind you of some of your favorite series.</p>
 
 
 
-<img   class="rounded-3 w-100"  crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/2023-8-bit-set-4.jpg"    >
+<img   class="rounded-3 w-100"  crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/2023-8-bit-set-4.jpg"    >
 
 </div>
 </div>
@@ -3493,10 +3025,10 @@ I hope these characters remind you of some of your favorite series.</p>
 ]]></description>
                 
 
-                <guid isPermaLink="false">tag:localhost:1313,2023-08-06:/8-bit-coasters-10-year/</guid>
+                <guid isPermaLink="false">tag:hockenworks.com,2023-08-06:/8-bit-coasters-10-year/</guid>
 
                 
-                    <link>http://localhost:1313/8-bit-coasters-10-year/</link>
+                    <link>https://hockenworks.com/8-bit-coasters-10-year/</link>
                 
 
                 
@@ -3566,10 +3098,10 @@ I hope these characters remind you of some of your favorite series.</p>
 <p>For March 2023, this result was revolutionary - I was truly impressed. In 2025, it&rsquo;s not very impressive at all. How quickly we get used to progress!</p>]]></description>
                 
 
-                <guid isPermaLink="false">tag:localhost:1313,2023-03-18:/gpt-4-solar-system/</guid>
+                <guid isPermaLink="false">tag:hockenworks.com,2023-03-18:/gpt-4-solar-system/</guid>
 
                 
-                    <link>http://localhost:1313/gpt-4-solar-system/</link>
+                    <link>https://hockenworks.com/gpt-4-solar-system/</link>
                 
 
                 
@@ -3688,7 +3220,7 @@ I hope these characters remind you of some of your favorite series.</p>
 
 
 
-<img  alt="Switching apps in the treekeepers engine"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/treekeepers-app-switcher-1.gif"   style="height: auto; max-width: 720px; width: 100%"   >
+<img  alt="Switching apps in the treekeepers engine"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/treekeepers-app-switcher-1.gif"   style="height: auto; max-width: 720px; width: 100%"   >
 
 
     
@@ -3779,7 +3311,7 @@ I hope these characters remind you of some of your favorite series.</p>
 
 
 
-<img  alt="An applictaion definition in the editor"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/treekeepers-app-switcher-2.png"   style="height: auto; max-width: 400px; width: 100%"   >
+<img  alt="An applictaion definition in the editor"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/treekeepers-app-switcher-2.png"   style="height: auto; max-width: 400px; width: 100%"   >
 
 
     
@@ -3797,10 +3329,10 @@ I hope these characters remind you of some of your favorite series.</p>
 ]]></description>
                 
 
-                <guid isPermaLink="false">tag:localhost:1313,2023-03-17:/treekeepers-engine/</guid>
+                <guid isPermaLink="false">tag:hockenworks.com,2023-03-17:/treekeepers-engine/</guid>
 
                 
-                    <link>http://localhost:1313/treekeepers-engine/</link>
+                    <link>https://hockenworks.com/treekeepers-engine/</link>
                 
 
                 
@@ -3849,10 +3381,10 @@ I hope these characters remind you of some of your favorite series.</p>
 <p>Neat stuff - big thanks to Luma AI for the free toolset.</p>]]></description>
                 
 
-                <guid isPermaLink="false">tag:localhost:1313,2023-02-01:/nerfs/</guid>
+                <guid isPermaLink="false">tag:hockenworks.com,2023-02-01:/nerfs/</guid>
 
                 
-                    <link>http://localhost:1313/nerfs/</link>
+                    <link>https://hockenworks.com/nerfs/</link>
                 
 
                 
@@ -3968,7 +3500,7 @@ I hope these characters remind you of some of your favorite series.</p>
 
 
 
-<img  alt="The Treekeepers Puddle Jumper"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/treekeepers_moonlight.png"   style="height: auto; max-width: 100%"   >
+<img  alt="The Treekeepers Puddle Jumper"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/treekeepers_moonlight.png"   style="height: auto; max-width: 100%"   >
 
 
     
@@ -3985,10 +3517,10 @@ I hope these characters remind you of some of your favorite series.</p>
 <p>By summer 2022, I had a releasable product, albeit only with one “world” available. I decided to push the game to early access to gather rapid feedback from real players, and after getting approved for both storefronts, Treekeepers released to early access on September 30, 2022.</p>]]></description>
                 
 
-                <guid isPermaLink="false">tag:localhost:1313,2022-10-01:/treekeepers-vr/</guid>
+                <guid isPermaLink="false">tag:hockenworks.com,2022-10-01:/treekeepers-vr/</guid>
 
                 
-                    <link>http://localhost:1313/treekeepers-vr/</link>
+                    <link>https://hockenworks.com/treekeepers-vr/</link>
                 
 
                 
@@ -3997,136 +3529,6 @@ I hope these characters remind you of some of your favorite series.</p>
 
                 
                     <title>Treekeepers VR</title>
-                
-            </item>
-        
-            <item>
-                
-                
-                
-                
-                
-                
-                
-
-                
-
-                
-
-                
-
-                
-
-                
-                
-
-                
-
-                
-
-                
-                    <description><![CDATA[<p>[paige.alert]
-message: &ldquo;Get more information &lt;a href=&quot;#&quot; class=&quot;alert-link&quot;&gt;here</a>.&rdquo;
-type: &ldquo;primary&rdquo;
-Quote
-
-
-
-
-
-
-
-<div class="paige-quote">
-<blockquote class="blockquote">Hickory dickory dock.<br>
-The mouse ran up the clock.<br>
-The clock struck one,<br>
-The mouse ran down,<br>
-Hickory dickory dock.</blockquote>
-
-
-<div class="blockquote-footer">Hickory Dickory Dock</div>
-
-</div>
-</p>
-
-
-
-
-
-
-
-<div class="paige-quote">
-<blockquote class="blockquote"><ol>
-<li><em>&ldquo;Work should be a sacrifice, and more money means more security for my family.&rdquo;</em></li>
-</ol>
-</blockquote>
-
-
-</div>
-
-<p>X<sup>n</sup> + Y<sup>n</sup> = Z<sup>n</sup></p>
-<p><abbr title="This allows to hover for more info">Abbreviations</abbr></p>
-<p>H<sub>2</sub>O</p>
-<p><del>Strikethrough</del></p>
-<p>Press <kbd>Ctrl</kbd> + <kbd>Alt</kbd> + <kbd>Delete</kbd> to end the session.</p>
-<p><mark>This is a highlight</mark></p>
-<pre tabindex="0"><code>// ---- Removed Existing Collision Border Effect ----
-
-    const ballPositionData = {};
-    function removeBallsBelowPage() {
-      const bodies = Composite.allBodies(engine.world);
-      const pageBottom = Math.max(
-        document.body.scrollHeight,
-        document.documentElement.scrollHeight
-      );
-      bodies.forEach((body) =&gt; {
-        if (body.label === &#34;BallFallBall&#34; &amp;&amp; body.position.y &gt; pageBottom) {
-          World.remove(engine.world, body);
-          delete ballPositionData[body.id];
-        }
-      });
-    }
-</code></pre><p>Here&rsquo;s a Download:
-<a href="https://www.dropbox.com/scl/fo/4piy97k725ee1xp3cn4pe/AEUfIYTEgcOtlUmsc0qeT1s?rlkey=ygd4jhs57c35xq3ska7vs6xjy&amp;dl=1" download class="d-flex align-items-center download-link">
-  <i class="bi bi-file-earmark me-1"></i>
-  
-7/24/24 Build Download
-
-</a>
-</p>
-<p>Here&rsquo;s a Gist:
-<script src="https://gist.github.com/hockenmaier/afb228dc7776cded521127b9edec2c94.js"></script>
-</p>
-<p>Lorem ipsum dolor sit amet consectetur, adipiscing elit curabitur tincidunt sagittis, a aliquet magna elementum. Ut parturient augue per ultricies venenatis euismod aliquet sodales ultrices nulla nec sapien senectus, nunc tristique porta habitasse iaculis nostra vulputate morbi odio himenaeos vitae. Primis elementum platea lobortis curabitur orci donec molestie, augue malesuada non nunc sociosqu torquent ridiculus enim, habitasse nam quisque id semper a. Litora aptent sed maecenas placerat conubia elementum integer nisl dapibus risus, facilisi erat pellentesque nec morbi platea eu tortor sagittis cursus, orci eget ad diam mus est convallis ac eleifend.</p>
-<p>Cubilia massa pretium non senectus cum erat mauris magnis egestas interdum venenatis ullamcorper, proin ultricies ultrices vestibulum at malesuada facilisi viverra turpis class. Velit praesent fusce fames mi facilisi integer bibendum montes ante, orci natoque donec congue nam phasellus dictumst lobortis duis cum, magna tempus quam pharetra pulvinar molestie egestas nec. Et magna fames facilisi imperdiet suscipit cum dapibus tempus, semper venenatis class leo praesent tempor. Ultrices habitasse dapibus fames faucibus posuere luctus phasellus sollicitudin, himenaeos vehicula vulputate nulla platea suscipit sodales dictumst, nisl nibh imperdiet pretium id aliquet maecenas.</p>
-<p>Lorem ipsum dolor sit amet consectetur, adipiscing elit curabitur tincidunt sagittis, a aliquet magna elementum. Ut parturient augue per ultricies venenatis euismod aliquet sodales ultrices nulla nec sapien senectus, nunc tristique porta habitasse iaculis nostra vulputate morbi odio himenaeos vitae. Primis elementum platea lobortis curabitur orci donec molestie, augue malesuada non nunc sociosqu torquent ridiculus enim, habitasse nam quisque id semper a. Litora aptent sed maecenas placerat conubia elementum integer nisl dapibus risus, facilisi erat pellentesque nec morbi platea eu tortor sagittis cursus, orci eget ad diam mus est convallis ac eleifend.</p>
-<p>Cubilia massa pretium non senectus cum erat mauris magnis egestas interdum venenatis ullamcorper, proin ultricies ultrices vestibulum at malesuada facilisi viverra turpis class. Velit praesent fusce fames mi facilisi integer bibendum montes ante, orci natoque donec congue nam phasellus dictumst lobortis duis cum, magna tempus quam pharetra pulvinar molestie egestas nec. Et magna fames facilisi imperdiet suscipit cum dapibus tempus, semper venenatis class leo praesent tempor. Ultrices habitasse dapibus fames faucibus posuere luctus phasellus sollicitudin, himenaeos vehicula vulputate nulla platea suscipit sodales dictumst, nisl nibh imperdiet pretium id aliquet maecenas.</p>
-<p>Lorem ipsum dolor sit amet consectetur, adipiscing elit curabitur tincidunt sagittis, a aliquet magna elementum. Ut parturient augue per ultricies venenatis euismod aliquet sodales ultrices nulla nec sapien senectus, nunc tristique porta habitasse iaculis nostra vulputate morbi odio himenaeos vitae. Primis elementum platea lobortis curabitur orci donec molestie, augue malesuada non nunc sociosqu torquent ridiculus enim, habitasse nam quisque id semper a. Litora aptent sed maecenas placerat conubia elementum integer nisl dapibus risus, facilisi erat pellentesque nec morbi platea eu tortor sagittis cursus, orci eget ad diam mus est convallis ac eleifend.</p>
-<p>Cubilia massa pretium non senectus cum erat mauris magnis egestas interdum venenatis ullamcorper, proin ultricies ultrices vestibulum at malesuada facilisi viverra turpis class. Velit praesent fusce fames mi facilisi integer bibendum montes ante, orci natoque donec congue nam phasellus dictumst lobortis duis cum, magna tempus quam pharetra pulvinar molestie egestas nec. Et magna fames facilisi imperdiet suscipit cum dapibus tempus, semper venenatis class leo praesent tempor. Ultrices habitasse dapibus fames faucibus posuere luctus phasellus sollicitudin, himenaeos vehicula vulputate nulla platea suscipit sodales dictumst, nisl nibh imperdiet pretium id aliquet maecenas.</p>
-<p>Lorem ipsum dolor sit amet consectetur, adipiscing elit curabitur tincidunt sagittis, a aliquet magna elementum. Ut parturient augue per ultricies venenatis euismod aliquet sodales ultrices nulla nec sapien senectus, nunc tristique porta habitasse iaculis nostra vulputate morbi odio himenaeos vitae. Primis elementum platea lobortis curabitur orci donec molestie, augue malesuada non nunc sociosqu torquent ridiculus enim, habitasse nam quisque id semper a. Litora aptent sed maecenas placerat conubia elementum integer nisl dapibus risus, facilisi erat pellentesque nec morbi platea eu tortor sagittis cursus, orci eget ad diam mus est convallis ac eleifend.</p>
-<p>Cubilia massa pretium non senectus cum erat mauris magnis egestas interdum venenatis ullamcorper, proin ultricies ultrices vestibulum at malesuada facilisi viverra turpis class. Velit praesent fusce fames mi facilisi integer bibendum montes ante, orci natoque donec congue nam phasellus dictumst lobortis duis cum, magna tempus quam pharetra pulvinar molestie egestas nec. Et magna fames facilisi imperdiet suscipit cum dapibus tempus, semper venenatis class leo praesent tempor. Ultrices habitasse dapibus fames faucibus posuere luctus phasellus sollicitudin, himenaeos vehicula vulputate nulla platea suscipit sodales dictumst, nisl nibh imperdiet pretium id aliquet maecenas.</p>
-<p>Lorem ipsum dolor sit amet consectetur, adipiscing elit curabitur tincidunt sagittis, a aliquet magna elementum. Ut parturient augue per ultricies venenatis euismod aliquet sodales ultrices nulla nec sapien senectus, nunc tristique porta habitasse iaculis nostra vulputate morbi odio himenaeos vitae. Primis elementum platea lobortis curabitur orci donec molestie, augue malesuada non nunc sociosqu torquent ridiculus enim, habitasse nam quisque id semper a. Litora aptent sed maecenas placerat conubia elementum integer nisl dapibus risus, facilisi erat pellentesque nec morbi platea eu tortor sagittis cursus, orci eget ad diam mus est convallis ac eleifend.</p>
-<p>Cubilia massa pretium non senectus cum erat mauris magnis egestas interdum venenatis ullamcorper, proin ultricies ultrices vestibulum at malesuada facilisi viverra turpis class. Velit praesent fusce fames mi facilisi integer bibendum montes ante, orci natoque donec congue nam phasellus dictumst lobortis duis cum, magna tempus quam pharetra pulvinar molestie egestas nec. Et magna fames facilisi imperdiet suscipit cum dapibus tempus, semper venenatis class leo praesent tempor. Ultrices habitasse dapibus fames faucibus posuere luctus phasellus sollicitudin, himenaeos vehicula vulputate nulla platea suscipit sodales dictumst, nisl nibh imperdiet pretium id aliquet maecenas.</p>
-<p>Lorem ipsum dolor sit amet consectetur, adipiscing elit curabitur tincidunt sagittis, a aliquet magna elementum. Ut parturient augue per ultricies venenatis euismod aliquet sodales ultrices nulla nec sapien senectus, nunc tristique porta habitasse iaculis nostra vulputate morbi odio himenaeos vitae. Primis elementum platea lobortis curabitur orci donec molestie, augue malesuada non nunc sociosqu torquent ridiculus enim, habitasse nam quisque id semper a. Litora aptent sed maecenas placerat conubia elementum integer nisl dapibus risus, facilisi erat pellentesque nec morbi platea eu tortor sagittis cursus, orci eget ad diam mus est convallis ac eleifend.</p>
-<p>Cubilia massa pretium non senectus cum erat mauris magnis egestas interdum venenatis ullamcorper, proin ultricies ultrices vestibulum at malesuada facilisi viverra turpis class. Velit praesent fusce fames mi facilisi integer bibendum montes ante, orci natoque donec congue nam phasellus dictumst lobortis duis cum, magna tempus quam pharetra pulvinar molestie egestas nec. Et magna fames facilisi imperdiet suscipit cum dapibus tempus, semper venenatis class leo praesent tempor. Ultrices habitasse dapibus fames faucibus posuere luctus phasellus sollicitudin, himenaeos vehicula vulputate nulla platea suscipit sodales dictumst, nisl nibh imperdiet pretium id aliquet maecenas.</p>
-<p>Lorem ipsum dolor sit amet consectetur, adipiscing elit curabitur tincidunt sagittis, a aliquet magna elementum. Ut parturient augue per ultricies venenatis euismod aliquet sodales ultrices nulla nec sapien senectus, nunc tristique porta habitasse iaculis nostra vulputate morbi odio himenaeos vitae. Primis elementum platea lobortis curabitur orci donec molestie, augue malesuada non nunc sociosqu torquent ridiculus enim, habitasse nam quisque id semper a. Litora aptent sed maecenas placerat conubia elementum integer nisl dapibus risus, facilisi erat pellentesque nec morbi platea eu tortor sagittis cursus, orci eget ad diam mus est convallis ac eleifend.</p>
-<p>Cubilia massa pretium non senectus cum erat mauris magnis egestas interdum venenatis ullamcorper, proin ultricies ultrices vestibulum at malesuada facilisi viverra turpis class. Velit praesent fusce fames mi facilisi integer bibendum montes ante, orci natoque donec congue nam phasellus dictumst lobortis duis cum, magna tempus quam pharetra pulvinar molestie egestas nec. Et magna fames facilisi imperdiet suscipit cum dapibus tempus, semper venenatis class leo praesent tempor. Ultrices habitasse dapibus fames faucibus posuere luctus phasellus sollicitudin, himenaeos vehicula vulputate nulla platea suscipit sodales dictumst, nisl nibh imperdiet pretium id aliquet maecenas.</p>
-<p>Lorem ipsum dolor sit amet consectetur, adipiscing elit curabitur tincidunt sagittis, a aliquet magna elementum. Ut parturient augue per ultricies venenatis euismod aliquet sodales ultrices nulla nec sapien senectus, nunc tristique porta habitasse iaculis nostra vulputate morbi odio himenaeos vitae. Primis elementum platea lobortis curabitur orci donec molestie, augue malesuada non nunc sociosqu torquent ridiculus enim, habitasse nam quisque id semper a. Litora aptent sed maecenas placerat conubia elementum integer nisl dapibus risus, facilisi erat pellentesque nec morbi platea eu tortor sagittis cursus, orci eget ad diam mus est convallis ac eleifend.</p>
-<p>Cubilia massa pretium non senectus cum erat mauris magnis egestas interdum venenatis ullamcorper, proin ultricies ultrices vestibulum at malesuada facilisi viverra turpis class. Velit praesent fusce fames mi facilisi integer bibendum montes ante, orci natoque donec congue nam phasellus dictumst lobortis duis cum, magna tempus quam pharetra pulvinar molestie egestas nec. Et magna fames facilisi imperdiet suscipit cum dapibus tempus, semper venenatis class leo praesent tempor. Ultrices habitasse dapibus fames faucibus posuere luctus phasellus sollicitudin, himenaeos vehicula vulputate nulla platea suscipit sodales dictumst, nisl nibh imperdiet pretium id aliquet maecenas.</p>]]></description>
-                
-
-                <guid isPermaLink="false">tag:localhost:1313,2020-05-20:/test-embeds/</guid>
-
-                
-                    <link>http://localhost:1313/test-embeds/</link>
-                
-
-                
-                    <pubDate>Wed, 20 May 2020 00:00:00 UTC</pubDate>
-                
-
-                
-                    <title>Test Embeds</title>
                 
             </item>
         
@@ -4291,7 +3693,7 @@ Hickory dickory dock.</blockquote>
 
 
 
-<img   class="img-fluid "  crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/human_joystick_centered.jpg"   style="display:block; height: auto; margin:0 auto; width: 60%"   >
+<img   class="img-fluid "  crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/human_joystick_centered.jpg"   style="display:block; height: auto; margin:0 auto; width: 60%"   >
 
 
 </div>
@@ -4419,7 +3821,7 @@ Hickory dickory dock.</blockquote>
 
 
 
-<img   class="img-fluid "  crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/human_joystick_moving.jpg"   style="display:block; height: auto; margin:0 auto; width: 60%"   >
+<img   class="img-fluid "  crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/human_joystick_moving.jpg"   style="display:block; height: auto; margin:0 auto; width: 60%"   >
 
 
 </div>
@@ -4433,10 +3835,10 @@ Hickory dickory dock.</blockquote>
 <p>Ultimately I put the project up for others to view but have not expanded it into a full experience or released it on any marketplaces. Feel free to download the Unity project and try it on your own VR setup if you&rsquo;re curious.</p>]]></description>
                 
 
-                <guid isPermaLink="false">tag:localhost:1313,2020-01-01:/human-joystick/</guid>
+                <guid isPermaLink="false">tag:hockenworks.com,2020-01-01:/human-joystick/</guid>
 
                 
-                    <link>http://localhost:1313/human-joystick/</link>
+                    <link>https://hockenworks.com/human-joystick/</link>
                 
 
                 
@@ -4564,7 +3966,7 @@ Hickory dickory dock.</blockquote>
 
 
 
-<img  alt="Answering Machine homepage"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/answering_machine_uploads.png"   style="height: auto; max-width: 720px; width: 100%"   >
+<img  alt="Answering Machine homepage"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/answering_machine_uploads.png"   style="height: auto; max-width: 720px; width: 100%"   >
 
 
     
@@ -4654,7 +4056,7 @@ Hickory dickory dock.</blockquote>
 
 
 
-<img  alt="Answering Machine main view"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/answering_machine_hr.png"   style="height: auto; width: 100%"   >
+<img  alt="Answering Machine main view"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/answering_machine_hr.png"   style="height: auto; width: 100%"   >
 
 
     
@@ -4742,7 +4144,7 @@ Hickory dickory dock.</blockquote>
 
 
 
-<img  alt="Answering Machine info panel"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/answering_machine_info.png"   style="height: auto; max-width: 720px; width: 100%"   >
+<img  alt="Answering Machine info panel"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/answering_machine_info.png"   style="height: auto; max-width: 720px; width: 100%"   >
 
 
     
@@ -4832,7 +4234,7 @@ Hickory dickory dock.</blockquote>
 
 
 
-<img  alt="Answering Machine query bar"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/answering_machine_query.png"   style="height: auto; max-width: 720px; width: 100%"   >
+<img  alt="Answering Machine query bar"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/answering_machine_query.png"   style="height: auto; max-width: 720px; width: 100%"   >
 
 
     
@@ -4928,7 +4330,7 @@ Hickory dickory dock.</blockquote>
 
 
 
-<img  alt="Answering Machine response"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/answering_machine_answer.png"   style="height: auto; max-width: 720px; width: 100%"   >
+<img  alt="Answering Machine response"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/answering_machine_answer.png"   style="height: auto; max-width: 720px; width: 100%"   >
 
 
     
@@ -5023,7 +4425,7 @@ Hickory dickory dock.</blockquote>
 
 
 
-<img  alt="Answering Machine subjects and conditions"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/answering_machine_lexicon.png"   style="height: auto; max-width: 400px; width: 100%"   >
+<img  alt="Answering Machine subjects and conditions"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/answering_machine_lexicon.png"   style="height: auto; max-width: 400px; width: 100%"   >
 
 
     
@@ -5113,7 +4515,7 @@ Hickory dickory dock.</blockquote>
 
 
 
-<img  alt="Answering Machine concept"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/answering_machine_concept.png"   style="height: auto; max-width: 200px; width: 100%"   >
+<img  alt="Answering Machine concept"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/answering_machine_concept.png"   style="height: auto; max-width: 200px; width: 100%"   >
 
 
     
@@ -5208,7 +4610,7 @@ Hickory dickory dock.</blockquote>
 
 
 
-<img  alt="Serverless Architecture of the Answering Machine app"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/answering_machine_architecture.png"   style="height: auto; max-width: 720px; width: 100%"   >
+<img  alt="Serverless Architecture of the Answering Machine app"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/answering_machine_architecture.png"   style="height: auto; max-width: 720px; width: 100%"   >
 
 
     
@@ -5218,10 +4620,10 @@ Hickory dickory dock.</blockquote>
 ]]></description>
                 
 
-                <guid isPermaLink="false">tag:localhost:1313,2019-07-03:/answering-machine/</guid>
+                <guid isPermaLink="false">tag:hockenworks.com,2019-07-03:/answering-machine/</guid>
 
                 
-                    <link>http://localhost:1313/answering-machine/</link>
+                    <link>https://hockenworks.com/answering-machine/</link>
                 
 
                 
@@ -5351,7 +4753,7 @@ This is what the project looked like for my first play-test with other people 5 
 
 
 
-<img  alt="Land War 4-day MVP"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/land_war_mvp.gif"   style="height: auto; width: 100%"   >
+<img  alt="Land War 4-day MVP"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/land_war_mvp.gif"   style="height: auto; width: 100%"   >
 
 
     
@@ -5439,7 +4841,7 @@ This is what the project looked like for my first play-test with other people 5 
 
 
 
-<img  alt="Player Select screen"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/land_war_player_select.png"   style="height: auto; width: 100%"   >
+<img  alt="Player Select screen"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/land_war_player_select.png"   style="height: auto; width: 100%"   >
 
 
     
@@ -5526,7 +4928,7 @@ This is what the project looked like for my first play-test with other people 5 
 
 
 
-<img  alt="Settings menu"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/land_war_settings.png"   style="height: auto; width: 100%"   >
+<img  alt="Settings menu"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/land_war_settings.png"   style="height: auto; width: 100%"   >
 
 
     
@@ -5615,7 +5017,7 @@ This is what the project looked like for my first play-test with other people 5 
 
 
 
-<img  alt="E3 marketing material"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/land_war_e3.png"   style="height: auto; max-width: 400px; width: 100%"   >
+<img  alt="E3 marketing material"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/land_war_e3.png"   style="height: auto; max-width: 400px; width: 100%"   >
 
 
     
@@ -5632,10 +5034,10 @@ This is what the project looked like for my first play-test with other people 5 
 ]]></description>
                 
 
-                <guid isPermaLink="false">tag:localhost:1313,2019-03-01:/land-war/</guid>
+                <guid isPermaLink="false">tag:hockenworks.com,2019-03-01:/land-war/</guid>
 
                 
-                    <link>http://localhost:1313/land-war/</link>
+                    <link>https://hockenworks.com/land-war/</link>
                 
 
                 
@@ -5759,7 +5161,7 @@ This is what the project looked like for my first play-test with other people 5 
 
 
 
-<img  alt="Serverless Architecture of the First Ten app"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/first_ten_architecture.png"   style="height: auto; max-width: 720px; width: 100%"   >
+<img  alt="Serverless Architecture of the First Ten app"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/first_ten_architecture.png"   style="height: auto; max-width: 720px; width: 100%"   >
 
 
     
@@ -5769,10 +5171,10 @@ This is what the project looked like for my first play-test with other people 5 
 ]]></description>
                 
 
-                <guid isPermaLink="false">tag:localhost:1313,2018-05-19:/first-ten/</guid>
+                <guid isPermaLink="false">tag:hockenworks.com,2018-05-19:/first-ten/</guid>
 
                 
-                    <link>http://localhost:1313/first-ten/</link>
+                    <link>https://hockenworks.com/first-ten/</link>
                 
 
                 
@@ -5819,7 +5221,7 @@ This is what the project looked like for my first play-test with other people 5 
 <p>I created this panel display in 2016 to control much of the home automation I used in my Studio City apartment. Mainly a hardware project, I designed and 3D-printed a case and frame for the touchscreen and raspberry pi microcomputer in order to mount them to the wall. The software running the control panel is SaaS, but I did write a custom html wrapper to control the orientation and settings of the site, which is available on the github linked above.</p>
 <p>Update in 2025: This panel is still my main view into my home automation in my new house in Sherman Oaks, almost 10 years in with no modification!</p>
 <p>Here&rsquo;s a video to see the panel in action:</p>
-<h2 id="hahahugoshortcode27s0hbhb">
+<h2 id="hahahugoshortcode26s0hbhb">
     <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
       <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/iFGmm-ijJvE?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"></iframe>
     </div>
@@ -5881,10 +5283,10 @@ hdmi_cvt 800 480 60 6 0 0 0
 </code></pre>]]></description>
                 
 
-                <guid isPermaLink="false">tag:localhost:1313,2016-01-01:/raspberry-pi-panel/</guid>
+                <guid isPermaLink="false">tag:hockenworks.com,2016-01-01:/raspberry-pi-panel/</guid>
 
                 
-                    <link>http://localhost:1313/raspberry-pi-panel/</link>
+                    <link>https://hockenworks.com/raspberry-pi-panel/</link>
                 
 
                 
@@ -5996,7 +5398,7 @@ hdmi_cvt 800 480 60 6 0 0 0
 
 
 
-<img  alt="nope"   class="rounded-3 w-100"  crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/nope-1.jpg"    >
+<img  alt="nope"   class="rounded-3 w-100"  crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/nope-1.jpg"    >
 
 
       
@@ -6071,7 +5473,7 @@ hdmi_cvt 800 480 60 6 0 0 0
 
 
 
-<img  alt="nope"   class="rounded-3 w-100"  crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/nope-2.jpg"    >
+<img  alt="nope"   class="rounded-3 w-100"  crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/nope-2.jpg"    >
 
 </div>
 </div>
@@ -6150,7 +5552,7 @@ hdmi_cvt 800 480 60 6 0 0 0
 
 
 
-<img  alt="nope"   class="rounded-3 w-100"  crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/nope-3.jpg"    >
+<img  alt="nope"   class="rounded-3 w-100"  crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/nope-3.jpg"    >
 
 
       
@@ -6225,7 +5627,7 @@ hdmi_cvt 800 480 60 6 0 0 0
 
 
 
-<img  alt="nope"   class="rounded-3 w-100"  crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/nope-4.jpg"    >
+<img  alt="nope"   class="rounded-3 w-100"  crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/nope-4.jpg"    >
 
 </div>
 </div>
@@ -6247,10 +5649,10 @@ hdmi_cvt 800 480 60 6 0 0 0
 -Play with the 3-46 deck, shuffle the deck, and remove 11 cards instead of 9 cards before playing.</p>]]></description>
                 
 
-                <guid isPermaLink="false">tag:localhost:1313,2015-01-19:/nope-game/</guid>
+                <guid isPermaLink="false">tag:hockenworks.com,2015-01-19:/nope-game/</guid>
 
                 
-                    <link>http://localhost:1313/nope-game/</link>
+                    <link>https://hockenworks.com/nope-game/</link>
                 
 
                 
@@ -6308,10 +5710,10 @@ Print in ABS if possible. ABS is dishwasher safe (will not warp) and PLA is not.
 <p>Soak in warm soapy water to wash it before storing.</p>]]></description>
                 
 
-                <guid isPermaLink="false">tag:localhost:1313,2014-08-24:/3d-egg-slicer/</guid>
+                <guid isPermaLink="false">tag:hockenworks.com,2014-08-24:/3d-egg-slicer/</guid>
 
                 
-                    <link>http://localhost:1313/3d-egg-slicer/</link>
+                    <link>https://hockenworks.com/3d-egg-slicer/</link>
                 
 
                 
@@ -6361,10 +5763,10 @@ Print two of the attached STL files (one of the mountable variety if you plan to
 <p>The hot glue lets the metal move slightly, so that one metal piece bends to touch the other when a magnet is near either side of the switch, completing the circuit between the two metal ends still sticking out.</p>]]></description>
                 
 
-                <guid isPermaLink="false">tag:localhost:1313,2013-11-25:/3d-reed-switch/</guid>
+                <guid isPermaLink="false">tag:hockenworks.com,2013-11-25:/3d-reed-switch/</guid>
 
                 
-                    <link>http://localhost:1313/3d-reed-switch/</link>
+                    <link>https://hockenworks.com/3d-reed-switch/</link>
                 
 
                 
@@ -6483,7 +5885,7 @@ I hope these characters remind you of some of your favorite series.</p>
 
 
 
-<img   class="rounded-3 w-100"  crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/2013-8-bit-set-1.png"    >
+<img   class="rounded-3 w-100"  crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/2013-8-bit-set-1.png"    >
 
 
       
@@ -6558,7 +5960,7 @@ I hope these characters remind you of some of your favorite series.</p>
 
 
 
-<img   class="rounded-3 w-100"  crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/2013-8-bit-set-2.jpg"    >
+<img   class="rounded-3 w-100"  crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/2013-8-bit-set-2.jpg"    >
 
 </div>
 </div>
@@ -6637,7 +6039,7 @@ I hope these characters remind you of some of your favorite series.</p>
 
 
 
-<img   class="rounded-3 w-100"  crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/2013-8-bit-set-3.jpg"    >
+<img   class="rounded-3 w-100"  crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/2013-8-bit-set-3.jpg"    >
 
 
       
@@ -6712,7 +6114,7 @@ I hope these characters remind you of some of your favorite series.</p>
 
 
 
-<img   class="rounded-3 w-100"  crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/2013-8-bit-set-4.jpg"    >
+<img   class="rounded-3 w-100"  crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/2013-8-bit-set-4.jpg"    >
 
 </div>
 </div>
@@ -6722,10 +6124,10 @@ I hope these characters remind you of some of your favorite series.</p>
 ]]></description>
                 
 
-                <guid isPermaLink="false">tag:localhost:1313,2013-07-09:/8-bit-coasters/</guid>
+                <guid isPermaLink="false">tag:hockenworks.com,2013-07-09:/8-bit-coasters/</guid>
 
                 
-                    <link>http://localhost:1313/8-bit-coasters/</link>
+                    <link>https://hockenworks.com/8-bit-coasters/</link>
                 
 
                 
@@ -6769,10 +6171,10 @@ I hope these characters remind you of some of your favorite series.</p>
     </div>]]></description>
                 
 
-                <guid isPermaLink="false">tag:localhost:1313,2013-05-13:/3d-key/</guid>
+                <guid isPermaLink="false">tag:hockenworks.com,2013-05-13:/3d-key/</guid>
 
                 
-                    <link>http://localhost:1313/3d-key/</link>
+                    <link>https://hockenworks.com/3d-key/</link>
                 
 
                 
@@ -6781,92 +6183,6 @@ I hope these characters remind you of some of your favorite series.</p>
 
                 
                     <title>3D Printed Key</title>
-                
-            </item>
-        
-            <item>
-                
-                
-                
-                
-                
-                
-                
-
-                
-
-                
-
-                
-
-                
-                    
-                
-
-                
-                
-
-                
-
-                
-
-                
-
-                <guid isPermaLink="false">tag:localhost:1313,0001-01-01:/treekeepers-proposal/</guid>
-
-                
-                    <link>http://localhost:1313/treekeepers-proposal/</link>
-                
-
-                
-                    <pubDate>Mon, 01 Jan 0001 00:00:00 UTC</pubDate>
-                
-
-                
-                    <title>Treekeepers Proposal</title>
-                
-            </item>
-        
-            <item>
-                
-                
-                
-                
-                
-                
-                
-
-                
-
-                
-
-                
-
-                
-                    
-                
-
-                
-                
-
-                
-
-                
-
-                
-
-                <guid isPermaLink="false">tag:localhost:1313,0001-01-01:/raspberry-pi-bike-tracker/</guid>
-
-                
-                    <link>http://localhost:1313/raspberry-pi-bike-tracker/</link>
-                
-
-                
-                    <pubDate>Mon, 01 Jan 0001 00:00:00 UTC</pubDate>
-                
-
-                
-                    <title>Raspberry Pi Bike Tracker</title>
                 
             </item>
         
