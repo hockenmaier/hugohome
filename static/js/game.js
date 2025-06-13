@@ -152,6 +152,10 @@
   }
 
   function updateRevenue() {
+    if (!window.App.simulationLoaded) {
+      // Do not reset recurring revenue when the game isn't running.
+      return;
+    }
     // 1) record this second’s auto-clicker income
     const thisRate = App.autoIncomeThisSecond || 0;
 

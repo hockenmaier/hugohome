@@ -328,7 +328,7 @@ App.formatNumber = function (val) {
 };
 
 function formatCostLabels() {
-  document.querySelectorAll(".cost-label").forEach((el) => {
+  document.querySelectorAll(".cost-label:not(.no-format)").forEach((el) => {
     const m = el.textContent.replace(/[^0-9]/g, "");
     const num = parseInt(m, 10);
     if (!isNaN(num)) {
