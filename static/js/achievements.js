@@ -180,23 +180,15 @@
   }
 
   function checkSavedRps() {
-    const pageId = window.location.pathname.replace(/\//g, "_") || "home";
-    const key = `game.${pageId}.revenue`;
-    const rps = Number(localStorage.getItem(key)) || 0;
-    checkRps(rps);
-  }
-
-  function totalRps(currentPageRps) {
-    const pageId = window.location.pathname.replace(/\//g, "_") || "home";
-    const currentKey = `game.${pageId}.revenue`;
-    let sum = currentPageRps || 0;
+    let total = 0;
     for (let i = 0; i < localStorage.length; i++) {
       const k = localStorage.key(i);
-      if (k.startsWith("game.") && k.endsWith(".revenue") && k !== currentKey) {
-        sum += Number(localStorage.getItem(k)) || 0;
+      if (k.startsWith("game.") && k.endsWith(".revenue")) {
+        const r = JSON.parse(localStorage.getItem(k));
+        total += Number(r) || 0;
       }
     }
-    return sum;
+    if (total > 0) checkRps(total);
   }
 
   function init() {
@@ -225,18 +217,17 @@
       if (sec >= 300) unlock("the_elder_orb");
     },
     checkRps: function (rps) {
-      const total = totalRps(rps);
-      if (total > 0) unlock("passive_income");
-      if (total >= 10) unlock("making_moves");
-      if (total >= 100) unlock("side_hustle");
-      if (total >= 1000) unlock("startup_mode");
-      if (total >= 10000) unlock("printing_money");
-      if (total >= 100000) unlock("going_viral");
-      if (total >= 1000000) {
+      if (rps > 0) unlock("passive_income");
+      if (rps >= 10) unlock("making_moves");
+      if (rps >= 100) unlock("side_hustle");
+      if (rps >= 1000) unlock("startup_mode");
+      if (rps >= 10000) unlock("printing_money");
+      if (rps >= 100000) unlock("going_viral");
+      if (rps >= 1000000) {
         unlock("angel_round");
       }
-      if (total >= 10000000) unlock("series_z");
-      if (total >= 100000000) unlock("exit_strategy");
+      if (rps >= 10000000) unlock("series_z");
+      if (rps >= 100000000) unlock("exit_strategy");
     },
     onCoinsChange: function (delta) {
       if (delta > 0) {
