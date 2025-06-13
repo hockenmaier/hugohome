@@ -594,7 +594,7 @@ table {
 <p>I created this panel display in 2016 to control much of the home automation I used in my Studio City apartment. Mainly a hardware project, I designed and 3D-printed a case and frame for the touchscreen and raspberry pi microcomputer in order to mount them to the wall. The software running the control panel is SaaS, but I did write a custom html wrapper to control the orientation and settings of the site, which is available on the github linked above.</p>
 <p>Update in 2025: This panel is still my main view into my home automation in my new house in Sherman Oaks, almost 10 years in with no modification!</p>
 <p>Here&rsquo;s a video to see the panel in action:</p>
-<h2 id="hahahugoshortcode23s0hbhb">
+<h2 id="hahahugoshortcode27s0hbhb">
     <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
       <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/iFGmm-ijJvE?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"></iframe>
     </div>
@@ -1278,21 +1278,21 @@ hdmi_cvt 800 480 60 6 0 0 0
         <img src="https://hockenworks.com/images/DKannon250-mode.png"
         id="toggleLauncher" class="line-toggle" alt="Launcher" />
         <div class="cost-label">
-          <img src="https://hockenworks.com/images/coin-cost.png" alt="Coin" /> 2000
+          <img src="https://hockenworks.com/images/coin-cost.png" alt="Coin" /> 2K
         </div>
       </div>
       <div class="toggle-wrapper">
         <img src="https://hockenworks.com/images/DKannon250-fast-mode.png"
         id="toggleFastLauncher" class="line-toggle" alt="Fast Launcher" />
         <div class="cost-label">
-          <img src="https://hockenworks.com/images/coin-cost.png" alt="Coin" /> 10000
+          <img src="https://hockenworks.com/images/coin-cost.png" alt="Coin" /> 10K
         </div>
       </div>
       <div class="toggle-wrapper">
         <img src="https://hockenworks.com/images/DKannon250-insta-mode.png"
         id="toggleInstaLauncher" class="line-toggle" alt="Insta Launcher" />
         <div class="cost-label">
-          <img src="https://hockenworks.com/images/coin-cost.png" alt="Coin" /> 50000
+          <img src="https://hockenworks.com/images/coin-cost.png" alt="Coin" /> 50K
         </div>
       </div>
       
@@ -1300,7 +1300,7 @@ hdmi_cvt 800 480 60 6 0 0 0
         <img src="https://hockenworks.com/images/compactor-mode.png"
         id="toggleCompactor" class="line-toggle" alt="Compactor" />
         <div class="cost-label">
-          <img src="https://hockenworks.com/images/coin-cost.png" alt="Coin" /> 1000000
+          <img src="https://hockenworks.com/images/coin-cost.png" alt="Coin" /> 1M
         </div>
       </div>
       
@@ -1308,7 +1308,7 @@ hdmi_cvt 800 480 60 6 0 0 0
         <img src="https://hockenworks.com/images/bubblewand-mode.png"
              id="toggleBubbleWand" class="line-toggle" alt="Bubble Wand">
         <div class="cost-label">
-          <img src="https://hockenworks.com/images/coin-cost.png" alt="Coin"> 5000000
+          <img src="https://hockenworks.com/images/coin-cost.png" alt="Coin"> 5M
         </div>
       </div>
     </div>
@@ -1536,7 +1536,11 @@ hdmi_cvt 800 480 60 6 0 0 0
     const costEl = document.getElementById("autoClickerCost");
     if (costEl) {
       if (cost !== undefined) {
-        costEl.innerHTML = '<img src="' + coinCostURL + '" alt="Coin" /> ' + cost;
+        costEl.innerHTML =
+          '<img src="' +
+          coinCostURL +
+          '" alt="Coin" /> ' +
+          App.formatNumber(cost);
         costEl.style.display = 'flex';
       } else {
         costEl.innerHTML = 'Max';
@@ -1594,7 +1598,7 @@ hdmi_cvt 800 480 60 6 0 0 0
       });
       document.body.appendChild(acPreview);
     }
-    acPreview.textContent = `+ ${amt} coins`;
+    acPreview.textContent = `+ ${App.formatNumber(amt)} coins`;
     acPreview.style.left = x + 'px';
     acPreview.style.top  = y + 'px';
     acPreview.style.transform = 'translate(-50%,-50%)';

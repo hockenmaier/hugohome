@@ -101,7 +101,7 @@
         if (App.Achievements.checkNightShift) App.Achievements.checkNightShift();
       }
 
-      displayGoalNotification(`+${income} Coins`, notifColor, hitPos);
+      displayGoalNotification(`+${App.formatNumber(income)} Coins`, notifColor, hitPos);
     });
   }
 

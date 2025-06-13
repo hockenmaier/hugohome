@@ -152,6 +152,13 @@
   }
 
   function updateRevenue() {
+    if (!window.App.simulationLoaded) {
+      const thisDisplay = document.getElementById("thispage-revenue-display");
+      if (thisDisplay) thisDisplay.innerHTML = "";
+      App.autoIncomeThisSecond = 0;
+      return;
+    }
+
     // 1) record this second’s auto-clicker income
     const thisRate = App.autoIncomeThisSecond || 0;
 
@@ -164,20 +171,19 @@
       history.reduce((sum, v) => sum + v, 0) / history.length
     );
     if (App.Achievements && App.Achievements.checkRps)
-      App.Achievements.checkRps(currentPageRate);
+      App.Achievements.checkRps(getAllPagesRevenue());
     if (App.Achievements && App.Achievements.checkPages)
       App.Achievements.checkPages();
 
     // 4) update the on-page display
     const thisDisplay = document.getElementById("thispage-revenue-display");
     if (thisDisplay) {
-      thisDisplay.innerHTML = window.App.simulationLoaded
-        ? 'This page: <img src="' +
-          coinCostURL +
-          '" alt="Coin" style="width:12px;height:12px;"> ' +
-          currentPageRate +
-          " /s"
-        : "";
+      thisDisplay.innerHTML =
+        'This page: <img src="' +
+        coinCostURL +
+        '" alt="Coin" style="width:12px;height:12px;"> ' +
+        App.formatNumber(currentPageRate) +
+        " /s";
     }
 
     // 5) persist ALWAYS even if auto-clicker’s not active, because now we are checking for if revenue comes from autoclicker balls directly.  The below check that was here before was causing revenue not to be saved after the autoclicker was refunded.
@@ -200,7 +206,7 @@
           '<img src="' +
           coinCostURL +
           '" alt="Coin" style="width:12px;height:12px;"> ' +
-          otherRate +
+          App.formatNumber(otherRate) +
           " /s";
       } else {
         otherDisplay.innerHTML =
@@ -208,7 +214,7 @@
           '<img src="' +
           coinCostURL +
           '" alt="Coin" style="width:12px;height:12px;"> ' +
-          otherRate +
+          App.formatNumber(otherRate) +
           " /s";
       }
     }
@@ -238,11 +244,11 @@
           '<img src="' +
           coinCostURL +
           '" alt="Coin" style="width:12px;height:12px;"> ' +
-          currentPageRate +
+          App.formatNumber(currentPageRate) +
           " /s";
       }
       if (App.Achievements && App.Achievements.checkRps)
-        App.Achievements.checkRps(currentPageRate);
+        App.Achievements.checkRps(getAllPagesRevenue());
       if (App.Achievements && App.Achievements.checkPages)
         App.Achievements.checkPages();
     }
