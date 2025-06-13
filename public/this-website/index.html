@@ -1933,8 +1933,8 @@ document.addEventListener('DOMContentLoaded', function(){
   try {
     var defs = (window.App && App.Achievements && App.Achievements.defs) || [];
     var unlocked = JSON.parse(localStorage.getItem('game.achievementsUnlocked') || '{}');
-    var yes = '\/images\/achievement-yes.png';
-    var no = '\/images\/achievement-no.png';
+    var yes = 'http:\/\/localhost:1313\/images\/achievement-yes.png';
+    var no = 'http:\/\/localhost:1313\/images\/achievement-no.png';
     if(!defs.length){
       console.warn('No achievements definitions found');
     }
@@ -2872,7 +2872,11 @@ document.addEventListener('DOMContentLoaded', function(){
     const costEl = document.getElementById("autoClickerCost");
     if (costEl) {
       if (cost !== undefined) {
-        costEl.innerHTML = '<img src="' + coinCostURL + '" alt="Coin" /> ' + cost;
+        costEl.innerHTML =
+          '<img src="' +
+          coinCostURL +
+          '" alt="Coin" /> ' +
+          App.formatNumber(cost);
         costEl.style.display = 'flex';
       } else {
         costEl.innerHTML = 'Max';
@@ -2930,7 +2934,7 @@ document.addEventListener('DOMContentLoaded', function(){
       });
       document.body.appendChild(acPreview);
     }
-    acPreview.textContent = `+ ${amt} coins`;
+    acPreview.textContent = `+ ${App.formatNumber(amt)} coins`;
     acPreview.style.left = x + 'px';
     acPreview.style.top  = y + 'px';
     acPreview.style.transform = 'translate(-50%,-50%)';

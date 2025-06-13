@@ -2326,21 +2326,21 @@ This game was intended to have low art requirements and simple interaction rules
         <img src="http://localhost:1313/images/DKannon250-mode.png"
         id="toggleLauncher" class="line-toggle" alt="Launcher" />
         <div class="cost-label">
-          <img src="http://localhost:1313/images/coin-cost.png" alt="Coin" /> 2000
+          <img src="http://localhost:1313/images/coin-cost.png" alt="Coin" /> 2K
         </div>
       </div>
       <div class="toggle-wrapper">
         <img src="http://localhost:1313/images/DKannon250-fast-mode.png"
         id="toggleFastLauncher" class="line-toggle" alt="Fast Launcher" />
         <div class="cost-label">
-          <img src="http://localhost:1313/images/coin-cost.png" alt="Coin" /> 10000
+          <img src="http://localhost:1313/images/coin-cost.png" alt="Coin" /> 10K
         </div>
       </div>
       <div class="toggle-wrapper">
         <img src="http://localhost:1313/images/DKannon250-insta-mode.png"
         id="toggleInstaLauncher" class="line-toggle" alt="Insta Launcher" />
         <div class="cost-label">
-          <img src="http://localhost:1313/images/coin-cost.png" alt="Coin" /> 50000
+          <img src="http://localhost:1313/images/coin-cost.png" alt="Coin" /> 50K
         </div>
       </div>
       
@@ -2348,7 +2348,7 @@ This game was intended to have low art requirements and simple interaction rules
         <img src="http://localhost:1313/images/compactor-mode.png"
         id="toggleCompactor" class="line-toggle" alt="Compactor" />
         <div class="cost-label">
-          <img src="http://localhost:1313/images/coin-cost.png" alt="Coin" /> 1000000
+          <img src="http://localhost:1313/images/coin-cost.png" alt="Coin" /> 1M
         </div>
       </div>
       
@@ -2356,7 +2356,7 @@ This game was intended to have low art requirements and simple interaction rules
         <img src="http://localhost:1313/images/bubblewand-mode.png"
              id="toggleBubbleWand" class="line-toggle" alt="Bubble Wand">
         <div class="cost-label">
-          <img src="http://localhost:1313/images/coin-cost.png" alt="Coin"> 5000000
+          <img src="http://localhost:1313/images/coin-cost.png" alt="Coin"> 5M
         </div>
       </div>
     </div>
@@ -2584,7 +2584,11 @@ This game was intended to have low art requirements and simple interaction rules
     const costEl = document.getElementById("autoClickerCost");
     if (costEl) {
       if (cost !== undefined) {
-        costEl.innerHTML = '<img src="' + coinCostURL + '" alt="Coin" /> ' + cost;
+        costEl.innerHTML =
+          '<img src="' +
+          coinCostURL +
+          '" alt="Coin" /> ' +
+          App.formatNumber(cost);
         costEl.style.display = 'flex';
       } else {
         costEl.innerHTML = 'Max';
@@ -2642,7 +2646,7 @@ This game was intended to have low art requirements and simple interaction rules
       });
       document.body.appendChild(acPreview);
     }
-    acPreview.textContent = `+ ${amt} coins`;
+    acPreview.textContent = `+ ${App.formatNumber(amt)} coins`;
     acPreview.style.left = x + 'px';
     acPreview.style.top  = y + 'px';
     acPreview.style.transform = 'translate(-50%,-50%)';

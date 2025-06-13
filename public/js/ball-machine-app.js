@@ -283,6 +283,15 @@ window.App = {
   },
 };
 
+App.formatNumber = function (n) {
+  n = Math.floor(n);
+  if (n >= 1e12) return (n / 1e12).toFixed(3) + "T";
+  if (n >= 1e9) return (n / 1e9).toFixed(3) + "B";
+  if (n >= 1e6) return (n / 1e6).toFixed(3) + "M";
+  if (n >= 1000) return n.toLocaleString();
+  return String(n);
+};
+
 function initApp() {
   App.init();
 }
@@ -324,10 +333,11 @@ App.updateCoinsDisplay = function () {
   if (App.Achievements && typeof App.Achievements.onCoinsChange === "function") {
     App.Achievements.onCoinsChange(delta);
   }
+  const formatted = App.formatNumber(App.config.coins);
   const display = document.getElementById("coins-display");
-  if (display) display.textContent = `${App.config.coins} coins`;
+  if (display) display.textContent = `${formatted} coins`;
   const globalDisplay = document.getElementById("global-coins-display");
-  if (globalDisplay) globalDisplay.textContent = `${App.config.coins} coins`;
+  if (globalDisplay) globalDisplay.textContent = `${formatted} coins`;
   if (App.Storage) {
     App.Storage.setItem("coins", App.config.coins);
   }

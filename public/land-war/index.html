@@ -1838,7 +1838,11 @@ This is what the project looked like for my first play-test with other people 5 
     const costEl = document.getElementById("autoClickerCost");
     if (costEl) {
       if (cost !== undefined) {
-        costEl.innerHTML = '<img src="' + coinCostURL + '" alt="Coin" /> ' + cost;
+        costEl.innerHTML =
+          '<img src="' +
+          coinCostURL +
+          '" alt="Coin" /> ' +
+          App.formatNumber(cost);
         costEl.style.display = 'flex';
       } else {
         costEl.innerHTML = 'Max';
@@ -1896,7 +1900,7 @@ This is what the project looked like for my first play-test with other people 5 
       });
       document.body.appendChild(acPreview);
     }
-    acPreview.textContent = `+ ${amt} coins`;
+    acPreview.textContent = `+ ${App.formatNumber(amt)} coins`;
     acPreview.style.left = x + 'px';
     acPreview.style.top  = y + 'px';
     acPreview.style.transform = 'translate(-50%,-50%)';
