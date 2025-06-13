@@ -285,6 +285,7 @@ window.App = {
 
 function initApp() {
   App.init();
+  formatCostLabels();
 }
 
 if (document.readyState === "loading") {
@@ -317,6 +318,26 @@ if (window.localStorage) {
   App.config.coins = App.Storage.getItem("coins", App.config.coins);
 }
 
+// Helper: format numbers with commas and M/B/T suffixes
+App.formatNumber = function (val) {
+  val = Math.floor(val);
+  if (val >= 1e12) return (val / 1e12).toFixed(3) + "T";
+  if (val >= 1e9) return (val / 1e9).toFixed(3) + "B";
+  if (val >= 1e6) return (val / 1e6).toFixed(3) + "M";
+  return val.toLocaleString("en-US");
+};
+
+function formatCostLabels() {
+  document.querySelectorAll(".cost-label").forEach((el) => {
+    const m = el.textContent.replace(/[^0-9]/g, "");
+    const num = parseInt(m, 10);
+    if (!isNaN(num)) {
+      el.innerHTML = '<img src="' + coinCostURL + '" alt="Coin" /> ' +
+        App.formatNumber(num);
+    }
+  });
+}
+
 App.updateCoinsDisplay = function () {
   const prev = App.__prevCoins || App.config.coins;
   const delta = App.config.coins - prev;
@@ -324,10 +345,11 @@ App.updateCoinsDisplay = function () {
   if (App.Achievements && typeof App.Achievements.onCoinsChange === "function") {
     App.Achievements.onCoinsChange(delta);
   }
+  const formatted = App.formatNumber(App.config.coins);
   const display = document.getElementById("coins-display");
-  if (display) display.textContent = `${App.config.coins} coins`;
+  if (display) display.textContent = `${formatted} coins`;
   const globalDisplay = document.getElementById("global-coins-display");
-  if (globalDisplay) globalDisplay.textContent = `${App.config.coins} coins`;
+  if (globalDisplay) globalDisplay.textContent = `${formatted} coins`;
   if (App.Storage) {
     App.Storage.setItem("coins", App.config.coins);
   }

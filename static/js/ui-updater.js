@@ -38,7 +38,7 @@
 
   function updateCoinsDisplay() {
     const display = document.getElementById("coins-display");
-    if (display) display.textContent = `${App.config.coins} coins`;
+    if (display) display.textContent = `${App.formatNumber(App.config.coins)} coins`;
   }
 
   function runUpdater() {

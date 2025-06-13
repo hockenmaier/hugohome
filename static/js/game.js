@@ -175,7 +175,7 @@
         ? 'This page: <img src="' +
           coinCostURL +
           '" alt="Coin" style="width:12px;height:12px;"> ' +
-          currentPageRate +
+          App.formatNumber(currentPageRate) +
           " /s"
         : "";
     }
@@ -200,7 +200,7 @@
           '<img src="' +
           coinCostURL +
           '" alt="Coin" style="width:12px;height:12px;"> ' +
-          otherRate +
+          App.formatNumber(otherRate) +
           " /s";
       } else {
         otherDisplay.innerHTML =
@@ -208,7 +208,7 @@
           '<img src="' +
           coinCostURL +
           '" alt="Coin" style="width:12px;height:12px;"> ' +
-          otherRate +
+          App.formatNumber(otherRate) +
           " /s";
       }
     }
