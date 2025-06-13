@@ -134,7 +134,7 @@
 
   // expose full-opacity version for other modules (auto-clicker)
   window.showRefundNotification = (amt, x, y) =>
-    createNotification(`+ ${amt} Coins`, x, y, 1);
+    createNotification(`+ ${App.formatNumber(amt)} Coins`, x, y, 1);
 
   /* ---------- hover preview ---------- */
 
@@ -145,7 +145,7 @@
     if (refund <= 0) return;
     if (!hoverPreview) hoverPreview = document.createElement("div");
 
-    hoverPreview.textContent = `+ ${refund} coins`;
+    hoverPreview.textContent = `+ ${App.formatNumber(refund)} coins`;
     Object.assign(hoverPreview.style, {
       position: "absolute",
       pointerEvents: "none",
@@ -388,6 +388,6 @@
 
   /* --- expose preview helper so other modules (e.g. auto-clicker) can reuse it --- */
   window.showRefundPreview = (amt, x, y) =>
-    createNotification(`+ ${amt} coins`, x, y, 0.4);
+    createNotification(`+ ${App.formatNumber(amt)} coins`, x, y, 0.4);
   window.hideRefundPreview = hidePreview;
 })();

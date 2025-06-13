@@ -113,6 +113,13 @@
     unlocked[id] = 1;
     save();
     updateCounter();
+    if (typeof gtag === "function") {
+      gtag("event", "achievement_unlocked", {
+        event_category: "Ball Machine",
+        event_label: id,
+        value: 1,
+      });
+    }
   }
 
   function checkUpgrades() {
