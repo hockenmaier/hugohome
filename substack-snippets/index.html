@@ -589,6 +589,125 @@ table {
 
 <div class="post-header" style="margin-bottom:1rem;">
   <h2 class="post-title" style="margin:0;">
+    <a class="link-light" href="https://hockenworks.com/vision-is-the-last-hurdle-before-agi/">Vision is the last hurdle before AGI</a>
+  </h2>
+
+  <p class="permalink" style="margin:0 0 1rem;">
+    <a href="https://hockenworks.com/vision-is-the-last-hurdle-before-agi/">https://hockenworks.com/vision-is-the-last-hurdle-before-agi/</a>
+  </p>
+
+  <div class="copy-buttons" style="margin-bottom:1rem;">
+    <button id="copy-all-btn"      style="margin-right:.5rem; padding:.5rem 1rem; cursor:pointer;">Copy All</button>
+    <button id="copy-linkback-btn" style="padding:.5rem 1rem; cursor:pointer;">Copy LinkBack</button>
+  </div>
+</div>
+
+<article id="copy-content" class="latest-item mb-4" style="display:flex; align-items:flex-start;">
+  <div class="media-column">
+    <div class="media-container" style="width:300px; height:300px;">
+
+      
+        <a href="https://hockenworks.com/vision-is-the-last-hurdle-before-agi/"><img src="https://hockenworks.com/images/vision-feature.png" alt="Vision is the last hurdle before AGI"></a>
+
+      
+
+    </div>
+  </div>
+
+  <div class="text-column" style="align-self:flex-start; margin-top:0;">
+    <div class="post-summary" style="margin-top:0; margin-bottom:.5rem;">
+      <p>I have long been of the mind that LLMs and their evolutions are truly thinking, and that they are on their way to solving all of the intellectual tasks that humans can solve today.</p>
+<p>To me, it is just too uncanny that the technology that seems to have made the final jump to some degree of competence in tasks that require what is commonly understood as &ldquo;thinking&rdquo; or &ldquo;understanding&rdquo;, after a long string of attempts and architectures that fail these tasks, is a type of neural network. It would be much easier to argue away transformer models as non-thinking stochastic parrots if we had happened to have had success with any other architecture than the one that was designed to mimic our own brains and the neurons firing off to one another within them. It&rsquo;s just too weird. They are shaped like us, they sound like us in a lot of ways, and it&rsquo;s obvious they are thinking something like us too.</p>
+    </div>
+
+    <p class="read-more text-secondary fst-italic" style="margin:0;">
+      13 minutes ·
+      <a href="https://hockenworks.com/vision-is-the-last-hurdle-before-agi/">This post is a hockenworks build. Play and read more at hockenworks →</a>
+    </p>
+
+    
+    <div id="linkback-content" class="linkback-image" style="margin-top:1rem;">
+      <a href="https://hockenworks.com/vision-is-the-last-hurdle-before-agi/">
+        <img src="https://hockenworks.com/images/hockenworks-linkback.png" alt="Link back to post" style="max-width:100%; height:auto;">
+      </a>
+    </div>
+  </div>
+</article>
+
+
+<script>
+(() => {
+   
+  function copyRich(selector) {
+    const source = document.querySelector(selector);
+    if (!source) { console.error('copyRich: selector not found ->', selector); return; }
+
+     
+    const tmp = source.cloneNode(true);
+    tmp.style.position = 'absolute';
+    tmp.style.left = '-99999px';
+    document.body.appendChild(tmp);
+
+    const range = document.createRange();
+    range.selectNodeContents(tmp);
+    const sel = window.getSelection();
+    sel.removeAllRanges();
+    sel.addRange(range);
+
+     
+    let success = false;
+    try {
+      success = document.execCommand('copy');
+      console.log('execCommand copy:', success);
+    } catch (err) {
+      console.warn('execCommand failed:', err);
+    }
+
+     
+    if (!success && navigator.clipboard && window.ClipboardItem) {
+      const blob = new Blob([tmp.innerHTML], { type: 'text/html' });
+      navigator.clipboard.write([new ClipboardItem({ 'text/html': blob })])
+        .then(() => console.log('navigator.clipboard.write success'))
+        .catch(e => console.error('navigator.clipboard.write failed:', e));
+    }
+
+     
+    sel.removeAllRanges();
+    document.body.removeChild(tmp);
+  }
+
+  document.getElementById('copy-all-btn')
+          .addEventListener('click', () => copyRich('#copy-content'));
+
+  document.getElementById('copy-linkback-btn')
+          .addEventListener('click', () => copyRich('#linkback-content'));
+})();
+</script>
+  
+
+
+
+
+
+
+
+
+
+  
+
+  
+    
+    
+  
+
+
+
+
+
+
+
+<div class="post-header" style="margin-bottom:1rem;">
+  <h2 class="post-title" style="margin:0;">
     <a class="link-light" href="https://hockenworks.com/this-website/">This Website</a>
   </h2>
 
