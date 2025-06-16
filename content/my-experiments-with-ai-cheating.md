@@ -1,6 +1,6 @@
 ---
 title: "My Experiments with AI Cheating"
-date: 2025-06-23
+date: 2025-06-30
 project-date: 2023-09-10
 categories: ["builds"]
 project_link: "https://github.com/hockenmaier/make-us-smarter"

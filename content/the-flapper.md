@@ -1,6 +1,6 @@
 ---
 title: "The Flapper - A Physical VR Multiplayer Game"
-date: 2025-06-16
+date: 2025-06-23
 project_date: 2023-02-01
 categories: ["builds"]
 stack: ["Unity", "C#", "Photon Networking", "XR Toolkit"]

@@ -1,6 +1,6 @@
 ---
 title: "The Purgatory of AAA Gaming"
-date: 2025-07-28
+date: 2025-07-07
 categories: ["writing"]
 tags:
   [
@@ -16,21 +16,25 @@ tags:
 short_description: "A look at why games from today play like games from 20 years ago"
 ---
 
-During my parental leave, I played through quite a few video games - something I love and one of the easiest ways to spend time while rocking my daughter to sleep.
+During my parental leave, I played through quite a few video games - something I love and one of the easiest ways to spend time while rocking my baby daughter to sleep. And it doesn't hurt that my amazing wife loves watching games about as much as watching TV or movies with me, as long as they are beautiful or cooperative in some way. All of these are.
 
- <!--more-->
+They include, in order:
 
-They include:
+<!--more-->
 
-- The Legend of Zelda: The Minish Cap ^Steam Deck^
-- Carto ^Steam on Windows^
-- Tunic ^Steam on Windows^
-- Abzu ^Steam on Windows^
-- SteamWorld: Build ^Steam on Windows^
-- World of Goo 2 ^Nintendo Switch^
-- Oblivion Remastered ^Steam on Windows^
-- Mario Kart World ^Nintendo Switch 2^
-- Donkey Kong Bananza ^Nintendo Switch 2^
+- [The Legend of Zelda: The Minish Cap](https://en.wikipedia.org/wiki/The_Legend_of_Zelda:_The_Minish_Cap) ^Steam Deck^
+- [Carto](https://store.steampowered.com/app/1172450/Carto/) ^Steam on Windows^ – also where my favorite Daddy-daughter song so far, [Bond](https://open.spotify.com/track/669Y0Jq6EBlsvToJ6AeUNz?si=1b321f505f4e4f8c) comes from.
+- [Tunic](https://store.steampowered.com/app/553420/TUNIC/) ^Steam on Windows^
+- [Abzu](https://store.steampowered.com/app/384190/ABZU/) ^Steam on Windows^
+- [SteamWorld: Build](https://store.steampowered.com/app/2134770/SteamWorld_Build/) ^Steam on Windows^
+- [World of Goo 2](https://www.nintendo.com/us/store/products/world-of-goo-2-switch/) ^Nintendo Switch^
+- [Oblivion Remastered](https://store.steampowered.com/app/2623190/The_Elder_Scrolls_IV_Oblivion_Remastered/) ^Steam on Windows^
+- [Balatro](https://store.steampowered.com/app/2379780/Balatro/) ^Steam on Windows^
+- [Mario Kart World](https://www.nintendo.com/us/store/products/mario-kart-world-switch-2/) ^Nintendo Switch 2^
+- [Nintendo Switch 2 Welcome Tour](https://www.nintendo.com/us/store/products/nintendo-switch-2-welcome-tour-switch-2/) ^Nintendo Switch 2^
+- [Yoshi's Island SNES](https://en.wikipedia.org/wiki/Yoshi%27s_Island) ^Nintendo Switch 2^
+
+And yes, I did pick the game from my favorite series that happens to be about miniature people as the first game my miniature daughter Alice would hear.
 
 Most of these are indie titles, but the one I spent the most time on was the Oblivion Remaster - one which surprised me both with how good it looks and with how well it played. Oblivion is a 19 year old game, and a purely graphics-related overhaul should not have made it as good or better than modern AAA games releasing today, but in my opinion (and many others I’m reading) it absolutely did. How could this be?
 
