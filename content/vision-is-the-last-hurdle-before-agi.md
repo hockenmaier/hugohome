@@ -100,7 +100,11 @@ But believe me, I try essentially everything I can get my hands on, and like non
     alt="My Flipper Zero and 3D Printed Clone"
     caption="My Flipper Zero (left) and its 3d-printed clone (right)" >}}
 
-I was impressed when I first saw this output and others I tried, though this was one of the best. Feature-wise, this did a pretty good job of capturing the main facets of my Flipper Zero. But it's just too obviously not good enough: dimensions are all wrong, there is hallucinated symmetry all over the place, and small details are missed everywhere. One of the reasons I printed this model was just to get a real feel for how similar it is to the Flipper when scaled correctly, and it just becomes obvious that this is not a useful technology yet when you hold both of them in your hands.
+The input to the model was a picture I took of my [Flipper Zero hacking toy](https://flipperzero.one/). The 3D print on the right is of the 3D model it produced, with the only modification on my part being to scale it.
+
+I have long awaited an easy way to "3D scan" parts from the real world into software. This would make so many of my DIY printing jobs around the house much easier - and it gets us one step closer to the dream of teleportation.
+
+And I was impressed when I first saw this output - it was one of the best of my attempts with this AI tool. Feature-wise, it did a pretty good job of capturing the main facets of my Flipper Zero. But it's just too obviously not good enough: dimensions are all wrong, there is hallucinated symmetry all over the place, and small details are missed everywhere. One of the reasons I printed this model was just to get a real feel for how similar it is to the Flipper when scaled correctly, and it just becomes obvious that this is not a useful technology yet when you hold both of them in your hands.
 
 My prediction is that frontier models will get there before purpose-trained models like the one that cloned my Flipper Zero. This has been the reality across most other domains of AI. Now that we have general-purpose AI models that have started to encapsulate a working, if not complete, conceptual model of the world, they are starting to outperform all of the smaller purpose-built models of the last decade.
 
