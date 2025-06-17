@@ -77,7 +77,7 @@ Here's another great example of what I mean when I say that frontier models have
 I recently gave this question to the latest thinking image model, o3: "Here's an image from Google Maps of the block I live on between the avenues of Burbank, Hazeltine, Oxnard, and Van Nuys. What is the longest continuous loop I can walk within the neighborhood without crossing my path or touching one of the avenues? This square is 1/2 mi on each side"
 
 {{< image-small
-    src="images/o3-struggle-map.png"
+    src="images/o3-struggle-map-new.png"
     alt="the uploaded map"
     caption="The image uploaded with this query" >}}
 
