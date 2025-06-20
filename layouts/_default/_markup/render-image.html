@@ -1,0 +1,9 @@
+{{- /* render-image.html */ -}}
+{{- $path := printf "images/%s" (path.Base .Destination) -}}
+{{- with resources.Get $path }}
+  {{- $webp := .Resize "0x webp q85" -}}
+  <picture>
+    <source type="image/webp" srcset="{{ $webp.RelPermalink }}">
+    {{ partial "paige/image" (dict "resource" . "alt" $.Text "loading" "lazy") }}
+  </picture>
+{{- end }}
