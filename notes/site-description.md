@@ -10,4 +10,4 @@ Ball Machine is only fully loaded when the user clicks the spawner on any page, 
 
 This site is deployed via github pages, which contains the content from the /public folder, which I deploy by pushing changes to a special gh-pages branch which is picked up through GH actions. It is served on hockenworks.com via Cloudflare.
 
-All images live under `assets/images` so that Hugo's resource pipeline can process them. A render hook converts each image to WebP at build time and outputs a `<picture>` block with a WebP `<source>` and the original file as a fallback.
+All images live under `assets/images` so that Hugo's resource pipeline can process them. A render hook converts each image to WebP at build time and outputs a `<picture>` block with a WebP `<source>` and the original file as a fallback. The hook calls Paige's built-in image partial so images keep their intrinsic width and height.
