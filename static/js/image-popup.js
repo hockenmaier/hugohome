@@ -25,6 +25,7 @@
     const img = e.target.closest('img');
     if (!img) return;
     if (img.closest('a, button, #ballfall-ui, #spawner-container')) return;
+    if (img.dataset.nozoom !== undefined) return;
 
     const ov = document.createElement('div');
     ov.id = overlayId;

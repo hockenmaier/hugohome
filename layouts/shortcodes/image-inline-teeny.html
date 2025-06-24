@@ -8,7 +8,7 @@
   "
 >
   {{ partial "paige/image" (dict "src" (.Get "src") "alt" (.Get "alt" | default
-  "Image description") "width" "100%" "maxwidth" "100px" ) }} {{ with .Get
+  "Image description") "width" "100%" "maxwidth" "100px" "nozoom" (.Get "nozoom") ) }} {{ with .Get
   "caption" }}
   <span
     style="

@@ -6,11 +6,14 @@
       {{- $parts := split (trim . " \n\t\r") "|" -}}
       {{- $src := index $parts 0 -}}
       {{- $alt := "" -}}
+      {{- $nozoom := false -}}
       {{- if gt (len $parts) 1 }} {{- $alt = index $parts 1 -}} {{- end }}
+      {{- if gt (len $parts) 2 }} {{- $nozoom = eq (index $parts 2) "nozoom" -}} {{- end }}
       {{ partial "paige/image" (dict
           "src"   (print "/" $src)
           "alt"   $alt
           "class" "rounded-3 w-100"
+          "nozoom" $nozoom
       ) }}
     {{- end -}}
   </div>
