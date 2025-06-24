@@ -3,7 +3,8 @@
         "src" (.Get "src") 
         "alt" (.Get "alt" | default "Image description") 
         "width" "100%"
-        "maxwidth" "720px") 
+        "maxwidth" "720px"
+        "nozoom" (.Get "nozoom"))
     }}
     {{ with .Get "caption" }}
         <span style="display: block; font-style: italic; margin-top: 0.5rem;">{{ . }}</span>
