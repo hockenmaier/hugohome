@@ -5,10 +5,10 @@ title = "hockenworks"
 +++
 
 {{< round-gallery >}}
-zworkbench-herobanner.png|Building,
-znintendo-herobanner.png|Games,
-zrobots2-herobanner.png|Automation,
-zcoronado-herobanner.png|Lifestyle
+zworkbench-herobanner.webp|Building,
+znintendo-herobanner.webp|Games,
+zrobots2-herobanner.webp|Automation,
+zcoronado-herobanner.webp|Lifestyle
 {{< /round-gallery >}}
 
 {{< centered-text >}}
