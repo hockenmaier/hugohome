@@ -5,17 +5,22 @@ categories: ["writing"]
 tags: ["work-life balance", "happiness", "wealth", "singularity", "AI"]
 ---
 
-I came across this tweet today that was surprisingly contentious. Maybe not so surprising given the state of Twitter, but still:
+Early last year, I came across this tweet:
 
 [https://twitter.com/AdamRackis/status/1762321041899012307](https://twitter.com/AdamRackis/status/1762321041899012307)
 
-On the face of it, “people get twisted in their relationship with work” seems like a reasonable take. Stop complaining—you are making 16x the median salary in this country. Just do the boring job with the toxic team.
+The discussion was surprisingly contentious. Maybe I should stop being surprised given the state of Twitter and all social media, but still sometimes shocking how dug-in people are in their beliefs about work. On the face of it, “people get twisted in their relationship with work” seems like a reasonable take. "Stop complaining—you are making 16x the median salary in this country. Just do the boring job with the toxic team."
 
-Let’s stop and think about this for a second. The original poster (OP from now on) is making $800K annually due to the appreciation of Spotify stock. An obscene amount of money? Maybe, maybe not. I do not have the typical hang-ups about the wealthy or ultra-wealthy. I don’t see this world as a zero-sum game, and I think the richest people out there have usually done some amazing things, especially in countries like the US where most wealth is not old wealth.
+Let’s stop and think about this for a second. The original poster (OP) is making $800K annually due to the appreciation of Spotify stock. An obscene amount of money? Maybe, maybe not. I do not have the typical hang-ups about the wealthy or ultra-wealthy. I don’t see this world as a zero-sum game, and I think the richest people out there have usually done some amazing things, especially in countries like the US where most wealth is not old wealth.
 
-But there is a difference between founding a company you’re passionate about, which goes on to become incredibly valuable, and working for someone else doing a job you think is boring in order to join the 1%. In this article, I’m talking about the latter.
+But there is a huge difference in the two main routes to creating becoming very wealthy:
 
-I propose this core question for this type of person: Is this large income worth doing a job you find boring, or working with people you feel are toxic? I would say no. Absolutely not. OP is clearly regretting how he’s spending his time at work. He should look for something to do that he values, even if it pays a quarter as much as he gets now. Or less!
+1.  Founding a company or practice, or joining one early, out of passion - which then goes on to become incredibly valuable
+2.  Working for someone else doing a job you think is boring in order to join the 1%.
+
+In this article, I’m talking about the latter.
+
+I propose this core question for this type of person engaging in number 2: Is this large income worth doing a job you find boring, or working with people you feel are toxic? I would say no. Absolutely not. OP is clearly regretting how he’s spending his time at work. He should look for something to do that he values, even if it pays a quarter as much as he gets now. Or less!
 
 ## The Hedonic Treadmill
 

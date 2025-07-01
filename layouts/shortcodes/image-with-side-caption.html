@@ -3,7 +3,8 @@
         "src" (.Get "src") 
         "alt" (.Get "alt" | default "Image description") 
         "width" (.Get "width") 
-        "maxwidth" (.Get "maxwidth")) 
+        "maxwidth" (.Get "maxwidth")
+        "nozoom" (.Get "nozoom"))
     }}
     {{ with .Get "caption" }}
         <span style="font-style: italic;">{{ . }}</span>

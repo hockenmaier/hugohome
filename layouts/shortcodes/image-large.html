@@ -2,7 +2,8 @@
     {{ partial "paige/image" (dict 
         "src" (.Get "src") 
         "alt" (.Get "alt" | default "Image description") 
-        "width" "100%") 
+        "width" "100%"
+        "nozoom" (.Get "nozoom"))
     }}
     {{ with .Get "caption" }}
         <span style="display: block; font-style: italic; margin-top: 0.5rem;">{{ . }}</span>
