@@ -6,6 +6,7 @@ categories: ["builds"]
 project_link: "https://github.com/hockenmaier/make-us-smarter"
 github_link: "https://github.com/hockenmaier/make-us-smarter"
 tags: ["Experimental", "AI", "Prototyping", "User Experience", "software"]
+featured: "/images/make-us-smarter-feature.webp"
 ---
 
 The advent of general coding AI assistants almost immediately changed how I think about hiring and interviews.
@@ -51,10 +52,10 @@ I open-sourced the project which is a pretty small Unity build, and it's a Unity
 
 https://github.com/hockenmaier/make-us-smarter
 
-## Interviewing Today
+## Interviewing Mitigations
 
-This whole experience has led me to an interview approach that I think is infallible (for now). And it doesn't require sending someone home with a project or any of that stuff that good candidates often don't even consider. I heard about a version of this technique on Twitter, so can't take credit here:
+This whole experience has led me to an interview approach that I think is infallible (for now). And it doesn't require sending someone home with a project or any of the stuff that great candidates often don't even consider. I heard about a version of this technique on Twitter, so can't take credit here:
 
-First: ask candidates to bring some code that they have written, regardless of language or framework. Then simply walk through it with them in the interview. asking them questions about why they made certain decisions and trying to guide the conversation to parts that are technically interesting. It only takes 15 minutes or so, and it usually gets much better conversation going than sample interview questions do. This leans on the fact that you need an interviewer who can mostly understand most programming projects, but it cannot be faked with any LLM assistance. LLM-written code is typically pretty obvious: much better commented and differently organized than most humans would write. But even if the code was very sneakily written AI code that the person didn't contribute to, then having a human go through and explain the parts that they thought were clever defeats the purpose of cheating with AI anyway.
+First: ask candidates to bring some code they have written, regardless of language or framework. Then simply walk through it with them in the interview. asking them questions about why they made certain decisions and trying to guide the conversation to parts that are technically interesting. It only takes 15 minutes or so, and it usually gets much better conversation going than sample interview questions do. This leans on the fact that you need an interviewer who can mostly understand most programming projects, but it cannot be faked with any LLM assistance. LLM-written code is typically pretty obvious: much better commented and differently organized than most humans would write. But even if the code was very sneakily written AI code the person didn't actually contribute to, then having a human go through and explain the parts they thought were clever defeats the purpose of cheating with AI anyway.
 
-This is just a little tidbit of a technique that works well today, if the goal is to assess coding skills. Of course, it leaves some obvious lingering questions about what we are evaluating and why. I hope no one out there that I know is using these apps to cheat on interviews, but we all need to be wise to the fact that it is trivially easy to do so, and we should shift focus to testing for the qualities that actually matter in the era of AI - or at the very least techniques that prevent the types of cheating possible today.
+This is just a little tidbit of a technique that works well today, if the goal is to assess coding skills. Of course, it leaves some obvious lingering questions about what we are evaluating and why. I hope no one out there that I know is using these apps to cheat on interviews, but we all need to be wise to the fact that it is trivially easy to do so in 2025, and we should shift focus to testing for the qualities that actually matter in the era of AI - or at the very least techniques that prevent the types of cheating possible today.
