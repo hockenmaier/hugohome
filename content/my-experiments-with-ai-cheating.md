@@ -1,6 +1,6 @@
 ---
 title: "My Experiments with AI Cheating"
-date: 2025-07-14
+date: 2025-06-29
 project-date: 2023-09-10
 categories: ["builds"]
 project_link: "https://github.com/hockenmaier/make-us-smarter"
@@ -8,32 +8,32 @@ github_link: "https://github.com/hockenmaier/make-us-smarter"
 tags: ["Experimental", "AI", "Prototyping", "User Experience", "software"]
 ---
 
-The advent of general coding AI assistants almost immediately changed how I thought about hiring and interviews.
+The advent of general coding AI assistants almost immediately changed how I think about hiring and interviews.
 
-In the software engineering world, this mindset shift was pretty easy for me psychologically, because I had always had a bias against the types of coding questions that I personally do badly at - the ones that require knowledge or rote memory of specific language capabilities, libraries, syntax. It is not that psychologically easy for everyone, especially those who have developed a core skill set of running or passing "leetcode-style" interviews. Even before AI, the only types of coding questions I would personally ask were things that simply evaluate whether a candidate is lying or not about whether they can code at all, which was and still is surprisingly common. I have interviewed people that list bullet points like 7 years of Java experience but can't pass a fizz-buzz like question, and this was a question I gave out on paper with a closed door and no significant time pressure.
+In the software engineering world, this mindset shift was psychologically easy for me, because I've always had a bias against the types of coding questions that AI can now answer near-perfectly. And they also happen to be the kind of questions I personally do badly at - the ones requiring troves of knowledge or rote memory of specific language capabilities, libraries, and syntax. It is not so psychologically easy for everyone, especially those who have developed a core skill set of running or passing "leetcode-style" interviews. Even before AI, the only types of coding questions I would personally ask were things that simply evaluate whether a candidate is lying or not about whether they can code at all, which was and still is surprisingly common. I have interviewed people that list bullet points like 7 years of Java experience but can't pass a fizz-buzz like question, and this was a question I gave out on paper with a closed door and no significant time pressure.
 
-So, when LLMs that could remember any syntax or attribute of any programming language perfectly were released, not only was I excited but I immediately saw that a huge chunk of the programming questions my team and many other software teams liked to ask were essentially irrelevant now, not only because people could cheat on interviews, at least virtually, but because that knowledge simply lost a lot of value overnight.
+So, when LLMs that could remember any syntax or attribute of any programming language perfectly were released, not only was I excited - I immediately saw that a huge chunk of the programming questions I and many I know have asked in interviews were essentially irrelevant now, not only because people could cheat on interviews, at least virtually, but because this knowledge simply lost much of its value overnight.
 
 Over a few conversations with friends and colleagues I began to explore the idea of what this meant generally for the interview process. There are just lots of questions that we ask in every field, it turns out, that are mostly solved by LLMs today. These models have memorized most useful information that lets them ace simple interviewing questions across fields, even if the original intent of the question was to test for experience.
 
 ## The Build
 
-In the summer of 2022 my ideas and conversations on this topic had gotten to the point where I really just needed to test my hypothesis - that LLMs and continuous audio transcription could let someone with no knowledge answer many interview questions correctly. My initial thought was that an app like this must already exist. But after searching for apps on the app stores that did what I was thinking of, I found that, surprisingly, none did.
+In the summer of 2022 my ideas and conversations on this topic had gotten to the point where I really just needed to test my hypothesis: LLMs and continuous audio transcription could let someone with no knowledge answer many interview questions correctly. My initial thought was that an app like this must already exist. But after searching for apps on the app stores that did what I was thinking of, to my surprise, I found none did.
 
-I'm still not sure if that was a legal thing at the time, or if it's hard to get apps that continuously transcribe audio published, but as of 2025 apps like this definitely exist. Some of them have gotten famous and one has gotten its creator expelled from an Ivy League for revealing that he used it to ace interviews with some top tech companies. Link for the curious here:
+I'm still not sure if this was a legal thing at the time, or if it's hard to get apps that continuously transcribe audio published, but as of 2025 apps like this definitely exist. Some of them have gotten famous and one has gotten its creator expelled from an Ivy League for revealing that he used it to ace interviews with some top tech companies. Link for the curious here:
 
 https://cluely.com/
 
 But, in mid 2023, these apps were apparently not a thing, so I decided to make a prototype.
 
-My basic requirements were simply something that could continuously transcribe words being spoken in a meeting or over a call, group them up into meaningfully long chunks, and then send those to two different AI passes:
+My basic requirements were simply something that could continuously transcribe words being spoken in a meeting or over a call, group them up into meaningfully long chunks, and then send those chunks with some overlap to two different AI passes:
 
 1. An AI pass that would try to make meaningful questions out of the transcribed potential gibberish
 2. An AI pass that would answer those questions
 
-My tech stack for this was a little weird, but I know Unity well and I don't know other ways of deploying native mobile apps well, and this definitely needed to be a mobile app if it was going to sit on the phone and continuously transcribe audio. Web has all kinds of restrictions on its APIs and I don't know native mobile web very well anyway.
+My tech stack for this was a little weird, but I know Unity well and I don't know other ways of deploying native mobile apps as well, and this definitely needed to be a mobile app if it was going to sit on the phone and continuously transcribe audio. Web has all kinds of restrictions on its APIs and I hadn't made a web app like this anyways.
 
-This was surprisingly easy to do, even in 2023. I ran into a few hiccups mainly around continuous audio transcription, but for an app that I wasn't going to publish that I was directly putting onto my own Android device, I got around that by simply starting up a new audio transcription thread every time one closed.
+This was surprisingly easy to achieve, even in 2023. I ran into a few hiccups mainly around continuous audio transcription, but for an app I wasn't going to publish and that I was directly putting onto my own Android device, I got around these difficulties by simply starting up a new audio transcription thread every time one closed.
 
 {{< image-with-side-caption
     src="images/make-us-smarter.jpg"
@@ -53,7 +53,7 @@ https://github.com/hockenmaier/make-us-smarter
 
 ## Interviewing Today
 
-This whole experience has led me to an interview approach that I think is infallible (for now). And it doesn't require sending someone home with a project or any of that stuff that good candidates often don't even consider. I heard about a version of this technique on Twitter, so can't take full credit here:
+This whole experience has led me to an interview approach that I think is infallible (for now). And it doesn't require sending someone home with a project or any of that stuff that good candidates often don't even consider. I heard about a version of this technique on Twitter, so can't take credit here:
 
 First: ask candidates to bring some code that they have written, regardless of language or framework. Then simply walk through it with them in the interview. asking them questions about why they made certain decisions and trying to guide the conversation to parts that are technically interesting. It only takes 15 minutes or so, and it usually gets much better conversation going than sample interview questions do. This leans on the fact that you need an interviewer who can mostly understand most programming projects, but it cannot be faked with any LLM assistance. LLM-written code is typically pretty obvious: much better commented and differently organized than most humans would write. But even if the code was very sneakily written AI code that the person didn't contribute to, then having a human go through and explain the parts that they thought were clever defeats the purpose of cheating with AI anyway.
 
