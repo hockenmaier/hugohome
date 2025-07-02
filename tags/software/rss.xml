@@ -62,6 +62,12 @@
         
     
 
+    
+
+    
+        
+    
+
 
 
 
@@ -111,7 +117,7 @@
         
 
         
-            <lastBuildDate>2025-02-13 00:00:00 +0000 UTC</lastBuildDate>
+            <lastBuildDate>2025-06-29 00:00:00 +0000 UTC</lastBuildDate>
         
 
         <link>https://hockenworks.com/tags/software/</link>
@@ -122,6 +128,163 @@
 
         
 
+        
+            <item>
+                
+                
+                
+                
+                
+                
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+                
+
+                
+
+                
+
+                
+                    <description><![CDATA[<p>The advent of general coding AI assistants almost immediately changed how I think about hiring and interviews.</p>
+<p>In the software engineering world, this mindset shift was psychologically easy for me, because I&rsquo;ve always had a bias against the types of coding questions that AI can now answer near-perfectly. And they also happen to be the kind of questions I personally do badly at - the ones requiring troves of knowledge or rote memory of specific language capabilities, libraries, and syntax. It is not so psychologically easy for everyone, especially those who have developed a core skill set of running or passing &ldquo;leetcode-style&rdquo; interviews. Even before AI, the only types of coding questions I would personally ask were things that simply evaluate whether a candidate is lying or not about whether they can code at all, which was and still is surprisingly common. I have interviewed people that list bullet points like 7 years of Java experience but can&rsquo;t pass a fizz-buzz like question, and this was a question I gave out on paper with a closed door and no significant time pressure.</p>
+<p>So, when LLMs that could remember any syntax or attribute of any programming language perfectly were released, not only was I excited - I immediately saw that a huge chunk of the programming questions I and many I know have asked in interviews were essentially irrelevant now, not only because people could cheat on interviews, at least virtually, but because this knowledge simply lost much of its value overnight.</p>
+<p>Over a few conversations with friends and colleagues I began to explore the idea of what this meant generally for the interview process. There are just lots of questions that we ask in every field, it turns out, that are mostly solved by LLMs today. These models have memorized most useful information that lets them ace simple interviewing questions across fields, even if the original intent of the question was to test for experience.</p>
+<h2 id="the-build">The Build</h2>
+<p>In the summer of 2022 my ideas and conversations on this topic had gotten to the point where I really just needed to test my hypothesis: LLMs and continuous audio transcription could let someone with no knowledge answer many interview questions correctly. My initial thought was that an app like this must already exist. But after searching for apps on the app stores that did what I was thinking of, to my surprise, I found none did.</p>
+<p>I&rsquo;m still not sure if this was a legal thing at the time, or if it&rsquo;s hard to get apps that continuously transcribe audio published, but as of 2025 apps like this definitely exist. Some of them have gotten famous and one has gotten its creator expelled from an Ivy League for revealing that he used it to ace interviews with some top tech companies. Link for the curious here:</p>
+<p><a href="https://cluely.com/">https://cluely.com/</a></p>
+<p>But, in mid 2023, these apps were apparently not a thing, so I decided to make a prototype.</p>
+<p>My basic requirements were simply something that could continuously transcribe words being spoken in a meeting or over a call, group them up into meaningfully long chunks, and then send those chunks with some overlap to two different AI passes:</p>
+<ol>
+<li>An AI pass that would try to make meaningful questions out of the transcribed potential gibberish</li>
+<li>An AI pass that would answer those questions</li>
+</ol>
+<p>My tech stack for this was a little weird, but I know Unity well and I don&rsquo;t know other ways of deploying native mobile apps as well, and this definitely needed to be a mobile app if it was going to sit on the phone and continuously transcribe audio. Web has all kinds of restrictions on its APIs and I hadn&rsquo;t made a web app like this anyways.</p>
+<p>This was surprisingly easy to achieve, even in 2023. I ran into a few hiccups mainly around continuous audio transcription, but for an app I wasn&rsquo;t going to publish and that I was directly putting onto my own Android device, I got around these difficulties by simply starting up a new audio transcription thread every time one closed.</p>
+<div style="display: flex; align-items: center; justify-content: center; gap: 10px; margin-bottom: 1rem;">
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+    
+
+
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<img  alt="the UI"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/make-us-smarter.jpg"   style="height: auto; max-width: 200px"   >
+
+
+    
+        <span style="font-style: italic;">Super barebones UI just showing the continuously auto-transcribed words, questions derived from those words, and answers to those questions.  This particular screen was grabbed long after my API key had expired and is only here to show the basic output of the app, transcription building continuously in the background and detected questions and answers in the foreground.</span>
+    
+</div>
+
+<p>And the results were surprisingly compelling. Of course I was using some of the very first versions of GPT-4 and AI is still not perfect, but the main result of this was that occasionally questions were picked up that were not actually implied by the meeting audio, and occasionally real questions were missed. The part that I knew was going to work did indeed work incredibly well: when I simulated some fizz-buzz style questions and there were no major audio transcription issues, the second question-answering AI nailed them and was able to put a succinct script to answer the question on screen within a few seconds.</p>
+<p>There was clearly more work to be done on UI and also the flow between the AI passes, and more agentic APIs of today could definitely do this all more seamlessly.</p>
+<p>But for me, my question was answered: My hunch was right and we should definitely not be asking questions about basic constructs of programming languages or simple scripts in interviews anymore.</p>
+<p>I open-sourced the project which is a pretty small Unity build, and it&rsquo;s a Unity version from a couple of years ago now, but anyone is welcome to look through and modify the code any way they want:</p>
+<p><a href="https://github.com/hockenmaier/make-us-smarter">https://github.com/hockenmaier/make-us-smarter</a></p>
+<h2 id="interviewing-today">Interviewing Today</h2>
+<p>This whole experience has led me to an interview approach that I think is infallible (for now). And it doesn&rsquo;t require sending someone home with a project or any of that stuff that good candidates often don&rsquo;t even consider. I heard about a version of this technique on Twitter, so can&rsquo;t take credit here:</p>
+<p>First: ask candidates to bring some code that they have written, regardless of language or framework. Then simply walk through it with them in the interview. asking them questions about why they made certain decisions and trying to guide the conversation to parts that are technically interesting. It only takes 15 minutes or so, and it usually gets much better conversation going than sample interview questions do. This leans on the fact that you need an interviewer who can mostly understand most programming projects, but it cannot be faked with any LLM assistance. LLM-written code is typically pretty obvious: much better commented and differently organized than most humans would write. But even if the code was very sneakily written AI code that the person didn&rsquo;t contribute to, then having a human go through and explain the parts that they thought were clever defeats the purpose of cheating with AI anyway.</p>
+<p>This is just a little tidbit of a technique that works well today, if the goal is to assess coding skills. Of course, it leaves some obvious lingering questions about what we are evaluating and why. I hope no one out there that I know is using these apps to cheat on interviews, but we all need to be wise to the fact that it is trivially easy to do so, and we should shift focus to testing for the qualities that actually matter in the era of AI - or at the very least techniques that prevent the types of cheating possible today.</p>
+]]></description>
+                
+
+                <guid isPermaLink="false">tag:hockenworks.com,2025-06-29:/my-experiments-with-ai-cheating/</guid>
+
+                
+                    <link>https://hockenworks.com/my-experiments-with-ai-cheating/</link>
+                
+
+                
+                    <pubDate>Sun, 29 Jun 2025 00:00:00 UTC</pubDate>
+                
+
+                
+                    <title>My Experiments with AI Cheating</title>
+                
+            </item>
         
             <item>
                 
@@ -233,17 +396,8 @@ This one is super simple. Give it what you’ve written and it will provide no-B
 
 
 
-    
-
-
 
     
-
-
-
-    
-
-
 
 
 
@@ -262,6 +416,17 @@ This one is super simple. Give it what you’ve written and it will provide no-B
 
 
     
+
+
+
+
+
+    
+
+
+
+    
+
 
 
 
@@ -370,17 +535,8 @@ An experimental “AI generated RPG” where you play as “The Boy” who reali
 
 
 
-    
-
-
 
     
-
-
-
-    
-
-
 
 
 
@@ -399,6 +555,17 @@ An experimental “AI generated RPG” where you play as “The Boy” who reali
 
 
     
+
+
+
+
+
+    
+
+
+
+    
+
 
 
 
@@ -566,17 +733,8 @@ An experimental “AI generated RPG” where you play as “The Boy” who reali
 
 
 
-    
-
-
 
     
-
-
-
-    
-
-
 
 
 
@@ -595,6 +753,17 @@ An experimental “AI generated RPG” where you play as “The Boy” who reali
 
 
     
+
+
+
+
+
+    
+
+
+
+    
+
 
 
 
