@@ -16,7 +16,7 @@ tags:
 short_description: "A look at why games from today play like games from 20 years ago"
 ---
 
-During my parental leave, I played through quite a few video games - something I love and one of the easiest ways to spend time while rocking my baby daughter to sleep. And it doesn't hurt that my amazing wife loves watching games about as much as watching TV or movies with me, as long as they are beautiful or cooperative in some way. All of these are.
+During my parental leave, which ends tomorrow, I played through quite a few video games - something I love and one of the easiest ways to spend time while rocking my baby daughter to sleep. And it doesn't hurt that my amazing wife loves watching games about as much as TV or movies with me, as long as they are beautiful or cooperative in some way. All of these are.
 
 They include, in order:
 
@@ -33,6 +33,7 @@ They include, in order:
 - [Mario Kart World](https://www.nintendo.com/us/store/products/mario-kart-world-switch-2/) ^Nintendo Switch 2^
 - [Nintendo Switch 2 Welcome Tour](https://www.nintendo.com/us/store/products/nintendo-switch-2-welcome-tour-switch-2/) ^Nintendo Switch 2^
 - [Yoshi's Island SNES](https://en.wikipedia.org/wiki/Yoshi%27s_Island) ^Nintendo Switch 2^
+- [The Alters](https://store.steampowered.com/app/1601570/The_Alters/) ^Steam on Windows^
 
 And yes, I did pick the game from my favorite series that happens to be about miniature people as the first game my miniature daughter Alice would hear.
 
@@ -46,13 +47,13 @@ And boy have the graphics improved. Oblivion not only uses new techniques like r
 
 {{< video-large src="/videos/bruma-clip.mp4" width="100%" alt="Clip of Bruma and mountain lighting in the background make for a pretty good use of full Lumen" caption="This is from my playthrough, some outdoor torches in Bruma and mountain lighting in the background make for a pretty good use of full Lumen" >}}
 
-Yes, Oblivion still has some simplistic design in terms of how landscapes are laid out, but that simplicity might also be why people can run it with Nvidia Lumen set up to run at ultra. Lighting is what’s really differentiating in video game graphics now, and fully simulated lighting beats or meets nearly every AAA game releasing lately that all cost tens or hundreds of millions of dollars to make.
+Yes, Oblivion still has some simplistic design in terms of how landscapes are laid out, but that simplicity might also be why people can run it with Unreal's Lumen set up to run at ultra. Lighting is what’s really differentiating in video game graphics now, and fully simulated lighting beats or meets nearly every AAA game releasing lately that all cost tens or hundreds of millions of dollars to make.
 
 ## Not Graphics
 
 Left unstated is why nothing else has improved. Walking around Oblivion, meeting characters that have some scripted voice lines, responding to them with 1 of 4 options, holding down the left stick to sprint, and hitting a single button on your controller to watch your character animate a full scripted sword swing are all the standard gameplay of action-RPGs both 19 years ago and today. The same can be said of other genres - mechanics are largely untouched for the last 20 years outside of some common quality of life changes in how menus and inventory and HUDs work.
 
-Here’s my theory for why: The games industry achieved the threshold of what was comfortable and possible with the current human-computer input and output mechanisms only a few years after they were technically possible. And those inputs and outputs have not changed much since the 90s. Looking at a flat screen in front of you and pressing buttons on a controller or keyboard/mouse are incredibly limiting for gaming. Increasing the amount of pixels on the screen and making that controller wireless don't change the core gameplay. This is not really true for any other media than games. Reading, watching films, and all kinds of media in between essentially max out on one screen and limited input, but games immediately ran into forms of input and output as a barrier.
+Here’s my theory for why: The games industry achieved the threshold of what was comfortable and possible with the current human-computer input and output mechanisms only a few years after they were technically possible. And those inputs and outputs have not changed much since the 90s. Looking at a flat screen in front of you and pressing buttons on a controller or keyboard/mouse is incredibly limiting for gaming. Increasing the amount of pixels on the screen and making that controller wireless don't change the core gameplay. This is not really true for any other media than games. Reading, watching films, and all kinds of media in between essentially max out on one screen and limited input, but games immediately ran into forms of input and output as a barrier.
 
 I wrote a little about this topic in [my first post about VR and why I think it’s the future](/social-media-is-antisocial). The only true innovation in gameplay that is happening in two places:
 
@@ -93,4 +94,4 @@ The first reasonable augmented reality glasses that consumers are willing to wea
 
 - Another new genre of exercise programs combined with games. This will go far beyond current treadmills that have built-in virtual run routes or virtual exercise classes, this will be exercise incorporated as a leveling or other mechanic that will incentivize players to get some exercise. I've had a lot of hope for this category for a long time, and the one major threat to it is GLP-1 drugs that may cause a serious decline in the need and desire for people to exercise daily for calorie loss
 
-When will these happen? My specific prediction is that the next 3 years will be seen as the end of the period of stagnation we are in right now, a period that will be much more apparent looking backwards than it is from within. The combo of a decline in AAA game spending and AI hype feel like ripe conditions for innovation to return to gameplay - and my hope is that all of the other potential gameplay innovations ride the same AI wave.
+When will these happen? My specific prediction is that the next 3 years will be seen as the end of the period of stagnation we are in right now, a period that will be much more apparent looking backwards than it is from within. The combo of a decline in AAA game spending and AI hype feels like ripe conditions for innovation to return to gameplay - and my hope is that all of the other potential gameplay innovations ride the same AI wave.

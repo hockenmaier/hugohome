@@ -1,6 +1,6 @@
 ---
 title: "On AI Software Development, 2025 Edition"
-date: 2025-07-07
+date: 2025-07-14
 categories: ["writing"]
 personal: "Y"
 tags: ["software", "singularity", "AI", "software", "predictions"]
