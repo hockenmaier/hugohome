@@ -80,6 +80,12 @@
         
     
 
+    
+
+    
+        
+    
+
 
 
 
@@ -129,7 +135,7 @@
         
 
         
-            <lastBuildDate>2025-06-16 00:00:00 +0000 UTC</lastBuildDate>
+            <lastBuildDate>2025-07-04 00:00:00 +0000 UTC</lastBuildDate>
         
 
         <link>http://localhost:1313/tags/3d-modeling/</link>
@@ -140,6 +146,385 @@
 
         
 
+        
+            <item>
+                
+                
+                
+                
+                
+                
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+                
+
+                
+
+                
+
+                
+                    <description><![CDATA[<p>Here&rsquo;s my most patriotic print yet! I have been using our new (hand-me-down) stroller a lot lately, for obvious reasons, and I decided there were a few things I just couldn&rsquo;t go without.</p>
+<p>So, I made a one-print solution that requires zero support and attaches to the handle of any stroller with hose clamps, which are shown here covered by separate printed strap covers to protect the leather of the stroller handle. I&rsquo;ve deemed it the Strollerhock:</p>
+<div class="paige-row-wide">
+  <div style="display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:15px;">
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<img   class="rounded-3 w-100"  crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/strollerhock-front.jpg"    >
+
+
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<img   class="rounded-3 w-100"  crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/strollerhock-left.jpg"    >
+
+</div>
+</div>
+
+<div class="paige-row-wide">
+  <div style="display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:15px;">
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<img   class="rounded-3 w-100"  crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/strollerhock-back.jpg"    >
+
+
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<img   class="rounded-3 w-100"  crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/strollerhock-top.jpg"    >
+
+</div>
+</div>
+
+<p>I couldn&rsquo;t resist printing it in my red, white, and blue ABS since its first real test run would be in Coronado, CA for the 4th of July weekend.</p>
+<p>The Strollerhock includes:</p>
+<ul>
+<li>A battery holder for a 40K mAh rechargeable battery (about 8 smartphones&rsquo; worth)</li>
+<li>A baby fan mount, powered by the battery</li>
+<li>Two phone mount positions, both of which can be used while the phone is charging from the battery</li>
+<li>A paper or cash clip</li>
+<li>A key hook</li>
+<li>A pacifier compartment</li>
+<li>A multi-width tapered cupholder</li>
+</ul>
+<p>I may have gone a little overboard on design on this one - probably 8+ hours of design and print prep, but it did come in handy walking all around the island! I am still adding finishing touches, but for anyone interested, here is the first complete versions of the Strollerhock and the clamp cover straps:
+<a href="https://www.dropbox.com/scl/fo/8wqaijh17n7gous0fvmnm/AO1IujdmtVEPSskDDzMKBY4?rlkey=fmjum9d3h5idvczup4pcp1va6&amp;st=5ces8mis&amp;dl=1" download class="d-flex align-items-center download-link">
+  <i class="bi bi-file-earmark me-1"></i>
+  
+7/04/25 Strollerhock Download
+
+</a>
+</p>]]></description>
+                
+
+                <guid isPermaLink="false">tag:localhost:1313,2025-07-04:/strollerhock/</guid>
+
+                
+                    <link>http://localhost:1313/strollerhock/</link>
+                
+
+                
+                    <pubDate>Fri, 04 Jul 2025 00:00:00 UTC</pubDate>
+                
+
+                
+                    <title>The Strollerhock</title>
+                
+            </item>
         
             <item>
                 
@@ -1985,7 +2370,7 @@ I hope these characters remind you of some of your favorite series.</p>
 <p>I created this panel display in 2016 to control much of the home automation I used in my Studio City apartment. Mainly a hardware project, I designed and 3D-printed a case and frame for the touchscreen and raspberry pi microcomputer in order to mount them to the wall. The software running the control panel is SaaS, but I did write a custom html wrapper to control the orientation and settings of the site, which is available on the github linked above.</p>
 <p>Update in 2025: This panel is still my main view into my home automation in my new house in Sherman Oaks, almost 10 years in with no modification!</p>
 <p>Here&rsquo;s a video to see the panel in action:</p>
-<h2 id="hahahugoshortcode27s0hbhb">
+<h2 id="hahahugoshortcode26s0hbhb">
     <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
       <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/iFGmm-ijJvE?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"></iframe>
     </div>

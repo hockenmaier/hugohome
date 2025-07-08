@@ -86,12 +86,6 @@
         
     
 
-    
-
-    
-        
-    
-
 
 
 
@@ -178,7 +172,7 @@
                 
 
                 
-                    <description><![CDATA[<p>During my parental leave, I played through quite a few video games - something I love and one of the easiest ways to spend time while rocking my baby daughter to sleep. And it doesn&rsquo;t hurt that my amazing wife loves watching games about as much as watching TV or movies with me, as long as they are beautiful or cooperative in some way. All of these are.</p>
+                    <description><![CDATA[<p>During my parental leave, which ends tomorrow, I played through quite a few video games - something I love and one of the easiest ways to spend time while rocking my baby daughter to sleep. And it doesn&rsquo;t hurt that my amazing wife loves watching games about as much as TV or movies with me, as long as they are beautiful or cooperative in some way. All of these are.</p>
 <p>They include, in order:</p>
 <ul>
 <li><a href="https://en.wikipedia.org/wiki/The_Legend_of_Zelda:_The_Minish_Cap">The Legend of Zelda: The Minish Cap</a> <sup>Steam Deck</sup></li>
@@ -192,6 +186,7 @@
 <li><a href="https://www.nintendo.com/us/store/products/mario-kart-world-switch-2/">Mario Kart World</a> <sup>Nintendo Switch 2</sup></li>
 <li><a href="https://www.nintendo.com/us/store/products/nintendo-switch-2-welcome-tour-switch-2/">Nintendo Switch 2 Welcome Tour</a> <sup>Nintendo Switch 2</sup></li>
 <li><a href="https://en.wikipedia.org/wiki/Yoshi%27s_Island">Yoshi&rsquo;s Island SNES</a> <sup>Nintendo Switch 2</sup></li>
+<li><a href="https://store.steampowered.com/app/1601570/The_Alters/">The Alters</a> <sup>Steam on Windows</sup></li>
 </ul>
 <p>And yes, I did pick the game from my favorite series that happens to be about miniature people as the first game my miniature daughter Alice would hear.</p>
 <p>Most of these are indie titles, but the one I spent the most time on was the Oblivion Remaster - one which surprised me both with how good it looks and with how well it played. Oblivion is a 19 year old game, and a purely graphics-related overhaul should not have made it as good or better than modern AAA games releasing today, but in my opinion (and many others I’m reading) it absolutely did. How could this be?</p>
@@ -199,20 +194,14 @@
 <p>Well - I think that’s pretty clear. The only thing that has really improved about mainstream gaming in the last 20 years is graphics.</p>
 <p>And boy have the graphics improved. Oblivion not only uses new techniques like ray-tracing and revamped 4K textures and normal maps etc, it uses the full suite of global illumination provided by <a href="https://dev.epicgames.com/documentation/en-us/unreal-engine/lumen-global-illumination-and-reflections-in-unreal-engine">Unreal Engine</a>, which means when you turn the settings up, it depends on hardly any of the typical tricks games need to use, like baked light maps, instead lighting almost everything in the game dynamically or “procedurally”, including things like reflections of reflections and lit up dust and fog.</p>
 
-<div style="text-align: center; margin-bottom: 1rem;">
-  <video controls loop muted autoplay style="max-width:100%;">
-    <source src="/videos/bruma-clip.mp4" type="video/mp4">
-    Your browser doesn’t support HTML5 video.
-  </video>
-  
-    <span style="display: block; font-style: italic; margin-top: 0.5rem;">This is from my playthrough, some outdoor torches in Bruma and mountain lighting in the background make for a pretty good use of full Lumen</span>
-  
-</div>
+    <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+      <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/dbd00XaK1so?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"></iframe>
+    </div>
 
-<p>Yes, Oblivion still has some simplistic design in terms of how landscapes are laid out, but that simplicity might also be why people can run it with Nvidia Lumen set up to run at ultra. Lighting is what’s really differentiating in video game graphics now, and fully simulated lighting beats or meets nearly every AAA game releasing lately that all cost tens or hundreds of millions of dollars to make.</p>
+<p>Yes, Oblivion still has some simplistic design in terms of how landscapes are laid out, but that simplicity might also be why people can run it with Unreal&rsquo;s Lumen set up to run at ultra. Lighting is what’s really differentiating in video game graphics now, and fully simulated lighting beats or meets nearly every AAA game releasing lately that all cost tens or hundreds of millions of dollars to make.</p>
 <h2 id="not-graphics">Not Graphics</h2>
 <p>Left unstated is why nothing else has improved. Walking around Oblivion, meeting characters that have some scripted voice lines, responding to them with 1 of 4 options, holding down the left stick to sprint, and hitting a single button on your controller to watch your character animate a full scripted sword swing are all the standard gameplay of action-RPGs both 19 years ago and today. The same can be said of other genres - mechanics are largely untouched for the last 20 years outside of some common quality of life changes in how menus and inventory and HUDs work.</p>
-<p>Here’s my theory for why: The games industry achieved the threshold of what was comfortable and possible with the current human-computer input and output mechanisms only a few years after they were technically possible. And those inputs and outputs have not changed much since the 90s. Looking at a flat screen in front of you and pressing buttons on a controller or keyboard/mouse are incredibly limiting for gaming. Increasing the amount of pixels on the screen and making that controller wireless don&rsquo;t change the core gameplay. This is not really true for any other media than games. Reading, watching films, and all kinds of media in between essentially max out on one screen and limited input, but games immediately ran into forms of input and output as a barrier.</p>
+<p>Here’s my theory for why: The games industry achieved the threshold of what was comfortable and possible with the current human-computer input and output mechanisms only a few years after they were technically possible. And those inputs and outputs have not changed much since the 90s. Looking at a flat screen in front of you and pressing buttons on a controller or keyboard/mouse is incredibly limiting for gaming. Increasing the amount of pixels on the screen and making that controller wireless don&rsquo;t change the core gameplay. This is not really true for any other media than games. Reading, watching films, and all kinds of media in between essentially max out on one screen and limited input, but games immediately ran into forms of input and output as a barrier.</p>
 <p>I wrote a little about this topic in <a href="/social-media-is-antisocial">my first post about VR and why I think it’s the future</a>. The only true innovation in gameplay that is happening in two places:</p>
 <ul>
 <li>Indie, where one-man teams can come up with strange mashups and mechanics can execute on a vision spending very little. These are almost never totally genre defining, but they are inventive.</li>
@@ -253,7 +242,7 @@
 <p>Another new genre of exercise programs combined with games. This will go far beyond current treadmills that have built-in virtual run routes or virtual exercise classes, this will be exercise incorporated as a leveling or other mechanic that will incentivize players to get some exercise. I&rsquo;ve had a lot of hope for this category for a long time, and the one major threat to it is GLP-1 drugs that may cause a serious decline in the need and desire for people to exercise daily for calorie loss</p>
 </li>
 </ul>
-<p>When will these happen? My specific prediction is that the next 3 years will be seen as the end of the period of stagnation we are in right now, a period that will be much more apparent looking backwards than it is from within. The combo of a decline in AAA game spending and AI hype feel like ripe conditions for innovation to return to gameplay - and my hope is that all of the other potential gameplay innovations ride the same AI wave.</p>]]></description>
+<p>When will these happen? My specific prediction is that the next 3 years will be seen as the end of the period of stagnation we are in right now, a period that will be much more apparent looking backwards than it is from within. The combo of a decline in AAA game spending and AI hype feels like ripe conditions for innovation to return to gameplay - and my hope is that all of the other potential gameplay innovations ride the same AI wave.</p>]]></description>
                 
 
                 <guid isPermaLink="false">tag:localhost:1313,2025-07-07:/the-purgatory-of-aaa-gaming/</guid>
@@ -268,262 +257,6 @@
 
                 
                     <title>The Purgatory of AAA Gaming</title>
-                
-            </item>
-        
-            <item>
-                
-                
-                
-                
-                
-                
-                
-
-                
-
-                
-
-                
-
-                
-
-                
-                
-
-                
-
-                
-
-                
-                    <description><![CDATA[<p>Recently I read the <a href="https://ai-2027.com/scenario.pdf">AI 2027 paper</a>. I was surprised to see Scott Alexander&rsquo;s name on this paper and I was doubly surprised to see him do his <a href="https://www.dwarkesh.com/p/scott-daniel">first face reveal podcast about it with Dwarkesh</a></p>
-<p>On its face this is one of the most aggressive predictions for when we will have AGI (at least the new definition of AGI which is something that is comparable or better than humans at all non-bodily tasks) that I have read. Even as someone who has been a long believer in <a href="https://en.wikipedia.org/wiki/The_Singularity_Is_Near">Ray Kurzweil&rsquo;s Singularity predictions</a>, 2027 strikes me as very early. I realize that Kurzweil&rsquo;s AGI date was also late 2020&rsquo;s and 2045 was his singulartiy prediction - 2027 still feels early to me.</p>
-<div class="paige-row-wide">
-  <div style="display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:15px;">
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    
-
-
-
-
-
-
-
-
-
-
-
-
-
-    
-
-
-
-    
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<img  alt="AI 2027"   class="rounded-3 w-100"  crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/ai-2027.png"    >
-
-
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    
-
-
-
-
-
-
-
-
-
-
-
-
-
-    
-
-
-
-    
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<img  alt="Singularity Is Near"   class="rounded-3 w-100"  crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/The-Singularity-Is-Near.jpg"    >
-
-</div>
-</div>
-
-<p>I won&rsquo;t get into my full take on AI 2027 here, but the core argument comes down to the same one I was making in my <a href="/on-ai-software-development">original post on AI software development</a></p>
-<ul>
-<li>which is that, once AI agents are able to replace software engineers, instead of just assisting them, it doesn&rsquo;t matter how they are doing in other realms, because they will simply be able to improve on themselves and their own software at such a rate that the difference between the time of automating software engineering jobs and the time of automating all other jobs is negligible.</li>
-</ul>
-<p>So I figured it was a good time to update on where I think AI is actually at at software engineering tasks. I&rsquo;ve had the chance to test many of the latest AI software development tools and models, and we have come a long way since my original post.</p>
-<p>I have been doing a lot of development with AI for the last few years, especially the last couple of months on parental leave building the game in this site. And they are good! But the core problems with these models for software engineering are:</p>
-<ol>
-<li>They can&rsquo;t deal well with contexts over 30K tokens or so (even the best models with supposed millions of token windows).</li>
-</ol>
-<p>This means the actual developer (me and you) are the ones picking specific files and functions to send into the context window, lest we confuse the model. This is arduous unless the codebase is small enough to fit entirely into the context window. That&rsquo;s exactly what I think is going on with most of the new &ldquo;vibe coded&rdquo; projects we see showing impressive results - these are just tiny POC apps that haven&rsquo;t hit more than a few thousand lines of code yet. For context, most serious enterprise apps containing the detailed logic and edge cases real use cases require are in the millions or hundreds of millions of lines of code.</p>
-<ol start="2">
-<li>They are biased to be &ldquo;advisors&rdquo; as well as &ldquo;doers&rdquo;</li>
-</ol>
-<p>This is just annoying, and I hope it gets trained out soon. Models just really <em>want</em> you to be doing everything, and to act themselves as an advisor. It makes sense with one of the main sources of code training data being from Stackoverflow and other blogs, where developers can never seem to rid themselves of a pseudo-condescending &ldquo;you should have been able to read the docs and learn this yourself&rdquo; tone. It&rsquo;s also just a pattern exhibited by people in general - more often than not, especially in the corporate world, people are trained to be the &ldquo;coaches&rdquo; rather than the &ldquo;worker bees&rdquo;. One reason why things get done so slowly in big political companies sometimes.</p>
-<p>&mdash;Notes&mdash;</p>
-<p>Add links to my chat with 03 about the refund feature,</p>
-<p>Add links to videos about co-pilot agents as well as codex as the state of the art actual software developers</p>
-<p>Talk a little bit about my experience using cursor and what a disappointment it was for a code base as unique as mine</p>
-<h1 id="cursor">cursor</h1>
-<p>Add notes about cursor not handling context any more easily than context caddy - and that might be a bit of a stumbling block</p>
-<p>First feature that sonnet 3.7 consistently failed at was simply having the compactors add ball value accumulation of compacted balls</p>
-<p>Your request has been blocked as our system has detected suspicious activity from your account.If you believe this is a mistake, please contact us at <a href="mailto:hi@cursor.com">hi@cursor.com</a>.(Request ID: 997e94bb-34ee-44c0-b0aa-15bb6822add6) LOL</p>
-<p>o3&rsquo;s performance on net new &ldquo;gear&rdquo; feature for the hockenworks ball machine:</p>
-<p>Gear Prompt: <a href="https://chatgpt.com/c/683755d0-fbec-8006-9c8b-c77bbe951211">https://chatgpt.com/c/683755d0-fbec-8006-9c8b-c77bbe951211</a>
-Clean code point for recreation with other models - master just before &ldquo;gear&rdquo; branch was created</p>
-<p>Today, you will be making a new drawable object for our physics web game. The gear will be a physical object that balls collide with, similar to the compactor, but simpler (No on collision events, just continuous rotation). When balls fall into its grooves, they will be moved around by physics. Gears will rotate at one full revolution every 30 seconds, which should be configurable in the App config.</p>
-<p>Placing gears is a bit simpler than other objects, though has the same structure:</p>
-<p>Desktop: One click to create a preview that then follows the mouse location, second click finishes and leave the gear centered there. Right click before the finish cancels as normal.</p>
-<p>Mobile: Touchstart shows the preview , touchmove has the preview follow the touch location, and touchend finishes. However, there should be no “is Valid distance threshold” of 25 px that the gear must be outside of to place - the gear will always be placed on a touch event.</p>
-<p>All normal pulse, delete, and refund effects apply. Both gears cost 750 coins.</p>
-<p>The image representing the gear is called gear-30.png (it has 30 teeth), and I have vertices representing its physical shape for the matter body, which I will update an array you leave blank in your new gear.js code like this:</p>
-<p>const GEAR_VERTICES = [
-[0, 0],
-];</p>
-<p>The gear should be drawn in 2 types, using 2 toggle buttons: one that turns clockwise and one counterclockwise. You should represent these types and persist them similarly to how the launcher has multiple types.</p>
-<p>The toggle button images are gear-clockwise-mode.png and gear-counterclockwise-mode.png</p>
-<p>When making new Drawables, you must make all necessary changes around the codebase.</p>
-<p>The types of things that you should look for and make sure to change, are:
--UI elements
--UI interactions with other elements
--How to Draw the thing
--How to do second-actions like the curve line bezier
--How to delete
--How hover, hold, and pulse works
--What is in the preview vs the finished drawn item
--Where cost and icons go in the code
--Any new variables in App config
--How data is persisted and deleted from persistence, including any new types to encode somewhere
--All interactions with other files, and make sure to call out that shared files like line-interaction and notifications and powerup-progression
--All desktop AND mobile controls for all actions
--Any new files needed, and their inclusion in baseof.html</p>
-<p>As well as anything extra any specific drawable like the gear requires.</p>
-<p>Present all code changes as copyable blocks, noting the function they replace or the lines of code they come immediately between.</p>
-]]></description>
-                
-
-                <guid isPermaLink="false">tag:localhost:1313,2025-07-07:/on-ai-software-development-2/</guid>
-
-                
-                    <link>http://localhost:1313/on-ai-software-development-2/</link>
-                
-
-                
-                    <pubDate>Mon, 07 Jul 2025 00:00:00 UTC</pubDate>
-                
-
-                
-                    <title>On AI Software Development, 2025 Edition</title>
                 
             </item>
         

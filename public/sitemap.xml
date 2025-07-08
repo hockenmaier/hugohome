@@ -17,19 +17,10 @@
     <loc>http://localhost:1313/tags/invention/</loc>
     <lastmod>2025-07-07T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/on-ai-software-development-2/</loc>
-    <lastmod>2025-07-07T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>http://localhost:1313/tags/predictions/</loc>
     <lastmod>2025-07-07T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/tags/procedural-generation/</loc>
-    <lastmod>2025-07-07T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/tags/singularity/</loc>
-    <lastmod>2025-07-07T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/tags/software/</loc>
     <lastmod>2025-07-07T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/tags/</loc>
@@ -47,8 +38,26 @@
     <loc>http://localhost:1313/categories/writing/</loc>
     <lastmod>2025-07-07T00:00:00+00:00</lastmod>
   </url><url>
+    <loc>http://localhost:1313/tags/3d-modeling/</loc>
+    <lastmod>2025-07-04T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/3d-printing/</loc>
+    <lastmod>2025-07-04T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/bambulab-x1/</loc>
+    <lastmod>2025-07-04T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>http://localhost:1313/categories/builds/</loc>
-    <lastmod>2025-06-29T00:00:00+00:00</lastmod>
+    <lastmod>2025-07-04T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/hardware/</loc>
+    <lastmod>2025-07-04T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/parenting/</loc>
+    <lastmod>2025-07-04T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/strollerhock/</loc>
+    <lastmod>2025-07-04T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/tags/experimental/</loc>
     <lastmod>2025-06-29T00:00:00+00:00</lastmod>
@@ -57,6 +66,9 @@
     <lastmod>2025-06-29T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/tags/prototyping/</loc>
+    <lastmod>2025-06-29T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/software/</loc>
     <lastmod>2025-06-29T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/tags/user-experience/</loc>
@@ -86,17 +98,11 @@
     <loc>http://localhost:1313/tags/unity/</loc>
     <lastmod>2025-06-23T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/3d-modeling/</loc>
+    <loc>http://localhost:1313/tags/singularity/</loc>
     <lastmod>2025-06-16T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/vision-is-the-last-hurdle-before-agi/</loc>
     <lastmod>2025-06-16T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/tags/3d-printing/</loc>
-    <lastmod>2025-05-28T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/tags/bambulab-x1/</loc>
-    <lastmod>2025-05-28T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/bloom-or-bust/</loc>
     <lastmod>2025-05-28T00:00:00+00:00</lastmod>
@@ -105,9 +111,6 @@
     <lastmod>2025-05-28T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/tags/css/</loc>
-    <lastmod>2025-05-28T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/tags/hardware/</loc>
     <lastmod>2025-05-28T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/tags/html/</loc>
