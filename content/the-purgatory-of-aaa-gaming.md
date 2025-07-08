@@ -46,6 +46,7 @@ Well - I think that’s pretty clear. The only thing that has really improved ab
 And boy have the graphics improved. Oblivion not only uses new techniques like ray-tracing and revamped 4K textures and normal maps etc, it uses the full suite of global illumination provided by [Unreal Engine](https://dev.epicgames.com/documentation/en-us/unreal-engine/lumen-global-illumination-and-reflections-in-unreal-engine), which means when you turn the settings up, it depends on hardly any of the typical tricks games need to use, like baked light maps, instead lighting almost everything in the game dynamically or “procedurally”, including things like reflections of reflections and lit up dust and fog.
 
 {{< youtube dbd00XaK1so >}}
+_This is from my playthrough, some outdoor torches in Bruma and mountain lighting in the background make for a pretty good use of full Lumen_
 
 Yes, Oblivion still has some simplistic design in terms of how landscapes are laid out, but that simplicity might also be why people can run it with Unreal's Lumen set up to run at ultra. Lighting is what’s really differentiating in video game graphics now, and fully simulated lighting beats or meets nearly every AAA game releasing lately that all cost tens or hundreds of millions of dollars to make.
 
