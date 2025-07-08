@@ -589,6 +589,243 @@ table {
 
 
   
+  
+  
+
+
+
+
+
+
+
+<div class="post-header" style="margin-bottom:1rem;">
+  <h2 class="post-title" style="margin:0;">
+    <a class="link-light" href="https://hockenworks.com/the-purgatory-of-aaa-gaming/">The Purgatory of AAA Gaming</a>
+  </h2>
+
+  <p class="permalink" style="margin:0 0 1rem;">
+    <a href="https://hockenworks.com/the-purgatory-of-aaa-gaming/">https://hockenworks.com/the-purgatory-of-aaa-gaming/</a>
+  </p>
+
+  <div class="copy-buttons" style="margin-bottom:1rem;">
+    <button id="copy-all-btn"      style="margin-right:.5rem; padding:.5rem 1rem; cursor:pointer;">Copy All</button>
+    <button id="copy-linkback-btn" style="padding:.5rem 1rem; cursor:pointer;">Copy LinkBack</button>
+  </div>
+</div>
+
+<article id="copy-content" class="latest-item mb-4" style="display:flex; align-items:flex-start;">
+  <div class="media-column">
+    <div class="media-container" style="width:300px; height:300px;">
+
+      
+        <a href="https://hockenworks.com/the-purgatory-of-aaa-gaming/">
+          <video controls loop muted autoplay style="width:100%; height:100%; object-fit:cover;">
+            <source src="https://hockenworks.com/videos/bruma-clip.mp4" type="video/mp4">
+            Your browser doesn’t support HTML5 video.
+          </video>
+        </a>
+
+      
+
+    </div>
+  </div>
+
+  <div class="text-column" style="align-self:flex-start; margin-top:0;">
+    <div class="post-summary" style="margin-top:0; margin-bottom:.5rem;">
+      <p>During my parental leave, which ends tomorrow, I played through quite a few video games - something I love and one of the easiest ways to spend time while rocking my baby daughter to sleep. And it doesn&rsquo;t hurt that my amazing wife loves watching games about as much as TV or movies with me, as long as they are beautiful or cooperative in some way. All of these are.</p>
+<p>They include, in order:</p>
+    </div>
+
+    <p class="read-more text-secondary fst-italic" style="margin:0;">
+      8 minutes ·
+      <a href="https://hockenworks.com/the-purgatory-of-aaa-gaming/">This post is a hockenworks build. Play and read more at hockenworks →</a>
+    </p>
+
+    
+    <div id="linkback-content" class="linkback-image" style="margin-top:1rem;">
+      <a href="https://hockenworks.com/the-purgatory-of-aaa-gaming/">
+        <img src="https://hockenworks.com/images/hockenworks-linkback.png" alt="Link back to post" style="max-width:100%; height:auto;">
+      </a>
+    </div>
+  </div>
+</article>
+
+
+<script>
+(() => {
+   
+  function copyRich(selector) {
+    const source = document.querySelector(selector);
+    if (!source) { console.error('copyRich: selector not found ->', selector); return; }
+
+     
+    const tmp = source.cloneNode(true);
+    tmp.style.position = 'absolute';
+    tmp.style.left = '-99999px';
+    document.body.appendChild(tmp);
+
+    const range = document.createRange();
+    range.selectNodeContents(tmp);
+    const sel = window.getSelection();
+    sel.removeAllRanges();
+    sel.addRange(range);
+
+     
+    let success = false;
+    try {
+      success = document.execCommand('copy');
+      console.log('execCommand copy:', success);
+    } catch (err) {
+      console.warn('execCommand failed:', err);
+    }
+
+     
+    if (!success && navigator.clipboard && window.ClipboardItem) {
+      const blob = new Blob([tmp.innerHTML], { type: 'text/html' });
+      navigator.clipboard.write([new ClipboardItem({ 'text/html': blob })])
+        .then(() => console.log('navigator.clipboard.write success'))
+        .catch(e => console.error('navigator.clipboard.write failed:', e));
+    }
+
+     
+    sel.removeAllRanges();
+    document.body.removeChild(tmp);
+  }
+
+  document.getElementById('copy-all-btn')
+          .addEventListener('click', () => copyRich('#copy-content'));
+
+  document.getElementById('copy-linkback-btn')
+          .addEventListener('click', () => copyRich('#linkback-content'));
+})();
+</script>
+  
+
+
+
+
+
+
+
+
+
+  
+  
+  
+
+
+
+
+
+
+
+<div class="post-header" style="margin-bottom:1rem;">
+  <h2 class="post-title" style="margin:0;">
+    <a class="link-light" href="https://hockenworks.com/strollerhock/">The Strollerhock</a>
+  </h2>
+
+  <p class="permalink" style="margin:0 0 1rem;">
+    <a href="https://hockenworks.com/strollerhock/">https://hockenworks.com/strollerhock/</a>
+  </p>
+
+  <div class="copy-buttons" style="margin-bottom:1rem;">
+    <button id="copy-all-btn"      style="margin-right:.5rem; padding:.5rem 1rem; cursor:pointer;">Copy All</button>
+    <button id="copy-linkback-btn" style="padding:.5rem 1rem; cursor:pointer;">Copy LinkBack</button>
+  </div>
+</div>
+
+<article id="copy-content" class="latest-item mb-4" style="display:flex; align-items:flex-start;">
+  <div class="media-column">
+    <div class="media-container" style="width:300px; height:300px;">
+
+      
+        <a href="https://hockenworks.com/strollerhock/"><img src="https://hockenworks.com/images/strollerhock-front.jpg" alt="The Strollerhock"></a>
+
+      
+
+    </div>
+  </div>
+
+  <div class="text-column" style="align-self:flex-start; margin-top:0;">
+    <div class="post-summary" style="margin-top:0; margin-bottom:.5rem;">
+      <p>Here&rsquo;s my most patriotic print yet! I have been using our new (hand-me-down) stroller a lot lately, for obvious reasons, and I decided there were a few things I just couldn&rsquo;t go without.</p>
+<p>So, I made a one-print solution that requires zero support and attaches to the handle of any stroller with hose clamps, which are shown here covered by separate printed strap covers to protect the leather of the stroller handle. I&rsquo;ve deemed it the Strollerhock:</p>
+    </div>
+
+    <p class="read-more text-secondary fst-italic" style="margin:0;">
+      2 minutes ·
+      <a href="https://hockenworks.com/strollerhock/">This post is a hockenworks build. Play and read more at hockenworks →</a>
+    </p>
+
+    
+    <div id="linkback-content" class="linkback-image" style="margin-top:1rem;">
+      <a href="https://hockenworks.com/strollerhock/">
+        <img src="https://hockenworks.com/images/hockenworks-linkback.png" alt="Link back to post" style="max-width:100%; height:auto;">
+      </a>
+    </div>
+  </div>
+</article>
+
+
+<script>
+(() => {
+   
+  function copyRich(selector) {
+    const source = document.querySelector(selector);
+    if (!source) { console.error('copyRich: selector not found ->', selector); return; }
+
+     
+    const tmp = source.cloneNode(true);
+    tmp.style.position = 'absolute';
+    tmp.style.left = '-99999px';
+    document.body.appendChild(tmp);
+
+    const range = document.createRange();
+    range.selectNodeContents(tmp);
+    const sel = window.getSelection();
+    sel.removeAllRanges();
+    sel.addRange(range);
+
+     
+    let success = false;
+    try {
+      success = document.execCommand('copy');
+      console.log('execCommand copy:', success);
+    } catch (err) {
+      console.warn('execCommand failed:', err);
+    }
+
+     
+    if (!success && navigator.clipboard && window.ClipboardItem) {
+      const blob = new Blob([tmp.innerHTML], { type: 'text/html' });
+      navigator.clipboard.write([new ClipboardItem({ 'text/html': blob })])
+        .then(() => console.log('navigator.clipboard.write success'))
+        .catch(e => console.error('navigator.clipboard.write failed:', e));
+    }
+
+     
+    sel.removeAllRanges();
+    document.body.removeChild(tmp);
+  }
+
+  document.getElementById('copy-all-btn')
+          .addEventListener('click', () => copyRich('#copy-content'));
+
+  document.getElementById('copy-linkback-btn')
+          .addEventListener('click', () => copyRich('#linkback-content'));
+})();
+</script>
+  
+
+
+
+
+
+
+
+
+
+  
 
   
     
