@@ -69,7 +69,7 @@ Maybe people want to keep buying the same games with better graphics forever. I 
 
 I am hoping that the current hypestorm around AI re-kindles the ideas in the hearts of AAA game studio CFOs that they might need to invest in innovation and new ideas again. Some of the things that make Oblivion just like any RPG of today (Think about the four-option scripted discourse and stuffy voice lines as two) would be meaningfully different if AI was applied in the right way. And I think they’d be far more powerful experiences, just like I think VR games can be - so much higher fidelity and responsive to player input.
 
-Here are my predictions of things we’ll see in the next decade or so, regardless of the AAA studios pioneer them or not:
+Here are my predictions of things we’ll see in the next decade or so, whether or not AAA studios are the ones to pioneer them:
 
 A decade or two from now, we will look at the period of 2005 to 2025 and see that it was a period of a great stagnation in game innovation. This will be driven by a few key technological advances and the downstream game mechanics that will flow from those, stemming mainly from the areas of AI and what is now called mixed reality.
 
