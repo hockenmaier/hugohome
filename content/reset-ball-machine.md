@@ -9,5 +9,10 @@ _build:
 {{< warning >}} WARNING! This page serves a single purpose - to reset the ball machine game that runs on top of the site. {{< /warning >}}
 
 Leave this page if you don't want to reset all Ball Machine game data!
+&nbsp;
+
+&nbsp;
+
+**Before pressing the below button, make sure that any other tabs open to hockenworks.com are closed!**
 
 {{< clear-storage >}}
