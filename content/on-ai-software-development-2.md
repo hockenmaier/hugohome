@@ -1,9 +1,10 @@
 ---
 title: "On AI Software Development, 2025 Edition"
-date: 2025-07-14
+date: 2025-07-28
 categories: ["writing"]
 personal: "Y"
 tags: ["software", "singularity", "AI", "software", "predictions"]
+short_description: "An essay I was working on throughout my parental leave about the current state of AI driven software development.  I go over the three main categories of AI code assistants today, as well as how each performed on a recent game development project and where I see them going next"
 ---
 
 Recently I read the [AI 2027 paper](https://ai-2027.com/scenario.pdf). I was surprised to see Scott Alexander's name on this paper and I was doubly surprised to see him do his [first face reveal podcast about it with Dwarkesh](https://www.dwarkesh.com/p/scott-daniel)
@@ -115,7 +116,7 @@ To be fair, I, the human, should have caught this before asking yet more AI agen
 
 ## Agentic IDEs
 
-> Automated IDEs are development environments, the software that humans use to write code, with LLM integrations added in to auto-complete or produce new code somewhat agentically. They can do things like read terminal output and attempt to fix their mistakes before you see them. The main examples right now are [Cursor](https://cursor.com/en) and [Windsurf](https://windsurf.com/editor). Amazon just launched [Kiro](https://kiro.dev/blog/introducing-kiro/) in this category.
+> Automated IDEs are "development environments", the software that humans use to write code, with LLM integrations added in to auto-complete or produce new code somewhat agentically. They can do things like read terminal output and attempt to fix their mistakes before you see them. The main examples right now are [Cursor](https://cursor.com/en) and [Windsurf](https://windsurf.com/editor). Amazon just launched [Kiro](https://kiro.dev/blog/introducing-kiro/) in this category.
 
 After I became a parent and then started having a few hours a day to come up for air, one of the first things I wanted to do was REALLY crack into one of these vibe-coding tools to see what it was all about. I picked Cursor.
 
@@ -141,6 +142,30 @@ They exist today because IDEs are where all code editing takes place, and puttin
 
 But the core issue with this obvious progression of features is that it ignores this fundamental reality: Once AI models are actually good enough to do a software engineering task, there is no reason for that task to happen in an IDE at all, a tool made for humans to write code.
 
-## Autonomous Code Agents
+## Autonomous Coding Agents
 
-Add experience with Codex, summation: It’s incredibly useful to have an agent that can not only update code in your IDE, but can PR into your codebase. But it’s still just as bad as uncreative as any other AI - which is highly dependent on how standard and boilerplate your code is.
+> Autonomous Coding Agents, unlike Agentic IDEs, approach the problem of agentic software development without the lens of the toolspace that humans rely on. Using these systems does not depend on the actual code ever living on your own computer. Instead, you give them access to the code in your remote repository such as Github, and they do all the work to clone that code, look through it, make changes, test what they can, and ultimately contribute directly back to that codebase in the form of a [Pull Request](https://en.wikipedia.org/wiki/Distributed_version_control#Pull_requests). The main two right now are OpenAI's [Codex](https://openai.com/codex/) and [Github Copilot Agents](https://github.blog/news-insights/product-news/github-copilot-the-agent-awakens/)
+
+On the face of it, Autonomous Coding Agents aim to do the same thing which has come to be the top feature of Agentic IDEs: The let you specify a feature, change, or fix by simply speaking or typing English, and then they proceed through a loop of coding, evaluating, and refining until they "think" the feature is done. And both types of system can do that job. But in my experience with Codex, the Autonomous Coding Agent I used, the difference was night and day.
+
+I think Codex benefits most from its limitations. It does not sit in an IDE, so it could not possibly ask you, the human, to pick the files to add to system context. It doesn't run on your computer with you watching it, so it needs to handle all of its own looping, eval, and stop logic on its own. It needed to "get good" at these things. And that it did.
+
+I will just skip straight to the punchline: OpenAI's Codex was writing full new features for my game via my voice-texted prompts alone (most of which I spoke while walking the baby) within days of me setting it up. In fact, the [entire achievements feature of my game](/this-website/#achievements), including the UI components, the logic to detect them, and save them - everything but the images I used for the achivement icon - was created in two Codex PRs generated without me touching the codebase.
+
+I had built up to this point a little bit. I started Codex on simple tasks reminiscent of the one I started Cursor on, but I found that I was willing to lend more tasks to Codex, because I knew it wouldn't interupt my work at all. I would just end up with a PR I could review 20 minutes later or so, and if it worked I would merge it. Compare that to the experience with Agentic IDEs, where most of the time you need to open your computer, type up a prompt, select all the context you think is necessary, and then "help it along" when it gets stuck. This is not to say Codex didn't get stuck - there were things it couldn't do, even the occasional simple thing, but for those I would pull the PR, see that it didn't work, and then just reject it. No longer was I in the world of trying to "help along" the AI ending up in strange diff states and git stashing to clean up my own workspace. It was just "Hey this is a thing the robot could do", then quick voice text, and 20 minutes later 80% of the time a working PR.
+
+**But that thought, "this is a thing the robot could do" is very important**
+
+For all the advantages of Codex, it’s still just as bad and generally uncreative as any other AI. And of course that is highly dependent on how standard and boilerplate your code is. Codex is better than any agent I've used at following a super detailed prompt to completion (The first prompt for that achievements feature is almost 2 pages long) - but you still need to know your project well enough to write that super detailed prompt. For my game, I just know there are things I could never do with AI. Those involve messing with the fundamental architecture of the code, rethinking gameplay look and feel, or anything with too many moving parts. AI has a limit, and in 2025 that limit is still quite low. It's a junior developer that writes super fast. But I found that, when shifting from thinking of AI as an assistant I would proactively try to use, vs something I chould completely offload half of my tasks to "set and forget" - the latter is a much more meaningful time savings. It really forced me to draw the line of what could be automated and what the AI could do for me.
+
+There is another nice little benefit to a system that introduces a neat little PR with comments instead of pouring a bunch of code into your active workspace: it immediately puts you into the mindset of "I am reviewing this potentially bad code". It forces you to eaither accept or not. Typically, in "assistant land" whether that is using chat assistants or things like Cursor, you are going to PR the code yourself. You won't be distinctly "reviewing it" like a Codex PR, and to other humans it will appear as your work.
+
+I like Codex. A lot. It's more fun to use than something like Cursor and lets me focus on the things I need to. I think this type of system is where automated software development is going, long term.
+
+# 2026 and Beyond
+
+With the advent of Autonomous Coding Agents (keep in mind, these only started to be a thing a few months ago), software engineers have a clearer view into how much of their work can be truly automated. That's becuase systems like Codex are "all or nothing" in some sense. They PR working code or they don't - and there is much less space to get caught up in "helping" the AI.
+
+Right now, I think about half of the things I typically set out to do on a project like this game are achievable via Codex. That still means there's a long way to go, because there is a long tail of low complexity work in software engineering and Codex is already picking all of that up. But now that AI is working "independently", instead of humans always subtly correcting it, that threshold of "AI achievable" is much clearer. If it's at 50% now we'll see it tick up to 60%, 70%, and so on.
+
+When something like Codex is at 100%, I think the world has entered the [intelligence explosion](https://en.wikipedia.org/wiki/Technological_singularity#Intelligence_explosion).

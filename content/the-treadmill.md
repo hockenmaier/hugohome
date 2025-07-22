@@ -1,6 +1,6 @@
 ---
 title: "The Treadmill"
-date: 2025-07-14
+date: 2025-07-21
 categories: ["writing"]
 tags: ["work-life balance", "happiness", "wealth", "singularity", "AI"]
 ---
@@ -65,10 +65,14 @@ Now this is a good argument! You could indeed retire in 5 years after making $80
 
 What’s actually happening? Lifestyle creep. I think this is 90% of why people feel they could never work on something more fun or meaningful for less money. They’ve already started to spend their new money, and now losing those things would hurt more than gaining them felt good. That damn hedonic treadmill.
 
-## Closing Thoughts
+## What is "Enough"?
 
-I’m asking you to think deeply about what you value. Money is a means to an end. The way you spend your time, including work itself, has true value. Value your own time as much as your spending habits suggest you do. This is the right logic for your well-being.
+While writing this essay I came across another recent one from Adam Singer, who is more blunt about this:
 
-My last thought on this:
+https://www.hottakes.space/p/250k-per-year-is-plenty-of-income
 
-I’m obsessed with AI and the technological singularity. It’s a healthy time to step back, reflect on the fundamental values driving our behavior, and make changes. Wouldn’t it be silly to spend most of our waking hours working miserably on meaningless things, only to arrive in the second half of your life in a world of true abundance?
+Of course I agree, but what I found really funny while reading it is that I see two reactions to this 250K threshold: That it's extremely high, and that it's extremely low. These diverse reactions are only possible in a society where, for many, money has become largely about comparison to others vs something needed to live a satisfied life. I think those who see this and think its an extremely low to be "plenty" is living in comparison land.
+
+So, think deeply about what you value. Money itself is a means to an end. It's the way you spend your time, and that includes working too, that has true value. Value your own time as much as your spending habits would suggest you do. This is the right logic for your long-term well-being.
+
+We might be approaching a technological singularity. It’s a healthy time to step back, reflect on the fundamental values driving our behavior, and make changes. Wouldn’t it feel silly to spend most of your waking hours working miserably on meaningless things, only to arrive in the second half of your life in a world of true abundance?
