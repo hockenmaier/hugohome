@@ -28,6 +28,12 @@ tags = "tags"                # Still optional, for very specific filters like "A
         mark       = { enable = true }
         subscript  = { enable = true }
         superscript = { enable = true }
+  [markup.highlight]
+    codeFences = true   # highlight ``` fences
+    guessSyntax = true  # fallback when no language tag
+    style       = "dracula"  # pick any Chroma style
+    noClasses   = false      # emit CSS classes instead of inline styles
+  
 
 [params.paige]
 color = "#0d1213" # Adjust to your preferred primary color

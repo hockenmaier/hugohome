@@ -9,7 +9,7 @@ short_description: "An essay I was working on throughout my parental leave about
 
 Recently I read the [AI 2027 paper](https://ai-2027.com/scenario.pdf). I was surprised to see Scott Alexander's name on this paper and I was doubly surprised to see him do his [first face reveal podcast about it with Dwarkesh](https://www.dwarkesh.com/p/scott-daniel)
 
-On its face this is one of the most aggressive predictions for when we will have AGI (at least the new definition of AGI which is something that is comparable or better than humans at all non-bodily tasks) that I have read. Even as someone who has been a long believer in [Ray Kurzweil's Singularity predictions](https://en.wikipedia.org/wiki/The_Singularity_Is_Near), 2027 strikes me as very early. I realize that Kurzweil's AGI date was also late 2020's and 2045 was his singulartiy prediction - 2027 still feels early to me.
+On its face this is one of the most aggressive predictions for when we will have AGI (at least the new definition of AGI which is something that is comparable or better than humans at all non-bodily tasks) that I have read. Even as someone who has been a long believer in [Ray Kurzweil's Singularity predictions](https://en.wikipedia.org/wiki/The_Singularity_Is_Near), 2027 strikes me as very early. I realize that Kurzweil's AGI date was also late 2020's, which puts his prediction inline with AI 2027, while 2045 was his singularity prediction. But 2027 still feels early to me.
 
 {{< round-gallery >}}
 images/ai-2027.png|AI 2027,
@@ -18,7 +18,7 @@ images/The-Singularity-Is-Near.jpg|Singularity Is Near
 
 I won't get into my full take on AI 2027 here, but the core argument comes down to the same one I was making in my [original post on AI software development](/on-ai-software-development) - which is that, once AI agents are able to replace software engineers, instead of just assisting them, it doesn't matter their current performance in non-software domains, because they will simply be able to improve on their own software and training procedures at such a rate that the time difference between the moment of automating software engineering tasks and the moment of automating all other tasks is negligible.
 
-In light of AI 2027, I figured it was a good time to update where I think AI is actually in terms of software engineering. I've had the chance to test many of the latest AI software development tools and models, and they have come a long way since my original post.
+In light of AI 2027, I figured it was a good time to update where I think AI is actually in terms of software engineering. I've had the chance to test many of the latest AI software development tools and models, and they have come a long way since my original post. This post is primarily a story of my own personal experience with the latest AI coding and "vibe coding" tools on a game and web developement project.
 
 # What I Built
 
@@ -42,7 +42,7 @@ I'm going to cover what they are and how they performed on my game.
 
 > What Are They?
 >
-> Chat Assistants are models running in a client such as [ChatGPT](https://chatgpt.com/), [Claude](https://claude.ai/login?returnTo=%2F%3F), or [Gemini](https://gemini.google.com/app). Getting these assistants to write code for you entails passing in instructions and sometimes code context from your project.
+> Chat Assistants are models running in a client such as [ChatGPT](https://chatgpt.com/), [Claude](https://claude.ai/login?returnTo=%2F%3F), or [Gemini](https://gemini.google.com/app). This often happens on a website, but can happen in other software too. The key is that the human is doing all of the input into the AI model and output from the AI response to the codebase. Getting these assistants to write code for you entails passing in instructions and sometimes code context from your project.
 
 Chat assistants are great and have been helping developers for a long time! These are the closest most people get to running LLMs "raw" rather than through specialized tools designed to limit their errors or make them more agentic. So, you can think of the performance of Chat Assistants for coding as sort of the "default performance" of AI models to today at coding tasks. The other methods of having AI writing code still have the general performance dynamics I'm going to talk about here at their cores, even if they mitigate some types of failures by running their own tests and dealing with console errors.
 
@@ -54,11 +54,11 @@ But basic coding is not all of software engineering, and LLMS still have major i
 
 This means the actual developer (me and you) are typically the ones picking specific files and functions to send into the context window, lest we confuse the model. This is arduous unless the codebase is small enough to fit entirely into the context window. That's exactly what I think is going on with most of the new "vibe coded" projects we see showing impressive results - these are just tiny POC apps that haven't hit more than a few thousand lines of code yet. For context, most serious enterprise apps containing the detailed logic and edge cases real use cases require are in the millions or hundreds of millions of lines of code.
 
-This issue is compounded by the fact that the largest labs seem to recognize it, and have modified their chat clients in secret ways to the user to save themselves money. OpenAI in particular implements and invisible, silently failing ~40K token limit on text pasted into the chat window. I have run into many strange issues caused by this, and it’s an insane policy on OpenAI’s part because they have non-invisible text limits for some models like 4o that tell you when your message is too long. My theory on why is pretty insidious if true: I think they want paying customers to think their very large thinking models can accept the full token limit of the models, and don’t think many customers will find out they are truncating them for cost reasons anyway, because these models become so forgetful after 30K tokens or so anyway.
+This issue is compounded by the fact that the largest labs seem to recognize it, and have modified their chat clients in secret ways to the user to save themselves money. OpenAI in particular implements and invisible, silently failing ~40K token limit on text pasted into the chat window. I have run into many strange issues caused by this, and it’s an insane policy on OpenAI’s part because they have non-invisible text limits for some models like 4o that tell you when your message is too long. My theory on why is pretty insidious if true: I think they want paying customers to think their very large thinking models can accept the full token limit of the models, and don’t think many customers will find out they are truncating them for cost reasons anyway, because these models become stupid after 30K tokens or so anyway.
 
 **2. They are biased to be "advisors" rather than "doers"**
 
-This is just annoying, and I hope it gets trained out soon, even when models are running as chat assistants. When they are not specifically trained out of this mindset, most AI models just really _want_ you, the human, to be doing everything, and to act themselves as an advisor. This makes sense with one of the main sources of code training data being from Stackoverflow and other blogs, where developers can never seem to rid themselves of a pseudo-condescending "you should have been able to read the docs and learn this yourself" tone. It's also just a pattern exhibited by people in general - more often than not, especially in the corporate world, people are trained to be the "coaches" rather than the "worker bees". One reason why things get done so slowly in big political companies sometimes.
+This is just annoying, and I hope it gets trained out soon, though the second two categories of AI coding tools might obviate fixing this is chat assistants themselves. When they are not specifically trained out of this mindset, most AI models just really _want_ you, the human, to be doing everything, and to act themselves as an advisor. This makes sense with one of the main sources of code training data being from Stackoverflow and other blogs, where developers can never seem to rid themselves of a pseudo-condescending "you should have been able to read the docs and learn this yourself" tone. It's also just a pattern exhibited by people in general - more often than not, especially in the corporate world, people are trained to be the "coaches" rather than the "worker bees". One reason why things get done so slowly in big political companies sometimes.
 
 **3. They are still wrong sometimes, even on the basics, but they're wrong MUCH more confidently than human developers.**
 
@@ -98,7 +98,7 @@ if (v > maxV) maxV = v;
 
 This code was confidently written by o3 after lots of correct, thoughtful discussion about how often we should run physics simulation on my game in times/s. 60 hz is a common simulation time, which is Matter.js’s default, but when you have small objects moving around quickly, you need to increase it so that they don’t tunnel through each other.
 
-> Tunneling in physics simulations is when one of two objects is moving fast enough that there is not single frame where they are colliding, and so they simply pass through each other
+> Tunneling in physics simulations is when one of two objects is moving fast enough that there is no single frame where they are colliding, and so they simply pass through each other
 
 This is all good theory, and o3 came up with a really thorough chart for this little line:
 
@@ -122,7 +122,7 @@ After I became a parent and then started having a few hours a day to come up for
 
 Simple download, login, install. All going well. The very first feature I decided to through at it (using Claude 3.7 which was at the time the top recommended model) was something relatively simple: I wanted to modify the behaviour of the "Compactor" item in the Ball Machine so that it would not only combine the value of balls, but also remember how many balls had been combined and combine their value growth per second. This would need to change about 3 files and read from maybe 5 more.
 
-The first real dissapointment here happened after I entered my detailed prompt for how I wanted this to work: Cursor not only wanted an instruction file telling the AI how my codebase worked, it also wanted me to _manually pick every file_ to include in the context. I laughed out loud when I saw this. I had been under some impression that Cursor was more than essentially copying and pasting a prompt and some code context into ChatGPT.
+The first real disappointment here happened after I entered my detailed prompt for how I wanted this to work: Cursor not only wanted an instruction file telling the AI how my codebase worked, it also wanted me to _manually pick every file_ to include in the context. I laughed out loud when I saw this. I had been under some impression that Cursor was more than essentially copying and pasting a prompt and some code context into ChatGPT.
 
 Nevertheless, I picked all the files I thought were relevant - about 10 of them - and let the agent run. I did this at least 3 times, testing each one. Some of these runs were many minutes of Claude 3.7 iteratively coding.
 
