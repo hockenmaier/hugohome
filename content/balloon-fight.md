@@ -1,6 +1,6 @@
 ---
 title: "8 Player Balloon Fighter"
-date: 2025-07-21
+date: 2025-08-10
 project_date: 2024-04-01
 categories: ["builds"]
 short_description: "An 8-player real-time-strategy game with minimalistic art and deep strategic gameplay."

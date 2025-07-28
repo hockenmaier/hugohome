@@ -31,8 +31,8 @@ tags = "tags"                # Still optional, for very specific filters like "A
   [markup.highlight]
     codeFences = true   # highlight ``` fences
     guessSyntax = true  # fallback when no language tag
-    style       = "dracula"  # pick any Chroma style
-    noClasses   = false      # emit CSS classes instead of inline styles
+    style       = "fruity"  # pick any Chroma style
+    noClasses   = true      # emit CSS classes instead of inline styles
   
 
 [params.paige]
