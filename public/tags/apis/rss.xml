@@ -52,7 +52,7 @@
             
 
             
-                <link href="http://localhost:1313/tags/apis/" rel="self" type="text/html"/>
+                <link href="https://hockenworks.com/tags/apis/" rel="self" type="text/html"/>
             
         
             
@@ -60,7 +60,7 @@
             
 
             
-                <link href="http://localhost:1313/tags/apis/rss.xml" rel="alternate" type="application/rss+xml"/>
+                <link href="https://hockenworks.com/tags/apis/rss.xml" rel="alternate" type="application/rss+xml"/>
             
         
 
@@ -78,7 +78,7 @@
             <lastBuildDate>2024-06-01 00:00:00 +0000 UTC</lastBuildDate>
         
 
-        <link>http://localhost:1313/tags/apis/</link>
+        <link>https://hockenworks.com/tags/apis/</link>
 
         
 
@@ -198,7 +198,7 @@ This one is super simple. Give it what you’ve written and it will provide no-B
 
 
 
-<img  alt="proofreader GPT"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/proofreader-gpt.png"   style="height: auto; max-width: 200px; width: 100%"   >
+<img  alt="proofreader GPT"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/proofreader-gpt.png"   style="height: auto; max-width: 200px; width: 100%"   >
 
 
     
@@ -214,10 +214,10 @@ An experimental “AI generated RPG” where you play as “The Boy” who reali
 ]]></description>
                 
 
-                <guid isPermaLink="false">tag:localhost:1313,2024-06-01:/some-custom-gpts/</guid>
+                <guid isPermaLink="false">tag:hockenworks.com,2024-06-01:/some-custom-gpts/</guid>
 
                 
-                    <link>http://localhost:1313/some-custom-gpts/</link>
+                    <link>https://hockenworks.com/some-custom-gpts/</link>
                 
 
                 
@@ -267,10 +267,10 @@ An experimental “AI generated RPG” where you play as “The Boy” who reali
 <hr>]]></description>
                 
 
-                <guid isPermaLink="false">tag:localhost:1313,2024-01-13:/postman-for-pms/</guid>
+                <guid isPermaLink="false">tag:hockenworks.com,2024-01-13:/postman-for-pms/</guid>
 
                 
-                    <link>http://localhost:1313/postman-for-pms/</link>
+                    <link>https://hockenworks.com/postman-for-pms/</link>
                 
 
                 
