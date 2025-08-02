@@ -1,7 +1,7 @@
 ---
 title: "On AI Software Development, Vibe Coding Edition"
-date: 2025-07-27
-url: "/preview/on-ai-software-vibe-coding-edition/" # any UUID‑style slug you like
+date: 2025-08-01
+url: "/preview/on-ai-software-vibe-coding-edition/" # any path you like
 _build:
   list: never # don’t show in section/taxonomy/RSS lists
   render: always # still write the HTML file
@@ -181,9 +181,7 @@ I don't totally buy this paper - measuring this is riddled with issues arising f
 
 But that is not all that's going on. A big part of it, too, is that AI is just _not smart enough_ for most difficult coding tasks, and this is especially true in large existing codebases where AI models must use existing classes and refactor existing code rather than just whipping up 300 new lines of code every time.
 
-**Most Difficult Coding Tasks**
-
-I say this for a reason.
+I say "**Most Difficult Coding Tasks**" for a reason.
 
 I say it because, with the advent of Autonomous Coding Agents (keep in mind, these only started to be a thing a few months ago), software engineers have a clearer view into _how much_ of their work can be truly automated. That's because systems like Codex are "all or nothing" in some sense. They PR working code or they don't - and there is much less space to get caught up in "helping" the AI in a task it really didn't have the smarts to do on its own.
 
