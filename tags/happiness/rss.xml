@@ -46,7 +46,7 @@
             
 
             
-                <link href="http://localhost:1313/tags/happiness/" rel="self" type="text/html"/>
+                <link href="https://hockenworks.com/tags/happiness/" rel="self" type="text/html"/>
             
         
             
@@ -54,7 +54,7 @@
             
 
             
-                <link href="http://localhost:1313/tags/happiness/rss.xml" rel="alternate" type="application/rss+xml"/>
+                <link href="https://hockenworks.com/tags/happiness/rss.xml" rel="alternate" type="application/rss+xml"/>
             
         
 
@@ -69,10 +69,10 @@
         
 
         
-            <lastBuildDate>2025-07-21 00:00:00 +0000 UTC</lastBuildDate>
+            <lastBuildDate>2025-08-02 00:00:00 +0000 UTC</lastBuildDate>
         
 
-        <link>http://localhost:1313/tags/happiness/</link>
+        <link>https://hockenworks.com/tags/happiness/</link>
 
         
 
@@ -203,7 +203,7 @@
 
 
 
-<img  alt="happiness income curve"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/treadmill-graph.png"   style="height: auto; max-width: 720px; width: 100%"   >
+<img  alt="happiness income curve"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/treadmill-graph.png"   style="height: auto; max-width: 720px; width: 100%"   >
 
 
     
@@ -262,14 +262,14 @@
 ]]></description>
                 
 
-                <guid isPermaLink="false">tag:localhost:1313,2025-07-21:/the-treadmill/</guid>
+                <guid isPermaLink="false">tag:hockenworks.com,2025-08-02:/the-treadmill/</guid>
 
                 
-                    <link>http://localhost:1313/the-treadmill/</link>
+                    <link>https://hockenworks.com/the-treadmill/</link>
                 
 
                 
-                    <pubDate>Mon, 21 Jul 2025 00:00:00 UTC</pubDate>
+                    <pubDate>Sat, 02 Aug 2025 00:00:00 UTC</pubDate>
                 
 
                 
