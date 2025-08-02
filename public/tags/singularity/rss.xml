@@ -64,7 +64,7 @@
             
 
             
-                <link href="https://hockenworks.com/tags/singularity/" rel="self" type="text/html"/>
+                <link href="http://localhost:1313/tags/singularity/" rel="self" type="text/html"/>
             
         
             
@@ -72,7 +72,7 @@
             
 
             
-                <link href="https://hockenworks.com/tags/singularity/rss.xml" rel="alternate" type="application/rss+xml"/>
+                <link href="http://localhost:1313/tags/singularity/rss.xml" rel="alternate" type="application/rss+xml"/>
             
         
 
@@ -90,7 +90,7 @@
             <lastBuildDate>2025-08-01 00:00:00 +0000 UTC</lastBuildDate>
         
 
-        <link>https://hockenworks.com/tags/singularity/</link>
+        <link>http://localhost:1313/tags/singularity/</link>
 
         
 
@@ -202,7 +202,7 @@
 
 
 
-<img  alt="AI 2027"   class="rounded-3 w-100"  crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/ai-2027.png"    >
+<img  alt="AI 2027"   class="rounded-3 w-100"  crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/ai-2027.png"    >
 
 
       
@@ -279,7 +279,7 @@
 
 
 
-<img  alt="Singularity Is Near"   class="rounded-3 w-100"  crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/The-Singularity-Is-Near.jpg"    >
+<img  alt="Singularity Is Near"   class="rounded-3 w-100"  crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/The-Singularity-Is-Near.jpg"    >
 
 </div>
 </div>
@@ -451,7 +451,7 @@
 
 
 
-<img  alt="Image description"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/codex-sample.webp"   style="height: auto; width: 100%"   >
+<img  alt="Image description"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/codex-sample.webp"   style="height: auto; width: 100%"   >
 
 
     
@@ -472,7 +472,7 @@
 <p>There is a common pattern when people talk about AI in their own field vs others: AI seems revolutionary in fields you don&rsquo;t understand deeply, and less so in your own - because you see the nuance of the errors it makes. I have seen <a href="https://arxiv.org/abs/2507.09089">this study</a> referenced by several engineers in the past few weeks as solid evidence that AI coding is just hype. It makes the core claim that AI is <em>reducing</em> engineering productivity rather than enhancing it, by 20%.</p>
 <p>I don&rsquo;t totally buy this paper - measuring this is riddled with issues arising from the basic fact that trying to make engineers use AI often results in the same kind of misuse that you might expect if you asked a bunch of artists to use Midjourney to do their jobs.</p>
 <p>But that is not all that&rsquo;s going on. A big part of it, too, is that AI is just <em>not smart enough</em> for most difficult coding tasks, and this is especially true in large existing codebases where AI models must use existing classes and refactor existing code rather than just whipping up 300 new lines of code every time.</p>
-<p>I say &ldquo;<strong>Most Difficult Coding Tasks</strong>&rdquo; for a reason.</p>
+<p>I say <strong>&ldquo;Most Difficult Coding Tasks&rdquo;</strong> for a reason.</p>
 <p>I say it because, with the advent of Autonomous Coding Agents (keep in mind, these only started to be a thing a few months ago), software engineers have a clearer view into <em>how much</em> of their work can be truly automated. That&rsquo;s because systems like Codex are &ldquo;all or nothing&rdquo; in some sense. They PR working code or they don&rsquo;t - and there is much less space to get caught up in &ldquo;helping&rdquo; the AI in a task it really didn&rsquo;t have the smarts to do on its own.</p>
 <p>Right now, about half of the things I typically set out to do on a project like this game are achievable via Codex. This is mostly small stuff that can be done changing only 1-3 files. But it can be some larger stuff too, like my achievements feature, which don&rsquo;t require thinking hard about the architecture of the application or changing things really significantly. Adding achievements on top of my working game was a sort of perfect example of a high output but low context task that Codex could achieve. This all means there&rsquo;s still a long way to go: the long tail of low complexity work in software engineering is what Codex can already pick up, and the hard stuff is left.</p>
 <p>But now that AI is working &ldquo;independently&rdquo;, instead of humans always subtly correcting it when they choose what to paste in from a chat assistant, or when they clean up sloppy Cursor code, that threshold of &ldquo;AI achievable&rdquo; is much clearer. If it&rsquo;s at 50% now, we&rsquo;ll see it tick up to 60%, then 70%, and so on.</p>
@@ -480,10 +480,10 @@
 ]]></description>
                 
 
-                <guid isPermaLink="false">tag:hockenworks.com,2025-08-01:/on-ai-software-development-2/</guid>
+                <guid isPermaLink="false">tag:localhost:1313,2025-08-01:/on-ai-software-development-2/</guid>
 
                 
-                    <link>https://hockenworks.com/on-ai-software-development-2/</link>
+                    <link>http://localhost:1313/on-ai-software-development-2/</link>
                 
 
                 
@@ -635,7 +635,7 @@ And this one might sound funny to someone that is paying attention to AI in part
 
 
 
-<img  alt="an OpenSCAD render"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/o3-lego.png"   style="height: auto; max-width: 720px; width: 100%"   >
+<img  alt="an OpenSCAD render"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/o3-lego.png"   style="height: auto; max-width: 720px; width: 100%"   >
 
 
     
@@ -729,7 +729,7 @@ And this one might sound funny to someone that is paying attention to AI in part
 
 
 
-<img  alt="an OpenSCAD render"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/o3-pinion.png"   style="height: auto; max-width: 720px; width: 100%"   >
+<img  alt="an OpenSCAD render"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/o3-pinion.png"   style="height: auto; max-width: 720px; width: 100%"   >
 
 
     
@@ -831,7 +831,7 @@ And this one might sound funny to someone that is paying attention to AI in part
 
 
 
-<img  alt="the uploaded map"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/o3-struggle-map-new.png"   style="height: auto; max-width: 400px; width: 100%"   >
+<img  alt="the uploaded map"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/o3-struggle-map-new.png"   style="height: auto; max-width: 400px; width: 100%"   >
 
 
     
@@ -929,7 +929,7 @@ And this one might sound funny to someone that is paying attention to AI in part
 
 
 
-<img  alt="My Flipper Zero and 3D Printed Clone"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/flipper-3d.jpg"   style="height: auto; max-width: 720px; width: 100%"   >
+<img  alt="My Flipper Zero and 3D Printed Clone"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/flipper-3d.jpg"   style="height: auto; max-width: 720px; width: 100%"   >
 
 
     
@@ -953,10 +953,10 @@ And this one might sound funny to someone that is paying attention to AI in part
 ]]></description>
                 
 
-                <guid isPermaLink="false">tag:hockenworks.com,2025-06-16:/vision-is-the-last-hurdle-before-agi/</guid>
+                <guid isPermaLink="false">tag:localhost:1313,2025-06-16:/vision-is-the-last-hurdle-before-agi/</guid>
 
                 
-                    <link>https://hockenworks.com/vision-is-the-last-hurdle-before-agi/</link>
+                    <link>http://localhost:1313/vision-is-the-last-hurdle-before-agi/</link>
                 
 
                 
@@ -1081,7 +1081,7 @@ And this one might sound funny to someone that is paying attention to AI in part
 
 
 
-<img  alt="the hockenworks homepage"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/hockenworks.png"   style="height: auto; max-width: 720px; width: 100%"   >
+<img  alt="the hockenworks homepage"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/hockenworks.png"   style="height: auto; max-width: 720px; width: 100%"   >
 
 
     
@@ -1193,7 +1193,7 @@ And this one might sound funny to someone that is paying attention to AI in part
 
 
 
-<img  alt="A ball machine"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/bubble4.gif"   style="height: auto; max-width: 720px; width: 100%"   >
+<img  alt="A ball machine"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/bubble4.gif"   style="height: auto; max-width: 720px; width: 100%"   >
 
 
     
@@ -1287,7 +1287,7 @@ And this one might sound funny to someone that is paying attention to AI in part
 
 
 
-<img  alt="balls everywhere"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/this-website-ball-machine-1.png"   style="height: auto; max-width: 720px; width: 100%"   >
+<img  alt="balls everywhere"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/this-website-ball-machine-1.png"   style="height: auto; max-width: 720px; width: 100%"   >
 
 
     
@@ -1381,7 +1381,7 @@ And this one might sound funny to someone that is paying attention to AI in part
 
 
 
-<img  alt="balls everywhere"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/waves2.gif"   style="height: auto; max-width: 300px; width: 100%"   >
+<img  alt="balls everywhere"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/waves2.gif"   style="height: auto; max-width: 300px; width: 100%"   >
 
 
     
@@ -1485,7 +1485,7 @@ And this one might sound funny to someone that is paying attention to AI in part
 
 
 
-<img  alt="ball chute"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/ball-chute-hatch-1.png"   style="height: auto; max-width: 200px; width: 100%"   >
+<img  alt="ball chute"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/ball-chute-hatch-1.png"   style="height: auto; max-width: 200px; width: 100%"   >
 
  
   <span style="display: block; font-style: italic; margin-top: 0.5rem">
@@ -1586,7 +1586,7 @@ And this one might sound funny to someone that is paying attention to AI in part
 
 
 
-<img  alt="the goal"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/goal.png"   style="height: auto; max-width: 40px; width: 100%"   >
+<img  alt="the goal"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/goal.png"   style="height: auto; max-width: 40px; width: 100%"   >
 
  
 </span>
@@ -1690,7 +1690,7 @@ And this one might sound funny to someone that is paying attention to AI in part
 
 
 
-<img  alt="line toggle"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/line-mode.png"   style="height: auto; max-width: 200px; width: 100%"   >
+<img  alt="line toggle"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/line-mode.png"   style="height: auto; max-width: 200px; width: 100%"   >
 
  
 </span>
@@ -1786,7 +1786,7 @@ And this one might sound funny to someone that is paying attention to AI in part
 
 
 
-<img  alt="curved line toggle"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/curve-mode.png"   style="height: auto; max-width: 200px; width: 100%"   >
+<img  alt="curved line toggle"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/curve-mode.png"   style="height: auto; max-width: 200px; width: 100%"   >
 
  
 </span>
@@ -1882,7 +1882,7 @@ And this one might sound funny to someone that is paying attention to AI in part
 
 
 
-<img  alt="compactor toggle"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/compactor-mode.png"   style="height: auto; max-width: 200px; width: 100%"   >
+<img  alt="compactor toggle"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/compactor-mode.png"   style="height: auto; max-width: 200px; width: 100%"   >
 
  
 </span>
@@ -2013,7 +2013,7 @@ And this one might sound funny to someone that is paying attention to AI in part
 
 
 
-<img  alt="auto clicker"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/auto-clicker.png"   style="height: auto; max-width: 200px; width: 100%"   >
+<img  alt="auto clicker"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/auto-clicker.png"   style="height: auto; max-width: 200px; width: 100%"   >
 
  
 </span>
@@ -2116,7 +2116,7 @@ And this one might sound funny to someone that is paying attention to AI in part
 
 
 
-<img  alt="dotted line toggle"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/everything-has-a-price.png"   style="height: auto; max-width: 200px; width: 100%"   >
+<img  alt="dotted line toggle"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/everything-has-a-price.png"   style="height: auto; max-width: 200px; width: 100%"   >
 
  
 </span>
@@ -2213,7 +2213,7 @@ And this one might sound funny to someone that is paying attention to AI in part
 
 
 
-<img  alt="dotted line toggle"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/dotted-line-mode.png"   style="height: auto; max-width: 200px; width: 100%"   >
+<img  alt="dotted line toggle"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/dotted-line-mode.png"   style="height: auto; max-width: 200px; width: 100%"   >
 
  
 </span>
@@ -2320,7 +2320,7 @@ So keep your balls moving!</li>
 
 
 
-<img  alt="dotted line toggle"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/page-revenue.png"   style="height: auto; max-width: 200px; width: 100%"   >
+<img  alt="dotted line toggle"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/page-revenue.png"   style="height: auto; max-width: 200px; width: 100%"   >
 
  
 </span>
@@ -2339,8 +2339,8 @@ document.addEventListener('DOMContentLoaded', function(){
   try {
     var defs = (window.App && App.Achievements && App.Achievements.defs) || [];
     var unlocked = JSON.parse(localStorage.getItem('game.achievementsUnlocked') || '{}');
-    var yes = 'https:\/\/hockenworks.com\/images\/achievement-yes.png';
-    var no = 'https:\/\/hockenworks.com\/images\/achievement-no.png';
+    var yes = 'http:\/\/localhost:1313\/images\/achievement-yes.png';
+    var no = 'http:\/\/localhost:1313\/images\/achievement-no.png';
     if(!defs.length){
       console.warn('No achievements definitions found');
     }
@@ -2398,10 +2398,10 @@ document.addEventListener('DOMContentLoaded', function(){
 ]]></description>
                 
 
-                <guid isPermaLink="false">tag:hockenworks.com,2025-05-28:/this-website/</guid>
+                <guid isPermaLink="false">tag:localhost:1313,2025-05-28:/this-website/</guid>
 
                 
-                    <link>https://hockenworks.com/this-website/</link>
+                    <link>http://localhost:1313/this-website/</link>
                 
 
                 
@@ -2521,7 +2521,7 @@ document.addEventListener('DOMContentLoaded', function(){
 
 
 
-<img  alt="this is a robot"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/ai-software-dev.png"   style="height: auto; max-width: 720px; width: 100%"   >
+<img  alt="this is a robot"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/ai-software-dev.png"   style="height: auto; max-width: 720px; width: 100%"   >
 
 
     
@@ -2541,10 +2541,10 @@ document.addEventListener('DOMContentLoaded', function(){
 <p>These are my thoughts at what seems to be the beginning of the next AI revolution in early 2024. I plan to revisit this topic and see if I&rsquo;m right in future posts.</p>]]></description>
                 
 
-                <guid isPermaLink="false">tag:hockenworks.com,2024-01-24:/on-ai-software-development/</guid>
+                <guid isPermaLink="false">tag:localhost:1313,2024-01-24:/on-ai-software-development/</guid>
 
                 
-                    <link>https://hockenworks.com/on-ai-software-development/</link>
+                    <link>http://localhost:1313/on-ai-software-development/</link>
                 
 
                 

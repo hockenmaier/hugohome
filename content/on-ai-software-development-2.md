@@ -1,10 +1,6 @@
 ---
 title: "On AI Software Development, Vibe Coding Edition"
 date: 2025-08-01
-url: "/preview/on-ai-software-vibe-coding-edition/" # any path you like
-_build:
-  list: never # don’t show in section/taxonomy/RSS lists
-  render: always # still write the HTML file
 categories: ["writing"]
 personal: "Y"
 tags: ["software", "singularity", "AI", "software", "predictions"]
@@ -34,11 +30,11 @@ It's a very strange project. I won't get too much into the weeds here, but essen
 
 # Three Ways for AI to Build Your Project
 
-Over the course of 5 months, I worked on this game via 3 main methods, which happen to be the main 3 ways that anyone is writing code with AI these days.
+Over the course of 5 months, I worked on this game via 3 main methods, which happen to be the main 3 ways that anyone is writing code with AI these days:
 
-1. Chat Assistants - particularly the o4-mini and o3 models
-2. Automated IDEs - particularly Cursor
-3. Autonomous Coding Agents - particularly OpenAI's "Codex", which launched about 2 months before I finished the project.
+1. **Chat Assistants** - particularly the o4-mini and o3 models
+2. **Automated IDEs** - particularly Cursor
+3. **Autonomous Coding Agents** - particularly OpenAI's "Codex", which launched about 2 months before I finished the project.
 
 I'm going to cover what they are and how they performed on my game.
 
@@ -173,20 +169,20 @@ There is another nice little benefit to a system that introduces a neat little P
 
 I like Codex. A lot. It's more fun to use than something like Cursor and lets me focus on the things I need to. I believe this type of system is where automated software development is going, long term.
 
-# 2026 and Beyond
+# TLDR and What Comes Next
 
-There is a common pattern when people talk about AI in their own field vs others: AI seems revolutionary in fields you don't understand deeply, and less so in your own - because you see the nuance of the errors it makes. I have seen [this study](https://arxiv.org/abs/2507.09089) referenced by several engineers in the past few weeks as solid evidence that AI coding is just hype. It makes the core claim that AI is _reducing_ engineering productivity rather than enhancing it, by 20%.
+There is a common pattern when people talk about AI in their own field vs other fields: AI seems revolutionary in fields you don't understand deeply, and less so in your own - because you see the nuance of the errors it makes. I have seen [this study](https://arxiv.org/abs/2507.09089) referenced by several engineers in the past few weeks as solid evidence that AI coding is just hype. It makes the core claim that AI is _reducing_ engineering productivity rather than enhancing it, by 20%.
 
-I don't totally buy this paper - measuring this is riddled with issues arising from the basic fact that trying to make engineers use AI often results in the same kind of misuse that you might expect if you asked a bunch of artists to use Midjourney to do their jobs.
+I don't totally buy this paper. Measuring productivity like this is riddled with issues arising from the basic fact that trying to make engineers use AI often results in the same kind of misuse that you might expect if you asked a bunch of artists to use Midjourney to do their jobs.
 
-But that is not all that's going on. A big part of it, too, is that AI is just _not smart enough_ for most difficult coding tasks, and this is especially true in large existing codebases where AI models must use existing classes and refactor existing code rather than just whipping up 300 new lines of code every time.
+But that is not all that's going on. A big part of it, too, is that no matter the paradigm, the underlying AI of 2025 is just _not smart enough_ for most difficult coding tasks. This is especially true in large existing codebases where AI models must use existing classes and refactor existing code rather than just whipping up 300 new lines of code every time.
 
-I say "**Most Difficult Coding Tasks**" for a reason.
+There is the big stumbling block most people have in evaluating AI: They see a success or they see a failure, they aren't sure how much "help" the AI received from a human in the cases of success, and they fall back to their biases for how useful or useless they already thought AI was in this domain. Their priors are not updated by these examples.
 
-I say it because, with the advent of Autonomous Coding Agents (keep in mind, these only started to be a thing a few months ago), software engineers have a clearer view into _how much_ of their work can be truly automated. That's because systems like Codex are "all or nothing" in some sense. They PR working code or they don't - and there is much less space to get caught up in "helping" the AI in a task it really didn't have the smarts to do on its own.
+But now, with the advent of Autonomous Coding Agents (keep in mind, these only started to be a thing a few months ago), software engineers have a clearer view into _actually how much_ of their work can be truly automated. That's because systems like Codex are "all or nothing" in some sense. They PR working code or they don't - and there is much less space to get caught up in "helping" the AI in a task it really didn't have the smarts to do on its own.
 
-Right now, about half of the things I typically set out to do on a project like this game are achievable via Codex. This is mostly small stuff that can be done changing only 1-3 files. But it can be some larger stuff too, like my achievements feature, which don't require thinking hard about the architecture of the application or changing things really significantly. Adding achievements on top of my working game was a sort of perfect example of a high output but low context task that Codex could achieve. This all means there's still a long way to go: the long tail of low complexity work in software engineering is what Codex can already pick up, and the hard stuff is left.
+Right now, about half of the things I typically set out to do on a project like this game are achievable via Codex. This is mostly small stuff that can be done changing only 1-3 files. But it can be some larger features too, like my achievements system, which don't require thinking hard about the architecture of the application or changing things really significantly. Adding achievements on top of my working game was a sort of perfect example of a high output but low context task that Codex could achieve. This all means there's still a long way to go: the long tail of low complexity work in software engineering is what Codex can already pick up, and the hard stuff is left.
 
 But now that AI is working "independently", instead of humans always subtly correcting it when they choose what to paste in from a chat assistant, or when they clean up sloppy Cursor code, that threshold of "AI achievable" is much clearer. If it's at 50% now, we'll see it tick up to 60%, then 70%, and so on.
 
-I still hold this to be true, like the authors of AI 2027: when something like Codex is at 100%, the world has entered the [intelligence explosion](https://en.wikipedia.org/wiki/Technological_singularity#Intelligence_explosion).
+I still hold this to be true, as do the authors of AI 2027: when something like Codex is at 100%, the world has entered the [intelligence explosion](https://en.wikipedia.org/wiki/Technological_singularity#Intelligence_explosion).
