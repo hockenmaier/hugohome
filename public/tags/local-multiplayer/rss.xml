@@ -46,7 +46,7 @@
             
 
             
-                <link href="http://localhost:1313/tags/local-multiplayer/" rel="self" type="text/html"/>
+                <link href="https://hockenworks.com/tags/local-multiplayer/" rel="self" type="text/html"/>
             
         
             
@@ -54,7 +54,7 @@
             
 
             
-                <link href="http://localhost:1313/tags/local-multiplayer/rss.xml" rel="alternate" type="application/rss+xml"/>
+                <link href="https://hockenworks.com/tags/local-multiplayer/rss.xml" rel="alternate" type="application/rss+xml"/>
             
         
 
@@ -72,7 +72,7 @@
             <lastBuildDate>2019-03-01 00:00:00 +0000 UTC</lastBuildDate>
         
 
-        <link>http://localhost:1313/tags/local-multiplayer/</link>
+        <link>https://hockenworks.com/tags/local-multiplayer/</link>
 
         
 
@@ -201,7 +201,7 @@ This is what the project looked like for my first play-test with other people 5 
 
 
 
-<img  alt="Land War 4-day MVP"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/land_war_mvp.gif"   style="height: auto; width: 100%"   >
+<img  alt="Land War 4-day MVP"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/land_war_mvp.gif"   style="height: auto; width: 100%"   >
 
 
     
@@ -291,7 +291,7 @@ This is what the project looked like for my first play-test with other people 5 
 
 
 
-<img  alt="Player Select screen"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/land_war_player_select.png"   style="height: auto; width: 100%"   >
+<img  alt="Player Select screen"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/land_war_player_select.png"   style="height: auto; width: 100%"   >
 
 
     
@@ -380,7 +380,7 @@ This is what the project looked like for my first play-test with other people 5 
 
 
 
-<img  alt="Settings menu"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/land_war_settings.png"   style="height: auto; width: 100%"   >
+<img  alt="Settings menu"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/land_war_settings.png"   style="height: auto; width: 100%"   >
 
 
     
@@ -471,7 +471,7 @@ This is what the project looked like for my first play-test with other people 5 
 
 
 
-<img  alt="E3 marketing material"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/land_war_e3.png"   style="height: auto; max-width: 400px; width: 100%"   >
+<img  alt="E3 marketing material"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/land_war_e3.png"   style="height: auto; max-width: 400px; width: 100%"   >
 
 
     
@@ -488,10 +488,10 @@ This is what the project looked like for my first play-test with other people 5 
 ]]></description>
                 
 
-                <guid isPermaLink="false">tag:localhost:1313,2019-03-01:/land-war/</guid>
+                <guid isPermaLink="false">tag:hockenworks.com,2019-03-01:/land-war/</guid>
 
                 
-                    <link>http://localhost:1313/land-war/</link>
+                    <link>https://hockenworks.com/land-war/</link>
                 
 
                 

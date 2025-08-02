@@ -52,7 +52,7 @@
             
 
             
-                <link href="http://localhost:1313/tags/electronics/" rel="self" type="text/html"/>
+                <link href="https://hockenworks.com/tags/electronics/" rel="self" type="text/html"/>
             
         
             
@@ -60,7 +60,7 @@
             
 
             
-                <link href="http://localhost:1313/tags/electronics/rss.xml" rel="alternate" type="application/rss+xml"/>
+                <link href="https://hockenworks.com/tags/electronics/rss.xml" rel="alternate" type="application/rss+xml"/>
             
         
 
@@ -78,7 +78,7 @@
             <lastBuildDate>2016-01-01 00:00:00 +0000 UTC</lastBuildDate>
         
 
-        <link>http://localhost:1313/tags/electronics/</link>
+        <link>https://hockenworks.com/tags/electronics/</link>
 
         
 
@@ -122,7 +122,7 @@
 <p>I created this panel display in 2016 to control much of the home automation I used in my Studio City apartment. Mainly a hardware project, I designed and 3D-printed a case and frame for the touchscreen and raspberry pi microcomputer in order to mount them to the wall. The software running the control panel is SaaS, but I did write a custom html wrapper to control the orientation and settings of the site, which is available on the github linked above.</p>
 <p>Update in 2025: This panel is still my main view into my home automation in my new house in Sherman Oaks, almost 10 years in with no modification!</p>
 <p>Here&rsquo;s a video to see the panel in action:</p>
-<h2 id="hahahugoshortcode25s0hbhb">
+<h2 id="hahahugoshortcode27s0hbhb">
     <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
       <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/iFGmm-ijJvE?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"></iframe>
     </div>
@@ -184,10 +184,10 @@
 </span></span></code></pre></div>]]></description>
                 
 
-                <guid isPermaLink="false">tag:localhost:1313,2016-01-01:/raspberry-pi-panel/</guid>
+                <guid isPermaLink="false">tag:hockenworks.com,2016-01-01:/raspberry-pi-panel/</guid>
 
                 
-                    <link>http://localhost:1313/raspberry-pi-panel/</link>
+                    <link>https://hockenworks.com/raspberry-pi-panel/</link>
                 
 
                 
@@ -237,10 +237,10 @@ Print two of the attached STL files (one of the mountable variety if you plan to
 <p>The hot glue lets the metal move slightly, so that one metal piece bends to touch the other when a magnet is near either side of the switch, completing the circuit between the two metal ends still sticking out.</p>]]></description>
                 
 
-                <guid isPermaLink="false">tag:localhost:1313,2013-11-25:/3d-reed-switch/</guid>
+                <guid isPermaLink="false">tag:hockenworks.com,2013-11-25:/3d-reed-switch/</guid>
 
                 
-                    <link>http://localhost:1313/3d-reed-switch/</link>
+                    <link>https://hockenworks.com/3d-reed-switch/</link>
                 
 
                 

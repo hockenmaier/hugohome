@@ -24,7 +24,7 @@ In light of AI 2027, I figured it was a good time to update where AI is actually
 
 I've been developing with AI since 2021, but I got a special chance to really put the latest models and tools to use the last few months while on parental leave. And I have a more valuable type of project with which to accurately evaluate these models on their creative capacity for programming, which is really the hard stuff.
 
-This project is absolutely not in the training data, not even a little bit. That's because it's a game built into a website. AI is already much worse at gamedev than other types of development, but it's made extra strange by the fact that the game is built into a CMS website. [This website!](/this-website/#ball-machine---the-game).
+This project is absolutely not in the training data, not even a little bit. That's because it's a game built into a website. AI is already much worse at gamedev than other types of development, but it's made extra strange by the fact that the game is built into a CMS website. [This website!](/this-website/#ball-machine---the-game)
 
 It's a very strange project. I won't get too much into the weeds here, but essentially we have a [Hugo CMS](https://gohugo.io/) underneath everything, and that Hugo CMS has a bunch of short code that interacts with a bunch of other custom JavaScript that loads dynamically when the player decides to start playing any given page. Just try it on the top right corner of this page and you might start to imagine how weird of an application this would be to work on.
 
