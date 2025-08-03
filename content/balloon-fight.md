@@ -1,6 +1,10 @@
 ---
 title: "8 Player Balloon Fighter"
-date: 2025-08-10
+date: 2025-08-01
+url: "/preview/balloon-fight/" # any path you like
+_build:
+  list: never # don’t show in section/taxonomy/RSS lists
+  render: always # still write the HTML file
 project_date: 2024-04-01
 categories: ["builds"]
 short_description: "An 8-player real-time-strategy game with minimalistic art and deep strategic gameplay."

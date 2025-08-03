@@ -1,6 +1,10 @@
 ---
 title: "The Treadmill"
-date: 2025-08-07
+date: 2025-08-01
+url: "/preview/the-treadmill/" # any path you like
+_build:
+  list: never # don’t show in section/taxonomy/RSS lists
+  render: always # still write the HTML file
 categories: ["writing"]
 tags: ["work-life balance", "happiness", "wealth", "singularity", "AI"]
 ---
