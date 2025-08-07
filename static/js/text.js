@@ -344,5 +344,15 @@ App.modules.text = (function () {
       window.addEventListener("BallFallBaseReady", runTextModule);
     }
   }
-  return { init };
+  function rebuild() {
+    if (!window.BallFall || !window.BallFall.world) return;
+    const world = window.BallFall.world;
+    world.bodies.slice().forEach((body) => {
+      if (body.elRef || body.elRefs) {
+        Matter.World.remove(world, body);
+      }
+    });
+    runTextModule();
+  }
+  return { init, rebuild };
 })();

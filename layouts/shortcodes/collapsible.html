@@ -1,0 +1,27 @@
+{{ $id := printf "hw-collapse-%d" now.UnixNano }}
+<details id="{{$id}}" class="hw-collapse">
+  <summary>{{ .Get "title" }}</summary>
+  <div class="hw-collapse-content">
+    {{ .Inner | safeHTML }}
+  </div>
+</details>
+<script>
+(function(){
+  const el = document.getElementById('{{ $id }}');
+  if(!el) return;
+  const rebuild = () => {
+    if(window.App && App.modules && App.modules.text && App.modules.text.rebuild){
+      App.modules.text.rebuild();
+    }
+    if(window.BallFall && window.BallFall.rebuildMediaColliders){
+      window.BallFall.rebuildMediaColliders();
+    }
+  };
+  el.addEventListener('toggle', () => {
+    setTimeout(rebuild, 100);
+  });
+  const obs = new MutationObserver(() => setTimeout(rebuild, 100));
+  obs.observe(el, {childList: true, subtree: true});
+})();
+</script>
+

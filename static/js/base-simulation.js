@@ -137,7 +137,17 @@ App.modules.base = (function () {
       });
     }
 
+    function rebuildMediaColliders() {
+      const world = window.BallFall.world;
+      (window.BallFall.mediaColliders || []).forEach((c) => {
+        Matter.World.remove(world, c);
+      });
+      window.BallFall.mediaColliders = [];
+      addMediaColliders();
+    }
+
     addMediaColliders();
+    window.BallFall.rebuildMediaColliders = rebuildMediaColliders;
 
     // ---- New Media Interaction Update ----
     // For each ball, if it overlaps a media collider, apply high drag and trigger a ripple once.
