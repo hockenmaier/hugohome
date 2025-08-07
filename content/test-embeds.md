@@ -2,8 +2,10 @@
 title: "Test Embeds"
 date: 2020-05-20
 categories: ["builds"]
-stack: ["Openscad", "Bambulab"]
-draft: true
+url: "/test-embeds/" # any path you like
+_build:
+  list: never # don’t show in section/taxonomy/RSS lists
+  render: always # still write the HTML file
 project_link: ""
 github_link: ""
 short_description: "A 4 player board game where you gamble to take over a fruit tree."
