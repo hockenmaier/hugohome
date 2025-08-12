@@ -184,20 +184,44 @@
                 
 
                 
-                    <description><![CDATA[<p>Two years and four months have gone by since I ran my original Interactive Solar System experiment with the original version of GPT-4. You can see that one at hockenworks.com/gpt-4-solar-system.</p>
-<p>I have a far more impressive result today, which uses ChatGPT Agent Mode. Take a test run:</p>
+                    <description><![CDATA[<p>GPT-5, as a text completion model, is not a revelation. In fact, it&rsquo;s more of a disapointment.</p>
+<p>This isn&rsquo;t so surprising. It was becoming clearer with every new LLM release that the fundamental improvements from scaling for just the performance of the core text predictor under the hood was starting to taper. But I&rsquo;m going to make an argument today that, although the LLM itself is not nearly as much of a leap from GPT-4 as GPT-4 was from GPT-3, we have still seen at least a full number of real improvement between the release of GPT-4 and GPT-5 as we did between the prior two. And the reason for that is tooling.</p>
+<p>Let me start by just illustrating the progress we had made between the first GPT-4 release in early 2023 and the week before the release of GPT-5.</p>
+<p>Two years and four months have gone by since I ran my original Interactive Solar System experiment with the original version of GPT-4. You can see that one at <a href="hockenworks.com/gpt-4-solar-system">hockenworks.com/gpt-4-solar-system</a>.</p>
+<p>Take a look at the same test performed a week before the release of GPT-5, which uses ChatGPT Agent Mode. Take a test run:</p>
 
-<div style="width:100%; max-width:1000px; margin:1em auto; position:relative; padding-top:70%;">
+<style>
+  .agent-mode-solar-wrapper {
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 150%;
+    max-width: 1500px;
+    margin: 1em 0;
+    padding-top: 70%;
+  }
+
+  @media (max-width: 768px) {
+    .agent-mode-solar-wrapper {
+      width: 100%;
+      left: 0;
+      transform: none;
+      padding-top: 180%;
+    }
+  }
+</style>
+
+<div class="agent-mode-solar-wrapper">
   <iframe
-    src="/html/solar-system-self-contained.html"
+    src="/html/agent-mode-solar-system-self-contained.html"
     style="position:absolute; top:0; left:0; width:100%; height:100%; border:1px solid #ccc;"
   ></iframe>
 </div>
 
 <div style="text-align: center; margin-bottom: 1rem;">
-    
-        <span style="display: block; font-style: italic; margin-top: 0.5rem;">Works on desktop or mobile</span>
-    
+  
+    <span style="display: block; font-style: italic; margin-top: 0.5rem;">Works on desktop or mobile</span>
+  
 </div>
 
 <p><strong>Controls</strong></p>
@@ -212,10 +236,44 @@
 <p>Quite an improvement, eh?</p>
 <p>Like my original experiment, I didn’t one-shot this result. This is the final result after 7 prompts, but unlike in the original, those prompts were not primarily fixes - they were primarily new features that I thought would be good additions after playing with the previous version.</p>
 <p>The most striking part of this experiment for me is that, despite the plateau that has largely been observed in base LLMs, this result is clearly far above and beyond what GPT-4 was able to do when it first released, and the reasons for that have to do with what the labs have been building <em>around</em> the base models.</p>
-<p>In the case of Agent mode, as far as we know, we have a GPT-4 class model at the root. o3, which is what Agent Mode uses, is a GPT-4 class model with chain of thought and lots of self-play training, as far as we know.</p>
+<p>In the case of Agent mode, as far as we know, we have a GPT-4 class model at the root. o3, which is what Agent Mode uses, is a GPT-4 class model with chain of thought and lots of self-play training.</p>
 <p>It also has the ability to use tools, like the web search tool it used to find the planet facts.</p>
 <p>But then the thing that most sets it apart from its base model is the deep research and computer use elements of Agent mode. As it was building this model, I saw Agent mode do things such as perusing the internet with its text browser to find scale information and browse for textures it could use as planet skins. Then, the most important new ability that allowed it to make this: It ran this code on a local browser and <em>visually tested it</em>, clicking on the planets to make sure the information panels were coming up, zooming and panning around, and using its own toolbars.</p>
-<p>This to me is the start of a true general capability for AI software testing. Not just little unit and automated tests - but actual visual look and feel testing. This is a huge market and will be a huge shock to the software industry when it’s fully realized.</p>]]></description>
+<p>This to me is the start of a true general capability for AI software testing. Not just little unit and automated tests - but actual visual look and feel testing. This is a huge market and will be a huge shock to the software industry when it’s fully realized.</p>
+<h1 id="now-check-out-gpt-5">Now check out GPT-5</h1>
+
+<style>
+  .picross-wrapper {
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 150%;
+    max-width: 1500px;
+    margin: 1em 0;
+    padding-top: 70%;
+  }
+  @media (max-width: 768px) {
+    .picross-wrapper {
+      width: 100%;
+      left: 0;
+      transform: none;
+      padding-top: 180%;
+    }
+  }
+</style>
+
+<div class="picross-wrapper">
+  <iframe
+    src="/html/picross-generator-self-contained.html"
+    style="position:absolute; top:0; left:0; width:100%; height:100%; border:1px solid #ccc;"
+  ></iframe>
+</div>
+
+<div style="text-align: center; margin-bottom: 1rem;">
+  
+    <span style="display: block; font-style: italic; margin-top: 0.5rem;">Generate &#43; play 15×15</span>
+  
+</div>]]></description>
                 
 
                 <guid isPermaLink="false">tag:localhost:1313,2025-08-11:/agent-mode/</guid>
@@ -229,7 +287,7 @@
                 
 
                 
-                    <title>Agent Mode is the Revelation, not GPT-5</title>
+                    <title>Agent Mode is the real GPT-5</title>
                 
             </item>
         

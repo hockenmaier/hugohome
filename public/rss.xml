@@ -343,25 +343,41 @@
 <p>In the case of Agent mode, as far as we know, we have a GPT-4 class model at the root. o3, which is what Agent Mode uses, is a GPT-4 class model with chain of thought and lots of self-play training.</p>
 <p>It also has the ability to use tools, like the web search tool it used to find the planet facts.</p>
 <p>But then the thing that most sets it apart from its base model is the deep research and computer use elements of Agent mode. As it was building this model, I saw Agent mode do things such as perusing the internet with its text browser to find scale information and browse for textures it could use as planet skins. Then, the most important new ability that allowed it to make this: It ran this code on a local browser and <em>visually tested it</em>, clicking on the planets to make sure the information panels were coming up, zooming and panning around, and using its own toolbars.</p>
-<p>This to me is the start of a true general capability for AI software testing. Not just little unit and automated tests - but actual visual look and feel testing. This is a huge market and will be a huge shock to the software industry when it’s fully realized.
+<p>This to me is the start of a true general capability for AI software testing. Not just little unit and automated tests - but actual visual look and feel testing. This is a huge market and will be a huge shock to the software industry when it’s fully realized.</p>
+<h1 id="now-check-out-gpt-5">Now check out GPT-5</h1>
 
-<div id="picross-app-root" style="margin:1em auto; max-width:1500px;"></div>
+<style>
+  .picross-wrapper {
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 150%;
+    max-width: 1500px;
+    margin: 1em 0;
+    padding-top: 70%;
+  }
+  @media (max-width: 768px) {
+    .picross-wrapper {
+      width: 100%;
+      left: 0;
+      transform: none;
+      padding-top: 180%;
+    }
+  }
+</style>
 
+<div class="picross-wrapper">
+  <iframe
+    src="/html/picross-generator-self-contained.html"
+    style="position:absolute; top:0; left:0; width:100%; height:100%; border:1px solid #ccc;"
+  ></iframe>
+</div>
 
-<script src="https://cdn.tailwindcss.com"></script>
-
-
-<script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
-<script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
-
-<script>
-(() => {
-})();
-
-ReactDOM.createRoot(document.getElementById("picross-app-root"))
-  .render(React.createElement(PicrossApp));
-</script>
-</p>]]></description>
+<div style="text-align: center; margin-bottom: 1rem;">
+  
+    <span style="display: block; font-style: italic; margin-top: 0.5rem;">Generate &#43; play 15×15</span>
+  
+</div>]]></description>
                 
 
                 <guid isPermaLink="false">tag:localhost:1313,2025-08-11:/agent-mode/</guid>

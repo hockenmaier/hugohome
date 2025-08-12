@@ -47,4 +47,7 @@ It also has the ability to use tools, like the web search tool it used to find t
 But then the thing that most sets it apart from its base model is the deep research and computer use elements of Agent mode. As it was building this model, I saw Agent mode do things such as perusing the internet with its text browser to find scale information and browse for textures it could use as planet skins. Then, the most important new ability that allowed it to make this: It ran this code on a local browser and _visually tested it_, clicking on the planets to make sure the information panels were coming up, zooming and panning around, and using its own toolbars.
 
 This to me is the start of a true general capability for AI software testing. Not just little unit and automated tests - but actual visual look and feel testing. This is a huge market and will be a huge shock to the software industry when it’s fully realized.
-{{< picross-generator-inline >}}
+
+# Now check out GPT-5
+
+{{< picross-generator-self-contained caption="Generate + play 15×15" >}}

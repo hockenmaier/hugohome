@@ -1,0 +1,664 @@
+<!-- layouts/shortcodes/picross-generator-inline.html -->
+<div id="picross-inline-root"></div>
+
+<style>
+  /* Minimal, dependency-free styles */
+  #picross-inline {
+    font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+    color: #e6e6e6;
+  }
+  #picross-inline .card {
+    background: #111827;
+    border: 1px solid #2b2f36;
+    border-radius: 16px;
+    padding: 16px;
+    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.25);
+  }
+  #picross-inline .row {
+    display: grid;
+    gap: 16px;
+  }
+  @media (min-width: 1024px) {
+    #picross-inline .row {
+      grid-template-columns: 1fr 2fr;
+    }
+  }
+  #picross-inline h1 {
+    font-size: 20px;
+    margin: 0;
+  }
+  #picross-inline h2 {
+    font-size: 16px;
+    margin: 0 0 8px;
+  }
+  #picross-inline .btn {
+    background: #374151;
+    color: #eee;
+    border: 1px solid #4b5563;
+    padding: 8px 12px;
+    border-radius: 12px;
+    cursor: pointer;
+  }
+  #picross-inline .btn:hover {
+    background: #425062;
+  }
+  #picross-inline .muted {
+    color: #9aa3af;
+    font-size: 12px;
+  }
+  #picross-inline .chips {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+  }
+  #picross-inline .chip {
+    padding: 6px 10px;
+    border-radius: 999px;
+    font-size: 12px;
+  }
+  #picross-inline .chip.ok {
+    background: #064e3b;
+    color: #a7f3d0;
+  }
+  #picross-inline .chip.dim {
+    background: #1f2937;
+    color: #cbd5e1;
+    border: 1px solid #344253;
+  }
+  #picross-inline .controls .group {
+    margin-bottom: 10px;
+  }
+  #picross-inline input[type="range"] {
+    width: 100%;
+  }
+  #picross-inline .preview {
+    margin-top: 8px;
+    text-align: center;
+  }
+  #picross-inline .preview img {
+    image-rendering: pixelated;
+    border: 1px solid #2b2f36;
+    border-radius: 10px;
+    max-width: 100%;
+  }
+  #picross-inline .board-wrap {
+    overflow: auto;
+  }
+  #picross-inline .clue {
+    color: #e5e7eb;
+    font-size: 12px;
+    line-height: 1;
+  }
+  #picross-inline .cell {
+    width: 28px;
+    height: 28px;
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    background: #0b1020;
+    position: relative;
+  }
+  #picross-inline .cell.fill {
+    background: #e5e7eb;
+  }
+  #picross-inline .cell.x::after {
+    content: "×";
+    color: #cbd5e1;
+    position: absolute;
+    inset: 0;
+    display: grid;
+    place-items: center;
+    font-size: 16px;
+  }
+  #picross-inline .cell.boldR {
+    border-right-color: rgba(255, 255, 255, 0.35);
+  }
+  #picross-inline .cell.boldB {
+    border-bottom-color: rgba(255, 255, 255, 0.35);
+  }
+  #picross-inline .actions {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-top: 12px;
+  }
+  #picross-inline .toast {
+    position: fixed;
+    top: 12px;
+    right: 12px;
+    background: #111827;
+    border: 1px solid #2b2f36;
+    padding: 8px 12px;
+    border-radius: 10px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.4);
+  }
+  #picross-inline .modal-backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.55);
+    display: grid;
+    place-items: center;
+    z-index: 9999;
+  }
+  #picross-inline .modal {
+    width: min(92vw, 640px);
+    background: #0f172a;
+    border: 1px solid #243047;
+    border-radius: 16px;
+    padding: 16px;
+  }
+  #picross-inline textarea {
+    width: 100%;
+    height: 200px;
+    background: #0b1020;
+    color: #e6e6e6;
+    border: 1px solid #243047;
+    border-radius: 10px;
+    padding: 10px;
+  }
+</style>
+
+<script>
+  (function () {
+    const ROOT = document.getElementById("picross-inline-root");
+    ROOT.innerHTML = `
+    <div id="picross-inline">
+      <div class="row">
+        <div class="card">
+          <header style="display:flex;justify-content:space-between;align-items:center;gap:8px;">
+            <h1>Picross Generator + Player</h1>
+            <div class="chips">
+              <div id="chipSolved" class="chip dim">Playing</div>
+              <div id="chipTests" class="chip dim">Tests 0/0</div>
+            </div>
+          </header>
+          <div class="controls" style="margin-top:16px;">
+            <h2>1) Build the puzzle</h2>
+            <div class="group">
+              <label class="btn">
+                <input id="fileInput" type="file" accept="image/*" style="display:none;">
+                Upload image
+              </label>
+              <button id="sampleBtn" class="btn">Use sample</button>
+            </div>
+            <div class="group">
+              <label class="muted">Contrast: <span id="contrastVal">1.80</span></label>
+              <input id="contrastRange" type="range" min="0.2" max="3" step="0.05" value="1.8">
+            </div>
+            <div class="group">
+              <label class="muted">Threshold: <span id="thresholdVal">128</span></label>
+              <input id="thresholdRange" type="range" min="0" max="255" step="1" value="128">
+            </div>
+            <p class="muted">Tip: Any image works. It's contrasted, downscaled to 15×15, and thresholded to black/white.</p>
+            <div class="preview" id="previewWrap" style="display:none;">
+              <img id="previewImg" alt="15x15 preview">
+              <div class="group" style="margin-top:8px;">
+                <button id="dlPngBtn" class="btn">Download 15×15 PNG</button>
+              </div>
+            </div>
+          </div>
+          <div class="card" style="margin-top:12px;">
+            <h2>2) Share or save</h2>
+            <div class="group" style="display:flex;gap:8px;flex-wrap:wrap;">
+              <button id="exportBtn" class="btn">Export JSON</button>
+              <button id="copyBtn" class="btn">Copy Matrix</button>
+            </div>
+            <p class="muted">If clipboard is blocked, a manual copy dialog will appear.</p>
+          </div>
+        </div>
+
+        <div class="card">
+          <h2>3) Solve the puzzle</h2>
+          <div id="boardWrap" class="board-wrap" style="margin-top:8px;"></div>
+          <div class="actions">
+            <button id="clearBtn" class="btn">Clear</button>
+            <button id="revealBtn" class="btn">Reveal</button>
+          </div>
+          <div class="muted" style="margin-top:8px;">Left click = fill, Right click/Ctrl-click = X. Bold lines every 5.</div>
+        </div>
+      </div>
+      <div id="toast" class="toast" style="display:none;"></div>
+      <div id="copyModal" class="modal-backdrop" style="display:none;">
+        <div class="modal">
+          <h2 style="margin:0 0 8px;">Clipboard not available</h2>
+          <p class="muted" style="margin:0 0 8px;">Select and copy the text below.</p>
+          <textarea id="copyArea"></textarea>
+          <div style="display:flex;gap:8px;justify-content:end;margin-top:10px;">
+            <button id="tryCopyBtn" class="btn">Try Copy</button>
+            <button id="closeModalBtn" class="btn">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  `;
+
+    const SIZE = 15;
+    const SAMPLE = [
+      "000000000000000",
+      "000111111111000",
+      "001100000001100",
+      "011000000000110",
+      "011000110001110",
+      "110001111000011",
+      "110011111100011",
+      "110011111100011",
+      "110001111000011",
+      "011000110001110",
+      "011000000000110",
+      "001100000001100",
+      "000111111111000",
+      "000000000000000",
+      "000000000000000",
+    ];
+
+    // State
+    let matrix = fromBinaryRows(SAMPLE);
+    let grid = emptyGrid();
+    let previewURL = null;
+    let contrast = 1.8;
+    let threshold = 128;
+
+    // Elements
+    const fileInput = document.getElementById("fileInput");
+    const sampleBtn = document.getElementById("sampleBtn");
+    const contrastRange = document.getElementById("contrastRange");
+    const thresholdRange = document.getElementById("thresholdRange");
+    const contrastVal = document.getElementById("contrastVal");
+    const thresholdVal = document.getElementById("thresholdVal");
+    const previewWrap = document.getElementById("previewWrap");
+    const previewImg = document.getElementById("previewImg");
+    const dlPngBtn = document.getElementById("dlPngBtn");
+    const exportBtn = document.getElementById("exportBtn");
+    const copyBtn = document.getElementById("copyBtn");
+    const boardWrap = document.getElementById("boardWrap");
+    const clearBtn = document.getElementById("clearBtn");
+    const revealBtn = document.getElementById("revealBtn");
+    const toastEl = document.getElementById("toast");
+    const chipSolved = document.getElementById("chipSolved");
+    const chipTests = document.getElementById("chipTests");
+    const copyModal = document.getElementById("copyModal");
+    const copyArea = document.getElementById("copyArea");
+    const tryCopyBtn = document.getElementById("tryCopyBtn");
+    const closeModalBtn = document.getElementById("closeModalBtn");
+
+    // Basic self-checks (mirroring a few tests)
+    (function runTests() {
+      const tResults = [];
+      const eq = (a, b) => JSON.stringify(a) === JSON.stringify(b);
+      // T1: 3x3 empty
+      const t1 = Array.from({ length: 3 }, () => Array(3).fill(false));
+      const r1 = computeClues(t1);
+      tResults.push(
+        eq(r1.rowClues, [[0], [0], [0]]) && eq(r1.colClues, [[0], [0], [0]])
+      );
+      // T2: 5x5 full third row
+      const t2 = Array.from({ length: 5 }, (_, r) =>
+        Array.from({ length: 5 }, () => r === 2)
+      );
+      const r2 = computeClues(t2);
+      tResults.push(
+        eq(r2.rowClues, [[0], [0], [5], [0], [0]]) &&
+          eq(r2.colClues, [[1], [1], [1], [1], [1]])
+      );
+      // T3: 1x5 two runs
+      const t3 = [[true, true, false, true, false]];
+      const r3 = computeClues(t3);
+      tResults.push(
+        eq(r3.rowClues, [[2, 1]]) && eq(r3.colClues, [[1], [1], [0], [1], [0]])
+      );
+
+      const passed = tResults.filter(Boolean).length;
+      chipTests.textContent = `Tests ${passed}/${tResults.length}`;
+    })();
+
+    // Wire controls
+    fileInput.addEventListener("change", async (e) => {
+      const f = e.target.files && e.target.files[0];
+      if (!f) return;
+      const res = await imageToMatrix({ file: f, contrast, threshold });
+      matrix = res.matrix;
+      previewURL = res.previewURL;
+      grid = emptyGrid();
+      renderAll();
+    });
+    sampleBtn.addEventListener("click", () => {
+      matrix = fromBinaryRows(SAMPLE);
+      previewURL = null;
+      grid = emptyGrid();
+      renderAll();
+    });
+    contrastRange.addEventListener("input", (e) => {
+      contrast = parseFloat(e.target.value);
+      contrastVal.textContent = contrast.toFixed(2);
+    });
+    thresholdRange.addEventListener("input", (e) => {
+      threshold = parseInt(e.target.value, 10);
+      thresholdVal.textContent = String(threshold);
+    });
+    dlPngBtn.addEventListener("click", () => {
+      if (!previewURL) return;
+      download(previewURL, "picross_15x15.png");
+    });
+    exportBtn.addEventListener("click", () => {
+      const { rowClues, colClues } = computeClues(matrix);
+      const blob = new Blob([JSON.stringify({ matrix, rowClues, colClues })], {
+        type: "application/json",
+      });
+      const url = URL.createObjectURL(blob);
+      download(url, "picross-15x15.json");
+      URL.revokeObjectURL(url);
+    });
+    copyBtn.addEventListener("click", async () => {
+      const text = JSON.stringify({ matrix });
+      const res = await safeCopy(text);
+      if (res.ok) {
+        flash(`Copied (${res.via})`);
+      } else {
+        copyArea.value = text;
+        copyModal.style.display = "grid";
+      }
+    });
+    tryCopyBtn.addEventListener("click", async () => {
+      const res = await safeCopy(copyArea.value);
+      if (res.ok) {
+        copyModal.style.display = "none";
+        flash(`Copied (${res.via})`);
+      } else {
+        flash("Select text and press Ctrl/Cmd+C");
+      }
+    });
+    closeModalBtn.addEventListener(
+      "click",
+      () => (copyModal.style.display = "none")
+    );
+    clearBtn.addEventListener("click", () => {
+      grid = emptyGrid();
+      renderBoard();
+      renderSolved();
+    });
+    revealBtn.addEventListener("click", () => {
+      grid = matrix.map((row) => row.map((v) => (v ? 1 : 2)));
+      renderBoard();
+      renderSolved();
+    });
+
+    function emptyGrid() {
+      return Array.from({ length: SIZE }, () => Array(SIZE).fill(0));
+    }
+    function fromBinaryRows(rows) {
+      return rows.map((r) => r.split("").map((ch) => ch === "1"));
+    }
+    function computeClues(m) {
+      const h = m.length,
+        w = m[0].length;
+      const rowClues = m.map((row) => {
+        const clues = [];
+        let run = 0;
+        for (let c = 0; c < w; c++) {
+          if (row[c]) run++;
+          else if (run) {
+            clues.push(run);
+            run = 0;
+          }
+        }
+        if (run) clues.push(run);
+        return clues.length ? clues : [0];
+      });
+      const colClues = [];
+      for (let c = 0; c < w; c++) {
+        const clues = [];
+        let run = 0;
+        for (let r = 0; r < h; r++) {
+          if (m[r][c]) run++;
+          else if (run) {
+            clues.push(run);
+            run = 0;
+          }
+        }
+        if (run) clues.push(run);
+        colClues.push(clues.length ? clues : [0]);
+      }
+      return { rowClues, colClues };
+    }
+    function flash(msg) {
+      toastEl.textContent = msg;
+      toastEl.style.display = "block";
+      clearTimeout(flash._t);
+      flash._t = setTimeout(() => (toastEl.style.display = "none"), 1800);
+    }
+    function download(dataURL, filename) {
+      const a = document.createElement("a");
+      a.href = dataURL;
+      a.download = filename;
+      a.click();
+    }
+    async function safeCopy(text) {
+      try {
+        if (navigator.clipboard && window.isSecureContext) {
+          await navigator.clipboard.writeText(text);
+          return { ok: true, via: "clipboard" };
+        }
+      } catch (e) {}
+      // Fallback
+      const ta = document.createElement("textarea");
+      ta.value = text;
+      ta.setAttribute("readonly", "");
+      ta.style.position = "fixed";
+      ta.style.opacity = "0";
+      document.body.appendChild(ta);
+      ta.select();
+      try {
+        const ok = document.execCommand("copy");
+        document.body.removeChild(ta);
+        return ok ? { ok: true, via: "execCommand" } : { ok: false };
+      } catch (e) {
+        document.body.removeChild(ta);
+        return { ok: false, error: e };
+      }
+    }
+
+    async function imageToMatrix({ file, contrast = 1.8, threshold = 128 }) {
+      const img = new Image();
+      const url = file instanceof File ? URL.createObjectURL(file) : file;
+      img.src = url;
+      await img.decode();
+
+      const src = document.createElement("canvas");
+      const sctx = src.getContext("2d", { willReadFrequently: true });
+      src.width = img.width;
+      src.height = img.height;
+      sctx.drawImage(img, 0, 0);
+
+      // grayscale + contrast
+      const imgData = sctx.getImageData(0, 0, src.width, src.height);
+      const d = imgData.data;
+      const factor =
+        (259 * (contrast * 255 + 255)) / (255 * (259 - contrast * 255));
+      for (let i = 0; i < d.length; i += 4) {
+        const gray = 0.2126 * d[i] + 0.7152 * d[i + 1] + 0.0722 * d[i + 2];
+        const c = factor * (gray - 128) + 128;
+        const v = Math.max(0, Math.min(255, c));
+        d[i] = d[i + 1] = d[i + 2] = v;
+      }
+      sctx.putImageData(imgData, 0, 0);
+
+      // downscale to 15x15 (nearest)
+      const SIZE = 15;
+      const dst = document.createElement("canvas");
+      const dctx = dst.getContext("2d", { willReadFrequently: true });
+      dst.width = SIZE;
+      dst.height = SIZE;
+      dctx.imageSmoothingEnabled = false;
+      dctx.drawImage(src, 0, 0, src.width, src.height, 0, 0, SIZE, SIZE);
+
+      const out = dctx.getImageData(0, 0, SIZE, SIZE);
+      const mat = Array.from({ length: SIZE }, () => Array(SIZE).fill(false));
+      for (let y = 0; y < SIZE; y++) {
+        for (let x = 0; x < SIZE; x++) {
+          const idx = (y * SIZE + x) * 4;
+          const val = out.data[idx];
+          const black = val < threshold;
+          mat[y][x] = black;
+          const bw = black ? 0 : 255;
+          out.data[idx] = out.data[idx + 1] = out.data[idx + 2] = bw;
+          out.data[idx + 3] = 255;
+        }
+      }
+      dctx.putImageData(out, 0, 0);
+      const previewURL = dst.toDataURL("image/png");
+      if (file instanceof File) URL.revokeObjectURL(url);
+      return { matrix: mat, previewURL };
+    }
+
+    function isSolved() {
+      for (let y = 0; y < SIZE; y++) {
+        for (let x = 0; x < SIZE; x++) {
+          if (matrix[y][x] && grid[y][x] !== 1) return false;
+          if (!matrix[y][x] && grid[y][x] === 1) return false;
+        }
+      }
+      return true;
+    }
+
+    function renderBoard() {
+      const { rowClues, colClues } = computeClues(matrix);
+      const maxRow = Math.max(...rowClues.map((r) => r.length));
+      const maxCol = Math.max(...colClues.map((c) => c.length));
+      const colW = 24,
+        cellW = 28,
+        rowH = 24,
+        cellH = 28;
+
+      const wrap = document.createElement("div");
+      wrap.style.display = "inline-grid";
+      wrap.style.gridTemplateColumns = `repeat(${maxCol}, ${colW}px) repeat(${SIZE}, ${cellW}px)`;
+      wrap.style.gridTemplateRows = `repeat(${maxRow}, ${rowH}px) repeat(${SIZE}, ${cellH}px)`;
+      wrap.style.userSelect = "none";
+
+      // spacer
+      const spacer = document.createElement("div");
+      spacer.style.gridColumn = `1 / span ${maxCol}`;
+      spacer.style.gridRow = `1 / span ${maxRow}`;
+      wrap.appendChild(spacer);
+
+      // column clues
+      for (let c = 0; c < SIZE; c++) {
+        const colDiv = document.createElement("div");
+        colDiv.style.gridColumn = maxCol + 1 + c;
+        colDiv.style.gridRow = `1 / span ${maxRow}`;
+        colDiv.style.display = "flex";
+        colDiv.style.flexDirection = "column";
+        colDiv.style.alignItems = "center";
+        colDiv.style.justifyContent = "flex-end";
+        colDiv.style.paddingBottom = "4px";
+        colDiv.style.borderBottom = "1px solid rgba(255,255,255,.2)";
+
+        const pad = maxCol - colClues[c].length;
+        for (let i = 0; i < pad; i++) {
+          const d = document.createElement("div");
+          d.style.height = "12px";
+          colDiv.appendChild(d);
+        }
+        for (const n of colClues[c]) {
+          const t = document.createElement("div");
+          t.className = "clue";
+          t.textContent = n;
+          colDiv.appendChild(t);
+        }
+        wrap.appendChild(colDiv);
+      }
+
+      // rows + grid cells
+      for (let r = 0; r < SIZE; r++) {
+        // row clues
+        const rowDiv = document.createElement("div");
+        rowDiv.style.gridColumn = `1 / span ${maxCol}`;
+        rowDiv.style.gridRow = maxRow + 1 + r;
+        rowDiv.style.display = "flex";
+        rowDiv.style.alignItems = "center";
+        rowDiv.style.justifyContent = "flex-end";
+        rowDiv.style.gap = "4px";
+        rowDiv.style.paddingRight = "4px";
+        rowDiv.style.borderRight = "1px solid rgba(255,255,255,.2)";
+        const pad = Math.max(
+          0,
+          Math.max(...rowClues.map((x) => x.length)) - rowClues[r].length
+        );
+        for (let i = 0; i < pad; i++) {
+          const d = document.createElement("div");
+          d.style.width = "12px";
+          rowDiv.appendChild(d);
+        }
+        for (const n of rowClues[r]) {
+          const t = document.createElement("div");
+          t.className = "clue";
+          t.textContent = n;
+          rowDiv.appendChild(t);
+        }
+        wrap.appendChild(rowDiv);
+
+        // cells
+        for (let c = 0; c < SIZE; c++) {
+          const cell = document.createElement("button");
+          cell.type = "button";
+          cell.className =
+            "cell" +
+            (grid[r][c] === 1 ? " fill" : grid[r][c] === 2 ? " x" : "") +
+            ((c + 1) % 5 === 0 ? " boldR" : "") +
+            ((r + 1) % 5 === 0 ? " boldB" : "");
+          cell.style.gridColumn = maxCol + 1 + c;
+          cell.style.gridRow = maxRow + 1 + r;
+          cell.addEventListener("contextmenu", (e) => e.preventDefault());
+          cell.addEventListener("click", (e) => {
+            const right = e.ctrlKey || e.metaKey;
+            grid[r][c] = right
+              ? grid[r][c] === 2
+                ? 0
+                : 2
+              : grid[r][c] === 1
+              ? 0
+              : 1;
+            renderBoard();
+            renderSolved();
+          });
+          cell.addEventListener("mousedown", (e) => {
+            if (e.button === 2) {
+              // right
+              e.preventDefault();
+              grid[r][c] = grid[r][c] === 2 ? 0 : 2;
+              renderBoard();
+              renderSolved();
+            }
+          });
+          wrap.appendChild(cell);
+        }
+      }
+
+      boardWrap.innerHTML = "";
+      boardWrap.appendChild(wrap);
+    }
+
+    function renderSolved() {
+      const ok = isSolved();
+      chipSolved.textContent = ok ? "Solved!" : "Playing";
+      chipSolved.className = "chip " + (ok ? "ok" : "dim");
+    }
+
+    function renderPreview() {
+      if (previewURL) {
+        previewWrap.style.display = "block";
+        previewImg.src = previewURL;
+      } else {
+        previewWrap.style.display = "none";
+        previewImg.removeAttribute("src");
+      }
+    }
+
+    function renderAll() {
+      renderBoard();
+      renderSolved();
+      renderPreview();
+    }
+
+    // initial render
+    renderAll();
+  })();
+</script>
