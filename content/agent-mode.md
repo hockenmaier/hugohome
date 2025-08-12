@@ -1,5 +1,5 @@
 ---
-title: "Agent Mode is the real GPT-5"
+title: "The real GPT-5 Was The Friends We Made Along The Way"
 date: 2025-08-11
 categories: ["builds"]
 tags: [AI, "Experimental", software, html, javascript, css, "Rapid Prototyping"]
@@ -12,7 +12,7 @@ This isn't so surprising. It was becoming clearer with every new LLM release tha
 
 Let me start by just illustrating the progress we had made between the first GPT-4 release in early 2023 and the week before the release of GPT-5.
 
-Two years and four months have gone by since I ran my original Interactive Solar System experiment with the original version of GPT-4. You can see that one at [hockenworks.com/gpt-4-solar-system](hockenworks.com/gpt-4-solar-system).
+Two years and four months have gone by since I ran my original Interactive Solar System experiment with the original version of GPT-4. You can see that one at [hockenworks.com/gpt-4-solar-system](/gpt-4-solar-system).
 
 Take a look at the same test performed a week before the release of GPT-5, which uses ChatGPT Agent Mode. Take a test run:
 
@@ -48,6 +48,6 @@ But then the thing that most sets it apart from its base model is the deep resea
 
 This to me is the start of a true general capability for AI software testing. Not just little unit and automated tests - but actual visual look and feel testing. This is a huge market and will be a huge shock to the software industry when it’s fully realized.
 
-# Now check out GPT-5
+## Now check out GPT-5 can do without Agent Mode
 
 {{< picross-generator-self-contained caption="Generate + play 15×15" >}}
