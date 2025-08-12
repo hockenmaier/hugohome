@@ -1,0 +1,28 @@
+<!-- layouts/shortcodes/picross-generator-inline.html -->
+<div id="picross-app-root" style="margin:1em auto; max-width:1500px;"></div>
+
+<!-- Tailwind (for the utility classes used in the JSX) -->
+<script src="https://cdn.tailwindcss.com"></script>
+
+<!-- React UMD globals -->
+<script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+<script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+
+{{/* Load JSX, strip ESM import/export so we can rely on UMD React */}}
+{{- $raw := readFile "static/html/picross_generator_player_15_15.jsx" -}}
+{{- $noimp := replaceRE `(?m)^import[^\n]*\n` `` $raw -}}
+{{- $patched := replaceRE `export default function\s+PicrossApp` `function PicrossApp` $noimp -}}
+
+{{/* Transpile JSX → JS (IIFE) with Hugo Pipes */}}
+{{- $built := (resources.FromString "inline/picross.jsx" $patched) | js.Build (dict
+    "target" "es2017"
+    "format" "iife"
+    "loader" (dict ".jsx" "jsx")
+  )
+-}}
+
+<script>
+{{ $built.Content | safeJS }}
+ReactDOM.createRoot(document.getElementById("picross-app-root"))
+  .render(React.createElement(PicrossApp));
+</script>

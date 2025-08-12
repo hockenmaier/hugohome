@@ -2,16 +2,40 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>http://localhost:1313/agent-mode/</loc>
+    <lastmod>2025-08-11T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>http://localhost:1313/tags/ai/</loc>
-    <lastmod>2025-08-01T00:00:00+00:00</lastmod>
+    <lastmod>2025-08-11T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/categories/builds/</loc>
-    <lastmod>2025-08-01T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/tags/c%23/</loc>
-    <lastmod>2025-08-01T00:00:00+00:00</lastmod>
+    <lastmod>2025-08-11T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/categories/</loc>
+    <lastmod>2025-08-11T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/css/</loc>
+    <lastmod>2025-08-11T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/experimental/</loc>
+    <lastmod>2025-08-11T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/html/</loc>
+    <lastmod>2025-08-11T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/javascript/</loc>
+    <lastmod>2025-08-11T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/rapid-prototyping/</loc>
+    <lastmod>2025-08-11T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/software/</loc>
+    <lastmod>2025-08-11T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/</loc>
+    <lastmod>2025-08-11T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/c%23/</loc>
     <lastmod>2025-08-01T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/tags/game-development/</loc>
@@ -41,13 +65,7 @@
     <loc>http://localhost:1313/tags/singularity/</loc>
     <lastmod>2025-08-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/software/</loc>
-    <lastmod>2025-08-01T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>http://localhost:1313/tags/strategy/</loc>
-    <lastmod>2025-08-01T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/tags/</loc>
     <lastmod>2025-08-01T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/tags/unity/</loc>
@@ -92,9 +110,6 @@
     <loc>http://localhost:1313/strollerhock/</loc>
     <lastmod>2025-07-04T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/experimental/</loc>
-    <lastmod>2025-06-29T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>http://localhost:1313/my-experiments-with-ai-cheating/</loc>
     <lastmod>2025-06-29T00:00:00+00:00</lastmod>
   </url><url>
@@ -128,16 +143,7 @@
     <loc>http://localhost:1313/tags/board-games/</loc>
     <lastmod>2025-05-28T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/css/</loc>
-    <lastmod>2025-05-28T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/tags/html/</loc>
-    <lastmod>2025-05-28T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>http://localhost:1313/tags/hugo/</loc>
-    <lastmod>2025-05-28T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/tags/javascript/</loc>
     <lastmod>2025-05-28T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/tags/matter.js/</loc>
@@ -147,9 +153,6 @@
     <lastmod>2025-05-28T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/context-caddy/</loc>
-    <lastmod>2025-02-13T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/tags/rapid-prototyping/</loc>
     <lastmod>2025-02-13T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/tags/tools/</loc>
