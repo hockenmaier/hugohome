@@ -1,0 +1,1333 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Interactive Solar System</title>
+<!-- Import a futuristic font and a complementary sans-serif for readability -->
+<link href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600&amp;family=Roboto:wght@300;400;500&amp;display=swap" rel="stylesheet"/>
+<!-- Link the stylesheet -->
+<style>/* Base styling for the interactive solar system page */
+html,
+body {
+  /* Fill the viewport and establish a flex column layout.  Explicitly set
+     both height and minimum height so that percentage heights on child
+     elements (like the canvas) are calculated correctly.  Without a
+     defined height the canvas falls back to its default 150px height,
+     which caused the simulation to occupy only a small strip at the top. */
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  font-family: 'Roboto', sans-serif;
+  background-color: #050914;
+  color: #e0e3f0;
+}
+
+/* Header removed from HTML; styles left empty for safety */
+header {
+  display: none;
+}
+
+main {
+  /* The main section should expand to fill all available vertical
+     space left by the header (removed) and footer.  Using flex
+     ensures it pushes the footer down rather than leaving a gap. */
+  position: relative;
+  width: 100%;
+  flex: 1 0 auto;
+  /* Allow the element to shrink properly when using flexbox.  Without
+     min-height: 0 the browser may calculate an unconstrained height
+     that causes children using 100% to fallback to their default
+     intrinsic sizes (e.g. 150px for canvas). */
+  min-height: 0;
+  overflow: hidden;
+}
+
+/* Horizontal selection bar for choosing planets quickly */
+#planetBar {
+  position: absolute;
+  bottom: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 0.5rem;
+  padding: 0.4rem 0.8rem;
+  background-color: rgba(16, 32, 64, 0.94);
+  border: 1px solid #3a567a;
+  border-radius: 8px;
+  z-index: 11;
+  overflow-x: auto;
+  max-width: 90%;
+  backdrop-filter: blur(6px);
+}
+
+.planet-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  user-select: none;
+}
+
+.planet-circle {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  margin-bottom: 0.2rem;
+}
+
+.planet-label {
+  font-size: 0.55rem;
+  font-family: 'Orbitron', sans-serif;
+  color: #a7c3f1;
+  white-space: nowrap;
+}
+
+/* Speed control slider styling */
+#speedControl {
+  position: absolute;
+  bottom: 1rem;
+  left: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.4rem 0.6rem;
+  background-color: rgba(16, 32, 64, 0.94);
+  border: 1px solid #3a567a;
+  border-radius: 8px;
+  z-index: 11;
+  font-size: 0.6rem;
+  color: #a7c3f1;
+  height: 32px;
+}
+
+#speedControl label {
+  font-family: 'Orbitron', sans-serif;
+  margin-right: 0.3rem;
+}
+
+#speedControl input[type="range"] {
+  width: 120px;
+}
+
+#speedControl #speedLabel {
+  margin-left: 0.4rem;
+  font-size: 0.6rem;
+  font-family: 'Orbitron', sans-serif;
+  color: #82aaff;
+  white-space: nowrap;
+}
+
+/* Styling for numerical input and true speed button */
+#speedControl input[type="number"] {
+  width: 80px;
+  padding: 2px 4px;
+  font-size: 0.6rem;
+  font-family: 'Orbitron', sans-serif;
+  background-color: #0b132b;
+  color: #a7c3f1;
+  border: 1px solid #3a567a;
+  border-radius: 4px;
+}
+
+#speedControl button {
+  padding: 2px 6px;
+  font-size: 0.55rem;
+  font-family: 'Orbitron', sans-serif;
+  background-color: #0b4d9c;
+  color: #d6e0f5;
+  border: 1px solid #3a567a;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+#speedControl button:hover {
+  background-color: #1756b3;
+}
+
+/* Canvas fills the available area.  Use absolute positioning so that it
+   spans the top, bottom, left and right edges of the main container.
+   This avoids relying on the parent's height propagation, which can
+   collapse to the canvas's default intrinsic size. */
+#solarCanvas {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: transparent;
+  cursor: grab;
+  touch-action: none;
+}
+
+footer {
+  text-align: center;
+  font-size: 0.85rem;
+  padding: 0.5rem 1rem;
+  background-color: #0b132b;
+  color: #7c8aad;
+  box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.3);
+  /* Prevent the footer from shrinking and allow it to sit at the bottom of
+     the flex container. */
+  flex-shrink: 0;
+}
+
+/* Styling for the information panel that appears when a planet is clicked */
+#infoPanel {
+  position: absolute;
+  max-width: 260px;
+  background-color: rgba(15, 23, 42, 0.95);
+  border: 1px solid #2c3e66;
+  border-radius: 6px;
+  padding: 0.8rem 1rem;
+  color: #e0e3f0;
+  font-size: 0.9rem;
+  line-height: 1.3;
+  z-index: 10;
+  pointer-events: none;
+  transition: opacity 0.3s;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+}
+
+#infoPanel.hidden {
+  opacity: 0;
+  visibility: hidden;
+}
+
+/* Planet name heading inside info panel */
+#infoPanel h2 {
+  margin: 0 0 0.5rem 0;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 1.2rem;
+  color: #82aaff;
+}
+
+/* Style for facts list */
+#infoPanel ul {
+  padding-left: 1.1rem;
+  margin: 0;
+}
+
+#infoPanel li {
+  margin-bottom: 0.4rem;
+  list-style: disc;
+}
+
+@media (max-width: 600px) {
+  #infoPanel {
+    font-size: 0.8rem;
+    max-width: 200px;
+  }
+  /* On small screens, push the speed control further up to avoid overlapping
+     the planet selection bar.  Adjust this value if the controls still
+     overlap on extremely narrow devices. */
+  #speedControl {
+    bottom: 6rem;
+    left: 1rem;
+  }
+}</style>
+</head>
+<body>
+<!-- Remove top header to maximize canvas area -->
+<main>
+<canvas id="solarCanvas"></canvas>
+<!-- Information overlay; hidden by default and populated dynamically -->
+<div class="hidden" id="infoPanel"></div>
+<!-- Planet selection bar (users can tap on planet icons to see facts) -->
+<div id="planetBar"></div>
+<!-- Simulation speed control with slider, numerical input and true-speed button -->
+<div id="speedControl">
+<label for="speedSlider">Speed</label>
+<input id="speedSlider" max="1" min="0" step="0.01" type="range" value="0"/>
+<span id="speedLabel">0.00 yrs/min</span>
+<input id="speedInput" min="0" placeholder="yrs/min" step="0.0000001" type="number"/>
+<button id="trueSpeedButton" title="Set to real orbital speed">True Speed</button>
+</div>
+</main>
+<footer>
+<p>
+        This model solar system is fully to-scale. Use your mouse or touch: drag to pan, scroll or pinch to zoom to explore it. Click a planet to learn fun facts!
+      </p>
+</footer>
+<script>// Solar system interactive simulation
+// This script draws an approximate model of the solar system and allows
+// zooming, panning and clicking planets to reveal facts.
+
+(() => {
+  // Grab DOM elements
+  const canvas = document.getElementById('solarCanvas');
+  const ctx = canvas.getContext('2d');
+  const infoPanel = document.getElementById('infoPanel');
+  const planetBar = document.getElementById('planetBar');
+  const speedSlider = document.getElementById('speedSlider');
+  const speedLabel = document.getElementById('speedLabel');
+  const speedInput = document.getElementById('speedInput');
+  const trueSpeedButton = document.getElementById('trueSpeedButton');
+
+  /**
+   * Planetary data. Distances are given in astronomical units (AU),
+   * radii in kilometres, periods in Earth years, and colours chosen
+   * to loosely match each planet's appearance.
+   */
+  const planets = [
+    {
+      name: 'Sun',
+      radius: 695700, // km
+      distance: 0,
+      period: 0, // not used for the Sun
+      gravity: 274, // m/s², approximate
+      color: '#f5c842',
+      atmosphere: 'Hydrogen and helium plasma',
+      facts: [
+        'The Sun accounts for over 99% of all the material in our solar system.',
+        'Light takes about 8 minutes 20 seconds to travel from the Sun to Earth',
+        'Its core reaches temperatures of 27 million °F',
+      ],
+    },
+    {
+      name: 'Mercury',
+      radius: 2439.7,
+      distance: 0.39,
+      period: 0.24, // years
+      gravity: 3.7,
+      color: '#a29b97',
+      atmosphere: 'Thin exosphere of oxygen, sodium, hydrogen and helium',
+      facts: [
+        'Smallest planet and closest to the Sun',
+        'Day lasts 59 Earth days; year lasts 88 Earth days',
+        'Temperatures swing from -180°C at night to 450°C in the day',
+      ],
+    },
+    {
+      name: 'Venus',
+      radius: 6051.8,
+      distance: 0.72,
+      period: 0.62,
+      gravity: 8.87,
+      color: '#c8845a',
+      atmosphere: 'Thick CO₂-rich atmosphere with sulfuric acid clouds',
+      facts: [
+        'Hottest planet due to a runaway greenhouse effect',
+        'Rotates backwards; a day is longer than its year',
+        'Its surface is covered with volcanoes, mountains and plains',
+      ],
+    },
+    {
+      name: 'Earth',
+      radius: 6371.0,
+      distance: 1.0,
+      period: 1.0,
+      gravity: 9.81,
+      color: '#2f90d5',
+      atmosphere: '78% nitrogen, 21% oxygen and traces of other gases',
+      facts: [
+        'The only known planet to support life',
+        '70% of its surface is covered by oceans',
+        'It has one natural satellite: the Moon',
+      ],
+    },
+    {
+      name: 'Mars',
+      radius: 3389.5,
+      distance: 1.52,
+      period: 1.88,
+      gravity: 3.71,
+      color: '#c1440e',
+      atmosphere: 'Thin atmosphere of CO₂, nitrogen and argon',
+      facts: [
+        'Known as the Red Planet because of iron oxide in its soil',
+        'Has two small moons, Phobos and Deimos',
+        'Home to the largest volcano in the solar system, Olympus Mons',
+      ],
+    },
+    {
+      name: 'Jupiter',
+      radius: 71492,
+      distance: 5.20,
+      period: 11.86,
+      gravity: 25.90,
+      color: '#d9a066',
+      atmosphere: 'Mostly hydrogen and helium with bands of clouds',
+      facts: [
+        'Largest planet; it could fit all other planets inside it',
+        'Has a giant storm called the Great Red Spot',
+        'Has more than 90 moons and faint rings',
+      ],
+    },
+    {
+      name: 'Saturn',
+      radius: 58232,
+      distance: 9.54,
+      period: 29.46,
+      gravity: 10.44,
+      color: '#e5d07a',
+      atmosphere: 'Hydrogen and helium with trace ices',
+      facts: [
+        'Famous for its spectacular ring system made of ice and rock',
+        'Has over 140 moons',
+        'It is less dense than water and would float in a giant bathtub',
+      ],
+    },
+    {
+      name: 'Uranus',
+      radius: 25362,
+      distance: 19.18,
+      period: 84.01,
+      gravity: 9.01,
+      color: '#7cd7f7',
+      atmosphere: 'Hydrogen, helium and methane',
+      facts: [
+        'Rotates on its side, making its seasons extreme',
+        'An ice giant made of water, methane and ammonia',
+        'Has 13 rings and dozens of moons',
+      ],
+    },
+    {
+      name: 'Neptune',
+      radius: 24622,
+      distance: 30.07,
+      period: 164.8,
+      gravity: 11.15,
+      color: '#2b65be',
+      atmosphere: 'Hydrogen, helium and methane',
+      facts: [
+        'Dark, cold and windy with supersonic winds',
+        'Another ice giant similar to Uranus',
+        'Home to the Great Dark Spot and faint rings',
+      ],
+    },
+  ];
+
+  /**
+   * Configuration parameters for easy tweaking.  Adjust these values
+   * to control star density, tiling, near-star count and camera zoom
+   * limits.  Placing them here near the top makes it straightforward
+   * to fine‑tune the experience without hunting through the code.
+   */
+  const CONFIG = {
+    // Base number of random stars generated across the square world.  Increase
+    // this to make the background more densely populated.  A higher value
+    // dramatically increases draw calls but helps ensure there are always
+    // stars visible at extreme zoom levels.  Currently set to 10× the
+    // original number.
+    STAR_BASE_COUNT: 100000,
+    // Number of additional stars placed near the origin to guarantee
+    // visibility when zoomed in very closely.  These stars are uniformly
+    // distributed within 1% of the outermost orbit.  Increase this if
+    // planets still appear against an empty backdrop at maximum zoom.
+    NEAR_STAR_COUNT: 10000,
+    // Size of the region (in multiples of the outermost orbit) used
+    // when placing stars.  A value of 1.4 means stars extend 1.4×
+    // beyond Neptune’s orbit in all directions.  Reducing this packs
+    // stars closer; increasing it spreads them further.
+    STAR_MAX_ORBIT_FACTOR: 1.1,
+    // How many tiles to replicate the star field in each axis when
+    // drawing.  A value of 1 produces a 3×3 grid (i.e., ±1 tile around
+    // the original), 2 produces 5×5, etc.  Increasing this fills empty
+    // space but costs drawing time.  Leave at 1 for a good balance.
+    STAR_TILE_RADIUS: 1,
+    // Minimum pixel radius under which textures are not drawn and
+    // instead a solid colour is used.  Prevents aliasing when planets
+    // appear only a few pixels wide.
+    TEXTURE_MIN_PIXEL_RADIUS: 6,
+    // Camera zoom limits.  The maximum zoom has been raised to allow
+    // Mercury and other small planets to fill the entire viewport.
+    CAMERA_MIN_ZOOM: 0.3,
+    CAMERA_MAX_ZOOM: 2000000,
+  };
+
+  // Load image textures for planets and the Sun.  These images live in
+  // the assets folder and are based on NASA imagery (courtesy of
+  // solarsystemscope.com).  Textures add surface detail and allow us
+  // to animate clouds on atmospheric planets.  They will be used
+  // during drawing if loaded; otherwise plain colours are used.
+  const textures = {};
+  function loadTextures() {
+    const names = [
+      'Mercury',
+      'Venus',
+      'Earth',
+      'Mars',
+      'Jupiter',
+      'Saturn',
+      'Uranus',
+      'Neptune',
+      'Sun',
+    ];
+    names.forEach((name) => {
+      const img = new Image();
+      // File names are lower-case planet names with .jpg or .png
+      let filename = '';
+      switch (name) {
+        case 'Earth':
+          filename = 'earth.png';
+          break;
+        case 'Sun':
+          filename = 'sun.jpg';
+          break;
+        case 'Saturn':
+          filename = 'saturn.jpg';
+          break;
+        case 'Mercury':
+          filename = 'mercury.jpg';
+          break;
+        case 'Venus':
+          filename = 'venus.jpg';
+          break;
+        case 'Mars':
+          filename = 'mars.jpg';
+          break;
+        case 'Jupiter':
+          filename = 'jupiter.jpg';
+          break;
+        case 'Uranus':
+          filename = 'uranus.jpg';
+          break;
+        case 'Neptune':
+          filename = 'neptune.jpg';
+          break;
+        default:
+          filename = `${name.toLowerCase()}.jpg`;
+          break;
+      }
+      img.src = `assets/${filename}`;
+      textures[name] = img;
+    });
+    // Separate cloud texture for Earth (transparent PNG with clouds).
+    const earthClouds = new Image();
+    earthClouds.src = 'assets/earth_clouds.png';
+    textures.EarthCloud = earthClouds;
+  }
+  // Kick off texture loading immediately
+  loadTextures();
+
+  // Scale factors for distances and sizes
+  // Distance and size scales. To demonstrate accurate scale, we convert both
+  // distances (in astronomical units) and sizes (in kilometres) using the same
+  // ratio. One astronomical unit (1 AU) is mapped to 100 world units. A radius
+  // in kilometres is first converted to AU and then multiplied by 100 to get
+  // its world radius. This preserves the ratio between orbital distances and
+  // body diameters. If bodies become too small on screen, a minimum pixel
+  // radius is applied during rendering.
+  const AU_IN_KM = 149_597_870; // kilometres in one astronomical unit
+  const WORLD_AU = 100; // number of world units representing 1 AU
+  const distanceScale = WORLD_AU; // convert AU to world units
+  const sizeScaleKm = WORLD_AU / AU_IN_KM; // convert km to world units
+
+  // Camera controls for panning and zooming.  The camera's initial
+  // position and zoom are set dynamically based on the screen size in
+  // setInitialCamera().
+  const camera = {
+    x: 0,
+    y: 0,
+    zoom: 1,
+    // Use configurable zoom limits; adjustable via CONFIG
+    minZoom: CONFIG.CAMERA_MIN_ZOOM,
+    maxZoom: CONFIG.CAMERA_MAX_ZOOM,
+  };
+
+  /**
+   * Flag used to ensure the initial camera positioning runs only once.
+   */
+  let initialCameraSet = false;
+
+  /**
+   * Compute a sensible starting camera position and zoom.  On wide
+   * screens we centre the Sun near the left and Earth near the right.
+   * On narrow/mobile screens we also shift the view upward slightly
+   * to leave room below a planet for its information panel.
+   */
+  function setInitialCamera() {
+    const width = canvas.clientWidth;
+    const height = canvas.clientHeight;
+    // If the canvas has not yet been laid out, signal failure so
+    // that this function can be called again later.  Returning
+    // false here prevents the initial camera flag from being
+    // prematurely set in resizeCanvas().
+    if (!width || !height) return false;
+    // Select Earth as a reference distance (1 AU)
+    const earth = planets.find((p) => p.name === 'Earth');
+    const distWorld = earth.distance * distanceScale;
+    // We want the Sun and Earth separated by 60% of the screen width (20% and 80%).
+    // See derivation in analysis: z = (0.6 * width) / distWorld; camera.x = -distWorld / 2.
+    const pct = 0.6;
+    const z = (pct * width) / distWorld;
+    camera.zoom = Math.min(Math.max(z, camera.minZoom), camera.maxZoom);
+    camera.x = -distWorld / 2;
+    camera.y = 0;
+    // On small screens (<600px), shift the view up to leave space
+    if (window.innerWidth <= 600) {
+      // Shift the world upward by 25% of the screen height in world units.
+      const shiftY = -(height * 0.25) / camera.zoom;
+      camera.y = shiftY;
+    }
+    return true;
+  }
+
+  // Animation state
+  let lastTime = performance.now();
+  // simulationTime accumulates in Earth years; each second of real time
+  // adds speedFactor Earth years to simulationTime.
+  let simulationTime = 0;
+  const maxSpeedFactor = 0.2;
+  let speedFactor = 0; // Will be controlled via slider (0–max)
+
+  // Debug utilities were removed for the final build.
+
+  // For pan interactions
+  let isDragging = false;
+  let lastMouse = { x: 0, y: 0 };
+
+  // For touch pinch zoom
+  const activePointers = new Map();
+  let pinchDist = null;
+
+  /**
+   * Resize the canvas to match its displayed size.
+   */
+  function resizeCanvas() {
+    // Set the internal size to match the CSS size so that the drawing looks crisp
+    canvas.width = canvas.clientWidth;
+    canvas.height = canvas.clientHeight;
+    // On the first resize call, compute the initial camera position
+    if (!initialCameraSet) {
+      // Only set the flag if the camera was successfully configured.
+      if (setInitialCamera()) {
+        initialCameraSet = true;
+      }
+    }
+    draw();
+  }
+
+  /**
+   * Convert world coordinates to screen coordinates.
+   * @param {number} x
+   * @param {number} y
+   */
+  function worldToScreen(x, y) {
+    return {
+      x: (x + camera.x) * camera.zoom + canvas.width / 2,
+      y: (y + camera.y) * camera.zoom + canvas.height / 2,
+    };
+  }
+
+  /**
+   * Convert screen coordinates to world coordinates.
+   * @param {number} x
+   * @param {number} y
+   */
+  function screenToWorld(x, y) {
+    return {
+      x: (x - canvas.width / 2) / camera.zoom - camera.x,
+      y: (y - canvas.height / 2) / camera.zoom - camera.y,
+    };
+  }
+
+  /**
+   * Draw the star field, orbits, planets and labels.
+   */
+  function draw() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    // Draw a subtle star field
+    drawStars();
+    // Draw orbits
+    planets.forEach((planet) => {
+      if (planet.distance > 0) {
+        const orbitWorldR = planet.distance * distanceScale;
+        const screenPos = worldToScreen(0, 0);
+        ctx.beginPath();
+        ctx.arc(
+          screenPos.x,
+          screenPos.y,
+          orbitWorldR * camera.zoom,
+          0,
+          Math.PI * 2
+        );
+        ctx.strokeStyle = 'rgba(60, 90, 140, 0.4)';
+        ctx.lineWidth = 1;
+        ctx.stroke();
+      }
+    });
+    // Draw planets and store their screen positions for click detection
+    planets.forEach((planet) => {
+      const pos = getPlanetWorldPosition(planet);
+      const screen = worldToScreen(pos.x, pos.y);
+      // Compute world radius: convert km to world units via sizeScaleKm
+      const worldRadius = planet.radius * sizeScaleKm;
+      // Convert to screen radius; apply minimum pixel size to keep tiny bodies visible
+      const screenRadius = Math.max(worldRadius * camera.zoom, 2);
+      // Draw the planet using texture if available; otherwise fallback to solid colour.
+      drawPlanetWithTexture(planet, screen.x, screen.y, screenRadius);
+
+      // Draw Saturn's ring separately
+      if (planet.name === 'Saturn') {
+        drawSaturnRing(pos, screen, worldRadius, screenRadius);
+      }
+
+      // Store screen position and radius for hit testing
+      planet.screenX = screen.x;
+      planet.screenY = screen.y;
+      planet.screenRadius = screenRadius;
+
+      // Draw label when planet disk is visible (excluding Sun) using fixed font size
+      if (screenRadius > 2 && planet.name !== 'Sun') {
+        ctx.fillStyle = '#cbd7f2';
+        ctx.font = `12px Orbitron, sans-serif`;
+        ctx.textAlign = 'center';
+        ctx.fillText(planet.name, screen.x, screen.y - screenRadius - 6);
+      }
+    });
+
+    // Debug overlay removed in final build; no update call here.
+  }
+
+  // Pre-generate stars in world coordinates.  A square distribution avoids
+  // clustering around the Sun.  Stars are uniformly scattered in a square
+  // extending beyond Neptune’s orbit by CONFIG.STAR_MAX_ORBIT_FACTOR.  A
+  // handful of stars are also placed very near the origin to guarantee
+  // visibility at extreme zoom levels.
+  const stars = [];
+  const starColors = [
+    '#ffffff',
+    '#fff7e5',
+    '#dfe6ff',
+    '#ffe5e5',
+    '#e5f7ff',
+    '#fbeacc',
+  ];
+  const maxOrbit = planets[planets.length - 1].distance * distanceScale * CONFIG.STAR_MAX_ORBIT_FACTOR;
+  // Base stars uniformly distributed across a square region
+  for (let i = 0; i < CONFIG.STAR_BASE_COUNT; i++) {
+    const x = (Math.random() * 2 - 1) * maxOrbit;
+    const y = (Math.random() * 2 - 1) * maxOrbit;
+    stars.push({
+      x,
+      y,
+      color: starColors[Math.floor(Math.random() * starColors.length)],
+      brightness: Math.random() * 0.6 + 0.4,
+    });
+  }
+  // Near stars are scattered within 10% of the outermost orbit.  This avoids
+  // clustering too tightly around the Sun while still ensuring that stars are
+  // visible at extreme zoom levels.  Adjust the factor (0.1) if stars
+  // remain too clustered or too sparse when fully zoomed in.
+  for (let i = 0; i < CONFIG.NEAR_STAR_COUNT; i++) {
+    const angle = Math.random() * Math.PI * 2;
+    const radius = Math.random() * (maxOrbit * 0.1);
+    stars.push({
+      x: Math.cos(angle) * radius,
+      y: Math.sin(angle) * radius,
+      color: starColors[Math.floor(Math.random() * starColors.length)],
+      brightness: Math.random() * 0.6 + 0.4,
+    });
+  }
+
+  /**
+   * Draws stars on the background. Stars move with panning/zooming.
+   */
+  function drawStars() {
+    // Tile stars in a 3×3 grid to ensure star presence at all zoom levels.
+    const repeat = maxOrbit * 2; // distance over which the star field repeats
+    stars.forEach((star) => {
+      for (let i = -CONFIG.STAR_TILE_RADIUS; i <= CONFIG.STAR_TILE_RADIUS; i++) {
+        for (let j = -CONFIG.STAR_TILE_RADIUS; j <= CONFIG.STAR_TILE_RADIUS; j++) {
+          const wx = star.x + i * repeat;
+          const wy = star.y + j * repeat;
+          const screen = worldToScreen(wx, wy);
+          if (
+            screen.x < -1 ||
+            screen.x > canvas.width + 1 ||
+            screen.y < -1 ||
+            screen.y > canvas.height + 1
+          ) {
+            continue;
+          }
+          ctx.globalAlpha = star.brightness;
+          ctx.fillStyle = star.color;
+          ctx.fillRect(Math.round(screen.x), Math.round(screen.y), 1, 1);
+        }
+      }
+    });
+    ctx.globalAlpha = 1;
+  }
+
+  /**
+   * Draw a planet using its texture if available.  A circular clipping
+   * region is created so that the texture maps into the disk.  For
+   * planets with clouds, a secondary texture is drawn over the base
+   * texture with a horizontal offset to simulate cloud motion.  The
+   * offset is proportional to the elapsed simulation time and scales
+   * with the speed factor.
+   *
+   * @param {Object} planet Planet data
+   * @param {number} x Screen x-coordinate of planet centre
+   * @param {number} y Screen y-coordinate of planet centre
+   * @param {number} screenRadius Pixel radius of the planet on screen
+   */
+  function drawPlanetWithTexture(planet, x, y, screenRadius) {
+    // Skip texture rendering for tiny planets to avoid aliasing; draw solid colour
+    if (screenRadius < CONFIG.TEXTURE_MIN_PIXEL_RADIUS) {
+      const smallPath = new Path2D();
+      smallPath.arc(x, y, screenRadius, 0, Math.PI * 2);
+      ctx.fillStyle = planet.color;
+      ctx.fill(smallPath);
+      planet.hitPath = smallPath;
+      return;
+    }
+
+    // Set up a path for hit testing
+    const path = new Path2D();
+    path.arc(x, y, screenRadius, 0, Math.PI * 2);
+    // Save path for click detection
+    planet.hitPath = path;
+    // Clip to circular area
+    ctx.save();
+    ctx.beginPath();
+    ctx.arc(x, y, screenRadius, 0, Math.PI * 2);
+    ctx.clip();
+    // Determine base texture
+    const tex = textures[planet.name];
+    if (tex && tex.complete) {
+      // If we need to animate atmospheric bands, compute an offset.  For
+      // gas giants we rotate the texture slowly relative to their orbital
+      // period; for rocky planets without atmospheres we leave offset = 0.
+      let offset = 0;
+      if (planet.name === 'Jupiter' || planet.name === 'Saturn' || planet.name === 'Uranus' || planet.name === 'Neptune' || planet.name === 'Venus') {
+        // Use simulationTime relative to orbit period to determine rotation
+        offset = ((simulationTime / planet.period) * tex.width * 0.1) % tex.width;
+      } else if (planet.name === 'Mercury') {
+        // Mercury rotates slowly; no offset
+        offset = 0;
+      }
+      // Draw the base texture, wrapping horizontally if necessary
+      if (offset !== 0) {
+        // Draw two copies to wrap the texture horizontally
+        ctx.drawImage(
+          tex,
+          offset,
+          0,
+          tex.width - offset,
+          tex.height,
+          x - screenRadius,
+          y - screenRadius,
+          screenRadius * 2 * (1 - offset / tex.width),
+          screenRadius * 2
+        );
+        ctx.drawImage(
+          tex,
+          0,
+          0,
+          offset,
+          tex.height,
+          x - screenRadius + screenRadius * 2 * (1 - offset / tex.width),
+          y - screenRadius,
+          screenRadius * 2 * (offset / tex.width),
+          screenRadius * 2
+        );
+      } else {
+        ctx.drawImage(tex, x - screenRadius, y - screenRadius, screenRadius * 2, screenRadius * 2);
+      }
+      // Overlay clouds for Earth
+      if (planet.name === 'Earth') {
+        const clouds = textures.EarthCloud;
+        if (clouds && clouds.complete) {
+          // Cloud movement speed depends on simulation speed; faster when
+          // speedFactor increases.  Use simulationTime (years) converted
+          // to days and scale the offset relative to cloud texture width.
+          const days = simulationTime * 365.25;
+          const cloudOffset = ((days * speedFactor * 10) % clouds.width + clouds.width) % clouds.width;
+          ctx.globalAlpha = 0.5;
+          // Draw two slices to wrap horizontally
+          // First slice
+          ctx.drawImage(
+            clouds,
+            cloudOffset,
+            0,
+            clouds.width - cloudOffset,
+            clouds.height,
+            x - screenRadius,
+            y - screenRadius,
+            screenRadius * 2 * (1 - cloudOffset / clouds.width),
+            screenRadius * 2
+          );
+          // Second slice
+          ctx.drawImage(
+            clouds,
+            0,
+            0,
+            cloudOffset,
+            clouds.height,
+            x - screenRadius + screenRadius * 2 * (1 - cloudOffset / clouds.width),
+            y - screenRadius,
+            screenRadius * 2 * (cloudOffset / clouds.width),
+            screenRadius * 2
+          );
+          ctx.globalAlpha = 1;
+        }
+      }
+    } else {
+      // Fallback: fill with the planet's colour
+      ctx.fillStyle = planet.color;
+      ctx.fillRect(x - screenRadius, y - screenRadius, screenRadius * 2, screenRadius * 2);
+    }
+    ctx.restore();
+  }
+
+  /**
+   * Draw Saturn's ring using an ellipse.  The ring is drawn with an
+   * outer and inner radius based on the planet's radius.  The
+   * appearance is simplified but conveys the presence of the ring.
+   * @param {Object} pos World coordinates of the planet
+   * @param {Object} screen Screen coordinates of the planet
+   * @param {number} worldRadius World radius of the planet
+   * @param {number} screenRadius Pixel radius of the planet on screen
+   */
+  function drawSaturnRing(pos, screen, worldRadius, screenRadius) {
+    // Compute ring radii in world units
+    const outerWorld = worldRadius * 4.0;
+    const innerWorld = worldRadius * 1.3;
+    const outerScreen = outerWorld * camera.zoom;
+    const innerScreen = innerWorld * camera.zoom;
+    // Vertical squish factor to produce elliptical ring
+    const yScale = 0.3;
+    ctx.save();
+    ctx.strokeStyle = 'rgba(230, 220, 200, 0.6)';
+    ctx.lineWidth = Math.max((outerScreen - innerScreen), 1);
+    ctx.beginPath();
+    ctx.ellipse(
+      screen.x,
+      screen.y,
+      (outerScreen + innerScreen) / 2,
+      ((outerScreen + innerScreen) / 2) * yScale,
+      0,
+      0,
+      Math.PI * 2
+    );
+    ctx.stroke();
+    ctx.restore();
+  }
+
+  /**
+   * Calculate the planet's position in world coordinates at the current simulation time.
+   * @param {Object} planet
+   */
+  function getPlanetWorldPosition(planet) {
+    if (planet.distance === 0) {
+      return { x: 0, y: 0 };
+    }
+    // Orbital radius in world units
+    const r = planet.distance * distanceScale;
+    // Angle based on simulation time and orbital period
+    const angle = (simulationTime / planet.period) * Math.PI * 2;
+    return {
+      x: Math.cos(angle) * r,
+      y: Math.sin(angle) * r,
+    };
+  }
+
+  /**
+   * Update simulation time and redraw the scene. Called repeatedly.
+   */
+  function animate(time) {
+    const delta = time - lastTime;
+    lastTime = time;
+    // Convert delta from ms to seconds and scale by speedFactor (Earth years per second)
+    simulationTime += (delta / 1000) * speedFactor;
+    draw();
+    requestAnimationFrame(animate);
+  }
+
+  /**
+   * Show planet information when clicked.
+   * @param {Object} planet
+   * @param {number} screenX
+   * @param {number} screenY
+   */
+  function showInfo(planet, screenX, screenY) {
+    // Populate the panel
+    const factItems = planet.facts
+      .map((fact) => `<li>${fact}</li>`)
+      .join('');
+    infoPanel.innerHTML = `
+      <h2>${planet.name}</h2>
+      <ul>
+        <li><strong>Radius:</strong> ${planet.radius.toLocaleString()} km</li>
+        <li><strong>Gravity:</strong> ${planet.gravity.toFixed(2)} m/s²</li>
+        <li><strong>Atmosphere:</strong> ${planet.atmosphere}</li>
+        ${factItems}
+      </ul>
+    `;
+    // Make panel visible to measure its size
+    infoPanel.classList.remove('hidden');
+    // Position the panel; offset to keep it within bounds.  On narrow
+    // screens place the panel below the planet (or above if it would
+    // overflow), centred horizontally on the planet.  On larger
+    // screens retain the default behaviour of offsetting from the
+    // pointer location.
+    const panelWidth = infoPanel.offsetWidth;
+    const panelHeight = infoPanel.offsetHeight;
+    // Determine available canvas dimensions
+    const cw = canvas.clientWidth;
+    const ch = canvas.clientHeight;
+    let left;
+    let top;
+    if (window.innerWidth <= 600) {
+      // Use the planet's screen position and radius if available
+      const cx = planet.screenX ?? screenX;
+      const cy = planet.screenY ?? screenY;
+      const radius = planet.screenRadius ?? 0;
+      // Start by centering horizontally beneath the planet
+      left = cx - panelWidth / 2;
+      top = cy + radius + 10;
+      // If the panel would run off the bottom, flip above the planet
+      if (top + panelHeight > ch) {
+        top = cy - radius - panelHeight - 10;
+      }
+      // Clamp horizontally to canvas boundaries
+      if (left < 10) left = 10;
+      if (left + panelWidth > cw - 10) left = cw - panelWidth - 10;
+      // Clamp vertically just in case
+      if (top < 10) top = 10;
+    } else {
+      // Desktop: offset relative to the pointer location
+      left = screenX + 10;
+      top = screenY + 10;
+      if (left + panelWidth > cw) {
+        left = screenX - panelWidth - 10;
+      }
+      if (top + panelHeight > ch) {
+        top = screenY - panelHeight - 10;
+      }
+    }
+    infoPanel.style.left = `${left}px`;
+    infoPanel.style.top = `${top}px`;
+  }
+
+  /**
+   * Hide the information panel.
+   */
+  function hideInfo() {
+    if (!infoPanel.classList.contains('hidden')) {
+      infoPanel.classList.add('hidden');
+    }
+  }
+
+  /**
+   * Check whether a screen coordinate is over a planet.
+   * Uses screen distances for more intuitive hit testing.
+   * @param {Object} planet
+   * @param {number} screenX
+   * @param {number} screenY
+   */
+  function isPointerOnPlanet(planet, screenX, screenY) {
+    // Use the stored path for accurate hit detection
+    if (planet.hitPath) {
+      return ctx.isPointInPath(planet.hitPath, screenX, screenY);
+    }
+    return false;
+  }
+
+  // Mouse and touch event handlers
+  canvas.addEventListener('mousedown', (e) => {
+    e.preventDefault();
+    isDragging = true;
+    lastMouse = { x: e.clientX, y: e.clientY };
+    canvas.style.cursor = 'grabbing';
+  });
+  window.addEventListener('mouseup', () => {
+    isDragging = false;
+    canvas.style.cursor = 'grab';
+  });
+  window.addEventListener('mousemove', (e) => {
+    if (!isDragging) return;
+    const dx = (e.clientX - lastMouse.x) / camera.zoom;
+    const dy = (e.clientY - lastMouse.y) / camera.zoom;
+    camera.x += dx;
+    camera.y += dy;
+    lastMouse = { x: e.clientX, y: e.clientY };
+  });
+
+  // Wheel zoom: zoom relative to the pointer location on the canvas
+  canvas.addEventListener('wheel', (e) => {
+    e.preventDefault();
+    const delta = e.deltaY;
+    // Compute scale factor for zoom; small increments yield smooth zoom
+    const scale = Math.exp(-delta * 0.001);
+    const newZoom = Math.min(
+      camera.maxZoom,
+      Math.max(camera.minZoom, camera.zoom * scale)
+    );
+    // Determine pointer position relative to canvas
+    const rect = canvas.getBoundingClientRect();
+    const localX = e.clientX - rect.left;
+    const localY = e.clientY - rect.top;
+    // Convert pointer to world coordinates using current zoom
+    const worldPos = screenToWorld(localX, localY);
+    // Update camera so that the same world point stays under the pointer
+    camera.x = (localX - canvas.width / 2) / newZoom - worldPos.x;
+    camera.y = (localY - canvas.height / 2) / newZoom - worldPos.y;
+    camera.zoom = newZoom;
+  });
+
+  // Click to select planets
+  canvas.addEventListener('click', (e) => {
+    // Redraw to update stored screen positions for hit testing with current camera
+    draw();
+    // Convert client coordinates to local canvas coordinates
+    const rect = canvas.getBoundingClientRect();
+    const localX = e.clientX - rect.left;
+    const localY = e.clientY - rect.top;
+    // Determine the nearest planet within a threshold distance
+    let selected = null;
+    let minDist = Infinity;
+    planets.forEach((planet) => {
+      // Compute distance to the planet's current screen position
+      const dx = localX - planet.screenX;
+      const dy = localY - planet.screenY;
+      const distSq = dx * dx + dy * dy;
+      const radius = planet.screenRadius || 0;
+      // Acceptable hit distance threshold: planet radius plus 25px
+      const thresholdRadius = Math.max(radius + 25, 50);
+      const threshold = thresholdRadius * thresholdRadius;
+      if (distSq < threshold && distSq < minDist) {
+        selected = planet;
+        minDist = distSq;
+      }
+    });
+    if (selected) {
+      showInfo(selected, localX, localY);
+    } else {
+      hideInfo();
+    }
+  });
+
+  /**
+   * Pointer event handlers for pinch zoom and panning on touch devices
+   */
+  function onPointerDown(e) {
+    activePointers.set(e.pointerId, e);
+    // When the first pointer touches down, start dragging
+    if (activePointers.size === 1) {
+      isDragging = true;
+      lastMouse = { x: e.clientX, y: e.clientY };
+    }
+    if (activePointers.size === 2) {
+      // Record initial pinch distance for two-finger zoom
+      const [p1, p2] = [...activePointers.values()];
+      pinchDist = Math.hypot(p1.clientX - p2.clientX, p1.clientY - p2.clientY);
+    }
+  }
+  function onPointerMove(e) {
+    if (!activePointers.has(e.pointerId)) return;
+    // Update pointer map
+    activePointers.set(e.pointerId, e);
+    if (activePointers.size === 2) {
+      const [p1, p2] = [...activePointers.values()];
+      const currentDist = Math.hypot(p1.clientX - p2.clientX, p1.clientY - p2.clientY);
+      if (pinchDist) {
+        const scale = currentDist / pinchDist;
+        const newZoom = Math.min(
+          camera.maxZoom,
+          Math.max(camera.minZoom, camera.zoom * scale)
+        );
+      
+        // Use midpoint for zoom anchor
+        const rect = canvas.getBoundingClientRect();
+        const midX = (p1.clientX + p2.clientX) / 2 - rect.left;
+        const midY = (p1.clientY + p2.clientY) / 2 - rect.top;
+        const worldPos = screenToWorld(midX, midY);
+        camera.x = (midX - canvas.width / 2) / newZoom - worldPos.x;
+        camera.y = (midY - canvas.height / 2) / newZoom - worldPos.y;
+        camera.zoom = newZoom;
+      }
+      pinchDist = currentDist;
+    } else if (isDragging && activePointers.size === 1) {
+      // Single pointer drag for panning
+      const dx = (e.clientX - lastMouse.x) / camera.zoom;
+      const dy = (e.clientY - lastMouse.y) / camera.zoom;
+      camera.x += dx;
+      camera.y += dy;
+      lastMouse = { x: e.clientX, y: e.clientY };
+    }
+  }
+  function onPointerUp(e) {
+    activePointers.delete(e.pointerId);
+    // If all pointers are lifted, end dragging and pinch
+    if (activePointers.size === 0) {
+      isDragging = false;
+      pinchDist = null;
+    }
+    // If only one pointer remains, reset pinch distance for potential pinch later
+    if (activePointers.size === 1) {
+      const remaining = [...activePointers.values()][0];
+      lastMouse = { x: remaining.clientX, y: remaining.clientY };
+      pinchDist = null;
+    }
+  }
+  canvas.addEventListener('pointerdown', onPointerDown);
+  canvas.addEventListener('pointermove', onPointerMove);
+  canvas.addEventListener('pointerup', onPointerUp);
+  canvas.addEventListener('pointercancel', onPointerUp);
+  canvas.addEventListener('pointerout', onPointerUp);
+  canvas.addEventListener('pointerleave', onPointerUp);
+
+  // Adjust canvas size on resize
+  window.addEventListener('resize', resizeCanvas);
+  // Initial resize to set up canvas dimensions
+  resizeCanvas();
+  // Start animation
+  requestAnimationFrame(animate);
+
+  /**
+   * Build a horizontal bar of planet icons for quick selection. When an item
+   * is clicked, the camera recenters on that planet and its information is shown.
+   */
+  function createPlanetBar() {
+    planets.forEach((planet) => {
+      const item = document.createElement('div');
+      item.className = 'planet-item';
+      const circle = document.createElement('div');
+      circle.className = 'planet-circle';
+      circle.style.backgroundColor = planet.color;
+      const label = document.createElement('span');
+      label.className = 'planet-label';
+      label.textContent = planet.name;
+      item.appendChild(circle);
+      item.appendChild(label);
+      // On click: center camera on planet and show info at its screen position
+      item.addEventListener('click', () => {
+        // Compute planet's world position
+        const pPos = getPlanetWorldPosition(planet);
+        // Reposition the camera so that the selected planet is centred.
+        // On mobile devices we shift it upward to leave room for the
+        // information panel below the planet.
+        camera.x = -pPos.x;
+        if (window.innerWidth <= 600) {
+          // worldShift moves the planet up by 25% of the viewport height
+          const shiftY = -(canvas.clientHeight * 0.25) / camera.zoom;
+          camera.y = -pPos.y + shiftY;
+        } else {
+          camera.y = -pPos.y;
+        }
+        // Immediately draw with updated camera to compute new screen coords
+        draw();
+        const screen = worldToScreen(pPos.x, pPos.y);
+        // Show info near the planet
+        showInfo(planet, screen.x, screen.y);
+      });
+      planetBar.appendChild(item);
+    });
+  }
+
+  // Build the selection bar on load
+  createPlanetBar();
+
+  // Set up simulation speed slider
+  function updateSpeedDisplay() {
+    const yrsPerMin = speedFactor * 60;
+    // Show up to six decimal places for very small speeds
+    let label;
+    if (yrsPerMin < 0.01) {
+      label = yrsPerMin.toFixed(6);
+    } else {
+      label = yrsPerMin.toFixed(2);
+    }
+    if (speedLabel) speedLabel.textContent = label + ' yrs/min';
+    if (speedInput && !document.activeElement.isSameNode(speedInput)) {
+      speedInput.value = label;
+    }
+  }
+
+  // Set up simulation speed slider
+  if (speedSlider) {
+    speedSlider.value = '0';
+    speedFactor = 0;
+    speedSlider.addEventListener('input', (e) => {
+      const fraction = parseFloat(e.target.value);
+      speedFactor = fraction * maxSpeedFactor;
+      updateSpeedDisplay();
+    });
+    updateSpeedDisplay();
+  }
+
+  // Set up numerical speed input
+  if (speedInput) {
+    // When the user enters a value, update the simulation speed
+    speedInput.addEventListener('change', (e) => {
+      const yrsPerMin = parseFloat(e.target.value);
+      if (!isNaN(yrsPerMin)) {
+        speedFactor = yrsPerMin / 60;
+        // Clamp slider position to [0,1] range; avoid NaN
+        const fraction = speedFactor / maxSpeedFactor;
+        if (speedSlider) {
+          speedSlider.value = Math.max(0, Math.min(1, fraction)).toString();
+        }
+        updateSpeedDisplay();
+      }
+    });
+  }
+
+  // Set up true speed button
+  if (trueSpeedButton) {
+    trueSpeedButton.addEventListener('click', () => {
+      // True orbital speed: 1 Earth year per Earth year => 1 yr/year = 1/60 yrs per minute
+      const yrsPerMin = 0.0000019026;
+      speedFactor = yrsPerMin / 60;
+      // Update slider fraction but do not restrict to [0,1]
+      const fraction = speedFactor / maxSpeedFactor;
+      if (speedSlider) {
+        speedSlider.value = Math.max(0, Math.min(1, fraction)).toString();
+      }
+      updateSpeedDisplay();
+    });
+  }
+
+  // As an extra guard, once the window finishes loading we attempt to
+  // initialise the camera again.  The short timeout ensures that the
+  // layout has been calculated so canvas dimensions are available.  If
+  // the camera has already been set during resizeCanvas this does
+  // nothing.  After setting the camera we force a redraw to apply the
+  // updated view.
+  window.addEventListener('load', () => {
+    setTimeout(() => {
+      if (!initialCameraSet) {
+        if (setInitialCamera()) {
+          initialCameraSet = true;
+          draw();
+        }
+      }
+    }, 0);
+  });
+
+  // Immediately schedule a camera initialisation after the current
+  // call stack.  A small delay allows the browser to finish layout
+  // calculations so that canvas.clientWidth/Height return correct
+  // values.  If the camera has already been configured by another
+  // mechanism this timer simply does nothing.
+  setTimeout(() => {
+    if (!initialCameraSet) {
+      if (setInitialCamera()) {
+        initialCameraSet = true;
+        draw();
+      } else {
+        // If the canvas still lacked size information, try again after
+        // another brief delay.
+        setTimeout(() => {
+          if (!initialCameraSet && setInitialCamera()) {
+            initialCameraSet = true;
+            draw();
+          }
+        }, 100);
+      }
+    }
+  }, 50);
+})();</script>
+</body>
+</html>
