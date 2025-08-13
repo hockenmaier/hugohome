@@ -10,3 +10,5 @@ _build:
 [/preview/balloon-fight/](/preview/balloon-fight/)
 
 [/preview/the-treadmill/](/preview/the-treadmill/)
+
+[/preview/agent-mode/](/preview/agent-mode/)

@@ -127,7 +127,7 @@
                     <description><![CDATA[<p>GPT-5, as a text completion model, is not a revelation. In fact, it&rsquo;s more of a disapointment.</p>
 <p>This isn&rsquo;t so surprising. It was becoming clearer with every new LLM release that the fundamental improvements from scaling for just the performance of the core text predictor under the hood was starting to taper. But I&rsquo;m going to make an argument today that, although the LLM itself is not nearly as much of a leap from GPT-4 as GPT-4 was from GPT-3, we have still seen at least a full number of real improvement between the release of GPT-4 and GPT-5 as we did between the prior two. And the reason for that is tooling.</p>
 <p>Let me start by just illustrating the progress we had made between the first GPT-4 release in early 2023 and the week before the release of GPT-5.</p>
-<p>Two years and four months have gone by since I ran my original Interactive Solar System experiment with the original version of GPT-4. You can see that one at <a href="hockenworks.com/gpt-4-solar-system">hockenworks.com/gpt-4-solar-system</a>.</p>
+<p>Two years and four months have gone by since I ran my original Interactive Solar System experiment with the original version of GPT-4. You can see that one at <a href="/gpt-4-solar-system">hockenworks.com/gpt-4-solar-system</a>.</p>
 <p>Take a look at the same test performed a week before the release of GPT-5, which uses ChatGPT Agent Mode. Take a test run:</p>
 
 <style>
@@ -180,7 +180,7 @@
 <p>It also has the ability to use tools, like the web search tool it used to find the planet facts.</p>
 <p>But then the thing that most sets it apart from its base model is the deep research and computer use elements of Agent mode. As it was building this model, I saw Agent mode do things such as perusing the internet with its text browser to find scale information and browse for textures it could use as planet skins. Then, the most important new ability that allowed it to make this: It ran this code on a local browser and <em>visually tested it</em>, clicking on the planets to make sure the information panels were coming up, zooming and panning around, and using its own toolbars.</p>
 <p>This to me is the start of a true general capability for AI software testing. Not just little unit and automated tests - but actual visual look and feel testing. This is a huge market and will be a huge shock to the software industry when it’s fully realized.</p>
-<h1 id="now-check-out-gpt-5">Now check out GPT-5</h1>
+<h2 id="now-check-out-gpt-5-can-do-without-agent-mode">Now check out GPT-5 can do without Agent Mode</h2>
 
 <style>
   .picross-wrapper {
