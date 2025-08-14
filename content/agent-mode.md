@@ -10,6 +10,8 @@ tags: [AI, "Experimental", software, html, javascript, css, "Rapid Prototyping"]
 featured: "/images/agent-mode-solar-system.gif"
 ---
 
+> Warning: This article has a lot of embedded code, so [the ball machine](/this-website/#ball-machine---the-game) is slow unless you have a REALLY fast computer. Play at your own risk.
+
 Seriously, though.
 
 GPT-5, as a text completion model, is not a revelation. It's more of a disapointment.
@@ -63,8 +65,28 @@ Then, the most impressive new ability that allowed it to make this: It ran this 
 
 This last one to me, when paired with all of the other things that GPT-4 class models are not instrumented to do, is the start of a true general capability for AI software testing, almost as a sidenote to all of the other things it will unlock in the coming few years. Not just the little unit and automated tests that LLMs have been writing into our codebases for a long time - but actual visual look and feel testing. This is a huge market and will be a huge shock to the software industry when it’s fully realized.
 
-## Why Is This Solar System So Much Better Than the one From the Original GPT-4
+These are all net-new abilities that GPT-4 class models have gained since GPT-4 came out in March of 2023. It's hard to see how much progress these capabilities add up to without just running the direct experiment like this solar system generation
 
-## Now check out GPT-5 can do without Agent Mode
+## GPT-5 Without Agent Mode
 
-{{< picross-generator-self-contained caption="Generate + play 15×15" >}}
+I see GPT-5 as a formalization of all of these capabilities that lock in the step change in capability. There is a new model underneath there somewhere (some are saying it is o4) and that underlying model has certainly been reinforcement-trained to choose its tools wisely. It is the first model I have seen that can do all of these simultaneously, without user choice:
+
+- Choose when to think and when to just answer
+- Run iterativeweb search calls
+- Write and run code to do highly logical-symbolic tasks like data analysis
+- Create, edit, and analyze images
+- Create and read nearly any kind of document a user might be working with
+
+And there are still a couple of things locked behind user choice, which is probably because these both result in much longer running and expensive tasks than simple thinking:
+
+- Deep map-reduce style web research
+- Computer use (mouse and keyboard style, with Agent Mode)
+
+Using only the first set of "default" behaviours, GPT5 can do things that the original GPT-4 would never have dreamed of. I have had the following prompt sitting around in my "intelligence tests" document for more than a year now, waiting for a sinlge model that can one-shot it. GPT5 is the first one that does:
+
+> **Cool picross app idea, def solvable by competent AI (which doesn't exist yet at the end of 2024)**:
+> Take an image, increase contrast, and turn it into a 15x15 image. Create a black and white picross puzzle out of the image, including a UI that lets a player solve the puzzle.
+
+It's a simple prompt that implies a lot of underlying complexity. Here is the first one-shot result from GPT-5 I got (normal mode, I didn't select "Thinking" in advance):
+
+{{< picross-generator-self-contained>}}
