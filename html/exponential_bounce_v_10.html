@@ -1,0 +1,672 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Exponential Bounce — v10 (Responsive)</title>
+<style>
+  :root { --ui-w: 300px; font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif; }
+  html, body { height: 100%; margin: 0; background:#0b1020; color:#e6e6e6; }
+  #wrap { display:flex; height:100%; }
+  #ui {
+    width: var(--ui-w); padding:16px; box-sizing:border-box; border-right:1px solid #1b233d;
+    background: linear-gradient(180deg,#0f1530,#0b1020 40%);
+    transition: width .2s ease, padding .2s ease, border-color .2s ease;
+  }
+  body.collapsed #ui { width:0; padding:0; border-right-color: transparent; overflow:hidden; }
+
+  #ui h1 { font-size:18px; margin:0 0 12px; letter-spacing:.3px; }
+  .field{ margin:14px 0; }
+  .row{ display:flex; align-items:center; justify-content:space-between; gap:10px; }
+  .row label{ font-size:13px; opacity:.9; }
+  .row output{ font-variant-numeric: tabular-nums; }
+  input[type="range"]{ width:100%; }
+  #spawnCtl{ display:flex; gap:8px; align-items:center; }
+  #spawnCtl input[type="number"]{ width:72px; }
+  button.big { width:100%; padding:14px 12px; margin-top:8px; font-size:16px; font-weight:700; border:0; border-radius:12px; color:white; cursor:pointer; box-shadow:0 8px 24px rgba(0,0,0,.3); }
+  #reset{ background:#2563eb; }
+  #stop { background:#d82424; }
+  #collapse { background:#6b7280; } /* gray */
+  #stats{ margin-top:8px; font-size:12px; opacity:.8; }
+
+  /* Game area */
+  #stageWrap{ position:relative; flex:1; width: calc(100% - var(--ui-w)); height: 100%; transition: width .2s ease; }
+  body.collapsed #stageWrap{ width:100%; }
+  #canvas { position:absolute; inset:0; display:block; background:#000; }
+
+  /* Start overlay */
+  #startOverlay{
+    position:absolute; inset:0; display:flex; align-items:center; justify-content:center;
+    background: rgba(0,0,0,0.6); backdrop-filter: blur(2px); z-index:2;
+  }
+  #startOverlay .startBtn{
+    cursor:pointer; border:0; border-radius:16px; padding:18px 28px; font-weight:900; font-size:22px;
+    background:#22c55e; color:#06220f; box-shadow:0 10px 30px rgba(34,197,94,.4);
+  }
+  #startOverlay .startBtn:active{ transform: translateY(1px); }
+  .hint { position:absolute; bottom:16px; left:16px; right:16px; text-align:center; font-size:12px; opacity:.75; }
+
+  /* Floating expand button for collapsed mode */
+  #expandBtn{
+    position:fixed; left:12px; top:12px; z-index:3; display:none;
+    background:#374151; color:#fff; border:0; border-radius:12px; padding:10px 12px; font-weight:700; cursor:pointer;
+    box-shadow:0 8px 24px rgba(0,0,0,.35);
+  }
+  body.collapsed #expandBtn{ display:block; }
+
+  /* Auto-start collapsed on small screens */
+  @media (max-width: 900px){
+    body:not(.initialized){ /* before JS runs */ }
+  }
+</style>
+</head>
+<body>
+  <button id="expandBtn" aria-label="Open controls">☰ Controls</button>
+  <div id="wrap">
+    <aside id="ui">
+      <h1>Exponential Bounce</h1>
+
+      <!-- UI ranges are set from CONFIG in JS -->
+      <div class="field">
+        <div class="row"><label for="gravity">Gravity</label><output id="gOut"></output></div>
+        <input id="gravity" type="range" />
+      </div>
+      <div class="field">
+        <div class="row"><label for="bounce">Bounce (restitution)</label><output id="bOut"></output></div>
+        <input id="bounce" type="range" />
+      </div>
+      <div class="field">
+        <div class="row"><label>Spawn per fall</label><output id="mOut"></output></div>
+        <div id="spawnCtl">
+          <input id="mult" type="range" />
+          <input id="multNum" type="number" />
+        </div>
+      </div>
+
+      <hr style="border:none;border-top:1px solid #1b233d;margin:14px 0">
+
+      <div class="field">
+        <div class="row"><label for="gap">Hole width (px)</label><output id="gapOut"></output></div>
+        <input id="gap" type="range" />
+      </div>
+      <div class="field">
+        <div class="row"><label for="spd">Line speed ×</label><output id="spdOut"></output></div>
+        <input id="spd" type="range" />
+      </div>
+
+      <button id="reset" class="big">RESET</button>
+      <button id="stop" class="big">STOP</button>
+      <button id="collapse" class="big" aria-label="Hide controls">Hide Controls</button>
+      <div id="stats">Balls: <span id="ballCount">0</span></div>
+      <div style="font-size:12px;opacity:.7;margin-top:8px;">Tip: click/tap to enable audio.</div>
+    </aside>
+
+    <div id="stageWrap">
+      <canvas id="canvas"></canvas>
+      <div id="startOverlay">
+        <div>
+          <button class="startBtn" id="startBtn">START</button>
+          <div class="hint">Spawns the first 3 balls. Lines move; balls multiply when they exit the bottom.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<script>
+/* ==============================
+   CONFIG — tweak everything here
+   ============================== */
+const CONFIG = {
+  // Simulation caps & timing
+  maxBalls: 5000,
+  maxDt: 0.033,           // clamp per-frame dt (s)
+  dprMin: 1, dprMax: 2,   // devicePixelRatio clamp
+
+  // Boundaries & walls
+  wallThicknessPx: 14,    // logical px (scaled by DPR)
+  topPaddingY: 60,        // logical px from top for spawn line
+
+  // Ball physics
+  dragVX: 0.02,           // per-second % (used as (1 - drag*dt))
+  dragVY: 0.01,
+  restitutionDefault: 0.95,
+
+  // Ball base radius genetics (in logical px, BEFORE DPR)
+  ballRadiusBaseMin: 4,
+  ballRadiusBaseMax: 30,          // initial spawn range
+  ballRadiusMutationPct: 0.5,     // ±50% per generation
+  ballRadiusHardMin: 1.1,         // safety lower bound
+
+  // Color genetics (HSL)
+  hueMutationRange: 10,            // ±deg
+  satMutationRange: 5,             // ±%
+  lightMutationRange: 4,           // ±%
+  satClamp: [45, 95],
+  lightClamp: [40, 80],
+
+  // Sieve (moving dotted lines)
+  sieveTopYFactor: 0.50,          // 0..1 of canvas height
+  sieveBottomBaseOffset: 160,     // px from bottom for base stack start
+  sieveRowGapPx: 34,              // affects interpolation distance
+  sieveHeightPx: 8,
+  sieveSolidSegPx: 78,            // solid length
+  sieveBaseSpeedsPxPerSec: [14, 22, 30, 38],  // per row base speeds, multiplied by speed slider and DPR
+
+  // Audio
+  audioMasterGain: 0.08,
+  audioSilenceBelowSpeed: 220,    // no sound under this impact speed
+  audioMaxSpeed: 1400,            // clamp top mapping
+  audioFreqBase: 140,             // Hz
+  audioFreqRange: 900,            // Hz
+  audioEnvPeakMin: 0.15,          // base loudness
+  audioEnvPeakScale: 0.55,        // added by speed norm^1.3
+
+  // Particles (glitter)
+  particleCountSpawn: 26,
+  particleSpeedMin: 40,
+  particleSpeedMax: 180,
+  particleSizeMin: 2,
+  particleSizeMax: 4,
+  particleLifeMin: 0.5,
+  particleLifeMax: 2.2,
+  particleGravityFactor: 0.2,     // relative to world gravity
+  particleDampingVX: 0.10,
+  particleDampingVY: 0.06,
+
+  // Trails
+  trailLength: 17,
+
+  // UI ranges (min,max,step,default)
+  uiGravity:      { min: 200,  max: 2400, step: 50,   value: 1200 },
+  uiBounce:       { min: 0.30, max: 0.99, step: 0.01, value: 0.95 },
+  uiSpawnPerFall: { min: 2,    max: 10,   step: 1,    value: 2    },
+  uiHoleWidth:    { min: 24,   max: 600,  step: 2,    value: 72   },
+  uiSpeedMul:     { min: 0.00, max: 4.00, step: 0.05, value: 0.40 },
+};
+/* ===== End CONFIG ===== */
+(() => {
+  // ===== Canvas & Globals =====
+  const canvas = document.getElementById('canvas');
+  const ctx = canvas.getContext('2d');
+  const startOverlay = document.getElementById('startOverlay');
+  const startBtn = document.getElementById('startBtn');
+
+  let W, H, DPR;
+  let started = false;
+
+  // ===== UI =====
+  const ui = {
+    gravity: document.getElementById('gravity'),
+    bounce:  document.getElementById('bounce'),
+    mult:    document.getElementById('mult'),
+    multNum: document.getElementById('multNum'),
+    gOut:    document.getElementById('gOut'),
+    bOut:    document.getElementById('bOut'),
+    mOut:    document.getElementById('mOut'),
+    reset:   document.getElementById('reset'),
+    stop:    document.getElementById('stop'),
+    count:   document.getElementById('ballCount'),
+    gap:     document.getElementById('gap'),
+    gapOut:  document.getElementById('gapOut'),
+    spd:     document.getElementById('spd'),
+    spdOut:  document.getElementById('spdOut'),
+    collapse:document.getElementById('collapse'),
+    expandBtn:document.getElementById('expandBtn'),
+  };
+
+  // Apply UI ranges from CONFIG
+  function applyRange(input, spec, isNumber=false) {
+    input.min = spec.min;
+    input.max = spec.max;
+    input.step = spec.step;
+    input.value = spec.value;
+    if (isNumber) {
+      input.min = spec.min;
+      input.max = spec.max;
+      input.step = spec.step;
+      input.value = spec.value;
+    }
+  }
+  applyRange(ui.gravity,      CONFIG.uiGravity);
+  applyRange(ui.bounce,       CONFIG.uiBounce);
+  applyRange(ui.mult,         CONFIG.uiSpawnPerFall);
+  applyRange(ui.multNum,      CONFIG.uiSpawnPerFall, true);
+  applyRange(ui.gap,          CONFIG.uiHoleWidth);
+  applyRange(ui.spd,          CONFIG.uiSpeedMul);
+
+  // Derived state from UI
+  let gravity = +ui.gravity.value;
+  let restitution = +ui.bounce.value;
+  let spawnMultiplier = +ui.mult.value;
+  let holeWidthPX = +ui.gap.value;
+  let speedMul = +ui.spd.value;
+
+  // ===== World =====
+  const balls = [];
+  const particles = []; // glitter
+  const WALL_THICK = CONFIG.wallThicknessPx; // logical px
+  const ORIGINAL_SPAWNS = []; // x positions, filled on resize
+  const TOP_Y = () => CONFIG.topPaddingY * DPR;
+
+  // Trails
+  const TRAIL_LEN = CONFIG.trailLength;
+
+  // ===== Sieve Lines =====
+  const sieves = []; // {y,height,seg,gap,phase,speedBase,dir,index}
+  function placeSieves() {
+    sieves.length = 0;
+    const bottomBase = H - CONFIG.sieveBottomBaseOffset * DPR; // keep bottom region
+    const topY = CONFIG.sieveTopYFactor * H;                   // ~halfway up
+    const thickness = CONFIG.sieveHeightPx * DPR;
+    const seg = CONFIG.sieveSolidSegPx * DPR;
+    const gap = holeWidthPX * DPR;
+
+    // Spread them further apart by anchoring top & bottom and interpolating
+    const rowGap = CONFIG.sieveRowGapPx * DPR;
+    const y0 = topY;
+    const y3 = bottomBase + 3 * rowGap;
+    const y1 = y0 + (y3 - y0) * 1/3;
+    const y2 = y0 + (y3 - y0) * 2/3;
+
+    const ys = [y0, y1, y2, y3];
+    const base = CONFIG.sieveBaseSpeedsPxPerSec; // px/sec
+
+    for (let i=0;i<4;i++){
+      sieves.push({
+        index: i,
+        y: ys[i],
+        height: thickness,
+        seg, gap,
+        phase: Math.random()*1000,
+        speedBase: base[i] * DPR, // advance once per frame with dt
+        dir: (i%2===0)? 1 : -1,
+      });
+    }
+  }
+
+  function resize() {
+    DPR = Math.max(CONFIG.dprMin, Math.min(CONFIG.dprMax, window.devicePixelRatio || 1));
+    const uiW = document.getElementById('ui').offsetWidth;
+    canvas.width  = Math.floor((window.innerWidth - uiW) * DPR);
+    canvas.height = Math.floor(window.innerHeight * DPR);
+    canvas.style.width  = (canvas.width / DPR) + 'px';
+    canvas.style.height = (canvas.height / DPR) + 'px';
+    W = canvas.width; H = canvas.height;
+    ORIGINAL_SPAWNS.length = 0;
+    ORIGINAL_SPAWNS.push(0.3*W, 0.5*W, 0.7*W);
+    placeSieves();
+  }
+  window.addEventListener('resize', () => { resize(); syncUI(); }, {passive:true});
+
+  // Sidebar collapse/expand logic
+  let collapsed = window.matchMedia('(max-width: 900px)').matches; // mobile start closed
+  function applyCollapsed(){
+    document.body.classList.add('initialized');
+    document.body.classList.toggle('collapsed', collapsed);
+    resize();
+  }
+  ui.collapse.addEventListener('click', () => { collapsed = true; applyCollapsed(); });
+  ui.expandBtn.addEventListener('click', () => { collapsed = false; applyCollapsed(); });
+
+  applyCollapsed(); // set initial state
+
+  // ---- Color helpers (HSL) ----
+  function randBrightHSL(){
+    return { h: Math.floor(Math.random()*360), s: 65 + Math.random()*20, l: 55 + Math.random()*8 };
+  }
+  function hslToCss(c){ return `hsl(${(c.h%360+360)%360} ${c.s}% ${c.l}%)`; }
+  function mutateColor(c){
+    const sat = Math.max(CONFIG.satClamp[0], Math.min(CONFIG.satClamp[1], c.s + (Math.random()*2*CONFIG.satMutationRange - CONFIG.satMutationRange)));
+    const light = Math.max(CONFIG.lightClamp[0], Math.min(CONFIG.lightClamp[1], c.l + (Math.random()*2*CONFIG.lightMutationRange - CONFIG.lightMutationRange)));
+    return { h: c.h + (Math.random()*2*CONFIG.hueMutationRange - CONFIG.hueMutationRange), s: sat, l: light };
+  }
+
+  // ---- Size genetics (logical px, not scaled) ----
+  function randomBaseRadiusPx(){
+    const a = CONFIG.ballRadiusBaseMin, b = CONFIG.ballRadiusBaseMax;
+    return a + Math.random()*(b-a);
+  }
+  function mutateRadiusPx(r){
+    const pct = CONFIG.ballRadiusMutationPct;
+    const f = 1 + (Math.random()*2*pct - pct);
+    const nr = r * f;
+    return nr > CONFIG.ballRadiusHardMin ? nr : CONFIG.ballRadiusHardMin;
+  }
+
+  function addBallAt(x, y, colorHSL, baseRadiusPx){
+    const geneR = baseRadiusPx ?? randomBaseRadiusPx();
+    const r = geneR * DPR;
+    balls.push({
+      x, y,
+      vx: (Math.random()*120 - 60) * DPR,
+      vy: (Math.random()*-30) * DPR,
+      r,
+      geneR,                  // genetic radius (px)
+      color: colorHSL || randBrightHSL(),
+      trail: []
+    });
+  }
+
+  function emitGlitter(x, y, count=CONFIG.particleCountSpawn, hueBase=Math.random()*360){
+    for(let i=0;i<count;i++){
+      const a = Math.random()*Math.PI*2;
+      const sp = (CONFIG.particleSpeedMin + Math.random()*(CONFIG.particleSpeedMax - CONFIG.particleSpeedMin)) * DPR;
+      particles.push({
+        x, y,
+        vx: Math.cos(a)*sp,
+        vy: Math.sin(a)*sp - 60*DPR,
+        life: CONFIG.particleLifeMin + Math.random()*(CONFIG.particleLifeMax - CONFIG.particleLifeMin),
+        age: 0,
+        size: CONFIG.particleSizeMin + Math.random()*(CONFIG.particleSizeMax - CONFIG.particleSizeMin),
+        hue: (hueBase + Math.random()*40)%360
+      });
+    }
+  }
+
+  function seed() {
+    balls.length = 0;
+    for (let i=0;i<3;i++){
+      const x = ORIGINAL_SPAWNS[i];
+      const y = TOP_Y() + i*6*DPR;
+      const c = randBrightHSL();
+      addBallAt(x, y, c, randomBaseRadiusPx());
+      emitGlitter(x, y, CONFIG.particleCountSpawn, c.h);
+    }
+  }
+
+  function toStartScreen(){
+    started = false;
+    balls.length = 0;
+    particles.length = 0;
+    startOverlay.style.display = 'flex';
+  }
+
+  // ===== UI wiring =====
+  function syncUI(){
+    ui.gOut.textContent = Math.round(gravity);
+    ui.bOut.textContent = (+restitution).toFixed(2);
+    ui.mOut.textContent = spawnMultiplier;
+    ui.mult.value = spawnMultiplier;
+    ui.multNum.value = spawnMultiplier;
+    ui.gapOut.textContent = Math.round(holeWidthPX);
+    ui.spdOut.textContent = (+speedMul).toFixed(2);
+    ui.count.textContent = balls.length;
+  }
+  ui.gravity.addEventListener('input', e => { gravity = +e.target.value; ui.gOut.textContent = Math.round(gravity); });
+  ui.bounce.addEventListener('input', e => { restitution = +e.target.value; ui.bOut.textContent = (+restitution).toFixed(2); });
+  const setMult = v => {
+    const n = Math.max(CONFIG.uiSpawnPerFall.min, Math.min(CONFIG.uiSpawnPerFall.max, Math.round(+v||CONFIG.uiSpawnPerFall.value)));
+    spawnMultiplier = n; ui.mOut.textContent = spawnMultiplier; ui.mult.value = n; ui.multNum.value = n;
+  };
+  ui.mult.addEventListener('input', e => setMult(e.target.value));
+  ui.multNum.addEventListener('input', e => setMult(e.target.value));
+  ui.gap.addEventListener('input', e => { holeWidthPX = +e.target.value; ui.gapOut.textContent = Math.round(holeWidthPX); for (const sv of sieves){ sv.gap = holeWidthPX * DPR; }});
+  ui.spd.addEventListener('input', e => { speedMul = +e.target.value; ui.spdOut.textContent = (+speedMul).toFixed(2); });
+  ui.reset.addEventListener('click', () => { if(!started){ started = true; startOverlay.style.display='none'; } seed(); syncUI(); });
+  ui.stop.addEventListener('click', () => { toStartScreen(); syncUI(); });
+
+  startBtn.addEventListener('click', () => {
+    started = true;
+    startOverlay.style.display = 'none';
+    seed(); syncUI();
+    initAudio();
+  });
+
+  // ===== Audio =====
+  let AC = null;
+  let masterGain = null;
+  function initAudio(){
+    try{
+      if (!AC) {
+        AC = new (window.AudioContext || window.webkitAudioContext)();
+        masterGain = AC.createGain();
+        masterGain.gain.value = CONFIG.audioMasterGain;
+        masterGain.connect(AC.destination);
+      }
+      if (AC.state === 'suspended') AC.resume();
+    }catch(e){ /* ignore */ }
+  }
+  window.addEventListener('pointerdown', initAudio, {passive:true});
+  canvas.addEventListener('pointerdown', initAudio, {passive:true});
+
+  const oscTypes = ['sine','triangle','square','sawtooth'];
+  function playHit(sieveIndex, speed){
+    if (!AC || !masterGain) return;
+    if (speed < CONFIG.audioSilenceBelowSpeed) return;
+
+    const t = AC.currentTime;
+    const clamped = Math.min(CONFIG.audioMaxSpeed, Math.max(CONFIG.audioSilenceBelowSpeed, speed));
+    const norm = (clamped - CONFIG.audioSilenceBelowSpeed) / (CONFIG.audioMaxSpeed - CONFIG.audioSilenceBelowSpeed);
+    const freq = CONFIG.audioFreqBase + norm * CONFIG.audioFreqRange;
+    const peak = CONFIG.audioEnvPeakMin + Math.pow(norm, 1.3) * CONFIG.audioEnvPeakScale;
+
+    if (sieveIndex === 2) {
+      const gainEnv = AC.createGain(); gainEnv.gain.value = 0; gainEnv.connect(masterGain);
+      const bufferSize = 2 * AC.sampleRate;
+      const noiseBuffer = AC.createBuffer(1, bufferSize, AC.sampleRate);
+      const output = noiseBuffer.getChannelData(0);
+      for (let i=0;i<bufferSize;i++) output[i] = Math.random()*2-1;
+      const noise = AC.createBufferSource(); noise.buffer = noiseBuffer;
+      const bp = AC.createBiquadFilter(); bp.type='bandpass'; bp.frequency.value = freq; bp.Q.value = 8;
+      noise.connect(bp); bp.connect(gainEnv);
+      gainEnv.gain.setValueAtTime(0,t);
+      gainEnv.gain.linearRampToValueAtTime(peak, t+0.006);
+      gainEnv.gain.exponentialRampToValueAtTime(0.0001, t+0.20);
+      noise.start(t); noise.stop(t+0.22);
+      return;
+    }
+
+    const gainEnv = AC.createGain(); gainEnv.gain.value = 0; gainEnv.connect(masterGain);
+    const osc = AC.createOscillator();
+    osc.type = oscTypes[sieveIndex % oscTypes.length];
+    osc.frequency.value = freq;
+    osc.detune.value = (sieveIndex-1.5)*8;
+    osc.connect(gainEnv);
+    gainEnv.gain.setValueAtTime(0, t);
+    gainEnv.gain.linearRampToValueAtTime(peak, t+0.01);
+    gainEnv.gain.exponentialRampToValueAtTime(0.0001, t+0.25);
+    osc.start(t); osc.stop(t+0.28);
+  }
+
+  // ===== Physics helpers =====
+  function collideWalls(b){
+    const t = WALL_THICK*DPR;
+    if (b.x - b.r < t) { b.x = t + b.r; b.vx = Math.abs(b.vx)*restitution; }
+    if (b.x + b.r > W - t) { b.x = W - t - b.r; b.vx = -Math.abs(b.vx)*restitution; }
+    if (b.y - b.r < t) { b.y = t + b.r; b.vy = Math.abs(b.vy)*restitution; }
+  }
+
+  function sieveBlocks(sv, x, r){
+    // Returns true if the sieve should block a ball of radius r at center x.
+    const period = sv.seg + sv.gap;
+    const u = ((x + sv.phase) % period + period) % period; // center in [0, period)
+    if (u < sv.seg) return true; // direct solid
+    const leftMargin  = u - sv.seg;
+    const rightMargin = (sv.seg + sv.gap) - u;
+    return (leftMargin <= r || rightMargin <= r);
+  }
+
+  function collideSieveForBall(b){
+    for (const sv of sieves){
+      const top = sv.y, bottom = sv.y + sv.height;
+      if (b.y + b.r >= top && b.y - b.r <= bottom && sieveBlocks(sv, b.x, b.r)) {
+        const penTop = (b.y + b.r) - top;
+        const penBot = bottom - (b.y - b.r);
+
+        if (penTop < penBot && b.vy >= 0) {
+          b.y -= penTop + 0.5;
+          const vyBefore = b.vy;
+          b.vy = -Math.abs(b.vy) * restitution;
+          b.vx *= 0.995;
+          const impactSpeed = Math.hypot(b.vx, vyBefore);
+          playHit(sv.index, impactSpeed);
+        } else if (b.vy <= 0) {
+          b.y += penBot + 0.5;
+          const vyBefore = b.vy;
+          b.vy = Math.abs(b.vy) * restitution;
+          b.vx *= 0.995;
+          const impactSpeed = Math.hypot(b.vx, vyBefore);
+          playHit(sv.index, Math.abs(impactSpeed));
+        }
+      }
+    }
+  }
+
+  function integrate(b, dt){
+    b.vy += gravity * dt;
+    b.x  += b.vx * dt;
+    b.y  += b.vy * dt;
+    // trail
+    b.trail.push({x:b.x, y:b.y, r:b.r});
+    if (b.trail.length > TRAIL_LEN) b.trail.shift();
+    // drag
+    b.vx *= (1 - CONFIG.dragVX*dt);
+    b.vy *= (1 - CONFIG.dragVY*dt);
+  }
+
+  // Evolutionary spawn: inherit parent's color + radius with slight mutation; spawn at parent's X
+  function spawnFromDeath(parentX, parentColor, parentRadiusPx, n){
+    if (balls.length >= CONFIG.maxBalls) return;
+    for (let i=0;i<n && balls.length < CONFIG.maxBalls;i++){
+      const x = parentX;
+      const y = TOP_Y();
+      const childColor = mutateColor(parentColor);
+      const childRpx = mutateRadiusPx(parentRadiusPx);
+      addBallAt(x, y, childColor, childRpx);
+      emitGlitter(x, y, CONFIG.particleCountSpawn, childColor.h);
+    }
+  }
+
+  // ===== Main loop =====
+  let last = performance.now();
+  function frame(now){
+    const dt = Math.min(CONFIG.maxDt, (now - last)/1000);
+    last = now;
+
+    // Advance sieve animation once per frame
+    for (const sv of sieves) sv.phase += sv.speedBase * speedMul * sv.dir * dt;
+
+    // Update particles
+    for (let i=particles.length-1;i>=0;i--){
+      const p = particles[i];
+      p.age += dt;
+      if (p.age >= p.life) { particles.splice(i,1); continue; }
+      p.vy += gravity * CONFIG.particleGravityFactor * dt;
+      p.x += p.vx * dt; p.y += p.vy * dt;
+      p.vx *= (1 - CONFIG.particleDampingVX*dt);
+      p.vy *= (1 - CONFIG.particleDampingVY*dt);
+    }
+
+    // Update balls only if started
+    if (started){
+      for (let i=balls.length-1; i>=0; i--){
+        const b = balls[i];
+        integrate(b, dt);
+        collideWalls(b);
+        collideSieveForBall(b);
+
+        if (b.y - b.r > H + 4*DPR){
+          const parentX = b.x;
+          const parentColor = b.color;
+          const parentRpx = b.geneR;
+          balls.splice(i,1);
+          spawnFromDeath(parentX, parentColor, parentRpx, spawnMultiplier);
+        }
+      }
+    }
+
+    // ===== Draw =====
+    ctx.clearRect(0,0,W,H);
+
+    // Border walls
+    const t = WALL_THICK*DPR;
+    ctx.fillStyle = '#101937';
+    ctx.fillRect(0,0,t,H);                 // left
+    ctx.fillRect(W - t,0,t,H);             // right
+    ctx.fillRect(0,0,W,t);                 // top
+    ctx.strokeStyle = '#243068';
+    ctx.lineWidth = 1*DPR;
+    ctx.beginPath();
+    ctx.moveTo(t+0.5, t+0.5); ctx.lineTo(W - t - 0.5, t+0.5);
+    ctx.moveTo(t+0.5, t+0.5); ctx.lineTo(t+0.5, H - 0.5);
+    ctx.moveTo(W - t - 0.5, t+0.5); ctx.lineTo(W - t - 0.5, H - 0.5);
+    ctx.stroke();
+
+    // Sieve rows
+    for (const sv of sieves){
+      const period = sv.seg + sv.gap;
+      const startX = - ( (sv.phase % period) + period ) % period;
+      const y = Math.round(sv.y) + 0.5;
+      ctx.fillStyle = '#263372';
+      for (let x=startX; x < W; x += period){
+        const w = Math.min(sv.seg, W - x);
+        if (w <= 0) continue;
+        ctx.fillRect(Math.round(x)+0.5, y, Math.round(w), Math.round(sv.height));
+      }
+      // dotted hole markers
+      ctx.fillStyle = '#122058';
+      for (let x=startX + sv.seg; x < W; x += period){
+        const w = Math.min(sv.gap, W - x);
+        if (w <= 0) continue;
+        const dotW = 6*DPR, gapW = 6*DPR;
+        for (let dx = 0; dx < w; dx += dotW + gapW){
+          ctx.fillRect(Math.round(x + dx)+0.5, y + sv.height*0.33, Math.min(dotW, w-dx), sv.height*0.34);
+        }
+      }
+    }
+
+    // Particles
+    ctx.save();
+    ctx.globalCompositeOperation = 'lighter';
+    for (const p of particles){
+      const alpha = 1 - (p.age / p.life);
+      ctx.fillStyle = `hsla(${p.hue} 80% 60% / ${alpha.toFixed(3)})`;
+      ctx.beginPath(); ctx.arc(p.x, p.y, p.size, 0, Math.PI*2); ctx.fill();
+    }
+    ctx.restore();
+
+    // Balls + trails (trail color matches ball color; trails use real radius)
+    for (const b of balls){
+      for (let i=0;i<b.trail.length-1;i++){
+        const a = (i+1)/b.trail.length; // 0..1 tail->head
+        const p = b.trail[i];
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.r, 0, Math.PI*2);
+        const col = hslToCss(b.color).replace('hsl', 'hsla').replace('%)', `% / ${ (0.03 + 0.12*a).toFixed(3) })`);
+        ctx.fillStyle = col;
+        ctx.fill();
+      }
+      ctx.beginPath(); ctx.arc(b.x, b.y, b.r, 0, Math.PI*2);
+      ctx.fillStyle = hslToCss(b.color); ctx.fill();
+      ctx.beginPath(); ctx.arc(b.x - b.r*0.35, b.y - b.r*0.35, b.r*0.25, 0, Math.PI*2);
+      ctx.fillStyle = 'rgba(255,255,255,.22)'; ctx.fill();
+    }
+
+    // HUD
+    ui.count.textContent = balls.length;
+
+    requestAnimationFrame(frame);
+  }
+
+  // Start idling on the start screen with configured defaults
+  gravity = CONFIG.uiGravity.value;
+  restitution = CONFIG.uiBounce.value;
+  spawnMultiplier = CONFIG.uiSpawnPerFall.value;
+  holeWidthPX = CONFIG.uiHoleWidth.value;
+  speedMul = CONFIG.uiSpeedMul.value;
+  syncUI();
+
+  // Ensure slider elements reflect CONFIG defaults
+  ui.gravity.value = CONFIG.uiGravity.value;
+  ui.bounce.value  = CONFIG.uiBounce.value;
+  ui.mult.value    = CONFIG.uiSpawnPerFall.value;
+  ui.multNum.value = CONFIG.uiSpawnPerFall.value;
+  ui.gap.value     = CONFIG.uiHoleWidth.value;
+  ui.spd.value     = CONFIG.uiSpeedMul.value;
+
+  // Initial layout & loop
+  requestAnimationFrame(frame);
+})();
+</script>
+</body>
+</html>
