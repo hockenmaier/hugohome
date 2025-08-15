@@ -84,9 +84,14 @@ And there are still a couple of things locked behind user choice, which is proba
 
 Using only the first set of "default" behaviours, GPT5 can do things that the original GPT-4 would never have dreamed of. I have had the following prompt sitting around in my "intelligence tests" document for more than a year now, waiting for a sinlge model that can one-shot it. GPT5 is the first one that does:
 
-> **Cool picross app idea, def solvable by competent AI (which doesn't exist yet at the end of 2024)**:
+### Cool picross app idea, def solvable by competent AI (which doesn't exist yet at the end of 2024):
+
 > Take an image, increase contrast, and turn it into a 15x15 image. Create a black and white picross puzzle out of the image, including a UI that lets a player solve the puzzle.
 
 It's a simple prompt that implies a lot of underlying complexity. Here is the first one-shot result from GPT-5 I got (normal mode, I didn't select "Thinking" in advance):
 
 {{< picross-generator-self-contained>}}
+
+### Random Exponential Physics Sim:
+
+{{< gpt5-exponential-bounce-self-contained>}}
