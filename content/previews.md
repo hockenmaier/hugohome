@@ -11,4 +11,4 @@ _build:
 
 [/preview/the-treadmill/](/preview/the-treadmill/)
 
-[/preview/agent-mode/](/preview/agent-mode/)
+[/preview/gpt5/](/preview/gpt5/)

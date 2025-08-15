@@ -1,7 +1,7 @@
 ---
 title: "The Real GPT-5 Was The Friends We Made Along The Way"
 date: 2025-08-11
-url: "/preview/agent-mode/" # any path you like
+url: "/preview/gpt5/" # any path you like
 _build:
   list: never # don’t show in section/taxonomy/RSS lists
   render: always # still write the HTML file
@@ -29,6 +29,7 @@ Now have a look at the same test performed a week before the release of GPT-5, w
 <!--more-->
 
 {{< agent-mode-solar-system-self-contained caption="Works on desktop or mobile" >}}
+{{< open-html "agent-mode-solar-system-self-contained.html" >}}
 
 Here are Controls, again:
 
@@ -91,7 +92,9 @@ Using only the first set of "default" behaviours, GPT5 can do things that the or
 It's a simple prompt that implies a lot of underlying complexity. Here is the first one-shot result from GPT-5 I got (normal mode, I didn't select "Thinking" in advance):
 
 {{< picross-generator-self-contained>}}
+{{< open-html "picross-generator.html" >}}
 
-### Random Exponential Physics Sim:
+### The Baby Mesmerizer:
 
 {{< gpt5-exponential-bounce-self-contained>}}
+{{< open-html "exponential_bounce_v_13.html" >}}
