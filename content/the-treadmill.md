@@ -17,7 +17,7 @@ The discussion was surprisingly contentious. Maybe I should stop being surprised
 
 Let’s stop and think about this for a second. The original poster (OP) is making $800K annually due to the appreciation of Spotify stock. An obscene amount of money? Maybe, maybe not. I do not have the typical hang-ups about the wealthy or ultra-wealthy. I don’t see this world as a zero-sum game, and I think the richest people out there have usually done some amazing things, especially in countries like the US where most wealth is not old wealth.
 
-But there is a huge difference in the two main routes to creating becoming very wealthy:
+But there is a huge difference in the two main routes to becoming wealthy:
 
 1.  Founding a company or practice, or joining one early, out of passion - which then goes on to become incredibly valuable
 2.  Working for someone else doing a job you think is boring in order to join the 1%.

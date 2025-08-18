@@ -100,7 +100,7 @@
             
 
             
-                <link href="https://hockenworks.com/tags/software/" rel="self" type="text/html"/>
+                <link href="http://localhost:1313/tags/software/" rel="self" type="text/html"/>
             
         
             
@@ -108,7 +108,7 @@
             
 
             
-                <link href="https://hockenworks.com/tags/software/rss.xml" rel="alternate" type="application/rss+xml"/>
+                <link href="http://localhost:1313/tags/software/rss.xml" rel="alternate" type="application/rss+xml"/>
             
         
 
@@ -126,7 +126,7 @@
             <lastBuildDate>2025-08-01 00:00:00 +0000 UTC</lastBuildDate>
         
 
-        <link>https://hockenworks.com/tags/software/</link>
+        <link>http://localhost:1313/tags/software/</link>
 
         
 
@@ -238,7 +238,7 @@
 
 
 
-<img  alt="AI 2027"   class="rounded-3 w-100"  crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/ai-2027.png"    >
+<img  alt="AI 2027"   class="rounded-3 w-100"  crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/ai-2027.png"    >
 
 
       
@@ -315,7 +315,7 @@
 
 
 
-<img  alt="Singularity Is Near"   class="rounded-3 w-100"  crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/The-Singularity-Is-Near.jpg"    >
+<img  alt="Singularity Is Near"   class="rounded-3 w-100"  crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/The-Singularity-Is-Near.jpg"    >
 
 </div>
 </div>
@@ -487,7 +487,7 @@
 
 
 
-<img  alt="Image description"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/codex-sample.webp"   style="height: auto; width: 100%"   >
+<img  alt="Image description"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/codex-sample.webp"   style="height: auto; width: 100%"   >
 
 
     
@@ -516,10 +516,10 @@
 ]]></description>
                 
 
-                <guid isPermaLink="false">tag:hockenworks.com,2025-08-01:/on-ai-software-development-2/</guid>
+                <guid isPermaLink="false">tag:localhost:1313,2025-08-01:/on-ai-software-development-2/</guid>
 
                 
-                    <link>https://hockenworks.com/on-ai-software-development-2/</link>
+                    <link>http://localhost:1313/on-ai-software-development-2/</link>
                 
 
                 
@@ -653,7 +653,7 @@
 
 
 
-<img  alt="the UI"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/make-us-smarter.jpg"   style="height: auto; max-width: 200px"   >
+<img  alt="the UI"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/make-us-smarter.jpg"   style="height: auto; max-width: 200px"   >
 
 
     
@@ -673,10 +673,10 @@
 ]]></description>
                 
 
-                <guid isPermaLink="false">tag:hockenworks.com,2025-06-29:/my-experiments-with-ai-cheating/</guid>
+                <guid isPermaLink="false">tag:localhost:1313,2025-06-29:/my-experiments-with-ai-cheating/</guid>
 
                 
-                    <link>https://hockenworks.com/my-experiments-with-ai-cheating/</link>
+                    <link>http://localhost:1313/my-experiments-with-ai-cheating/</link>
                 
 
                 
@@ -725,10 +725,10 @@
 <hr>]]></description>
                 
 
-                <guid isPermaLink="false">tag:hockenworks.com,2025-02-13:/context-caddy/</guid>
+                <guid isPermaLink="false">tag:localhost:1313,2025-02-13:/context-caddy/</guid>
 
                 
-                    <link>https://hockenworks.com/context-caddy/</link>
+                    <link>http://localhost:1313/context-caddy/</link>
                 
 
                 
@@ -851,7 +851,7 @@ This one is super simple. Give it what you’ve written and it will provide no-B
 
 
 
-<img  alt="proofreader GPT"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/proofreader-gpt.png"   style="height: auto; max-width: 200px; width: 100%"   >
+<img  alt="proofreader GPT"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/proofreader-gpt.png"   style="height: auto; max-width: 200px; width: 100%"   >
 
 
     
@@ -867,10 +867,10 @@ An experimental “AI generated RPG” where you play as “The Boy” who reali
 ]]></description>
                 
 
-                <guid isPermaLink="false">tag:hockenworks.com,2024-06-01:/some-custom-gpts/</guid>
+                <guid isPermaLink="false">tag:localhost:1313,2024-06-01:/some-custom-gpts/</guid>
 
                 
-                    <link>https://hockenworks.com/some-custom-gpts/</link>
+                    <link>http://localhost:1313/some-custom-gpts/</link>
                 
 
                 
@@ -990,7 +990,7 @@ An experimental “AI generated RPG” where you play as “The Boy” who reali
 
 
 
-<img  alt="this is a robot"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/ai-software-dev.png"   style="height: auto; max-width: 720px; width: 100%"   >
+<img  alt="this is a robot"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/ai-software-dev.png"   style="height: auto; max-width: 720px; width: 100%"   >
 
 
     
@@ -1010,10 +1010,10 @@ An experimental “AI generated RPG” where you play as “The Boy” who reali
 <p>These are my thoughts at what seems to be the beginning of the next AI revolution in early 2024. I plan to revisit this topic and see if I&rsquo;m right in future posts.</p>]]></description>
                 
 
-                <guid isPermaLink="false">tag:hockenworks.com,2024-01-24:/on-ai-software-development/</guid>
+                <guid isPermaLink="false">tag:localhost:1313,2024-01-24:/on-ai-software-development/</guid>
 
                 
-                    <link>https://hockenworks.com/on-ai-software-development/</link>
+                    <link>http://localhost:1313/on-ai-software-development/</link>
                 
 
                 
@@ -1063,10 +1063,10 @@ An experimental “AI generated RPG” where you play as “The Boy” who reali
 <hr>]]></description>
                 
 
-                <guid isPermaLink="false">tag:hockenworks.com,2024-01-13:/postman-for-pms/</guid>
+                <guid isPermaLink="false">tag:localhost:1313,2024-01-13:/postman-for-pms/</guid>
 
                 
-                    <link>https://hockenworks.com/postman-for-pms/</link>
+                    <link>http://localhost:1313/postman-for-pms/</link>
                 
 
                 
@@ -1188,7 +1188,7 @@ An experimental “AI generated RPG” where you play as “The Boy” who reali
 
 
 
-<img  alt="some weird acorns"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/gpt-acorn.png"   style="height: auto; max-width: 720px; width: 100%"   >
+<img  alt="some weird acorns"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/gpt-acorn.png"   style="height: auto; max-width: 720px; width: 100%"   >
 
 
     
@@ -1198,10 +1198,10 @@ An experimental “AI generated RPG” where you play as “The Boy” who reali
 ]]></description>
                 
 
-                <guid isPermaLink="false">tag:hockenworks.com,2023-03-19:/3d-modeling-with-ai/</guid>
+                <guid isPermaLink="false">tag:localhost:1313,2023-03-19:/3d-modeling-with-ai/</guid>
 
                 
-                    <link>https://hockenworks.com/3d-modeling-with-ai/</link>
+                    <link>http://localhost:1313/3d-modeling-with-ai/</link>
                 
 
                 
@@ -1271,10 +1271,10 @@ An experimental “AI generated RPG” where you play as “The Boy” who reali
 <p>For March 2023, this result was revolutionary - I was truly impressed. In 2025, it&rsquo;s not very impressive at all. How quickly we get used to progress!</p>]]></description>
                 
 
-                <guid isPermaLink="false">tag:hockenworks.com,2023-03-18:/gpt-4-solar-system/</guid>
+                <guid isPermaLink="false">tag:localhost:1313,2023-03-18:/gpt-4-solar-system/</guid>
 
                 
-                    <link>https://hockenworks.com/gpt-4-solar-system/</link>
+                    <link>http://localhost:1313/gpt-4-solar-system/</link>
                 
 
                 
@@ -1323,10 +1323,10 @@ An experimental “AI generated RPG” where you play as “The Boy” who reali
 <p>Neat stuff - big thanks to Luma AI for the free toolset.</p>]]></description>
                 
 
-                <guid isPermaLink="false">tag:hockenworks.com,2023-02-01:/nerfs/</guid>
+                <guid isPermaLink="false">tag:localhost:1313,2023-02-01:/nerfs/</guid>
 
                 
-                    <link>https://hockenworks.com/nerfs/</link>
+                    <link>http://localhost:1313/nerfs/</link>
                 
 
                 
@@ -1435,10 +1435,10 @@ An experimental “AI generated RPG” where you play as “The Boy” who reali
 </span></span></code></pre></div>]]></description>
                 
 
-                <guid isPermaLink="false">tag:hockenworks.com,2016-01-01:/raspberry-pi-panel/</guid>
+                <guid isPermaLink="false">tag:localhost:1313,2016-01-01:/raspberry-pi-panel/</guid>
 
                 
-                    <link>https://hockenworks.com/raspberry-pi-panel/</link>
+                    <link>http://localhost:1313/raspberry-pi-panel/</link>
                 
 
                 

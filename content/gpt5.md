@@ -97,4 +97,4 @@ It's a simple prompt that implies a lot of underlying complexity. Here is the fi
 ### The Baby Mesmerizer:
 
 {{< gpt5-exponential-bounce-self-contained>}}
-{{< open-html "exponential_bounce_v_13.html" >}}
+{{< open-html "exponential_bounce.html" >}}
