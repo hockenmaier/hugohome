@@ -4,7 +4,7 @@
     position: relative;
     width: 100%;
     max-width: 900px;
-    aspect-ratio: 3/4;
+    aspect-ratio: 3.35/4;
     border: 2px solid #fff; border-radius: 4px; overflow: hidden;
   }
   .picross-wrapper .frame > iframe {
@@ -13,7 +13,7 @@
   }
   /* Shrink content on narrow screens */
   @media (max-width: 480px){
-    .picross-wrapper .frame { --s: .85; }
+    .picross-wrapper .frame { --s: .65; }
     .picross-wrapper .frame > iframe {
       transform: scale(var(--s,1));
       width: calc(100% / var(--s,1));
