@@ -4,15 +4,35 @@ document.addEventListener("DOMContentLoaded", () => {
   const frames = Array.from(document.querySelectorAll("iframe.lazy-iframe"));
   if (frames.length === 0) return;
 
+  const placeholder = "/images/embed-placeholder.png";
+
+  const showPlaceholder = (f) => {
+    const p = f.parentElement;
+    p.style.backgroundImage = `url('${placeholder}')`;
+    p.style.backgroundPosition = "center";
+    p.style.backgroundRepeat = "no-repeat";
+    p.style.backgroundSize = "cover";
+    f.style.display = "none";
+  };
+
+  const hidePlaceholder = (f) => {
+    const p = f.parentElement;
+    p.style.backgroundImage = "none";
+    f.style.display = "block";
+  };
+
   const load = (f) => {
     if (f.src !== f.dataset.src) f.src = f.dataset.src;
+    hidePlaceholder(f);
   };
   const unload = (f) => {
     if (f.src !== "about:blank") f.src = "about:blank";
+    showPlaceholder(f);
   };
 
   frames.forEach((f) => {
     f.dataset.ratio = "0";
+    showPlaceholder(f);
   });
 
   if (frames.length === 1) {
