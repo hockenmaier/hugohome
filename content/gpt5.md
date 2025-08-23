@@ -107,7 +107,16 @@ I had GPT-5 make this one, then I tested it using the built-in runner in ChatGPT
 
 How cool is that?
 
-I thought it was interesting that GPT-5, when I said that it needed to run as a single HTML file with no external dependencies, chose to write its own physics for this. There is no prebuilt physics engine at all here.
+After you’re done messing around with this, take a detailed look at what has been built here. It is a tech demo, yes, but it has:
+
+- A nice-looking UI and color scheme
+- A side menu that dynamically operates as a fly-out menu based on screen size
+- A bunch of tunable variables, including niceties like minimums and maximums affecting each other
+- Badges and other nice UI features that pop up dynamically
+
+I also thought it was interesting that GPT-5, when I said that it needed to run as a single HTML file with no external dependencies, chose to write its own physics for this. There is no prebuilt physics engine at all here.
+
+This result is about 1400 lines of code. This isn’t a huge project, but it is far more than we could get a GPT to reliably produce just a year ago. The typical loop before was that you’d get past 200 lines of code or so, and then every new feature or bugfix requested would break two other things around the codebase, effectively enforcing a tiny complexity cap.
 
 Let's be real: It's absolutely amazing that I could make something as complicated as this, exactly how I imagined it, just by describing it in English and a collective hour or two of testing. And though I like to code and have been bummed for a while that most straightforward coding like this is going the way of the dodo, this experience of not coding and instead just setting requirements and playing with the result was also a lot of fun. More fun than tearing through codespam in a tool like Cursor. And frankly, I would never spend time making something like this if I had to code it all from scratch.
 
