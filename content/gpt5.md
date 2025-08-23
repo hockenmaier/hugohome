@@ -14,9 +14,11 @@ featured: "/images/agent-mode-solar-system.gif"
 
 Seriously, though.
 
-GPT-5, as a text completion model, is not a revelation. It's more of a disappointment.
+GPT-5, as a simple text completion model, is not a revelation.
 
-This isn't so surprising. It was becoming clearer with every new raw LLM release that the fundamental improvements from scaling solely the performance of the core text predictor were starting to show diminishing returns. But I'm going to make an argument today that, although the LLM itself is not nearly as much of a leap from GPT-4 as GPT-4 was from GPT-3, we have still seen at least a whole-version-number of real improvement between the release of GPT-4 and 5 as we did between 3 and 4. And the reasons for that are mostly what exists around that LLM core.
+This isn't so surprising. It was becoming clearer with every new raw LLM release that the fundamental improvements from scaling solely the performance of the core text predictor were starting to show diminishing returns. But I'm going to make an argument today that, although the LLM itself is not nearly as much of a leap from GPT-4 as GPT-4 was from GPT-3, we have still seen at least a whole-version-number of real improvement between the release of GPT-4 and 5 as we did between 3 and 4. The reasons for that are mostly what exists around that LLM core.
+
+And I'm going to make this argument by showing you things the original GPT-4 could never have done.
 
 # Exhibit A: A New Solar System
 
@@ -124,6 +126,8 @@ Let's be real: It's absolutely amazing that I could make something as complicate
 
 I've already read more than enough takes that GPT-5 signals the end of the current wave of AI, as a sort of intelligence plateau somewhere just below humans.
 
-But, we should observe that we did not foresee the advancements that would get us from GPT-4 to GPT-5. Yet here we are: GPT-4 was [barely able to write 200 lines of buggy solar system code](/gpt-4-solar-system/), and GPT-5 one-shots it. The core model under the hood is likely a bit better, but it was proper tooling and reinforcement training on that tooling that really made the difference. And from what I hear, there are many other avenues that researchers say are still in early stages, which will get us much further, such as reinforcement training on long-running agentic tasks - and the synthetic datasets that will allow for it.
+We should observe that we did not foresee the advancements that would get us from GPT-4 to GPT-5. Yet here we are: GPT-4 was [barely able to write 200 lines of buggy solar system code](/gpt-4-solar-system/), and GPT-5 one-shots it. The core model under the hood is likely a bit better, but it was proper tooling and reinforcement training on that tooling that really made the difference. And from what I hear, there are many other avenues of work that researchers say are still in early stages, such as reinforcement training on long-running agentic tasks and building the synthetic datasets that will allow for that.
 
-So, even though GPT-5 doesn't seem like a huge advancement from models like o3 and Sonnet 4, hindsight makes the upward trajectory clear. And no matter how fast we see progress, there is a ton of fun to have along the way!
+So, even though GPT-5 doesn't seem like a huge advancement from models like o3 and Sonnet 4, hindsight makes the upward trajectory clear.
+
+No matter how fast we see progress, there is clearly a ton of fun to have along the way!
