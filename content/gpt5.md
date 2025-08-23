@@ -68,7 +68,7 @@ This last one to me, when paired with all of the other things that GPT-4 class m
 
 These are all net-new abilities that GPT-4 class models have gained since GPT-4 came out in March of 2023. It's hard to see how much progress these capabilities add up to without just running the direct experiment like this solar system generation.
 
-## GPT-5 Without Agent Mode
+# GPT-5 Without Agent Mode
 
 I see GPT-5 as a formalization of all of these capabilities that lock in the step change in capability we've seen over the last 2 years. There is a new model underneath there somewhere (some are saying it is o4) and that underlying model has certainly been reinforcement-trained to choose its tools wisely. It is the first model I have seen that can do all of these simultaneously, without user choice:
 
@@ -85,7 +85,7 @@ And there are still a couple of things locked behind user choice, which is proba
 
 Using only the first set of "default" behaviors, GPT-5 can do things that the original GPT-4 could never have dreamed of. I have had the following prompt sitting around in my "intelligence tests" document for more than a year now under _"Cool picross app idea, def solvable by competent AI (which doesn't exist yet at the end of 2024)"_, waiting for a single model that can one-shot it. GPT-5 is the first one that does:
 
-### Exhibit B: Picross
+## Exhibit B: Picross
 
 > Take an image, increase contrast, and turn it into a 15x15 image. Create a black and white picross puzzle out of the image, including a UI that lets a player solve the puzzle.
 
@@ -94,9 +94,9 @@ It's a simple prompt that implies a lot of underlying complexity. Here is the fi
 {{< picross-generator-self-contained>}}
 {{< open-html "picross-generator.html" >}}
 
-It didn't make all the choices I would have, but it worked in one shot, the first time I tried it. All the way from uploading an image and transforming that to a puzzle, to a whole UI that lets you solve it. I purposely left this here after its one-shot result just to demonstrate the progress here. You could take this idea much further.
+It didn't make all the choices I would have, but it worked in one shot, the first time I tried it. All the way from uploading an image and transforming that to a puzzle, to a whole UI that lets you solve it. I purposely left this here after its one-shot result just to demonstrate the progress. You could take this idea much further.
 
-### Exhibit C: The Baby Mesmerizer:
+## Exhibit C: The Baby Mesmerizer:
 
 Now for the coolest thing I've made with GPT-5 so far. I call this one the baby mesmerizer because baby Alice is absolutely stunned every time she sees it. I got this idea from another entertaining little physics simulation I saw somewhere.
 
@@ -107,14 +107,23 @@ I had GPT-5 make this one, then I tested it using the built-in runner in ChatGPT
 
 How cool is that?
 
-I thought it was interesting that GPT-5, when I said that it needed to run as a single HTML file with no external dependencies, chose to write its own physics for this. There is no prebuilt physics engine at all here.
+After you’re done messing around with this, take a detailed look at what has been built here. It is a tech demo, yes, but it has:
 
-Let's be real: It's absolutely amazing that I could make something as complicated as this, exactly how I imagined it, just by describing it in English and a collective hour or two of testing. And though I like to code and have been bummed for a while that most straightforward coding like this is going the way of the dodo, this experience of not coding and instead just setting requirements and playing with the result was also a lot of fun. More fun than tearing through codespam in a tool like Cursor. And frankly, I would never spend time making something like this if I had to code it all from scratch.
+- A nice-looking UI and color scheme
+- A side menu that dynamically operates as a fly-out menu based on screen size
+- A bunch of tunable variables, including niceties like minimums and maximums affecting each other
+- Dynamic generated sound effects
 
-# The Plateau
+I also thought it was interesting that GPT-5, when I said that it needed to run as a single HTML file with no external dependencies, chose to write its own physics for this. There is no prebuilt physics engine at all here.
+
+This result is about 1400 lines of code. This isn’t a huge project, but it is far more than we could get a GPT to reliably produce just a year ago. The typical loop before was that you’d get past 200 lines of code or so, and then every new feature or bugfix requested would break two other things around the codebase, effectively enforcing a tiny complexity cap.
+
+Let's be real: It's absolutely amazing that I could make something as complicated as this, exactly how I imagined it, just by describing it in English and a collective hour or two of testing. And though I like to code and have been bummed for a while that most straightforward coding like this is going the way of the dodo, this experience of not coding and instead just setting requirements and playing with the result was also a lot of fun. More fun than tearing through [codespam in a tool like Cursor](/on-ai-software-development-2/#agentic-ides). And frankly, I would never spend time making something like this if I had to code it all from scratch.
+
+# A Plateau?
 
 I've already read more than enough takes that GPT-5 signals the end of the current wave of AI, as a sort of intelligence plateau somewhere just below humans.
 
-But, we should observe that we did not foresee the advancements that would get us from GPT-4 to GPT-5. Yet here we are: GPT-4 was barely able to write 200 lines of buggy solar system code, and GPT-5 one-shots it. The core model under the hood is likely a bit better, but it was proper tooling and reinforcement training on that tooling that really made the difference. And from what I hear, there are many other avenues that researchers say are still in early stages, which will get us much further, such as reinforcement training on long-running agentic tasks - and the synthetic datasets that will allow for it.
+But, we should observe that we did not foresee the advancements that would get us from GPT-4 to GPT-5. Yet here we are: GPT-4 was [barely able to write 200 lines of buggy solar system code](/gpt-4-solar-system/), and GPT-5 one-shots it. The core model under the hood is likely a bit better, but it was proper tooling and reinforcement training on that tooling that really made the difference. And from what I hear, there are many other avenues that researchers say are still in early stages, which will get us much further, such as reinforcement training on long-running agentic tasks - and the synthetic datasets that will allow for it.
 
 So, even though GPT-5 doesn't seem like a huge advancement from models like o3 and Sonnet 4, hindsight makes the upward trajectory clear. And no matter how fast we see progress, there is a ton of fun to have along the way!
