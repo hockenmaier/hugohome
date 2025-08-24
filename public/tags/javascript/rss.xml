@@ -180,7 +180,7 @@
   </a>
 </div>
 </p>
-<p>Here are Controls, again:</p>
+<p>Here are controls, again:</p>
 <p><kbd>Mouse Click + Drag</kbd> to move the solar system around</p>
 <p><kbd>Mouse Wheel Up</kbd> to zoom in from the cursor location</p>
 <p><kbd>Mouse Wheel Down</kbd> to zoom out</p>
@@ -264,7 +264,7 @@
 </div>
 </p>
 <p>It didn&rsquo;t make all the choices I would have, but it worked in one shot, the first time I tried it. All the way from uploading an image and transforming that to a puzzle, to a whole UI that lets you solve it. I purposely left this here after its one-shot result just to demonstrate the progress. You could take this idea much further.</p>
-<h2 id="exhibit-c-the-baby-mesmerizer">Exhibit C: The Baby Mesmerizer:</h2>
+<h2 id="exhibit-c-the-baby-mesmerizer">Exhibit C: The Baby Mesmerizer</h2>
 <p>Now for the coolest thing I&rsquo;ve made with GPT-5 so far. I call this one the baby mesmerizer because baby Alice is absolutely stunned every time she sees it. I got this idea from another entertaining little physics simulation I saw somewhere.</p>
 <p>I had GPT-5 make this one, then I tested it using the built-in runner in ChatGPT, changed it, and iterated on it 16 times. But I didn&rsquo;t write any of it myself - nor did I even open the code other than to tweak some variables to make it &ldquo;feel right&rdquo; here and there.</p>
 <p>
@@ -325,7 +325,8 @@
 <p>I&rsquo;ve already read more than enough takes that GPT-5 signals the end of the current wave of AI, as a sort of intelligence plateau somewhere just below humans.</p>
 <p>We should observe that we did not foresee the advancements that would get us from GPT-4 to GPT-5. Yet here we are: GPT-4 was <a href="/gpt-4-solar-system/">barely able to write 200 lines of buggy solar system code</a>, and GPT-5 one-shots it. The core model under the hood is likely a bit better, but it was proper tooling and reinforcement training on that tooling that really made the difference. And from what I hear, there are many other avenues of work that researchers say are still in early stages, such as reinforcement training on long-running agentic tasks and building the synthetic datasets that will allow for that.</p>
 <p>So, even though GPT-5 doesn&rsquo;t seem like a huge advancement from models like o3 and Sonnet 4, hindsight makes the upward trajectory clear.</p>
-<p>No matter how fast we see progress, there is clearly a ton of fun to have along the way!</p>]]></description>
+<p>No matter how fast we see progress, there is clearly a ton of fun to have along the way!</p>
+]]></description>
                 
 
                 <guid isPermaLink="false">tag:localhost:1313,2025-08-24:/gpt5/</guid>

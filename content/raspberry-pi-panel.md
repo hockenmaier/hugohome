@@ -53,41 +53,46 @@ If you want to make this, all you need to do is set up a raspberry pi, download 
 
 If you want to mount the screen vertically like mine, then I have made an easier solution than going through the trouble of actually rotating the raspberry's display and touch device. Just use the html below and edit it to use your own panel's URL in the "iframe" element instead of mine. This will launch the panel rotated in your browser.
 
-```
+```html
 <!DOCTYPE html>
 <html>
   <head>
     <title>Rotated Raspberry Panel</title>
-	<style type="text/css">
-		body {
-		   -webkit-transform: rotate(90deg);
-		   -webkit-transform-origin: bottom left;
-		   position: absolute;
-		   top: -100vw;
-		   height: 100vw;
-		   width: 100vh;
-		   background-color: #000;
-		   color: #fff;
-		   overflow: hidden;"
-		}
-	   iframe{
+    <style type="text/css">
+      body {
+         -webkit-transform: rotate(90deg);
+         -webkit-transform-origin: bottom left;
+         position: absolute;
+         top: -100vw;
+         height: 100vw;
+         width: 100vh;
+         background-color: #000;
+         color: #fff;
+         overflow: hidden;"
+      }
+        iframe{
 
-			-ms-transform: scale(0.97);
-			-moz-transform: scale(0.97);
-			-o-transform: scale(0.97);
-			-webkit-transform: scale(0.97);
-			transform: scale(0.97);
+      	-ms-transform: scale(0.97);
+      	-moz-transform: scale(0.97);
+      	-o-transform: scale(0.97);
+      	-webkit-transform: scale(0.97);
+      	transform: scale(0.97);
 
-			-ms-transform-origin: 0 0;
-			-moz-transform-origin: 0 0;
-			-o-transform-origin: 0 0;
-			-webkit-transform-origin: 0 0;
-			transform-origin: 0 0;
-		}
-	</style>
+      	-ms-transform-origin: 0 0;
+      	-moz-transform-origin: 0 0;
+      	-o-transform-origin: 0 0;
+      	-webkit-transform-origin: 0 0;
+      	transform-origin: 0 0;
+      }
+    </style>
   </head>
   <body>
-	<iframe src="https://app.actiontiles.com/panel/f7a7118c-236b-4144-b5b9-ccb35abeef21" height="300%" width="300%" frameborder="0"></iframe>
+    <iframe
+      src="https://app.actiontiles.com/panel/f7a7118c-236b-4144-b5b9-ccb35abeef21"
+      height="300%"
+      width="300%"
+      frameborder="0"
+    ></iframe>
   </body>
 </html>
 ```
@@ -100,7 +105,7 @@ https://www.actiontiles.com/
 
 If you have issues getting your pi to use the full touchscreen width, try adding these setting to the /boot/config.txt file and reboot:
 
-```
+```bash
 max_usb_current=1
 hdmi_group=2
 hdmi_mode=1
@@ -110,12 +115,12 @@ hdmi_cvt 800 480 60 6 0 0 0
 
 If you want to make sure your screen doesn't go to sleep:
 
-```
+```bash
 sudo nano /etc/lightdm/lightdm.conf
 ```
 
 Add the following lines to the [SeatDefaults] section:
 
-```
+```bash
 xserver-command=X -s 0 dpms
 ```
