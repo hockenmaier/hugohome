@@ -612,56 +612,61 @@ table {
 <h2 id="instructions">Instructions<a aria-label="Link to this section" class="paige-header-link" href="https://hockenworks.com/raspberry-pi-panel/#instructions"></a></h2>
 <p>If you want to make this, all you need to do is set up a raspberry pi, download chromium (or your preferred web browser), and navigate to your action tiles panel.</p>
 <p>If you want to mount the screen vertically like mine, then I have made an easier solution than going through the trouble of actually rotating the raspberry&rsquo;s display and touch device. Just use the html below and edit it to use your own panel&rsquo;s URL in the &ldquo;iframe&rdquo; element instead of mine. This will launch the panel rotated in your browser.</p>
-<div class="highlight"><pre tabindex="0" style="color:#fff;background-color:#111;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>&lt;!DOCTYPE html&gt;
-</span></span><span style="display:flex;"><span>&lt;html&gt;
-</span></span><span style="display:flex;"><span>  &lt;head&gt;
-</span></span><span style="display:flex;"><span>    &lt;title&gt;Rotated Raspberry Panel&lt;/title&gt;
-</span></span><span style="display:flex;"><span>	&lt;style type=&#34;text/css&#34;&gt;
-</span></span><span style="display:flex;"><span>		body {
-</span></span><span style="display:flex;"><span>		   -webkit-transform: rotate(90deg);
-</span></span><span style="display:flex;"><span>		   -webkit-transform-origin: bottom left;
-</span></span><span style="display:flex;"><span>		   position: absolute;
-</span></span><span style="display:flex;"><span>		   top: -100vw;
-</span></span><span style="display:flex;"><span>		   height: 100vw;
-</span></span><span style="display:flex;"><span>		   width: 100vh;
-</span></span><span style="display:flex;"><span>		   background-color: #000;
-</span></span><span style="display:flex;"><span>		   color: #fff;
-</span></span><span style="display:flex;"><span>		   overflow: hidden;&#34;
-</span></span><span style="display:flex;"><span>		}
-</span></span><span style="display:flex;"><span>	   iframe{
+<div class="highlight"><pre tabindex="0" style="color:#fff;background-color:#111;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span><span style="color:#ff0007;background-color:#0f140f;font-weight:bold;font-style:italic">&lt;!DOCTYPE html&gt;</span>
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#fb660a;font-weight:bold">html</span>&gt;
+</span></span><span style="display:flex;"><span>  &lt;<span style="color:#fb660a;font-weight:bold">head</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#fb660a;font-weight:bold">title</span>&gt;Rotated Raspberry Panel&lt;/<span style="color:#fb660a;font-weight:bold">title</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#fb660a;font-weight:bold">style</span> <span style="color:#ff0086;font-weight:bold">type</span>=<span style="color:#0086d2">&#34;text/css&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>      <span style="color:#fb660a;font-weight:bold">body</span> {
+</span></span><span style="display:flex;"><span>         <span style="color:#fb660a">-webkit-</span><span style="color:#fb660a;font-weight:bold">transform</span>: rotate(<span style="color:#0086f7;font-weight:bold">90</span><span style="color:#cdcaa9;font-weight:bold">deg</span>);
+</span></span><span style="display:flex;"><span>         <span style="color:#fb660a">-webkit-</span><span style="color:#fb660a;font-weight:bold">transform-origin</span>: <span style="color:#fb660a;font-weight:bold">bottom</span> <span style="color:#fb660a;font-weight:bold">left</span>;
+</span></span><span style="display:flex;"><span>         <span style="color:#fb660a;font-weight:bold">position</span>: <span style="color:#fb660a;font-weight:bold">absolute</span>;
+</span></span><span style="display:flex;"><span>         <span style="color:#fb660a;font-weight:bold">top</span>: <span style="color:#0086f7;font-weight:bold">-100</span><span style="color:#cdcaa9;font-weight:bold">vw</span>;
+</span></span><span style="display:flex;"><span>         <span style="color:#fb660a;font-weight:bold">height</span>: <span style="color:#0086f7;font-weight:bold">100</span><span style="color:#cdcaa9;font-weight:bold">vw</span>;
+</span></span><span style="display:flex;"><span>         <span style="color:#fb660a;font-weight:bold">width</span>: <span style="color:#0086f7;font-weight:bold">100</span><span style="color:#cdcaa9;font-weight:bold">vh</span>;
+</span></span><span style="display:flex;"><span>         <span style="color:#fb660a;font-weight:bold">background-color</span>: <span style="color:#0086f7;font-weight:bold">#000</span>;
+</span></span><span style="display:flex;"><span>         <span style="color:#fb660a;font-weight:bold">color</span>: <span style="color:#0086f7;font-weight:bold">#fff</span>;
+</span></span><span style="display:flex;"><span>         <span style="color:#fb660a;font-weight:bold">overflow</span>: <span style="color:#fb660a;font-weight:bold">hidden</span>;&#34;
+</span></span><span style="display:flex;"><span>      }
+</span></span><span style="display:flex;"><span>        <span style="color:#fb660a;font-weight:bold">iframe</span>{
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>			-ms-transform: scale(0.97);
-</span></span><span style="display:flex;"><span>			-moz-transform: scale(0.97);
-</span></span><span style="display:flex;"><span>			-o-transform: scale(0.97);
-</span></span><span style="display:flex;"><span>			-webkit-transform: scale(0.97);
-</span></span><span style="display:flex;"><span>			transform: scale(0.97);
+</span></span><span style="display:flex;"><span>      	<span style="color:#fb660a">-ms-</span><span style="color:#fb660a;font-weight:bold">transform</span>: scale(<span style="color:#0086f7;font-weight:bold">0.97</span>);
+</span></span><span style="display:flex;"><span>      	<span style="color:#fb660a">-moz-</span><span style="color:#fb660a;font-weight:bold">transform</span>: scale(<span style="color:#0086f7;font-weight:bold">0.97</span>);
+</span></span><span style="display:flex;"><span>      	<span style="color:#fb660a">-o-</span><span style="color:#fb660a;font-weight:bold">transform</span>: scale(<span style="color:#0086f7;font-weight:bold">0.97</span>);
+</span></span><span style="display:flex;"><span>      	<span style="color:#fb660a">-webkit-</span><span style="color:#fb660a;font-weight:bold">transform</span>: scale(<span style="color:#0086f7;font-weight:bold">0.97</span>);
+</span></span><span style="display:flex;"><span>      	<span style="color:#fb660a;font-weight:bold">transform</span>: scale(<span style="color:#0086f7;font-weight:bold">0.97</span>);
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>			-ms-transform-origin: 0 0;
-</span></span><span style="display:flex;"><span>			-moz-transform-origin: 0 0;
-</span></span><span style="display:flex;"><span>			-o-transform-origin: 0 0;
-</span></span><span style="display:flex;"><span>			-webkit-transform-origin: 0 0;
-</span></span><span style="display:flex;"><span>			transform-origin: 0 0;
-</span></span><span style="display:flex;"><span>		}
-</span></span><span style="display:flex;"><span>	&lt;/style&gt;
-</span></span><span style="display:flex;"><span>  &lt;/head&gt;
-</span></span><span style="display:flex;"><span>  &lt;body&gt;
-</span></span><span style="display:flex;"><span>	&lt;iframe src=&#34;https://app.actiontiles.com/panel/f7a7118c-236b-4144-b5b9-ccb35abeef21&#34; height=&#34;300%&#34; width=&#34;300%&#34; frameborder=&#34;0&#34;&gt;&lt;/iframe&gt;
-</span></span><span style="display:flex;"><span>  &lt;/body&gt;
-</span></span><span style="display:flex;"><span>&lt;/html&gt;
+</span></span><span style="display:flex;"><span>      	<span style="color:#fb660a">-ms-</span><span style="color:#fb660a;font-weight:bold">transform-origin</span>: <span style="color:#0086f7;font-weight:bold">0</span> <span style="color:#0086f7;font-weight:bold">0</span>;
+</span></span><span style="display:flex;"><span>      	<span style="color:#fb660a">-moz-</span><span style="color:#fb660a;font-weight:bold">transform-origin</span>: <span style="color:#0086f7;font-weight:bold">0</span> <span style="color:#0086f7;font-weight:bold">0</span>;
+</span></span><span style="display:flex;"><span>      	<span style="color:#fb660a">-o-</span><span style="color:#fb660a;font-weight:bold">transform-origin</span>: <span style="color:#0086f7;font-weight:bold">0</span> <span style="color:#0086f7;font-weight:bold">0</span>;
+</span></span><span style="display:flex;"><span>      	<span style="color:#fb660a">-webkit-</span><span style="color:#fb660a;font-weight:bold">transform-origin</span>: <span style="color:#0086f7;font-weight:bold">0</span> <span style="color:#0086f7;font-weight:bold">0</span>;
+</span></span><span style="display:flex;"><span>      	<span style="color:#fb660a;font-weight:bold">transform-origin</span>: <span style="color:#0086f7;font-weight:bold">0</span> <span style="color:#0086f7;font-weight:bold">0</span>;
+</span></span><span style="display:flex;"><span>      }
+</span></span><span style="display:flex;"><span>    &lt;/<span style="color:#fb660a;font-weight:bold">style</span>&gt;
+</span></span><span style="display:flex;"><span>  &lt;/<span style="color:#fb660a;font-weight:bold">head</span>&gt;
+</span></span><span style="display:flex;"><span>  &lt;<span style="color:#fb660a;font-weight:bold">body</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#fb660a;font-weight:bold">iframe</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#ff0086;font-weight:bold">src</span>=<span style="color:#0086d2">&#34;https://app.actiontiles.com/panel/f7a7118c-236b-4144-b5b9-ccb35abeef21&#34;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#ff0086;font-weight:bold">height</span>=<span style="color:#0086d2">&#34;300%&#34;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#ff0086;font-weight:bold">width</span>=<span style="color:#0086d2">&#34;300%&#34;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#ff0086;font-weight:bold">frameborder</span>=<span style="color:#0086d2">&#34;0&#34;</span>
+</span></span><span style="display:flex;"><span>    &gt;&lt;/<span style="color:#fb660a;font-weight:bold">iframe</span>&gt;
+</span></span><span style="display:flex;"><span>  &lt;/<span style="color:#fb660a;font-weight:bold">body</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#fb660a;font-weight:bold">html</span>&gt;
 </span></span></code></pre></div><p>Link to buy the screen:
 <a href="https://smile.amazon.com/gp/product/B01ID5BQTC/">https://smile.amazon.com/gp/product/B01ID5BQTC/</a></p>
 <p>Link to the Action Tiles web application this is running:
 <a href="https://www.actiontiles.com/">https://www.actiontiles.com/</a></p>
 <p>If you have issues getting your pi to use the full touchscreen width, try adding these setting to the /boot/config.txt file and reboot:</p>
-<div class="highlight"><pre tabindex="0" style="color:#fff;background-color:#111;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>max_usb_current=1
-</span></span><span style="display:flex;"><span>hdmi_group=2
-</span></span><span style="display:flex;"><span>hdmi_mode=1
-</span></span><span style="display:flex;"><span>hdmi_mode=87
-</span></span><span style="display:flex;"><span>hdmi_cvt 800 480 60 6 0 0 0
+<div class="highlight"><pre tabindex="0" style="color:#fff;background-color:#111;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#fb660a">max_usb_current</span>=<span style="color:#0086f7;font-weight:bold">1</span>
+</span></span><span style="display:flex;"><span><span style="color:#fb660a">hdmi_group</span>=<span style="color:#0086f7;font-weight:bold">2</span>
+</span></span><span style="display:flex;"><span><span style="color:#fb660a">hdmi_mode</span>=<span style="color:#0086f7;font-weight:bold">1</span>
+</span></span><span style="display:flex;"><span><span style="color:#fb660a">hdmi_mode</span>=<span style="color:#0086f7;font-weight:bold">87</span>
+</span></span><span style="display:flex;"><span>hdmi_cvt <span style="color:#0086f7;font-weight:bold">800</span> <span style="color:#0086f7;font-weight:bold">480</span> <span style="color:#0086f7;font-weight:bold">60</span> <span style="color:#0086f7;font-weight:bold">6</span> <span style="color:#0086f7;font-weight:bold">0</span> <span style="color:#0086f7;font-weight:bold">0</span> <span style="color:#0086f7;font-weight:bold">0</span>
 </span></span></code></pre></div><p>If you want to make sure your screen doesn&rsquo;t go to sleep:</p>
-<div class="highlight"><pre tabindex="0" style="color:#fff;background-color:#111;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>sudo nano /etc/lightdm/lightdm.conf
+<div class="highlight"><pre tabindex="0" style="color:#fff;background-color:#111;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo nano /etc/lightdm/lightdm.conf
 </span></span></code></pre></div><p>Add the following lines to the [SeatDefaults] section:</p>
-<div class="highlight"><pre tabindex="0" style="color:#fff;background-color:#111;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>xserver-command=X -s 0 dpms
+<div class="highlight"><pre tabindex="0" style="color:#fff;background-color:#111;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>xserver-command=X -s <span style="color:#0086f7;font-weight:bold">0</span> dpms
 </span></span></code></pre></div>
             </main>
             
