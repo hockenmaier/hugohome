@@ -3,34 +3,37 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>http://localhost:1313/tags/ai/</loc>
-    <lastmod>2025-08-11T00:00:00+00:00</lastmod>
+    <lastmod>2025-08-24T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/categories/builds/</loc>
-    <lastmod>2025-08-11T00:00:00+00:00</lastmod>
+    <lastmod>2025-08-24T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/categories/</loc>
-    <lastmod>2025-08-11T00:00:00+00:00</lastmod>
+    <lastmod>2025-08-24T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/tags/css/</loc>
-    <lastmod>2025-08-11T00:00:00+00:00</lastmod>
+    <lastmod>2025-08-24T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/tags/experimental/</loc>
-    <lastmod>2025-08-11T00:00:00+00:00</lastmod>
+    <lastmod>2025-08-24T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/tags/html/</loc>
-    <lastmod>2025-08-11T00:00:00+00:00</lastmod>
+    <lastmod>2025-08-24T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/tags/javascript/</loc>
-    <lastmod>2025-08-11T00:00:00+00:00</lastmod>
+    <lastmod>2025-08-24T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/tags/rapid-prototyping/</loc>
-    <lastmod>2025-08-11T00:00:00+00:00</lastmod>
+    <lastmod>2025-08-24T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/tags/software/</loc>
-    <lastmod>2025-08-11T00:00:00+00:00</lastmod>
+    <lastmod>2025-08-24T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/tags/</loc>
-    <lastmod>2025-08-11T00:00:00+00:00</lastmod>
+    <lastmod>2025-08-24T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/gpt5/</loc>
+    <lastmod>2025-08-24T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/tags/c%23/</loc>
     <lastmod>2025-08-01T00:00:00+00:00</lastmod>

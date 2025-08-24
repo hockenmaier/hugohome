@@ -1,13 +1,19 @@
 ---
 title: "The Real GPT-5 Was The Friends We Made Along The Way"
-date: 2025-08-11
-url: "/preview/gpt5/" # any path you like
-_build:
-  list: never # don’t show in section/taxonomy/RSS lists
-  render: always # still write the HTML file
+date: 2025-08-24
 categories: ["builds"]
-tags: [AI, "Experimental", software, html, javascript, css, "Rapid Prototyping"]
-featured: "/images/agent-mode-solar-system.gif"
+tags:
+  [
+    AI,
+    "Experimental",
+    software,
+    html,
+    javascript,
+    css,
+    "Rapid Prototyping",
+    predictions,
+  ]
+featured: "/images/mesmerizer-1.gif"
 ---
 
 > Warning: This article has a lot of embedded code, so [the ball machine](/this-website/#ball-machine---the-game) is slow unless you have a REALLY fast computer. Play at your own risk.
@@ -28,12 +34,10 @@ Two years and four months have gone by since I ran my original Interactive Solar
 
 Now have a look at the same test performed a week before the release of GPT-5, which uses ChatGPT Agent Mode:
 
-<!--more-->
-
 {{< agent-mode-solar-system-self-contained caption="Works on desktop or mobile" >}}
 {{< open-html "agent-mode-solar-system-self-contained.html" >}}
 
-Here are Controls, again:
+Here are controls, again:
 
 <kbd>Mouse Click + Drag</kbd> to move the solar system around
 
@@ -98,7 +102,7 @@ It's a simple prompt that implies a lot of underlying complexity. Here is the fi
 
 It didn't make all the choices I would have, but it worked in one shot, the first time I tried it. All the way from uploading an image and transforming that to a puzzle, to a whole UI that lets you solve it. I purposely left this here after its one-shot result just to demonstrate the progress. You could take this idea much further.
 
-## Exhibit C: The Baby Mesmerizer:
+## Exhibit C: The Baby Mesmerizer
 
 Now for the coolest thing I've made with GPT-5 so far. I call this one the baby mesmerizer because baby Alice is absolutely stunned every time she sees it. I got this idea from another entertaining little physics simulation I saw somewhere.
 
