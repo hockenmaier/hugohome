@@ -20,8 +20,18 @@ async function requestWakeLock() {
 }
 
 // This is where to keep all of the app's Global variables
+// Device detection shared across modules
+const deviceInfo = {
+  isMobileLike:
+    navigator.userAgentData?.mobile === true ||
+    /Mobi|Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+      navigator.userAgent
+    ) ||
+    (window.innerWidth < 620 && navigator.hardwareConcurrency <= 4),
+};
 
 window.App = {
+  device: deviceInfo,
   config: {
     spawnInterval: 4480, // Default ball spawn interval in ms (auto-clicker rate)
     gravity: 0.75,

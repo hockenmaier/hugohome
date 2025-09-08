@@ -138,8 +138,8 @@ App.modules.lines = (function () {
     },
   };
 
-  const isTouchDevice =
-    "ontouchstart" in window || navigator.maxTouchPoints > 0;
+  // Shared mobile detection (avoids blocking scroll on desktop touch devices)
+  const isMobileLike = App.device.isMobileLike;
 
   function setMode(newMode) {
     // cancel preview of previous tool
@@ -170,7 +170,7 @@ App.modules.lines = (function () {
     mode = newMode;
 
     // for touch, prevent scroll when any tool is active
-    if (isTouchDevice) {
+    if (isMobileLike) {
       document.body.style.overflow = newMode !== "none" ? "hidden" : "";
     }
   }
