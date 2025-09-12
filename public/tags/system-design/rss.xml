@@ -1406,15 +1406,15 @@ This is what the project looked like for my first play-test with other people 5 
 <p>Link to the Action Tiles web application this is running:
 <a href="https://www.actiontiles.com/">https://www.actiontiles.com/</a></p>
 <p>If you have issues getting your pi to use the full touchscreen width, try adding these setting to the /boot/config.txt file and reboot:</p>
-<div class="highlight"><pre tabindex="0" style="color:#fff;background-color:#111;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>max_usb_current=1
-</span></span><span style="display:flex;"><span>hdmi_group=2
-</span></span><span style="display:flex;"><span>hdmi_mode=1
-</span></span><span style="display:flex;"><span>hdmi_mode=87
-</span></span><span style="display:flex;"><span>hdmi_cvt 800 480 60 6 0 0 0
+<div class="highlight"><pre tabindex="0" style="color:#fff;background-color:#111;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#fb660a">max_usb_current</span>=<span style="color:#0086f7;font-weight:bold">1</span>
+</span></span><span style="display:flex;"><span><span style="color:#fb660a">hdmi_group</span>=<span style="color:#0086f7;font-weight:bold">2</span>
+</span></span><span style="display:flex;"><span><span style="color:#fb660a">hdmi_mode</span>=<span style="color:#0086f7;font-weight:bold">1</span>
+</span></span><span style="display:flex;"><span><span style="color:#fb660a">hdmi_mode</span>=<span style="color:#0086f7;font-weight:bold">87</span>
+</span></span><span style="display:flex;"><span>hdmi_cvt <span style="color:#0086f7;font-weight:bold">800</span> <span style="color:#0086f7;font-weight:bold">480</span> <span style="color:#0086f7;font-weight:bold">60</span> <span style="color:#0086f7;font-weight:bold">6</span> <span style="color:#0086f7;font-weight:bold">0</span> <span style="color:#0086f7;font-weight:bold">0</span> <span style="color:#0086f7;font-weight:bold">0</span>
 </span></span></code></pre></div><p>If you want to make sure your screen doesn&rsquo;t go to sleep:</p>
-<div class="highlight"><pre tabindex="0" style="color:#fff;background-color:#111;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>sudo nano /etc/lightdm/lightdm.conf
+<div class="highlight"><pre tabindex="0" style="color:#fff;background-color:#111;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo nano /etc/lightdm/lightdm.conf
 </span></span></code></pre></div><p>Add the following lines to the [SeatDefaults] section:</p>
-<div class="highlight"><pre tabindex="0" style="color:#fff;background-color:#111;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>xserver-command=X -s 0 dpms
+<div class="highlight"><pre tabindex="0" style="color:#fff;background-color:#111;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>xserver-command=X -s <span style="color:#0086f7;font-weight:bold">0</span> dpms
 </span></span></code></pre></div>]]></description>
                 
 

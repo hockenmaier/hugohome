@@ -60,12 +60,8 @@ App.modules.base = (function () {
 
     // Run physics substeps.
     // Tune this down for better performance, up for better physics consistency
-    const isMobileLike =
-      navigator.userAgentData?.mobile === true ||
-      /Mobi|Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
-        navigator.userAgent
-      ) ||
-      (window.innerWidth < 620 && navigator.hardwareConcurrency <= 4);
+    // Use shared device detection to keep logic consistent across modules
+    const isMobileLike = App.device.isMobileLike;
 
     /* base-simulation.js */
 

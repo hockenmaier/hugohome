@@ -1,6 +1,6 @@
 ---
 title: "Previews"
-date: 2025-08-02
+date: 2025-01-01
 url: "/previews/" # any path you like
 _build:
   list: never # don’t show in section/taxonomy/RSS lists
@@ -8,7 +8,3 @@ _build:
 ---
 
 [/preview/balloon-fight/](/preview/balloon-fight/)
-
-[/preview/the-treadmill/](/preview/the-treadmill/)
-
-[/preview/gpt5/](/preview/gpt5/)

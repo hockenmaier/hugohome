@@ -1,10 +1,6 @@
 ---
 title: "The Treadmill"
-date: 2025-08-01
-url: "/preview/the-treadmill/" # any path you like
-_build:
-  list: never # don’t show in section/taxonomy/RSS lists
-  render: always # still write the HTML file
+date: 2025-09-12
 categories: ["writing"]
 tags: ["work-life balance", "happiness", "wealth", "singularity", "AI"]
 ---
@@ -13,7 +9,12 @@ Early last year, I came across this tweet:
 
 [https://twitter.com/AdamRackis/status/1762321041899012307](https://twitter.com/AdamRackis/status/1762321041899012307)
 
-The discussion was surprisingly contentious. Maybe I should stop being surprised given the state of Twitter and all social media, but still sometimes shocking how dug-in people are in their beliefs about work. On the face of it, “people get twisted in their relationship with work” seems like a reasonable take. "Stop complaining—you are making 16x the median salary in this country. Just do the boring job with the toxic team."
+{{< image-medium
+    src="images/treadmill-tweet.webp"
+    alt="happiness income curve"
+    caption="" >}}
+
+The discussion was surprisingly contentious. Maybe I should stop being surprised given the state of Twitter/X and all social media, but still it's sometimes shocking how dug-in people are in their beliefs about work. On the face of it, “people get twisted in their relationship with work” seems like a reasonable take. "Stop complaining—you are making 16x the median salary in this country. Just do the boring job with the toxic team."
 
 Let’s stop and think about this for a second. The original poster (OP) is making $800K annually due to the appreciation of Spotify stock. An obscene amount of money? Maybe, maybe not. I do not have the typical hang-ups about the wealthy or ultra-wealthy. I don’t see this world as a zero-sum game, and I think the richest people out there have usually done some amazing things, especially in countries like the US where most wealth is not old wealth.
 
@@ -28,7 +29,7 @@ I propose this core question for this type of person engaging in number 2: Is th
 
 ## The Hedonic Treadmill
 
-There’s an often misquoted study from ~2010 that personal income beyond about $75K (presumed to cover basic necessities with a comfortable overhead) does not equate to further happiness. This number is actually about right when it comes to simple reported happiness, which has more to do with the hedonic treadmill than anything else. But the study in question was also measuring reported “life satisfaction” as surveyed, which did not stop increasing with income. Of course, “life satisfaction” is a fraught survey metric as well, as it might actually measure a perceived comparative number with one’s neighbors (we’ll get to this later).
+There’s an often misquoted study from ~2010 that personal income beyond about $75K (presumed to cover basic necessities with a comfortable overhead) does not lead to further happiness. This number is actually about right when it comes to simple reported happiness, which has more to do with the hedonic treadmill than anything else. But the study in question was also measuring reported “life satisfaction” as surveyed, which did not stop increasing with income. Of course, “life satisfaction” is a fraught survey metric as well, as it might actually measure a perceived comparative number with one’s neighbors (we’ll get to this later).
 
 But whatever the proper measure of happiness or satisfaction is, there is a great deal of logic to thinking its relationship with income looks like this:
 
