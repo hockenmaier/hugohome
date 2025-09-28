@@ -3,7 +3,7 @@ title: "On AI Software Development, Vibe Coding Edition"
 date: 2025-08-01
 categories: ["writing"]
 personal: "Y"
-tags: ["software", "singularity", "AI", "software", "predictions"]
+tags: ["software", "singularity", "AI", "predictions"]
 short_description: "An essay I was working on throughout my parental leave about the current state of AI driven software development.  I go over the three main categories of AI code assistants today, as well as how each performed on a recent game development project and where I see them going next"
 ---
 

@@ -5,7 +5,16 @@ project-date: 2023-09-10
 categories: ["builds"]
 project_link: "https://github.com/hockenmaier/make-us-smarter"
 github_link: "https://github.com/hockenmaier/make-us-smarter"
-tags: ["Experimental", "AI", "Prototyping", "User Experience", "software"]
+tags:
+  [
+    "Experimental",
+    "AI",
+    "Prototyping",
+    "User Experience",
+    "software",
+    "Unity",
+    "mobile",
+  ]
 featured: "/images/make-us-smarter-feature.webp"
 ---
 

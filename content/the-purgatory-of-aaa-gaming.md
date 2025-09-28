@@ -12,6 +12,8 @@ tags:
     "Invention",
     "predictions",
     "ai",
+    "AI Images",
+    "AI Audio",
   ]
 short_description: "A look at why games from today play like games from 20 years ago"
 ---

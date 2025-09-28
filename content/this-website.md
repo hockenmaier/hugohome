@@ -17,6 +17,7 @@ tags:
     hugo,
     matter.js,
     javascript,
+    mobile,
   ]
 featured: "images/bubble4.gif"
 ---

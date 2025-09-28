@@ -12,6 +12,7 @@ tags:
     css,
     "Rapid Prototyping",
     predictions,
+    mobile,
   ]
 featured: "/images/mesmerizer-1.gif"
 ---
