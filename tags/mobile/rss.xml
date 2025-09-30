@@ -1,0 +1,1944 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+        
+    
+
+    
+        
+    
+
+    
+
+    
+        
+    
+
+    
+
+    
+        
+    
+
+
+
+
+
+
+
+    
+
+    
+
+
+
+
+
+
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0"  xml:lang="en-us"  xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        
+            
+
+            
+                
+            
+
+            
+                <link href="https://hockenworks.com/tags/mobile/" rel="self" type="text/html"/>
+            
+        
+            
+
+            
+
+            
+                <link href="https://hockenworks.com/tags/mobile/rss.xml" rel="alternate" type="application/rss+xml"/>
+            
+        
+
+        
+
+        
+
+        <description>Recent content</description>
+
+        
+            <language>en-us</language>
+        
+
+        
+            <lastBuildDate>2025-08-24 00:00:00 +0000 UTC</lastBuildDate>
+        
+
+        <link>https://hockenworks.com/tags/mobile/</link>
+
+        
+
+        <title>Mobile · Tags · hockenworks</title>
+
+        
+
+        
+            <item>
+                
+                
+                
+                
+                
+                
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+                
+
+                
+
+                
+
+                
+                    <description><![CDATA[<blockquote>
+<p>Warning: This article has a lot of embedded code, so <a href="/this-website/#ball-machine---the-game">the ball machine</a> is slow unless you have a REALLY fast computer. Play at your own risk.</p>
+</blockquote>
+<p>Seriously, though.</p>
+<p>GPT-5, as a simple text completion model, is not a revelation.</p>
+<p>This isn&rsquo;t so surprising. It was becoming clearer with every new raw LLM release that the fundamental improvements from scaling solely the performance of the core text predictor were starting to show diminishing returns. But I&rsquo;m going to make an argument today that, although the LLM itself is not nearly as much of a leap from GPT-4 as GPT-4 was from GPT-3, we have still seen at least a whole-version-number of real improvement between the release of GPT-4 and 5 as we did between 3 and 4. The reasons for that are mostly what exists around that LLM core.</p>
+<p>And I&rsquo;m going to make this argument by showing you things the original GPT-4 could never have done.</p>
+<h1 id="exhibit-a-a-new-solar-system">Exhibit A: A New Solar System</h1>
+<p>GPT-5 came at a great time for me, because when OpenAI set the announcement to 8/7/25, I was in the middle of stress testing Agent Mode with the prior models. So, let me start by just illustrating the progress we had made between the first GPT-4 release in early 2023 and the capabilities of GPT-4 level models the week before the release of GPT-5.</p>
+<p>Two years and four months have gone by since I ran my original Interactive Solar System experiment with the original version of GPT-4. You can play with it at <a href="/gpt-4-solar-system">hockenworks.com/gpt-4-solar-system</a>.</p>
+<p>Now have a look at the same test performed a week before the release of GPT-5, which uses ChatGPT Agent Mode:</p>
+<p>
+<style>
+  .agent-mode-solar-wrapper {
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 150%;
+    max-width: 1500px;
+    margin: 1em 0;
+    padding-top: 70%;
+  }
+
+  @media (max-width: 768px) {
+    .agent-mode-solar-wrapper {
+      width: 100%;
+      left: 0;
+      transform: none;
+      padding-top: 180%;
+    }
+  }
+</style>
+
+<div class="agent-mode-solar-wrapper">
+  <iframe
+    class="lazy-iframe"
+    data-src="/html/agent-mode-solar-system-self-contained.html"
+    src="about:blank"
+    loading="lazy"
+    style="position:absolute; top:0; left:0; width:100%; height:100%; border:1px solid #ccc;"
+  ></iframe>
+</div>
+
+<div style="text-align: center; margin-bottom: 1rem;">
+  
+    <span style="display: block; font-style: italic; margin-top: 0.5rem;">Works on desktop or mobile</span>
+  
+</div>
+
+<div style="text-align:center;">
+  <a href="/html/agent-mode-solar-system-self-contained.html" target="_blank" rel="noopener noreferrer"
+     style="display:inline-block;padding:.5rem 1rem;border:1px solid #ccc;border-radius:.5rem;text-decoration:none">
+    Open In Standalone Tab
+  </a>
+</div>
+</p>
+<p>Here are controls, again:</p>
+<p><kbd>Mouse Click + Drag</kbd> to move the solar system around</p>
+<p><kbd>Mouse Wheel Up</kbd> to zoom in from the cursor location</p>
+<p><kbd>Mouse Wheel Down</kbd> to zoom out</p>
+<p>And I again used this initial prompt:</p>
+<blockquote>
+<p>I want you to make me a dynamic website. It should look good on mobile or on desktop, and I would like you to pick a nice dark background color and an interesting font to use across the page.</p>
+<p>The page is intended to show the scale of the solar system in an interactive way, primarily designed for children to zoom in and out of different parts of the solar system and see planets and the Sun in relative scale. Mouse controls should also include panning around the model solar system, and should include text around planets with some statistics about their size, gravity, atmospheres, and any other fun facts you think would be educational and fun for 10-12 year olds.
+ </p>
+</blockquote>
+<p>Quite an improvement, right?</p>
+<p>Like my original experiment, I didn’t one-shot this result. This is the final result after 7 prompts, but unlike in the original, those follow-up prompts were not primarily fixes - they were new features that I thought would be good additions after playing with each previous version - all of which worked right away.</p>
+<p>The most striking part of this experiment for me is that, despite the plateau that has largely been observed in base LLMs, this result is clearly far above and beyond what GPT-4 was able to do when it first released, and the reasons for that have to do with what the labs have been building <em>around</em> the base models.</p>
+<p>In the case of Agent mode, as far as we know, we have a GPT-4 class model at the root. o3, which is what Agent Mode uses, is a GPT-4 class model with chain-of-thought and lots of self-play training.</p>
+<p>It also has the ability to use tools, like the web search tool it used to find the planet facts.</p>
+<p>But then the thing that most sets it apart from its base model is the deep research and computer use elements of Agent mode. As it was building this model, I saw Agent mode do things such as perusing the internet with its text browser to find scale information and browse for textures it could use as planet skins.</p>
+<p>It wrote and ran test code using its Code Interpreter tool.</p>
+<p>It used its chain-of-thought &ldquo;thinking&rdquo; to respond to errors, rethink controls and scale decisions, and decide to go back and search the web or use other tools some more.</p>
+<p>Then, the most impressive new ability that allowed it to make this: It ran this code on a local browser and <em>visually tested it</em>, clicking on the planets to make sure the information panels were coming up, zooming and panning around, and using its own toolbars.</p>
+<p>This last one to me, when paired with all of the other things that GPT-4 class models are not instrumented to do, is the start of a true general capability for AI software testing, almost as a side note to all of the other things it will unlock in the coming few years. Not just the little unit and automated tests that LLMs have been writing into our codebases for a long time - but actual visual look and feel testing. This is a huge market and will be a huge shock to the software industry when it’s fully realized.</p>
+<p>These are all net-new abilities that GPT-4 class models have gained since GPT-4 came out in March of 2023. It&rsquo;s hard to see how much progress these capabilities add up to without just running the direct experiment like this solar system generation.</p>
+<h1 id="gpt-5-without-agent-mode">GPT-5 Without Agent Mode</h1>
+<p>I see GPT-5 as a formalization of all of these capabilities that lock in the step change in capability we&rsquo;ve seen over the last 2 years. There is a new model underneath there somewhere (some are saying it is o4) and that underlying model has certainly been reinforcement-trained to choose its tools wisely. It is the first model I have seen that can do all of these simultaneously, without user choice:</p>
+<ul>
+<li>Choose when to think and when to just answer</li>
+<li>Run iterative web search calls</li>
+<li>Write and run code to do highly logical-symbolic tasks like data analysis</li>
+<li>Create, edit, and analyze images</li>
+<li>Create and read nearly any kind of document a user might be working with</li>
+</ul>
+<p>And there are still a couple of things locked behind user choice, which is probably because these both result in much longer running and expensive tasks than simple thinking:</p>
+<ul>
+<li>Deep map-reduce style web research</li>
+<li>Computer use (mouse and keyboard style, with Agent Mode)</li>
+</ul>
+<p>Using only the first set of &ldquo;default&rdquo; behaviors, GPT-5 can do things that the original GPT-4 could never have dreamed of. I have had the following prompt sitting around in my &ldquo;intelligence tests&rdquo; document for more than a year now under <em>&ldquo;Cool picross app idea, def solvable by competent AI (which doesn&rsquo;t exist yet at the end of 2024)&rdquo;</em>, waiting for a single model that can one-shot it. GPT-5 is the first one that does:</p>
+<h2 id="exhibit-b-picross">Exhibit B: Picross</h2>
+<blockquote>
+<p>Take an image, increase contrast, and turn it into a 15x15 image. Create a black and white picross puzzle out of the image, including a UI that lets a player solve the puzzle.</p>
+</blockquote>
+<p>It&rsquo;s a simple prompt that implies a lot of underlying complexity. Here is the first one-shot result from GPT-5 I got (normal mode, I didn&rsquo;t select &ldquo;Thinking&rdquo; in advance):</p>
+<p><style>
+  .picross-wrapper { display:flex; justify-content:center; }
+  .picross-wrapper .frame {
+    position: relative;
+    width: 100%;
+    max-width: 900px;
+    aspect-ratio: 3.35/4;
+    border: 2px solid #fff; border-radius: 4px; overflow: hidden;
+  }
+  .picross-wrapper .frame > iframe {
+    position:absolute; inset:0; width:100%; height:100%;
+    transform-origin: top left;
+  }
+   
+  @media (max-width: 480px){
+    .picross-wrapper .frame { --s: .65; }
+    .picross-wrapper .frame > iframe {
+      transform: scale(var(--s,1));
+      width: calc(100% / var(--s,1));
+      height: calc(100% / var(--s,1));
+    }
+  }
+</style>
+
+<div class="picross-wrapper">
+  <div class="frame">
+    <iframe
+      class="lazy-iframe"
+      data-src="/html/picross-generator.html"
+      src="about:blank"
+      loading="lazy"
+    ></iframe>
+  </div>
+</div>
+
+<div style="text-align:center;">
+  <a href="/html/picross-generator.html" target="_blank" rel="noopener noreferrer"
+     style="display:inline-block;padding:.5rem 1rem;border:1px solid #ccc;border-radius:.5rem;text-decoration:none">
+    Open In Standalone Tab
+  </a>
+</div>
+</p>
+<p>It didn&rsquo;t make all the choices I would have, but it worked in one shot, the first time I tried it. All the way from uploading an image and transforming that to a puzzle, to a whole UI that lets you solve it. I purposely left this here after its one-shot result just to demonstrate the progress. You could take this idea much further.</p>
+<h2 id="exhibit-c-the-baby-mesmerizer">Exhibit C: The Baby Mesmerizer</h2>
+<p>Now for the coolest thing I&rsquo;ve made with GPT-5 so far. I call this one the baby mesmerizer because baby Alice is absolutely stunned every time she sees it. I got this idea from another entertaining little physics simulation I saw somewhere.</p>
+<p>I had GPT-5 make this one, then I tested it using the built-in runner in ChatGPT, changed it, and iterated on it 16 times. But I didn&rsquo;t write any of it myself - nor did I even open the code other than to tweak some variables to make it &ldquo;feel right&rdquo; here and there.</p>
+<p>
+<style>
+  .agent-mode-solar-wrapper {
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 150%;
+    max-width: 1500px;
+    margin: 1em 0;
+    padding-top: 85%;
+  }
+
+  @media (max-width: 768px) {
+    .agent-mode-solar-wrapper {
+      width: 100%;
+      left: 0;
+      transform: none;
+      padding-top: 180%;
+    }
+  }
+</style>
+
+<div class="agent-mode-solar-wrapper">
+  <iframe
+    class="lazy-iframe"
+    data-src="/html/exponential_bounce.html"
+    src="about:blank"
+    loading="lazy"
+    style="position:absolute; top:0; left:0; width:100%; height:100%; border:1px solid #ccc;"
+  ></iframe>
+</div>
+
+<div style="text-align: center; margin-bottom: 1rem;">
+  
+</div>
+
+<div style="text-align:center;">
+  <a href="/html/exponential_bounce.html" target="_blank" rel="noopener noreferrer"
+     style="display:inline-block;padding:.5rem 1rem;border:1px solid #ccc;border-radius:.5rem;text-decoration:none">
+    Open In Standalone Tab
+  </a>
+</div>
+</p>
+<p>How cool is that?</p>
+<p>After you’re done messing around with this, take a detailed look at what has been built here. It is a tech demo, yes, but it has:</p>
+<ul>
+<li>A nice-looking UI and color scheme</li>
+<li>A side menu that dynamically operates as a fly-out menu based on screen size</li>
+<li>A bunch of tunable variables, including niceties like minimums and maximums affecting each other</li>
+<li>Dynamic generated sound effects</li>
+</ul>
+<p>I also thought it was interesting that GPT-5, when I said that it needed to run as a single HTML file with no external dependencies, chose to write its own physics for this. There is no prebuilt physics engine at all here.</p>
+<p>This result is about 1400 lines of code. This isn’t a huge project, but it is far more than we could get a GPT to reliably produce just a year ago. The typical loop before was that you’d get past 200 lines of code or so, and then every new feature or bugfix requested would break two other things around the codebase, effectively enforcing a tiny complexity cap.</p>
+<p>Let&rsquo;s be real: It&rsquo;s absolutely amazing that I could make something as complicated as this, exactly how I imagined it, just by describing it in English and a collective hour or two of testing. And though I like to code and have been bummed for a while that most straightforward coding like this is going the way of the dodo, this experience of not coding and instead just setting requirements and playing with the result was also a lot of fun. More fun than tearing through <a href="/on-ai-software-development-2/#agentic-ides">codespam in a tool like Cursor</a>. And frankly, I would never spend time making something like this if I had to code it all from scratch.</p>
+<h1 id="a-plateau">A Plateau?</h1>
+<p>I&rsquo;ve already read more than enough takes that GPT-5 signals the end of the current wave of AI, as a sort of intelligence plateau somewhere just below humans.</p>
+<p>We should observe that we did not foresee the advancements that would get us from GPT-4 to GPT-5. Yet here we are: GPT-4 was <a href="/gpt-4-solar-system/">barely able to write 200 lines of buggy solar system code</a>, and GPT-5 one-shots it. The core model under the hood is likely a bit better, but it was proper tooling and reinforcement training on that tooling that really made the difference. And from what I hear, there are many other avenues of work that researchers say are still in early stages, such as reinforcement training on long-running agentic tasks and building the synthetic datasets that will allow for that.</p>
+<p>So, even though GPT-5 doesn&rsquo;t seem like a huge advancement from models like o3 and Sonnet 4, hindsight makes the upward trajectory clear.</p>
+<p>No matter how fast we see progress, there is clearly a ton of fun to have along the way!</p>
+]]></description>
+                
+
+                <guid isPermaLink="false">tag:hockenworks.com,2025-08-24:/gpt5/</guid>
+
+                
+                    <link>https://hockenworks.com/gpt5/</link>
+                
+
+                
+                    <pubDate>Sun, 24 Aug 2025 00:00:00 UTC</pubDate>
+                
+
+                
+                    <title>The Real GPT-5 Was The Friends We Made Along The Way</title>
+                
+            </item>
+        
+            <item>
+                
+                
+                
+                
+                
+                
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+                
+
+                
+
+                
+
+                
+                    <description><![CDATA[<p>The advent of general coding AI assistants almost immediately changed how I think about hiring and interviews.</p>
+<p>In the software engineering world, this mindset shift was psychologically easy for me, because I&rsquo;ve always had a bias against the types of coding questions that AI can now answer near-perfectly. And they also happen to be the kind of questions I personally do badly at - the ones requiring troves of knowledge or rote memory of specific language capabilities, libraries, and syntax. It is not so psychologically easy for everyone, especially those who have developed a core skill set of running or passing &ldquo;leetcode-style&rdquo; interviews. Even before AI, the only types of coding questions I would personally ask were things that simply evaluate whether a candidate is lying or not about whether they can code at all, which was and still is surprisingly common. I have interviewed people that list bullet points like 7 years of Java experience but can&rsquo;t pass a fizz-buzz like question, and this was a question I gave out on paper with a closed door and no significant time pressure.</p>
+<p>So, when LLMs that could remember any syntax or attribute of any programming language perfectly were released, not only was I excited - I immediately saw that a huge chunk of the programming questions I and many I know have asked in interviews were essentially irrelevant now, not only because people could cheat on interviews, at least virtually, but because this knowledge simply lost much of its value overnight.</p>
+<p>Over a few conversations with friends and colleagues I began to explore the idea of what this meant generally for the interview process. There are just lots of questions that we ask in every field, it turns out, that are mostly solved by LLMs today. These models have memorized most useful information that lets them ace simple interviewing questions across fields, even if the original intent of the question was to test for experience.</p>
+<h2 id="the-build">The Build</h2>
+<p>In the summer of 2022 my ideas and conversations on this topic had gotten to the point where I really just needed to test my hypothesis: LLMs and continuous audio transcription could let someone with no knowledge answer many interview questions correctly. My initial thought was that an app like this must already exist. But after searching for apps on the app stores that did what I was thinking of, to my surprise, I found none did.</p>
+<p>I&rsquo;m still not sure if this was a legal thing at the time, or if it&rsquo;s hard to get apps that continuously transcribe audio published, but as of 2025 apps like this definitely exist. Some of them have gotten famous and one has gotten its creator expelled from an Ivy League for revealing that he used it to ace interviews with some top tech companies. Link for the curious here:</p>
+<p><a href="https://cluely.com/">https://cluely.com/</a></p>
+<p>But, in mid 2023, these apps were apparently not a thing, so I decided to make a prototype.</p>
+<p>My basic requirements were simply something that could continuously transcribe words being spoken in a meeting or over a call, group them up into meaningfully long chunks, and then send those chunks with some overlap to two different AI passes:</p>
+<ol>
+<li>An AI pass that would try to make meaningful questions out of the transcribed potential gibberish</li>
+<li>An AI pass that would answer those questions</li>
+</ol>
+<p>My tech stack for this was a little weird, but I know Unity well and I don&rsquo;t know other ways of deploying native mobile apps as well, and this definitely needed to be a mobile app if it was going to sit on the phone and continuously transcribe audio. Web has all kinds of restrictions on its APIs and I hadn&rsquo;t made a web app like this anyways.</p>
+<p>This was surprisingly easy to achieve, even in 2023. I ran into a few hiccups mainly around continuous audio transcription, but for an app I wasn&rsquo;t going to publish and that I was directly putting onto my own Android device, I got around these difficulties by simply starting up a new audio transcription thread every time one closed.</p>
+<div style="display: flex; align-items: center; justify-content: center; gap: 10px; margin-bottom: 1rem;">
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+    
+
+
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<img  alt="the UI"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/make-us-smarter.jpg"   style="height: auto; max-width: 200px"   >
+
+
+    
+        <span style="font-style: italic;">Super barebones UI just showing the continuously auto-transcribed words, questions derived from those words, and answers to those questions.  This particular screen was grabbed long after my API key had expired and is only here to show the basic output of the app, transcription building continuously in the background and detected questions and answers in the foreground.</span>
+    
+</div>
+
+<p>And the results were surprisingly compelling. Of course I was using some of the very first versions of GPT-4 and AI is still not perfect, but the main result of this was that occasionally questions were picked up that were not actually implied by the meeting audio, and occasionally real questions were missed. The part that I knew was going to work did indeed work incredibly well: when I simulated some fizz-buzz style questions and there were no major audio transcription issues, the second question-answering AI nailed them and was able to put a succinct script to answer the question on screen within a few seconds.</p>
+<p>There was clearly more work to be done on UI and also the flow between the AI passes, and more agentic APIs of today could definitely do this all more seamlessly.</p>
+<p>But for me, my question was answered: My hunch was right and we should definitely not be asking questions about basic constructs of programming languages or simple scripts in interviews anymore.</p>
+<p>I open-sourced the project which is a pretty small Unity build, and it&rsquo;s a Unity version from a couple of years ago now, but anyone is welcome to look through and modify the code any way they want:</p>
+<p><a href="https://github.com/hockenmaier/make-us-smarter">https://github.com/hockenmaier/make-us-smarter</a></p>
+<h2 id="interviewing-mitigations">Interviewing Mitigations</h2>
+<p>This whole experience has led me to an interview approach that I think is infallible (for now). And it doesn&rsquo;t require sending someone home with a project or any of the stuff that great candidates often don&rsquo;t even consider. I heard about a version of this technique on Twitter, so can&rsquo;t take credit here:</p>
+<p>First: ask candidates to bring some code they have written, regardless of language or framework. Then simply walk through it with them in the interview. asking them questions about why they made certain decisions and trying to guide the conversation to parts that are technically interesting. It only takes 15 minutes or so, and it usually gets much better conversation going than sample interview questions do. This leans on the fact that you need an interviewer who can mostly understand most programming projects, but it cannot be faked with any LLM assistance. LLM-written code is typically pretty obvious: much better commented and differently organized than most humans would write. But even if the code was very sneakily written AI code the person didn&rsquo;t actually contribute to, then having a human go through and explain the parts they thought were clever defeats the purpose of cheating with AI anyway.</p>
+<p>This is just a little tidbit of a technique that works well today, if the goal is to assess coding skills. Of course, it leaves some obvious lingering questions about what we are evaluating and why. I hope no one out there that I know is using these apps to cheat on interviews, but we all need to be wise to the fact that it is trivially easy to do so in 2025, and we should shift focus to testing for the qualities that actually matter in the era of AI - or at the very least techniques that prevent the types of cheating possible today.</p>
+]]></description>
+                
+
+                <guid isPermaLink="false">tag:hockenworks.com,2025-06-29:/my-experiments-with-ai-cheating/</guid>
+
+                
+                    <link>https://hockenworks.com/my-experiments-with-ai-cheating/</link>
+                
+
+                
+                    <pubDate>Sun, 29 Jun 2025 00:00:00 UTC</pubDate>
+                
+
+                
+                    <title>My Experiments with AI Cheating</title>
+                
+            </item>
+        
+            <item>
+                
+                
+                
+                
+                
+                
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+                
+
+                
+
+                
+
+                
+                    <description><![CDATA[<p>I&rsquo;m <a href="/about-me">Brian Hockenmaier</a>, and this site is full of things I build and write about. I love making games and things with VR and AI. And I love DIY projects, especially ones involving programming, engineering and 3D modeling. Some of this has been cross or back-posted from my <a href="https://www.thingiverse.com/hockenmaier/designs">thingiverse</a>, <a href="https://github.com/hockenmaier">github</a>, <a href="https://www.linkedin.com/in/hockenmaier/">linkedin</a>, and other places, but it all lives here permanently.</p>
+<p>This is an evolution of <a href="old-site/index.html">my previous site last updated in 2022, which I still keep inside this one</a> for posterity and for the AIs of the future to know more about me. I like it not because of the content as much as because it was a fully custom js and html site with no framework&hellip; and I think it&rsquo;s sort of fun and funny that it was like this.</p>
+<p>All work and opinions here are my own, not my employer&rsquo;s.</p>
+<h1 id="why-im-making-it">Why I&rsquo;m making it</h1>
+<p>I&rsquo;m creating this website in 2025 after starting a family as well as my first full-time role in AI. It&rsquo;s an effort to clean up my website&rsquo;s focus, move several disparate collections into one place, and emphasize what I truly care about. I wanted it to be easier to add content, CMS style, and I wanted a space to occasionally post written content, too.</p>
+<div style="text-align: center; margin-bottom: 1rem;">
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<img  alt="the hockenworks homepage"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/hockenworks.png"   style="height: auto; max-width: 720px; width: 100%"   >
+
+
+    
+        <span style="display: block; font-style: italic; margin-top: 0.5rem;">This webpage, if you hadn&#39;t noticed</span>
+    
+</div>
+
+<p>A big reason I&rsquo;m doing this now is that, after listening to the Dwarkesh podcast with Gwern, I was convinced I really should have more of a record for future AIs to learn about me. I really don’t have a social media presence, nor do I want one, and over the years I have had a lot of projects and writing that I have unnecessarily kept private. AGI or not, there are non-artificial intelligences that may be interested one day. Talking to you, Alice :) When I started this website, your cousin Lily kept asking where you were and didn&rsquo;t seem to get the concept that you currently occupied the same space as Kaitlin.</p>
+<p>I love some of the 2010s era blogs, and though mine is not going to be nearly as longform, nearly as focused on prose, or nearly as articulate, two of the sites I&rsquo;m trying to take inspiration from are <a href="https://slatestarcodex.com/about/">Slate Star Codex</a> and <a href="https://gwern.net/about">Gwern&rsquo;s website</a> which are definitely advising on style here. Other than the fact that mine is also a game.</p>
+<hr>
+<h1 id="etymology-of-hockenworks">Etymology of &ldquo;hockenworks&rdquo;</h1>
+<p><strong>Hockenmaier</strong> is a great name. I&rsquo;ve always loved it. Not just because it’s unique and has my favorite number of letters, but because of its meaning, at least my family’s “folk-etymology” for it.</p>
+<p>You have:</p>
+<blockquote>
+<p><strong>Hocken</strong></p>
+</blockquote>
+<p>Which can roughly translate to “sitting down, squatting, settling, idling”.</p>
+<p>And then you have:</p>
+<blockquote>
+<p><strong>Maier</strong></p>
+</blockquote>
+<p>Which has many different spellings, and ours has southern German roots, but all &ldquo;Meyer&rdquo; names come from the latin root &ldquo;maior&rdquo; meaning steward, administrator, or more generally &ldquo;worker&rdquo;</p>
+<p>My family often puts these two ideas together as &ldquo;Lazy Worker,&rdquo; which is very on-brand for our sense of humor, but I think it&rsquo;s not just funny, but true.</p>
+<p>“Lazy Worker” is perfect for someone who wants to get a lot done, especially in software engineering. We only have so many hours, and the best lives are lived restricting the number of hours spent on work that isn&rsquo;t done with people you love. So you better be efficient about it. You better be lazy. There are <a href="https://blog.codinghorror.com/how-to-be-lazy-dumb-and-successful/?utm_source=chatgpt.com">many</a> <a href="https://xkcd.com/1205/?utm_source=chatgpt.com">correct</a> <a href="https://thethreevirtues.com/">takes</a> out there on the value of being lazy when programming.</p>
+<p>Now that we are starting to have AI, it&rsquo;s even better. A lazy worker like myself will not only avoid unnecessary work, but will delegate all that can be delegated to the new AI workers that are multiplying in our computers. That makes the &ldquo;steward&rdquo; connotation of &ldquo;Maier&rdquo; all the more fitting.</p>
+<p>I&rsquo;m proud to be the lazy worker, and this site is all about sharing my lazy works. My <em>hockenworks</em>.</p>
+<hr>
+<h1 id="ball-machine---the-game">Ball Machine - The Game</h1>
+<div style="text-align: center; margin-bottom: 1rem;">
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<img  alt="A ball machine"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/bubble4.gif"   style="height: auto; max-width: 720px; width: 100%"   >
+
+
+    
+        <span style="display: block; font-style: italic; margin-top: 0.5rem;">The Ball Machine</span>
+    
+</div>
+
+<p>Most blogs and personal websites are a bit boring. I think that is because most professionals consider what they do &ldquo;for work&rdquo; a bit boring by its nature, and don&rsquo;t necessarily make a concerted effort to have fun with it.</p>
+<p>I have always tried to be the opposite, and with kids coming I am trying to make a bigger effort than ever to have fun whatever I&rsquo;m doing. Which is often working, in some way or another.</p>
+<p>So for my website, I wanted it to be intentionally fun. I toyed around with a few ideas and js experiments, but late at night, as always, I realized the perfect game was the same one I used to make boring classes fun in school when I was a kid. That game consisted of the book of graph paper I always kept with me, plus a pencil, a ruler, and a protractor. I was a bit obsessed with physics simulation at the time. My favorite game in church growing up, where I was often daydreaming and looking at the huge arched ceiling, was to imagine a laser coming out of my line of sight and bouncing off of every surface in the room, to see where it would end up. This graph paper game I played was similar.</p>
+<div style="text-align: center; margin-bottom: 1rem;">
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<img  alt="balls everywhere"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/this-website-ball-machine-1.png"   style="height: auto; max-width: 720px; width: 100%"   >
+
+
+    
+        <span style="display: block; font-style: italic; margin-top: 0.5rem;">Some of my early playtests got pretty chaotic</span>
+    
+</div>
+
+<p>I would start by making a &ldquo;spawn point&rdquo; usually near the top left of the page, where balls would start falling. I would draw out the path of these balls a few inches from each other along their path with &ldquo;speed lines&rdquo; to denote which way they were going, and how fast. Then I would add platforms, trampolines, loops, curves, &ldquo;booster&rdquo; acceleration zones, jumps, machines that would disassemble and reassemble balls, and so many other things - usually something new each sheet of paper - and I would end up with a Rube Goldberg machine of balls flying all around the sheet. The only goal was to fill the sheet with more ridiculous paths.</p>
+<p>I started calling the sheets my &ldquo;ball machines&rdquo;. I wish I still had some of these drawings. I remember them being quite intricate.. I must have reserved English class for them.</p>
+<p>So, to honor kid Brian, I am making my website a permanent ball machine. I hope you have fun with it and see all there is to unlock!</p>
+<div style="text-align: center; margin-bottom: 1rem;">
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<img  alt="balls everywhere"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/waves2.gif"   style="height: auto; max-width: 300px; width: 100%"   >
+
+
+    
+        <span style="display: block; font-style: italic; margin-top: 0.5rem;">Even on the limited phone version, you can create some productive chaos</span>
+    
+</div>
+
+<h2 id="how-its-made">How it&rsquo;s made</h2>
+<p>I don&rsquo;t typically make complicated things like this with JavaScript. So when I found the perfect physics engine for the game - <a href="https://brm.io/matter-js/">matter.js</a> - I knew I would need help from our new little assistants. And though this game is a bit too structured to call it &ldquo;vibe coded&rdquo; - at times, it was close.</p>
+<p>I ended up making my own tool called <a href="/context-caddy">Context Caddy</a> to help me with it. Part of the reason I leaned so hard into this is because I&rsquo;m always trying to push the limits of current AI, and I hadn&rsquo;t built a game since the GPT-4 days (I&rsquo;ll post about that soon). The new thinking models are truly a step above GPT-4 (this was mostly done with o3 and its minis) but they&rsquo;re still way too eager to write duplicate code, and they still don&rsquo;t &ldquo;get&rdquo; the structure of your project a lot of the time, especially with visual and physical things like this. Still, they were a great help here.</p>
+<p>This game is made extra complicated by the fact that it runs on top of <a href="https://gohugo.io/">Hugo</a>, which is the static site generator behind the &ldquo;content&rdquo; part of this site. This probably doubled or tripled the effort of making this game. But, the balls in the &ldquo;ball machines&rdquo; of my youth would interact with my text notes and drawings, so this ball machine needed to do so as well.</p>
+<p>There is quite a bit going on under the hood to make these two very distinct types of development projects work in tandem, and for both of them to work well. The Ball Machine would love to eat up all of the resources and make the site content unresponsive, and the content was quite a lot to dynamically build physical bodies and colliders around. I like the end result. But I like it a lot better on desktop, where the two can really interact, so I think you should play it on a real computer with a mouse.</p>
+<h2 id="how-to-play">How to Play</h2>
+<span
+  style="
+    float: left;
+    width: 150px;
+    margin: 0 1rem 1rem 0;
+    display: inline-block;
+  "
+>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<img  alt="ball chute"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/ball-chute-hatch-1.png"   style="height: auto; max-width: 200px; width: 100%"   >
+
+ 
+  <span style="display: block; font-style: italic; margin-top: 0.5rem">
+    This tube creates balls every time you click it
+  </span>
+  
+</span>
+
+<p>The ball machine on this site is a gamified version of my graph paper drawings as a kid. Each time you load a page, you&rsquo;ll see a little pneumatic delivery tube on the top right of the screen.</p>
+<p>When you spawn your first ball, you&rsquo;ll see a few things appear. First - you&rsquo;ll find a goal     <span
+  style="
+    display: inline-block;
+    width: 40px;
+    margin: 0 1rem 0 0;
+    vertical-align: middle;
+    text-align: left;
+  "
+>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<img  alt="the goal"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/goal.png"   style="height: auto; max-width: 40px; width: 100%"   >
+
+ 
+</span>
+ somewhere randomly on the page. Find a way to get the balls you spawn into that goal. But there is a bit of a trick - balls start out being worth 1 coin and accumulate another coin in value every two seconds. So, the longer you can keep balls around, the more they will be worth when going into the goals, and this might get more and more challenging as your drawings take up more of the screen and balls start bouncing off of each other.</p>
+<p><strong>Keep Clicking!</strong></p>
+<p>It&rsquo;s <a href="https://en.wikipedia.org/wiki/Incremental_game">a clicker game</a> - start by manually clicking the pneumatic delivery tube to spawn balls, but as you accumulate coins you&rsquo;ll be able to unlock different drawables and things that will let you accumulate more coins faster. If it feels like it&rsquo;s taking a while to make coins and unlock things, try playing around more with how the balls interact with the content, and use all of the tools you can draw. The site also works across multiple pages. And if all else fails&hellip; just give it time. This is a clicker game after all, so waiting is always a strategy! There is plenty to read while you wait.</p>
+<p>It works best when you&rsquo;re on desktop, working on one tab at a time.</p>
+<p> </p>
+<blockquote>
+<p>Quick Disclaimer: This game is designed for big screens, ideally desktop computers. If you must play on a phone, try landscape mode!</p>
+</blockquote>
+<h3 id="controls">Controls</h3>
+<p><span
+  style="
+    display: inline-block;
+    width: 100px;
+    margin: 0 1rem 0 0;
+    vertical-align: middle;
+    text-align: left;
+  "
+>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<img  alt="line toggle"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/line-mode.png"   style="height: auto; max-width: 200px; width: 100%"   >
+
+ 
+</span>
+
+<span
+  style="
+    display: inline-block;
+    width: 100px;
+    margin: 0 1rem 0 0;
+    vertical-align: middle;
+    text-align: left;
+  "
+>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<img  alt="curved line toggle"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/curve-mode.png"   style="height: auto; max-width: 200px; width: 100%"   >
+
+ 
+</span>
+
+<span
+  style="
+    display: inline-block;
+    width: 100px;
+    margin: 0 1rem 0 0;
+    vertical-align: middle;
+    text-align: left;
+  "
+>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<img  alt="compactor toggle"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/compactor-mode.png"   style="height: auto; max-width: 200px; width: 100%"   >
+
+ 
+</span>
+</p>
+<p>To start drawing your ball machine, you need to <kbd>Left Click</kbd> or <kbd>Tap</kbd> one of these drawable toggles in the main UI (top left of the screen)</p>
+<p>When you have a drawable tool toggled on, you won&rsquo;t be able to click other links on the site. You&rsquo;ll see this visually indicated when you choose them. Unselect the currently selected tool in order to see it</p>
+<p>Every drawable item (lines, launchers, and more) uses the following mechanics:</p>
+<p> </p>
+<h4 id="drawing-on-desktop">Drawing on Desktop</h4>
+<p><strong>Spawn Balls:</strong> <kbd>Left Click</kbd> on the pneumatic spawner tube</p>
+<p><strong>Draw Objects:</strong> <kbd>Left Click</kbd> and drag to see a preview, then <kbd>Left Click </kbd> to place</p>
+<ul>
+<li>Some drawables have a second action, like curved lines, that is previewed after the second click and confirmed with a third click</li>
+</ul>
+<p><strong>Cancel Drawing</strong> After you&rsquo;ve started a line or other drawing but before you&rsquo;ve clicked again to confirm, <kbd>Right Click</kbd> to cancel it.</p>
+<p><strong>Delete Objects:</strong> Hover over a drawn item and <kbd>Right Click</kbd> to delete it, getting 50% of your money back</p>
+<p> </p>
+<h4 id="drawing-on-mobile">Drawing on Mobile</h4>
+<p><span
+  style="
+    color: #ff0040;
+    font-family: 'Arial Black', Arial, sans-serif;
+    font-size: 20px;
+  "
+>
+   Mobile Scroll Lock Warning:
+</span>
+ On Mobile, scrolling the page is blocked while you&rsquo;re drawing to allow you to draw lines in any direction.</p>
+<p>You will need to untoggle your selected tool before you can scroll or click links.</p>
+<p>If your phone has gesture controls to reload, go back or forward, or other browser things, you should disable them if you really want to play on your phone. Or, just play on desktop!</p>
+<p><strong>Spawn Balls:</strong> <kbd>Tap</kbd> on the pneumatic spawner tube</p>
+<p><strong>Draw Objects:</strong> <kbd>Touch and Drag</kbd> to see a preview, then <kbd>Release</kbd> to place</p>
+<ul>
+<li>Some drawables have a second action, like curved lines, that is previewed and confirmed on the next touch-and-drag.</li>
+</ul>
+<p><strong>Cancel Drawing</strong> After you&rsquo;ve started a line or other drawing but before you&rsquo;ve released to confirm, go back to where you started and release around there to cancel it. The threshold to cancel is within 25 pixels of where you started.</p>
+<p><strong>Delete Objects:</strong> <kbd>Tap and hold</kbd> an object to delete it, getting 50% of your money back. You will see it pulse before it deletes.</p>
+<p> </p>
+<h4 id="the-auto-clicker">The Auto-Clicker</h4>
+<span
+  style="
+    display: inline-block;
+    width: 100px;
+    margin: 0 1rem 0 0;
+    vertical-align: middle;
+    text-align: left;
+  "
+>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<img  alt="auto clicker"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/auto-clicker.png"   style="height: auto; max-width: 200px; width: 100%"   >
+
+ 
+</span>
+
+<p>This is the autoclicker button that lets you pay to auto-spawn balls.</p>
+<p><kbd>Left Click</kbd> or <kbd>Tap</kbd> to buy the first auto-clicker, or upgrade it.</p>
+<p><kbd>Right Click</kbd> on desktop or <kbd>Tap and hold</kbd> on mobile to refund and downgrade it to the previous click frequency.</p>
+<p> </p>
+<h3 id="money--other-hints">Money &amp; Other Hints</h3>
+<p>You&rsquo;ll quickly find ways to lengthen your Rube-Goldberg Machines and build up value before you send balls into the goal. Your money is displayed on the coin counter next to the ball spawner.</p>
+<p> </p>
+<p><span
+  style="
+    display: inline-block;
+    width: 100px;
+    margin: 0 1rem 0 0;
+    vertical-align: middle;
+    text-align: left;
+  "
+>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<img  alt="dotted line toggle"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/everything-has-a-price.png"   style="height: auto; max-width: 200px; width: 100%"   >
+
+ 
+</span>
+<strong>Everything has a price!</strong></p>
+<p>If you can&rsquo;t draw an item, you probably can&rsquo;t afford it. You&rsquo;ll see your coin counter flash red in the UI when this happens.</p>
+<p><span
+  style="
+    display: inline-block;
+    width: 100px;
+    margin: 0 1rem 0 0;
+    vertical-align: middle;
+    text-align: left;
+  "
+>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<img  alt="dotted line toggle"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/dotted-line-mode.png"   style="height: auto; max-width: 200px; width: 100%"   >
+
+ 
+</span>
+<strong>You get what you pay for&hellip;</strong></p>
+<p>If you ever find yourself out of money, these dotted lines are free. They are not saved permanently like other lines and they go away after 50 balls hit them.</p>
+<p> </p>
+<p>❌ A couple of things to watch out for when building ball machines:</p>
+<ul>
+<li>Balls have to be moving at all times. If they sit still for too long, they are considered dead and will poof out of existence.</li>
+<li>This applies to balls hitting the goal, too. If your balls aren&rsquo;t moving much when they hit the target, they won&rsquo;t go in.
+So keep your balls moving!</li>
+</ul>
+<p>😵 If you have a good run going, but it descends into chaos, it can be hard to recover. That&rsquo;s what the <kbd>Erase Balls</kbd> button above the draw tools is for!</p>
+<p> </p>
+<p>Each post on this site will be a slightly different randomized game! Try making ball machines on multiple pages at once. Your work will be saved in realtime, and you can make money even on pages you&rsquo;re not currently playing on.</p>
+<p><span
+  style="
+    display: inline-block;
+    width: 100px;
+    margin: 0 1rem 0 0;
+    vertical-align: middle;
+    text-align: left;
+  "
+>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<img  alt="dotted line toggle"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/page-revenue.png"   style="height: auto; max-width: 200px; width: 100%"   >
+
+ 
+</span>
+ These counters display how much <strong>sustainable</strong> coin revenue per second you&rsquo;re making on this page, and how much other pages you&rsquo;re not currently working on are contributing. Any balls that are spawned automatically and continuously travel through your contraption to hit the goal will be averaged into the top amount. When you visit other pages, you will keep making this money - that&rsquo;s what the &ldquo;Other Pages&rdquo; revenue displays.</p>
+<p>Your progress is saved to your device because your contraptions will be highly dependent on the screen size the site renders to.</p>
+<p>The game works a bit differently on desktop and mobile, and the best experience is really on desktop - so try on a computer if you can! If on mobile, flip to landscape.</p>
+<h3 id="the-end-of-the-game">The End of the Game</h3>
+<p>Right now, the Ball Machine doesn&rsquo;t end, but you will be surprised the amount of money you can make across the whole site! Eventually, there will be other ways to spend coins on this site and potentially &ldquo;beat&rdquo; the ball machine. The late game items change the game in very interesting ways! I hope you make some fun machines on my website.</p>
+<p>You&rsquo;ll know you&rsquo;ve done about all there is to do by tracking the achievements below!</p>
+<h4 id="achievements">Achievements</h4>
+<div id="achievements-list"></div>
+<script>
+document.addEventListener('DOMContentLoaded', function(){
+  var container = document.getElementById('achievements-list');
+  if(!container){ console.error('Achievements container missing'); return; }
+  try {
+    var defs = (window.App && App.Achievements && App.Achievements.defs) || [];
+    var unlocked = JSON.parse(localStorage.getItem('game.achievementsUnlocked') || '{}');
+    var yes = 'https:\/\/hockenworks.com\/images\/achievement-yes.png';
+    var no = 'https:\/\/hockenworks.com\/images\/achievement-no.png';
+    if(!defs.length){
+      console.warn('No achievements definitions found');
+    }
+    defs.forEach(function(a){
+      var row = document.createElement('div');
+      var img = document.createElement('img');
+      var got = unlocked[a.id];
+      img.src = got ? yes : no;
+      img.alt = got ? 'Unlocked' : 'Locked';
+      img.style.width = '16px';
+      img.style.height = '16px';
+      img.style.marginRight = '4px';
+      row.appendChild(img);
+      var b = document.createElement('b');
+      b.textContent = a.name;
+      row.appendChild(b);
+      if(got){
+        row.appendChild(document.createTextNode(' – ' + a.desc));
+      }
+      container.appendChild(row);
+    });
+    if (location.hash && location.hash.includes('achievements')) {
+      var anchor = document.getElementById('achievements');
+      if (anchor) {
+        setTimeout(function(){ anchor.scrollIntoView(); }, 50);
+      }
+    }
+  } catch(e){
+    console.error('Failed to render achievements', e);
+    container.textContent = 'Error loading achievements.';
+  }
+});
+</script>
+
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h3 id="resetting-the-game">Resetting the Game</h3>
+<span
+  style="
+    color: #ff0040;
+    font-family: 'Arial Black', Arial, sans-serif;
+    font-size: 20px;
+  "
+>
+   WARNING! Don't navigate to the below page unless you're sure you want to reset the ball machine game
+</span>
+
+<p>Resetting will erase all of your drawings on all pages and reset your goal locations, unlocks, coins and everything else.</p>
+<p>If you are thinking about doing this because you want to try on another device, you don&rsquo;t need to, because progress is already saved to your device. The only reason to do this is to have a fresh start on this device.</p>
+<p>Navigate <a href="/reset-ball-machine">here</a> and click reset to do that.</p>
+]]></description>
+                
+
+                <guid isPermaLink="false">tag:hockenworks.com,2025-05-28:/this-website/</guid>
+
+                
+                    <link>https://hockenworks.com/this-website/</link>
+                
+
+                
+                    <pubDate>Wed, 28 May 2025 00:00:00 UTC</pubDate>
+                
+
+                
+                    <title>This Website</title>
+                
+            </item>
+        
+    </channel>
+</rss>
