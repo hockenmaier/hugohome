@@ -600,6 +600,123 @@ table {
 
 <div class="post-header" style="margin-bottom:1rem;">
   <h2 class="post-title" style="margin:0;">
+    <a class="link-light" href="http://localhost:1313/balloon-fight/">8 Player Balloon Fight</a>
+  </h2>
+
+  <p class="permalink" style="margin:0 0 1rem;">
+    <a href="https://hockenworks.com/balloon-fight/">https://hockenworks.com/balloon-fight/</a>
+  </p>
+
+  <div class="copy-buttons" style="margin-bottom:1rem;">
+    <button id="copy-all-btn"      style="margin-right:.5rem; padding:.5rem 1rem; cursor:pointer;">Copy All</button>
+    <button id="copy-linkback-btn" style="padding:.5rem 1rem; cursor:pointer;">Copy LinkBack</button>
+  </div>
+</div>
+
+<article id="copy-content" class="latest-item mb-4" style="display:flex; align-items:flex-start;">
+  <div class="media-column">
+    <div class="media-container" style="width:300px; height:300px;">
+
+      
+        <a href="http://localhost:1313/balloon-fight/"><img src="http://localhost:1313/images/power-grid.png" alt="8 Player Balloon Fight"></a>
+
+      
+
+    </div>
+  </div>
+
+  <div class="text-column" style="align-self:flex-start; margin-top:0;">
+    <div class="post-summary" style="margin-top:0; margin-bottom:.5rem;">
+      <p>Today&rsquo;s post is about another video game start that either I or AI will finish one day. I&rsquo;m building up a bit of a repertoire of those!</p>
+<p>This one I started when AI image generation started to become decent. It&rsquo;s a game that I&rsquo;ve always wanted to exist, but wasn&rsquo;t feasible for me to create with my current skillsets. I could never pull it off without a lot of commissioning due to the art requirements.</p>
+<p>The idea is not as original as some of my games but it&rsquo;s very fun when played in a large group. Essentially, I combine the gameplay of the NES classic balloon fight with eight-player multiplayer. If you&rsquo;ve played my game <a href="http://localhost:1313/land-war/">Land War</a>, you might know that I&rsquo;ve been a bit obsessed with eight player multiplayer, or really any game that allows for more than four players to join in.</p>
+    </div>
+
+    <p class="read-more text-secondary fst-italic" style="margin:0;">
+      8 minutes ·
+      <a href="http://localhost:1313/balloon-fight/">This post is a hockenworks build. Play and read more at hockenworks →</a>
+    </p>
+
+    
+    <div id="linkback-content" class="linkback-image" style="margin-top:1rem;">
+      <a href="http://localhost:1313/balloon-fight/">
+        <img src="http://localhost:1313/images/hockenworks-linkback.png" alt="Link back to post" style="max-width:100%; height:auto;">
+      </a>
+    </div>
+  </div>
+</article>
+
+
+<script>
+(() => {
+   
+  function copyRich(selector) {
+    const source = document.querySelector(selector);
+    if (!source) { console.error('copyRich: selector not found ->', selector); return; }
+
+     
+    const tmp = source.cloneNode(true);
+    tmp.style.position = 'absolute';
+    tmp.style.left = '-99999px';
+    document.body.appendChild(tmp);
+
+    const range = document.createRange();
+    range.selectNodeContents(tmp);
+    const sel = window.getSelection();
+    sel.removeAllRanges();
+    sel.addRange(range);
+
+     
+    let success = false;
+    try {
+      success = document.execCommand('copy');
+      console.log('execCommand copy:', success);
+    } catch (err) {
+      console.warn('execCommand failed:', err);
+    }
+
+     
+    if (!success && navigator.clipboard && window.ClipboardItem) {
+      const blob = new Blob([tmp.innerHTML], { type: 'text/html' });
+      navigator.clipboard.write([new ClipboardItem({ 'text/html': blob })])
+        .then(() => console.log('navigator.clipboard.write success'))
+        .catch(e => console.error('navigator.clipboard.write failed:', e));
+    }
+
+     
+    sel.removeAllRanges();
+    document.body.removeChild(tmp);
+  }
+
+  document.getElementById('copy-all-btn')
+          .addEventListener('click', () => copyRich('#copy-content'));
+
+  document.getElementById('copy-linkback-btn')
+          .addEventListener('click', () => copyRich('#linkback-content'));
+})();
+</script>
+  
+
+
+
+
+
+
+
+
+
+  
+  
+  
+
+
+
+
+
+
+
+<div class="post-header" style="margin-bottom:1rem;">
+  <h2 class="post-title" style="margin:0;">
     <a class="link-light" href="http://localhost:1313/the-treadmill/">The Treadmill</a>
   </h2>
 

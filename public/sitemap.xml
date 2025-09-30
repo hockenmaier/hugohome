@@ -2,19 +2,58 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>http://localhost:1313/balloon-fight/</loc>
+    <lastmod>2025-09-13T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>http://localhost:1313/tags/ai/</loc>
-    <lastmod>2025-09-12T00:00:00+00:00</lastmod>
+    <lastmod>2025-09-13T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/ai-audio/</loc>
+    <lastmod>2025-09-13T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/ai-images/</loc>
+    <lastmod>2025-09-13T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/categories/builds/</loc>
+    <lastmod>2025-09-13T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/c%23/</loc>
+    <lastmod>2025-09-13T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/categories/</loc>
-    <lastmod>2025-09-12T00:00:00+00:00</lastmod>
+    <lastmod>2025-09-13T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/game-development/</loc>
+    <lastmod>2025-09-13T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/indie-games/</loc>
+    <lastmod>2025-09-13T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/local-multiplayer/</loc>
+    <lastmod>2025-09-13T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/multiplayer/</loc>
+    <lastmod>2025-09-13T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/procedural-generation/</loc>
+    <lastmod>2025-09-13T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/strategy/</loc>
+    <lastmod>2025-09-13T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/</loc>
+    <lastmod>2025-09-13T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/unity/</loc>
+    <lastmod>2025-09-13T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/video-games/</loc>
+    <lastmod>2025-09-13T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/tags/happiness/</loc>
     <lastmod>2025-09-12T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/tags/singularity/</loc>
-    <lastmod>2025-09-12T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/tags/</loc>
     <lastmod>2025-09-12T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/the-treadmill/</loc>
@@ -29,9 +68,6 @@
     <loc>http://localhost:1313/categories/writing/</loc>
     <lastmod>2025-09-12T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/categories/builds/</loc>
-    <lastmod>2025-08-24T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>http://localhost:1313/tags/css/</loc>
     <lastmod>2025-08-24T00:00:00+00:00</lastmod>
   </url><url>
@@ -42,6 +78,9 @@
     <lastmod>2025-08-24T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/tags/javascript/</loc>
+    <lastmod>2025-08-24T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/mobile/</loc>
     <lastmod>2025-08-24T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/tags/predictions/</loc>
@@ -56,34 +95,7 @@
     <loc>http://localhost:1313/gpt5/</loc>
     <lastmod>2025-08-24T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/c%23/</loc>
-    <lastmod>2025-08-01T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/tags/game-development/</loc>
-    <lastmod>2025-08-01T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/tags/indie-games/</loc>
-    <lastmod>2025-08-01T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/tags/local-multiplayer/</loc>
-    <lastmod>2025-08-01T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/tags/multiplayer/</loc>
-    <lastmod>2025-08-01T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>http://localhost:1313/on-ai-software-development-2/</loc>
-    <lastmod>2025-08-01T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/tags/procedural-generation/</loc>
-    <lastmod>2025-08-01T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/tags/strategy/</loc>
-    <lastmod>2025-08-01T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/tags/unity/</loc>
-    <lastmod>2025-08-01T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/tags/video-games/</loc>
     <lastmod>2025-08-01T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/tags/invention/</loc>
