@@ -39,7 +39,7 @@ Links:
 
 I created this panel display in 2016 to control much of the home automation I used in my Studio City apartment. Mainly a hardware project, I designed and 3D-printed a case and frame for the touchscreen and raspberry pi microcomputer in order to mount them to the wall. The software running the control panel is SaaS, but I did write a custom html wrapper to control the orientation and settings of the site, which is available on the github linked above.
 
-Update in 2025: This panel is still my main view into my home automation in my new house in Sherman Oaks, almost 10 years in with no modification!
+Update in 2025: This panel is still my main view into my home automation in my new house in Sherman Oaks, almost 10 years in with no modification to the software or Pi itself! However, the LED behind the screen died this year and I had to replace it (link below)
 
 Here's a video to see the panel in action:
 
@@ -98,6 +98,9 @@ If you want to mount the screen vertically like mine, then I have made an easier
 ```
 
 Link to buy the screen:
+Modern:
+https://www.amazon.com/dp/B07P8P3X6M
+Original:
 https://smile.amazon.com/gp/product/B01ID5BQTC/
 
 Link to the Action Tiles web application this is running:
