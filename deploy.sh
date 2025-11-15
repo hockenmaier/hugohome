@@ -5,6 +5,6 @@ set -e
 hugo
 cd public
 git add --all
-git commit -m "deploying latest"
-git push origin gh-pages
+git commit -m "deploying latest" || true   # ignore "nothing to commit"
+git push origin gh-pages --force
 cd ..
