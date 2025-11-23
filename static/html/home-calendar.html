@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kitchen Calendar Dashboard</title>
+  <style>
+    :root {
+      --bg: #050505;
+      --primary: #f3f4f6;
+      --muted: #a7b1c2;
+      --accent-1: #8bd3dd;
+      --accent-2: #f7aef8;
+      --accent-3: #c3f584;
+      --accent-4: #ffc971;
+      --accent-5: #ff6b6b;
+      --accent-6: #7c83fd;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Inter", "Segoe UI", system-ui, -apple-system, sans-serif;
+      background: radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.06), transparent 40%),
+                  radial-gradient(circle at 80% 10%, rgba(255, 255, 255, 0.04), transparent 35%),
+                  var(--bg);
+      color: var(--primary);
+      height: 100vh;
+      overflow: hidden;
+    }
+    .screen {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 16px;
+      height: 100vh;
+      padding: 20px 24px;
+    }
+    .left-panel {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 18px 24px;
+      border-radius: 16px;
+      background: linear-gradient(145deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.01));
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4), inset 0 0 0 1px rgba(255, 255, 255, 0.06);
+      min-width: 320px;
+    }
+    .time {
+      font-size: clamp(42px, 6vw, 64px);
+      font-weight: 700;
+      letter-spacing: 1px;
+      display: inline-flex;
+      align-items: baseline;
+      gap: 12px;
+      filter: drop-shadow(0 6px 10px rgba(0,0,0,0.35));
+    }
+    .time .flicker {
+      display: inline-block;
+      transition: transform 250ms ease, filter 250ms ease, opacity 250ms ease;
+      opacity: 0.95;
+    }
+    .time .flicker.swap {
+      transform: rotateX(18deg) translateY(-2px);
+      filter: blur(0.6px) brightness(1.15);
+      opacity: 1;
+    }
+    .date {
+      font-size: clamp(22px, 2.5vw, 28px);
+      color: var(--muted);
+      margin-top: 6px;
+      letter-spacing: 0.5px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .date .marker {
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background: linear-gradient(145deg, var(--accent-3), var(--accent-1));
+      box-shadow: 0 0 12px rgba(139, 211, 221, 0.8);
+      animation: pulse 2.8s ease-in-out infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { transform: scale(0.96); opacity: 0.7; }
+      50% { transform: scale(1.08); opacity: 1; }
+    }
+    .upcoming {
+      margin-top: 24px;
+    }
+    .upcoming h3 {
+      margin: 0 0 8px 0;
+      color: var(--accent-1);
+      letter-spacing: 1px;
+      font-weight: 600;
+      text-transform: uppercase;
+      font-size: 12px;
+    }
+    .event-line {
+      margin: 8px 0;
+      font-size: 18px;
+      color: var(--primary);
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+    }
+    .event-line .icon {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      font-size: 16px;
+      background: rgba(255,255,255,0.05);
+      box-shadow: inset 0 0 0 1px rgba(255,255,255,0.05);
+    }
+    .panel-footer {
+      font-size: 13px;
+      color: var(--muted);
+      letter-spacing: 0.6px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-top: 18px;
+      flex-wrap: wrap;
+    }
+    .panel-footer span {
+      padding: 6px 10px;
+      border-radius: 12px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.05);
+    }
+    .calendar-wrap {
+      position: relative;
+      width: min(54vw, 84vh);
+      height: min(54vw, 84vh);
+      aspect-ratio: 1 / 1;
+      border-radius: 18px;
+      padding: 16px;
+      background: linear-gradient(145deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0.01));
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.45), inset 0 0 0 1px rgba(255, 255, 255, 0.06);
+      display: flex;
+      flex-direction: column;
+    }
+    .calendar-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      padding: 8px 6px 16px;
+    }
+    .calendar-header h2 {
+      margin: 0;
+      letter-spacing: 0.8px;
+      font-weight: 700;
+      font-size: clamp(20px, 2vw, 26px);
+    }
+    .calendar-header .sub {
+      color: var(--muted);
+      font-size: 14px;
+    }
+    .calendar-grid {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      grid-template-rows: repeat(8, 1fr);
+      gap: 6px;
+      flex: 1;
+    }
+    .day-name {
+      text-align: center;
+      color: var(--muted);
+      font-size: 13px;
+      letter-spacing: 0.6px;
+    }
+    .day-cell {
+      border-radius: 12px;
+      padding: 8px 10px;
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      transition: transform 180ms ease, border-color 200ms ease;
+    }
+    .day-cell:hover { transform: translateY(-2px); border-color: rgba(255,255,255,0.12); }
+    .day-cell .date-number {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-weight: 600;
+      color: var(--primary);
+    }
+    .day-cell .date-number span { font-size: 16px; }
+    .day-cell .month-tag {
+      font-size: 11px;
+      color: var(--muted);
+      letter-spacing: 0.4px;
+    }
+    .event-chip {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 6px;
+      border-radius: 8px;
+      font-size: 11px;
+      color: #0c0c0c;
+      font-weight: 700;
+      background: var(--accent-1);
+      mix-blend-mode: screen;
+      box-shadow: 0 6px 14px rgba(0,0,0,0.35);
+    }
+    .event-chip .eicon { font-size: 13px; }
+    .today {
+      border: 1px solid var(--accent-1);
+      box-shadow: 0 0 0 1px rgba(139, 211, 221, 0.4), 0 6px 16px rgba(0,0,0,0.3);
+    }
+    .month-boundary-left { border-left: 3px solid rgba(255,255,255,0.35); }
+    .month-boundary-top { border-top: 3px solid rgba(255,255,255,0.35); }
+    .month-boundary-left.today { border-left-color: var(--accent-1); }
+    .month-boundary-top.today { border-top-color: var(--accent-1); }
+    @media (max-width: 1080px) {
+      .screen { grid-template-columns: 1fr; grid-template-rows: auto auto; }
+      .calendar-wrap { width: 100%; height: auto; aspect-ratio: 1/1; }
+    }
+  </style>
+</head>
+<body>
+  <div class="screen">
+    <section class="left-panel">
+      <div>
+        <div class="time" id="clock"></div>
+        <div class="date" id="date"><span class="marker"></span><span></span></div>
+        <div class="upcoming">
+          <h3>Next 4 weeks</h3>
+          <div id="upcoming-list"></div>
+        </div>
+      </div>
+      <div class="panel-footer">
+        <span>Data refreshes every hour</span>
+        <span>All times local</span>
+        <span>Sources: Nager, SpaceX, curated astronomy</span>
+      </div>
+    </section>
+    <section class="calendar-wrap">
+      <div class="calendar-header">
+        <h2>Kitchen Planner</h2>
+        <div class="sub" id="range"></div>
+      </div>
+      <div class="calendar-grid" id="calendar"></div>
+    </section>
+  </div>
+<script>
+  const calendarWeeks = 8; // current week + next 7 weeks
+  const EVENT_COLORS = {
+    holiday: 'var(--accent-4)',
+    season: 'var(--accent-3)',
+    timechange: 'var(--accent-6)',
+    astronomy: 'var(--accent-2)',
+    launch: 'var(--accent-5)',
+    other: 'var(--accent-1)'
+  };
+  const EVENT_ICONS = {
+    holiday: '🎉',
+    season: '🍃',
+    timechange: '🕰️',
+    astronomy: '✨',
+    meteor: '☄️',
+    eclipse: '🌘',
+    launch: '🚀',
+    solstice: '🌞',
+    equinox: '🌗',
+    default: '📌'
+  };
+
+  const $clock = document.getElementById('clock');
+  const $date = document.getElementById('date').querySelector('span:last-child');
+  const $calendar = document.getElementById('calendar');
+  const $range = document.getElementById('range');
+  const $upcoming = document.getElementById('upcoming-list');
+
+  let eventsCache = [];
+
+  function startOfWeek(date) {
+    const d = new Date(date);
+    const day = d.getDay();
+    d.setDate(d.getDate() - day);
+    d.setHours(0,0,0,0);
+    return d;
+  }
+
+  function formatTime(date) {
+    return date.toLocaleTimeString(undefined, { hour: 'numeric', minute: '2-digit' });
+  }
+
+  function formatDateDisplay(date) {
+    return date.toLocaleDateString(undefined, { month: 'short', day: 'numeric' });
+  }
+
+  function ordinal(n) {
+    const s = ['th', 'st', 'nd', 'rd'];
+    const v = n % 100;
+    return n + (s[(v - 20) % 10] || s[v] || s[0]);
+  }
+
+  function animateClock() {
+    const now = new Date();
+    const timeString = now.toLocaleTimeString(undefined, { hour: 'numeric', minute: '2-digit' });
+    const dateString = now.toLocaleDateString(undefined, { month: 'short', day: 'numeric' });
+    $clock.innerHTML = '';
+    timeString.split('').forEach((ch, idx) => {
+      const span = document.createElement('span');
+      span.textContent = ch;
+      span.className = 'flicker';
+      if (Math.random() > 0.6 || idx % 2 === 0) {
+        span.classList.add('swap');
+      }
+      $clock.appendChild(span);
+    });
+    $date.textContent = dateString.replace(/(\d+)/, (_, n) => ordinal(parseInt(n, 10)));
+  }
+
+  function monthBoundaryClasses(currentDate, previousDate) {
+    const classes = [];
+    if (!previousDate || currentDate.getMonth() !== previousDate.getMonth()) {
+      classes.push('month-boundary-left');
+      classes.push('month-boundary-top');
+    }
+    return classes.join(' ');
+  }
+
+  function renderCalendar() {
+    const today = new Date();
+    const start = startOfWeek(today);
+    const totalDays = calendarWeeks * 7;
+    const days = [];
+    for (let i = 0; i < totalDays; i++) {
+      const d = new Date(start);
+      d.setDate(d.getDate() + i);
+      days.push(d);
+    }
+    const end = new Date(days[days.length - 1]);
+    $range.textContent = `${start.toLocaleDateString(undefined, { month: 'short', day: 'numeric' })} – ${end.toLocaleDateString(undefined, { month: 'short', day: 'numeric' })}`;
+
+    $calendar.innerHTML = '';
+
+    ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'].forEach(name => {
+      const el = document.createElement('div');
+      el.className = 'day-name';
+      el.textContent = name;
+      $calendar.appendChild(el);
+    });
+
+    for (let i = 0; i < days.length; i++) {
+      const date = days[i];
+      const prevDate = i === 0 ? null : days[i-1];
+      const events = eventsCache.filter(e => sameDay(e.date, date));
+      const cell = document.createElement('div');
+      cell.className = 'day-cell';
+      const boundary = monthBoundaryClasses(date, prevDate);
+      if (boundary) cell.classList.add(...boundary.split(' '));
+      if (sameDay(date, today)) cell.classList.add('today');
+
+      const header = document.createElement('div');
+      header.className = 'date-number';
+      const num = document.createElement('span');
+      num.textContent = date.getDate();
+      const monthTag = document.createElement('span');
+      monthTag.className = 'month-tag';
+      monthTag.textContent = date.toLocaleDateString(undefined, { month: 'short' });
+      header.appendChild(num);
+      header.appendChild(monthTag);
+      cell.appendChild(header);
+
+      events.slice(0,3).forEach(ev => {
+        const chip = document.createElement('div');
+        chip.className = 'event-chip';
+        chip.style.background = EVENT_COLORS[ev.kind] || EVENT_COLORS.other;
+        const icon = document.createElement('span');
+        icon.className = 'eicon';
+        icon.textContent = ev.icon || EVENT_ICONS.default;
+        const label = document.createElement('span');
+        label.textContent = ev.time ? `${ev.title} · ${ev.time}` : ev.title;
+        chip.append(icon, label);
+        cell.appendChild(chip);
+      });
+
+      if (events.length > 3) {
+        const more = document.createElement('div');
+        more.className = 'month-tag';
+        more.textContent = `+${events.length - 3} more`;
+        cell.appendChild(more);
+      }
+
+      $calendar.appendChild(cell);
+    }
+  }
+
+  function sameDay(a, b) {
+    return a.getFullYear() === b.getFullYear() && a.getMonth() === b.getMonth() && a.getDate() === b.getDate();
+  }
+
+  function daysFromNow(target) {
+    const now = new Date();
+    const start = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+    const dest = new Date(target.getFullYear(), target.getMonth(), target.getDate());
+    const diff = dest - start;
+    return Math.round(diff / 86400000);
+  }
+
+  function describeDay(target) {
+    const diff = daysFromNow(target);
+    if (diff === 0) return 'today';
+    if (diff === 1) return 'tomorrow';
+    if (diff < 7) return `this ${target.toLocaleDateString(undefined, { weekday: 'long' })}`;
+    if (diff < 14) return `next ${target.toLocaleDateString(undefined, { weekday: 'long' })}`;
+    return `${target.toLocaleDateString(undefined, { month: 'long', day: 'numeric' })}`;
+  }
+
+  function renderUpcoming() {
+    const now = new Date();
+    const fourWeeks = new Date(now);
+    fourWeeks.setDate(fourWeeks.getDate() + 28);
+    const list = eventsCache
+      .filter(e => e.date >= now && e.date <= fourWeeks)
+      .sort((a, b) => a.date - b.date)
+      .slice(0, 6);
+
+    $upcoming.innerHTML = '';
+    if (list.length === 0) {
+      const empty = document.createElement('div');
+      empty.textContent = 'All quiet for now.';
+      empty.className = 'event-line';
+      $upcoming.appendChild(empty);
+      return;
+    }
+
+    list.forEach(ev => {
+      const line = document.createElement('div');
+      line.className = 'event-line';
+      const icon = document.createElement('div');
+      icon.className = 'icon';
+      icon.textContent = ev.icon || EVENT_ICONS.default;
+      const text = document.createElement('div');
+      const when = describeDay(ev.date);
+      const datePart = ev.date.toLocaleDateString(undefined, { month: 'long', day: 'numeric' });
+      const timePart = ev.time ? ` at ${ev.time}` : '';
+      const dayDescriptor = /today|tomorrow|this|next/.test(when) ? `${when}, ${datePart}` : datePart;
+      text.textContent = `${ev.title} coming up ${dayDescriptor}${timePart}`;
+      line.append(icon, text);
+      $upcoming.appendChild(line);
+    });
+  }
+
+  async function fetchHolidays(year) {
+    try {
+      const res = await fetch(`https://date.nager.at/api/v3/PublicHolidays/${year}/US`);
+      if (!res.ok) throw new Error('holiday fetch failed');
+      const data = await res.json();
+      return data.map(item => ({
+        date: new Date(item.date + 'T12:00:00'),
+        title: item.localName,
+        kind: 'holiday',
+        icon: EVENT_ICONS[item.localName.includes('Easter') ? 'default' : 'holiday'] || '🎉'
+      }));
+    } catch (err) {
+      console.warn('Holiday fetch error', err);
+      return [];
+    }
+  }
+
+  function calculateTimeChanges(year) {
+    const march = new Date(year, 2, 1);
+    const november = new Date(year, 10, 1);
+    const dstStart = nthWeekdayOfMonth(year, 2, 0, 2); // 2nd Sunday March
+    const dstEnd = nthWeekdayOfMonth(year, 10, 0, 1); // 1st Sunday Nov
+    return [
+      { date: dstStart, title: 'Clocks jump forward', kind: 'timechange', icon: EVENT_ICONS.timechange, time: '2:00 AM' },
+      { date: dstEnd, title: 'Clocks fall back', kind: 'timechange', icon: EVENT_ICONS.timechange, time: '2:00 AM' }
+    ];
+  }
+
+  function nthWeekdayOfMonth(year, monthIndex, weekday, nth) {
+    const d = new Date(year, monthIndex, 1);
+    let count = 0;
+    while (d.getMonth() === monthIndex) {
+      if (d.getDay() === weekday) {
+        count++;
+        if (count === nth) break;
+      }
+      d.setDate(d.getDate() + 1);
+    }
+    d.setHours(12,0,0,0);
+    return d;
+  }
+
+  function seasonEvents(year) {
+    return [
+      { date: new Date(year, 2, 20, 10, 0), title: 'Spring Equinox', kind: 'season', icon: EVENT_ICONS.equinox, time: '10:00 AM' },
+      { date: new Date(year, 5, 20, 16, 0), title: 'Summer Solstice', kind: 'season', icon: EVENT_ICONS.solstice, time: '4:00 PM' },
+      { date: new Date(year, 8, 22, 7, 0), title: 'Autumn Equinox', kind: 'season', icon: EVENT_ICONS.equinox, time: '7:00 AM' },
+      { date: new Date(year, 11, 21, 15, 0), title: 'Winter Solstice', kind: 'season', icon: EVENT_ICONS.solstice, time: '3:00 PM' }
+    ];
+  }
+
+  function meteorShowerEvents(year) {
+    const template = [
+      { month: 0, day: 3, title: 'Quadrantids peak', time: '2:00 AM' },
+      { month: 3, day: 22, title: 'Lyrids peak', time: '1:00 AM' },
+      { month: 4, day: 5, title: 'Eta Aquariids peak', time: '2:00 AM' },
+      { month: 6, day: 30, title: 'Delta Aquariids peak', time: '3:00 AM' },
+      { month: 7, day: 12, title: 'Perseids peak', time: '1:00 AM' },
+      { month: 9, day: 21, title: 'Orionids peak', time: '2:00 AM' },
+      { month: 10, day: 17, title: 'Leonids peak', time: '3:00 AM' },
+      { month: 11, day: 13, title: 'Geminids peak', time: '2:00 AM' },
+      { month: 11, day: 21, title: 'Ursids peak', time: '1:00 AM' }
+    ];
+    return template.map(item => ({
+      date: new Date(year, item.month, item.day, 2, 0),
+      title: item.title,
+      kind: 'astronomy',
+      icon: EVENT_ICONS.meteor,
+      time: item.time
+    }));
+  }
+
+  function eclipseEvents(year) {
+    const known = {
+      2024: [
+        { month: 3, day: 8, title: 'Total Solar Eclipse', time: '2:11 PM' },
+        { month: 9, day: 18, title: 'Partial Lunar Eclipse', time: '6:15 PM' }
+      ],
+      2025: [
+        { month: 2, day: 29, title: 'Partial Solar Eclipse', time: '9:45 AM' },
+        { month: 9, day: 7, title: 'Total Lunar Eclipse', time: '11:12 PM' }
+      ],
+      2026: [
+        { month: 7, day: 12, title: 'Total Solar Eclipse', time: '12:30 PM' }
+      ]
+    };
+    const set = known[year] || [];
+    return set.map(ev => ({
+      date: new Date(year, ev.month, ev.day, 12, 0),
+      title: ev.title,
+      kind: 'astronomy',
+      icon: EVENT_ICONS.eclipse,
+      time: ev.time
+    }));
+  }
+
+  async function fetchSpaceXLaunches() {
+    try {
+      const query = {
+        query: { upcoming: true, launchpad: '5e9e4502f5090995de566f86' },
+        options: { sort: { date_utc: 'asc' }, limit: 20, populate: ['launchpad', 'payloads'] }
+      };
+      const res = await fetch('https://api.spacexdata.com/v5/launches/query', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(query)
+      });
+      if (!res.ok) throw new Error('SpaceX fetch failed');
+      const data = await res.json();
+      return data.docs.map(doc => ({
+        date: new Date(doc.date_local || doc.date_utc),
+        title: doc.name || 'SpaceX launch',
+        kind: 'launch',
+        icon: EVENT_ICONS.launch,
+        time: formatTime(new Date(doc.date_local || doc.date_utc))
+      }));
+    } catch (err) {
+      console.warn('SpaceX fetch error', err);
+      return [];
+    }
+  }
+
+  function otherNiceThings(year) {
+    return [
+      { date: new Date(year, 1, 14, 19, 0), title: 'Valentine stargazing', kind: 'astronomy', icon: '💘', time: '7:00 PM' },
+      { date: new Date(year, 5, 1, 9, 0), title: 'First day of hurricane season', kind: 'other', icon: '🌀', time: '9:00 AM' }
+    ];
+  }
+
+  async function refreshEvents() {
+    const now = new Date();
+    const years = [now.getFullYear(), now.getFullYear() + 1];
+
+    const holidayPromises = years.map(y => fetchHolidays(y));
+    const spacerPromise = fetchSpaceXLaunches();
+
+    const holidayResults = await Promise.all(holidayPromises);
+    const launches = await spacerPromise;
+
+    const computed = years.flatMap(y => [
+      ...calculateTimeChanges(y),
+      ...seasonEvents(y),
+      ...meteorShowerEvents(y),
+      ...eclipseEvents(y),
+      ...otherNiceThings(y)
+    ]);
+
+    eventsCache = [
+      ...holidayResults.flat(),
+      ...computed,
+      ...launches
+    ].map(ev => ({
+      ...ev,
+      date: new Date(ev.date),
+      icon: ev.icon || EVENT_ICONS.default,
+      kind: ev.kind || 'other'
+    }));
+
+    renderCalendar();
+    renderUpcoming();
+  }
+
+  function tick() {
+    animateClock();
+  }
+
+  animateClock();
+  refreshEvents();
+  setInterval(tick, 1000);
+  setInterval(refreshEvents, 60 * 60 * 1000);
+</script>
+</body>
+</html>
