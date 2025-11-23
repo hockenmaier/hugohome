@@ -29,44 +29,52 @@
     }
     .screen {
       display: grid;
-      grid-template-columns: 1fr auto;
-      gap: 16px;
+      grid-template-columns: minmax(360px, 1fr) auto;
+      gap: 8px;
       height: 100vh;
-      padding: 20px 24px;
+      padding: 14px 16px;
     }
     .left-panel {
       display: flex;
       flex-direction: column;
-      justify-content: space-between;
-      padding: 18px 24px;
+      gap: 16px;
+      padding: 12px 14px 16px;
       border-radius: 16px;
       background: linear-gradient(145deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.01));
       box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4), inset 0 0 0 1px rgba(255, 255, 255, 0.06);
       min-width: 320px;
     }
     .time {
-      font-size: clamp(42px, 6vw, 64px);
+      font-size: clamp(78px, 11vw, 136px);
       font-weight: 700;
-      letter-spacing: 1px;
+      letter-spacing: 2px;
       display: inline-flex;
       align-items: baseline;
       gap: 12px;
+      width: 100%;
+      white-space: nowrap;
       filter: drop-shadow(0 6px 10px rgba(0,0,0,0.35));
+      font-variant-numeric: tabular-nums;
+      line-height: 1;
     }
-    .time .flicker {
-      display: inline-block;
-      transition: transform 250ms ease, filter 250ms ease, opacity 250ms ease;
-      opacity: 0.95;
+    .time .hm { min-width: 7ch; display: inline-block; }
+    .time .seconds {
+      font-size: 0.5em;
+      color: var(--muted);
+      letter-spacing: 1px;
+      padding: 0 4px;
+      transform: translateY(-6px);
     }
-    .time .flicker.swap {
-      transform: rotateX(18deg) translateY(-2px);
-      filter: blur(0.6px) brightness(1.15);
-      opacity: 1;
+    .time .period {
+      font-size: 0.6em;
+      color: var(--primary);
+      letter-spacing: 2px;
+      transform: translateY(-6px);
     }
     .date {
-      font-size: clamp(22px, 2.5vw, 28px);
+      font-size: clamp(32px, 4vw, 52px);
       color: var(--muted);
-      margin-top: 6px;
+      margin-top: 2px;
       letter-spacing: 0.5px;
       display: flex;
       align-items: center;
@@ -85,7 +93,7 @@
       50% { transform: scale(1.08); opacity: 1; }
     }
     .upcoming {
-      margin-top: 24px;
+      margin-top: 12px;
     }
     .upcoming h3 {
       margin: 0 0 8px 0;
@@ -120,7 +128,7 @@
       display: flex;
       align-items: center;
       gap: 10px;
-      margin-top: 18px;
+      margin-top: 12px;
       flex-wrap: wrap;
     }
     .panel-footer span {
@@ -131,44 +139,41 @@
     }
     .calendar-wrap {
       position: relative;
-      width: min(54vw, 84vh);
-      height: min(54vw, 84vh);
+      --cal-size: min(68vw, 92vh);
+      width: var(--cal-size);
+      height: var(--cal-size);
       aspect-ratio: 1 / 1;
       border-radius: 18px;
-      padding: 16px;
+      padding: 12px 14px 14px;
       background: linear-gradient(145deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0.01));
       box-shadow: 0 10px 40px rgba(0, 0, 0, 0.45), inset 0 0 0 1px rgba(255, 255, 255, 0.06);
       display: flex;
       flex-direction: column;
-    }
-    .calendar-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: baseline;
-      padding: 8px 6px 16px;
-    }
-    .calendar-header h2 {
-      margin: 0;
-      letter-spacing: 0.8px;
-      font-weight: 700;
-      font-size: clamp(20px, 2vw, 26px);
-    }
-    .calendar-header .sub {
-      color: var(--muted);
-      font-size: 14px;
+      min-height: 0;
     }
     .calendar-grid {
       display: grid;
       grid-template-columns: repeat(7, 1fr);
-      grid-template-rows: repeat(8, 1fr);
+      grid-auto-rows: calc((100% - (8 - 1) * 6px) / 8);
       gap: 6px;
       flex: 1;
+      overflow-y: auto;
+      padding-top: 2px;
+      scrollbar-width: thin;
+      align-content: start;
+      height: 100%;
+      min-height: 0;
     }
     .day-name {
       text-align: center;
       color: var(--muted);
       font-size: 13px;
       letter-spacing: 0.6px;
+      position: sticky;
+      top: 0;
+      background: var(--bg);
+      padding: 4px 0;
+      z-index: 2;
     }
     .day-cell {
       border-radius: 12px;
@@ -214,6 +219,15 @@
       border: 1px solid var(--accent-1);
       box-shadow: 0 0 0 1px rgba(139, 211, 221, 0.4), 0 6px 16px rgba(0,0,0,0.3);
     }
+    .today .today-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: linear-gradient(145deg, var(--accent-3), var(--accent-1));
+      box-shadow: 0 0 12px rgba(139, 211, 221, 0.8);
+      margin-right: 6px;
+      display: inline-block;
+    }
     .month-boundary-left { border-left: 3px solid rgba(255,255,255,0.35); }
     .month-boundary-top { border-top: 3px solid rgba(255,255,255,0.35); }
     .month-boundary-left.today { border-left-color: var(--accent-1); }
@@ -242,15 +256,11 @@
       </div>
     </section>
     <section class="calendar-wrap">
-      <div class="calendar-header">
-        <h2>Kitchen Planner</h2>
-        <div class="sub" id="range"></div>
-      </div>
       <div class="calendar-grid" id="calendar"></div>
     </section>
   </div>
 <script>
-  const calendarWeeks = 8; // current week + next 7 weeks
+  const calendarWeeks = 104; // scrollable ~2 years of weeks
   const EVENT_COLORS = {
     holiday: 'var(--accent-4)',
     season: 'var(--accent-3)',
@@ -275,7 +285,6 @@
   const $clock = document.getElementById('clock');
   const $date = document.getElementById('date').querySelector('span:last-child');
   const $calendar = document.getElementById('calendar');
-  const $range = document.getElementById('range');
   const $upcoming = document.getElementById('upcoming-list');
 
   let eventsCache = [];
@@ -292,37 +301,45 @@
     return date.toLocaleTimeString(undefined, { hour: 'numeric', minute: '2-digit' });
   }
 
-  function formatDateDisplay(date) {
-    return date.toLocaleDateString(undefined, { month: 'short', day: 'numeric' });
-  }
-
   function ordinal(n) {
     const s = ['th', 'st', 'nd', 'rd'];
     const v = n % 100;
     return n + (s[(v - 20) % 10] || s[v] || s[0]);
   }
 
-  function animateClock() {
+  function renderClock() {
     const now = new Date();
-    const timeString = now.toLocaleTimeString(undefined, { hour: 'numeric', minute: '2-digit' });
-    const dateString = now.toLocaleDateString(undefined, { month: 'short', day: 'numeric' });
+    const hoursRaw = now.getHours();
+    const hours = hoursRaw % 12 === 0 ? 12 : hoursRaw % 12;
+    const minutes = now.getMinutes().toString().padStart(2, '0');
+    const seconds = now.getSeconds().toString().padStart(2, '0');
+    const period = hoursRaw >= 12 ? 'PM' : 'AM';
+
     $clock.innerHTML = '';
-    timeString.split('').forEach((ch, idx) => {
-      const span = document.createElement('span');
-      span.textContent = ch;
-      span.className = 'flicker';
-      if (Math.random() > 0.6 || idx % 2 === 0) {
-        span.classList.add('swap');
-      }
-      $clock.appendChild(span);
-    });
+    const hm = document.createElement('span');
+    hm.className = 'hm';
+    hm.textContent = `${hours}:${minutes}`;
+    const sec = document.createElement('span');
+    sec.className = 'seconds';
+    sec.textContent = seconds;
+    const per = document.createElement('span');
+    per.className = 'period';
+    per.textContent = period;
+    $clock.append(hm, sec, per);
+
+    const dateString = now.toLocaleDateString(undefined, { month: 'short', day: 'numeric' });
     $date.textContent = dateString.replace(/(\d+)/, (_, n) => ordinal(parseInt(n, 10)));
   }
 
-  function monthBoundaryClasses(currentDate, previousDate) {
+  function monthBoundaryClasses(currentDate, index, days) {
     const classes = [];
+    const previousDate = index === 0 ? null : days[index - 1];
+    const previousWeekDate = index < 7 ? null : days[index - 7];
+
     if (!previousDate || currentDate.getMonth() !== previousDate.getMonth()) {
       classes.push('month-boundary-left');
+    }
+    if (!previousWeekDate || currentDate.getMonth() !== previousWeekDate.getMonth()) {
       classes.push('month-boundary-top');
     }
     return classes.join(' ');
@@ -338,8 +355,6 @@
       d.setDate(d.getDate() + i);
       days.push(d);
     }
-    const end = new Date(days[days.length - 1]);
-    $range.textContent = `${start.toLocaleDateString(undefined, { month: 'short', day: 'numeric' })} – ${end.toLocaleDateString(undefined, { month: 'short', day: 'numeric' })}`;
 
     $calendar.innerHTML = '';
 
@@ -352,16 +367,20 @@
 
     for (let i = 0; i < days.length; i++) {
       const date = days[i];
-      const prevDate = i === 0 ? null : days[i-1];
       const events = eventsCache.filter(e => sameDay(e.date, date));
       const cell = document.createElement('div');
       cell.className = 'day-cell';
-      const boundary = monthBoundaryClasses(date, prevDate);
+      const boundary = monthBoundaryClasses(date, i, days);
       if (boundary) cell.classList.add(...boundary.split(' '));
       if (sameDay(date, today)) cell.classList.add('today');
 
       const header = document.createElement('div');
       header.className = 'date-number';
+      if (sameDay(date, today)) {
+        const marker = document.createElement('span');
+        marker.className = 'today-dot';
+        header.appendChild(marker);
+      }
       const num = document.createElement('span');
       num.textContent = date.getDate();
       const monthTag = document.createElement('span');
@@ -469,8 +488,6 @@
   }
 
   function calculateTimeChanges(year) {
-    const march = new Date(year, 2, 1);
-    const november = new Date(year, 10, 1);
     const dstStart = nthWeekdayOfMonth(year, 2, 0, 2); // 2nd Sunday March
     const dstEnd = nthWeekdayOfMonth(year, 10, 0, 1); // 1st Sunday Nov
     return [
@@ -580,9 +597,17 @@
     ];
   }
 
+  function birthdayEvents(year) {
+    return [
+      { date: new Date(year, 9, 24, 12, 0), title: "Kaitlin's Birthday", kind: 'other', icon: '🎂' },
+      { date: new Date(year, 3, 28, 12, 0), title: "Brian's Birthday", kind: 'other', icon: '🎂' },
+      { date: new Date(year, 2, 18, 12, 0), title: "Alice's Birthday", kind: 'other', icon: '🎂' }
+    ];
+  }
+
   async function refreshEvents() {
     const now = new Date();
-    const years = [now.getFullYear(), now.getFullYear() + 1];
+    const years = [now.getFullYear(), now.getFullYear() + 1, now.getFullYear() + 2];
 
     const holidayPromises = years.map(y => fetchHolidays(y));
     const spacerPromise = fetchSpaceXLaunches();
@@ -595,6 +620,7 @@
       ...seasonEvents(y),
       ...meteorShowerEvents(y),
       ...eclipseEvents(y),
+      ...birthdayEvents(y),
       ...otherNiceThings(y)
     ]);
 
@@ -614,10 +640,10 @@
   }
 
   function tick() {
-    animateClock();
+    renderClock();
   }
 
-  animateClock();
+  renderClock();
   refreshEvents();
   setInterval(tick, 1000);
   setInterval(refreshEvents, 60 * 60 * 1000);
