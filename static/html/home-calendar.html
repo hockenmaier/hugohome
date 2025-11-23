@@ -28,64 +28,68 @@
       overflow: hidden;
     }
     .screen {
-      --cal-size: min(calc(100vh - 32px), calc(100vw - 380px));
+      --cal-size: calc(100vh - 24px);
       display: grid;
-      grid-template-columns: 1fr var(--cal-size);
+      grid-template-columns: minmax(320px, 42vw) var(--cal-size);
       gap: 10px;
       height: 100vh;
       padding: 12px 12px 14px;
       align-items: stretch;
+      justify-content: space-between;
     }
     .left-panel {
       display: flex;
       flex-direction: column;
       gap: 18px;
-      padding: 8px 8px 16px;
+      padding: 8px 0 16px;
       border-radius: 16px;
       background: linear-gradient(145deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.01));
       box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4), inset 0 0 0 1px rgba(255, 255, 255, 0.06);
       min-width: 320px;
     }
     .time {
-      font-size: clamp(120px, 20vw, 190px);
+      font-size: clamp(170px, 11vw + 6vh, 260px);
       font-weight: 700;
-      letter-spacing: 1px;
+      letter-spacing: 0.5px;
       display: inline-flex;
       align-items: baseline;
       justify-content: center;
-      gap: 6px;
-      width: 100%;
+      gap: 4px;
+      width: calc(100% - 14px);
       padding: 0 7px;
+      margin-inline: auto;
       white-space: nowrap;
-      filter: drop-shadow(0 6px 10px rgba(0,0,0,0.35));
+      filter: drop-shadow(0 8px 14px rgba(0,0,0,0.38));
       font-variant-numeric: tabular-nums;
       line-height: 1;
+      text-align: center;
     }
     .time .hm { display: inline-block; font-variant-numeric: tabular-nums; }
     .time .seconds {
-      font-size: 0.48em;
+      font-size: 0.44em;
       color: var(--muted);
-      letter-spacing: 0.5px;
+      letter-spacing: 0.3px;
       padding: 0 2px;
-      transform: translateY(-4px);
+      transform: translateY(-6px);
     }
     .time .period {
-      font-size: 0.54em;
+      font-size: 0.5em;
       color: var(--primary);
-      letter-spacing: 1px;
-      transform: translateY(-4px);
+      letter-spacing: 0.8px;
+      transform: translateY(-6px);
     }
     .date {
-      font-size: clamp(48px, 8vw, 86px);
+      font-size: clamp(76px, 7vw + 2vh, 128px);
       color: var(--muted);
-      margin-top: 4px;
-      letter-spacing: 0.5px;
+      margin-top: 6px;
+      letter-spacing: 0.6px;
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 10px;
-      width: 75%;
+      gap: 12px;
+      width: 80%;
       margin-inline: auto;
+      text-align: center;
     }
     .date .marker {
       width: 15px;
@@ -106,23 +110,23 @@
       letter-spacing: 1px;
       font-weight: 600;
       text-transform: uppercase;
-      font-size: 14px;
+      font-size: 16px;
     }
     .event-line {
-      margin: 8px 0;
-      font-size: 20px;
+      margin: 10px 0;
+      font-size: 22px;
       color: var(--primary);
       display: flex;
-      gap: 10px;
+      gap: 12px;
       align-items: flex-start;
     }
     .event-line .icon {
-      width: 28px;
-      height: 28px;
+      width: 32px;
+      height: 32px;
       border-radius: 50%;
       display: grid;
       place-items: center;
-      font-size: 16px;
+      font-size: 18px;
       background: rgba(255,255,255,0.05);
       box-shadow: inset 0 0 0 1px rgba(255,255,255,0.05);
     }
@@ -148,7 +152,7 @@
       height: 100%;
       aspect-ratio: 1 / 1;
       border-radius: 18px;
-      padding: 10px 12px 12px;
+      padding: 8px 10px 10px;
       background: linear-gradient(145deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0.01));
       box-shadow: 0 10px 40px rgba(0, 0, 0, 0.45);
       display: flex;
@@ -156,17 +160,24 @@
       min-height: 0;
     }
     .calendar-grid {
+      --row-gap: 6px;
+      --header-h: 24px;
+      --cell-h: calc((100% - var(--header-h) - (7 * var(--row-gap))) / 7);
       display: grid;
       grid-template-columns: repeat(7, 1fr);
-      grid-template-rows: auto repeat(7, minmax(0, 1fr));
-      gap: 6px;
+      grid-template-rows: var(--header-h) repeat(7, var(--cell-h));
+      grid-auto-rows: var(--cell-h);
+      gap: var(--row-gap);
       flex: 1;
       overflow-y: auto;
-      scrollbar-width: thin;
-      align-content: stretch;
+      scrollbar-width: none;
+      align-content: start;
       height: 100%;
       min-height: 0;
+      overscroll-behavior: contain;
+      touch-action: none;
     }
+    .calendar-grid::-webkit-scrollbar { display: none; }
     .day-name {
       text-align: center;
       color: var(--muted);
@@ -175,7 +186,7 @@
       position: sticky;
       top: 0;
       background: var(--bg);
-      padding: 2px 0;
+      padding: 2px 0 4px;
       z-index: 2;
     }
     .day-cell {
@@ -291,6 +302,66 @@
   const $upcoming = document.getElementById('upcoming-list');
 
   let eventsCache = [];
+
+  function enableDragScroll(el) {
+    let isPointerDown = false;
+    let startY = 0;
+    let startScroll = 0;
+    let velocity = 0;
+    let lastY = 0;
+    let lastTime = 0;
+    let momentumFrame;
+
+    const stopMomentum = () => {
+      if (momentumFrame) cancelAnimationFrame(momentumFrame);
+      momentumFrame = null;
+    };
+
+    const launchMomentum = () => {
+      const decay = 0.95;
+      const step = () => {
+        velocity *= decay;
+        if (Math.abs(velocity) < 0.01) return;
+        el.scrollTop -= velocity * 16;
+        momentumFrame = requestAnimationFrame(step);
+      };
+      momentumFrame = requestAnimationFrame(step);
+    };
+
+    el.addEventListener('pointerdown', (e) => {
+      isPointerDown = true;
+      startY = e.clientY;
+      startScroll = el.scrollTop;
+      lastY = e.clientY;
+      lastTime = performance.now();
+      velocity = 0;
+      stopMomentum();
+      el.setPointerCapture(e.pointerId);
+    });
+
+    el.addEventListener('pointermove', (e) => {
+      if (!isPointerDown) return;
+      const now = performance.now();
+      const deltaY = e.clientY - startY;
+      el.scrollTop = startScroll - deltaY;
+      const dy = e.clientY - lastY;
+      const dt = now - lastTime || 1;
+      velocity = dy / dt;
+      lastY = e.clientY;
+      lastTime = now;
+    });
+
+    ['pointerup', 'pointercancel', 'pointerleave'].forEach(type => {
+      el.addEventListener(type, (e) => {
+        if (!isPointerDown) return;
+        if (e.pointerId !== undefined && el.hasPointerCapture(e.pointerId)) {
+          el.releasePointerCapture(e.pointerId);
+        }
+        isPointerDown = false;
+        launchMomentum();
+      });
+    });
+  }
 
   function startOfWeek(date) {
     const d = new Date(date);
@@ -647,6 +718,7 @@
   }
 
   renderClock();
+  enableDragScroll($calendar);
   refreshEvents();
   setInterval(tick, 1000);
   setInterval(refreshEvents, 60 * 60 * 1000);
