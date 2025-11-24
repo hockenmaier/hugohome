@@ -31,17 +31,17 @@
       --padding-x: 12px;
       --padding-y: 12px;
       --gap: 6px;
-      --left-width: clamp(320px, 38vw, 520px);
+      --left-min: 340px;
+      --left-ideal: 42vw;
+      --left-max: 680px;
       --calendar-max: calc(100vh - (var(--padding-y) * 2));
-      --available-width: calc(100vw - var(--left-width) - var(--gap) - (var(--padding-x) * 2));
-      --calendar-size: min(var(--calendar-max), var(--available-width));
-      display: grid;
-      grid-template-columns: var(--left-width) 1fr;
+      --calendar-width-limit: calc(100vw - var(--left-min) - var(--gap) - (var(--padding-x) * 2));
+      --calendar-size: min(var(--calendar-max), var(--calendar-width-limit));
+      display: flex;
       gap: var(--gap);
       height: 100vh;
       padding: var(--padding-y) var(--padding-x);
       align-items: stretch;
-      justify-content: space-between;
     }
     .left-panel {
       display: flex;
@@ -51,50 +51,49 @@
       border-radius: 16px;
       background: linear-gradient(145deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.01));
       box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4), inset 0 0 0 1px rgba(255, 255, 255, 0.06);
-      min-width: 320px;
+      min-width: var(--left-min);
+      flex: 1 1 clamp(var(--left-min), var(--left-ideal), var(--left-max));
+      max-width: clamp(var(--left-min), var(--left-ideal), var(--left-max));
     }
     .time {
-      font-size: clamp(170px, 11vw + 6vh, 260px);
+      font-size: clamp(78px, 11vw, 136px);
       font-weight: 700;
-      letter-spacing: 0.5px;
+      letter-spacing: 2px;
       display: inline-flex;
       align-items: baseline;
       justify-content: center;
-      gap: 4px;
-      width: calc(100% - 14px);
-      padding: 0 7px;
-      margin-inline: auto;
+      gap: 12px;
+      width: 100%;
       white-space: nowrap;
-      filter: drop-shadow(0 8px 14px rgba(0,0,0,0.38));
+      filter: drop-shadow(0 6px 10px rgba(0,0,0,0.35));
       font-variant-numeric: tabular-nums;
       line-height: 1;
       text-align: center;
     }
-    .time .hm { display: inline-block; font-variant-numeric: tabular-nums; }
+    .time .hm { min-width: 7ch; display: inline-block; }
     .time .seconds {
-      font-size: 0.44em;
+      font-size: 0.5em;
       color: var(--muted);
-      letter-spacing: 0.3px;
-      padding: 0 2px;
+      letter-spacing: 1px;
+      padding: 0 4px;
       transform: translateY(-6px);
     }
     .time .period {
-      font-size: 0.5em;
+      font-size: 0.6em;
       color: var(--primary);
-      letter-spacing: 0.8px;
+      letter-spacing: 2px;
       transform: translateY(-6px);
     }
     .date {
-      font-size: clamp(76px, 7vw + 2vh, 128px);
+      font-size: clamp(32px, 4vw, 52px);
       color: var(--muted);
-      margin-top: 6px;
-      letter-spacing: 0.6px;
+      margin-top: 2px;
+      letter-spacing: 0.5px;
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 12px;
-      width: 80%;
-      margin-inline: auto;
+      gap: 8px;
+      width: 100%;
       text-align: center;
     }
     .date .marker {
@@ -156,7 +155,7 @@
       position: relative;
       width: var(--calendar-size);
       height: var(--calendar-size);
-      justify-self: end;
+      margin-left: auto;
       border-radius: 18px;
       padding: 8px 10px 10px;
       background: linear-gradient(145deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0.01));
@@ -164,6 +163,7 @@
       display: flex;
       flex-direction: column;
       min-height: 0;
+      flex: 0 0 var(--calendar-size);
     }
     .calendar-grid {
       --row-gap: 6px;
@@ -252,19 +252,6 @@
     .month-boundary-top { border-top: 3px solid rgba(255,255,255,0.35); }
     .month-boundary-left.today { border-left-color: var(--accent-1); }
     .month-boundary-top.today { border-top-color: var(--accent-1); }
-    @media (max-width: 1080px) {
-      .screen {
-        grid-template-columns: 1fr;
-        grid-template-rows: auto auto;
-        --available-width: calc(100vw - (var(--padding-x) * 2));
-        --calendar-size: min(var(--calendar-max), var(--available-width));
-      }
-      .calendar-wrap {
-        justify-self: center;
-        width: var(--calendar-size);
-        height: var(--calendar-size);
-      }
-    }
   </style>
 </head>
 <body>
