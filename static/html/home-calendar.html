@@ -68,9 +68,9 @@
         );
         box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4),
           inset 0 0 0 1px rgba(255, 255, 255, 0.06);
-        min-width: var(--left-min);
-        flex: 1 1 clamp(var(--left-min), var(--left-ideal), var(--left-max));
-        max-width: clamp(var(--left-min), var(--left-ideal), var(--left-max));
+        min-width: 0;
+        flex: 1 1 auto;
+        max-width: none;
       }
       .time {
         font-size: clamp(78px, 9vw, 136px);
@@ -359,6 +359,38 @@
       const $upcoming = document.getElementById("upcoming-list");
 
       let eventsCache = [];
+
+      // Polyfills for older Chromium on the Pi
+      if (!Array.prototype.flat) {
+        Object.defineProperty(Array.prototype, "flat", {
+          value: function (depth = 1) {
+            const result = [];
+            const flatten = (arr, d) => {
+              for (const item of arr) {
+                if (Array.isArray(item) && d > 0) {
+                  flatten(item, d - 1);
+                } else {
+                  result.push(item);
+                }
+              }
+            };
+            flatten(this, depth);
+            return result;
+          },
+          writable: true,
+          configurable: true,
+        });
+      }
+
+      if (!Array.prototype.flatMap) {
+        Object.defineProperty(Array.prototype, "flatMap", {
+          value: function (callback, thisArg) {
+            return this.map(callback, thisArg).flat();
+          },
+          writable: true,
+          configurable: true,
+        });
+      }
 
       function enableDragScroll(el) {
         let isPointerDown = false;
