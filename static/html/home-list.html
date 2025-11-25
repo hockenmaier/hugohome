@@ -521,6 +521,13 @@
         return "";
       }
 
+      function parseLocalDate(dateString) {
+        if (!dateString) return null;
+        const parts = dateString.split("-").map(Number);
+        if (parts.length !== 3) return null;
+        return new Date(parts[0], parts[1] - 1, parts[2]);
+      }
+
       async function refreshWeather() {
         try {
           const res = await fetch(WEATHER_URL);
@@ -528,9 +535,23 @@
           const data = await res.json();
           const current = data.current_weather || {};
           const daily = data.daily || {};
-          const highToday = daily.temperature_2m_max ? daily.temperature_2m_max[0] : null;
-          const lowToday = daily.temperature_2m_min ? daily.temperature_2m_min[0] : null;
-          const todayCode = daily.weathercode ? daily.weathercode[0] : current.weathercode;
+          const todayStart = new Date();
+          todayStart.setHours(0, 0, 0, 0);
+
+          let todayIndex = null;
+          if (daily.time && daily.time.length) {
+            for (let i = 0; i < daily.time.length; i++) {
+              const localDate = parseLocalDate(daily.time[i]);
+              if (localDate && localDate >= todayStart) {
+                todayIndex = i;
+                break;
+              }
+            }
+          }
+
+          const highToday = todayIndex !== null && daily.temperature_2m_max ? daily.temperature_2m_max[todayIndex] : null;
+          const lowToday = todayIndex !== null && daily.temperature_2m_min ? daily.temperature_2m_min[todayIndex] : null;
+          const todayCode = todayIndex !== null && daily.weathercode ? daily.weathercode[todayIndex] : current.weathercode;
           const nowStatus = WEATHER_CODES[todayCode] || "weather";
           const currentTextParts = [];
           if (current.temperature !== undefined) currentTextParts.push(`${Math.round(current.temperature)}°F now`);
@@ -541,11 +562,9 @@
 
           const outlook = [];
           if (daily.time && daily.temperature_2m_max && daily.temperature_2m_min && daily.weathercode) {
-            const todayStart = new Date();
-            todayStart.setHours(0, 0, 0, 0);
             for (let i = 0; i < daily.time.length; i++) {
-              const date = new Date(daily.time[i]);
-              if (date < todayStart) continue;
+              const date = parseLocalDate(daily.time[i]);
+              if (!date || date < todayStart) continue;
               const label = date.toLocaleDateString(undefined, { weekday: "short" });
               const high = Math.round(daily.temperature_2m_max[i]);
               const low = Math.round(daily.temperature_2m_min[i]);
