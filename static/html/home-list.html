@@ -195,7 +195,7 @@
         $time.innerHTML = `${hours}:${minutes}<span class="seconds">${seconds}</span><span class="period">${period}</span>`;
 
         const dateString = now.toLocaleDateString(undefined, {
-          weekday: "long",
+          weekday: "short",
           month: "short",
           day: "numeric",
           year: "numeric",
@@ -223,9 +223,9 @@
         if (diff === 0) return "today";
         if (diff === 1) return "tomorrow";
         if (diff < 7)
-          return `this ${target.toLocaleDateString(undefined, { weekday: "long" })}`;
+          return `this ${target.toLocaleDateString(undefined, { weekday: "short" })}`;
         if (diff < 14)
-          return `next ${target.toLocaleDateString(undefined, { weekday: "long" })}`;
+          return `next ${target.toLocaleDateString(undefined, { weekday: "short" })}`;
         return `${target.toLocaleDateString(undefined, { month: "short", day: "numeric" })}`;
       }
 
@@ -569,7 +569,7 @@
           if (daily.time && daily.temperature_2m_max && daily.temperature_2m_min && daily.weathercode) {
             for (let i = 0; i < daily.time.length; i++) {
               const date = parseLocalDate(daily.time[i]);
-              if (!date || date < todayStart) continue;
+              if (!date || date <= todayStart) continue;
               const label = date.toLocaleDateString(undefined, { weekday: "short" });
               const high = Math.round(daily.temperature_2m_max[i]);
               const low = Math.round(daily.temperature_2m_min[i]);
