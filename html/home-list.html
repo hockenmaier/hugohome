@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kitchen Calendar List</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 12px;
+        background: #000;
+        color: #fff;
+        font-family: Arial, Helvetica, sans-serif;
+        max-width: 800px;
+        height: 480px;
+      }
+      .top-row {
+        overflow: hidden;
+        padding-bottom: 12px;
+        border-bottom: 1px solid #333;
+      }
+      .date-box {
+        float: left;
+        width: 50%;
+        text-align: left;
+      }
+      .time-box {
+        float: right;
+        width: 50%;
+        text-align: right;
+      }
+      .date-text {
+        font-size: 46px;
+        margin: 0;
+        line-height: 1.1;
+        color: #e0e0e0;
+      }
+      .time-text {
+        margin: 0;
+        line-height: 1;
+        font-size: 92px;
+        font-weight: bold;
+        color: #ffffff;
+      }
+      .time-text .seconds {
+        font-size: 32px;
+        color: #888;
+      }
+      .time-text .period {
+        font-size: 36px;
+        color: #ffffff;
+      }
+      .section-title {
+        margin: 12px 0 6px;
+        font-size: 20px;
+        color: #9fbfa0;
+        letter-spacing: 0.5px;
+      }
+      .content-row {
+        overflow: hidden;
+        padding-top: 10px;
+      }
+      .left-column {
+        float: left;
+        width: 55%;
+      }
+      .right-column {
+        float: right;
+        width: 45%;
+        text-align: right;
+      }
+      .list-item {
+        margin: 6px 0;
+        font-size: 18px;
+        line-height: 1.3;
+        color: #f5f5f5;
+      }
+      .date-part {
+        font-weight: bold;
+      }
+      .status-sunny,
+      .status-clear {
+        color: #f2d36b;
+      }
+      .status-rain,
+      .status-drizzle {
+        color: #8fc7ff;
+      }
+      .status-cloudy,
+      .status-overcast,
+      .status-foggy {
+        color: #b0b0b0;
+      }
+      .status-thunderstorm {
+        color: #c2a2ff;
+      }
+      .note {
+        margin-top: 12px;
+        font-size: 14px;
+        color: #b0b0b0;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="top-row">
+      <div class="date-box">
+        <p class="date-text" id="date-text"></p>
+      </div>
+      <div class="time-box">
+        <p class="time-text" id="time-text"></p>
+      </div>
+    </div>
+
+    <div class="content-row">
+      <div class="left-column">
+        <div id="today-section" style="display: none">
+          <div class="section-title">Today</div>
+          <div id="today-list"></div>
+        </div>
+        <div>
+          <div class="section-title">Next 4 weeks</div>
+          <div id="upcoming-list"></div>
+        </div>
+        <div class="note">
+          Data refreshes every hour. All times local. Sources: Nager, SpaceX, curated astronomy.
+        </div>
+      </div>
+      <div class="right-column">
+        <div class="section-title">Weather</div>
+        <div id="weather-now" class="list-item"></div>
+        <div id="weather-outlook"></div>
+      </div>
+    </div>
+
+    <script>
+      const $time = document.getElementById("time-text");
+      const $date = document.getElementById("date-text");
+      const $upcoming = document.getElementById("upcoming-list");
+      const $todaySection = document.getElementById("today-section");
+      const $todayList = document.getElementById("today-list");
+      const $weatherNow = document.getElementById("weather-now");
+      const $weatherOutlook = document.getElementById("weather-outlook");
+
+      let eventsCache = [];
+
+      if (!Array.prototype.flat) {
+        Object.defineProperty(Array.prototype, "flat", {
+          value: function (depth = 1) {
+            const result = [];
+            const flatten = (arr, d) => {
+              for (const item of arr) {
+                if (Array.isArray(item) && d > 0) {
+                  flatten(item, d - 1);
+                } else {
+                  result.push(item);
+                }
+              }
+            };
+            flatten(this, depth);
+            return result;
+          },
+          writable: true,
+          configurable: true,
+        });
+      }
+
+      if (!Array.prototype.flatMap) {
+        Object.defineProperty(Array.prototype, "flatMap", {
+          value: function (callback, thisArg) {
+            return this.map(callback, thisArg).flat();
+          },
+          writable: true,
+          configurable: true,
+        });
+      }
+
+      function pad(n) {
+        return n.toString().padStart(2, "0");
+      }
+
+      function ordinal(n) {
+        const s = ["th", "st", "nd", "rd"];
+        const v = n % 100;
+        return n + (s[(v - 20) % 10] || s[v] || s[0]);
+      }
+
+      function renderClock() {
+        const now = new Date();
+        const hoursRaw = now.getHours();
+        const hours = hoursRaw % 12 === 0 ? 12 : hoursRaw % 12;
+        const minutes = pad(now.getMinutes());
+        const seconds = pad(now.getSeconds());
+        const period = hoursRaw >= 12 ? "PM" : "AM";
+        $time.innerHTML = `${hours}:${minutes}<span class="seconds">${seconds}</span><span class="period">${period}</span>`;
+
+        const dateString = now.toLocaleDateString(undefined, {
+          weekday: "long",
+          month: "short",
+          day: "numeric",
+          year: "numeric",
+        });
+        $date.textContent = dateString.replace(/(\d+)/, (_, n) => ordinal(parseInt(n, 10)));
+      }
+
+      function formatTime(date) {
+        return date.toLocaleTimeString(undefined, {
+          hour: "numeric",
+          minute: "2-digit",
+        });
+      }
+
+      function daysFromNow(target) {
+        const now = new Date();
+        const start = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+        const t = new Date(target.getFullYear(), target.getMonth(), target.getDate());
+        const diff = t - start;
+        return Math.round(diff / 86400000);
+      }
+
+      function describeDay(target) {
+        const diff = daysFromNow(target);
+        if (diff === 0) return "today";
+        if (diff === 1) return "tomorrow";
+        if (diff < 7)
+          return `this ${target.toLocaleDateString(undefined, { weekday: "long" })}`;
+        if (diff < 14)
+          return `next ${target.toLocaleDateString(undefined, { weekday: "long" })}`;
+        return `${target.toLocaleDateString(undefined, { month: "short", day: "numeric" })}`;
+      }
+
+      function renderList(container, events) {
+        container.innerHTML = "";
+        if (events.length === 0) {
+          const empty = document.createElement("div");
+          empty.className = "list-item";
+          empty.textContent = "All quiet for now.";
+          container.appendChild(empty);
+          return;
+        }
+        events.forEach((ev) => {
+          const line = document.createElement("div");
+          line.className = "list-item";
+          const when = describeDay(ev.date);
+          const datePart = ev.date.toLocaleDateString(undefined, { month: "short", day: "numeric" });
+          const timePart = ev.time ? ` at ${ev.time}` : "";
+          const dayDescriptor = /today|tomorrow|this|next/.test(when) ? `${when}, ${datePart}` : datePart;
+          const titleSpan = document.createElement("span");
+          titleSpan.textContent = `${ev.title} coming up `;
+          const dateSpan = document.createElement("span");
+          dateSpan.className = "date-part";
+          dateSpan.textContent = `${dayDescriptor}${timePart}`;
+          line.appendChild(titleSpan);
+          line.appendChild(dateSpan);
+          container.appendChild(line);
+        });
+      }
+
+      function renderUpcoming() {
+        const now = new Date();
+        const fourWeeks = new Date(now);
+        fourWeeks.setDate(fourWeeks.getDate() + 28);
+        const list = eventsCache
+          .filter((e) => e.date >= now && e.date <= fourWeeks)
+          .sort((a, b) => a.date - b.date)
+          .slice(0, 6);
+        renderList($upcoming, list);
+      }
+
+      function renderToday() {
+        const now = new Date();
+        const todayStart = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+        const tomorrowStart = new Date(todayStart);
+        tomorrowStart.setDate(tomorrowStart.getDate() + 1);
+        const todaysEvents = eventsCache
+          .filter((e) => e.date >= todayStart && e.date < tomorrowStart)
+          .sort((a, b) => a.date - b.date)
+          .map((e) => ({ ...e, time: e.time || formatTime(e.date) }));
+        if (todaysEvents.length > 0) {
+          $todaySection.style.display = "block";
+          renderList($todayList, todaysEvents);
+        } else {
+          $todaySection.style.display = "none";
+          $todayList.innerHTML = "";
+        }
+      }
+
+      async function fetchHolidays(year) {
+        try {
+          const res = await fetch(`https://date.nager.at/api/v3/PublicHolidays/${year}/US`);
+          if (!res.ok) throw new Error("holiday fetch failed");
+          const data = await res.json();
+          return data.map((item) => ({
+            date: new Date(item.date + "T12:00:00"),
+            title: item.localName,
+            kind: "holiday",
+          }));
+        } catch (err) {
+          console.warn("Holiday fetch error", err);
+          return [];
+        }
+      }
+
+      function nthWeekdayOfMonth(year, monthIndex, weekday, nth) {
+        const d = new Date(year, monthIndex, 1);
+        let count = 0;
+        while (d.getMonth() === monthIndex) {
+          if (d.getDay() === weekday) {
+            count++;
+            if (count === nth) break;
+          }
+          d.setDate(d.getDate() + 1);
+        }
+        d.setHours(12, 0, 0, 0);
+        return d;
+      }
+
+      function calculateTimeChanges(year) {
+        const dstStart = nthWeekdayOfMonth(year, 2, 0, 2);
+        const dstEnd = nthWeekdayOfMonth(year, 10, 0, 1);
+        return [
+          {
+            date: dstStart,
+            title: "Clocks jump forward",
+            kind: "timechange",
+            time: "2:00 AM",
+          },
+          {
+            date: dstEnd,
+            title: "Clocks fall back",
+            kind: "timechange",
+            time: "2:00 AM",
+          },
+        ];
+      }
+
+      function seasonEvents(year) {
+        return [
+          { date: new Date(year, 2, 20, 10, 0), title: "Spring Equinox", kind: "season", time: "10:00 AM" },
+          { date: new Date(year, 5, 20, 16, 0), title: "Summer Solstice", kind: "season", time: "4:00 PM" },
+          { date: new Date(year, 8, 22, 7, 0), title: "Autumn Equinox", kind: "season", time: "7:00 AM" },
+          { date: new Date(year, 11, 21, 15, 0), title: "Winter Solstice", kind: "season", time: "3:00 PM" },
+        ];
+      }
+
+      function meteorShowerEvents(year) {
+        const template = [
+          { month: 0, day: 3, title: "Quadrantids peak", time: "2:00 AM" },
+          { month: 3, day: 22, title: "Lyrids peak", time: "1:00 AM" },
+          { month: 4, day: 5, title: "Eta Aquariids peak", time: "2:00 AM" },
+          { month: 6, day: 30, title: "Delta Aquariids peak", time: "3:00 AM" },
+          { month: 7, day: 12, title: "Perseids peak", time: "1:00 AM" },
+          { month: 9, day: 21, title: "Orionids peak", time: "2:00 AM" },
+          { month: 10, day: 17, title: "Leonids peak", time: "3:00 AM" },
+          { month: 11, day: 13, title: "Geminids peak", time: "2:00 AM" },
+          { month: 11, day: 21, title: "Ursids peak", time: "1:00 AM" },
+        ];
+        return template.map((item) => ({
+          date: new Date(year, item.month, item.day, 2, 0),
+          title: item.title,
+          kind: "astronomy",
+          time: item.time,
+        }));
+      }
+
+      function eclipseEvents(year) {
+        const known = {
+          2024: [
+            { month: 3, day: 8, title: "Total Solar Eclipse", time: "2:11 PM" },
+            { month: 9, day: 18, title: "Partial Lunar Eclipse", time: "6:15 PM" },
+          ],
+          2025: [
+            { month: 2, day: 29, title: "Partial Solar Eclipse", time: "9:45 AM" },
+            { month: 9, day: 7, title: "Total Lunar Eclipse", time: "11:12 PM" },
+          ],
+          2026: [{ month: 6, day: 12, title: "Total Solar Eclipse", time: "12:30 PM" }],
+        };
+        const set = known[year] || [];
+        return set.map((ev) => ({
+          date: new Date(year, ev.month, ev.day, 12, 0),
+          title: ev.title,
+          kind: "astronomy",
+          time: ev.time,
+        }));
+      }
+
+      async function fetchSpaceXLaunches() {
+        try {
+          const query = {
+            query: { upcoming: true, launchpad: "5e9e4502f5090995de566f86" },
+            options: { sort: { date_utc: "asc" }, limit: 20, populate: ["launchpad", "payloads"] },
+          };
+          const res = await fetch("https://api.spacexdata.com/v5/launches/query", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(query),
+          });
+          if (!res.ok) throw new Error("SpaceX fetch failed");
+          const data = await res.json();
+          return data.docs.map((doc) => ({
+            date: new Date(doc.date_local || doc.date_utc),
+            title: doc.name || "SpaceX launch",
+            kind: "launch",
+            time: formatTime(new Date(doc.date_local || doc.date_utc)),
+          }));
+        } catch (err) {
+          console.warn("SpaceX fetch error", err);
+          return [];
+        }
+      }
+
+      function otherNiceThings(year) {
+        return [
+          { date: new Date(year, 1, 14, 19, 0), title: "Valentine stargazing", kind: "astronomy", time: "7:00 PM" },
+          { date: new Date(year, 5, 1, 9, 0), title: "First day of hurricane season", kind: "other", time: "9:00 AM" },
+        ];
+      }
+
+      function birthdayEvents(year) {
+        return [
+          { date: new Date(year, 9, 24, 12, 0), title: "Kaitlin's Birthday", kind: "other" },
+          { date: new Date(year, 3, 28, 12, 0), title: "Brian's Birthday", kind: "other" },
+          { date: new Date(year, 2, 18, 12, 0), title: "Alice's Birthday", kind: "other" },
+        ];
+      }
+
+      function aliceMonthlyMilestones(lastYear) {
+        const start = new Date(2024, 2, 18, 12, 0);
+        const end = new Date(lastYear, 11, 31, 23, 59, 59);
+        const events = [];
+        let current = new Date(start);
+        let months = 0;
+        while (current <= end) {
+          if (!(current.getDate() === 18 && current.getMonth() === 2 && current.getFullYear() === 2024)) {
+            const label = months === 0 ? "Alice's Birthday" : `Alice is ${months} months old`;
+            events.push({
+              date: new Date(current),
+              title: label,
+              kind: "other",
+              time: "12:00 PM",
+            });
+          }
+          months += 1;
+          current.setMonth(current.getMonth() + 1);
+        }
+        return events;
+      }
+
+      async function refreshEvents() {
+        const now = new Date();
+        const years = [now.getFullYear(), now.getFullYear() + 1, now.getFullYear() + 2];
+
+        const holidayPromises = years.map((y) => fetchHolidays(y));
+        const spacerPromise = fetchSpaceXLaunches();
+
+        const holidayResults = await Promise.all(holidayPromises);
+        const launches = await spacerPromise;
+
+        const computed = years.flatMap((y) => [
+          ...calculateTimeChanges(y),
+          ...seasonEvents(y),
+          ...meteorShowerEvents(y),
+          ...eclipseEvents(y),
+          ...birthdayEvents(y),
+          ...otherNiceThings(y),
+        ]);
+
+        const milestones = aliceMonthlyMilestones(years[years.length - 1]);
+
+        eventsCache = [...holidayResults.flat(), ...computed, ...milestones, ...launches].map((ev) => ({
+          ...ev,
+          date: new Date(ev.date),
+          kind: ev.kind || "other",
+        }));
+
+        renderToday();
+        renderUpcoming();
+      }
+
+      const WEATHER_URL =
+        "https://api.open-meteo.com/v1/forecast?latitude=34.1511&longitude=-118.4490&current_weather=true&daily=temperature_2m_max,temperature_2m_min,weathercode&timezone=America/Los_Angeles&temperature_unit=fahrenheit&forecast_days=7";
+
+      const WEATHER_CODES = {
+        0: "clear sky",
+        1: "mainly clear",
+        2: "partly cloudy",
+        3: "overcast",
+        45: "foggy",
+        48: "foggy",
+        51: "light drizzle",
+        53: "drizzle",
+        55: "heavy drizzle",
+        56: "freezing drizzle",
+        57: "freezing drizzle",
+        61: "light rain",
+        63: "rain",
+        65: "heavy rain",
+        66: "freezing rain",
+        67: "freezing rain",
+        71: "light snow",
+        73: "snow",
+        75: "heavy snow",
+        77: "snow grains",
+        80: "light showers",
+        81: "showers",
+        82: "heavy showers",
+        85: "snow showers",
+        86: "snow showers",
+        95: "thunderstorm",
+        96: "thunderstorm",
+        99: "thunderstorm",
+      };
+
+      function weatherClass(status) {
+        const s = (status || "").toLowerCase();
+        if (s.includes("thunder")) return "status-thunderstorm";
+        if (s.includes("rain") || s.includes("drizzle") || s.includes("shower")) return "status-rain";
+        if (s.includes("cloud")) return "status-cloudy";
+        if (s.includes("clear")) return "status-clear";
+        if (s.includes("fog")) return "status-foggy";
+        if (s.includes("sun")) return "status-sunny";
+        return "";
+      }
+
+      async function refreshWeather() {
+        try {
+          const res = await fetch(WEATHER_URL);
+          if (!res.ok) throw new Error("weather fetch failed");
+          const data = await res.json();
+          const current = data.current_weather || {};
+          const daily = data.daily || {};
+          const highToday = daily.temperature_2m_max ? daily.temperature_2m_max[0] : null;
+          const lowToday = daily.temperature_2m_min ? daily.temperature_2m_min[0] : null;
+          const todayCode = daily.weathercode ? daily.weathercode[0] : current.weathercode;
+          const nowStatus = WEATHER_CODES[todayCode] || "weather";
+          const currentTextParts = [];
+          if (current.temperature !== undefined) currentTextParts.push(`${Math.round(current.temperature)}°F now`);
+          if (highToday !== null && lowToday !== null) currentTextParts.push(`high ${Math.round(highToday)}°F / low ${Math.round(lowToday)}°F`);
+          currentTextParts.push(nowStatus);
+          $weatherNow.textContent = currentTextParts.join(", ");
+          $weatherNow.className = `list-item ${weatherClass(nowStatus)}`.trim();
+
+          const outlook = [];
+          if (daily.time && daily.temperature_2m_max && daily.temperature_2m_min && daily.weathercode) {
+            const todayStart = new Date();
+            todayStart.setHours(0, 0, 0, 0);
+            for (let i = 0; i < daily.time.length; i++) {
+              const date = new Date(daily.time[i]);
+              if (date < todayStart) continue;
+              const label = date.toLocaleDateString(undefined, { weekday: "short" });
+              const high = Math.round(daily.temperature_2m_max[i]);
+              const low = Math.round(daily.temperature_2m_min[i]);
+              const status = WEATHER_CODES[daily.weathercode[i]] || "weather";
+              outlook.push({ label, high, low, status });
+              if (outlook.length === 5) break;
+            }
+          }
+          $weatherOutlook.innerHTML = "";
+          outlook.forEach((entry) => {
+            const item = document.createElement("div");
+            item.className = `list-item ${weatherClass(entry.status)}`.trim();
+            item.textContent = `${entry.label}: ${entry.high}°/${entry.low}° ${entry.status}`;
+            $weatherOutlook.appendChild(item);
+          });
+        } catch (err) {
+          console.warn("Weather fetch error", err);
+          $weatherNow.textContent = "Weather unavailable";
+          $weatherOutlook.innerHTML = "";
+        }
+      }
+
+      function tick() {
+        renderClock();
+      }
+
+      renderClock();
+      refreshEvents();
+      refreshWeather();
+      setInterval(tick, 1000);
+      setInterval(refreshEvents, 60 * 60 * 1000);
+      setInterval(refreshWeather, 60 * 60 * 1000);
+    </script>
+  </body>
+</html>
