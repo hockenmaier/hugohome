@@ -30,30 +30,30 @@
         text-align: right;
       }
       .date-text {
-        font-size: 42px;
+        font-size: 46px;
         margin: 0;
         line-height: 1.1;
         color: #e0e0e0;
       }
       .time-text {
         margin: 0;
-        line-height: 1.05;
-        font-size: 70px;
+        line-height: 1;
+        font-size: 92px;
         font-weight: bold;
         color: #ffffff;
       }
       .time-text .seconds {
-        font-size: 28px;
+        font-size: 32px;
         color: #888;
       }
       .time-text .period {
-        font-size: 32px;
+        font-size: 36px;
         color: #ffffff;
       }
       .section-title {
         margin: 12px 0 6px;
         font-size: 20px;
-        color: #d0d0d0;
+        color: #9fbfa0;
         letter-spacing: 0.5px;
       }
       .content-row {
@@ -74,6 +74,25 @@
         font-size: 18px;
         line-height: 1.3;
         color: #f5f5f5;
+      }
+      .date-part {
+        font-weight: bold;
+      }
+      .status-sunny,
+      .status-clear {
+        color: #f2d36b;
+      }
+      .status-rain,
+      .status-drizzle {
+        color: #8fc7ff;
+      }
+      .status-cloudy,
+      .status-overcast,
+      .status-foggy {
+        color: #b0b0b0;
+      }
+      .status-thunderstorm {
+        color: #c2a2ff;
       }
       .note {
         margin-top: 12px;
@@ -172,11 +191,11 @@
         const minutes = pad(now.getMinutes());
         const seconds = pad(now.getSeconds());
         const period = hoursRaw >= 12 ? "PM" : "AM";
-        $time.innerHTML = `${hours}:${minutes} <span class="seconds">${seconds}</span> <span class="period">${period}</span>`;
+        $time.innerHTML = `${hours}:${minutes}<span class="seconds">${seconds}</span><span class="period">${period}</span>`;
 
         const dateString = now.toLocaleDateString(undefined, {
           weekday: "long",
-          month: "long",
+          month: "short",
           day: "numeric",
           year: "numeric",
         });
@@ -206,7 +225,7 @@
           return `this ${target.toLocaleDateString(undefined, { weekday: "long" })}`;
         if (diff < 14)
           return `next ${target.toLocaleDateString(undefined, { weekday: "long" })}`;
-        return `${target.toLocaleDateString(undefined, { month: "long", day: "numeric" })}`;
+        return `${target.toLocaleDateString(undefined, { month: "short", day: "numeric" })}`;
       }
 
       function renderList(container, events) {
@@ -222,10 +241,16 @@
           const line = document.createElement("div");
           line.className = "list-item";
           const when = describeDay(ev.date);
-          const datePart = ev.date.toLocaleDateString(undefined, { month: "long", day: "numeric" });
+          const datePart = ev.date.toLocaleDateString(undefined, { month: "short", day: "numeric" });
           const timePart = ev.time ? ` at ${ev.time}` : "";
           const dayDescriptor = /today|tomorrow|this|next/.test(when) ? `${when}, ${datePart}` : datePart;
-          line.textContent = `${ev.title} coming up ${dayDescriptor}${timePart}`;
+          const titleSpan = document.createElement("span");
+          titleSpan.textContent = `${ev.title} coming up `;
+          const dateSpan = document.createElement("span");
+          dateSpan.className = "date-part";
+          dateSpan.textContent = `${dayDescriptor}${timePart}`;
+          line.appendChild(titleSpan);
+          line.appendChild(dateSpan);
           container.appendChild(line);
         });
       }
@@ -452,7 +477,7 @@
       }
 
       const WEATHER_URL =
-        "https://api.open-meteo.com/v1/forecast?latitude=29.4241&longitude=-98.4936&current_weather=true&daily=temperature_2m_max,temperature_2m_min,weathercode&timezone=auto&temperature_unit=fahrenheit&forecast_days=5";
+        "https://api.open-meteo.com/v1/forecast?latitude=34.1511&longitude=-118.4490&current_weather=true&daily=temperature_2m_max,temperature_2m_min,weathercode&timezone=America/Los_Angeles&temperature_unit=fahrenheit&forecast_days=7";
 
       const WEATHER_CODES = {
         0: "clear sky",
@@ -485,6 +510,17 @@
         99: "thunderstorm",
       };
 
+      function weatherClass(status) {
+        const s = (status || "").toLowerCase();
+        if (s.includes("thunder")) return "status-thunderstorm";
+        if (s.includes("rain") || s.includes("drizzle") || s.includes("shower")) return "status-rain";
+        if (s.includes("cloud")) return "status-cloudy";
+        if (s.includes("clear")) return "status-clear";
+        if (s.includes("fog")) return "status-foggy";
+        if (s.includes("sun")) return "status-sunny";
+        return "";
+      }
+
       async function refreshWeather() {
         try {
           const res = await fetch(WEATHER_URL);
@@ -501,23 +537,28 @@
           if (highToday !== null && lowToday !== null) currentTextParts.push(`high ${Math.round(highToday)}°F / low ${Math.round(lowToday)}°F`);
           currentTextParts.push(nowStatus);
           $weatherNow.textContent = currentTextParts.join(", ");
+          $weatherNow.className = `list-item ${weatherClass(nowStatus)}`.trim();
 
           const outlook = [];
           if (daily.time && daily.temperature_2m_max && daily.temperature_2m_min && daily.weathercode) {
-            for (let i = 0; i < Math.min(daily.time.length, 5); i++) {
+            const todayStart = new Date();
+            todayStart.setHours(0, 0, 0, 0);
+            for (let i = 0; i < daily.time.length; i++) {
               const date = new Date(daily.time[i]);
+              if (date < todayStart) continue;
               const label = date.toLocaleDateString(undefined, { weekday: "short" });
               const high = Math.round(daily.temperature_2m_max[i]);
               const low = Math.round(daily.temperature_2m_min[i]);
               const status = WEATHER_CODES[daily.weathercode[i]] || "weather";
-              outlook.push(`${label}: ${high}°/${low}° ${status}`);
+              outlook.push({ label, high, low, status });
+              if (outlook.length === 5) break;
             }
           }
           $weatherOutlook.innerHTML = "";
-          outlook.forEach((line) => {
+          outlook.forEach((entry) => {
             const item = document.createElement("div");
-            item.className = "list-item";
-            item.textContent = line;
+            item.className = `list-item ${weatherClass(entry.status)}`.trim();
+            item.textContent = `${entry.label}: ${entry.high}°/${entry.low}° ${entry.status}`;
             $weatherOutlook.appendChild(item);
           });
         } catch (err) {
