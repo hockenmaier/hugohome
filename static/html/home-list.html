@@ -13,6 +13,7 @@
         font-family: Arial, Helvetica, sans-serif;
         max-width: 800px;
         height: 480px;
+        overflow: hidden;
       }
       .top-row {
         overflow: hidden;
@@ -416,21 +417,25 @@
       }
 
       function birthdayEvents(year) {
-        return [
+        const birthdays = [
           { date: new Date(year, 9, 24, 12, 0), title: "Kaitlin's Birthday", kind: "other" },
           { date: new Date(year, 3, 28, 12, 0), title: "Brian's Birthday", kind: "other" },
-          { date: new Date(year, 2, 18, 12, 0), title: "Alice's Birthday", kind: "other" },
         ];
+        if (year >= 2025) {
+          birthdays.push({ date: new Date(year, 2, 18, 12, 0), title: "Alice's Birthday", kind: "other" });
+        }
+        return birthdays;
       }
 
       function aliceMonthlyMilestones(lastYear) {
-        const start = new Date(2024, 2, 18, 12, 0);
+        const birthDate = new Date(2025, 2, 18, 12, 0);
+        const start = new Date(birthDate);
         const end = new Date(lastYear, 11, 31, 23, 59, 59);
         const events = [];
         let current = new Date(start);
         let months = 0;
         while (current <= end) {
-          if (!(current.getDate() === 18 && current.getMonth() === 2 && current.getFullYear() === 2024)) {
+          if (!(current.getTime() === birthDate.getTime())) {
             const label = months === 0 ? "Alice's Birthday" : `Alice is ${months} months old`;
             events.push({
               date: new Date(current),
