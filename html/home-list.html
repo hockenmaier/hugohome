@@ -13,6 +13,7 @@
         font-family: Arial, Helvetica, sans-serif;
         max-width: 800px;
         height: 480px;
+        overflow: hidden;
       }
       .top-row {
         overflow: hidden;
@@ -194,7 +195,7 @@
         $time.innerHTML = `${hours}:${minutes}<span class="seconds">${seconds}</span><span class="period">${period}</span>`;
 
         const dateString = now.toLocaleDateString(undefined, {
-          weekday: "long",
+          weekday: "short",
           month: "short",
           day: "numeric",
           year: "numeric",
@@ -222,9 +223,9 @@
         if (diff === 0) return "today";
         if (diff === 1) return "tomorrow";
         if (diff < 7)
-          return `this ${target.toLocaleDateString(undefined, { weekday: "long" })}`;
+          return `this ${target.toLocaleDateString(undefined, { weekday: "short" })}`;
         if (diff < 14)
-          return `next ${target.toLocaleDateString(undefined, { weekday: "long" })}`;
+          return `next ${target.toLocaleDateString(undefined, { weekday: "short" })}`;
         return `${target.toLocaleDateString(undefined, { month: "short", day: "numeric" })}`;
       }
 
@@ -416,21 +417,25 @@
       }
 
       function birthdayEvents(year) {
-        return [
+        const birthdays = [
           { date: new Date(year, 9, 24, 12, 0), title: "Kaitlin's Birthday", kind: "other" },
           { date: new Date(year, 3, 28, 12, 0), title: "Brian's Birthday", kind: "other" },
-          { date: new Date(year, 2, 18, 12, 0), title: "Alice's Birthday", kind: "other" },
         ];
+        if (year >= 2025) {
+          birthdays.push({ date: new Date(year, 2, 18, 12, 0), title: "Alice's Birthday", kind: "other" });
+        }
+        return birthdays;
       }
 
       function aliceMonthlyMilestones(lastYear) {
-        const start = new Date(2024, 2, 18, 12, 0);
+        const birthDate = new Date(2025, 2, 18, 12, 0);
+        const start = new Date(birthDate);
         const end = new Date(lastYear, 11, 31, 23, 59, 59);
         const events = [];
         let current = new Date(start);
         let months = 0;
         while (current <= end) {
-          if (!(current.getDate() === 18 && current.getMonth() === 2 && current.getFullYear() === 2024)) {
+          if (!(current.getTime() === birthDate.getTime())) {
             const label = months === 0 ? "Alice's Birthday" : `Alice is ${months} months old`;
             events.push({
               date: new Date(current),
@@ -521,6 +526,13 @@
         return "";
       }
 
+      function parseLocalDate(dateString) {
+        if (!dateString) return null;
+        const parts = dateString.split("-").map(Number);
+        if (parts.length !== 3) return null;
+        return new Date(parts[0], parts[1] - 1, parts[2]);
+      }
+
       async function refreshWeather() {
         try {
           const res = await fetch(WEATHER_URL);
@@ -528,9 +540,23 @@
           const data = await res.json();
           const current = data.current_weather || {};
           const daily = data.daily || {};
-          const highToday = daily.temperature_2m_max ? daily.temperature_2m_max[0] : null;
-          const lowToday = daily.temperature_2m_min ? daily.temperature_2m_min[0] : null;
-          const todayCode = daily.weathercode ? daily.weathercode[0] : current.weathercode;
+          const todayStart = new Date();
+          todayStart.setHours(0, 0, 0, 0);
+
+          let todayIndex = null;
+          if (daily.time && daily.time.length) {
+            for (let i = 0; i < daily.time.length; i++) {
+              const localDate = parseLocalDate(daily.time[i]);
+              if (localDate && localDate >= todayStart) {
+                todayIndex = i;
+                break;
+              }
+            }
+          }
+
+          const highToday = todayIndex !== null && daily.temperature_2m_max ? daily.temperature_2m_max[todayIndex] : null;
+          const lowToday = todayIndex !== null && daily.temperature_2m_min ? daily.temperature_2m_min[todayIndex] : null;
+          const todayCode = todayIndex !== null && daily.weathercode ? daily.weathercode[todayIndex] : current.weathercode;
           const nowStatus = WEATHER_CODES[todayCode] || "weather";
           const currentTextParts = [];
           if (current.temperature !== undefined) currentTextParts.push(`${Math.round(current.temperature)}°F now`);
@@ -541,11 +567,9 @@
 
           const outlook = [];
           if (daily.time && daily.temperature_2m_max && daily.temperature_2m_min && daily.weathercode) {
-            const todayStart = new Date();
-            todayStart.setHours(0, 0, 0, 0);
             for (let i = 0; i < daily.time.length; i++) {
-              const date = new Date(daily.time[i]);
-              if (date < todayStart) continue;
+              const date = parseLocalDate(daily.time[i]);
+              if (!date || date <= todayStart) continue;
               const label = date.toLocaleDateString(undefined, { weekday: "short" });
               const high = Math.round(daily.temperature_2m_max[i]);
               const low = Math.round(daily.temperature_2m_min[i]);
