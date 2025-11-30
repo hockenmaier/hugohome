@@ -258,8 +258,7 @@
         tomorrowStart.setDate(tomorrowStart.getDate() + 1);
         const todaysEvents = eventsCache
           .filter((e) => e.date >= todayStart && e.date < tomorrowStart)
-          .sort((a, b) => a.date - b.date)
-          .map((e) => ({ ...e, time: e.time || formatTime(e.date) }));
+          .sort((a, b) => a.date - b.date);
         if (todaysEvents.length > 0) {
           $todaySection.style.display = "block";
           renderList($todayList, todaysEvents, { mode: "today" });
@@ -452,7 +451,7 @@
           const { name, month, day, birthYear, ageUpdates } = entry;
           years.forEach((year) => {
             const birthdayDate = new Date(year, month, day, 12, 0);
-            events.push({ date: birthdayDate, title: `${name}'s Birthday`, kind: "other", time: "12:00 PM" });
+            events.push({ date: birthdayDate, title: `${name}'s Birthday`, kind: "other" });
           });
 
           if (ageUpdates && birthYear) {
@@ -466,7 +465,6 @@
                   date: new Date(current),
                   title: `${name} is ${months} months old`,
                   kind: "other",
-                  time: "12:00 PM",
                 });
               }
               months += 1;
