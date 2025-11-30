@@ -123,7 +123,7 @@
           <div id="upcoming-list"></div>
         </div>
         <div class="note">
-          Data refreshes every hour. All times local. Sources: Nager, SpaceX, curated astronomy.
+          Data refreshes every hour. All times local. Sources: Nager, SpaceX, Open Meteo, curated astronomy.
         </div>
       </div>
       <div class="right-column">
@@ -195,12 +195,12 @@
         $time.innerHTML = `${hours}:${minutes}<span class="seconds">${seconds}</span><span class="period">${period}</span>`;
 
         const dateString = now.toLocaleDateString(undefined, {
-          weekday: "short",
-          month: "short",
-          day: "numeric",
-          year: "numeric",
+          weekday: "long",
         });
-        $date.textContent = dateString.replace(/(\d+)/, (_, n) => ordinal(parseInt(n, 10)));
+        const month = now.toLocaleDateString(undefined, { month: "short" });
+        const day = ordinal(now.getDate());
+        const year = now.getFullYear();
+        $date.innerHTML = `${dateString}<br>${month} ${day}, ${year}`;
       }
 
       function formatTime(date) {
@@ -210,26 +210,8 @@
         });
       }
 
-      function daysFromNow(target) {
-        const now = new Date();
-        const start = new Date(now.getFullYear(), now.getMonth(), now.getDate());
-        const t = new Date(target.getFullYear(), target.getMonth(), target.getDate());
-        const diff = t - start;
-        return Math.round(diff / 86400000);
-      }
-
-      function describeDay(target) {
-        const diff = daysFromNow(target);
-        if (diff === 0) return "today";
-        if (diff === 1) return "tomorrow";
-        if (diff < 7)
-          return `this ${target.toLocaleDateString(undefined, { weekday: "short" })}`;
-        if (diff < 14)
-          return `next ${target.toLocaleDateString(undefined, { weekday: "short" })}`;
-        return `${target.toLocaleDateString(undefined, { month: "short", day: "numeric" })}`;
-      }
-
-      function renderList(container, events) {
+      function renderList(container, events, options = {}) {
+        const mode = options.mode || "upcoming";
         container.innerHTML = "";
         if (events.length === 0) {
           const empty = document.createElement("div");
@@ -241,17 +223,19 @@
         events.forEach((ev) => {
           const line = document.createElement("div");
           line.className = "list-item";
-          const when = describeDay(ev.date);
           const datePart = ev.date.toLocaleDateString(undefined, { month: "short", day: "numeric" });
           const timePart = ev.time ? ` at ${ev.time}` : "";
-          const dayDescriptor = /today|tomorrow|this|next/.test(when) ? `${when}, ${datePart}` : datePart;
-          const titleSpan = document.createElement("span");
-          titleSpan.textContent = `${ev.title} coming up `;
-          const dateSpan = document.createElement("span");
-          dateSpan.className = "date-part";
-          dateSpan.textContent = `${dayDescriptor}${timePart}`;
-          line.appendChild(titleSpan);
-          line.appendChild(dateSpan);
+          if (mode === "today") {
+            line.textContent = ev.time ? `${ev.title} at ${ev.time}` : ev.title;
+          } else {
+            const dateSpan = document.createElement("span");
+            dateSpan.className = "date-part";
+            dateSpan.textContent = `${datePart}${timePart}`;
+            const titleSpan = document.createElement("span");
+            titleSpan.textContent = `${ev.title} on `;
+            line.appendChild(titleSpan);
+            line.appendChild(dateSpan);
+          }
           container.appendChild(line);
         });
       }
@@ -264,7 +248,7 @@
           .filter((e) => e.date >= now && e.date <= fourWeeks)
           .sort((a, b) => a.date - b.date)
           .slice(0, 6);
-        renderList($upcoming, list);
+        renderList($upcoming, list, { mode: "upcoming" });
       }
 
       function renderToday() {
@@ -278,7 +262,7 @@
           .map((e) => ({ ...e, time: e.time || formatTime(e.date) }));
         if (todaysEvents.length > 0) {
           $todaySection.style.display = "block";
-          renderList($todayList, todaysEvents);
+          renderList($todayList, todaysEvents, { mode: "today" });
         } else {
           $todaySection.style.display = "none";
           $todayList.innerHTML = "";
@@ -416,38 +400,94 @@
         ];
       }
 
-      function birthdayEvents(year) {
-        const birthdays = [
-          { date: new Date(year, 9, 24, 12, 0), title: "Kaitlin's Birthday", kind: "other" },
-          { date: new Date(year, 3, 28, 12, 0), title: "Brian's Birthday", kind: "other" },
-        ];
-        if (year >= 2025) {
-          birthdays.push({ date: new Date(year, 2, 18, 12, 0), title: "Alice's Birthday", kind: "other" });
-        }
-        return birthdays;
+      const BIRTHDAY_SHEET_URL =
+        "https://docs.google.com/spreadsheets/d/1ULKdY1qGldp1UJFG3AouwNay0SbVKQ67Xnl87U1wLnQ/gviz/tq?tqx=out:csv";
+
+      function parseCsvLine(line) {
+        const pattern = /,(?=(?:[^\"]*\"[^\"]*\")*[^\"]*$)/;
+        return line
+          .split(pattern)
+          .map((part) => part.replace(/^\"|\"$/g, "").trim());
       }
 
-      function aliceMonthlyMilestones(lastYear) {
-        const birthDate = new Date(2025, 2, 18, 12, 0);
-        const start = new Date(birthDate);
-        const end = new Date(lastYear, 11, 31, 23, 59, 59);
+      function parseDateParts(value) {
+        if (!value) return null;
+        const normalized = value.replace(/-/g, "/");
+        const parts = normalized.split("/").map((p) => p.trim());
+        if (parts.length < 2) return null;
+        const month = parseInt(parts[0], 10) - 1;
+        const day = parseInt(parts[1], 10);
+        const year = parts[2] ? parseInt(parts[2], 10) : null;
+        if (Number.isNaN(month) || Number.isNaN(day)) return null;
+        return { month, day, year };
+      }
+
+      function parseBirthdaySheet(csvText) {
+        const rows = csvText
+          .trim()
+          .split(/\r?\n/)
+          .filter((line) => line.trim())
+          .map(parseCsvLine);
+        const [, ...dataRows] = rows; // skip header
+        return dataRows
+          .map((cols) => {
+            const [name, dateRaw, ageFlag] = cols;
+            const dateParts = parseDateParts(dateRaw);
+            if (!name || !dateParts) return null;
+            return {
+              name,
+              month: dateParts.month,
+              day: dateParts.day,
+              birthYear: dateParts.year,
+              ageUpdates: (ageFlag || "").toLowerCase() === "yes",
+            };
+          })
+          .filter(Boolean);
+      }
+
+      function generateBirthdayEvents(entries, years) {
         const events = [];
-        let current = new Date(start);
-        let months = 0;
-        while (current <= end) {
-          if (!(current.getTime() === birthDate.getTime())) {
-            const label = months === 0 ? "Alice's Birthday" : `Alice is ${months} months old`;
-            events.push({
-              date: new Date(current),
-              title: label,
-              kind: "other",
-              time: "12:00 PM",
-            });
+        const lastYear = years[years.length - 1];
+        entries.forEach((entry) => {
+          const { name, month, day, birthYear, ageUpdates } = entry;
+          years.forEach((year) => {
+            const birthdayDate = new Date(year, month, day, 12, 0);
+            events.push({ date: birthdayDate, title: `${name}'s Birthday`, kind: "other", time: "12:00 PM" });
+          });
+
+          if (ageUpdates && birthYear) {
+            const start = new Date(birthYear, month, day, 12, 0);
+            const end = new Date(lastYear, 11, 31, 23, 59, 59);
+            let current = new Date(start);
+            let months = 0;
+            while (current <= end) {
+              if (months > 0) {
+                events.push({
+                  date: new Date(current),
+                  title: `${name} is ${months} months old`,
+                  kind: "other",
+                  time: "12:00 PM",
+                });
+              }
+              months += 1;
+              current.setMonth(current.getMonth() + 1);
+            }
           }
-          months += 1;
-          current.setMonth(current.getMonth() + 1);
-        }
+        });
         return events;
+      }
+
+      async function fetchBirthdayEvents(years) {
+        try {
+          const res = await fetch(BIRTHDAY_SHEET_URL);
+          if (!res.ok) throw new Error("birthday fetch failed");
+          const csvText = await res.text();
+          const entries = parseBirthdaySheet(csvText);
+          return generateBirthdayEvents(entries, years);
+        } catch (err) {
+          console.warn("Birthday fetch error", err);
+          return [];
+        }
       }
 
       async function refreshEvents() {
@@ -456,22 +496,23 @@
 
         const holidayPromises = years.map((y) => fetchHolidays(y));
         const spacerPromise = fetchSpaceXLaunches();
+        const birthdayPromise = fetchBirthdayEvents(years);
 
-        const holidayResults = await Promise.all(holidayPromises);
-        const launches = await spacerPromise;
+        const [holidayResults, launches, birthdayEvents] = await Promise.all([
+          Promise.all(holidayPromises),
+          spacerPromise,
+          birthdayPromise,
+        ]);
 
         const computed = years.flatMap((y) => [
           ...calculateTimeChanges(y),
           ...seasonEvents(y),
           ...meteorShowerEvents(y),
           ...eclipseEvents(y),
-          ...birthdayEvents(y),
           ...otherNiceThings(y),
         ]);
 
-        const milestones = aliceMonthlyMilestones(years[years.length - 1]);
-
-        eventsCache = [...holidayResults.flat(), ...computed, ...milestones, ...launches].map((ev) => ({
+        eventsCache = [...holidayResults.flat(), ...computed, ...birthdayEvents, ...launches].map((ev) => ({
           ...ev,
           date: new Date(ev.date),
           kind: ev.kind || "other",
@@ -575,7 +616,7 @@
               const low = Math.round(daily.temperature_2m_min[i]);
               const status = WEATHER_CODES[daily.weathercode[i]] || "weather";
               outlook.push({ label, high, low, status });
-              if (outlook.length === 5) break;
+              if (outlook.length === 7) break;
             }
           }
           $weatherOutlook.innerHTML = "";
