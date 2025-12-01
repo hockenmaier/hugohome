@@ -319,10 +319,10 @@
 
       function seasonEvents(year) {
         return [
-          { date: new Date(year, 2, 20, 10, 0), title: "Spring Equinox", kind: "season", time: "10:00 AM" },
-          { date: new Date(year, 5, 20, 16, 0), title: "Summer Solstice", kind: "season", time: "4:00 PM" },
-          { date: new Date(year, 8, 22, 7, 0), title: "Autumn Equinox", kind: "season", time: "7:00 AM" },
-          { date: new Date(year, 11, 21, 15, 0), title: "Winter Solstice", kind: "season", time: "3:00 PM" },
+          { date: new Date(year, 2, 20, 12, 0), title: "Spring Equinox", kind: "season" },
+          { date: new Date(year, 5, 20, 12, 0), title: "Summer Solstice", kind: "season" },
+          { date: new Date(year, 8, 22, 12, 0), title: "Autumn Equinox", kind: "season" },
+          { date: new Date(year, 11, 21, 12, 0), title: "Winter Solstice", kind: "season" },
         ];
       }
 
@@ -346,45 +346,116 @@
       }
 
       function eclipseEvents(year) {
-        const known = {
-          2024: [
-            { month: 3, day: 8, title: "Total Solar Eclipse", time: "2:11 PM" },
-            { month: 9, day: 18, title: "Partial Lunar Eclipse", time: "6:15 PM" },
-          ],
-          2025: [
-            { month: 2, day: 29, title: "Partial Solar Eclipse", time: "9:45 AM" },
-            { month: 9, day: 7, title: "Total Lunar Eclipse", time: "11:12 PM" },
-          ],
-          2026: [{ month: 6, day: 12, title: "Total Solar Eclipse", time: "12:30 PM" }],
-        };
-        const set = known[year] || [];
-        return set.map((ev) => ({
-          date: new Date(year, ev.month, ev.day, 12, 0),
-          title: ev.title,
-          kind: "astronomy",
-          time: ev.time,
-        }));
+        const curated = [
+          { date: "2024-03-25", title: "Penumbral Lunar Eclipse" },
+          { date: "2024-04-08", title: "Total Solar Eclipse" },
+          { date: "2024-09-18", title: "Partial Lunar Eclipse" },
+          { date: "2024-10-02", title: "Annular Solar Eclipse" },
+          { date: "2025-03-14", title: "Partial Solar Eclipse" },
+          { date: "2025-03-29", title: "Total Lunar Eclipse" },
+          { date: "2025-09-07", title: "Partial Lunar Eclipse" },
+          { date: "2025-09-21", title: "Partial Solar Eclipse" },
+          { date: "2026-02-17", title: "Annular Solar Eclipse" },
+          { date: "2026-03-03", title: "Total Lunar Eclipse" },
+          { date: "2026-08-28", title: "Partial Lunar Eclipse" },
+          { date: "2026-08-12", title: "Total Solar Eclipse" },
+          { date: "2027-02-06", title: "Annular Solar Eclipse" },
+          { date: "2027-02-20", title: "Total Lunar Eclipse" },
+          { date: "2027-07-18", title: "Partial Lunar Eclipse" },
+          { date: "2027-08-02", title: "Total Solar Eclipse" },
+          { date: "2028-01-26", title: "Annular Solar Eclipse" },
+          { date: "2028-01-12", title: "Penumbral Lunar Eclipse" },
+          { date: "2028-07-06", title: "Penumbral Lunar Eclipse" },
+          { date: "2028-07-22", title: "Total Solar Eclipse" },
+          { date: "2029-01-14", title: "Partial Solar Eclipse" },
+          { date: "2029-06-12", title: "Partial Solar Eclipse" },
+          { date: "2029-06-26", title: "Total Lunar Eclipse" },
+          { date: "2029-12-20", title: "Penumbral Lunar Eclipse" },
+          { date: "2030-05-22", title: "Annular Solar Eclipse" },
+          { date: "2030-06-15", title: "Penumbral Lunar Eclipse" },
+          { date: "2030-11-25", title: "Total Solar Eclipse" },
+          { date: "2030-11-09", title: "Partial Lunar Eclipse" },
+          { date: "2031-04-08", title: "Annular Solar Eclipse" },
+          { date: "2031-09-30", title: "Hybrid Solar Eclipse" },
+          { date: "2031-04-25", title: "Total Lunar Eclipse" },
+          { date: "2031-10-18", title: "Partial Lunar Eclipse" },
+          { date: "2032-03-20", title: "Total Solar Eclipse" },
+          { date: "2032-09-12", title: "Annular Solar Eclipse" },
+          { date: "2032-03-09", title: "Penumbral Lunar Eclipse" },
+          { date: "2032-09-02", title: "Total Lunar Eclipse" },
+          { date: "2033-03-30", title: "Hybrid Solar Eclipse" },
+          { date: "2033-09-23", title: "Annular Solar Eclipse" },
+          { date: "2033-04-14", title: "Penumbral Lunar Eclipse" },
+          { date: "2033-10-08", title: "Total Lunar Eclipse" },
+          { date: "2034-03-20", title: "Total Solar Eclipse" },
+          { date: "2034-09-12", title: "Total Solar Eclipse" },
+          { date: "2034-03-03", title: "Penumbral Lunar Eclipse" },
+          { date: "2034-08-27", title: "Partial Lunar Eclipse" },
+          { date: "2035-02-05", title: "Total Solar Eclipse" },
+          { date: "2035-08-30", title: "Annular Solar Eclipse" },
+          { date: "2035-01-24", title: "Penumbral Lunar Eclipse" },
+          { date: "2035-07-30", title: "Partial Lunar Eclipse" },
+          { date: "2036-02-15", title: "Annular Solar Eclipse" },
+          { date: "2036-08-13", title: "Annular Solar Eclipse" },
+          { date: "2036-01-10", title: "Total Lunar Eclipse" },
+          { date: "2036-07-06", title: "Penumbral Lunar Eclipse" },
+          { date: "2037-06-16", title: "Partial Solar Eclipse" },
+          { date: "2037-01-26", title: "Total Solar Eclipse" },
+          { date: "2037-07-22", title: "Penumbral Lunar Eclipse" },
+          { date: "2037-12-10", title: "Total Lunar Eclipse" },
+          { date: "2038-07-02", title: "Total Solar Eclipse" },
+          { date: "2038-12-26", title: "Annular Solar Eclipse" },
+          { date: "2038-06-22", title: "Partial Lunar Eclipse" },
+          { date: "2038-12-16", title: "Penumbral Lunar Eclipse" },
+          { date: "2039-06-21", title: "Annular Solar Eclipse" },
+          { date: "2039-12-15", title: "Total Solar Eclipse" },
+          { date: "2039-06-05", title: "Partial Lunar Eclipse" },
+          { date: "2039-11-30", title: "Total Lunar Eclipse" },
+          { date: "2040-05-10", title: "Annular Solar Eclipse" },
+          { date: "2040-11-03", title: "Hybrid Solar Eclipse" },
+          { date: "2040-05-06", title: "Total Lunar Eclipse" },
+          { date: "2040-10-30", title: "Partial Lunar Eclipse" },
+          { date: "2041-04-30", title: "Annular Solar Eclipse" },
+          { date: "2041-10-25", title: "Annular Solar Eclipse" },
+          { date: "2041-04-16", title: "Total Lunar Eclipse" },
+          { date: "2041-10-10", title: "Penumbral Lunar Eclipse" },
+          { date: "2042-04-19", title: "Hybrid Solar Eclipse" },
+          { date: "2042-10-14", title: "Total Solar Eclipse" },
+          { date: "2042-04-06", title: "Partial Lunar Eclipse" },
+          { date: "2042-09-29", title: "Total Lunar Eclipse" },
+          { date: "2043-04-09", title: "Annular Solar Eclipse" },
+          { date: "2043-10-03", title: "Annular Solar Eclipse" },
+          { date: "2043-03-27", title: "Penumbral Lunar Eclipse" },
+          { date: "2043-09-21", title: "Partial Lunar Eclipse" },
+          { date: "2044-03-21", title: "Hybrid Solar Eclipse" },
+          { date: "2044-08-23", title: "Total Solar Eclipse" },
+          { date: "2044-03-13", title: "Total Lunar Eclipse" },
+          { date: "2044-09-06", title: "Partial Lunar Eclipse" },
+        ];
+        return curated
+          .filter((ev) => new Date(ev.date).getFullYear() === year)
+          .map((ev) => ({
+            date: new Date(`${ev.date}T12:00:00`),
+            title: ev.title,
+            kind: "astronomy",
+          }));
       }
 
       async function fetchSpaceXLaunches() {
         try {
-          const query = {
-            query: { upcoming: true, launchpad: "5e9e4502f5090995de566f86" },
-            options: { sort: { date_utc: "asc" }, limit: 20, populate: ["launchpad", "payloads"] },
-          };
-          const res = await fetch("https://api.spacexdata.com/v5/launches/query", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(query),
-          });
+          const res = await fetch("https://api.spacexdata.com/v4/launches/upcoming");
           if (!res.ok) throw new Error("SpaceX fetch failed");
-          const data = await res.json();
-          return data.docs.map((doc) => ({
-            date: new Date(doc.date_local || doc.date_utc),
-            title: doc.name || "SpaceX launch",
-            kind: "launch",
-            time: formatTime(new Date(doc.date_local || doc.date_utc)),
-          }));
+          const launches = await res.json();
+          return launches
+            .filter((launch) => launch.date_utc)
+            .sort((a, b) => new Date(a.date_utc) - new Date(b.date_utc))
+            .slice(0, 20)
+            .map((launch) => ({
+              date: new Date(launch.date_local || launch.date_utc),
+              title: launch.name || "SpaceX launch",
+              kind: "launch",
+              time: launch.date_local ? formatTime(new Date(launch.date_local)) : undefined,
+            }));
         } catch (err) {
           console.warn("SpaceX fetch error", err);
           return [];
