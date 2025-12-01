@@ -185,8 +185,20 @@
         return n + (s[(v - 20) % 10] || s[v] || s[0]);
       }
 
+      const nowOverride = (() => {
+        const params = new URLSearchParams(window.location.search);
+        const value = params.get("now");
+        if (!value) return null;
+        const parsed = new Date(value);
+        return Number.isNaN(parsed.getTime()) ? null : parsed;
+      })();
+
+      function currentTime() {
+        return nowOverride ? new Date(nowOverride) : new Date();
+      }
+
       function renderClock() {
-        const now = new Date();
+        const now = currentTime();
         const hoursRaw = now.getHours();
         const hours = hoursRaw % 12 === 0 ? 12 : hoursRaw % 12;
         const minutes = pad(now.getMinutes());
@@ -241,7 +253,7 @@
       }
 
       function renderUpcoming() {
-        const now = new Date();
+        const now = currentTime();
         const fourWeeks = new Date(now);
         fourWeeks.setDate(fourWeeks.getDate() + 28);
         const list = eventsCache
@@ -252,7 +264,7 @@
       }
 
       function renderToday() {
-        const now = new Date();
+        const now = currentTime();
         const todayStart = new Date(now.getFullYear(), now.getMonth(), now.getDate());
         const tomorrowStart = new Date(todayStart);
         tomorrowStart.setDate(tomorrowStart.getDate() + 1);
@@ -319,10 +331,10 @@
 
       function seasonEvents(year) {
         return [
-          { date: new Date(year, 2, 20, 10, 0), title: "Spring Equinox", kind: "season", time: "10:00 AM" },
-          { date: new Date(year, 5, 20, 16, 0), title: "Summer Solstice", kind: "season", time: "4:00 PM" },
-          { date: new Date(year, 8, 22, 7, 0), title: "Autumn Equinox", kind: "season", time: "7:00 AM" },
-          { date: new Date(year, 11, 21, 15, 0), title: "Winter Solstice", kind: "season", time: "3:00 PM" },
+          { date: new Date(year, 2, 20), title: "Spring Equinox", kind: "season" },
+          { date: new Date(year, 5, 20), title: "Summer Solstice", kind: "season" },
+          { date: new Date(year, 8, 22), title: "Autumn Equinox", kind: "season" },
+          { date: new Date(year, 11, 21), title: "Winter Solstice", kind: "season" },
         ];
       }
 
@@ -346,49 +358,232 @@
       }
 
       function eclipseEvents(year) {
-        const known = {
-          2024: [
-            { month: 3, day: 8, title: "Total Solar Eclipse", time: "2:11 PM" },
-            { month: 9, day: 18, title: "Partial Lunar Eclipse", time: "6:15 PM" },
-          ],
-          2025: [
-            { month: 2, day: 29, title: "Partial Solar Eclipse", time: "9:45 AM" },
-            { month: 9, day: 7, title: "Total Lunar Eclipse", time: "11:12 PM" },
-          ],
-          2026: [{ month: 6, day: 12, title: "Total Solar Eclipse", time: "12:30 PM" }],
+        const curated = [
+          { date: "2024-03-25", title: "Penumbral Lunar Eclipse" },
+          { date: "2024-04-08", title: "Total Solar Eclipse" },
+          { date: "2024-09-18", title: "Partial Lunar Eclipse" },
+          { date: "2024-10-02", title: "Annular Solar Eclipse" },
+          { date: "2025-03-14", title: "Partial Solar Eclipse" },
+          { date: "2025-03-29", title: "Total Lunar Eclipse" },
+          { date: "2025-09-07", title: "Partial Lunar Eclipse" },
+          { date: "2025-09-21", title: "Partial Solar Eclipse" },
+          { date: "2026-02-17", title: "Annular Solar Eclipse" },
+          { date: "2026-03-03", title: "Total Lunar Eclipse" },
+          { date: "2026-08-28", title: "Partial Lunar Eclipse" },
+          { date: "2026-08-12", title: "Total Solar Eclipse" },
+          { date: "2027-02-06", title: "Annular Solar Eclipse" },
+          { date: "2027-02-20", title: "Total Lunar Eclipse" },
+          { date: "2027-07-18", title: "Partial Lunar Eclipse" },
+          { date: "2027-08-02", title: "Total Solar Eclipse" },
+          { date: "2028-01-26", title: "Annular Solar Eclipse" },
+          { date: "2028-01-12", title: "Penumbral Lunar Eclipse" },
+          { date: "2028-07-06", title: "Penumbral Lunar Eclipse" },
+          { date: "2028-07-22", title: "Total Solar Eclipse" },
+          { date: "2029-01-14", title: "Partial Solar Eclipse" },
+          { date: "2029-06-12", title: "Partial Solar Eclipse" },
+          { date: "2029-06-26", title: "Total Lunar Eclipse" },
+          { date: "2029-12-20", title: "Penumbral Lunar Eclipse" },
+          { date: "2030-05-22", title: "Annular Solar Eclipse" },
+          { date: "2030-06-15", title: "Penumbral Lunar Eclipse" },
+          { date: "2030-11-25", title: "Total Solar Eclipse" },
+          { date: "2030-11-09", title: "Partial Lunar Eclipse" },
+          { date: "2031-04-08", title: "Annular Solar Eclipse" },
+          { date: "2031-09-30", title: "Hybrid Solar Eclipse" },
+          { date: "2031-04-25", title: "Total Lunar Eclipse" },
+          { date: "2031-10-18", title: "Partial Lunar Eclipse" },
+          { date: "2032-03-20", title: "Total Solar Eclipse" },
+          { date: "2032-09-12", title: "Annular Solar Eclipse" },
+          { date: "2032-03-09", title: "Penumbral Lunar Eclipse" },
+          { date: "2032-09-02", title: "Total Lunar Eclipse" },
+          { date: "2033-03-30", title: "Hybrid Solar Eclipse" },
+          { date: "2033-09-23", title: "Annular Solar Eclipse" },
+          { date: "2033-04-14", title: "Penumbral Lunar Eclipse" },
+          { date: "2033-10-08", title: "Total Lunar Eclipse" },
+          { date: "2034-03-20", title: "Total Solar Eclipse" },
+          { date: "2034-09-12", title: "Total Solar Eclipse" },
+          { date: "2034-03-03", title: "Penumbral Lunar Eclipse" },
+          { date: "2034-08-27", title: "Partial Lunar Eclipse" },
+          { date: "2035-02-05", title: "Total Solar Eclipse" },
+          { date: "2035-08-30", title: "Annular Solar Eclipse" },
+          { date: "2035-01-24", title: "Penumbral Lunar Eclipse" },
+          { date: "2035-07-30", title: "Partial Lunar Eclipse" },
+          { date: "2036-02-15", title: "Annular Solar Eclipse" },
+          { date: "2036-08-13", title: "Annular Solar Eclipse" },
+          { date: "2036-01-10", title: "Total Lunar Eclipse" },
+          { date: "2036-07-06", title: "Penumbral Lunar Eclipse" },
+          { date: "2037-06-16", title: "Partial Solar Eclipse" },
+          { date: "2037-01-26", title: "Total Solar Eclipse" },
+          { date: "2037-07-22", title: "Penumbral Lunar Eclipse" },
+          { date: "2037-12-10", title: "Total Lunar Eclipse" },
+          { date: "2038-07-02", title: "Total Solar Eclipse" },
+          { date: "2038-12-26", title: "Annular Solar Eclipse" },
+          { date: "2038-06-22", title: "Partial Lunar Eclipse" },
+          { date: "2038-12-16", title: "Penumbral Lunar Eclipse" },
+          { date: "2039-06-21", title: "Annular Solar Eclipse" },
+          { date: "2039-12-15", title: "Total Solar Eclipse" },
+          { date: "2039-06-05", title: "Partial Lunar Eclipse" },
+          { date: "2039-11-30", title: "Total Lunar Eclipse" },
+          { date: "2040-05-10", title: "Annular Solar Eclipse" },
+          { date: "2040-11-03", title: "Hybrid Solar Eclipse" },
+          { date: "2040-05-06", title: "Total Lunar Eclipse" },
+          { date: "2040-10-30", title: "Partial Lunar Eclipse" },
+          { date: "2041-04-30", title: "Annular Solar Eclipse" },
+          { date: "2041-10-25", title: "Annular Solar Eclipse" },
+          { date: "2041-04-16", title: "Total Lunar Eclipse" },
+          { date: "2041-10-10", title: "Penumbral Lunar Eclipse" },
+          { date: "2042-04-19", title: "Hybrid Solar Eclipse" },
+          { date: "2042-10-14", title: "Total Solar Eclipse" },
+          { date: "2042-04-06", title: "Partial Lunar Eclipse" },
+          { date: "2042-09-29", title: "Total Lunar Eclipse" },
+          { date: "2043-04-09", title: "Annular Solar Eclipse" },
+          { date: "2043-10-03", title: "Annular Solar Eclipse" },
+          { date: "2043-03-27", title: "Penumbral Lunar Eclipse" },
+          { date: "2043-09-21", title: "Partial Lunar Eclipse" },
+          { date: "2044-03-21", title: "Hybrid Solar Eclipse" },
+          { date: "2044-08-23", title: "Total Solar Eclipse" },
+          { date: "2044-03-13", title: "Total Lunar Eclipse" },
+          { date: "2044-09-06", title: "Partial Lunar Eclipse" },
+        ];
+        return curated
+          .filter((ev) => new Date(ev.date).getFullYear() === year)
+          .map((ev) => ({
+            date: new Date(`${ev.date}T12:00:00`),
+            title: ev.title,
+            kind: "astronomy",
+          }));
+      }
+
+      const SPACEX_QUERY_URL = "https://api.spacexdata.com/v5/launches/query";
+      const SPACEX_UPCOMING_URL = "https://api.spacexdata.com/v4/launches/upcoming";
+      const SPACEX_UPCOMING_V5_URL = "https://api.spacexdata.com/v5/launches/upcoming";
+      const SPACEX_LAUNCHPADS_URL = "https://api.spacexdata.com/v4/launchpads";
+
+      function normalizeLaunch(raw, launchpads) {
+        const dateCandidate =
+          raw.date_utc ||
+          raw.date_local ||
+          (raw.date_unix ? new Date(raw.date_unix * 1000).toISOString() : null) ||
+          raw.date ||
+          null;
+        const parsedDate = dateCandidate ? new Date(dateCandidate) : null;
+        if (!parsedDate || Number.isNaN(parsedDate.getTime())) return null;
+        const launchpadId = typeof raw.launchpad === "string" ? raw.launchpad : null;
+        const padInfo = launchpadId && launchpads[launchpadId] ? launchpads[launchpadId] : null;
+        const site =
+          raw.site ||
+          (raw.launchpad && raw.launchpad.name) ||
+          (padInfo ? `${padInfo.name} (${padInfo.locality || padInfo.region || ""})`.trim() : null) ||
+          launchpadId ||
+          null;
+        const baseTitle = raw.name || raw.title || "SpaceX launch";
+        const title = site ? `${baseTitle} — ${site}` : baseTitle;
+        return {
+          date: parsedDate,
+          title,
+          kind: "launch",
+          time: formatTime(parsedDate),
+          site,
         };
-        const set = known[year] || [];
-        return set.map((ev) => ({
-          date: new Date(year, ev.month, ev.day, 12, 0),
-          title: ev.title,
-          kind: "astronomy",
-          time: ev.time,
-        }));
+      }
+
+      async function fetchLaunchpads() {
+        try {
+          const res = await fetch(SPACEX_LAUNCHPADS_URL);
+          if (!res.ok) throw new Error("launchpad fetch failed");
+          const data = await res.json();
+          return (Array.isArray(data) ? data : []).reduce((map, pad) => {
+            if (pad.id) map[pad.id] = pad;
+            return map;
+          }, {});
+        } catch (err) {
+          console.warn("Launchpad fetch error", err);
+          return {};
+        }
+      }
+
+      async function fetchSpaceXViaQuery(now) {
+        const res = await fetch(SPACEX_QUERY_URL, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            query: { upcoming: true, date_utc: { $gte: now.toISOString() } },
+            options: { sort: { date_utc: "asc" }, limit: 50 },
+          }),
+        });
+        if (!res.ok) throw new Error(`SpaceX query failed: ${res.status}`);
+        const data = await res.json();
+        return data && Array.isArray(data.docs) ? data.docs : [];
+      }
+
+      async function fetchSpaceXViaV4() {
+        const res = await fetch(SPACEX_UPCOMING_URL);
+        if (!res.ok) throw new Error(`SpaceX v4 failed: ${res.status}`);
+        const data = await res.json();
+        return Array.isArray(data) ? data : [];
+      }
+
+      async function fetchSpaceXViaV5() {
+        const res = await fetch(SPACEX_UPCOMING_V5_URL);
+        if (!res.ok) throw new Error(`SpaceX v5 failed: ${res.status}`);
+        const data = await res.json();
+        return Array.isArray(data) ? data : [];
       }
 
       async function fetchSpaceXLaunches() {
+        const now = currentTime();
+        let launches = [];
+        let launchpads = {};
+
         try {
-          const query = {
-            query: { upcoming: true, launchpad: "5e9e4502f5090995de566f86" },
-            options: { sort: { date_utc: "asc" }, limit: 20, populate: ["launchpad", "payloads"] },
-          };
-          const res = await fetch("https://api.spacexdata.com/v5/launches/query", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(query),
-          });
-          if (!res.ok) throw new Error("SpaceX fetch failed");
-          const data = await res.json();
-          return data.docs.map((doc) => ({
-            date: new Date(doc.date_local || doc.date_utc),
-            title: doc.name || "SpaceX launch",
-            kind: "launch",
-            time: formatTime(new Date(doc.date_local || doc.date_utc)),
-          }));
+          const [launchData, launchpadMap] = await Promise.all([fetchSpaceXViaV5(), fetchLaunchpads()]);
+          launches = launchData;
+          launchpads = launchpadMap;
         } catch (err) {
-          console.warn("SpaceX fetch error", err);
-          return [];
+          console.warn("SpaceX v5 path failed", err);
+          try {
+            const [launchData, launchpadMap] = await Promise.all([fetchSpaceXViaV4(), fetchLaunchpads()]);
+            launches = launchData;
+            launchpads = launchpadMap;
+          } catch (err2) {
+            console.warn("SpaceX v4 path failed", err2);
+            try {
+              const [launchData, launchpadMap] = await Promise.all([fetchSpaceXViaQuery(now), fetchLaunchpads()]);
+              launches = launchData;
+              launchpads = launchpadMap;
+            } catch (err3) {
+              console.warn("SpaceX query path failed", err3);
+              launches = [];
+            }
+          }
         }
+
+        const cutoff = new Date(now);
+
+        const normalized = launches.map((entry) => normalizeLaunch(entry, launchpads)).filter(Boolean);
+        const future = normalized.filter((ev) => ev.date >= cutoff).sort((a, b) => a.date - b.date).slice(0, 20);
+
+        if (future.length === 0) {
+          const sample = normalized
+            .map((ev) => (ev ? ev.date.toISOString() : "invalid"))
+            .slice(0, 5);
+          console.warn("SpaceX launches fetched but none survived cutoff", {
+            cutoff: cutoff.toISOString(),
+            fetched: launches.length,
+            parsed: normalized.length,
+            sampleDates: sample,
+          });
+        } else {
+          const first = future[0];
+          console.info(
+            "SpaceX launches loaded",
+            future.length,
+            "first launch",
+            first.title,
+            first.date.toISOString()
+          );
+        }
+
+        return future;
       }
 
       function otherNiceThings(year) {
@@ -487,7 +682,7 @@
       }
 
       async function refreshEvents() {
-        const now = new Date();
+        const now = currentTime();
         const years = [now.getFullYear(), now.getFullYear() + 1, now.getFullYear() + 2];
 
         const holidayPromises = years.map((y) => fetchHolidays(y));
