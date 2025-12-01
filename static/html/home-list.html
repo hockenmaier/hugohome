@@ -185,8 +185,20 @@
         return n + (s[(v - 20) % 10] || s[v] || s[0]);
       }
 
+      const nowOverride = (() => {
+        const params = new URLSearchParams(window.location.search);
+        const value = params.get("now");
+        if (!value) return null;
+        const parsed = new Date(value);
+        return Number.isNaN(parsed.getTime()) ? null : parsed;
+      })();
+
+      function currentTime() {
+        return nowOverride ? new Date(nowOverride) : new Date();
+      }
+
       function renderClock() {
-        const now = new Date();
+        const now = currentTime();
         const hoursRaw = now.getHours();
         const hours = hoursRaw % 12 === 0 ? 12 : hoursRaw % 12;
         const minutes = pad(now.getMinutes());
@@ -241,7 +253,7 @@
       }
 
       function renderUpcoming() {
-        const now = new Date();
+        const now = currentTime();
         const fourWeeks = new Date(now);
         fourWeeks.setDate(fourWeeks.getDate() + 28);
         const list = eventsCache
@@ -252,7 +264,7 @@
       }
 
       function renderToday() {
-        const now = new Date();
+        const now = currentTime();
         const todayStart = new Date(now.getFullYear(), now.getMonth(), now.getDate());
         const tomorrowStart = new Date(todayStart);
         tomorrowStart.setDate(tomorrowStart.getDate() + 1);
@@ -319,10 +331,10 @@
 
       function seasonEvents(year) {
         return [
-          { date: new Date(year, 2, 20, 12, 0), title: "Spring Equinox", kind: "season" },
-          { date: new Date(year, 5, 20, 12, 0), title: "Summer Solstice", kind: "season" },
-          { date: new Date(year, 8, 22, 12, 0), title: "Autumn Equinox", kind: "season" },
-          { date: new Date(year, 11, 21, 12, 0), title: "Winter Solstice", kind: "season" },
+          { date: new Date(year, 2, 20), title: "Spring Equinox", kind: "season" },
+          { date: new Date(year, 5, 20), title: "Summer Solstice", kind: "season" },
+          { date: new Date(year, 8, 22), title: "Autumn Equinox", kind: "season" },
+          { date: new Date(year, 11, 21), title: "Winter Solstice", kind: "season" },
         ];
       }
 
@@ -441,36 +453,22 @@
           }));
       }
 
-      const SPACEX_API_URL = "https://api.spacexdata.com/v5/launches/upcoming";
+      const SPACEX_QUERY_URL = "https://api.spacexdata.com/v5/launches/query";
+      const SPACEX_UPCOMING_URL = "https://api.spacexdata.com/v4/launches/upcoming";
+      const SPACEX_LAUNCHPADS_URL = "https://api.spacexdata.com/v4/launchpads";
 
-      const SPACEX_FALLBACK_LAUNCHES = [
-        {
-          date: "2025-12-02T02:10:00Z",
-          title: "Starlink Group 15-10",
-          site: "Vandenberg SFB",
-        },
-        {
-          date: "2025-12-04T18:12:00Z",
-          title: "Starlink Group 11-25",
-          site: "Vandenberg SFB",
-        },
-        {
-          date: "2025-12-07T12:00:00Z",
-          title: "Starlink Group 11-15 (window)",
-          site: "Vandenberg SFB",
-        },
-        {
-          date: "2026-01-15T12:00:00Z",
-          title: "Starlink mission",
-          site: "Cape Canaveral (tentative)",
-        },
-      ];
-
-      function normalizeLaunch(raw) {
+      function normalizeLaunch(raw, launchpads) {
         const dateCandidate = raw.date_utc || raw.date_local || raw.date || null;
         const parsedDate = dateCandidate ? new Date(dateCandidate) : null;
         if (!parsedDate || Number.isNaN(parsedDate.getTime())) return null;
-        const site = raw.site || (raw.launchpad && raw.launchpad.name) || raw.launchpad || null;
+        const launchpadId = typeof raw.launchpad === "string" ? raw.launchpad : null;
+        const padInfo = launchpadId && launchpads[launchpadId] ? launchpads[launchpadId] : null;
+        const site =
+          raw.site ||
+          (raw.launchpad && raw.launchpad.name) ||
+          (padInfo ? `${padInfo.name} (${padInfo.locality || padInfo.region || ""})`.trim() : null) ||
+          launchpadId ||
+          null;
         const baseTitle = raw.name || raw.title || "SpaceX launch";
         const title = site ? `${baseTitle} — ${site}` : baseTitle;
         return {
@@ -482,28 +480,64 @@
         };
       }
 
+      async function fetchLaunchpads() {
+        try {
+          const res = await fetch(SPACEX_LAUNCHPADS_URL);
+          if (!res.ok) throw new Error("launchpad fetch failed");
+          const data = await res.json();
+          return (Array.isArray(data) ? data : []).reduce((map, pad) => {
+            if (pad.id) map[pad.id] = pad;
+            return map;
+          }, {});
+        } catch (err) {
+          console.warn("Launchpad fetch error", err);
+          return {};
+        }
+      }
+
+      async function fetchSpaceXViaQuery() {
+        const res = await fetch(SPACEX_QUERY_URL, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            query: { upcoming: true },
+            options: { sort: { date_utc: "asc" }, limit: 50 },
+          }),
+        });
+        if (!res.ok) throw new Error(`SpaceX query failed: ${res.status}`);
+        const data = await res.json();
+        return data && Array.isArray(data.docs) ? data.docs : [];
+      }
+
+      async function fetchSpaceXViaV4() {
+        const res = await fetch(SPACEX_UPCOMING_URL);
+        if (!res.ok) throw new Error(`SpaceX v4 failed: ${res.status}`);
+        const data = await res.json();
+        return Array.isArray(data) ? data : [];
+      }
+
       async function fetchSpaceXLaunches() {
         let launches = [];
+        let launchpads = {};
+
         try {
-          const res = await fetch(SPACEX_API_URL);
-          if (!res.ok) throw new Error("SpaceX fetch failed");
-          const data = await res.json();
-          launches = Array.isArray(data) ? data : data.docs || [];
+          [launches, launchpads] = await Promise.all([fetchSpaceXViaQuery(), fetchLaunchpads()]);
         } catch (err) {
-          console.warn("SpaceX fetch error", err);
+          console.warn("SpaceX query path failed", err);
+          try {
+            launches = await fetchSpaceXViaV4();
+            launchpads = launchpads || {};
+          } catch (err2) {
+            console.warn("SpaceX v4 path failed", err2);
+            launches = [];
+          }
         }
 
-        let mapped = launches
-          .map(normalizeLaunch)
+        return launches
+          .map((entry) => normalizeLaunch(entry, launchpads))
           .filter(Boolean)
           .sort((a, b) => a.date - b.date)
           .slice(0, 20);
-
-        if (mapped.length === 0) {
-          mapped = SPACEX_FALLBACK_LAUNCHES.map(normalizeLaunch).filter(Boolean);
-        }
-
-        return mapped;
       }
 
       function otherNiceThings(year) {
@@ -602,7 +636,7 @@
       }
 
       async function refreshEvents() {
-        const now = new Date();
+        const now = currentTime();
         const years = [now.getFullYear(), now.getFullYear() + 1, now.getFullYear() + 2];
 
         const holidayPromises = years.map((y) => fetchHolidays(y));
