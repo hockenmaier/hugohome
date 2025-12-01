@@ -441,25 +441,69 @@
           }));
       }
 
+      const SPACEX_API_URL = "https://api.spacexdata.com/v5/launches/upcoming";
+
+      const SPACEX_FALLBACK_LAUNCHES = [
+        {
+          date: "2025-12-02T02:10:00Z",
+          title: "Starlink Group 15-10",
+          site: "Vandenberg SFB",
+        },
+        {
+          date: "2025-12-04T18:12:00Z",
+          title: "Starlink Group 11-25",
+          site: "Vandenberg SFB",
+        },
+        {
+          date: "2025-12-07T12:00:00Z",
+          title: "Starlink Group 11-15 (window)",
+          site: "Vandenberg SFB",
+        },
+        {
+          date: "2026-01-15T12:00:00Z",
+          title: "Starlink mission",
+          site: "Cape Canaveral (tentative)",
+        },
+      ];
+
+      function normalizeLaunch(raw) {
+        const dateCandidate = raw.date_utc || raw.date_local || raw.date || null;
+        const parsedDate = dateCandidate ? new Date(dateCandidate) : null;
+        if (!parsedDate || Number.isNaN(parsedDate.getTime())) return null;
+        const site = raw.site || (raw.launchpad && raw.launchpad.name) || raw.launchpad || null;
+        const baseTitle = raw.name || raw.title || "SpaceX launch";
+        const title = site ? `${baseTitle} — ${site}` : baseTitle;
+        return {
+          date: parsedDate,
+          title,
+          kind: "launch",
+          time: formatTime(parsedDate),
+          site,
+        };
+      }
+
       async function fetchSpaceXLaunches() {
+        let launches = [];
         try {
-          const res = await fetch("https://api.spacexdata.com/v4/launches/upcoming");
+          const res = await fetch(SPACEX_API_URL);
           if (!res.ok) throw new Error("SpaceX fetch failed");
-          const launches = await res.json();
-          return launches
-            .filter((launch) => launch.date_utc)
-            .sort((a, b) => new Date(a.date_utc) - new Date(b.date_utc))
-            .slice(0, 20)
-            .map((launch) => ({
-              date: new Date(launch.date_local || launch.date_utc),
-              title: launch.name || "SpaceX launch",
-              kind: "launch",
-              time: launch.date_local ? formatTime(new Date(launch.date_local)) : undefined,
-            }));
+          const data = await res.json();
+          launches = Array.isArray(data) ? data : data.docs || [];
         } catch (err) {
           console.warn("SpaceX fetch error", err);
-          return [];
         }
+
+        let mapped = launches
+          .map(normalizeLaunch)
+          .filter(Boolean)
+          .sort((a, b) => a.date - b.date)
+          .slice(0, 20);
+
+        if (mapped.length === 0) {
+          mapped = SPACEX_FALLBACK_LAUNCHES.map(normalizeLaunch).filter(Boolean);
+        }
+
+        return mapped;
       }
 
       function otherNiceThings(year) {
