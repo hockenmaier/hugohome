@@ -455,6 +455,7 @@
 
       const SPACEX_QUERY_URL = "https://api.spacexdata.com/v5/launches/query";
       const SPACEX_UPCOMING_URL = "https://api.spacexdata.com/v4/launches/upcoming";
+      const SPACEX_UPCOMING_V5_URL = "https://api.spacexdata.com/v5/launches/upcoming";
       const SPACEX_LAUNCHPADS_URL = "https://api.spacexdata.com/v4/launchpads";
 
       function normalizeLaunch(raw, launchpads) {
@@ -521,53 +522,68 @@
         return Array.isArray(data) ? data : [];
       }
 
+      async function fetchSpaceXViaV5() {
+        const res = await fetch(SPACEX_UPCOMING_V5_URL);
+        if (!res.ok) throw new Error(`SpaceX v5 failed: ${res.status}`);
+        const data = await res.json();
+        return Array.isArray(data) ? data : [];
+      }
+
       async function fetchSpaceXLaunches() {
         const now = currentTime();
         let launches = [];
         let launchpads = {};
 
         try {
-          const [launchData, launchpadMap] = await Promise.all([fetchSpaceXViaV4(), fetchLaunchpads()]);
+          const [launchData, launchpadMap] = await Promise.all([fetchSpaceXViaV5(), fetchLaunchpads()]);
           launches = launchData;
           launchpads = launchpadMap;
         } catch (err) {
-          console.warn("SpaceX v4 path failed", err);
+          console.warn("SpaceX v5 path failed", err);
           try {
-            const [launchData, launchpadMap] = await Promise.all([fetchSpaceXViaQuery(now), fetchLaunchpads()]);
+            const [launchData, launchpadMap] = await Promise.all([fetchSpaceXViaV4(), fetchLaunchpads()]);
             launches = launchData;
             launchpads = launchpadMap;
           } catch (err2) {
-            console.warn("SpaceX query path failed", err2);
-            launches = [];
+            console.warn("SpaceX v4 path failed", err2);
+            try {
+              const [launchData, launchpadMap] = await Promise.all([fetchSpaceXViaQuery(now), fetchLaunchpads()]);
+              launches = launchData;
+              launchpads = launchpadMap;
+            } catch (err3) {
+              console.warn("SpaceX query path failed", err3);
+              launches = [];
+            }
           }
         }
 
         const cutoff = new Date(now);
-        cutoff.setHours(0, 0, 0, 0);
 
-        const normalized = launches
-          .map((entry) => normalizeLaunch(entry, launchpads))
-          .filter((ev) => ev && ev.date >= cutoff)
-          .sort((a, b) => a.date - b.date)
-          .slice(0, 20);
+        const normalized = launches.map((entry) => normalizeLaunch(entry, launchpads)).filter(Boolean);
+        const future = normalized.filter((ev) => ev.date >= cutoff).sort((a, b) => a.date - b.date).slice(0, 20);
 
-        if (normalized.length === 0) {
-          console.warn(
-            "SpaceX launches fetched but none survived cutoff",
-            { cutoff: cutoff.toISOString(), fetched: launches.length }
-          );
+        if (future.length === 0) {
+          const sample = normalized
+            .map((ev) => (ev ? ev.date.toISOString() : "invalid"))
+            .slice(0, 5);
+          console.warn("SpaceX launches fetched but none survived cutoff", {
+            cutoff: cutoff.toISOString(),
+            fetched: launches.length,
+            parsed: normalized.length,
+            sampleDates: sample,
+          });
         } else {
-          const first = normalized[0];
+          const first = future[0];
           console.info(
             "SpaceX launches loaded",
-            normalized.length,
+            future.length,
             "first launch",
             first.title,
             first.date.toISOString()
           );
         }
 
-        return normalized;
+        return future;
       }
 
       function otherNiceThings(year) {
