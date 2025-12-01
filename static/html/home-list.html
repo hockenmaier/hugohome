@@ -495,12 +495,12 @@
         }
       }
 
-      async function fetchSpaceXViaQuery() {
+      async function fetchSpaceXViaQuery(now) {
         const res = await fetch(SPACEX_QUERY_URL, {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({
-            query: { upcoming: true },
+            query: { upcoming: true, date_utc: { $gte: now.toISOString() } },
             options: { sort: { date_utc: "asc" }, limit: 50 },
           }),
         });
@@ -517,25 +517,32 @@
       }
 
       async function fetchSpaceXLaunches() {
+        const now = currentTime();
         let launches = [];
         let launchpads = {};
 
         try {
-          [launches, launchpads] = await Promise.all([fetchSpaceXViaQuery(), fetchLaunchpads()]);
+          const [launchData, launchpadMap] = await Promise.all([fetchSpaceXViaV4(), fetchLaunchpads()]);
+          launches = launchData;
+          launchpads = launchpadMap;
         } catch (err) {
-          console.warn("SpaceX query path failed", err);
+          console.warn("SpaceX v4 path failed", err);
           try {
-            launches = await fetchSpaceXViaV4();
-            launchpads = launchpads || {};
+            const [launchData, launchpadMap] = await Promise.all([fetchSpaceXViaQuery(now), fetchLaunchpads()]);
+            launches = launchData;
+            launchpads = launchpadMap;
           } catch (err2) {
-            console.warn("SpaceX v4 path failed", err2);
+            console.warn("SpaceX query path failed", err2);
             launches = [];
           }
         }
 
+        const cutoff = new Date(now);
+        cutoff.setHours(0, 0, 0, 0);
+
         return launches
           .map((entry) => normalizeLaunch(entry, launchpads))
-          .filter(Boolean)
+          .filter((ev) => ev && ev.date >= cutoff)
           .sort((a, b) => a.date - b.date)
           .slice(0, 20);
       }
