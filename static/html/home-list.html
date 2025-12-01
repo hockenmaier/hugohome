@@ -458,7 +458,12 @@
       const SPACEX_LAUNCHPADS_URL = "https://api.spacexdata.com/v4/launchpads";
 
       function normalizeLaunch(raw, launchpads) {
-        const dateCandidate = raw.date_utc || raw.date_local || raw.date || null;
+        const dateCandidate =
+          raw.date_utc ||
+          raw.date_local ||
+          (raw.date_unix ? new Date(raw.date_unix * 1000).toISOString() : null) ||
+          raw.date ||
+          null;
         const parsedDate = dateCandidate ? new Date(dateCandidate) : null;
         if (!parsedDate || Number.isNaN(parsedDate.getTime())) return null;
         const launchpadId = typeof raw.launchpad === "string" ? raw.launchpad : null;
@@ -540,11 +545,29 @@
         const cutoff = new Date(now);
         cutoff.setHours(0, 0, 0, 0);
 
-        return launches
+        const normalized = launches
           .map((entry) => normalizeLaunch(entry, launchpads))
           .filter((ev) => ev && ev.date >= cutoff)
           .sort((a, b) => a.date - b.date)
           .slice(0, 20);
+
+        if (normalized.length === 0) {
+          console.warn(
+            "SpaceX launches fetched but none survived cutoff",
+            { cutoff: cutoff.toISOString(), fetched: launches.length }
+          );
+        } else {
+          const first = normalized[0];
+          console.info(
+            "SpaceX launches loaded",
+            normalized.length,
+            "first launch",
+            first.title,
+            first.date.toISOString()
+          );
+        }
+
+        return normalized;
       }
 
       function otherNiceThings(year) {
