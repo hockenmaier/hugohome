@@ -119,7 +119,7 @@
           <div id="today-list"></div>
         </div>
         <div>
-          <div class="section-title">Next 4 weeks</div>
+          <div class="section-title">Upcoming</div>
           <div id="upcoming-list"></div>
         </div>
         <div class="note">
@@ -219,6 +219,7 @@
         return date.toLocaleTimeString(undefined, {
           hour: "numeric",
           minute: "2-digit",
+          timeZone: "America/Los_Angeles",
         });
       }
 
@@ -235,7 +236,11 @@
         events.forEach((ev) => {
           const line = document.createElement("div");
           line.className = "list-item";
-          const datePart = ev.date.toLocaleDateString(undefined, { month: "short", day: "numeric" });
+          const datePart = ev.date.toLocaleDateString(undefined, {
+            month: "short",
+            day: "numeric",
+            timeZone: "America/Los_Angeles",
+          });
           const timePart = ev.time ? ` at ${ev.time}` : "";
           if (mode === "today") {
             line.textContent = ev.time ? `${ev.title} at ${ev.time}` : ev.title;
@@ -460,6 +465,10 @@
       const LL2_SPACEX_UPCOMING_URL =
         "https://ll.thespacedevs.com/2.2.0/launch/upcoming/?limit=25&ordering=net&search=SpaceX&mode=detailed";
 
+      function isVandenbergSite(value) {
+        return typeof value === "string" && /vandenberg/i.test(value);
+      }
+
       function normalizeLaunch(raw, launchpads) {
         const dateCandidate =
           raw.date_utc ||
@@ -472,19 +481,23 @@
         const launchpadId = typeof raw.launchpad === "string" ? raw.launchpad : null;
         const padInfo = launchpadId && launchpads[launchpadId] ? launchpads[launchpadId] : null;
         const site =
+          (padInfo && [padInfo.name, padInfo.locality || padInfo.region].filter(Boolean).join(" — ")) ||
           raw.site ||
-          (raw.launchpad && raw.launchpad.name) ||
-          (padInfo ? `${padInfo.name} (${padInfo.locality || padInfo.region || ""})`.trim() : null) ||
+          (raw.launchpad && (raw.launchpad.full_name || raw.launchpad.name)) ||
           launchpadId ||
           null;
         const baseTitle = raw.name || raw.title || "SpaceX launch";
-        const title = site ? `${baseTitle} — ${site}` : baseTitle;
+        const isVandenberg =
+          isVandenbergSite(site) ||
+          isVandenbergSite(padInfo ? `${padInfo.name} ${padInfo.locality || padInfo.region || ""}` : null) ||
+          isVandenbergSite(raw.launchpad && raw.launchpad.locality ? raw.launchpad.locality : null);
         return {
           date: parsedDate,
-          title,
+          title: baseTitle,
           kind: "launch",
           time: formatTime(parsedDate),
           site,
+          isVandenberg,
         };
       }
 
@@ -501,13 +514,14 @@
           [location.name, location.country_code].filter(Boolean).join(", ") ||
           null;
         const baseTitle = raw.name || "SpaceX launch";
-        const title = site ? `${baseTitle} — ${site}` : baseTitle;
+        const isVandenberg = isVandenbergSite(site) || isVandenbergSite(location.name);
         return {
           date: parsedDate,
-          title,
+          title: baseTitle,
           kind: "launch",
           time: formatTime(parsedDate),
           site,
+          isVandenberg,
         };
       }
 
@@ -612,6 +626,18 @@
             console.warn("SpaceDevs path failed", llErr);
           }
         }
+
+        const vandenberg = future.filter((ev) => ev.isVandenberg);
+        if (future.length > 0 && vandenberg.length === 0) {
+          console.info("Launches available but none from Vandenberg; suppressing display", {
+            source,
+            sample: future
+              .slice(0, 3)
+              .map((ev) => ({ title: ev.title, site: ev.site, date: ev.date.toISOString() })),
+          });
+        }
+
+        future = vandenberg.slice(0, 2);
 
         if (future.length === 0) {
           console.warn("SpaceX launches fetched but none survived cutoff", {
