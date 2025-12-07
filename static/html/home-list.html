@@ -457,6 +457,8 @@
       const SPACEX_UPCOMING_URL = "https://api.spacexdata.com/v4/launches/upcoming";
       const SPACEX_UPCOMING_V5_URL = "https://api.spacexdata.com/v5/launches/upcoming";
       const SPACEX_LAUNCHPADS_URL = "https://api.spacexdata.com/v4/launchpads";
+      const LL2_SPACEX_UPCOMING_URL =
+        "https://ll.thespacedevs.com/2.2.0/launch/upcoming/?limit=25&ordering=net&search=SpaceX&mode=detailed";
 
       function normalizeLaunch(raw, launchpads) {
         const dateCandidate =
@@ -476,6 +478,29 @@
           launchpadId ||
           null;
         const baseTitle = raw.name || raw.title || "SpaceX launch";
+        const title = site ? `${baseTitle} — ${site}` : baseTitle;
+        return {
+          date: parsedDate,
+          title,
+          kind: "launch",
+          time: formatTime(parsedDate),
+          site,
+        };
+      }
+
+      function normalizeLl2Launch(raw) {
+        const dateCandidate = raw.net || raw.window_start || raw.window_end || null;
+        const parsedDate = dateCandidate ? new Date(dateCandidate) : null;
+        if (!parsedDate || Number.isNaN(parsedDate.getTime())) return null;
+        const pad = raw.pad || {};
+        const location = pad.location || {};
+        const site =
+          pad.name ||
+          pad.wiki_url ||
+          location.name ||
+          [location.name, location.country_code].filter(Boolean).join(", ") ||
+          null;
+        const baseTitle = raw.name || "SpaceX launch";
         const title = site ? `${baseTitle} — ${site}` : baseTitle;
         return {
           date: parsedDate,
@@ -529,10 +554,19 @@
         return Array.isArray(data) ? data : [];
       }
 
+      async function fetchSpaceXViaLl2() {
+        const res = await fetch(LL2_SPACEX_UPCOMING_URL);
+        if (!res.ok) throw new Error(`SpaceDevs failed: ${res.status}`);
+        const data = await res.json();
+        const results = Array.isArray(data.results) ? data.results : [];
+        return results;
+      }
+
       async function fetchSpaceXLaunches() {
         const now = currentTime();
         let launches = [];
         let launchpads = {};
+        let source = "spacex-v5";
 
         try {
           const [launchData, launchpadMap] = await Promise.all([fetchSpaceXViaV5(), fetchLaunchpads()]);
@@ -544,12 +578,14 @@
             const [launchData, launchpadMap] = await Promise.all([fetchSpaceXViaV4(), fetchLaunchpads()]);
             launches = launchData;
             launchpads = launchpadMap;
+            source = "spacex-v4";
           } catch (err2) {
             console.warn("SpaceX v4 path failed", err2);
             try {
               const [launchData, launchpadMap] = await Promise.all([fetchSpaceXViaQuery(now), fetchLaunchpads()]);
               launches = launchData;
               launchpads = launchpadMap;
+              source = "spacex-query";
             } catch (err3) {
               console.warn("SpaceX query path failed", err3);
               launches = [];
@@ -557,26 +593,40 @@
           }
         }
 
-        const cutoff = new Date(now);
-
         const normalized = launches.map((entry) => normalizeLaunch(entry, launchpads)).filter(Boolean);
-        const future = normalized.filter((ev) => ev.date >= cutoff).sort((a, b) => a.date - b.date).slice(0, 20);
+        let future = normalized.filter((ev) => ev.date >= now).sort((a, b) => a.date - b.date).slice(0, 20);
 
         if (future.length === 0) {
-          const sample = normalized
-            .map((ev) => (ev ? ev.date.toISOString() : "invalid"))
-            .slice(0, 5);
-          console.warn("SpaceX launches fetched but none survived cutoff", {
-            cutoff: cutoff.toISOString(),
+          console.warn("SpaceX data empty after cutoff, attempting SpaceDevs", {
+            source,
             fetched: launches.length,
             parsed: normalized.length,
-            sampleDates: sample,
+            cutoff: now.toISOString(),
+          });
+          try {
+            const ll2Launches = await fetchSpaceXViaLl2();
+            const ll2Normalized = ll2Launches.map((entry) => normalizeLl2Launch(entry)).filter(Boolean);
+            future = ll2Normalized.filter((ev) => ev.date >= now).sort((a, b) => a.date - b.date).slice(0, 20);
+            source = "spacedevs";
+          } catch (llErr) {
+            console.warn("SpaceDevs path failed", llErr);
+          }
+        }
+
+        if (future.length === 0) {
+          console.warn("SpaceX launches fetched but none survived cutoff", {
+            source,
+            cutoff: now.toISOString(),
+            fetched: launches.length,
+            parsed: normalized.length,
           });
         } else {
           const first = future[0];
           console.info(
-            "SpaceX launches loaded",
+            "Launch schedule loaded",
             future.length,
+            "from",
+            source,
             "first launch",
             first.title,
             first.date.toISOString()
