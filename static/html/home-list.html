@@ -63,11 +63,11 @@
       }
       .left-column {
         float: left;
-        width: 55%;
+        width: 65%;
       }
       .right-column {
         float: right;
-        width: 45%;
+        width: 35%;
         text-align: right;
       }
       .list-item {
@@ -129,6 +129,7 @@
       <div class="right-column">
         <div class="section-title">Weather</div>
         <div id="weather-now" class="list-item"></div>
+        <div id="weather-today" class="list-item"></div>
         <div id="weather-outlook"></div>
       </div>
     </div>
@@ -140,6 +141,7 @@
       const $todaySection = document.getElementById("today-section");
       const $todayList = document.getElementById("today-list");
       const $weatherNow = document.getElementById("weather-now");
+      const $weatherToday = document.getElementById("weather-today");
       const $weatherOutlook = document.getElementById("weather-outlook");
 
       let eventsCache = [];
@@ -236,7 +238,7 @@
         events.forEach((ev) => {
           const line = document.createElement("div");
           line.className = "list-item";
-          const datePart = ev.date.toLocaleDateString(undefined, {
+          const datePart = ev.date.toLocaleDateString("en-US", {
             month: "short",
             day: "numeric",
             timeZone: "America/Los_Angeles",
@@ -866,12 +868,17 @@
           const lowToday = todayIndex !== null && daily.temperature_2m_min ? daily.temperature_2m_min[todayIndex] : null;
           const todayCode = todayIndex !== null && daily.weathercode ? daily.weathercode[todayIndex] : current.weathercode;
           const nowStatus = WEATHER_CODES[todayCode] || "weather";
-          const currentTextParts = [];
-          if (current.temperature !== undefined) currentTextParts.push(`${Math.round(current.temperature)}°F now`);
-          if (highToday !== null && lowToday !== null) currentTextParts.push(`high ${Math.round(highToday)}°F / low ${Math.round(lowToday)}°F`);
-          currentTextParts.push(nowStatus);
-          $weatherNow.textContent = currentTextParts.join(", ");
+          const nowParts = [];
+          if (current.temperature !== undefined) nowParts.push(`${Math.round(current.temperature)}°F now`);
+          nowParts.push(nowStatus);
+          $weatherNow.textContent = nowParts.join(", ");
           $weatherNow.className = `list-item ${weatherClass(nowStatus)}`.trim();
+
+          const todayParts = [];
+          if (highToday !== null && lowToday !== null)
+            todayParts.push(`high ${Math.round(highToday)}°F / low ${Math.round(lowToday)}°F`);
+          $weatherToday.textContent = todayParts.join(", ");
+          $weatherToday.className = `list-item ${weatherClass(nowStatus)}`.trim();
 
           const outlook = [];
           if (daily.time && daily.temperature_2m_max && daily.temperature_2m_min && daily.weathercode) {
@@ -896,6 +903,7 @@
         } catch (err) {
           console.warn("Weather fetch error", err);
           $weatherNow.textContent = "Weather unavailable";
+          $weatherToday.textContent = "";
           $weatherOutlook.innerHTML = "";
         }
       }
