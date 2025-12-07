@@ -17,7 +17,7 @@
       }
       .top-row {
         overflow: hidden;
-        padding-bottom: 12px;
+        padding-bottom: 0px;
         border-bottom: 1px solid #333;
       }
       .date-box {
@@ -39,7 +39,7 @@
       .time-text {
         margin: 0;
         line-height: 1;
-        font-size: 92px;
+        font-size: 110px;
         font-weight: bold;
         color: #ffffff;
       }
@@ -123,7 +123,8 @@
           <div id="upcoming-list"></div>
         </div>
         <div class="note">
-          Data refreshes every hour. All times local. Sources: Nager, SpaceX, Open Meteo, curated astronomy.
+          Data refreshes every hour. All times local. Sources: Nager, SpaceX,
+          Open Meteo, curated astronomy.
         </div>
       </div>
       <div class="right-column">
@@ -272,7 +273,11 @@
 
       function renderToday() {
         const now = currentTime();
-        const todayStart = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+        const todayStart = new Date(
+          now.getFullYear(),
+          now.getMonth(),
+          now.getDate()
+        );
         const tomorrowStart = new Date(todayStart);
         tomorrowStart.setDate(tomorrowStart.getDate() + 1);
         const todaysEvents = eventsCache
@@ -289,7 +294,9 @@
 
       async function fetchHolidays(year) {
         try {
-          const res = await fetch(`https://date.nager.at/api/v3/PublicHolidays/${year}/US`);
+          const res = await fetch(
+            `https://date.nager.at/api/v3/PublicHolidays/${year}/US`
+          );
           if (!res.ok) throw new Error("holiday fetch failed");
           const data = await res.json();
           return data.map((item) => ({
@@ -338,10 +345,26 @@
 
       function seasonEvents(year) {
         return [
-          { date: new Date(year, 2, 20), title: "Spring Equinox", kind: "season" },
-          { date: new Date(year, 5, 20), title: "Summer Solstice", kind: "season" },
-          { date: new Date(year, 8, 22), title: "Autumn Equinox", kind: "season" },
-          { date: new Date(year, 11, 21), title: "Winter Solstice", kind: "season" },
+          {
+            date: new Date(year, 2, 20),
+            title: "Spring Equinox",
+            kind: "season",
+          },
+          {
+            date: new Date(year, 5, 20),
+            title: "Summer Solstice",
+            kind: "season",
+          },
+          {
+            date: new Date(year, 8, 22),
+            title: "Autumn Equinox",
+            kind: "season",
+          },
+          {
+            date: new Date(year, 11, 21),
+            title: "Winter Solstice",
+            kind: "season",
+          },
         ];
       }
 
@@ -461,8 +484,10 @@
       }
 
       const SPACEX_QUERY_URL = "https://api.spacexdata.com/v5/launches/query";
-      const SPACEX_UPCOMING_URL = "https://api.spacexdata.com/v4/launches/upcoming";
-      const SPACEX_UPCOMING_V5_URL = "https://api.spacexdata.com/v5/launches/upcoming";
+      const SPACEX_UPCOMING_URL =
+        "https://api.spacexdata.com/v4/launches/upcoming";
+      const SPACEX_UPCOMING_V5_URL =
+        "https://api.spacexdata.com/v5/launches/upcoming";
       const SPACEX_LAUNCHPADS_URL = "https://api.spacexdata.com/v4/launchpads";
       const LL2_SPACEX_UPCOMING_URL =
         "https://ll.thespacedevs.com/2.2.0/launch/upcoming/?limit=25&ordering=net&search=SpaceX&mode=detailed";
@@ -475,15 +500,24 @@
         const dateCandidate =
           raw.date_utc ||
           raw.date_local ||
-          (raw.date_unix ? new Date(raw.date_unix * 1000).toISOString() : null) ||
+          (raw.date_unix
+            ? new Date(raw.date_unix * 1000).toISOString()
+            : null) ||
           raw.date ||
           null;
         const parsedDate = dateCandidate ? new Date(dateCandidate) : null;
         if (!parsedDate || Number.isNaN(parsedDate.getTime())) return null;
-        const launchpadId = typeof raw.launchpad === "string" ? raw.launchpad : null;
-        const padInfo = launchpadId && launchpads[launchpadId] ? launchpads[launchpadId] : null;
+        const launchpadId =
+          typeof raw.launchpad === "string" ? raw.launchpad : null;
+        const padInfo =
+          launchpadId && launchpads[launchpadId]
+            ? launchpads[launchpadId]
+            : null;
         const site =
-          (padInfo && [padInfo.name, padInfo.locality || padInfo.region].filter(Boolean).join(" — ")) ||
+          (padInfo &&
+            [padInfo.name, padInfo.locality || padInfo.region]
+              .filter(Boolean)
+              .join(" — ")) ||
           raw.site ||
           (raw.launchpad && (raw.launchpad.full_name || raw.launchpad.name)) ||
           launchpadId ||
@@ -491,8 +525,16 @@
         const baseTitle = raw.name || raw.title || "SpaceX launch";
         const isVandenberg =
           isVandenbergSite(site) ||
-          isVandenbergSite(padInfo ? `${padInfo.name} ${padInfo.locality || padInfo.region || ""}` : null) ||
-          isVandenbergSite(raw.launchpad && raw.launchpad.locality ? raw.launchpad.locality : null);
+          isVandenbergSite(
+            padInfo
+              ? `${padInfo.name} ${padInfo.locality || padInfo.region || ""}`
+              : null
+          ) ||
+          isVandenbergSite(
+            raw.launchpad && raw.launchpad.locality
+              ? raw.launchpad.locality
+              : null
+          );
         return {
           date: parsedDate,
           title: baseTitle,
@@ -504,7 +546,8 @@
       }
 
       function normalizeLl2Launch(raw) {
-        const dateCandidate = raw.net || raw.window_start || raw.window_end || null;
+        const dateCandidate =
+          raw.net || raw.window_start || raw.window_end || null;
         const parsedDate = dateCandidate ? new Date(dateCandidate) : null;
         if (!parsedDate || Number.isNaN(parsedDate.getTime())) return null;
         const pad = raw.pad || {};
@@ -516,7 +559,8 @@
           [location.name, location.country_code].filter(Boolean).join(", ") ||
           null;
         const baseTitle = raw.name || "SpaceX launch";
-        const isVandenberg = isVandenbergSite(site) || isVandenbergSite(location.name);
+        const isVandenberg =
+          isVandenbergSite(site) || isVandenbergSite(location.name);
         return {
           date: parsedDate,
           title: baseTitle,
@@ -585,20 +629,29 @@
         let source = "spacex-v5";
 
         try {
-          const [launchData, launchpadMap] = await Promise.all([fetchSpaceXViaV5(), fetchLaunchpads()]);
+          const [launchData, launchpadMap] = await Promise.all([
+            fetchSpaceXViaV5(),
+            fetchLaunchpads(),
+          ]);
           launches = launchData;
           launchpads = launchpadMap;
         } catch (err) {
           console.warn("SpaceX v5 path failed", err);
           try {
-            const [launchData, launchpadMap] = await Promise.all([fetchSpaceXViaV4(), fetchLaunchpads()]);
+            const [launchData, launchpadMap] = await Promise.all([
+              fetchSpaceXViaV4(),
+              fetchLaunchpads(),
+            ]);
             launches = launchData;
             launchpads = launchpadMap;
             source = "spacex-v4";
           } catch (err2) {
             console.warn("SpaceX v4 path failed", err2);
             try {
-              const [launchData, launchpadMap] = await Promise.all([fetchSpaceXViaQuery(now), fetchLaunchpads()]);
+              const [launchData, launchpadMap] = await Promise.all([
+                fetchSpaceXViaQuery(now),
+                fetchLaunchpads(),
+              ]);
               launches = launchData;
               launchpads = launchpadMap;
               source = "spacex-query";
@@ -609,8 +662,13 @@
           }
         }
 
-        const normalized = launches.map((entry) => normalizeLaunch(entry, launchpads)).filter(Boolean);
-        let future = normalized.filter((ev) => ev.date >= now).sort((a, b) => a.date - b.date).slice(0, 20);
+        const normalized = launches
+          .map((entry) => normalizeLaunch(entry, launchpads))
+          .filter(Boolean);
+        let future = normalized
+          .filter((ev) => ev.date >= now)
+          .sort((a, b) => a.date - b.date)
+          .slice(0, 20);
 
         if (future.length === 0) {
           console.warn("SpaceX data empty after cutoff, attempting SpaceDevs", {
@@ -621,8 +679,13 @@
           });
           try {
             const ll2Launches = await fetchSpaceXViaLl2();
-            const ll2Normalized = ll2Launches.map((entry) => normalizeLl2Launch(entry)).filter(Boolean);
-            future = ll2Normalized.filter((ev) => ev.date >= now).sort((a, b) => a.date - b.date).slice(0, 20);
+            const ll2Normalized = ll2Launches
+              .map((entry) => normalizeLl2Launch(entry))
+              .filter(Boolean);
+            future = ll2Normalized
+              .filter((ev) => ev.date >= now)
+              .sort((a, b) => a.date - b.date)
+              .slice(0, 20);
             source = "spacedevs";
           } catch (llErr) {
             console.warn("SpaceDevs path failed", llErr);
@@ -631,12 +694,17 @@
 
         const vandenberg = future.filter((ev) => ev.isVandenberg);
         if (future.length > 0 && vandenberg.length === 0) {
-          console.info("Launches available but none from Vandenberg; suppressing display", {
-            source,
-            sample: future
-              .slice(0, 3)
-              .map((ev) => ({ title: ev.title, site: ev.site, date: ev.date.toISOString() })),
-          });
+          console.info(
+            "Launches available but none from Vandenberg; suppressing display",
+            {
+              source,
+              sample: future.slice(0, 3).map((ev) => ({
+                title: ev.title,
+                site: ev.site,
+                date: ev.date.toISOString(),
+              })),
+            }
+          );
         }
 
         future = vandenberg.slice(0, 2);
@@ -666,7 +734,11 @@
 
       function otherNiceThings(year) {
         return [
-          { date: new Date(year, 5, 1, 12, 0), title: "First day of hurricane season", kind: "other" },
+          {
+            date: new Date(year, 5, 1, 12, 0),
+            title: "First day of hurricane season",
+            kind: "other",
+          },
         ];
       }
 
@@ -722,7 +794,11 @@
           const { name, month, day, birthYear, ageUpdates } = entry;
           years.forEach((year) => {
             const birthdayDate = new Date(year, month, day, 12, 0);
-            events.push({ date: birthdayDate, title: `${name}'s Birthday`, kind: "other" });
+            events.push({
+              date: birthdayDate,
+              title: `${name}'s Birthday`,
+              kind: "other",
+            });
           });
 
           if (ageUpdates && birthYear) {
@@ -761,7 +837,11 @@
 
       async function refreshEvents() {
         const now = currentTime();
-        const years = [now.getFullYear(), now.getFullYear() + 1, now.getFullYear() + 2];
+        const years = [
+          now.getFullYear(),
+          now.getFullYear() + 1,
+          now.getFullYear() + 2,
+        ];
 
         const holidayPromises = years.map((y) => fetchHolidays(y));
         const spacerPromise = fetchSpaceXLaunches();
@@ -781,7 +861,12 @@
           ...otherNiceThings(y),
         ]);
 
-        eventsCache = [...holidayResults.flat(), ...computed, ...birthdayEvents, ...launches].map((ev) => ({
+        eventsCache = [
+          ...holidayResults.flat(),
+          ...computed,
+          ...birthdayEvents,
+          ...launches,
+        ].map((ev) => ({
           ...ev,
           date: new Date(ev.date),
           kind: ev.kind || "other",
@@ -828,7 +913,8 @@
       function weatherClass(status) {
         const s = (status || "").toLowerCase();
         if (s.includes("thunder")) return "status-thunderstorm";
-        if (s.includes("rain") || s.includes("drizzle") || s.includes("shower")) return "status-rain";
+        if (s.includes("rain") || s.includes("drizzle") || s.includes("shower"))
+          return "status-rain";
         if (s.includes("cloud")) return "status-cloudy";
         if (s.includes("clear")) return "status-clear";
         if (s.includes("fog")) return "status-foggy";
@@ -864,28 +950,49 @@
             }
           }
 
-          const highToday = todayIndex !== null && daily.temperature_2m_max ? daily.temperature_2m_max[todayIndex] : null;
-          const lowToday = todayIndex !== null && daily.temperature_2m_min ? daily.temperature_2m_min[todayIndex] : null;
-          const todayCode = todayIndex !== null && daily.weathercode ? daily.weathercode[todayIndex] : current.weathercode;
+          const highToday =
+            todayIndex !== null && daily.temperature_2m_max
+              ? daily.temperature_2m_max[todayIndex]
+              : null;
+          const lowToday =
+            todayIndex !== null && daily.temperature_2m_min
+              ? daily.temperature_2m_min[todayIndex]
+              : null;
+          const todayCode =
+            todayIndex !== null && daily.weathercode
+              ? daily.weathercode[todayIndex]
+              : current.weathercode;
           const nowStatus = WEATHER_CODES[todayCode] || "weather";
           const nowParts = [];
-          if (current.temperature !== undefined) nowParts.push(`${Math.round(current.temperature)}°F now`);
+          if (current.temperature !== undefined)
+            nowParts.push(`${Math.round(current.temperature)}°F now`);
           nowParts.push(nowStatus);
           $weatherNow.textContent = nowParts.join(", ");
           $weatherNow.className = `list-item ${weatherClass(nowStatus)}`.trim();
 
           const todayParts = [];
           if (highToday !== null && lowToday !== null)
-            todayParts.push(`high ${Math.round(highToday)}°F / low ${Math.round(lowToday)}°F`);
+            todayParts.push(
+              `high ${Math.round(highToday)}°F / low ${Math.round(lowToday)}°F`
+            );
           $weatherToday.textContent = todayParts.join(", ");
-          $weatherToday.className = `list-item ${weatherClass(nowStatus)}`.trim();
+          $weatherToday.className = `list-item ${weatherClass(
+            nowStatus
+          )}`.trim();
 
           const outlook = [];
-          if (daily.time && daily.temperature_2m_max && daily.temperature_2m_min && daily.weathercode) {
+          if (
+            daily.time &&
+            daily.temperature_2m_max &&
+            daily.temperature_2m_min &&
+            daily.weathercode
+          ) {
             for (let i = 0; i < daily.time.length; i++) {
               const date = parseLocalDate(daily.time[i]);
               if (!date || date <= todayStart) continue;
-              const label = date.toLocaleDateString(undefined, { weekday: "short" });
+              const label = date.toLocaleDateString(undefined, {
+                weekday: "short",
+              });
               const high = Math.round(daily.temperature_2m_max[i]);
               const low = Math.round(daily.temperature_2m_min[i]);
               const status = WEATHER_CODES[daily.weathercode[i]] || "weather";
