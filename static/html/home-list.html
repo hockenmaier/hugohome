@@ -115,11 +115,11 @@
       }
       .note {
         margin-top: 12px;
-        font-size: 14px;
+        font-size: 60%;
         color: #b0b0b0;
       }
       .nav-buttons {
-        margin: 6px 0;
+        margin: 2px 0;
         display: inline-flex;
         gap: 10px;
       }
@@ -191,7 +191,9 @@
       let eventsCache = [];
       let upcomingPage = 0;
       let autoReturnTimer = null;
-      const PAGE_SIZE = 6;
+      const DEFAULT_UPCOMING_SIZE = 6;
+      const TODAY_UPCOMING_SIZE = 4;
+      let hasTodayEvents = false;
 
       if (!Array.prototype.flat) {
         Object.defineProperty(Array.prototype, "flat", {
@@ -306,6 +308,26 @@
         });
       }
 
+      function currentUpcomingSize() {
+        return hasTodayEvents ? TODAY_UPCOMING_SIZE : DEFAULT_UPCOMING_SIZE;
+      }
+
+      function dedupeEvents(events) {
+        const seen = new Set();
+        return events.filter((ev) => {
+          const datePart = ev.date.toISOString().slice(0, 10);
+          const key = [
+            (ev.title || "").toLowerCase(),
+            ev.kind || "",
+            datePart,
+            ev.time || "",
+          ].join("|");
+          if (seen.has(key)) return false;
+          seen.add(key);
+          return true;
+        });
+      }
+
       function clearAutoReturn() {
         if (autoReturnTimer) {
           clearTimeout(autoReturnTimer);
@@ -346,22 +368,24 @@
         const fourWeeks = new Date(now);
         fourWeeks.setDate(fourWeeks.getDate() + 28);
 
+        const pageSize = currentUpcomingSize();
+
         const futureEvents = eventsCache
           .filter((e) => e.date >= tomorrowStart)
           .sort((a, b) => a.date - b.date);
 
         const defaultList = futureEvents
           .filter((e) => e.date <= fourWeeks)
-          .slice(0, PAGE_SIZE);
+          .slice(0, pageSize);
 
         const startIndex =
           upcomingPage === 0
             ? 0
-            : defaultList.length + (upcomingPage - 1) * PAGE_SIZE;
+            : defaultList.length + (upcomingPage - 1) * pageSize;
         const list =
           upcomingPage === 0
             ? defaultList
-            : futureEvents.slice(startIndex, startIndex + PAGE_SIZE);
+            : futureEvents.slice(startIndex, startIndex + pageSize);
 
         renderList($upcoming, list, { mode: "upcoming" });
       }
@@ -378,7 +402,8 @@
         const todaysEvents = eventsCache
           .filter((e) => e.date >= todayStart && e.date < tomorrowStart)
           .sort((a, b) => a.date - b.date);
-        if (todaysEvents.length > 0) {
+        hasTodayEvents = todaysEvents.length > 0;
+        if (hasTodayEvents) {
           $todaySection.style.display = "block";
           renderList($todayList, todaysEvents, { mode: "today" });
         } else {
@@ -956,16 +981,18 @@
           ...otherNiceThings(y),
         ]);
 
-        eventsCache = [
-          ...holidayResults.flat(),
-          ...computed,
-          ...birthdayEvents,
-          ...launches,
-        ].map((ev) => ({
-          ...ev,
-          date: new Date(ev.date),
-          kind: ev.kind || "other",
-        }));
+        eventsCache = dedupeEvents(
+          [
+            ...holidayResults.flat(),
+            ...computed,
+            ...birthdayEvents,
+            ...launches,
+          ].map((ev) => ({
+            ...ev,
+            date: new Date(ev.date),
+            kind: ev.kind || "other",
+          }))
+        );
 
         renderToday();
         renderUpcoming();
