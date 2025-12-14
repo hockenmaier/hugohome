@@ -20,6 +20,12 @@
         
     
 
+    
+
+    
+        
+    
+
 
 
 
@@ -69,7 +75,7 @@
         
 
         
-            <lastBuildDate>2016-01-01 00:00:00 +0000 UTC</lastBuildDate>
+            <lastBuildDate>2025-12-10 00:00:00 +0000 UTC</lastBuildDate>
         
 
         <link>https://hockenworks.com/tags/home-automation/</link>
@@ -80,6 +86,320 @@
 
         
 
+        
+            <item>
+                
+                
+                
+                
+                
+                
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+                
+
+                
+
+                
+
+                
+                    <description><![CDATA[<p>My <a href="/raspberry-pi-panel">home automation dashboard</a> broke down in two ways this year. Hardware, then software. My wife and I really liked this dashboard. It saved us from pulling out our phones and getting sucked into emails or social media while we were supposed to be living our lives.</p>
+<p>Both breakdowns ended up in rebuilds. The hardware obviously solved by 3D modeling and printing and the software part became another problem I would vibe code - no - vibe engineer - my way out of.</p>
+<p>After rebuilding, it is totally different. But cooler perhaps? And everything it uses should last many decades this time, instead of just one decade.</p>
+<p>Let me break it down for you:</p>
+<hr>
+<h1 id="the-build">The Build</h1>
+<h2 id="hardware">Hardware</h2>
+<p><strong>First breakdown:</strong> the screen finally died with one of the LED rows failing. It was a trooper. This meant updating to a <a href="https://www.amazon.com/dp/B07P8P3X6M">new version of the screen</a></p>
+<p>And the slight physical difference of the board components meant I had to redesign how I mounted it to the wall, from a complete enclosure that attached via mounting tape to a new slim set of custom brackets I made taking advantage of the standard screw mounts on the screen’s PCB:</p>
+<div class="paige-row-wide">
+  <div style="display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:15px;">
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<img   class="rounded-3 w-100"  crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/old-enclosure.webp"    >
+
+
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<img   class="rounded-3 w-100"  crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/new-mount.webp"    >
+
+</div>
+</div>
+
+<p>Old enclosure left, new mounts right (almost invisible in white like the wall). It&rsquo;s much more secure, much less plastic and a good general purpose mount for raw PCB 7-inch displays. Printed in <a href="https://us.store.bambulab.com/products/abs-filament?srsltid=AfmBOopWZrOOFNoQS26lx71-xycEFqOJ3GG7-FllK-4zYhuttsgHJYb5&id=40475105493128">glossy white ABS</a> to last forever and match the walls.</p>
+<p>I posted them on Thingiverse here: <a href="https://www.thingiverse.com/thing:7226385">https://www.thingiverse.com/thing:7226385</a></p>
+<h2 id="software">Software</h2>
+<p><strong>Second breakdown:</strong> And the timing here was perfectly ironic - about a month after I got this new screen and made the slim mount, the software I was using to display the dashboard just gave up. That software was called <a href="http://actiontiles.com/">ActionTiles</a> and yes, that domain is gone because everything about the product disappeared about 20 days before I am posting this. <a href="https://www.reddit.com/r/SmartThings/comments/1p2ya18/action_tiles/">The subreddit</a> didn’t know what was happening but as best I can tell, it sounds like the solo developer unfortunately passed away several years ago.</p>
+<p>Unfortunately ActionTiles was not open source for me to host it myself, nor does it seem worth the effort to integrate with the SmartThings API myself (I am considering moving to an open source home hub after lackluster support for SmartThings anyway), so my next course of action was to vibe code myself another dashboard. This one is less focused on home automation but equally useful to us.</p>
+<p>Over the course of some prompting and <a href="https://openai.com/codex/">Codex</a> PRs, the final result shows:</p>
+<ul>
+<li>The weather now and for the next week</li>
+<li>Upcoming birthdays on my wife&rsquo;s and my shared birthday Google sheet</li>
+<li>How many months old baby Alice is</li>
+<li>Upcoming SpaceX launches visible from my house, with pulsing backgrounds an hour before each launch</li>
+<li>The time and date in a nice format</li>
+<li>Other astronomical events like meteor showers and eclipses</li>
+<li>Plus holidays and solstices</li>
+</ul>
+<p>Here is the end result:</p>
+<p><style>
+  .home-list-wrapper {
+    width: 800px;
+    height: 480px;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    margin: 1em 0;
+  }
+
+  .home-list-wrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 800px;
+    height: 480px;
+    border: 0;
+  }
+</style>
+
+<div class="home-list-wrapper">
+  <iframe
+    class="lazy-iframe"
+    data-src="/html/home-list.html"
+    src="about:blank"
+    loading="lazy"
+  ></iframe>
+</div>
+
+<div class="home-list-caption" style="text-align: center; margin-bottom: 1rem;">
+  
+</div>
+
+<div style="text-align:center;">
+  <a href="/html/home-list.html" target="_blank" rel="noopener noreferrer"
+     style="display:inline-block;padding:.5rem 1rem;border:1px solid #ccc;border-radius:.5rem;text-decoration:none">
+    Open In Standalone Tab
+  </a>
+</div>
+
+Apologies to readers on phone.. this dashboard is hardcoded for fixed size a 16/9 layout.</p>
+<p>I was aiming for clean, simple, readable, and things Kaitlin and I were always looking at our phones to find out. It doesn&rsquo;t do the same things as the previous dashboard but it reduces the number of times my phone has to come out even more than the previous one. We&rsquo;ve been really enjoying it!</p>
+<p>I learned some interesting things throughout this process:</p>
+<ul>
+<li>There are surprisingly good APIs out there for weather and forecasts despite the absolutely <strong>abysmal</strong> mobile weather app market</li>
+<li>Meteor showers don&rsquo;t need an API because they happen the same time every year</li>
+<li>Eclipses basically don&rsquo;t either cause you can just hard code out all the eclipse data with a few kilobytes of data for decades into the future</li>
+<li>The SpaceX upcoming launches list, despite being fully open and probably the simplest of all the data sets here to work with, was by far the most challenging for my AI assistant to read from. This is where the hosted AI coders fall down a lot: their environments simply are different than the ones we are using and they have a hard time accessing stuff that should be open. When they finally figure out how to do that, they have such short memories that they forget things like “only show launches from Vandenberg&quot;.</li>
+</ul>
+<p>As with almost everything on this site, it&rsquo;s totally open source and this one&rsquo;s contained in a single ~1000-line html file. If you want, you can throw this into your favorite AI model and ask it to change it to events you care about and weather in your location.</p>
+<p> 
+ </p>
+<h1 id="vibe-coding-or-vibe-engineering">Vibe Coding? Or Vibe Engineering?</h1>
+<p>Here is where I launch into another breakdown of AI software development. I feel the need to write about it every time I wrap another project, because it&rsquo;s changing so quickly.</p>
+<p>I used <a href="https://openai.com/codex/">Codex</a>, mostly, to build this dashboard. I like Codex <a href="/on-ai-software-development-2/#autonomous-coding-agents">because it makes more sense to me to have AI models make discrete code changes and pull-request them into my project rather than trying to work in the same IDE as the AI</a>.</p>
+<p>Every time I &ldquo;vibe code&rdquo; something new, I find new ways to be amazed and disappointed by these thinking machines. The main takeaway I had this time is, despite the amazing speed of development, I just can&rsquo;t see anyone other than an engineer getting a workable software product out of these models in 2025.</p>
+<p>This is why the term “vibe engineering” is growing on me. Now that the basic code writes itself, what I see engineers doing all day are things <em>around</em> the code like making sure environments work and making sure features don&rsquo;t conflict. And, most key of all: determining the actual specific logic of the product. Check out the detail in my original prompt for this dashboard:</p>
+<blockquote>
+<p>Please create a new dashboard at <a href="https://hockenworks.com/html/home-calendar.html">https://hockenworks.com/html/home-calendar.html</a>.</p>
+<p>It will function as a standalone servable page like <a href="https://hockenworks.com/html/agent-mode-solar-system-self-contained.html">https://hockenworks.com/html/agent-mode-solar-system-self-contained.html</a>.</p>
+<p>This is going to be permanently displayed on a small 16/9 touchscreen in our kitchen running on chromium on Raspberry Pi.</p>
+<p>On the right part of the screen (a full square aligned with the left side of the 16 by 9 screen) will be a calendar. That calendar should display the current week and next 7 weeks on a 7 by seven grid, using your stylistic preferences to denote the dates and days of the week. Draw a bold line horizontally and vertically through month breaks with a clear delineation between the two.</p>
+<p>This calendar should use public data which does not require any sign-in to fetch:</p>
+<ul>
+<li>All US Holidays</li>
+<li>First day of each season, dates when the time changes</li>
+<li>Special astronomical events like eclipses or visible meteor showers etc (list time of day for these ones, for example &ldquo;Solar Eclipse at 2:11 PM&rdquo; listed on its date</li>
+<li>SpaceX launches from Vandenberg ONLY</li>
+<li>Anything else you see fit to list here (let me know if you&rsquo;ve added anything when you finish)</li>
+</ul>
+<p>Come up with theme colors and icons for each foreseeable event (such as a clock for time change days, spaceship for launches, egg for Easter, etc, and fall back to just text for unknown events.</p>
+<p>On the left half of the screen, full remaining width (to the left of the square calendar on the right) should be in this order:</p>
+<p>Time in the format: 12:42 PM
+Date in the format: Nov 23rd</p>
+<p>Both of these should have fun, randomized animated transitions. Use whatever html and css tricks you want to do this, just make sure it&rsquo;s all self-contained code and libraries you can include in hockenworks so this thing never breaks.</p>
+<p>Then have a few lines which list any upcoming holidays or events in the next 4 weeks verbally in the format: Solar Eclipse coming up next Tuesday, February 17th at 2:11 PM or Solar Eclipse coming up February 17th at 2:11 PM</p>
+<p>You should use &ldquo;this&rdquo; and &ldquo;next&rdquo; for upcoming days of the week, or leave part that out if it&rsquo;s further than 2 weeks out.</p>
+<p>Do this on a black background with primarily white and light pastel colorings.
+New data such as holidays should be fetch hourly, if you need to decide on a frequency.
+Remember, this will be permanently displayed and always be up to date so account for any edge cases.</p>
+</blockquote>
+<p>The combination of <a href="/vision-is-the-last-hurdle-before-agi">AIs really not being able to see yet</a> and also being unable to test on the physical Raspberry Pi device which had some unique properties, Codex simply failed at the visual calendar. So I pivoted to a text-only dashboard.</p>
+<p>But here is where I think the term vibe coding should become &ldquo;vibe engineering.&rdquo; Look at that prompt, which was still not nearly detailed enough to produce what I wanted. There were at least ten more prompts, several as long as that, after pivoting to a text-only dashboard to get it working well. This wasn&rsquo;t to correct AI mistakes, but to get to the level of precision in <em>what I actually wanted out of the dashboard</em>. You have to be <strong>SO</strong> precise in your prompting to get what you want. Precise like an engineer, not an idea guy.</p>
+<p>It&rsquo;s much faster to have AI code for you than to write it yourself. But if you are spending this much time designing detailed logic and building up the knowledge of what is feasible and what isn&rsquo;t, in my opinion, you&rsquo;re an engineer.</p>
+<p>The AI also lacks any touchpoints with the real world - in this case, my old chromium running on Raspberry Pi was not testable for the AI, and so I had to run back and forth from my office to the dashboard to see if things scaled correctly. This is not just a problem for niche projects like this. I have seen AI code not work on certain devices and browsers in “normal” web projects at work too, and fixing these things is what <em>engineers</em> do.</p>
+<p>And then, potentially the most egregious consistent failure mode (and this really needs to be fixed): AI still loves to mock up fake data. This happened multiple times in this project where AI just started ignoring API calls and making up dates and times for things to happen. This tendency feels like the labs are trying to game benchmarks by making their software agents make plausible-looking successes that a human evaluator might miss and accidentally rate highly - but made up data is far, far worse for real world use, especially for non-engineers who are less likely to catch it.</p>
+<p>Even with all of these problems preventing these models from “democratizing engineering” - they are still amazing tools. I would not have known where to start on many of these features without the AI simply knowing things I didn’t, like the open weather API and the method of accessing Google sheets as a CSV export. Even as an engineer, there&rsquo;s no chance I would have whipped up a custom dashboard to do all this and solve my dashboardlessness before the era of AI.</p>
+<p>These models are liars and cheats that are also blind, but somehow they’re still greatly expanding what it’s possible to build, and how fast we can build it. Just recognize that once you are building and running real software that actually fits your intentions, you are, effectively, an engineer.</p>
+]]></description>
+                
+
+                <guid isPermaLink="false">tag:hockenworks.com,2025-12-10:/raspberry-pi-panel-2/</guid>
+
+                
+                    <link>https://hockenworks.com/raspberry-pi-panel-2/</link>
+                
+
+                
+                    <pubDate>Wed, 10 Dec 2025 00:00:00 UTC</pubDate>
+                
+
+                
+                    <title>Dashboard Breakdowns</title>
+                
+            </item>
         
             <item>
                 
