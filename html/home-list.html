@@ -137,6 +137,9 @@
       .nav-button:active {
         background: #1a1a1a;
       }
+      .nav-button:focus {
+        outline: none;
+      }
     </style>
   </head>
   <body>
@@ -270,6 +273,7 @@
         return date.toLocaleTimeString(undefined, {
           hour: "numeric",
           minute: "2-digit",
+          hour12: true,
           timeZone: "America/Los_Angeles",
         });
       }
@@ -1156,12 +1160,14 @@
         updateLaunchPulse();
       }
 
-      $nextButton.addEventListener("click", () => {
+      $nextButton.addEventListener("click", (event) => {
         setUpcomingPage(upcomingPage + 1);
+        event.currentTarget.blur();
       });
 
-      $returnButton.addEventListener("click", () => {
+      $returnButton.addEventListener("click", (event) => {
         setUpcomingPage(0);
+        event.currentTarget.blur();
       });
 
       renderClock();
