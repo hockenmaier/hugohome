@@ -1,0 +1,34 @@
+<style>
+  .home-list-wrapper {
+    width: 800px;
+    height: 480px;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    margin: 1em 0;
+  }
+
+  .home-list-wrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 800px;
+    height: 480px;
+    border: 0;
+  }
+</style>
+
+<div class="home-list-wrapper">
+  <iframe
+    class="lazy-iframe"
+    data-src="/html/home-list.html"
+    src="about:blank"
+    loading="lazy"
+  ></iframe>
+</div>
+
+<div class="home-list-caption" style="text-align: center; margin-bottom: 1rem;">
+  {{ with .Get "caption" }}
+    <span style="display: block; font-style: italic; margin-top: 0.5rem;">{{ . }}</span>
+  {{ end }}
+</div>
