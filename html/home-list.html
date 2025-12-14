@@ -15,6 +15,20 @@
         height: 480px;
         overflow: hidden;
       }
+      body.vandenberg-pulse {
+        animation: vandenbergPulse 10s ease-in-out infinite;
+      }
+      @keyframes vandenbergPulse {
+        0% {
+          background: #000;
+        }
+        50% {
+          background: #9e4f24;
+        }
+        100% {
+          background: #000;
+        }
+      }
       .top-row {
         overflow: hidden;
         padding-bottom: 0px;
@@ -58,6 +72,9 @@
         color: #9fbfa0;
         letter-spacing: 0.5px;
       }
+      #today-section .section-title {
+        color: #24f270;
+      }
       .content-row {
         overflow: hidden;
         padding-top: 10px;
@@ -98,8 +115,27 @@
       }
       .note {
         margin-top: 12px;
-        font-size: 14px;
+        font-size: 60%;
         color: #b0b0b0;
+      }
+      .nav-buttons {
+        margin: 2px 0;
+        display: inline-flex;
+        gap: 10px;
+      }
+      .nav-button {
+        background: #111;
+        color: #fff;
+        border: 1px solid #444;
+        padding: 8px 14px;
+        border-radius: 6px;
+        font-size: 16px;
+        line-height: 1.3;
+        min-height: calc(1.3em * 1.3);
+        cursor: pointer;
+      }
+      .nav-button:active {
+        background: #1a1a1a;
       }
     </style>
   </head>
@@ -123,6 +159,10 @@
           <div class="section-title">Upcoming</div>
           <div id="upcoming-list"></div>
         </div>
+        <div class="nav-buttons">
+          <button id="return-button" class="nav-button">Return</button>
+          <button id="next-button" class="nav-button">Next</button>
+        </div>
         <div class="note">
           Data refreshes every hour. All times local. Sources: Nager, SpaceX,
           Open Meteo, curated astronomy.
@@ -145,8 +185,15 @@
       const $weatherNow = document.getElementById("weather-now");
       const $weatherToday = document.getElementById("weather-today");
       const $weatherOutlook = document.getElementById("weather-outlook");
+      const $nextButton = document.getElementById("next-button");
+      const $returnButton = document.getElementById("return-button");
 
       let eventsCache = [];
+      let upcomingPage = 0;
+      let autoReturnTimer = null;
+      const DEFAULT_UPCOMING_SIZE = 6;
+      const TODAY_UPCOMING_SIZE = 4;
+      let hasTodayEvents = false;
 
       if (!Array.prototype.flat) {
         Object.defineProperty(Array.prototype, "flat", {
@@ -261,14 +308,85 @@
         });
       }
 
+      function currentUpcomingSize() {
+        return hasTodayEvents ? TODAY_UPCOMING_SIZE : DEFAULT_UPCOMING_SIZE;
+      }
+
+      function dedupeEvents(events) {
+        const seen = new Set();
+        return events.filter((ev) => {
+          const datePart = ev.date.toISOString().slice(0, 10);
+          const key = [
+            (ev.title || "").toLowerCase(),
+            ev.kind || "",
+            datePart,
+            ev.time || "",
+          ].join("|");
+          if (seen.has(key)) return false;
+          seen.add(key);
+          return true;
+        });
+      }
+
+      function clearAutoReturn() {
+        if (autoReturnTimer) {
+          clearTimeout(autoReturnTimer);
+          autoReturnTimer = null;
+        }
+      }
+
+      function autoReturnToDefault() {
+        upcomingPage = 0;
+        renderUpcoming();
+        clearAutoReturn();
+      }
+
+      function scheduleAutoReturn() {
+        clearAutoReturn();
+        autoReturnTimer = setTimeout(autoReturnToDefault, 60 * 1000);
+      }
+
+      function setUpcomingPage(page) {
+        upcomingPage = Math.max(0, page);
+        renderUpcoming();
+        if (upcomingPage === 0) {
+          clearAutoReturn();
+        } else {
+          scheduleAutoReturn();
+        }
+      }
+
       function renderUpcoming() {
         const now = currentTime();
+        const todayStart = new Date(
+          now.getFullYear(),
+          now.getMonth(),
+          now.getDate()
+        );
+        const tomorrowStart = new Date(todayStart);
+        tomorrowStart.setDate(tomorrowStart.getDate() + 1);
         const fourWeeks = new Date(now);
         fourWeeks.setDate(fourWeeks.getDate() + 28);
-        const list = eventsCache
-          .filter((e) => e.date >= now && e.date <= fourWeeks)
-          .sort((a, b) => a.date - b.date)
-          .slice(0, 6);
+
+        const pageSize = currentUpcomingSize();
+
+        const futureEvents = eventsCache
+          .filter((e) => e.date >= tomorrowStart)
+          .sort((a, b) => a.date - b.date);
+
+        const defaultList = futureEvents
+          .filter((e) => e.date <= fourWeeks)
+          .slice(0, pageSize);
+
+        const startIndex =
+          upcomingPage === 0
+            ? 0
+            : defaultList.length + (upcomingPage - 1) * pageSize;
+        const list =
+          upcomingPage === 0
+            ? defaultList
+            : futureEvents.slice(startIndex, startIndex + pageSize);
+
         renderList($upcoming, list, { mode: "upcoming" });
       }
 
@@ -284,7 +402,8 @@
         const todaysEvents = eventsCache
           .filter((e) => e.date >= todayStart && e.date < tomorrowStart)
           .sort((a, b) => a.date - b.date);
-        if (todaysEvents.length > 0) {
+        hasTodayEvents = todaysEvents.length > 0;
+        if (hasTodayEvents) {
           $todaySection.style.display = "block";
           renderList($todayList, todaysEvents, { mode: "today" });
         } else {
@@ -862,19 +981,22 @@
           ...otherNiceThings(y),
         ]);
 
-        eventsCache = [
-          ...holidayResults.flat(),
-          ...computed,
-          ...birthdayEvents,
-          ...launches,
-        ].map((ev) => ({
-          ...ev,
-          date: new Date(ev.date),
-          kind: ev.kind || "other",
-        }));
+        eventsCache = dedupeEvents(
+          [
+            ...holidayResults.flat(),
+            ...computed,
+            ...birthdayEvents,
+            ...launches,
+          ].map((ev) => ({
+            ...ev,
+            date: new Date(ev.date),
+            kind: ev.kind || "other",
+          }))
+        );
 
         renderToday();
         renderUpcoming();
+        updateLaunchPulse();
       }
 
       const WEATHER_URL =
@@ -1016,9 +1138,31 @@
         }
       }
 
+      function updateLaunchPulse() {
+        const now = currentTime();
+        const pulseWindowMs = 60 * 60 * 1000;
+        const shouldPulse = eventsCache.some(
+          (ev) =>
+            ev.kind === "launch" &&
+            ev.isVandenberg &&
+            ev.date > now &&
+            ev.date - now <= pulseWindowMs
+        );
+        document.body.classList.toggle("vandenberg-pulse", shouldPulse);
+      }
+
       function tick() {
         renderClock();
+        updateLaunchPulse();
       }
+
+      $nextButton.addEventListener("click", () => {
+        setUpcomingPage(upcomingPage + 1);
+      });
+
+      $returnButton.addEventListener("click", () => {
+        setUpcomingPage(0);
+      });
 
       renderClock();
       refreshEvents();
