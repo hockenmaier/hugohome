@@ -1,6 +1,6 @@
 ---
 title: "Dashboard Breakdowns"
-date: 2025-12-10
+date: 2025-12-14
 categories: ["builds"]
 personal: "Y"
 stack: ["HTML/CSS", "Solidworks"]
