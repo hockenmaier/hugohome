@@ -1,0 +1,2983 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Lifetime Tax Burden + Retirement Horizon (Local)</title>
+
+    <!-- Tailwind (styling only). App logic + calculations are fully local in this file. -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <style>
+      :root {
+        color-scheme: dark;
+      }
+      body {
+        background: radial-gradient(
+            1200px 700px at 20% 0%,
+            rgba(99, 102, 241, 0.18),
+            transparent 60%
+          ),
+          radial-gradient(
+            900px 600px at 90% 20%,
+            rgba(16, 185, 129, 0.12),
+            transparent 55%
+          ),
+          radial-gradient(
+            900px 600px at 50% 100%,
+            rgba(244, 63, 94, 0.1),
+            transparent 55%
+          ),
+          #070a14;
+      }
+      .glass {
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.09);
+        backdrop-filter: blur(10px);
+      }
+      .soft {
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+      }
+      .pulseHighlight {
+        animation: pulseHL 0.8s ease-out 1;
+      }
+      @keyframes pulseHL {
+        0% {
+          box-shadow: 0 0 0 0 rgba(99, 102, 241, 0);
+          transform: translateY(0);
+        }
+        20% {
+          box-shadow: 0 0 0 6px rgba(99, 102, 241, 0.18);
+          transform: translateY(-1px);
+        }
+        100% {
+          box-shadow: 0 0 0 0 rgba(99, 102, 241, 0);
+          transform: translateY(0);
+        }
+      }
+      .numFlash {
+        animation: numflash 0.7s ease-out 1;
+      }
+      @keyframes numflash {
+        0% {
+          color: #fff;
+        }
+        30% {
+          color: #a5b4fc;
+        }
+        100% {
+          color: #fff;
+        }
+      }
+
+      /* Range styling */
+      input[type="range"] {
+        accent-color: rgb(99 102 241);
+      }
+
+      /* Collapsible summary “chip” */
+      summary::-webkit-details-marker {
+        display: none;
+      }
+      .sumRow {
+        display: flex;
+        align-items: center;
+        gap: 0.6rem;
+      }
+      .chev {
+        transition: transform 0.2s ease;
+      }
+      details[open] .chev {
+        transform: rotate(90deg);
+      }
+
+      /* Tiny skeleton shimmer */
+      .shimmer {
+        background: linear-gradient(
+          90deg,
+          rgba(255, 255, 255, 0.06),
+          rgba(255, 255, 255, 0.14),
+          rgba(255, 255, 255, 0.06)
+        );
+        background-size: 200% 100%;
+        animation: shimmer 1.2s linear infinite;
+      }
+      @keyframes shimmer {
+        0% {
+          background-position: 200% 0;
+        }
+        100% {
+          background-position: -200% 0;
+        }
+      }
+
+      /* FX canvas */
+      #fxCanvas {
+        position: fixed;
+        inset: 0;
+        pointer-events: none;
+        z-index: 50;
+      }
+    </style>
+  </head>
+
+  <body class="min-h-screen text-slate-100">
+    <canvas id="fxCanvas"></canvas>
+
+    <div class="max-w-6xl mx-auto px-4 py-6 md:py-10">
+      <!-- Header -->
+      <div
+        class="flex flex-col md:flex-row md:items-center md:justify-between gap-4"
+      >
+        <div>
+          <div
+            class="inline-flex items-center gap-2 px-3 py-1 rounded-full glass text-xs text-slate-200"
+          >
+            <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+            Runs locally in your browser (no saving, no accounts).
+          </div>
+          <h1 class="mt-3 text-2xl md:text-3xl font-semibold tracking-tight">
+            Lifetime Tax Burden + Retirement Horizon
+          </h1>
+          <p class="mt-1 text-sm text-slate-300 max-w-2xl">
+            Fill the
+            <span class="font-semibold text-slate-100">6 required fields</span>.
+            Everything else is optional and appears only when it affects a
+            calculation.
+          </p>
+        </div>
+
+        <div class="flex flex-wrap items-center gap-2">
+          <button
+            id="soundBtn"
+            class="px-3 py-2 rounded-xl glass hover:bg-white/10 transition text-sm"
+          >
+            🔇 Sound: Off
+          </button>
+          <button
+            id="resetBtn"
+            class="px-3 py-2 rounded-xl glass hover:bg-white/10 transition text-sm"
+          >
+            ↺ Reset
+          </button>
+        </div>
+      </div>
+
+      <!-- Guarantee -->
+      <div class="mt-6 glass soft rounded-2xl p-4 md:p-5">
+        <div class="flex items-start gap-3">
+          <div
+            class="mt-1 w-9 h-9 rounded-xl bg-indigo-500/20 border border-indigo-300/20 flex items-center justify-center"
+          >
+            <svg
+              width="18"
+              height="18"
+              viewBox="0 0 24 24"
+              fill="none"
+              class="opacity-90"
+            >
+              <path
+                d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"
+                stroke="currentColor"
+                stroke-width="1.8"
+              />
+              <path
+                d="M9 12l2 2 4-5"
+                stroke="currentColor"
+                stroke-width="1.8"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </div>
+          <div>
+            <div class="font-semibold">Guarantee</div>
+            <div class="text-sm text-slate-300">
+              No information saved anywhere. All calculations run locally on
+              your computer.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Required Inputs -->
+      <div class="mt-6 grid grid-cols-1 lg:grid-cols-3 gap-4">
+        <div class="lg:col-span-2 glass soft rounded-2xl p-4 md:p-5">
+          <div class="flex items-center justify-between gap-3">
+            <div>
+              <div class="text-sm text-slate-300">Required inputs</div>
+              <div class="font-semibold">Just these 6.</div>
+            </div>
+            <div
+              id="progressPills"
+              class="flex items-center gap-1 text-xs text-slate-200"
+            ></div>
+          </div>
+
+          <div class="mt-4 space-y-4">
+            <!-- 1) Filing status -->
+            <div class="rounded-xl bg-white/5 border border-white/10 p-3">
+              <div class="text-sm font-medium">1) Filing status</div>
+              <div class="mt-2 flex gap-2">
+                <button
+                  id="fsSingle"
+                  class="px-3 py-2 rounded-lg bg-indigo-500/20 border border-indigo-300/20 hover:bg-indigo-500/30 transition text-sm"
+                >
+                  Single
+                </button>
+                <button
+                  id="fsMFJ"
+                  class="px-3 py-2 rounded-lg bg-white/5 border border-white/10 hover:bg-white/10 transition text-sm"
+                >
+                  Married filing jointly
+                </button>
+              </div>
+            </div>
+
+            <!-- 2) Income -->
+            <div class="rounded-xl bg-white/5 border border-white/10 p-3">
+              <div class="text-sm font-medium">2) Household gross income</div>
+              <div class="mt-2 flex flex-col sm:flex-row sm:items-center gap-2">
+                <div class="flex-1">
+                  <input
+                    id="income"
+                    inputmode="decimal"
+                    placeholder="200000"
+                    class="w-full px-3 py-2 rounded-lg bg-black/30 border border-white/10 focus:outline-none focus:ring-2 focus:ring-indigo-500/50"
+                  />
+                  <div class="mt-1 text-xs text-slate-400">$ / year</div>
+                </div>
+
+                <div
+                  class="sm:w-60 rounded-lg bg-black/20 border border-white/10 px-3 py-2"
+                >
+                  <div class="text-xs text-slate-400">Quick calc</div>
+                  <div class="text-sm">
+                    Estimated pre-tax monthly:
+                    <span id="incomeMonthly" class="font-semibold">—</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- 3) Spend -->
+            <div class="rounded-xl bg-white/5 border border-white/10 p-3">
+              <div class="text-sm font-medium">3) Annual spend</div>
+              <div class="mt-2 flex flex-col sm:flex-row sm:items-center gap-2">
+                <div class="flex-1">
+                  <input
+                    id="spend"
+                    inputmode="decimal"
+                    placeholder="80000"
+                    class="w-full px-3 py-2 rounded-lg bg-black/30 border border-white/10 focus:outline-none focus:ring-2 focus:ring-indigo-500/50"
+                  />
+                  <div class="mt-1 text-xs text-slate-400">$ / year</div>
+                </div>
+
+                <div
+                  class="sm:w-60 rounded-lg bg-black/20 border border-white/10 px-3 py-2"
+                >
+                  <div class="text-xs text-slate-400">Quick calc</div>
+                  <div class="text-sm">
+                    Implied savings (before taxes):
+                    <span id="preTaxSavings" class="font-semibold">—</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- 4) Net worth -->
+            <div class="rounded-xl bg-white/5 border border-white/10 p-3">
+              <div class="text-sm font-medium">4) Current net worth</div>
+              <div class="mt-1 text-xs text-slate-400">
+                Investable liquid net worth (cash + brokerage + retirement
+                accounts)
+              </div>
+              <div class="mt-2">
+                <input
+                  id="netWorth"
+                  inputmode="decimal"
+                  placeholder="250000"
+                  class="w-full px-3 py-2 rounded-lg bg-black/30 border border-white/10 focus:outline-none focus:ring-2 focus:ring-indigo-500/50"
+                />
+                <div class="mt-1 text-xs text-slate-400">$</div>
+              </div>
+            </div>
+
+            <!-- 5) Age -->
+            <div class="rounded-xl bg-white/5 border border-white/10 p-3">
+              <div class="text-sm font-medium">5) Age</div>
+              <div class="mt-2">
+                <input
+                  id="age"
+                  inputmode="numeric"
+                  placeholder="37"
+                  class="w-full px-3 py-2 rounded-lg bg-black/30 border border-white/10 focus:outline-none focus:ring-2 focus:ring-indigo-500/50"
+                />
+              </div>
+            </div>
+
+            <!-- 6) State -->
+            <div class="rounded-xl bg-white/5 border border-white/10 p-3">
+              <div class="text-sm font-medium">6) State</div>
+              <div class="mt-2 flex flex-col sm:flex-row sm:items-center gap-2">
+                <select
+                  id="state"
+                  class="w-full px-3 py-2 rounded-lg bg-black/30 border border-white/10 focus:outline-none focus:ring-2 focus:ring-indigo-500/50"
+                ></select>
+                <div
+                  class="sm:w-64 rounded-lg bg-black/20 border border-white/10 px-3 py-2"
+                >
+                  <div class="text-xs text-slate-400">Auto-loaded</div>
+                  <div class="text-sm">
+                    Sales tax (state):
+                    <span id="stateSalesRate" class="font-semibold">—</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Derived quick savings -->
+            <div
+              class="rounded-xl bg-indigo-500/10 border border-indigo-300/15 p-3"
+            >
+              <div class="text-sm font-semibold">As you type…</div>
+              <div class="mt-1 text-sm text-slate-300">
+                The app will estimate your
+                <span class="text-slate-100 font-semibold">annual savings</span>
+                (income − spend − taxes) and show how each assumption moves the
+                totals.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right rail: final headline results -->
+        <div class="glass soft rounded-2xl p-4 md:p-5">
+          <div class="text-sm text-slate-300">
+            Results (appears after all 6 required inputs)
+          </div>
+          <div class="mt-3 space-y-3">
+            <div class="rounded-xl bg-black/20 border border-white/10 p-3">
+              <div class="text-xs text-slate-400">
+                Estimated % of “potential” resources taken
+              </div>
+              <div class="mt-1 text-2xl font-semibold" id="headlinePct">—</div>
+              <div class="mt-1 text-xs text-slate-400" id="headlineDenom">
+                —
+              </div>
+            </div>
+
+            <div class="rounded-xl bg-black/20 border border-white/10 p-3">
+              <div class="text-xs text-slate-400">Retirement (4% rule)</div>
+              <div class="mt-1 text-lg font-semibold" id="headlineRetire">
+                —
+              </div>
+              <div
+                class="mt-1 text-xs text-slate-400"
+                id="headlineRetireDetail"
+              >
+                —
+              </div>
+            </div>
+
+            <div class="rounded-xl bg-black/20 border border-white/10 p-3">
+              <div class="text-xs text-slate-400">Cascading updates</div>
+              <div class="mt-1 text-sm text-slate-300">
+                After any change, sections below will update in a
+                <span class="text-slate-100 font-semibold">500ms cascade</span>.
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="mt-4 pt-4 border-t border-white/10 text-xs text-slate-400 leading-relaxed"
+          >
+            <div class="font-semibold text-slate-300">
+              Data sources used by defaults
+            </div>
+            <ul class="list-disc ml-5 mt-2 space-y-1">
+              <li>
+                Federal brackets: IRS Rev. Proc. 2024-40 (2025 inflation
+                adjustments).
+              </li>
+              <li>
+                Social Security wage base (2025): SSA press release
+                (Contribution & Benefit Base).
+              </li>
+              <li>
+                State income tax top rates: NerdWallet “2025 state tax rates”
+                table.
+              </li>
+              <li>
+                State sales tax rates: Sales Tax Institute “State Sales Tax
+                Rates” table.
+              </li>
+              <li>
+                Property tax effective rate: U.S. Census API (ACS) live fetch
+                (fallback to manual override if blocked).
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Main sections (hidden until required complete) -->
+      <div id="sections" class="mt-6 space-y-4 hidden">
+        <!-- SECTION: Income + Payroll -->
+        <details
+          id="secIncome"
+          open
+          class="glass soft rounded-2xl overflow-hidden"
+        >
+          <summary
+            class="px-4 md:px-5 py-4 cursor-pointer hover:bg-white/5 transition"
+          >
+            <div class="sumRow">
+              <div class="chev">▶</div>
+              <div class="flex-1">
+                <div class="text-sm font-semibold">
+                  Income + Payroll (highest impact)
+                </div>
+                <div class="text-xs text-slate-400" id="sumIncome">—</div>
+              </div>
+              <div class="text-sm font-semibold" id="sumIncomeRight">—</div>
+            </div>
+          </summary>
+          <div class="px-4 md:px-5 pb-5">
+            <div class="mt-1 text-xs text-slate-400">
+              Only numbers
+              <span class="text-slate-200 font-semibold">below</span> your
+              inputs update.
+            </div>
+
+            <!-- Assumptions (appear here because they affect this section) -->
+            <div class="mt-4 rounded-xl bg-white/5 border border-white/10 p-3">
+              <div class="flex items-center justify-between gap-2">
+                <div class="text-sm font-semibold">
+                  Federal standard deduction (editable)
+                </div>
+                <button
+                  id="resetFederalBtn"
+                  class="text-xs px-2 py-1 rounded-lg bg-white/5 border border-white/10 hover:bg-white/10 transition"
+                >
+                  Reset to default
+                </button>
+              </div>
+              <div class="mt-2 grid grid-cols-1 sm:grid-cols-2 gap-3">
+                <div>
+                  <div class="text-xs text-slate-400">
+                    Standard deduction ($)
+                  </div>
+                  <input
+                    id="stdDeduction"
+                    inputmode="decimal"
+                    class="w-full px-3 py-2 rounded-lg bg-black/30 border border-white/10 focus:outline-none focus:ring-2 focus:ring-indigo-500/50"
+                  />
+                </div>
+                <div
+                  class="rounded-lg bg-black/20 border border-white/10 px-3 py-2"
+                >
+                  <div class="text-xs text-slate-400">
+                    Taxable income (est.)
+                  </div>
+                  <div class="text-lg font-semibold" id="taxableIncome">—</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="mt-4 grid grid-cols-1 md:grid-cols-2 gap-3">
+              <div class="rounded-xl bg-black/20 border border-white/10 p-3">
+                <div class="text-xs text-slate-400">
+                  Federal income tax (est.)
+                </div>
+                <div class="text-xl font-semibold" id="federalTax">—</div>
+                <div class="mt-2 text-xs text-slate-400">
+                  Uses 2025 brackets (IRS Rev. Proc. 2024-40).
+                </div>
+              </div>
+
+              <div class="rounded-xl bg-black/20 border border-white/10 p-3">
+                <div class="text-xs text-slate-400">Payroll taxes (FICA)</div>
+                <div class="mt-1 flex items-baseline justify-between">
+                  <div class="text-sm">Employee</div>
+                  <div class="text-lg font-semibold" id="payrollEmployee">
+                    —
+                  </div>
+                </div>
+                <div class="mt-1 flex items-baseline justify-between">
+                  <div class="text-sm">Employer (foregone comp)</div>
+                  <div class="text-lg font-semibold" id="payrollEmployer">
+                    —
+                  </div>
+                </div>
+                <div class="mt-2 text-xs text-slate-400">
+                  SSA wage base 2025: $176,100; Medicare + Additional Medicare
+                  handled.
+                </div>
+              </div>
+            </div>
+
+            <div
+              class="mt-4 rounded-xl bg-indigo-500/10 border border-indigo-300/15 p-3"
+            >
+              <div class="text-xs text-slate-400">
+                Paycheck-only deductions (this section’s category)
+              </div>
+              <div class="mt-1 text-sm">
+                Federal + State + Employee payroll (at current settings):
+                <span class="font-semibold" id="paycheckDeductions">—</span>
+              </div>
+            </div>
+          </div>
+        </details>
+
+        <!-- SECTION: State income tax -->
+        <details
+          id="secStateIncome"
+          open
+          class="glass soft rounded-2xl overflow-hidden"
+        >
+          <summary
+            class="px-4 md:px-5 py-4 cursor-pointer hover:bg-white/5 transition"
+          >
+            <div class="sumRow">
+              <div class="chev">▶</div>
+              <div class="flex-1">
+                <div class="text-sm font-semibold">
+                  State income tax (estimate)
+                </div>
+                <div class="text-xs text-slate-400" id="sumStateIncome">—</div>
+              </div>
+              <div class="text-sm font-semibold" id="sumStateIncomeRight">
+                —
+              </div>
+            </div>
+          </summary>
+          <div class="px-4 md:px-5 pb-5">
+            <div class="mt-1 text-xs text-slate-400">
+              Default uses a simple effective-rate estimate derived from each
+              state’s published top rate (editable override below).
+            </div>
+
+            <div class="mt-4 grid grid-cols-1 md:grid-cols-3 gap-3">
+              <div class="rounded-xl bg-black/20 border border-white/10 p-3">
+                <div class="text-xs text-slate-400">
+                  Top marginal rate (data)
+                </div>
+                <div class="text-xl font-semibold" id="stateTopRate">—</div>
+                <div class="mt-1 text-xs text-slate-400">
+                  Source: NerdWallet 2025 state tax rates table.
+                </div>
+              </div>
+
+              <div
+                class="rounded-xl bg-black/20 border border-white/10 p-3 md:col-span-2"
+              >
+                <div class="flex items-center justify-between gap-2">
+                  <div>
+                    <div class="text-xs text-slate-400">
+                      Effective rate used by model
+                    </div>
+                    <div class="text-lg font-semibold" id="stateEffRateLabel">
+                      —
+                    </div>
+                  </div>
+                  <div class="text-right">
+                    <div class="text-xs text-slate-400">
+                      Est. state income tax
+                    </div>
+                    <div class="text-xl font-semibold" id="stateIncomeTax">
+                      —
+                    </div>
+                  </div>
+                </div>
+
+                <div class="mt-3">
+                  <div
+                    class="flex items-center justify-between text-xs text-slate-400"
+                  >
+                    <span>Effective rate slider</span>
+                    <span id="stateEffRatePct">—</span>
+                  </div>
+                  <input
+                    id="stateEffRate"
+                    type="range"
+                    min="0"
+                    max="1.2"
+                    step="0.01"
+                    class="w-full mt-2"
+                  />
+                  <div class="mt-2 text-xs text-slate-400">
+                    This is intentionally explicit: you’re turning a “top rate”
+                    into an “effective rate” for a simplified model.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </details>
+
+        <!-- SECTION: Sales + Excise -->
+        <details
+          id="secSales"
+          open
+          class="glass soft rounded-2xl overflow-hidden"
+        >
+          <summary
+            class="px-4 md:px-5 py-4 cursor-pointer hover:bg-white/5 transition"
+          >
+            <div class="sumRow">
+              <div class="chev">▶</div>
+              <div class="flex-1">
+                <div class="text-sm font-semibold">
+                  Sales + excise (spend-driven)
+                </div>
+                <div class="text-xs text-slate-400" id="sumSales">—</div>
+              </div>
+              <div class="text-sm font-semibold" id="sumSalesRight">—</div>
+            </div>
+          </summary>
+          <div class="px-4 md:px-5 pb-5">
+            <div class="mt-4 grid grid-cols-1 md:grid-cols-2 gap-3">
+              <div class="rounded-xl bg-white/5 border border-white/10 p-3">
+                <div
+                  class="flex items-center justify-between text-xs text-slate-400"
+                >
+                  <span>Sales-taxable share of spend</span>
+                  <span id="taxableShareLabel">—</span>
+                </div>
+                <input
+                  id="taxableShare"
+                  type="range"
+                  min="0"
+                  max="1"
+                  step="0.01"
+                  class="w-full mt-2"
+                />
+                <div
+                  class="mt-3 rounded-lg bg-black/20 border border-white/10 px-3 py-2"
+                >
+                  <div class="text-xs text-slate-400">
+                    Estimated sales tax (state rate)
+                  </div>
+                  <div class="text-xl font-semibold" id="salesTax">—</div>
+                  <div class="mt-1 text-xs text-slate-400">
+                    Source: Sales Tax Institute state rates table.
+                  </div>
+                </div>
+              </div>
+
+              <div class="rounded-xl bg-white/5 border border-white/10 p-3">
+                <div
+                  class="flex items-center justify-between text-xs text-slate-400"
+                >
+                  <span>Excise / surcharge bundle (% of spend)</span>
+                  <span id="exciseLabel">—</span>
+                </div>
+                <input
+                  id="excisePct"
+                  type="range"
+                  min="0"
+                  max="0.06"
+                  step="0.001"
+                  class="w-full mt-2"
+                />
+                <div
+                  class="mt-3 rounded-lg bg-black/20 border border-white/10 px-3 py-2"
+                >
+                  <div class="text-xs text-slate-400">
+                    Excise bundle (annual)
+                  </div>
+                  <div class="text-xl font-semibold" id="exciseTax">—</div>
+                  <div class="mt-1 text-xs text-slate-400">
+                    Placeholder categories: gas, utilities, telecom, fees,
+                    etc—rolled up by design.
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="mt-4 rounded-xl bg-black/20 border border-white/10 p-3">
+              <div class="text-xs text-slate-400">
+                Spend “out the door” estimate
+              </div>
+              <div class="mt-1 text-lg font-semibold" id="outTheDoorSpend">
+                —
+              </div>
+              <div class="mt-1 text-xs text-slate-400">
+                Model assumption: your “Annual spend” input is pre-sales-tax; we
+                add sales + excise here.
+              </div>
+            </div>
+          </div>
+        </details>
+
+        <!-- SECTION: Housing + Property tax -->
+        <details
+          id="secHousing"
+          open
+          class="glass soft rounded-2xl overflow-hidden"
+        >
+          <summary
+            class="px-4 md:px-5 py-4 cursor-pointer hover:bg-white/5 transition"
+          >
+            <div class="sumRow">
+              <div class="chev">▶</div>
+              <div class="flex-1">
+                <div class="text-sm font-semibold">
+                  Housing + property tax (model)
+                </div>
+                <div class="text-xs text-slate-400" id="sumHousing">—</div>
+              </div>
+              <div class="text-sm font-semibold" id="sumHousingRight">—</div>
+            </div>
+          </summary>
+          <div class="px-4 md:px-5 pb-5">
+            <div class="mt-4 grid grid-cols-1 lg:grid-cols-3 gap-3">
+              <div
+                class="rounded-xl bg-white/5 border border-white/10 p-3 lg:col-span-2"
+              >
+                <div class="text-sm font-semibold">Homeownership model</div>
+                <div class="mt-3 grid grid-cols-1 sm:grid-cols-3 gap-3">
+                  <div>
+                    <div class="text-xs text-slate-400">Buy age</div>
+                    <input
+                      id="buyAge"
+                      inputmode="numeric"
+                      class="w-full px-3 py-2 rounded-lg bg-black/30 border border-white/10 focus:outline-none focus:ring-2 focus:ring-indigo-500/50"
+                    />
+                  </div>
+                  <div>
+                    <div
+                      class="flex items-center justify-between text-xs text-slate-400"
+                    >
+                      <span>Home value multiple of income</span>
+                      <span id="homeMultLabel">—</span>
+                    </div>
+                    <input
+                      id="homeMult"
+                      type="range"
+                      min="1"
+                      max="10"
+                      step="0.1"
+                      class="w-full mt-2"
+                    />
+                  </div>
+                  <div>
+                    <div class="text-xs text-slate-400">
+                      Lifetime home transactions
+                    </div>
+                    <div class="mt-2 flex gap-2 items-center">
+                      <button
+                        id="txMinus"
+                        class="px-2 py-1 rounded-lg bg-white/5 border border-white/10 hover:bg-white/10"
+                      >
+                        −
+                      </button>
+                      <div id="txCount" class="font-semibold w-10 text-center">
+                        2
+                      </div>
+                      <button
+                        id="txPlus"
+                        class="px-2 py-1 rounded-lg bg-white/5 border border-white/10 hover:bg-white/10"
+                      >
+                        +
+                      </button>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="mt-3 grid grid-cols-1 sm:grid-cols-2 gap-3">
+                  <div>
+                    <div
+                      class="flex items-center justify-between text-xs text-slate-400"
+                    >
+                      <span>Housing share of spend</span>
+                      <span id="housingShareLabel">—</span>
+                    </div>
+                    <input
+                      id="housingShare"
+                      type="range"
+                      min="0"
+                      max="0.8"
+                      step="0.01"
+                      class="w-full mt-2"
+                    />
+                  </div>
+                  <div>
+                    <div
+                      class="flex items-center justify-between text-xs text-slate-400"
+                    >
+                      <span
+                        >Principal share of housing outflow (owner years)</span
+                      >
+                      <span id="principalShareLabel">—</span>
+                    </div>
+                    <input
+                      id="principalShare"
+                      type="range"
+                      min="0"
+                      max="0.7"
+                      step="0.01"
+                      class="w-full mt-2"
+                    />
+                  </div>
+                </div>
+
+                <div class="mt-3 text-xs text-slate-400">
+                  Transfer/transaction “tax/fee” assumption:
+                  <span class="text-slate-200 font-semibold">1.5%</span> of home
+                  value per transaction (editable later if you want—kept fixed
+                  for now).
+                </div>
+              </div>
+
+              <div class="rounded-xl bg-white/5 border border-white/10 p-3">
+                <div class="text-sm font-semibold">Property tax rate</div>
+                <div class="mt-1 text-xs text-slate-400">
+                  Auto-fetches from U.S. Census API (ACS). If blocked, use
+                  override.
+                </div>
+
+                <div
+                  class="mt-3 rounded-lg bg-black/20 border border-white/10 px-3 py-2"
+                >
+                  <div class="text-xs text-slate-400">Auto effective rate</div>
+                  <div class="text-lg font-semibold" id="propAutoRate">
+                    <span class="inline-block w-28 h-5 rounded shimmer"></span>
+                  </div>
+                  <div class="mt-1 text-xs text-slate-500" id="propAutoMeta">
+                    Loading…
+                  </div>
+                </div>
+
+                <div class="mt-3">
+                  <div class="text-xs text-slate-400">
+                    Override rate (% of home value)
+                  </div>
+                  <input
+                    id="propOverride"
+                    inputmode="decimal"
+                    placeholder="(optional)"
+                    class="w-full mt-1 px-3 py-2 rounded-lg bg-black/30 border border-white/10 focus:outline-none focus:ring-2 focus:ring-indigo-500/50"
+                  />
+                </div>
+
+                <div
+                  class="mt-3 rounded-lg bg-black/20 border border-white/10 px-3 py-2"
+                >
+                  <div class="text-xs text-slate-400">
+                    Estimated annual property tax
+                  </div>
+                  <div class="text-xl font-semibold" id="propertyTax">—</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="mt-4 grid grid-cols-1 md:grid-cols-2 gap-3">
+              <div class="rounded-xl bg-black/20 border border-white/10 p-3">
+                <div class="text-xs text-slate-400">
+                  Implied principal “forced savings” (annual)
+                </div>
+                <div class="text-xl font-semibold" id="forcedSavings">—</div>
+                <div class="mt-1 text-xs text-slate-400">
+                  This gets added back to savings (not treated as consumption).
+                </div>
+              </div>
+
+              <div class="rounded-xl bg-black/20 border border-white/10 p-3">
+                <div class="text-xs text-slate-400">
+                  Annualized transfer/transaction taxes
+                </div>
+                <div class="text-xl font-semibold" id="transferTaxAnnual">
+                  —
+                </div>
+                <div class="mt-1 text-xs text-slate-400">
+                  Home value × 1.5% × transactions ÷ remaining years.
+                </div>
+              </div>
+            </div>
+          </div>
+        </details>
+
+        <!-- SECTION: Portfolio + inflation / drag -->
+        <details
+          id="secPortfolio"
+          open
+          class="glass soft rounded-2xl overflow-hidden"
+        >
+          <summary
+            class="px-4 md:px-5 py-4 cursor-pointer hover:bg-white/5 transition"
+          >
+            <div class="sumRow">
+              <div class="chev">▶</div>
+              <div class="flex-1">
+                <div class="text-sm font-semibold">
+                  Portfolio, inflation, and investment drag
+                </div>
+                <div class="text-xs text-slate-400" id="sumPortfolio">—</div>
+              </div>
+              <div class="text-sm font-semibold" id="sumPortfolioRight">—</div>
+            </div>
+          </summary>
+          <div class="px-4 md:px-5 pb-5">
+            <div class="mt-4 grid grid-cols-1 lg:grid-cols-3 gap-3">
+              <div
+                class="rounded-xl bg-white/5 border border-white/10 p-3 lg:col-span-2"
+              >
+                <div class="text-sm font-semibold">Portfolio composition</div>
+
+                <div class="mt-3">
+                  <div
+                    class="flex items-center justify-between text-xs text-slate-400"
+                  >
+                    <span>Equities % of portfolio</span>
+                    <span id="eqLabel">—</span>
+                  </div>
+                  <input
+                    id="equitiesPct"
+                    type="range"
+                    min="0"
+                    max="1"
+                    step="0.01"
+                    class="w-full mt-2"
+                  />
+                  <div class="mt-1 text-xs text-slate-400">
+                    Cash % = remainder.
+                  </div>
+                </div>
+
+                <div class="mt-3">
+                  <div
+                    class="flex items-center justify-between text-xs text-slate-400"
+                  >
+                    <span>Tax-advantaged % of portfolio</span>
+                    <span id="taxAdvLabel">—</span>
+                  </div>
+                  <input
+                    id="taxAdvPct"
+                    type="range"
+                    min="0"
+                    max="1"
+                    step="0.01"
+                    class="w-full mt-2"
+                  />
+                </div>
+
+                <div class="mt-4 grid grid-cols-1 sm:grid-cols-3 gap-3">
+                  <div>
+                    <div class="text-xs text-slate-400">
+                      Nominal market return
+                    </div>
+                    <input
+                      id="marketReturn"
+                      inputmode="decimal"
+                      class="w-full mt-1 px-3 py-2 rounded-lg bg-black/30 border border-white/10 focus:outline-none focus:ring-2 focus:ring-indigo-500/50"
+                    />
+                  </div>
+                  <div>
+                    <div class="text-xs text-slate-400">Inflation</div>
+                    <input
+                      id="inflation"
+                      inputmode="decimal"
+                      class="w-full mt-1 px-3 py-2 rounded-lg bg-black/30 border border-white/10 focus:outline-none focus:ring-2 focus:ring-indigo-500/50"
+                    />
+                  </div>
+                  <div>
+                    <div class="text-xs text-slate-400">Cash yield</div>
+                    <input
+                      id="cashYield"
+                      inputmode="decimal"
+                      class="w-full mt-1 px-3 py-2 rounded-lg bg-black/30 border border-white/10 focus:outline-none focus:ring-2 focus:ring-indigo-500/50"
+                    />
+                  </div>
+                </div>
+
+                <div class="mt-3 flex items-center justify-between">
+                  <button
+                    id="resetReturnsBtn"
+                    class="text-xs px-2 py-1 rounded-lg bg-white/5 border border-white/10 hover:bg-white/10 transition"
+                  >
+                    Reset to default
+                  </button>
+                  <div class="text-xs text-slate-400">
+                    Inputs are decimals (e.g., 0.07 = 7%).
+                  </div>
+                </div>
+
+                <div class="mt-4">
+                  <div
+                    class="flex items-center justify-between text-xs text-slate-400"
+                  >
+                    <span>Investment tax drag on taxable equities</span>
+                    <span id="dragLabel">—</span>
+                  </div>
+                  <input
+                    id="invDrag"
+                    type="range"
+                    min="0"
+                    max="0.02"
+                    step="0.0005"
+                    class="w-full mt-2"
+                  />
+                  <div class="mt-1 text-xs text-slate-400">
+                    Represents dividend/realization taxes + embedded fees on
+                    taxable equities.
+                  </div>
+                </div>
+              </div>
+
+              <div class="rounded-xl bg-black/20 border border-white/10 p-3">
+                <div class="text-sm font-semibold">
+                  Derived returns (real-ish)
+                </div>
+                <div class="mt-3 space-y-2 text-sm">
+                  <div class="flex justify-between gap-3">
+                    <span class="text-slate-300">Equities (tax-adv)</span>
+                    <span class="font-semibold" id="realEqAdv">—</span>
+                  </div>
+                  <div class="flex justify-between gap-3">
+                    <span class="text-slate-300">Equities (taxable)</span>
+                    <span class="font-semibold" id="realEqTax">—</span>
+                  </div>
+                  <div class="flex justify-between gap-3">
+                    <span class="text-slate-300">Cash (real)</span>
+                    <span class="font-semibold" id="realCash">—</span>
+                  </div>
+                </div>
+
+                <div class="mt-4 pt-4 border-t border-white/10">
+                  <div class="text-xs text-slate-400">
+                    Inflation drag on cash (annual, est.)
+                  </div>
+                  <div class="mt-1 text-xl font-semibold" id="inflationDrag">
+                    —
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </details>
+
+        <!-- SECTION: Lifetime model + retirement -->
+        <details
+          id="secLifetime"
+          open
+          class="glass soft rounded-2xl overflow-hidden"
+        >
+          <summary
+            class="px-4 md:px-5 py-4 cursor-pointer hover:bg-white/5 transition"
+          >
+            <div class="sumRow">
+              <div class="chev">▶</div>
+              <div class="flex-1">
+                <div class="text-sm font-semibold">
+                  Lifetime totals + “time value of money” loss
+                </div>
+                <div class="text-xs text-slate-400" id="sumLifetime">—</div>
+              </div>
+              <div class="text-sm font-semibold" id="sumLifetimeRight">—</div>
+            </div>
+          </summary>
+          <div class="px-4 md:px-5 pb-5">
+            <div class="mt-4 grid grid-cols-1 lg:grid-cols-3 gap-3">
+              <div
+                class="rounded-xl bg-white/5 border border-white/10 p-3 lg:col-span-2"
+              >
+                <div class="text-sm font-semibold">Retirement target</div>
+
+                <div class="mt-3 flex flex-wrap gap-2">
+                  <button
+                    id="retSame"
+                    class="px-3 py-2 rounded-lg bg-indigo-500/20 border border-indigo-300/20 hover:bg-indigo-500/30 transition text-sm"
+                  >
+                    Same as current spend
+                  </button>
+                  <button
+                    id="retCustom"
+                    class="px-3 py-2 rounded-lg bg-white/5 border border-white/10 hover:bg-white/10 transition text-sm"
+                  >
+                    Custom
+                  </button>
+                </div>
+
+                <div id="retCustomWrap" class="mt-3 hidden">
+                  <div class="text-xs text-slate-400">
+                    Custom retirement spend target ($/year, pre-sales-tax in
+                    this model)
+                  </div>
+                  <input
+                    id="retSpend"
+                    inputmode="decimal"
+                    class="w-full mt-1 px-3 py-2 rounded-lg bg-black/30 border border-white/10 focus:outline-none focus:ring-2 focus:ring-indigo-500/50"
+                  />
+                </div>
+
+                <div class="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-3">
+                  <div>
+                    <div class="text-xs text-slate-400">Life expectancy</div>
+                    <input
+                      id="lifeExp"
+                      inputmode="numeric"
+                      class="w-full mt-1 px-3 py-2 rounded-lg bg-black/30 border border-white/10 focus:outline-none focus:ring-2 focus:ring-indigo-500/50"
+                    />
+                  </div>
+                  <div
+                    class="rounded-lg bg-black/20 border border-white/10 px-3 py-2"
+                  >
+                    <div class="text-xs text-slate-400">
+                      4% rule target portfolio
+                    </div>
+                    <div class="text-lg font-semibold" id="targetPortfolio">
+                      —
+                    </div>
+                  </div>
+                </div>
+
+                <div class="mt-4 pt-4 border-t border-white/10">
+                  <div class="text-sm font-semibold">
+                    Tax reduction slider (what-if)
+                  </div>
+                  <div
+                    class="mt-2 flex items-center justify-between text-xs text-slate-400"
+                  >
+                    <span
+                      >Reduce explicit tax rates (income, payroll, sales,
+                      property, drag) linearly</span
+                    >
+                    <span id="taxCutLabel">—</span>
+                  </div>
+                  <input
+                    id="taxCut"
+                    type="range"
+                    min="0"
+                    max="0.6"
+                    step="0.01"
+                    class="w-full mt-2"
+                  />
+                  <div class="mt-2 text-xs text-slate-400">
+                    Inflation itself is not reduced by this slider. (Everything
+                    that’s a “rate” you’d call a policy lever is.)
+                  </div>
+                </div>
+              </div>
+
+              <div class="rounded-xl bg-black/20 border border-white/10 p-3">
+                <div class="text-sm font-semibold">
+                  Lifetime summary (current settings)
+                </div>
+
+                <div class="mt-3 space-y-3">
+                  <div class="rounded-lg bg-white/5 border border-white/10 p-3">
+                    <div class="text-xs text-slate-400">
+                      Direct taxes paid (lifetime)
+                    </div>
+                    <div class="text-lg font-semibold" id="lifeDirect">—</div>
+                  </div>
+
+                  <div class="rounded-lg bg-white/5 border border-white/10 p-3">
+                    <div class="text-xs text-slate-400">
+                      Employer payroll (foregone comp, lifetime)
+                    </div>
+                    <div class="text-lg font-semibold" id="lifeEmployer">—</div>
+                  </div>
+
+                  <div class="rounded-lg bg-white/5 border border-white/10 p-3">
+                    <div class="text-xs text-slate-400">
+                      Time-value loss from lowered savings (end-of-life delta)
+                    </div>
+                    <div class="text-lg font-semibold" id="lifeTimeValueLoss">
+                      —
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="mt-4 grid grid-cols-1 lg:grid-cols-3 gap-3">
+              <div
+                class="rounded-xl bg-black/20 border border-white/10 p-3 lg:col-span-2"
+              >
+                <div class="flex items-center justify-between gap-3">
+                  <div class="text-sm font-semibold">
+                    Breakdown (annual, today)
+                  </div>
+                  <div class="text-xs text-slate-400" id="annualBreakMeta">
+                    —
+                  </div>
+                </div>
+
+                <!-- Stacked bar -->
+                <div class="mt-3">
+                  <div
+                    class="h-3 w-full rounded-full bg-white/10 overflow-hidden flex"
+                    id="stackBar"
+                  >
+                    <div
+                      id="barPaycheck"
+                      style="width: 0%"
+                      class="h-full bg-indigo-400/80"
+                    ></div>
+                    <div
+                      id="barSpend"
+                      style="width: 0%"
+                      class="h-full bg-emerald-400/70"
+                    ></div>
+                    <div
+                      id="barForegone"
+                      style="width: 0%"
+                      class="h-full bg-rose-400/70"
+                    ></div>
+                  </div>
+                  <div class="mt-2 flex flex-wrap gap-3 text-xs text-slate-300">
+                    <div class="flex items-center gap-2">
+                      <span class="w-2 h-2 rounded bg-indigo-400/80"></span>
+                      Paycheck
+                    </div>
+                    <div class="flex items-center gap-2">
+                      <span class="w-2 h-2 rounded bg-emerald-400/70"></span>
+                      Spend/ownership
+                    </div>
+                    <div class="flex items-center gap-2">
+                      <span class="w-2 h-2 rounded bg-rose-400/70"></span>
+                      Foregone/wealth loss
+                    </div>
+                  </div>
+                </div>
+
+                <div class="mt-4 grid grid-cols-1 md:grid-cols-3 gap-3">
+                  <div class="rounded-lg bg-white/5 border border-white/10 p-3">
+                    <div class="text-xs text-slate-400">Paycheck</div>
+                    <div class="text-lg font-semibold" id="annualPaycheck">
+                      —
+                    </div>
+                  </div>
+                  <div class="rounded-lg bg-white/5 border border-white/10 p-3">
+                    <div class="text-xs text-slate-400">Spend/ownership</div>
+                    <div class="text-lg font-semibold" id="annualSpendTax">
+                      —
+                    </div>
+                  </div>
+                  <div class="rounded-lg bg-white/5 border border-white/10 p-3">
+                    <div class="text-xs text-slate-400">
+                      Foregone/wealth loss
+                    </div>
+                    <div class="text-lg font-semibold" id="annualForegone">
+                      —
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="rounded-xl bg-black/20 border border-white/10 p-3">
+                <div class="text-sm font-semibold">
+                  Retirement delta (slider)
+                </div>
+                <div
+                  class="mt-3 rounded-lg bg-white/5 border border-white/10 p-3"
+                >
+                  <div class="text-xs text-slate-400">Baseline retirement</div>
+                  <div class="text-lg font-semibold" id="retireBase">—</div>
+                </div>
+                <div
+                  class="mt-3 rounded-lg bg-white/5 border border-white/10 p-3"
+                >
+                  <div class="text-xs text-slate-400">With tax reduction</div>
+                  <div class="text-lg font-semibold" id="retireCut">—</div>
+                </div>
+                <div class="mt-3 text-xs text-slate-400" id="retireNote">—</div>
+              </div>
+            </div>
+          </div>
+        </details>
+
+        <!-- Sources (explicit) -->
+        <details class="glass soft rounded-2xl overflow-hidden">
+          <summary
+            class="px-4 md:px-5 py-4 cursor-pointer hover:bg-white/5 transition"
+          >
+            <div class="sumRow">
+              <div class="chev">▶</div>
+              <div class="flex-1">
+                <div class="text-sm font-semibold">Sources + transparency</div>
+                <div class="text-xs text-slate-400">
+                  Exactly what’s live vs hardcoded
+                </div>
+              </div>
+            </div>
+          </summary>
+          <div class="px-4 md:px-5 pb-5 text-sm text-slate-300 space-y-3">
+            <div class="rounded-xl bg-black/20 border border-white/10 p-3">
+              <div class="font-semibold text-slate-100">
+                Hardcoded (clearly labeled)
+              </div>
+              <ul class="list-disc ml-5 mt-2 space-y-1 text-sm">
+                <li>
+                  Federal tax brackets: IRS Rev. Proc. 2024-40 (2025 brackets).
+                  https://www.irs.gov/pub/irs-drop/rp-24-40.pdf
+                </li>
+                <li>
+                  SSA wage base: SSA press release (2025).
+                  https://www.ssa.gov/news/press/factsheets/colafacts2025.pdf
+                </li>
+                <li>
+                  State income tax top rates: NerdWallet table (income earned in
+                  2025).
+                  https://www.nerdwallet.com/taxes/learn/state-income-tax-rates
+                </li>
+                <li>
+                  State sales tax rates: Sales Tax Institute table.
+                  https://www.salestaxinstitute.com/resources/rates
+                </li>
+              </ul>
+            </div>
+
+            <div class="rounded-xl bg-black/20 border border-white/10 p-3">
+              <div class="font-semibold text-slate-100">
+                Live (fetched in-browser)
+              </div>
+              <ul class="list-disc ml-5 mt-2 space-y-1 text-sm">
+                <li>
+                  Property tax effective rate by state: U.S. Census API (ACS).
+                  If blocked, the UI tells you and uses your override.
+                </li>
+              </ul>
+            </div>
+
+            <div class="rounded-xl bg-black/20 border border-white/10 p-3">
+              <div class="font-semibold text-slate-100">
+                Model simplifications (explicit)
+              </div>
+              <ul class="list-disc ml-5 mt-2 space-y-1 text-sm">
+                <li>
+                  State income tax is modeled via an “effective rate” slider
+                  derived from the top marginal rate (so we don’t pretend to
+                  implement 50 distinct bracket systems).
+                </li>
+                <li>
+                  Retirement uses a 4% rule target portfolio and a deterministic
+                  return model (no Monte Carlo in this version).
+                </li>
+                <li>
+                  Excise/fees (gas, utilities, telecom, tolls, etc.) are bundled
+                  intentionally as a % of spend.
+                </li>
+              </ul>
+            </div>
+          </div>
+        </details>
+      </div>
+
+      <div class="mt-6 text-xs text-slate-500">
+        Tip: this is designed to fit on a single 16:9 screen on desktop once
+        sections auto-collapse; on mobile it stays readable and scrolls
+        naturally.
+      </div>
+    </div>
+
+    <script>
+      /*********************
+       * Utilities
+       *********************/
+      const $$ = (sel, root = document) => root.querySelector(sel);
+      const $$$ = (sel, root = document) =>
+        Array.from(root.querySelectorAll(sel));
+
+      function clamp(x, a, b) {
+        return Math.max(a, Math.min(b, x));
+      }
+      function fmtMoney(x) {
+        if (!isFinite(x)) return "—";
+        const sign = x < 0 ? "-" : "";
+        const v = Math.abs(x);
+        return (
+          sign + "$" + v.toLocaleString(undefined, { maximumFractionDigits: 0 })
+        );
+      }
+      function fmtPct(x, digits = 1) {
+        if (!isFinite(x)) return "—";
+        return (x * 100).toFixed(digits) + "%";
+      }
+      function parseNum(el) {
+        const s = (el.value ?? "").toString().replace(/[$, ]/g, "").trim();
+        if (!s) return NaN;
+        const v = Number(s);
+        return isFinite(v) ? v : NaN;
+      }
+      function setValue(el, v) {
+        el.value = v;
+      }
+
+      function flash(el) {
+        if (!el) return;
+        el.classList.remove("numFlash");
+        void el.offsetWidth;
+        el.classList.add("numFlash");
+      }
+      function pulseCard(el) {
+        if (!el) return;
+        el.classList.remove("pulseHighlight");
+        void el.offsetWidth;
+        el.classList.add("pulseHighlight");
+      }
+
+      /*********************
+       * Minimal sound (user-initiated)
+       *********************/
+      let audioEnabled = false;
+      let audioCtx = null;
+
+      function ensureAudio() {
+        if (audioCtx) return;
+        audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+      }
+      function beep(freq = 440, dur = 0.07) {
+        if (!audioEnabled) return;
+        ensureAudio();
+        const t0 = audioCtx.currentTime;
+        const o = audioCtx.createOscillator();
+        const g = audioCtx.createGain();
+        o.type = "sine";
+        o.frequency.setValueAtTime(freq, t0);
+        g.gain.setValueAtTime(0.0001, t0);
+        g.gain.exponentialRampToValueAtTime(0.08, t0 + 0.01);
+        g.gain.exponentialRampToValueAtTime(0.0001, t0 + dur);
+        o.connect(g);
+        g.connect(audioCtx.destination);
+        o.start(t0);
+        o.stop(t0 + dur + 0.02);
+      }
+
+      /*********************
+       * Particle FX
+       *********************/
+      const fx = {
+        canvas: document.getElementById("fxCanvas"),
+        ctx: null,
+        particles: [],
+        lastT: 0,
+      };
+      function resizeFx() {
+        fx.canvas.width = window.innerWidth * devicePixelRatio;
+        fx.canvas.height = window.innerHeight * devicePixelRatio;
+        fx.canvas.style.width = window.innerWidth + "px";
+        fx.canvas.style.height = window.innerHeight + "px";
+        fx.ctx = fx.canvas.getContext("2d");
+      }
+      window.addEventListener("resize", resizeFx);
+      resizeFx();
+
+      function spawnBurst(el) {
+        if (!el) return;
+        const r = el.getBoundingClientRect();
+        const x = (r.left + r.width * 0.85) * devicePixelRatio;
+        const y = (r.top + r.height * 0.5) * devicePixelRatio;
+        const n = 14;
+        for (let i = 0; i < n; i++) {
+          fx.particles.push({
+            x,
+            y,
+            vx: (Math.random() * 2 - 1) * 2.0 * devicePixelRatio,
+            vy: (Math.random() * -1.6 - 0.6) * 2.2 * devicePixelRatio,
+            life: 0.9 + Math.random() * 0.6,
+            t: 0,
+            s: (1.5 + Math.random() * 2.5) * devicePixelRatio,
+            a: 0.8,
+          });
+        }
+      }
+      function tickFx(t) {
+        const dt = Math.min(0.033, (t - fx.lastT) / 1000 || 0.016);
+        fx.lastT = t;
+        const ctx = fx.ctx;
+        ctx.clearRect(0, 0, fx.canvas.width, fx.canvas.height);
+
+        fx.particles = fx.particles.filter((p) => p.t < p.life);
+        for (const p of fx.particles) {
+          p.t += dt;
+          const k = p.t / p.life;
+          p.vy += 18 * dt * devicePixelRatio; // gravity
+          p.x += p.vx;
+          p.y += p.vy;
+          p.a = (1 - k) * 0.8;
+
+          ctx.globalAlpha = p.a;
+          ctx.beginPath();
+          ctx.arc(p.x, p.y, p.s * (1 - k), 0, Math.PI * 2);
+          ctx.fillStyle = "rgba(165, 180, 252, 1)"; // indigo-ish
+          ctx.fill();
+        }
+        ctx.globalAlpha = 1;
+        requestAnimationFrame(tickFx);
+      }
+      requestAnimationFrame(tickFx);
+
+      /*********************
+       * Data tables (hardcoded, explicitly sourced)
+       *********************/
+
+      // Federal brackets: 2025 (IRS Rev. Proc. 2024-40). Thresholds are taxable income after standard deduction.
+      // MFJ thresholds extracted from IRS PDF table segment around "$23,850 ... $751,600". (See Sources section.)
+      const FED_2025 = {
+        brackets: {
+          single: [
+            { upTo: 11925, rate: 0.1 },
+            { upTo: 48475, rate: 0.12 },
+            { upTo: 103350, rate: 0.22 },
+            { upTo: 197300, rate: 0.24 },
+            { upTo: 250525, rate: 0.32 },
+            { upTo: 626350, rate: 0.35 },
+            { upTo: Infinity, rate: 0.37 },
+          ],
+          mfj: [
+            { upTo: 23850, rate: 0.1 },
+            { upTo: 96950, rate: 0.12 },
+            { upTo: 206700, rate: 0.22 },
+            { upTo: 394600, rate: 0.24 },
+            { upTo: 501050, rate: 0.32 },
+            { upTo: 751600, rate: 0.35 },
+            { upTo: Infinity, rate: 0.37 },
+          ],
+        },
+        // Standard deduction default: set as a simple editable default.
+        // NOTE: This value is intentionally editable and visible; it can change by law.
+        stdDeductionDefaults: {
+          single: 15750, // IRS news release indicates 2025 standard deduction under subsequent law changes; kept editable.
+          mfj: 31500,
+        },
+      };
+
+      // Payroll (SSA + Medicare). SSA wage base 2025: $176,100 (SSA press).
+      const PAYROLL_2025 = {
+        ssRate: 0.062,
+        ssWageBase: 176100,
+        medicareRate: 0.0145,
+        addlMedRate: 0.009,
+        addlMedThreshold: { single: 200000, mfj: 250000 }, // IRS / Medicare standard thresholds
+      };
+
+      // State income tax top rates (NerdWallet 2025 table). Stored as top marginal rate (decimal).
+      // For "Does not have state income tax", rate = 0.
+      const STATE_INCOME_TOP = {
+        AL: 0.05,
+        AK: 0.0,
+        AZ: 0.025,
+        AR: 0.039,
+        CA: 0.133,
+        CO: 0.044,
+        CT: 0.0699,
+        DE: 0.066,
+        DC: 0.1075,
+        FL: 0.0,
+        GA: 0.0539,
+        HI: 0.11,
+        ID: 0.05695,
+        IL: 0.0495,
+        IN: 0.03,
+        IA: 0.038,
+        KS: 0.0558,
+        KY: 0.04,
+        LA: 0.03,
+        ME: 0.0715,
+        MD: 0.0575,
+        MA: 0.09,
+        MI: 0.0425,
+        MN: 0.0985,
+        MS: 0.044,
+        MO: 0.047,
+        MT: 0.059,
+        NE: 0.052,
+        NV: 0.0,
+        NH: 0.0,
+        NJ: 0.1075,
+        NM: 0.059,
+        NY: 0.109,
+        NC: 0.0425,
+        ND: 0.025,
+        OH: 0.035,
+        OK: 0.0475,
+        OR: 0.099,
+        PA: 0.0307,
+        RI: 0.0599,
+        SC: 0.062,
+        SD: 0.0,
+        TN: 0.0,
+        TX: 0.0,
+        UT: 0.0455,
+        VT: 0.0875,
+        VA: 0.0575,
+        WA: 0.0,
+        WV: 0.0482,
+        WI: 0.0765,
+        WY: 0.0,
+      };
+
+      // Sales tax state rates (Sales Tax Institute table; state portion only, decimal).
+      // Includes DC; excludes Puerto Rico for simplicity.
+      const STATE_SALES_RATE = {
+        AL: 0.04,
+        AK: 0.0,
+        AZ: 0.056,
+        AR: 0.065,
+        CA: 0.0725,
+        CO: 0.029,
+        CT: 0.0635,
+        DE: 0.0,
+        DC: 0.06,
+        FL: 0.06,
+        GA: 0.04,
+        HI: 0.04,
+        ID: 0.06,
+        IL: 0.0625,
+        IN: 0.07,
+        IA: 0.06,
+        KS: 0.065,
+        KY: 0.06,
+        LA: 0.05,
+        ME: 0.055,
+        MD: 0.06,
+        MA: 0.0625,
+        MI: 0.06,
+        MN: 0.06875,
+        MS: 0.07,
+        MO: 0.04225,
+        MT: 0.0,
+        NE: 0.055,
+        NV: 0.0685,
+        NH: 0.0,
+        NJ: 0.06625,
+        NM: 0.04875,
+        NY: 0.04,
+        NC: 0.0475,
+        ND: 0.05,
+        OH: 0.0575,
+        OK: 0.045,
+        OR: 0.0,
+        PA: 0.06,
+        RI: 0.07,
+        SC: 0.06,
+        SD: 0.042,
+        TN: 0.07,
+        TX: 0.0625,
+        UT: 0.0485,
+        VT: 0.06,
+        VA: 0.043,
+        WA: 0.065,
+        WV: 0.06,
+        WI: 0.05,
+        WY: 0.04,
+      };
+
+      // State list (incl. DC)
+      const STATES = [
+        ["AL", "Alabama"],
+        ["AK", "Alaska"],
+        ["AZ", "Arizona"],
+        ["AR", "Arkansas"],
+        ["CA", "California"],
+        ["CO", "Colorado"],
+        ["CT", "Connecticut"],
+        ["DE", "Delaware"],
+        ["DC", "District of Columbia"],
+        ["FL", "Florida"],
+        ["GA", "Georgia"],
+        ["HI", "Hawaii"],
+        ["ID", "Idaho"],
+        ["IL", "Illinois"],
+        ["IN", "Indiana"],
+        ["IA", "Iowa"],
+        ["KS", "Kansas"],
+        ["KY", "Kentucky"],
+        ["LA", "Louisiana"],
+        ["ME", "Maine"],
+        ["MD", "Maryland"],
+        ["MA", "Massachusetts"],
+        ["MI", "Michigan"],
+        ["MN", "Minnesota"],
+        ["MS", "Mississippi"],
+        ["MO", "Missouri"],
+        ["MT", "Montana"],
+        ["NE", "Nebraska"],
+        ["NV", "Nevada"],
+        ["NH", "New Hampshire"],
+        ["NJ", "New Jersey"],
+        ["NM", "New Mexico"],
+        ["NY", "New York"],
+        ["NC", "North Carolina"],
+        ["ND", "North Dakota"],
+        ["OH", "Ohio"],
+        ["OK", "Oklahoma"],
+        ["OR", "Oregon"],
+        ["PA", "Pennsylvania"],
+        ["RI", "Rhode Island"],
+        ["SC", "South Carolina"],
+        ["SD", "South Dakota"],
+        ["TN", "Tennessee"],
+        ["TX", "Texas"],
+        ["UT", "Utah"],
+        ["VT", "Vermont"],
+        ["VA", "Virginia"],
+        ["WA", "Washington"],
+        ["WV", "West Virginia"],
+        ["WI", "Wisconsin"],
+        ["WY", "Wyoming"],
+      ];
+
+      // FIPS for Census API property tax fetch
+      const STATE_FIPS = {
+        AL: "01",
+        AK: "02",
+        AZ: "04",
+        AR: "05",
+        CA: "06",
+        CO: "08",
+        CT: "09",
+        DE: "10",
+        DC: "11",
+        FL: "12",
+        GA: "13",
+        HI: "15",
+        ID: "16",
+        IL: "17",
+        IN: "18",
+        IA: "19",
+        KS: "20",
+        KY: "21",
+        LA: "22",
+        ME: "23",
+        MD: "24",
+        MA: "25",
+        MI: "26",
+        MN: "27",
+        MS: "28",
+        MO: "29",
+        MT: "30",
+        NE: "31",
+        NV: "32",
+        NH: "33",
+        NJ: "34",
+        NM: "35",
+        NY: "36",
+        NC: "37",
+        ND: "38",
+        OH: "39",
+        OK: "40",
+        OR: "41",
+        PA: "42",
+        RI: "44",
+        SC: "45",
+        SD: "46",
+        TN: "47",
+        TX: "48",
+        UT: "49",
+        VT: "50",
+        VA: "51",
+        WA: "53",
+        WV: "54",
+        WI: "55",
+        WY: "56",
+      };
+
+      /*********************
+       * Core tax / model math
+       *********************/
+      function calcFederalTax(taxableIncome, filing) {
+        const br =
+          filing === "mfj" ? FED_2025.brackets.mfj : FED_2025.brackets.single;
+        let tax = 0;
+        let prev = 0;
+        for (const b of br) {
+          const cap = b.upTo;
+          const amt = Math.max(0, Math.min(taxableIncome, cap) - prev);
+          tax += amt * b.rate;
+          prev = cap;
+          if (taxableIncome <= cap) break;
+        }
+        return tax;
+      }
+
+      function calcPayroll(grossIncome, filing) {
+        const ssBase = Math.min(grossIncome, PAYROLL_2025.ssWageBase);
+        const ssEmp = ssBase * PAYROLL_2025.ssRate;
+        const ssEr = ssEmp;
+
+        const medEmp = grossIncome * PAYROLL_2025.medicareRate;
+        const medEr = medEmp;
+
+        const thr =
+          filing === "mfj"
+            ? PAYROLL_2025.addlMedThreshold.mfj
+            : PAYROLL_2025.addlMedThreshold.single;
+        const addl = Math.max(0, grossIncome - thr) * PAYROLL_2025.addlMedRate;
+
+        return {
+          employee: ssEmp + medEmp + addl,
+          employer: ssEr + medEr,
+          detail: { ssEmp, ssEr, medEmp, medEr, addl },
+        };
+      }
+
+      function effectiveStateIncomeRate(stateAbbr, topRate, effFactor) {
+        // effFactor is the slider (0..1.2). default ~0.65 on progressive states.
+        // Flat-rate states: use effFactor=1 by default.
+        return clamp(topRate * effFactor, 0, 0.2);
+      }
+
+      function computeHomeValue(income, homeMult) {
+        return Math.max(0, income * homeMult);
+      }
+
+      function computeTransferTaxAnnual(homeValue, txCount, yearsRemaining) {
+        const perTxRate = 0.015; // explicit fixed assumption (1.5%)
+        const total = homeValue * perTxRate * txCount;
+        return yearsRemaining > 0 ? total / yearsRemaining : 0;
+      }
+
+      function portfolioEffectiveNominalReturn(
+        eqPct,
+        taxAdvPct,
+        marketRet,
+        cashYield,
+        invDrag,
+        taxCutScale
+      ) {
+        const cashPct = 1 - eqPct;
+        const taxableEqPct = eqPct * (1 - taxAdvPct);
+        const advEqPct = eqPct * taxAdvPct;
+        const dragScaled = invDrag * taxCutScale; // if taxes reduced, drag reduces too
+        return (
+          cashPct * cashYield +
+          advEqPct * marketRet +
+          taxableEqPct * (marketRet - dragScaled)
+        );
+      }
+
+      function inflationDragOnCash(wealth, eqPct, inflation, cashYield) {
+        const cashPct = 1 - eqPct;
+        const cashBal = wealth * cashPct;
+        const realLossRate = Math.max(0, inflation - cashYield);
+        return cashBal * realLossRate;
+      }
+
+      function investmentDragCost(
+        wealth,
+        eqPct,
+        taxAdvPct,
+        invDrag,
+        taxCutScale
+      ) {
+        const taxableEqPct = eqPct * (1 - taxAdvPct);
+        const taxableEqBal = wealth * taxableEqPct;
+        return taxableEqBal * (invDrag * taxCutScale);
+      }
+
+      /*********************
+       * Census API property tax (live fetch)
+       * We attempt ACS 1-year then 5-year, newest to older.
+       * Variables:
+       *  - B25090_001E: Aggregate real estate taxes (owner-occupied)
+       *  - B25082_001E: Aggregate value (owner-occupied)
+       *********************/
+      async function fetchPropertyTaxEffectiveRate(stateAbbr) {
+        const fips = STATE_FIPS[stateAbbr];
+        if (!fips) throw new Error("Unknown state FIPS");
+
+        const years = [2024, 2023, 2022, 2021, 2020];
+        const datasets = ["acs/acs1", "acs/acs5"];
+
+        for (const y of years) {
+          for (const ds of datasets) {
+            const url = `https://api.census.gov/data/${y}/${ds}?get=NAME,B25090_001E,B25082_001E&for=state:${fips}`;
+            try {
+              const res = await fetch(url, { method: "GET" });
+              if (!res.ok) continue;
+              const data = await res.json();
+              // data[0] is headers; data[1] is row
+              if (!data || data.length < 2) continue;
+              const row = data[1];
+              const taxes = Number(row[1]);
+              const value = Number(row[2]);
+              if (!isFinite(taxes) || !isFinite(value) || value <= 0) continue;
+              const rate = taxes / value; // ratio (e.g., 0.007)
+              return { rate, year: y, dataset: ds, name: row[0] };
+            } catch (e) {
+              // try next
+            }
+          }
+        }
+        throw new Error("Census API fetch failed");
+      }
+
+      /*********************
+       * Simulation
+       *********************/
+      function simulateLifetime(params) {
+        const {
+          filing,
+          income0,
+          spend0,
+          netWorth0,
+          age0,
+          stateAbbr,
+          stdDeduction,
+          stateEffFactor,
+          taxableShare,
+          excisePct,
+          buyAge,
+          homeMult,
+          txCount,
+          housingShare,
+          principalShare,
+          propTaxRate, // decimal (0.011 => 1.1%)
+          eqPct,
+          taxAdvPct,
+          marketRet,
+          inflation,
+          cashYield,
+          invDrag,
+          lifeExp,
+          retSpendMode,
+          retSpendCustom,
+          taxCut, // 0..0.6
+        } = params;
+
+        const taxCutScale = 1 - taxCut;
+        const yearsRemaining = Math.max(0, Math.round(lifeExp - age0));
+        const startYear = new Date().getFullYear();
+
+        // Current-year direct taxes
+        const taxableIncomeNow = Math.max(0, income0 - stdDeduction);
+        const fedNow = calcFederalTax(taxableIncomeNow, filing) * taxCutScale;
+        const payrollNow = calcPayroll(income0, filing);
+        const payrollEmpNow = payrollNow.employee * taxCutScale;
+        const payrollErNow = payrollNow.employer * taxCutScale;
+
+        const topState = STATE_INCOME_TOP[stateAbbr] ?? 0;
+        const stateEffRate =
+          effectiveStateIncomeRate(stateAbbr, topState, stateEffFactor) *
+          taxCutScale;
+        const stateIncomeNow = income0 * stateEffRate;
+
+        const salesRate = (STATE_SALES_RATE[stateAbbr] ?? 0) * taxCutScale;
+        const salesNow = spend0 * taxableShare * salesRate;
+        const exciseNow = spend0 * excisePct * taxCutScale;
+
+        // Housing / property now
+        const homeValueNow = computeHomeValue(income0, homeMult);
+        const propNow = homeValueNow * (propTaxRate * taxCutScale);
+        const housingSpendNow = spend0 * housingShare;
+        const forcedSavingsNow = housingSpendNow * principalShare; // treated as savings, not consumption
+        const transferAnnualNow =
+          computeTransferTaxAnnual(homeValueNow, txCount, yearsRemaining) *
+          taxCutScale;
+
+        // Out-the-door spend now (model)
+        const outDoorNow = spend0 + salesNow + exciseNow;
+
+        // Retirement spend target (pre-tax spend in model) in today's dollars
+        const baseRetSpendPreTax =
+          retSpendMode === "custom" ? retSpendCustom : spend0;
+        // 4% target uses out-the-door spend estimate (adds sales+excise; property is separate and modeled from home value)
+        const retOutDoorToday =
+          baseRetSpendPreTax +
+          baseRetSpendPreTax * taxableShare * salesRate +
+          baseRetSpendPreTax * excisePct * taxCutScale;
+
+        // Target portfolio
+        const targetPort = retOutDoorToday / 0.04;
+
+        // Wealth evolution baseline (includes direct taxes)
+        let wealth = netWorth0;
+        let retiredAt = null;
+        let retireWealthAt = null;
+
+        // For “time value loss from lowered savings”: run a second scenario where direct taxes go to 0 (but keeps inflation + market returns).
+        // This mirrors the earlier thread’s idea: separate tax paid vs compounding loss from reduced savings.
+        let wealthNoDirect = netWorth0;
+
+        // Lifetime sums
+        let sumDirect = 0;
+        let sumEmployer = 0;
+
+        // Optional: track a simple “drag” estimate (not used as headline, but used in annual foregone category)
+        let sumInflationDrag = 0;
+        let sumInvDrag = 0;
+
+        // Wage + spend growth assumptions:
+        // Keep wage growth = inflation (real wages flat) to avoid introducing an extra parameter not listed.
+        const wageGrowth = inflation;
+
+        // Determine if “owns home” based on buyAge
+        const ownsNow = age0 >= buyAge;
+
+        for (let t = 0; t < yearsRemaining; t++) {
+          const age = age0 + t;
+          const income = income0 * Math.pow(1 + wageGrowth, t);
+          const spend = spend0 * Math.pow(1 + inflation, t);
+
+          const homeValue =
+            computeHomeValue(income0, homeMult) * Math.pow(1 + inflation, t); // anchored to current income for simplicity (explicit model choice)
+          const owns = age >= buyAge;
+
+          const taxableIncome = Math.max(
+            0,
+            income - stdDeduction * Math.pow(1 + inflation, t)
+          ); // keep deduction in nominal terms
+          const fed = calcFederalTax(taxableIncome, filing) * taxCutScale;
+
+          const payroll = calcPayroll(income, filing);
+          const empPayroll = payroll.employee * taxCutScale;
+          const erPayroll = payroll.employer * taxCutScale;
+
+          const stateIncome = income * stateEffRate; // stateEffRate already scaled
+
+          const sales = spend * taxableShare * salesRate;
+          const excise = spend * excisePct * taxCutScale;
+
+          const prop = owns ? homeValue * (propTaxRate * taxCutScale) : 0;
+          const housingSpend = spend * housingShare;
+          const forcedSavings = owns ? housingSpend * principalShare : 0;
+
+          const transferAnnual = owns
+            ? computeTransferTaxAnnual(
+                homeValue,
+                txCount,
+                Math.max(1, yearsRemaining - t)
+              ) * taxCutScale
+            : 0;
+
+          const directTaxes =
+            fed +
+            stateIncome +
+            empPayroll +
+            sales +
+            excise +
+            prop +
+            transferAnnual;
+          sumDirect += directTaxes;
+          sumEmployer += erPayroll;
+
+          // Drag estimates (for “foregone/wealth loss” bucket)
+          sumInflationDrag += inflationDragOnCash(
+            wealth,
+            eqPct,
+            inflation,
+            cashYield
+          );
+          sumInvDrag += investmentDragCost(
+            wealth,
+            eqPct,
+            taxAdvPct,
+            invDrag,
+            taxCutScale
+          );
+
+          const cashOut = spend + sales + excise + prop + transferAnnual;
+          let savings = income - (fed + stateIncome + empPayroll) - cashOut;
+          // Add forced savings back in (treat principal as savings, not consumption)
+          savings += forcedSavings;
+
+          // Baseline wealth update
+          const effNom = portfolioEffectiveNominalReturn(
+            eqPct,
+            taxAdvPct,
+            marketRet,
+            cashYield,
+            invDrag,
+            taxCutScale
+          );
+          wealth = wealth * (1 + effNom) + Math.max(0, savings);
+
+          // No-direct scenario: set direct taxes to 0 (fed/state/emp payroll/sales/excise/prop/transfer), but keep inflation + returns + drag.
+          const savingsNoDirect = income - cashOut + forcedSavings; // removing paycheck taxes only; cashOut still includes spend (but here we remove sales/excise/prop/transfer too for direct scenario consistency)
+          // Actually remove *all* direct taxes (including sales/excise/prop/transfer) for this counterfactual:
+          const cashOutNoDirect = spend; // spend only
+          let savingsND = income - cashOutNoDirect + forcedSavings;
+          wealthNoDirect =
+            wealthNoDirect * (1 + effNom) + Math.max(0, savingsND);
+
+          // Retirement detection (baseline)
+          if (retiredAt === null) {
+            // approximate “target portfolio” in nominal at time t
+            const spendTarget =
+              (retSpendMode === "custom" ? retSpendCustom : spend0) *
+              Math.pow(1 + inflation, t);
+            const outDoorTarget =
+              spendTarget +
+              spendTarget * taxableShare * salesRate +
+              spendTarget * excisePct * taxCutScale;
+
+            const targetNom = outDoorTarget / 0.04;
+            if (wealth >= targetNom) {
+              retiredAt = startYear + t;
+              retireWealthAt = wealth;
+            }
+          }
+        }
+
+        const timeValueLoss = Math.max(0, wealthNoDirect - wealth);
+
+        // Annualized “foregone/wealth loss” (for a single-year view)
+        const years = Math.max(1, yearsRemaining);
+        const annualizedTimeValueLoss = timeValueLoss / years;
+        const annualizedInflDrag = sumInflationDrag / years;
+        const annualizedInvDrag = sumInvDrag / years;
+
+        // Annual categories “today”
+        const paycheck = fedNow + stateIncomeNow + payrollEmpNow;
+        const spendTax = salesNow + exciseNow + propNow + transferAnnualNow;
+        const foregone =
+          payrollErNow +
+          annualizedTimeValueLoss +
+          annualizedInflDrag +
+          annualizedInvDrag;
+
+        // Potential “denominator” concept (explicit): gross income + foregone components
+        const potentialAnnual =
+          income0 +
+          payrollErNow +
+          annualizedTimeValueLoss +
+          annualizedInflDrag +
+          annualizedInvDrag;
+        const totalAnnualBurden = paycheck + spendTax + foregone;
+        const pctTaken =
+          potentialAnnual > 0 ? totalAnnualBurden / potentialAnnual : NaN;
+
+        return {
+          now: {
+            taxableIncomeNow,
+            fedNow,
+            payrollEmpNow,
+            payrollErNow,
+            stateIncomeNow,
+            stateTop: topState,
+            stateEffRate,
+            salesRate,
+            salesNow,
+            exciseNow,
+            propNow,
+            forcedSavingsNow,
+            transferAnnualNow,
+            outDoorNow,
+            paycheck,
+            spendTax,
+            foregone,
+            potentialAnnual,
+            totalAnnualBurden,
+            pctTaken,
+          },
+          lifetime: {
+            yearsRemaining,
+            sumDirect,
+            sumEmployer,
+            timeValueLoss,
+            endWealth: wealth,
+            endWealthNoDirect: wealthNoDirect,
+          },
+          retire: {
+            targetPort,
+            retiredAt,
+            retireWealthAt,
+          },
+        };
+      }
+
+      /*********************
+       * UI State
+       *********************/
+      const state = {
+        filing: null, // "single" | "mfj"
+        txCount: 2,
+        retMode: "same", // "same" | "custom"
+        propAuto: { status: "loading", rate: null, year: null, dataset: null },
+        hasAutoCollapsed: {
+          income: false,
+          state: false,
+          sales: false,
+          housing: false,
+          portfolio: false,
+          lifetime: false,
+        },
+        updateToken: 0,
+      };
+
+      /*********************
+       * Init defaults
+       *********************/
+      function initStateDropdown() {
+        const sel = $$("#state");
+        sel.innerHTML = "";
+        for (const [abbr, name] of STATES) {
+          const opt = document.createElement("option");
+          opt.value = abbr;
+          opt.textContent = `${abbr} — ${name}`;
+          sel.appendChild(opt);
+        }
+        sel.value = "CA";
+      }
+
+      function setDefaultAssumptions() {
+        // Sliders / assumptions defaults from prompt
+        $$("#equitiesPct").value = "0.90";
+        $$("#taxAdvPct").value = "0.70";
+        $$("#marketReturn").value = "0.07";
+        $$("#inflation").value = "0.03";
+        $$("#cashYield").value = "0.02";
+        $$("#taxableShare").value = "0.60";
+        $$("#excisePct").value = "0.015";
+        $$("#buyAge").value = "32";
+        $$("#homeMult").value = "4.5";
+        state.txCount = 2;
+        $$("#txCount").textContent = "2";
+        $$("#housingShare").value = "0.30";
+        $$("#principalShare").value = "0.33";
+        $$("#invDrag").value = "0.007";
+        $$("#lifeExp").value = "90";
+        $$("#retSpend").value = "";
+        $$("#taxCut").value = "0.00";
+
+        // Filing-dependent default std deduction
+        // (Set once filing chosen)
+      }
+
+      function setFiling(f) {
+        state.filing = f;
+        const single = $$("#fsSingle");
+        const mfj = $$("#fsMFJ");
+        if (f === "single") {
+          single.className =
+            "px-3 py-2 rounded-lg bg-indigo-500/20 border border-indigo-300/20 hover:bg-indigo-500/30 transition text-sm";
+          mfj.className =
+            "px-3 py-2 rounded-lg bg-white/5 border border-white/10 hover:bg-white/10 transition text-sm";
+        } else {
+          mfj.className =
+            "px-3 py-2 rounded-lg bg-indigo-500/20 border border-indigo-300/20 hover:bg-indigo-500/30 transition text-sm";
+          single.className =
+            "px-3 py-2 rounded-lg bg-white/5 border border-white/10 hover:bg-white/10 transition text-sm";
+        }
+        // Default std deduction from table
+        const d =
+          f === "mfj"
+            ? FED_2025.stdDeductionDefaults.mfj
+            : FED_2025.stdDeductionDefaults.single;
+        $$("#stdDeduction").value = String(d);
+        scheduleRecalc();
+      }
+
+      function setRetMode(mode) {
+        state.retMode = mode;
+        const a = $$("#retSame"),
+          b = $$("#retCustom");
+        if (mode === "same") {
+          a.className =
+            "px-3 py-2 rounded-lg bg-indigo-500/20 border border-indigo-300/20 hover:bg-indigo-500/30 transition text-sm";
+          b.className =
+            "px-3 py-2 rounded-lg bg-white/5 border border-white/10 hover:bg-white/10 transition text-sm";
+          $$("#retCustomWrap").classList.add("hidden");
+        } else {
+          b.className =
+            "px-3 py-2 rounded-lg bg-indigo-500/20 border border-indigo-300/20 hover:bg-indigo-500/30 transition text-sm";
+          a.className =
+            "px-3 py-2 rounded-lg bg-white/5 border border-white/10 hover:bg-white/10 transition text-sm";
+          $$("#retCustomWrap").classList.remove("hidden");
+        }
+        scheduleRecalc();
+      }
+
+      /*********************
+       * Progress pills
+       *********************/
+      function renderProgress() {
+        const req = getRequired();
+        const ok = [
+          !!state.filing,
+          isFinite(req.income),
+          isFinite(req.spend),
+          isFinite(req.netWorth),
+          isFinite(req.age),
+          !!req.stateAbbr,
+        ];
+        const pills = $$("#progressPills");
+        pills.innerHTML = "";
+        ok.forEach((v, i) => {
+          const el = document.createElement("div");
+          el.className =
+            "w-6 h-6 rounded-full flex items-center justify-center border " +
+            (v
+              ? "bg-emerald-500/20 border-emerald-300/20"
+              : "bg-white/5 border-white/10");
+          el.textContent = v ? "✓" : String(i + 1);
+          pills.appendChild(el);
+        });
+        return ok.every(Boolean);
+      }
+
+      /*********************
+       * Required parsing
+       *********************/
+      function getRequired() {
+        return {
+          income: parseNum($$("#income")),
+          spend: parseNum($$("#spend")),
+          netWorth: parseNum($$("#netWorth")),
+          age: parseNum($$("#age")),
+          stateAbbr: $$("#state").value,
+        };
+      }
+
+      function requiredComplete() {
+        const r = getRequired();
+        return (
+          !!state.filing &&
+          isFinite(r.income) &&
+          isFinite(r.spend) &&
+          isFinite(r.netWorth) &&
+          isFinite(r.age) &&
+          !!r.stateAbbr
+        );
+      }
+
+      /*********************
+       * Property tax auto load
+       *********************/
+      async function refreshPropertyTax() {
+        const st = $$("#state").value;
+        state.propAuto.status = "loading";
+        state.propAuto.rate = null;
+        $$(
+          "#propAutoRate"
+        ).innerHTML = `<span class="inline-block w-28 h-5 rounded shimmer"></span>`;
+        $$("#propAutoMeta").textContent = "Loading…";
+        try {
+          const got = await fetchPropertyTaxEffectiveRate(st);
+          state.propAuto.status = "ok";
+          state.propAuto.rate = got.rate;
+          state.propAuto.year = got.year;
+          state.propAuto.dataset = got.dataset;
+          $$("#propAutoRate").textContent = fmtPct(got.rate, 2);
+          $$("#propAutoMeta").textContent = `ACS ${got.year} (${got.dataset})`;
+        } catch (e) {
+          state.propAuto.status = "fail";
+          state.propAuto.rate = null;
+          $$("#propAutoRate").textContent = "Unavailable";
+          $$("#propAutoMeta").textContent = "Blocked or offline — use override";
+        }
+        scheduleRecalc();
+      }
+
+      /*********************
+       * Cascading recalculation + section auto-collapse
+       *********************/
+      function scheduleRecalc() {
+        const token = ++state.updateToken;
+
+        // Keep the “as you type” quick calcs responsive
+        quickCalcs();
+
+        // If required not complete: hide sections and clear headline
+        const complete = renderProgress();
+        if (!complete) {
+          $$("#sections").classList.add("hidden");
+          $$("#headlinePct").textContent = "—";
+          $$("#headlineDenom").textContent = "—";
+          $$("#headlineRetire").textContent = "—";
+          $$("#headlineRetireDetail").textContent = "—";
+          return;
+        }
+
+        $$("#sections").classList.remove("hidden");
+
+        // Cascade updates: each stage updates below-only areas.
+        const stages = [
+          () => updateStageIncome(token),
+          () => updateStageStateIncome(token),
+          () => updateStageSales(token),
+          () => updateStageHousing(token),
+          () => updateStagePortfolio(token),
+          () => updateStageLifetime(token),
+        ];
+
+        stages.forEach((fn, i) => {
+          setTimeout(() => {
+            if (token !== state.updateToken) return;
+            fn();
+          }, i * 500);
+        });
+      }
+
+      function autoCollapseOnce(detailEl, key) {
+        if (state.hasAutoCollapsed[key]) return;
+        // Collapse shortly after first render, to keep everything on one screen.
+        setTimeout(() => {
+          if (state.updateToken === 0) return;
+          detailEl.open = false;
+          state.hasAutoCollapsed[key] = true;
+        }, 850);
+      }
+
+      function gatherParams() {
+        const r = getRequired();
+        const filing = state.filing;
+
+        const stdDeduction = parseNum($$("#stdDeduction"));
+        const marketRet = parseNum($$("#marketReturn"));
+        const inflation = parseNum($$("#inflation"));
+        const cashYield = parseNum($$("#cashYield"));
+
+        const taxAdvPct = Number($$("#taxAdvPct").value);
+        const eqPct = Number($$("#equitiesPct").value);
+
+        const invDrag = Number($$("#invDrag").value);
+
+        const taxableShare = Number($$("#taxableShare").value);
+        const excisePct = Number($$("#excisePct").value);
+
+        const buyAge = Number(parseNum($$("#buyAge")));
+        const homeMult = Number($$("#homeMult").value);
+        const housingShare = Number($$("#housingShare").value);
+        const principalShare = Number($$("#principalShare").value);
+
+        const lifeExp = Number(parseNum($$("#lifeExp")));
+
+        const taxCut = Number($$("#taxCut").value);
+
+        // State effective factor slider: default logic set in stage state update if missing.
+        const stateEffFactor = Number($$("#stateEffRate").value);
+
+        // Property tax rate: override if provided; else auto if loaded; else 0 (and we surface that clearly)
+        const overridePct = parseNum($$("#propOverride"));
+        let propTaxRate = 0;
+        if (isFinite(overridePct) && overridePct >= 0)
+          propTaxRate = overridePct / 100;
+        else if (
+          state.propAuto.status === "ok" &&
+          isFinite(state.propAuto.rate)
+        )
+          propTaxRate = state.propAuto.rate;
+        else propTaxRate = 0;
+
+        const retSpendMode = state.retMode === "custom" ? "custom" : "same";
+        const retSpendCustom = parseNum($$("#retSpend"));
+
+        return {
+          filing,
+          income0: r.income,
+          spend0: r.spend,
+          netWorth0: r.netWorth,
+          age0: r.age,
+          stateAbbr: r.stateAbbr,
+          stdDeduction,
+          stateEffFactor,
+          taxableShare,
+          excisePct,
+          buyAge,
+          homeMult,
+          txCount: state.txCount,
+          housingShare,
+          principalShare,
+          propTaxRate,
+          eqPct,
+          taxAdvPct,
+          marketRet,
+          inflation,
+          cashYield,
+          invDrag,
+          lifeExp,
+          retSpendMode,
+          retSpendCustom: isFinite(retSpendCustom) ? retSpendCustom : 0,
+          taxCut,
+        };
+      }
+
+      /*********************
+       * Stage updates
+       *********************/
+      function updateStageIncome(token) {
+        const p = gatherParams();
+        const sim = simulateLifetime(p);
+        const card = $$("#secIncome").querySelector("summary");
+        pulseCard(card);
+        spawnBurst(card);
+        beep(520, 0.06);
+
+        $$("#taxableIncome").textContent = fmtMoney(sim.now.taxableIncomeNow);
+        $$("#federalTax").textContent = fmtMoney(sim.now.fedNow);
+        $$("#payrollEmployee").textContent = fmtMoney(sim.now.payrollEmpNow);
+        $$("#payrollEmployer").textContent = fmtMoney(sim.now.payrollErNow);
+
+        const paycheck =
+          sim.now.fedNow + sim.now.stateIncomeNow + sim.now.payrollEmpNow;
+        $$("#paycheckDeductions").textContent = fmtMoney(paycheck);
+
+        $$("#sumIncomeRight").textContent = fmtMoney(paycheck);
+        $$("#sumIncome").textContent =
+          "Federal + State + employee payroll (today)";
+        autoCollapseOnce($$("#secIncome"), "income");
+        flash($$("#federalTax"));
+        flash($$("#payrollEmployee"));
+        updateHeadlines(sim, p, "baseline");
+      }
+
+      function updateStageStateIncome(token) {
+        const p = gatherParams();
+
+        // Set a sensible default effective factor if the slider is still unset (first time)
+        if (!$$("#stateEffRate").dataset.inited) {
+          const top = STATE_INCOME_TOP[p.stateAbbr] ?? 0;
+          // default: flat-ish states ~1.0, progressive ~0.65, no-tax 0
+          let d = 0;
+          if (top === 0) d = 0;
+          else d = 0.65;
+          // if it looks like a flat rate in NerdWallet table (many are single value): still keep 1.0 for “flat” feel
+          // We can approximate “flat” by checking if the state commonly uses one number in table via a small allowlist:
+          const FLATISH = new Set([
+            "AZ",
+            "CO",
+            "GA",
+            "ID",
+            "IL",
+            "IN",
+            "IA",
+            "KY",
+            "LA",
+            "MI",
+            "MS",
+            "NC",
+            "PA",
+            "UT",
+          ]);
+          if (FLATISH.has(p.stateAbbr)) d = 1.0;
+          $$("#stateEffRate").value = String(d);
+          $$("#stateEffRate").dataset.inited = "1";
+        }
+
+        const p2 = gatherParams();
+        const sim = simulateLifetime(p2);
+        const card = $$("#secStateIncome").querySelector("summary");
+        pulseCard(card);
+        spawnBurst(card);
+        beep(600, 0.06);
+
+        const top = sim.now.stateTop;
+        $$("#stateTopRate").textContent =
+          top === 0 ? "0%" : (top * 100).toFixed(2).replace(/\.00$/, "") + "%";
+        $$("#stateEffRateLabel").textContent = fmtPct(sim.now.stateEffRate, 2);
+        $$("#stateEffRatePct").textContent =
+          fmtPct(Number($$("#stateEffRate").value), 0) + " × top";
+
+        $$("#stateIncomeTax").textContent = fmtMoney(sim.now.stateIncomeNow);
+
+        $$("#sumStateIncomeRight").textContent = fmtMoney(
+          sim.now.stateIncomeNow
+        );
+        $$("#sumStateIncome").textContent = "Effective-rate model (editable)";
+        autoCollapseOnce($$("#secStateIncome"), "state");
+        flash($$("#stateIncomeTax"));
+        updateHeadlines(sim, p2, "baseline");
+      }
+
+      function updateStageSales(token) {
+        const p = gatherParams();
+        const sim = simulateLifetime(p);
+        const card = $$("#secSales").querySelector("summary");
+        pulseCard(card);
+        spawnBurst(card);
+        beep(680, 0.06);
+
+        $$("#taxableShareLabel").textContent = fmtPct(
+          Number($$("#taxableShare").value),
+          0
+        );
+        $$("#exciseLabel").textContent = fmtPct(
+          Number($$("#excisePct").value),
+          1
+        );
+        $$("#salesTax").textContent = fmtMoney(sim.now.salesNow);
+        $$("#exciseTax").textContent = fmtMoney(sim.now.exciseNow);
+        $$("#outTheDoorSpend").textContent = fmtMoney(sim.now.outDoorNow);
+
+        const spendTax = sim.now.salesNow + sim.now.exciseNow;
+        $$("#sumSalesRight").textContent = fmtMoney(spendTax);
+        $$("#sumSales").textContent =
+          "Sales tax (state) + excise bundle (today)";
+        autoCollapseOnce($$("#secSales"), "sales");
+        flash($$("#salesTax"));
+        updateHeadlines(sim, p, "baseline");
+      }
+
+      function updateStageHousing(token) {
+        const p = gatherParams();
+        const sim = simulateLifetime(p);
+        const card = $$("#secHousing").querySelector("summary");
+        pulseCard(card);
+        spawnBurst(card);
+        beep(720, 0.06);
+
+        $$("#homeMultLabel").textContent =
+          Number($$("#homeMult").value).toFixed(1) + "×";
+        $$("#housingShareLabel").textContent = fmtPct(
+          Number($$("#housingShare").value),
+          0
+        );
+        $$("#principalShareLabel").textContent = fmtPct(
+          Number($$("#principalShare").value),
+          0
+        );
+
+        // Property tax rate display (auto vs override)
+        const overridePct = parseNum($$("#propOverride"));
+        const usedRate =
+          isFinite(overridePct) && overridePct >= 0
+            ? overridePct / 100
+            : state.propAuto.status === "ok"
+            ? state.propAuto.rate
+            : 0;
+
+        $$("#propertyTax").textContent = fmtMoney(sim.now.propNow);
+        $$("#forcedSavings").textContent = fmtMoney(sim.now.forcedSavingsNow);
+        $$("#transferTaxAnnual").textContent = fmtMoney(
+          sim.now.transferAnnualNow
+        );
+
+        const housingTaxes = sim.now.propNow + sim.now.transferAnnualNow;
+        $$("#sumHousingRight").textContent = fmtMoney(housingTaxes);
+        const rLabel = usedRate ? fmtPct(usedRate, 2) : "0%";
+        $$(
+          "#sumHousing"
+        ).textContent = `Property + transfers (rate: ${rLabel})`;
+        autoCollapseOnce($$("#secHousing"), "housing");
+        flash($$("#propertyTax"));
+        updateHeadlines(sim, p, "baseline");
+      }
+
+      function updateStagePortfolio(token) {
+        const p = gatherParams();
+        const sim = simulateLifetime(p);
+        const card = $$("#secPortfolio").querySelector("summary");
+        pulseCard(card);
+        spawnBurst(card);
+        beep(780, 0.06);
+
+        $$("#eqLabel").textContent = fmtPct(
+          Number($$("#equitiesPct").value),
+          0
+        );
+        $$("#taxAdvLabel").textContent = fmtPct(
+          Number($$("#taxAdvPct").value),
+          0
+        );
+        $$("#dragLabel").textContent = fmtPct(Number($$("#invDrag").value), 2);
+
+        const taxCutScale = 1 - Number($$("#taxCut").value);
+        const realEqAdv = p.marketRet - p.inflation;
+        const realEqTax = p.marketRet - p.invDrag * taxCutScale - p.inflation;
+        const realCash = p.cashYield - p.inflation;
+        $$("#realEqAdv").textContent = fmtPct(realEqAdv, 2);
+        $$("#realEqTax").textContent = fmtPct(realEqTax, 2);
+        $$("#realCash").textContent = fmtPct(realCash, 2);
+
+        $$("#inflationDrag").textContent = fmtMoney(
+          inflationDragOnCash(p.netWorth0, p.eqPct, p.inflation, p.cashYield)
+        );
+        $$("#sumPortfolioRight").textContent = fmtMoney(sim.now.foregone);
+        $$("#sumPortfolio").textContent =
+          "Returns + drag shape the lifetime model below";
+        autoCollapseOnce($$("#secPortfolio"), "portfolio");
+        updateHeadlines(sim, p, "baseline");
+      }
+
+      function updateStageLifetime(token) {
+        const p = gatherParams();
+        const sim = simulateLifetime(p);
+        const card = $$("#secLifetime").querySelector("summary");
+        pulseCard(card);
+        spawnBurst(card);
+        beep(880, 0.06);
+
+        // Target portfolio (today)
+        $$("#targetPortfolio").textContent = fmtMoney(sim.retire.targetPort);
+
+        // Tax cut label
+        $$("#taxCutLabel").textContent = fmtPct(Number($$("#taxCut").value), 0);
+
+        // Lifetime totals
+        $$("#lifeDirect").textContent = fmtMoney(sim.lifetime.sumDirect);
+        $$("#lifeEmployer").textContent = fmtMoney(sim.lifetime.sumEmployer);
+        $$("#lifeTimeValueLoss").textContent = fmtMoney(
+          sim.lifetime.timeValueLoss
+        );
+
+        // Retirement
+        const baseYear = sim.retire.retiredAt;
+        $$("#retireBase").textContent = baseYear
+          ? `${baseYear} (age ~${Math.round(
+              p.age0 + (baseYear - new Date().getFullYear())
+            )})`
+          : "Not reached";
+        $$("#sumLifetimeRight").textContent = baseYear
+          ? `Retire ~${baseYear}`
+          : "Retire: —";
+        $$("#sumLifetime").textContent =
+          "Lifetime paid + compounding loss from reduced savings";
+
+        // With tax-cut: simulate again using same params but taxCut slider already included; for delta, show a comparison against 0% cut baseline.
+        const p0 = { ...p, taxCut: 0 };
+        const sim0 = simulateLifetime(p0);
+        const simCut = sim; // current
+        const y0 = sim0.retire.retiredAt;
+        const y1 = simCut.retire.retiredAt;
+
+        $$("#retireCut").textContent = y1
+          ? `${y1} (age ~${Math.round(
+              p.age0 + (y1 - new Date().getFullYear())
+            )})`
+          : "Not reached";
+        const note =
+          y0 && y1
+            ? `Δ: ${y0 - y1} year(s) earlier with a ${Math.round(
+                p.taxCut * 100
+              )}% tax reduction.`
+            : "If retirement isn’t reached, try increasing savings (lower spend) or returns.";
+        $$("#retireNote").textContent = note;
+
+        // Annual breakdown + stacked bar
+        $$(
+          "#annualBreakMeta"
+        ).textContent = `Potential annual denominator: ${fmtMoney(
+          sim.now.potentialAnnual
+        )}`;
+        $$("#annualPaycheck").textContent = fmtMoney(sim.now.paycheck);
+        $$("#annualSpendTax").textContent = fmtMoney(sim.now.spendTax);
+        $$("#annualForegone").textContent = fmtMoney(sim.now.foregone);
+
+        const total = sim.now.paycheck + sim.now.spendTax + sim.now.foregone;
+        const a = total > 0 ? sim.now.paycheck / total : 0;
+        const b = total > 0 ? sim.now.spendTax / total : 0;
+        const c = total > 0 ? sim.now.foregone / total : 0;
+        $$("#barPaycheck").style.width = (a * 100).toFixed(1) + "%";
+        $$("#barSpend").style.width = (b * 100).toFixed(1) + "%";
+        $$("#barForegone").style.width = (c * 100).toFixed(1) + "%";
+
+        autoCollapseOnce($$("#secLifetime"), "lifetime");
+        updateHeadlines(sim, p, "final");
+      }
+
+      /*********************
+       * Headline (right rail)
+       *********************/
+      function updateHeadlines(sim, p, stage) {
+        $$("#headlinePct").textContent = isFinite(sim.now.pctTaken)
+          ? (sim.now.pctTaken * 100).toFixed(1) + "%"
+          : "—";
+        $$(
+          "#headlineDenom"
+        ).textContent = `Denominator: gross income + foregone/wealth-loss = ${fmtMoney(
+          sim.now.potentialAnnual
+        )} / yr`;
+
+        const year = sim.retire.retiredAt;
+        if (year) {
+          const yrs = year - new Date().getFullYear();
+          const age = Math.round(p.age0 + yrs);
+          $$("#headlineRetire").textContent = `${year} (age ~${age})`;
+          $$(
+            "#headlineRetireDetail"
+          ).textContent = `4% rule target today: ${fmtMoney(
+            sim.retire.targetPort
+          )}`;
+        } else {
+          $$("#headlineRetire").textContent =
+            "Not reached (within life expectancy)";
+          $$(
+            "#headlineRetireDetail"
+          ).textContent = `Try lowering spend or increasing returns.`;
+        }
+
+        // Also update state sales rate pill
+        const sRate = STATE_SALES_RATE[p.stateAbbr] ?? 0;
+        $$("#stateSalesRate").textContent = fmtPct(sRate, 2);
+
+        // Update quick summary lines
+        $$("#sumIncomeRight").textContent = fmtMoney(
+          sim.now.fedNow + sim.now.stateIncomeNow + sim.now.payrollEmpNow
+        );
+        $$("#sumStateIncomeRight").textContent = fmtMoney(
+          sim.now.stateIncomeNow
+        );
+        $$("#sumSalesRight").textContent = fmtMoney(
+          sim.now.salesNow + sim.now.exciseNow
+        );
+        $$("#sumHousingRight").textContent = fmtMoney(
+          sim.now.propNow + sim.now.transferAnnualNow
+        );
+        $$("#sumPortfolioRight").textContent = fmtMoney(sim.now.foregone);
+
+        // Lifetime summary line
+        const baseYear = sim.retire.retiredAt;
+        $$("#sumLifetimeRight").textContent = baseYear
+          ? `Retire ~${baseYear}`
+          : "Retire: —";
+      }
+
+      /*********************
+       * Quick calcs while typing
+       *********************/
+      function quickCalcs() {
+        const r = getRequired();
+
+        // monthly income
+        if (isFinite(r.income))
+          $$("#incomeMonthly").textContent = fmtMoney(r.income / 12);
+        else $$("#incomeMonthly").textContent = "—";
+
+        // pre-tax savings
+        if (isFinite(r.income) && isFinite(r.spend))
+          $$("#preTaxSavings").textContent = fmtMoney(r.income - r.spend);
+        else $$("#preTaxSavings").textContent = "—";
+      }
+
+      /*********************
+       * Wire up events
+       *********************/
+      function wire() {
+        // Filing buttons
+        $$("#fsSingle").addEventListener("click", () => setFiling("single"));
+        $$("#fsMFJ").addEventListener("click", () => setFiling("mfj"));
+
+        // Inputs that trigger recalcs
+        const triggers = [
+          "#income",
+          "#spend",
+          "#netWorth",
+          "#age",
+          "#state",
+          "#stdDeduction",
+          "#stateEffRate",
+          "#taxableShare",
+          "#excisePct",
+          "#buyAge",
+          "#homeMult",
+          "#housingShare",
+          "#principalShare",
+          "#propOverride",
+          "#equitiesPct",
+          "#taxAdvPct",
+          "#marketReturn",
+          "#inflation",
+          "#cashYield",
+          "#invDrag",
+          "#lifeExp",
+          "#retSpend",
+          "#taxCut",
+        ];
+        triggers.forEach((sel) => {
+          const el = $$(sel);
+          el.addEventListener("input", () => {
+            if (sel === "#state") {
+              // reset state eff slider init so new state picks a reasonable default
+              delete $$("#stateEffRate").dataset.inited;
+              refreshPropertyTax();
+            }
+            scheduleRecalc();
+          });
+        });
+
+        // Transactions stepper
+        $$("#txMinus").addEventListener("click", () => {
+          state.txCount = clamp(state.txCount - 1, 0, 10);
+          $$("#txCount").textContent = String(state.txCount);
+          scheduleRecalc();
+        });
+        $$("#txPlus").addEventListener("click", () => {
+          state.txCount = clamp(state.txCount + 1, 0, 10);
+          $$("#txCount").textContent = String(state.txCount);
+          scheduleRecalc();
+        });
+
+        // Reset defaults
+        $$("#resetBtn").addEventListener("click", () => {
+          // hard reset all UI to defaults
+          state.filing = null;
+          $$("#fsSingle").className =
+            "px-3 py-2 rounded-lg bg-indigo-500/20 border border-indigo-300/20 hover:bg-indigo-500/30 transition text-sm";
+          $$("#fsMFJ").className =
+            "px-3 py-2 rounded-lg bg-white/5 border border-white/10 hover:bg-white/10 transition text-sm";
+          $$("#income").value = "";
+          $$("#spend").value = "";
+          $$("#netWorth").value = "";
+          $$("#age").value = "";
+          initStateDropdown();
+          setDefaultAssumptions();
+          $$("#propOverride").value = "";
+          delete $$("#stateEffRate").dataset.inited;
+
+          // reset collapse memory
+          state.hasAutoCollapsed = {
+            income: false,
+            state: false,
+            sales: false,
+            housing: false,
+            portfolio: false,
+            lifetime: false,
+          };
+          $$$("details", $$("#sections")).forEach((d) => (d.open = true));
+
+          refreshPropertyTax();
+          scheduleRecalc();
+        });
+
+        // Reset federal deduction
+        $$("#resetFederalBtn").addEventListener("click", () => {
+          if (!state.filing) return;
+          const d =
+            state.filing === "mfj"
+              ? FED_2025.stdDeductionDefaults.mfj
+              : FED_2025.stdDeductionDefaults.single;
+          $$("#stdDeduction").value = String(d);
+          scheduleRecalc();
+        });
+
+        // Reset returns
+        $$("#resetReturnsBtn").addEventListener("click", () => {
+          $$("#marketReturn").value = "0.07";
+          $$("#inflation").value = "0.03";
+          $$("#cashYield").value = "0.02";
+          scheduleRecalc();
+        });
+
+        // Retirement toggle
+        $$("#retSame").addEventListener("click", () => setRetMode("same"));
+        $$("#retCustom").addEventListener("click", () => setRetMode("custom"));
+
+        // Sound toggle
+        $$("#soundBtn").addEventListener("click", async () => {
+          audioEnabled = !audioEnabled;
+          if (audioEnabled) {
+            try {
+              ensureAudio();
+              await audioCtx.resume();
+            } catch (e) {}
+          }
+          $$("#soundBtn").textContent = audioEnabled
+            ? "🔊 Sound: On"
+            : "🔇 Sound: Off";
+          beep(440, 0.06);
+        });
+      }
+
+      /*********************
+       * Boot
+       *********************/
+      (function boot() {
+        initStateDropdown();
+        setDefaultAssumptions();
+        wire();
+        refreshPropertyTax();
+        renderProgress();
+        quickCalcs();
+        // No initial filing selected by design; user picks first required field.
+      })();
+    </script>
+  </body>
+</html>
