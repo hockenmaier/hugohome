@@ -2604,9 +2604,11 @@
           const stIncRaw = income * (params.stIncRate / 100);
 
           const salesRateRaw = combinedSalesRate(params.st);
-          const salesRaw = spend * params.taxableSpendShare * salesRateRaw;
+          const denomSpend = 1 + (params.taxableSpendShare * salesRateRaw) + params.exciseShare;
+          const baseSpend = denomSpend > 0 ? (spend / denomSpend) : spend;
+          const salesRaw = baseSpend * params.taxableSpendShare * salesRateRaw;
 
-          const exciseRaw = spend * params.exciseShare;
+          const exciseRaw = baseSpend * params.exciseShare;
 
           const owner = ageNow >= params.buyAge;
           const homeValue = income * params.homeMult;
@@ -2711,6 +2713,7 @@
           for (let y = 0; y < years; y++) {
             const ageNow = startAge + y;
             const b = yearBurdenBreakdownAt(params, ageNow, portfolio);
+            const raw = b.raw;
             const scaled = b.scaled;
 
             let income = params.income;
@@ -2727,7 +2730,9 @@
             const prop = remove.propertyTax ? 0 : scaled.propertyTax;
             const txnFees = remove.txnFeesAnnual ? 0 : scaled.txnFeesAnnual;
 
-            const cashOut = params.spend + sales + excise + prop + txnFees;
+            const baseSpend = Math.max(0, params.spend - raw.salesTax - raw.excise);
+            const spendAllIn = baseSpend + sales + excise;
+            const cashOut = spendAllIn + prop + txnFees;
             const afterTaxIncome = income - payEmp - fed - st;
             const contrib = afterTaxIncome - cashOut;
 
@@ -2739,10 +2744,13 @@
         }
 
         function yearsToFI(params) {
+          const b0 = yearBurdenBreakdownAt(params, params.age, params.netWorth);
+          const baseSpend0 = Math.max(0, params.spend - b0.raw.salesTax - b0.raw.excise);
+          const inferredSpendAllIn0 = baseSpend0 + b0.scaled.salesTax + b0.scaled.excise;
           const retSpend =
             params.retSpendMode === "custom" && Number.isFinite(params.retSpend)
               ? params.retSpend
-              : params.spend;
+              : inferredSpendAllIn0;
           const target = retSpend / 0.04;
 
           let portfolio = params.netWorth;
@@ -2754,11 +2762,13 @@
             if (y === yearsMax) break;
 
             const ageNow = params.age + y;
-            const scaled = yearBurdenBreakdownAt(
+            const burden = yearBurdenBreakdownAt(
               params,
               ageNow,
               portfolio
-            ).scaled;
+            );
+            const raw = burden.raw;
+            const scaled = burden.scaled;
 
             const fed = scaled.fedIncome;
             const st = scaled.stateIncome;
@@ -2769,7 +2779,9 @@
             const prop = scaled.propertyTax;
             const txnFees = scaled.txnFeesAnnual;
 
-            const cashOut = params.spend + sales + excise + prop + txnFees;
+            const baseSpend = Math.max(0, params.spend - raw.salesTax - raw.excise);
+            const spendAllIn = baseSpend + sales + excise;
+            const cashOut = spendAllIn + prop + txnFees;
             const afterTaxIncome = params.income - payEmp - fed - st;
             const contrib = afterTaxIncome - cashOut;
 

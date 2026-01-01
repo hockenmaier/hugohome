@@ -1,6 +1,10 @@
 ---
 title: "Hottest Models of 2024 and 2025"
 date: 2025-12-15
+url: "/preview/25-prints/" # any path you like
+_build:
+  list: never # don’t show in section/taxonomy/RSS lists
+  render: always # still write the HTML file
 categories: ["builds"]
 stack: ["Openscad", "Bambulab"]
 tags: ["3D Modeling", "3D Printing", "Hardware", "Bambulab X1"]
