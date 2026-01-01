@@ -1,0 +1,3694 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Lifetime Tax Burden Calculator</title>
+    <style>
+      :root {
+        --bg: #000;
+        --panel: #070707;
+        --panel2: #0b0b0b;
+        --text: #e9e9e9;
+        --muted: #a7a7a7;
+        --muted2: #7d7d7d;
+        --border: #2a2a2a;
+        --border2: #3a3a3a;
+        --gold: #f2c94c;
+        --gold2: #caa33b;
+        --green: #27ae60;
+        --red: #e74c3c;
+        --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+          "Liberation Mono", "Courier New", monospace;
+        --sans: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto,
+          Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+      }
+      * {
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        height: 100%;
+      }
+      body {
+        margin: 0;
+        background: var(--bg);
+        color: var(--text);
+        font-family: var(--sans);
+        position: relative;
+      }
+      a {
+        color: var(--gold);
+        text-decoration: none;
+      }
+      a:hover {
+        text-decoration: underline;
+      }
+
+      .wrap {
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 18px 14px 130px;
+      }
+      .row {
+        display: flex;
+        gap: 12px;
+        align-items: center;
+        flex-wrap: wrap;
+      }
+      .spacer {
+        height: 10px;
+      }
+      .small {
+        font-size: 12px;
+        color: var(--muted);
+      }
+      .muted {
+        color: var(--muted);
+      }
+      .muted2 {
+        color: var(--muted2);
+      }
+      .mono {
+        font-family: var(--mono);
+      }
+      .hide {
+        display: none !important;
+      }
+      .fade-in {
+        animation: fadeIn 420ms ease-out both;
+      }
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(6px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .h1 {
+        font-size: 22px;
+        font-weight: 900;
+        margin: 0 0 12px;
+        letter-spacing: -0.02em;
+      }
+      .h2 {
+        font-size: 18px;
+        font-weight: 700;
+        margin: 0;
+      }
+      .sub {
+        font-size: 12px;
+        color: var(--muted);
+        margin-top: 4px;
+      }
+
+      .card {
+        background: var(--panel);
+        border: 1px solid var(--border);
+        border-radius: 14px;
+        padding: 14px;
+      }
+      .card.tight {
+        padding: 12px;
+      }
+      .card.gold {
+        border: 2px solid var(--gold2);
+        box-shadow: 0 0 0 1px rgba(242, 201, 76, 0.08) inset;
+      }
+
+      .label {
+        font-size: 12px;
+        color: var(--muted);
+        margin-bottom: 6px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .field {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+        min-width: 240px;
+      }
+      input[type="text"],
+      input[type="number"],
+      select {
+        background: var(--panel2);
+        border: 1px solid var(--border2);
+        color: var(--text);
+        border-radius: 10px;
+        padding: 10px 10px;
+        outline: none;
+        font-size: 14px;
+      }
+      input[type="number"] {
+        appearance: textfield;
+      }
+      input:focus,
+      select:focus {
+        border-color: rgba(242, 201, 76, 0.55);
+        box-shadow: 0 0 0 2px rgba(242, 201, 76, 0.12);
+      }
+
+      .warnInput {
+        border-color: rgba(231, 76, 60, 0.95) !important;
+        box-shadow: 0 0 0 2px rgba(231, 76, 60, 0.14) !important;
+      }
+      .warnText {
+        color: var(--red) !important;
+        font-weight: 800;
+      }
+
+      .btn {
+        background: var(--panel2);
+        border: 1px solid var(--border2);
+        color: var(--text);
+        border-radius: 10px;
+        padding: 9px 10px;
+        font-size: 13px;
+        cursor: pointer;
+        user-select: none;
+      }
+      .btn:hover {
+        border-color: rgba(242, 201, 76, 0.35);
+      }
+      .btn.primary {
+        border-color: rgba(242, 201, 76, 0.6);
+        box-shadow: 0 0 0 1px rgba(242, 201, 76, 0.1) inset;
+      }
+
+      .seg {
+        display: flex;
+        border: 1px solid var(--border2);
+        border-radius: 12px;
+        overflow: hidden;
+        background: var(--panel2);
+        width: 100%;
+      }
+      .seg button {
+        border: 0;
+        background: transparent;
+        color: var(--muted);
+        padding: 10px 12px;
+        cursor: pointer;
+        font-size: 13px;
+        flex: 1;
+        text-align: center;
+      }
+      .seg button.active {
+        color: var(--text);
+        background: rgba(242, 201, 76, 0.12);
+      }
+
+      .progress {
+        display: flex;
+        gap: 10px;
+        align-items: center;
+      }
+      .bubble {
+        width: 28px;
+        height: 28px;
+        border-radius: 999px;
+        border: 1px solid var(--border2);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--muted);
+        font-size: 12px;
+        background: rgba(255, 255, 255, 0.02);
+        position: relative;
+      }
+      .bubble.done {
+        border-color: rgba(39, 174, 96, 0.75);
+        color: rgba(39, 174, 96, 1);
+        background: rgba(39, 174, 96, 0.1);
+        font-weight: 700;
+      }
+      .bubble .check {
+        font-size: 14px;
+        line-height: 1;
+      }
+
+      .hr {
+        height: 1px;
+        background: rgba(255, 255, 255, 0.06);
+        margin: 12px 0;
+      }
+
+      .section {
+        background: var(--panel);
+        border: 1px solid var(--border);
+        border-radius: 14px;
+        overflow: hidden;
+      }
+      .secHead {
+        padding: 12px 14px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 10px;
+        cursor: pointer;
+        user-select: none;
+      }
+      .secTitle {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        min-width: 0;
+      }
+      .secTitleText {
+        font-weight: 700;
+        font-size: 13px;
+        color: var(--text);
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+      .secRight {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-size: 13px;
+        color: var(--muted);
+        white-space: nowrap;
+      }
+      .secSubtotal {
+        font-family: var(--mono);
+        color: var(--text);
+      }
+      .caret {
+        width: 18px;
+        text-align: center;
+        color: var(--muted);
+        transition: transform 160ms ease;
+      }
+      .collapsed .caret {
+        transform: rotate(-90deg);
+      }
+      .secBody {
+        padding: 0 14px 14px;
+        border-top: 1px solid rgba(255, 255, 255, 0.06);
+      }
+      .collapsed .secBody {
+        display: none;
+      }
+      .logic {
+        font-size: 12px;
+        color: var(--muted);
+        line-height: 1.45;
+        padding: 10px 0 12px;
+      }
+
+      .grid2 {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
+      }
+      @media (max-width: 900px) {
+        .grid2 {
+          grid-template-columns: 1fr;
+        }
+        .field {
+          min-width: 100%;
+        }
+      }
+
+      .kpiGrid {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 12px;
+        margin-top: 6px;
+      }
+      @media (max-width: 900px) {
+        .kpiGrid {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      .kpiBox {
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 12px;
+        background: rgba(255, 255, 255, 0.02);
+        padding: 12px;
+        min-height: 96px;
+      }
+      .kpiTitle {
+        font-size: 12px;
+        color: var(--muted);
+        font-weight: 800;
+      }
+      .kpiBig {
+        font-size: 38px;
+        font-weight: 900;
+        letter-spacing: -0.03em;
+        margin-top: 6px;
+        font-family: var(--mono);
+      }
+      .kpiSub {
+        font-size: 12px;
+        color: var(--muted);
+        margin-top: 8px;
+        line-height: 1.35;
+      }
+      .kpiRow2 {
+        display: flex;
+        gap: 12px;
+        align-items: baseline;
+        flex-wrap: wrap;
+        margin-top: 6px;
+      }
+      .kpiBig2 {
+        font-size: 30px;
+        font-weight: 900;
+        letter-spacing: -0.03em;
+        font-family: var(--mono);
+      }
+
+      table {
+        width: 100%;
+        border-collapse: separate;
+        border-spacing: 0;
+        overflow: hidden;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 12px;
+        background: rgba(255, 255, 255, 0.02);
+      }
+      th,
+      td {
+        padding: 10px 10px;
+        font-size: 12px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+        vertical-align: top;
+      }
+      th {
+        text-align: left;
+        color: var(--muted);
+        font-weight: 700;
+        background: rgba(255, 255, 255, 0.03);
+      }
+      tr:last-child td {
+        border-bottom: 0;
+      }
+      .tRight {
+        text-align: right;
+        font-family: var(--mono);
+      }
+      .groupRow td {
+        padding: 9px 10px;
+        color: var(--muted);
+        background: rgba(255, 255, 255, 0.03);
+        font-weight: 800;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+      }
+
+      .pulse {
+        animation: pulse 520ms ease-out both;
+      }
+      @keyframes pulse {
+        0% {
+          box-shadow: 0 0 0 0 rgba(242, 201, 76, 0);
+        }
+        15% {
+          box-shadow: 0 0 0 3px rgba(242, 201, 76, 0.22);
+        }
+        100% {
+          box-shadow: 0 0 0 0 rgba(242, 201, 76, 0);
+        }
+      }
+      .goldFlash {
+        animation: goldFlash 520ms ease-out both;
+      }
+      @keyframes goldFlash {
+        0% {
+          background: rgba(242, 201, 76, 0);
+        }
+        15% {
+          background: rgba(242, 201, 76, 0.16);
+        }
+        100% {
+          background: rgba(242, 201, 76, 0);
+        }
+      }
+
+      .orb {
+        position: absolute;
+        width: 14px;
+        height: 14px;
+        border-radius: 999px;
+        background: rgba(242, 201, 76, 0.55);
+        transform: translate(-50%, -50%);
+        pointer-events: none;
+        z-index: 9999;
+        opacity: 0;
+      }
+      .ring {
+        position: absolute;
+        width: 14px;
+        height: 14px;
+        border-radius: 999px;
+        border: 2px solid rgba(242, 201, 76, 0.55);
+        transform: translate(-50%, -50%);
+        pointer-events: none;
+        z-index: 9998;
+        animation: ringPop 520ms ease-out both;
+      }
+      @keyframes ringPop {
+        0% {
+          transform: translate(-50%, -50%) scale(1);
+          opacity: 0.9;
+        }
+        100% {
+          transform: translate(-50%, -50%) scale(3);
+          opacity: 0;
+        }
+      }
+
+      .tipWrap {
+        position: relative;
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+      }
+      .qmark {
+        width: 16px;
+        height: 16px;
+        border-radius: 999px;
+        border: 1px solid rgba(255, 255, 255, 0.16);
+        color: var(--muted);
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 11px;
+        user-select: none;
+      }
+      .tip {
+        position: absolute;
+        left: 0;
+        top: calc(100% + 8px);
+        width: 340px;
+        background: #0a0a0a;
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        border-radius: 12px;
+        padding: 10px;
+        color: var(--text);
+        font-size: 12px;
+        line-height: 1.35;
+        box-shadow: 0 10px 28px rgba(0, 0, 0, 0.55);
+        opacity: 0;
+        transform: translateY(4px);
+        transition: opacity 140ms ease, transform 140ms ease;
+        pointer-events: none;
+        z-index: 50;
+      }
+      .tipWrap:hover .tip {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .infoDock {
+        position: fixed;
+        left: 50%;
+        bottom: 16px;
+        transform: translateX(-50%);
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        z-index: 60;
+      }
+      .infoIcon,
+      .soundIcon {
+        width: 34px;
+        height: 34px;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.04);
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--muted);
+        cursor: pointer;
+        user-select: none;
+      }
+      .infoIcon:hover,
+      .soundIcon:hover {
+        border-color: rgba(242, 201, 76, 0.35);
+      }
+      .overlay {
+        position: fixed;
+        inset: 0;
+        display: none;
+        align-items: center;
+        justify-content: center;
+        background: rgba(0, 0, 0, 0.45);
+        z-index: 59;
+        pointer-events: none;
+      }
+      .overlayPanel {
+        width: min(820px, calc(100vw - 24px));
+        background: #070707;
+        border: 1px solid rgba(242, 201, 76, 0.35);
+        border-radius: 16px;
+        padding: 14px;
+        box-shadow: 0 18px 50px rgba(0, 0, 0, 0.65);
+        pointer-events: none;
+      }
+      .overlayPanel .title {
+        font-weight: 900;
+        font-size: 14px;
+        margin: 0 0 4px;
+      }
+      .overlayPanel ul {
+        margin: 8px 0 0 18px;
+        padding: 0;
+        color: var(--muted);
+        font-size: 12px;
+        line-height: 1.5;
+      }
+      .overlayPanel li {
+        margin: 5px 0;
+      }
+
+      .blockTitle {
+        font-weight: 900;
+        font-size: 13px;
+        margin: 0;
+      }
+      .blockSub {
+        font-size: 12px;
+        color: var(--muted);
+        margin-top: 3px;
+      }
+      .taxKey {
+        font-size: 12px;
+        color: var(--text);
+        line-height: 1.45;
+        margin-top: 8px;
+        font-family: var(--mono);
+      }
+      .taxKey b {
+        font-weight: 900;
+        color: var(--text);
+      }
+
+      .masterInactive {
+        opacity: 0.45;
+      }
+      .tightRange {
+        width: 100%;
+      }
+
+      .sliderGrid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px 12px;
+      }
+      @media (max-width: 900px) {
+        .sliderGrid {
+          grid-template-columns: 1fr;
+        }
+      }
+      .sliderItem {
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 12px;
+        background: rgba(255, 255, 255, 0.02);
+        padding: 10px;
+      }
+      .sliderItem .top {
+        display: flex;
+        justify-content: space-between;
+        gap: 10px;
+        align-items: baseline;
+        margin-bottom: 6px;
+      }
+      .sliderItem .name {
+        font-size: 12px;
+        font-weight: 900;
+        color: var(--text);
+      }
+      .sliderItem .val {
+        font-size: 12px;
+        font-family: var(--mono);
+        color: var(--text);
+        font-weight: 900;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="orb" id="orb"></div>
+
+    <div class="wrap">
+      <h1 class="h1">Lifetime Tax Burden Calculator</h1>
+
+      <!-- Initial-only -->
+      <div class="card tight" id="startCard">
+        <div class="small">
+          No data is saved. These calculations run locally on your computer
+        </div>
+        <div class="spacer"></div>
+
+        <div class="row" style="justify-content: space-between">
+          <div
+            class="progress"
+            id="progressBubbles"
+            aria-label="Required fields progress"
+          >
+            <div class="bubble" data-b="status">1</div>
+            <div class="bubble" data-b="income">2</div>
+            <div class="bubble" data-b="spend">3</div>
+            <div class="bubble" data-b="networth">4</div>
+            <div class="bubble" data-b="age">5</div>
+          </div>
+        </div>
+
+        <div class="spacer"></div>
+
+        <div class="grid2">
+          <div class="field" id="f_status">
+            <div class="label">Filing status</div>
+            <div class="seg" role="tablist" aria-label="Filing status">
+              <button id="btnSingle" type="button">Single</button>
+              <button id="btnMFJ" type="button">Married filing jointly</button>
+            </div>
+          </div>
+
+          <div class="field hide" id="f_income">
+            <div class="label">
+              Household gross income
+              <span class="tipWrap">
+                <span class="qmark">?</span>
+                <span class="tip">
+                  Use the annual gross income figure you’d recognize from an
+                  employment offer / contract (salary + bonus + expected comp).
+                  Employer-paid payroll taxes are counted separately as part of
+                  your yearly and lifetime tax burden, since they’re paid
+                  “above” this number.
+                </span>
+              </span>
+            </div>
+            <input
+              id="inpIncome"
+              type="text"
+              inputmode="numeric"
+              placeholder=""
+            />
+            <div class="small muted2">
+              <span class="mono" id="v_income" data-anchor="income">$0</span>
+            </div>
+          </div>
+
+          <div class="field hide" id="f_spend">
+            <div class="label">
+              Yearly spend
+              <span class="tipWrap">
+                <span class="qmark">?</span>
+                <span class="tip">
+                  Total household spending per year (everything you buy / pay
+                  for). This should include housing costs, bills, groceries,
+                  travel, childcare, etc. Savings and investing are treated as
+                  what’s left after spend and modeled taxes.
+                </span>
+              </span>
+            </div>
+            <input
+              id="inpSpend"
+              type="text"
+              inputmode="numeric"
+              placeholder=""
+            />
+            <div class="small muted2">
+              <span class="mono" id="v_spend" data-anchor="spend">$0</span>
+              <span class="mono" id="spendWarn"></span>
+            </div>
+          </div>
+
+          <div class="field hide" id="f_networth">
+            <div class="label">Current net worth</div>
+            <input
+              id="inpNetWorth"
+              type="text"
+              inputmode="numeric"
+              placeholder=""
+            />
+            <div class="small muted2">
+              Investable liquid net worth (cash + brokerage + retirement
+              accounts)
+            </div>
+            <div class="small muted2">
+              <span class="mono" id="v_networth" data-anchor="networth"
+                >$0</span
+              >
+            </div>
+          </div>
+
+          <div class="field hide" id="f_age">
+            <div class="label">Age</div>
+            <input
+              id="inpAge"
+              type="number"
+              min="0"
+              max="120"
+              step="1"
+              placeholder=""
+            />
+            <div class="small muted2">
+              <span class="mono" id="v_age" data-anchor="age">0</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="spacer"></div>
+
+      <!-- Main app (hidden until required complete) -->
+      <div id="mainApp" class="hide">
+        <div class="card gold fade-in" id="resultsCard">
+          <h2 class="h2">Results</h2>
+          <div class="sub">
+            Lifetime Tax Burden And Financial Independence Date
+          </div>
+
+          <div class="kpiGrid" style="margin-top: 12px">
+            <div class="kpiBox" data-key="resultsYearly" data-cascade="1">
+              <div class="kpiTitle">Yearly Tax Burden</div>
+              <div class="kpiBig" id="kpiYearlyPct">—</div>
+              <div class="kpiSub">
+                Of the money that goes to you is taken across all taxes.
+              </div>
+            </div>
+
+            <div class="kpiBox" data-key="resultsLifetime" data-cascade="1">
+              <div class="kpiTitle">Lifetime Wealth Loss</div>
+              <div class="kpiBig" id="kpiLifetimePct">—</div>
+              <div class="kpiSub" id="kpiLifetimeSentence">—</div>
+            </div>
+
+            <div class="kpiBox" data-key="resultsRetirement" data-cascade="1">
+              <div class="kpiTitle">Timeline to Financial Independence</div>
+              <div class="kpiRow2">
+                <div>
+                  <div class="small muted2">Year</div>
+                  <div class="kpiBig2" id="kpiRetYear">—</div>
+                </div>
+                <div>
+                  <div class="small muted2">Age</div>
+                  <div class="kpiBig2" id="kpiRetAge">—</div>
+                </div>
+              </div>
+              <div class="kpiSub">
+                is when you could retire or live off of your investments.
+              </div>
+            </div>
+          </div>
+
+          <div class="hr"></div>
+
+          <div>
+            <div class="blockTitle">
+              See How Different Tax Rates Affect These Numbers
+            </div>
+            <div class="blockSub">
+              Adjust the overall slider, or tweak individual tax sliders.
+            </div>
+
+            <div class="spacer"></div>
+
+            <div class="grid2">
+              <!-- Left: State + master -->
+              <div class="card" style="border-radius: 12px">
+                <div class="field" style="min-width: 100%">
+                  <div class="label">State</div>
+                  <select id="selState"></select>
+                  <div class="small muted2">
+                    Defaults drive sales + property + state income estimate
+                    (override available below).
+                  </div>
+                </div>
+
+                <div class="spacer"></div>
+
+                <div class="field" id="masterWrap" style="min-width: 100%">
+                  <div class="label">Hypothetical Tax Burden</div>
+                  <div
+                    class="row"
+                    style="justify-content: space-between; align-items: center"
+                  >
+                    <div
+                      class="small muted mono"
+                      data-anchor="tax_master"
+                      id="masterLabel"
+                    >
+                      Actual Rates = 100%
+                    </div>
+                    <div
+                      class="small mono"
+                      id="masterVal"
+                      data-anchor="tax_master"
+                      style="color: var(--text); font-weight: 900"
+                    >
+                      100%
+                    </div>
+                  </div>
+                  <input
+                    id="rngMasterScale"
+                    class="tightRange"
+                    type="range"
+                    min="0"
+                    max="150"
+                    step="1"
+                    value="100"
+                  />
+                  <div class="spacer"></div>
+                  <button class="btn" id="btnResetAllTaxes" type="button">
+                    Return to actual tax rates
+                  </button>
+                </div>
+              </div>
+
+              <!-- Right: Individual tax sliders -->
+              <div class="card" style="border-radius: 12px">
+                <div class="label">Individual tax sliders</div>
+                <div class="small muted2">
+                  If you change any individual tax, the master slider becomes
+                  inactive until you move it again.
+                </div>
+                <div class="spacer"></div>
+                <div id="taxSliders" class="sliderGrid"></div>
+
+                <div class="taxKey" id="taxKeyLine"></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="hr"></div>
+
+          <div>
+            <div class="blockTitle">Retirement Timeline Details</div>
+            <div class="blockSub">
+              Adjust the retirement spending target used to compute the 4% rule
+              portfolio goal.
+            </div>
+
+            <div class="spacer"></div>
+
+            <div class="grid2">
+              <div class="field">
+                <div class="label">Retirement spending target</div>
+                <div class="row">
+                  <button
+                    class="btn primary"
+                    id="btnRetSpendSame"
+                    type="button"
+                  >
+                    Same as yearly spend
+                  </button>
+                  <button class="btn" id="btnRetSpendCustom" type="button">
+                    Custom
+                  </button>
+                </div>
+                <input
+                  id="inpRetSpend"
+                  type="text"
+                  inputmode="numeric"
+                  class="hide"
+                />
+                <div class="small muted2">
+                  Used to compute the 4% rule target.
+                </div>
+              </div>
+
+              <div class="card" style="border-radius: 12px">
+                <div class="label">
+                  <span class="tipWrap">
+                    <span class="mono" id="targetText"
+                      >4% rule target today: —</span
+                    >
+                    <span class="tip">
+                      The “4% rule” is a rule-of-thumb for retirement
+                      withdrawals: start by withdrawing ~4% of a balanced
+                      portfolio in year 1 (then adjust for inflation), aiming
+                      for a high chance the portfolio lasts decades.
+                      <div class="spacer"></div>
+                      Reference:
+                      <a
+                        href="https://en.wikipedia.org/wiki/Trinity_study"
+                        target="_blank"
+                        rel="noopener"
+                        >Trinity study</a
+                      >
+                      and
+                      <a
+                        href="https://en.wikipedia.org/wiki/Retirement_spend#The_4%25_rule"
+                        target="_blank"
+                        rel="noopener"
+                        >4% rule overview</a
+                      >.
+                    </span>
+                  </span>
+                </div>
+                <div class="spacer"></div>
+                <div class="small">
+                  Target portfolio:
+                  <span class="mono" id="targetPortfolio">$0</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="hr"></div>
+
+          <div>
+            <div class="blockTitle">Tax Burden Details</div>
+            <div class="blockSub">
+              Flat annual burden vs compounded loss by retirement date (in
+              today’s dollars).
+            </div>
+
+            <div class="spacer"></div>
+
+            <table
+              aria-label="Tax burden breakdown"
+              id="breakdownTable"
+              data-key="breakdownTop"
+              data-cascade="1"
+            >
+              <thead>
+                <tr>
+                  <th>Category</th>
+                  <th class="tRight">Flat annual burden (today)</th>
+                  <th class="tRight">Compounded loss by retirement (today)</th>
+                </tr>
+              </thead>
+              <tbody id="breakdownBody"></tbody>
+              <tfoot>
+                <tr>
+                  <td style="font-weight: 900">Total</td>
+                  <td class="tRight mono" id="totFlat">$0</td>
+                  <td class="tRight mono" id="totComp">$0</td>
+                </tr>
+              </tfoot>
+            </table>
+
+            <div class="spacer"></div>
+
+            <div class="row" style="gap: 18px">
+              <div class="small">
+                Total lost wealth potential:
+                <span class="mono" id="kpiLost">$0</span>
+              </div>
+              <div class="small">
+                Potential wealth: <span class="mono" id="kpiPotential">$0</span>
+              </div>
+              <div class="small">
+                With taxes: <span class="mono" id="kpiWithTaxes">$0</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="spacer"></div>
+
+        <!-- Sections -->
+        <div class="section" id="secIncomePayroll">
+          <div class="secHead" data-toggle="secIncomePayroll">
+            <div class="secTitle">
+              <div class="secTitleText">Income & payroll</div>
+            </div>
+            <div class="secRight">
+              <span
+                class="secSubtotal mono"
+                id="subIncomePayroll"
+                data-key="subIncomePayroll"
+                data-cascade="1"
+                >$0</span
+              >
+              <span class="caret">▾</span>
+            </div>
+          </div>
+          <div class="secBody">
+            <div class="logic">
+              Federal income tax is computed from IRS brackets after the
+              standard deduction. Payroll includes Social Security + Medicare.
+              Employer payroll is included as a burden “above” your contract
+              gross income.
+            </div>
+            <div class="grid2">
+              <div class="card" style="border-radius: 12px">
+                <div class="label">
+                  Estimated yearly federal income tax burden
+                </div>
+                <div
+                  class="mono"
+                  id="fedTax"
+                  data-key="fedTax"
+                  data-cascade="1"
+                >
+                  $0
+                </div>
+                <div class="spacer"></div>
+                <div class="label">
+                  Estimated yearly payroll tax burden (employee)
+                </div>
+                <div
+                  class="mono"
+                  id="payrollEmp"
+                  data-key="payrollEmp"
+                  data-cascade="1"
+                >
+                  $0
+                </div>
+                <div class="spacer"></div>
+                <div class="label">
+                  Estimated yearly payroll tax burden (employer)
+                </div>
+                <div
+                  class="mono"
+                  id="payrollEr"
+                  data-key="payrollEr"
+                  data-cascade="1"
+                >
+                  $0
+                </div>
+              </div>
+
+              <div class="card" style="border-radius: 12px">
+                <div class="label">Derived</div>
+                <div class="small">
+                  Estimated annual savings (after modeled taxes):
+                  <span
+                    class="mono"
+                    id="afterTaxSavings"
+                    data-key="afterTaxSavings"
+                    data-cascade="1"
+                    >$0</span
+                  >
+                </div>
+                <div class="small">
+                  Savings rate:
+                  <span
+                    class="mono"
+                    id="savingsRate"
+                    data-key="savingsRate"
+                    data-cascade="1"
+                    >—</span
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="spacer"></div>
+
+        <div class="section" id="secStateLocal">
+          <div class="secHead" data-toggle="secStateLocal">
+            <div class="secTitle">
+              <div class="secTitleText">State & local</div>
+            </div>
+            <div class="secRight">
+              <span
+                class="secSubtotal mono"
+                id="subStateLocal"
+                data-key="subStateLocal"
+                data-cascade="1"
+                >$0</span
+              >
+              <span class="caret">▾</span>
+            </div>
+          </div>
+          <div class="secBody">
+            <div class="logic">
+              State income is modeled as an effective rate applied to gross
+              income (defaults from the selected state; override here). Sales
+              uses an average state+local combined rate for the selected state.
+            </div>
+            <div class="grid2">
+              <div class="field" style="min-width: 260px">
+                <div class="label">
+                  State income tax effective rate (override)
+                </div>
+                <div class="row" style="justify-content: space-between">
+                  <div
+                    class="small mono"
+                    data-anchor="stateincrate"
+                    id="stateIncRateVal"
+                    style="color: var(--text); font-weight: 900"
+                  >
+                    0.00%
+                  </div>
+                </div>
+                <input
+                  id="rngStateIncRate"
+                  class="tightRange"
+                  type="range"
+                  min="0"
+                  max="15"
+                  step="0.05"
+                  value="0"
+                />
+              </div>
+
+              <div class="card" style="border-radius: 12px">
+                <div class="label">
+                  Estimated yearly state income tax burden
+                </div>
+                <div
+                  class="mono"
+                  id="stateTax"
+                  data-key="stateTax"
+                  data-cascade="1"
+                >
+                  $0
+                </div>
+
+                <div class="spacer"></div>
+                <div class="label">
+                  Auto-loaded sales tax (avg state + local)
+                </div>
+                <div class="small">
+                  <span class="mono" id="salesTaxStateName">—</span>:
+                  <span
+                    class="mono"
+                    id="salesTaxRateText"
+                    data-key="salesTaxRateText"
+                    data-cascade="1"
+                    >—</span
+                  >
+                </div>
+                <div class="spacer"></div>
+
+                <div class="label">Estimated yearly sales tax burden</div>
+                <div
+                  class="mono"
+                  id="salesTax"
+                  data-key="salesTax"
+                  data-cascade="1"
+                >
+                  $0
+                </div>
+              </div>
+            </div>
+
+            <div class="spacer"></div>
+
+            <div class="grid2">
+              <div class="field">
+                <div class="label">Sales-taxable share of spend</div>
+                <div class="row" style="justify-content: space-between">
+                  <div
+                    class="small mono"
+                    data-anchor="taxableShare"
+                    id="taxableShareVal"
+                    style="color: var(--text); font-weight: 900"
+                  >
+                    60%
+                  </div>
+                </div>
+                <input
+                  id="rngTaxableShare"
+                  class="tightRange"
+                  type="range"
+                  min="0"
+                  max="100"
+                  step="1"
+                  value="60"
+                />
+              </div>
+
+              <div class="field">
+                <div class="label">Gas, utilities, telecom, fees, etc</div>
+                <div class="row" style="justify-content: space-between">
+                  <div
+                    class="small mono"
+                    data-anchor="exciseShare"
+                    id="exciseShareVal"
+                    style="color: var(--text); font-weight: 900"
+                  >
+                    1.50%
+                  </div>
+                </div>
+                <input
+                  id="rngExciseShare"
+                  class="tightRange"
+                  type="range"
+                  min="0"
+                  max="6"
+                  step="0.05"
+                  value="1.5"
+                />
+                <div class="small muted2">
+                  Modeled as a percent of yearly spend.
+                </div>
+              </div>
+            </div>
+
+            <div class="spacer"></div>
+
+            <div class="card" style="border-radius: 12px">
+              <div class="label">Estimated yearly excise/fees burden</div>
+              <div
+                class="mono"
+                id="exciseTax"
+                data-key="exciseTax"
+                data-cascade="1"
+              >
+                $0
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="spacer"></div>
+
+        <div class="section" id="secProperty">
+          <div class="secHead" data-toggle="secProperty">
+            <div class="secTitle">
+              <div class="secTitleText">Property & housing</div>
+            </div>
+            <div class="secRight">
+              <span
+                class="secSubtotal mono"
+                id="subProperty"
+                data-key="subProperty"
+                data-cascade="1"
+                >$0</span
+              >
+              <span class="caret">▾</span>
+            </div>
+          </div>
+          <div class="secBody">
+            <div class="logic">
+              Property tax is estimated from an assumed home value (income ×
+              multiple) while you’re an owner. Real estate transaction fees are
+              annualized across ownership years.
+            </div>
+
+            <div class="grid2">
+              <div class="field">
+                <div class="label">Assumed age you become a homeowner</div>
+                <div
+                  class="small mono"
+                  data-anchor="buyAge"
+                  id="buyAgeVal"
+                  style="color: var(--text); font-weight: 900"
+                >
+                  32
+                </div>
+                <input
+                  id="rngBuyAge"
+                  class="tightRange"
+                  type="range"
+                  min="18"
+                  max="70"
+                  step="1"
+                  value="32"
+                />
+              </div>
+
+              <div class="field">
+                <div class="label">Home value multiple of income</div>
+                <div
+                  class="small mono"
+                  data-anchor="homeMult"
+                  id="homeMultVal"
+                  style="color: var(--text); font-weight: 900"
+                >
+                  4.5×
+                </div>
+                <input
+                  id="rngHomeMult"
+                  class="tightRange"
+                  type="range"
+                  min="1"
+                  max="10"
+                  step="0.1"
+                  value="4.5"
+                />
+              </div>
+            </div>
+
+            <div class="spacer"></div>
+
+            <div class="grid2">
+              <div class="field">
+                <div class="label">Property tax rate</div>
+                <div
+                  class="small mono"
+                  data-anchor="propRate"
+                  id="propRateVal"
+                  style="color: var(--text); font-weight: 900"
+                >
+                  0.68%
+                </div>
+                <input
+                  id="rngPropRate"
+                  class="tightRange"
+                  type="range"
+                  min="0"
+                  max="3"
+                  step="0.01"
+                  value="0.68"
+                />
+                <div class="small muted2">
+                  Default is set from state; override here.
+                </div>
+              </div>
+
+              <div class="field">
+                <div class="label">Lifetime real estate transactions</div>
+                <div
+                  class="small mono"
+                  data-anchor="transactions"
+                  id="transactionsVal"
+                  style="color: var(--text); font-weight: 900"
+                >
+                  2
+                </div>
+                <input
+                  id="rngTransactions"
+                  class="tightRange"
+                  type="range"
+                  min="0"
+                  max="8"
+                  step="1"
+                  value="2"
+                />
+              </div>
+            </div>
+
+            <div class="spacer"></div>
+
+            <div class="grid2">
+              <div class="field">
+                <div class="label">Real estate transaction fee rate</div>
+                <div
+                  class="small mono"
+                  data-anchor="txnFeeRate"
+                  id="txnFeeRateVal"
+                  style="color: var(--text); font-weight: 900"
+                >
+                  1.50%
+                </div>
+                <input
+                  id="rngTxnFeeRate"
+                  class="tightRange"
+                  type="range"
+                  min="0"
+                  max="4"
+                  step="0.05"
+                  value="1.5"
+                />
+              </div>
+
+              <div class="card" style="border-radius: 12px">
+                <div class="label">Estimated yearly property tax burden</div>
+                <div
+                  class="mono"
+                  id="propertyTax"
+                  data-key="propertyTax"
+                  data-cascade="1"
+                >
+                  $0
+                </div>
+                <div class="spacer"></div>
+                <div class="label">
+                  Estimated yearly real estate transaction fees (annualized)
+                </div>
+                <div
+                  class="mono"
+                  id="txnFeesAnnual"
+                  data-key="txnFeesAnnual"
+                  data-cascade="1"
+                >
+                  $0
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="spacer"></div>
+
+        <div class="section" id="secInvest">
+          <div class="secHead" data-toggle="secInvest">
+            <div class="secTitle">
+              <div class="secTitleText">Investment drag & inflation</div>
+            </div>
+            <div class="secRight">
+              <span
+                class="secSubtotal mono"
+                id="subInvest"
+                data-key="subInvest"
+                data-cascade="1"
+                >$0</span
+              >
+              <span class="caret">▾</span>
+            </div>
+          </div>
+          <div class="secBody">
+            <div class="logic">
+              Portfolio growth uses your return assumptions, split across
+              equities vs cash. A taxable-equity drag approximates capital gains
+              + dividend taxes. Cash “inflation erosion” is modeled from
+              inflation vs cash yield.
+            </div>
+
+            <div class="grid2">
+              <div class="field">
+                <div class="label">Equities allocation</div>
+                <div
+                  class="small mono"
+                  data-anchor="eqPct"
+                  id="eqPctVal"
+                  style="color: var(--text); font-weight: 900"
+                >
+                  90%
+                </div>
+                <input
+                  id="rngEqPct"
+                  class="tightRange"
+                  type="range"
+                  min="0"
+                  max="100"
+                  step="1"
+                  value="90"
+                />
+              </div>
+
+              <div class="field">
+                <div class="label">
+                  Tax-advantaged share (of total net worth)
+                </div>
+                <div
+                  class="small mono"
+                  data-anchor="taxAdvPct"
+                  id="taxAdvPctVal"
+                  style="color: var(--text); font-weight: 900"
+                >
+                  70%
+                </div>
+                <input
+                  id="rngTaxAdvPct"
+                  class="tightRange"
+                  type="range"
+                  min="0"
+                  max="100"
+                  step="1"
+                  value="70"
+                />
+              </div>
+            </div>
+
+            <div class="spacer"></div>
+
+            <div class="grid2">
+              <div class="field">
+                <div class="label">Nominal market return (equities)</div>
+                <div
+                  class="small mono"
+                  data-anchor="mktReturn"
+                  id="mktReturnVal"
+                  style="color: var(--text); font-weight: 900"
+                >
+                  7.0%
+                </div>
+                <input
+                  id="rngMktReturn"
+                  class="tightRange"
+                  type="range"
+                  min="0"
+                  max="14"
+                  step="0.1"
+                  value="7"
+                />
+              </div>
+
+              <div class="field">
+                <div class="label">Inflation</div>
+                <div
+                  class="small mono"
+                  data-anchor="infl"
+                  id="inflVal"
+                  style="color: var(--text); font-weight: 900"
+                >
+                  3.0%
+                </div>
+                <input
+                  id="rngInfl"
+                  class="tightRange"
+                  type="range"
+                  min="0"
+                  max="10"
+                  step="0.1"
+                  value="3"
+                />
+              </div>
+            </div>
+
+            <div class="spacer"></div>
+
+            <div class="grid2">
+              <div class="field">
+                <div class="label">Cash yield</div>
+                <div
+                  class="small mono"
+                  data-anchor="cashYield"
+                  id="cashYieldVal"
+                  style="color: var(--text); font-weight: 900"
+                >
+                  2.0%
+                </div>
+                <input
+                  id="rngCashYield"
+                  class="tightRange"
+                  type="range"
+                  min="0"
+                  max="10"
+                  step="0.1"
+                  value="2"
+                />
+              </div>
+
+              <div class="field">
+                <div class="label">Taxable-equity tax drag</div>
+                <div
+                  class="small mono"
+                  data-anchor="taxDrag"
+                  id="taxDragVal"
+                  style="color: var(--text); font-weight: 900"
+                >
+                  0.60%
+                </div>
+                <input
+                  id="rngTaxDrag"
+                  class="tightRange"
+                  type="range"
+                  min="0"
+                  max="3"
+                  step="0.01"
+                  value="0.6"
+                />
+              </div>
+            </div>
+
+            <div class="spacer"></div>
+
+            <div class="grid2">
+              <div class="card" style="border-radius: 12px">
+                <div class="label">
+                  Estimated yearly investment tax drag (today)
+                </div>
+                <div
+                  class="mono"
+                  id="invDragNow"
+                  data-key="invDragNow"
+                  data-cascade="1"
+                >
+                  $0
+                </div>
+                <div class="spacer"></div>
+                <div class="label">
+                  Estimated yearly inflation erosion on cash (today)
+                </div>
+                <div
+                  class="mono"
+                  id="inflErosionNow"
+                  data-key="inflErosionNow"
+                  data-cascade="1"
+                >
+                  $0
+                </div>
+              </div>
+
+              <div class="card" style="border-radius: 12px">
+                <div class="label">Assumed life expectancy</div>
+                <div
+                  class="small mono"
+                  data-anchor="lifeExp"
+                  id="lifeExpVal"
+                  style="color: var(--text); font-weight: 900"
+                >
+                  90
+                </div>
+                <input
+                  id="rngLifeExp"
+                  class="tightRange"
+                  type="range"
+                  min="50"
+                  max="110"
+                  step="1"
+                  value="90"
+                />
+                <div class="spacer"></div>
+                <div class="small">
+                  Years modeled (to retirement):
+                  <span
+                    class="mono"
+                    id="yearsModeled"
+                    data-key="yearsModeled"
+                    data-cascade="1"
+                    >—</span
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="spacer"></div>
+
+        <div class="section" id="secTimeValue">
+          <div class="secHead" data-toggle="secTimeValue">
+            <div class="secTitle">
+              <div class="secTitleText">Time value of money</div>
+            </div>
+            <div class="secRight">
+              <span
+                class="secSubtotal mono"
+                id="subTimeValue"
+                data-key="subTimeValue"
+                data-cascade="1"
+                >$0</span
+              >
+              <span class="caret">▾</span>
+            </div>
+          </div>
+          <div class="secBody">
+            <div class="logic">
+              “Compounded loss” is the difference between your wealth at the
+              retirement date under your current taxes vs a counterfactual
+              scenario.
+            </div>
+            <div class="card" style="border-radius: 12px">
+              <div class="label">
+                Total compounded loss by retirement (all burdens)
+              </div>
+              <div
+                class="mono"
+                id="totalCompLoss"
+                data-key="totalCompLoss"
+                data-cascade="1"
+              >
+                $0
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- bottom info (hover) -->
+    <div class="overlay" id="overlay">
+      <div class="overlayPanel">
+        <div class="title">Sources & defaults</div>
+        <div class="small muted2">
+          Defaults are embedded in this file; no data is fetched while you use
+          the calculator.
+        </div>
+        <ul>
+          <li>
+            Federal income tax brackets + standard deduction (2025): IRS
+            inflation adjustments for 2025 (Nov 2024).
+          </li>
+          <li>
+            Social Security wage base (2025): SSA contribution and benefit base
+            ($176,100).
+          </li>
+          <li>
+            State-level sales tax component: Tax Policy Center table (state
+            rate). Local add-on is modeled as an average per state.
+          </li>
+          <li>
+            4% rule reference: Wikipedia pages for the Trinity study + 4% rule
+            overview.
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="infoDock">
+      <div class="soundIcon" id="soundIcon" title="Sound">
+        <span id="soundGlyph">🔊</span>
+      </div>
+      <div class="infoIcon" id="infoIcon" title="Sources">i</div>
+    </div>
+
+    <script>
+      (() => {
+        // ---------- Utilities ----------
+        const clamp = (v, a, b) => Math.min(b, Math.max(a, v));
+        const fmtInt = (n) => Math.round(n).toLocaleString("en-US");
+        const fmtMoney0 = (n) => {
+          const sign = n < 0 ? "-" : "";
+          const v = Math.abs(n);
+          return (
+            sign +
+            "$" +
+            v.toLocaleString("en-US", {
+              minimumFractionDigits: 0,
+              maximumFractionDigits: 0,
+            })
+          );
+        };
+        const fmtPct = (x, digits = 1) => (x * 100).toFixed(digits) + "%";
+        const fmtPctPlain = (p, digits = 2) => p.toFixed(digits) + "%";
+        const parseMoney = (s) => {
+          if (s == null) return NaN;
+          const cleaned = String(s).replace(/[^0-9.\-]/g, "");
+          if (
+            !cleaned ||
+            cleaned === "-" ||
+            cleaned === "." ||
+            cleaned === "-."
+          )
+            return NaN;
+          const n = Number(cleaned);
+          return Number.isFinite(n) ? n : NaN;
+        };
+        const easeInOutSine = (t) => -(Math.cos(Math.PI * t) - 1) / 2;
+
+        // ---------- Audio ----------
+        let audioEnabled = true;
+        let audioCtx = null;
+        let masterGain = null;
+        function ensureAudio() {
+          if (!audioEnabled) return;
+          if (!audioCtx) {
+            audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+            masterGain = audioCtx.createGain();
+            masterGain.gain.value = 0.1;
+            masterGain.connect(audioCtx.destination);
+          }
+          if (audioCtx.state === "suspended") audioCtx.resume().catch(() => {});
+        }
+        function tick() {
+          if (!audioEnabled) return;
+          ensureAudio();
+          if (!audioCtx) return;
+          const now = audioCtx.currentTime;
+          const o = audioCtx.createOscillator();
+          const g = audioCtx.createGain();
+          o.type = "sine";
+          o.frequency.setValueAtTime(740, now);
+          o.frequency.exponentialRampToValueAtTime(520, now + 0.06);
+          g.gain.setValueAtTime(0.0001, now);
+          g.gain.exponentialRampToValueAtTime(0.12, now + 0.01);
+          g.gain.exponentialRampToValueAtTime(0.0001, now + 0.08);
+          o.connect(g);
+          g.connect(masterGain);
+          o.start(now);
+          o.stop(now + 0.09);
+        }
+
+        // ---------- DOM ----------
+        const $ = (id) => document.getElementById(id);
+
+        const mainApp = $("mainApp");
+
+        const btnSingle = $("btnSingle");
+        const btnMFJ = $("btnMFJ");
+
+        const f_income = $("f_income");
+        const f_spend = $("f_spend");
+        const f_networth = $("f_networth");
+        const f_age = $("f_age");
+
+        const inpIncome = $("inpIncome");
+        const inpSpend = $("inpSpend");
+        const inpNetWorth = $("inpNetWorth");
+        const inpAge = $("inpAge");
+
+        const v_income = $("v_income");
+        const v_spend = $("v_spend");
+        const spendWarn = $("spendWarn");
+        const v_networth = $("v_networth");
+        const v_age = $("v_age");
+
+        const selState = $("selState");
+        const masterWrap = $("masterWrap");
+        const rngMasterScale = $("rngMasterScale");
+        const masterVal = $("masterVal");
+        const masterLabel = $("masterLabel");
+        const btnResetAllTaxes = $("btnResetAllTaxes");
+
+        const taxSlidersEl = $("taxSliders");
+        const taxKeyLine = $("taxKeyLine");
+
+        const btnRetSpendSame = $("btnRetSpendSame");
+        const btnRetSpendCustom = $("btnRetSpendCustom");
+        const inpRetSpend = $("inpRetSpend");
+
+        const orb = $("orb");
+
+        const overlay = $("overlay");
+        const infoIcon = $("infoIcon");
+        const soundIcon = $("soundIcon");
+        const soundGlyph = $("soundGlyph");
+
+        const sectionEls = [
+          "secIncomePayroll",
+          "secStateLocal",
+          "secProperty",
+          "secInvest",
+          "secTimeValue",
+        ].map((id) => $(id));
+
+        // ---------- State data ----------
+        const STATES = [
+          ["AL", "Alabama"],
+          ["AK", "Alaska"],
+          ["AZ", "Arizona"],
+          ["AR", "Arkansas"],
+          ["CA", "California"],
+          ["CO", "Colorado"],
+          ["CT", "Connecticut"],
+          ["DE", "Delaware"],
+          ["FL", "Florida"],
+          ["GA", "Georgia"],
+          ["HI", "Hawaii"],
+          ["ID", "Idaho"],
+          ["IL", "Illinois"],
+          ["IN", "Indiana"],
+          ["IA", "Iowa"],
+          ["KS", "Kansas"],
+          ["KY", "Kentucky"],
+          ["LA", "Louisiana"],
+          ["ME", "Maine"],
+          ["MD", "Maryland"],
+          ["MA", "Massachusetts"],
+          ["MI", "Michigan"],
+          ["MN", "Minnesota"],
+          ["MS", "Mississippi"],
+          ["MO", "Missouri"],
+          ["MT", "Montana"],
+          ["NE", "Nebraska"],
+          ["NV", "Nevada"],
+          ["NH", "New Hampshire"],
+          ["NJ", "New Jersey"],
+          ["NM", "New Mexico"],
+          ["NY", "New York"],
+          ["NC", "North Carolina"],
+          ["ND", "North Dakota"],
+          ["OH", "Ohio"],
+          ["OK", "Oklahoma"],
+          ["OR", "Oregon"],
+          ["PA", "Pennsylvania"],
+          ["RI", "Rhode Island"],
+          ["SC", "South Carolina"],
+          ["SD", "South Dakota"],
+          ["TN", "Tennessee"],
+          ["TX", "Texas"],
+          ["UT", "Utah"],
+          ["VT", "Vermont"],
+          ["VA", "Virginia"],
+          ["WA", "Washington"],
+          ["WV", "West Virginia"],
+          ["WI", "Wisconsin"],
+          ["WY", "Wyoming"],
+        ];
+
+        const STATE_SALES_TAX_STATE_ONLY = {
+          AL: 0.04,
+          AK: 0.0,
+          AZ: 0.056,
+          AR: 0.065,
+          CA: 0.0725,
+          CO: 0.029,
+          CT: 0.0635,
+          DE: 0.0,
+          FL: 0.06,
+          GA: 0.04,
+          HI: 0.04,
+          ID: 0.06,
+          IL: 0.0625,
+          IN: 0.07,
+          IA: 0.06,
+          KS: 0.065,
+          KY: 0.06,
+          LA: 0.0445,
+          ME: 0.055,
+          MD: 0.06,
+          MA: 0.0625,
+          MI: 0.06,
+          MN: 0.06875,
+          MS: 0.07,
+          MO: 0.04225,
+          MT: 0.0,
+          NE: 0.055,
+          NV: 0.0685,
+          NH: 0.0,
+          NJ: 0.06625,
+          NM: 0.05125,
+          NY: 0.04,
+          NC: 0.0475,
+          ND: 0.05,
+          OH: 0.0575,
+          OK: 0.045,
+          OR: 0.0,
+          PA: 0.06,
+          RI: 0.07,
+          SC: 0.06,
+          SD: 0.042,
+          TN: 0.07,
+          TX: 0.0625,
+          UT: 0.061,
+          VT: 0.06,
+          VA: 0.053,
+          WA: 0.065,
+          WV: 0.06,
+          WI: 0.05,
+          WY: 0.04,
+        };
+
+        const STATE_SALES_LOCAL_ADDON_AVG = (() => {
+          const o = {};
+          for (const [abbr] of STATES) o[abbr] = 0.02;
+          o.DE = 0.0;
+          o.MT = 0.0;
+          o.NH = 0.0;
+          o.OR = 0.0;
+          o.AK = 0.015;
+          return o;
+        })();
+
+        const NO_STATE_INCOME_TAX = new Set([
+          "AK",
+          "FL",
+          "NV",
+          "NH",
+          "SD",
+          "TN",
+          "TX",
+          "WA",
+          "WY",
+        ]);
+        const DEFAULT_STATE_INCOME_EFFECTIVE_PCT = (st) =>
+          NO_STATE_INCOME_TAX.has(st) ? 0.0 : 4.0;
+        const DEFAULT_PROP_TAX_RATE_PCT = { CA: 0.68 };
+
+        // ---------- Tax constants ----------
+        const FED_STD_DED = { single: 15000, mfj: 30000 }; // 2025
+        const FED_BRACKETS = {
+          single: [
+            [11925, 0.1],
+            [48475, 0.12],
+            [103350, 0.22],
+            [197300, 0.24],
+            [250525, 0.32],
+            [626350, 0.35],
+            [Infinity, 0.37],
+          ],
+          mfj: [
+            [23850, 0.1],
+            [96950, 0.12],
+            [206700, 0.22],
+            [394600, 0.24],
+            [501050, 0.32],
+            [751600, 0.35],
+            [Infinity, 0.37],
+          ],
+        };
+
+        const SS_RATE = 0.062;
+        const MED_RATE = 0.0145;
+        const ADDL_MED_RATE = 0.009;
+        const SS_WAGE_BASE = 176100;
+        const ADDL_MED_THRESH = { single: 200000, mfj: 250000 };
+
+        // ---------- Post-FI withdrawal modeling defaults ----------
+        const RETIREMENT_AGE = 59.5;
+        const EARLY_PENALTY = 0.1;
+
+        // Assumptions (no new UI)
+        const TAXABLE_BASIS_FRACTION = 0.65; // 65% basis, 35% gains
+        const TAXADV_ROTH_SHARE = 0.35; // of tax-advantaged assets
+        const ROTH_BASIS_FRACTION = 0.6; // portion of Roth withdrawals treated as basis pre-59.5
+
+        // 2025 LTCG thresholds (federal): 0% / 15% / 20%
+        const FED_LTCG_BRACKETS = {
+          single: [
+            [48350, 0.0],
+            [533400, 0.15],
+            [Infinity, 0.2],
+          ],
+          mfj: [
+            [96700, 0.0],
+            [600050, 0.15],
+            [Infinity, 0.2],
+          ],
+        };
+
+        function federalLtcgTaxRaw(gains, filing) {
+          const brackets =
+            filing === "mfj" ? FED_LTCG_BRACKETS.mfj : FED_LTCG_BRACKETS.single;
+          let tax = 0;
+          let prevCap = 0;
+          for (const [cap, rate] of brackets) {
+            const amt = Math.min(gains, cap) - prevCap;
+            if (amt > 0) tax += amt * rate;
+            prevCap = cap;
+            if (gains <= cap) break;
+          }
+          return Math.max(0, tax);
+        }
+
+        // ---------- New: lifetime path anchoring ----------
+        // Fixes the "same path but different current age/net worth → wildly different lifetime burden" issue by
+        // including taxes already paid earlier in life. We anchor the lifetime simulation at a fixed starting age.
+        const CAREER_START_AGE = 22;
+
+        // ---------- Tax slider model ----------
+        const TAXES = [
+          { key: "fedIncome", label: "Federal income tax" },
+          { key: "stateIncome", label: "State income tax" },
+          { key: "payrollEmp", label: "Payroll tax (employee)" },
+          { key: "payrollEr", label: "Payroll tax (employer)" },
+          { key: "salesTax", label: "Sales tax" },
+          { key: "propertyTax", label: "Property tax" },
+          { key: "excise", label: "Excise bundle" },
+          { key: "txnFeesAnnual", label: "Real estate transaction fees" },
+          { key: "invDrag", label: "Investment tax drag" },
+          { key: "inflErosion", label: "Inflation erosion on cash" },
+        ];
+
+        function initTaxSliders() {
+          taxSlidersEl.innerHTML = "";
+          for (const t of TAXES) {
+            const div = document.createElement("div");
+            div.className = "sliderItem";
+            div.innerHTML = `
+        <div class="top">
+          <div class="name">${t.label}</div>
+          <div class="val mono" id="val_${t.key}" data-anchor="tax_${t.key}">100%</div>
+        </div>
+        <input class="tightRange" id="rng_${t.key}" type="range" min="0" max="150" step="1" value="100" />
+      `;
+            taxSlidersEl.appendChild(div);
+          }
+        }
+        initTaxSliders();
+
+        // ---------- App state ----------
+        const state = {
+          filing: null, // 'single' | 'mfj'
+          income: NaN,
+          spend: NaN,
+          netWorth: NaN,
+          age: NaN,
+
+          st: "CA",
+
+          // master + individual scales
+          masterScale: 1.0,
+          masterActive: true,
+          taxScales: Object.fromEntries(TAXES.map((t) => [t.key, 1.0])),
+
+          // state income effective rate (override)
+          stIncRate: 0.0,
+
+          taxableSpendShare: 0.6,
+          exciseShare: 0.015,
+
+          buyAge: 32,
+          homeMult: 4.5,
+          propTaxRatePct: 0.68,
+          transactions: 2,
+          txnFeeRatePct: 1.5,
+
+          eqPct: 0.9,
+          taxAdvPct: 0.7,
+          mktReturnNom: 7.0, // percent
+          infl: 3.0, // percent
+          cashYieldNom: 2.0, // percent
+          taxDragNom: 0.006, // fraction (0.6% nominal drag)
+
+          lifeExp: 90,
+
+          retSpendMode: "same", // 'same' | 'custom'
+          retSpend: NaN,
+        };
+
+        let prevComputed = new Map();
+        let cascadeToken = 0;
+        let firstResultsShown = false;
+        let lastUserExpandedAt = 0;
+
+        // ---------- UI: populate states ----------
+        function populateStates() {
+          selState.innerHTML = "";
+          for (const [abbr, name] of STATES) {
+            const opt = document.createElement("option");
+            opt.value = abbr;
+            opt.textContent = `${name} (${abbr})`;
+            if (abbr === state.st) opt.selected = true;
+            selState.appendChild(opt);
+          }
+        }
+        populateStates();
+
+        // ---------- Required field gating ----------
+        function setFiling(f) {
+          state.filing = f;
+          btnSingle.classList.toggle("active", f === "single");
+          btnMFJ.classList.toggle("active", f === "mfj");
+          if (f_income.classList.contains("hide")) {
+            f_income.classList.remove("hide");
+            f_income.classList.add("fade-in");
+          }
+          updateProgress();
+          recalcFromAnchor(btnSingle, "status");
+        }
+        btnSingle.addEventListener("click", () => setFiling("single"));
+        btnMFJ.addEventListener("click", () => setFiling("mfj"));
+
+        function revealNextIfValid() {
+          if (state.filing) {
+            if (
+              Number.isFinite(state.income) &&
+              state.income > 0 &&
+              f_spend.classList.contains("hide")
+            ) {
+              f_spend.classList.remove("hide");
+              f_spend.classList.add("fade-in");
+            }
+            if (
+              Number.isFinite(state.spend) &&
+              state.spend >= 0 &&
+              !f_spend.classList.contains("hide") &&
+              f_networth.classList.contains("hide")
+            ) {
+              f_networth.classList.remove("hide");
+              f_networth.classList.add("fade-in");
+            }
+            if (
+              Number.isFinite(state.netWorth) &&
+              state.netWorth >= 0 &&
+              !f_networth.classList.contains("hide") &&
+              f_age.classList.contains("hide")
+            ) {
+              f_age.classList.remove("hide");
+              f_age.classList.add("fade-in");
+            }
+          }
+        }
+
+        function requiredComplete() {
+          return (
+            !!state.filing &&
+            Number.isFinite(state.income) &&
+            state.income > 0 &&
+            Number.isFinite(state.spend) &&
+            state.spend >= 0 &&
+            Number.isFinite(state.netWorth) &&
+            state.netWorth >= 0 &&
+            Number.isFinite(state.age) &&
+            state.age > 0
+          );
+        }
+
+        function updateProgress() {
+          const done = {
+            status: !!state.filing,
+            income: Number.isFinite(state.income) && state.income > 0,
+            spend: Number.isFinite(state.spend) && state.spend >= 0,
+            networth: Number.isFinite(state.netWorth) && state.netWorth >= 0,
+            age: Number.isFinite(state.age) && state.age > 0,
+          };
+          for (const b of document.querySelectorAll(".bubble")) {
+            const key = b.getAttribute("data-b");
+            const isDone = !!done[key];
+            b.classList.toggle("done", isDone);
+            const map = {
+              status: "1",
+              income: "2",
+              spend: "3",
+              networth: "4",
+              age: "5",
+            };
+            b.innerHTML = isDone ? `<span class="check">✓</span>` : map[key];
+          }
+        }
+
+        function showResultsIfReady() {
+          if (!requiredComplete()) return;
+          if (!mainApp.classList.contains("hide")) return;
+
+          mainApp.classList.remove("hide");
+          if (!firstResultsShown) {
+            firstResultsShown = true;
+            mainApp.classList.add("fade-in");
+            applyStateDefaults(state.st);
+            setTimeout(() => autoCollapseAll(), 1100);
+          }
+        }
+
+        // ---------- Money inputs formatting ----------
+        function bindMoneyInput(inp, onValue, anchorKey) {
+          inp.addEventListener("input", () => {
+            const n = parseMoney(inp.value);
+            onValue(n);
+            updateInlineAnchors();
+            revealNextIfValid();
+            updateProgress();
+            showResultsIfReady();
+            recalcFromAnchor(inp, anchorKey);
+          });
+          inp.addEventListener("blur", () => {
+            const n = parseMoney(inp.value);
+            if (Number.isFinite(n)) inp.value = fmtInt(n);
+          });
+        }
+        bindMoneyInput(inpIncome, (n) => (state.income = n), "income");
+        bindMoneyInput(inpSpend, (n) => (state.spend = n), "spend");
+        bindMoneyInput(inpNetWorth, (n) => (state.netWorth = n), "networth");
+
+        inpAge.addEventListener("input", () => {
+          const n = Number(inpAge.value);
+          state.age = Number.isFinite(n) ? n : NaN;
+          updateInlineAnchors();
+          revealNextIfValid();
+          updateProgress();
+          showResultsIfReady();
+          recalcFromAnchor(inpAge, "age");
+        });
+
+        // ---------- Collapsible behavior ----------
+        function toggleSection(id) {
+          const el = $(id);
+          el.classList.toggle("collapsed");
+          lastUserExpandedAt = Date.now();
+        }
+        document.addEventListener("click", (e) => {
+          const t = e.target.closest(".secHead");
+          if (!t) return;
+          const id = t.getAttribute("data-toggle");
+          if (id) toggleSection(id);
+        });
+
+        function autoCollapseAll() {
+          const now = Date.now();
+          if (now - lastUserExpandedAt < 1200) return;
+          for (const el of sectionEls) el.classList.add("collapsed");
+        }
+
+        // ---------- Bottom info hover ----------
+        infoIcon.addEventListener("mouseenter", () => {
+          overlay.style.display = "flex";
+        });
+        infoIcon.addEventListener("mouseleave", () => {
+          overlay.style.display = "none";
+        });
+        overlay.addEventListener("mouseenter", () => {
+          overlay.style.display = "flex";
+        });
+        overlay.addEventListener("mouseleave", () => {
+          overlay.style.display = "none";
+        });
+
+        soundIcon.addEventListener("click", () => {
+          audioEnabled = !audioEnabled;
+          soundGlyph.textContent = audioEnabled ? "🔊" : "🔇";
+          if (audioEnabled) ensureAudio();
+        });
+
+        // ---------- State defaults ----------
+        function combinedSalesRate(st) {
+          const base = STATE_SALES_TAX_STATE_ONLY[st] ?? 0;
+          const local = STATE_SALES_LOCAL_ADDON_AVG[st] ?? 0.02;
+          return clamp(base + local, 0, 0.12);
+        }
+        function applyStateDefaults(st) {
+          if (DEFAULT_PROP_TAX_RATE_PCT[st] != null) {
+            state.propTaxRatePct = DEFAULT_PROP_TAX_RATE_PCT[st];
+            $("rngPropRate").value = String(state.propTaxRatePct);
+          }
+          state.stIncRate = DEFAULT_STATE_INCOME_EFFECTIVE_PCT(st);
+          $("rngStateIncRate").value = String(state.stIncRate);
+          updateInlineAnchors();
+        }
+
+        selState.addEventListener("change", () => {
+          state.st = selState.value;
+          applyStateDefaults(state.st);
+          recalcFromAnchor(selState, "state");
+        });
+
+        // ---------- Tax slider behavior ----------
+        function setMasterActive(active) {
+          state.masterActive = active;
+          masterWrap.classList.toggle("masterInactive", !active);
+          masterLabel.textContent = active
+            ? "Actual Rates = 100%"
+            : "Master slider inactive (individual overrides applied)";
+        }
+        function setAllTaxScales(scale) {
+          state.masterScale = scale;
+          for (const t of TAXES) {
+            state.taxScales[t.key] = scale;
+            const rng = $("rng_" + t.key);
+            const val = $("val_" + t.key);
+            if (rng) rng.value = String(Math.round(scale * 100));
+            if (val) val.textContent = Math.round(scale * 100) + "%";
+          }
+        }
+
+        rngMasterScale.addEventListener("input", () => {
+          const s = Number(rngMasterScale.value) / 100;
+          setMasterActive(true);
+          setAllTaxScales(s);
+          masterVal.textContent = Math.round(s * 100) + "%";
+          updateInlineAnchors();
+          recalcFromAnchor(rngMasterScale, "tax_master");
+        });
+
+        btnResetAllTaxes.addEventListener("click", () => {
+          rngMasterScale.value = "100";
+          setMasterActive(true);
+          setAllTaxScales(1.0);
+          masterVal.textContent = "100%";
+          updateInlineAnchors();
+          recalcFromAnchor(btnResetAllTaxes, "tax_master");
+        });
+
+        for (const t of TAXES) {
+          const rng = $("rng_" + t.key);
+          rng.addEventListener("input", () => {
+            const s = Number(rng.value) / 100;
+            state.taxScales[t.key] = s;
+            $("val_" + t.key).textContent = Math.round(s * 100) + "%";
+            if (state.masterActive) setMasterActive(false);
+            updateInlineAnchors();
+            recalcFromAnchor(rng, "tax_" + t.key);
+          });
+        }
+
+        // ---------- Results controls ----------
+        btnRetSpendSame.addEventListener("click", () => {
+          state.retSpendMode = "same";
+          btnRetSpendSame.classList.add("primary");
+          btnRetSpendCustom.classList.remove("primary");
+          inpRetSpend.classList.add("hide");
+          recalcFromAnchor(btnRetSpendSame, "retSpend");
+        });
+        btnRetSpendCustom.addEventListener("click", () => {
+          state.retSpendMode = "custom";
+          btnRetSpendCustom.classList.add("primary");
+          btnRetSpendSame.classList.remove("primary");
+          inpRetSpend.classList.remove("hide");
+          if (
+            !Number.isFinite(state.retSpend) &&
+            Number.isFinite(state.spend)
+          ) {
+            state.retSpend = state.spend;
+            inpRetSpend.value = fmtInt(state.retSpend);
+          }
+          recalcFromAnchor(btnRetSpendCustom, "retSpend");
+        });
+        bindMoneyInput(inpRetSpend, (n) => (state.retSpend = n), "retSpend");
+
+        // ---------- Section controls ----------
+        $("rngStateIncRate").addEventListener("input", () => {
+          state.stIncRate = Number($("rngStateIncRate").value);
+          updateInlineAnchors();
+          recalcFromAnchor($("rngStateIncRate"), "stateincrate");
+        });
+
+        $("rngTaxableShare").addEventListener("input", () => {
+          state.taxableSpendShare = Number($("rngTaxableShare").value) / 100;
+          updateInlineAnchors();
+          recalcFromAnchor($("rngTaxableShare"), "taxableShare");
+        });
+        $("rngExciseShare").addEventListener("input", () => {
+          state.exciseShare = Number($("rngExciseShare").value) / 100;
+          updateInlineAnchors();
+          recalcFromAnchor($("rngExciseShare"), "exciseShare");
+        });
+
+        $("rngBuyAge").addEventListener("input", () => {
+          state.buyAge = Number($("rngBuyAge").value);
+          updateInlineAnchors();
+          recalcFromAnchor($("rngBuyAge"), "buyAge");
+        });
+        $("rngHomeMult").addEventListener("input", () => {
+          state.homeMult = Number($("rngHomeMult").value);
+          updateInlineAnchors();
+          recalcFromAnchor($("rngHomeMult"), "homeMult");
+        });
+        $("rngPropRate").addEventListener("input", () => {
+          state.propTaxRatePct = Number($("rngPropRate").value);
+          updateInlineAnchors();
+          recalcFromAnchor($("rngPropRate"), "propRate");
+        });
+        $("rngTransactions").addEventListener("input", () => {
+          state.transactions = Number($("rngTransactions").value);
+          updateInlineAnchors();
+          recalcFromAnchor($("rngTransactions"), "transactions");
+        });
+        $("rngTxnFeeRate").addEventListener("input", () => {
+          state.txnFeeRatePct = Number($("rngTxnFeeRate").value);
+          updateInlineAnchors();
+          recalcFromAnchor($("rngTxnFeeRate"), "txnFeeRate");
+        });
+
+        $("rngEqPct").addEventListener("input", () => {
+          state.eqPct = Number($("rngEqPct").value) / 100;
+          updateInlineAnchors();
+          recalcFromAnchor($("rngEqPct"), "eqPct");
+        });
+        $("rngTaxAdvPct").addEventListener("input", () => {
+          state.taxAdvPct = Number($("rngTaxAdvPct").value) / 100;
+          updateInlineAnchors();
+          recalcFromAnchor($("rngTaxAdvPct"), "taxAdvPct");
+        });
+        $("rngMktReturn").addEventListener("input", () => {
+          state.mktReturnNom = Number($("rngMktReturn").value);
+          updateInlineAnchors();
+          recalcFromAnchor($("rngMktReturn"), "mktReturn");
+        });
+        $("rngInfl").addEventListener("input", () => {
+          state.infl = Number($("rngInfl").value);
+          updateInlineAnchors();
+          recalcFromAnchor($("rngInfl"), "infl");
+        });
+        $("rngCashYield").addEventListener("input", () => {
+          state.cashYieldNom = Number($("rngCashYield").value);
+          updateInlineAnchors();
+          recalcFromAnchor($("rngCashYield"), "cashYield");
+        });
+        $("rngTaxDrag").addEventListener("input", () => {
+          state.taxDragNom = Number($("rngTaxDrag").value) / 100;
+          updateInlineAnchors();
+          recalcFromAnchor($("rngTaxDrag"), "taxDrag");
+        });
+        $("rngLifeExp").addEventListener("input", () => {
+          state.lifeExp = Number($("rngLifeExp").value);
+          updateInlineAnchors();
+          recalcFromAnchor($("rngLifeExp"), "lifeExp");
+        });
+
+        // ---------- Inline anchor updates ----------
+        function updateInlineAnchors() {
+          v_income.textContent = Number.isFinite(state.income)
+            ? fmtMoney0(state.income)
+            : "$0";
+          v_spend.textContent = Number.isFinite(state.spend)
+            ? fmtMoney0(state.spend)
+            : "$0";
+          v_networth.textContent = Number.isFinite(state.netWorth)
+            ? fmtMoney0(state.netWorth)
+            : "$0";
+          v_age.textContent = Number.isFinite(state.age)
+            ? String(Math.round(state.age))
+            : "0";
+
+          // spend > income warning
+          const warn =
+            Number.isFinite(state.income) &&
+            Number.isFinite(state.spend) &&
+            state.spend > state.income;
+          inpSpend.classList.toggle("warnInput", warn);
+          v_spend.classList.toggle("warnText", warn);
+          spendWarn.textContent = warn ? "  Higher than income!" : "";
+          spendWarn.classList.toggle("warnText", warn);
+
+          masterVal.textContent = Math.round(state.masterScale * 100) + "%";
+          $("salesTaxStateName").textContent = state.st;
+
+          $("taxableShareVal").textContent =
+            Math.round(state.taxableSpendShare * 100) + "%";
+          $("exciseShareVal").textContent =
+            (state.exciseShare * 100).toFixed(2) + "%";
+          $("stateIncRateVal").textContent = state.stIncRate.toFixed(2) + "%";
+
+          $("buyAgeVal").textContent = String(state.buyAge);
+          $("homeMultVal").textContent = state.homeMult.toFixed(1) + "×";
+          $("propRateVal").textContent = state.propTaxRatePct.toFixed(2) + "%";
+          $("transactionsVal").textContent = String(state.transactions);
+          $("txnFeeRateVal").textContent = state.txnFeeRatePct.toFixed(2) + "%";
+
+          $("eqPctVal").textContent = Math.round(state.eqPct * 100) + "%";
+          $("taxAdvPctVal").textContent =
+            Math.round(state.taxAdvPct * 100) + "%";
+          $("mktReturnVal").textContent = state.mktReturnNom.toFixed(1) + "%";
+          $("inflVal").textContent = state.infl.toFixed(1) + "%";
+          $("cashYieldVal").textContent = state.cashYieldNom.toFixed(1) + "%";
+          $("taxDragVal").textContent =
+            (state.taxDragNom * 100).toFixed(2) + "%";
+
+          $("lifeExpVal").textContent = String(state.lifeExp);
+
+          // reflect scale values in UI
+          rngMasterScale.value = String(Math.round(state.masterScale * 100));
+          masterVal.textContent = Math.round(state.masterScale * 100) + "%";
+          for (const t of TAXES) {
+            const val = $("val_" + t.key);
+            const rng = $("rng_" + t.key);
+            const s = state.taxScales[t.key] ?? 1.0;
+            if (val) val.textContent = Math.round(s * 100) + "%";
+            if (rng) rng.value = String(Math.round(s * 100));
+          }
+        }
+
+        // ---------- Tax calcs ----------
+        function progressiveTax(taxableIncome, brackets) {
+          let tax = 0;
+          let prevCap = 0;
+          for (const [cap, rate] of brackets) {
+            const amt = Math.min(taxableIncome, cap) - prevCap;
+            if (amt > 0) tax += amt * rate;
+            prevCap = cap;
+            if (taxableIncome <= cap) break;
+          }
+          return Math.max(0, tax);
+        }
+
+        function federalIncomeTaxRaw(gross, filing) {
+          const std = filing === "mfj" ? FED_STD_DED.mfj : FED_STD_DED.single;
+          const taxable = Math.max(0, gross - std);
+          const brackets =
+            filing === "mfj" ? FED_BRACKETS.mfj : FED_BRACKETS.single;
+          return progressiveTax(taxable, brackets);
+        }
+
+        function payrollTaxesRaw(gross, filing) {
+          const ssWage = Math.min(gross, SS_WAGE_BASE);
+          const ssEmp = ssWage * SS_RATE;
+          const ssEr = ssWage * SS_RATE;
+
+          const medEmp = gross * MED_RATE;
+          const medEr = gross * MED_RATE;
+
+          const thresh =
+            filing === "mfj" ? ADDL_MED_THRESH.mfj : ADDL_MED_THRESH.single;
+          const addlMedEmp = Math.max(0, gross - thresh) * ADDL_MED_RATE;
+
+          return {
+            emp: ssEmp + medEmp + addlMedEmp,
+            er: ssEr + medEr,
+          };
+        }
+
+        // Per-year breakdown using the *current year* portfolio (fixes drift by age/net worth)
+        function yearBurdenBreakdownAt(params, ageNow, netWorthNow) {
+          const filing = params.filing;
+          const income = params.income;
+          const spend = params.spend;
+          const s = params.taxScales;
+
+          const fedRaw = federalIncomeTaxRaw(income, filing);
+          const prRaw = payrollTaxesRaw(income, filing);
+
+          const stIncRaw = income * (params.stIncRate / 100);
+
+          const salesRateRaw = combinedSalesRate(params.st);
+          const salesRaw = spend * params.taxableSpendShare * salesRateRaw;
+
+          const exciseRaw = spend * params.exciseShare;
+
+          const owner = ageNow >= params.buyAge;
+          const homeValue = income * params.homeMult;
+          const propertyRaw = owner
+            ? homeValue * (params.propTaxRatePct / 100)
+            : 0;
+
+          const yearsOwn = Math.max(1, params.lifeExp - params.buyAge);
+          const txnFeesRaw = owner
+            ? (homeValue * (params.txnFeeRatePct / 100) * params.transactions) /
+              yearsOwn
+            : 0;
+
+          const cashBal = netWorthNow * (1 - params.eqPct);
+          const inflErosionRaw = Math.max(
+            0,
+            cashBal * (params.infl / 100 - params.cashYieldNom / 100)
+          );
+
+          const taxableEqBal =
+            netWorthNow * params.eqPct * (1 - params.taxAdvPct);
+          const invDragRaw = Math.max(0, taxableEqBal * params.taxDragNom);
+
+          const scaled = {
+            fedIncome: fedRaw * s.fedIncome,
+            stateIncome: stIncRaw * s.stateIncome,
+            payrollEmp: prRaw.emp * s.payrollEmp,
+            payrollEr: prRaw.er * s.payrollEr,
+            salesTax: salesRaw * s.salesTax,
+            excise: exciseRaw * s.excise,
+            propertyTax: propertyRaw * s.propertyTax,
+            txnFeesAnnual: txnFeesRaw * s.txnFeesAnnual,
+            inflErosion: inflErosionRaw * s.inflErosion,
+            invDrag: invDragRaw * s.invDrag,
+          };
+
+          const raw = {
+            fedIncome: fedRaw,
+            stateIncome: stIncRaw,
+            payrollEmp: prRaw.emp,
+            payrollEr: prRaw.er,
+            salesTax: salesRaw,
+            excise: exciseRaw,
+            propertyTax: propertyRaw,
+            txnFeesAnnual: txnFeesRaw,
+            inflErosion: inflErosionRaw,
+            invDrag: invDragRaw,
+            salesRate: salesRateRaw,
+          };
+
+          return { raw, scaled, derived: { owner, homeValue } };
+        }
+
+        // ---------- Simulation helpers ----------
+        function realRate(nomPct, inflPct) {
+          const nom = 1 + nomPct / 100;
+          const inf = 1 + inflPct / 100;
+          return nom / inf - 1;
+        }
+
+        function blendedRealReturn(params, overrides = null) {
+          const eq = clamp(params.eqPct, 0, 1);
+          const cash = 1 - eq;
+
+          const taxAdv = clamp(params.taxAdvPct, 0, 1);
+          const taxable = 1 - taxAdv;
+
+          const dragNom = overrides?.noInvDrag ? 0 : params.taxDragNom;
+          const cashYieldNom = overrides?.noInflErosion
+            ? params.infl
+            : params.cashYieldNom;
+
+          const rEqReal = realRate(params.mktReturnNom, params.infl);
+          const rCashReal = realRate(cashYieldNom, params.infl);
+
+          const mktNom = params.mktReturnNom / 100;
+          const taxableEqNom = Math.max(-0.99, mktNom - dragNom);
+          const rEqTaxableReal =
+            (1 + taxableEqNom) / (1 + params.infl / 100) - 1;
+
+          const wEqTaxAdv = eq * taxAdv;
+          const wEqTaxable = eq * taxable;
+          const wCash = cash;
+
+          return (
+            wEqTaxAdv * rEqReal +
+            wEqTaxable * rEqTaxableReal +
+            wCash * rCashReal
+          );
+        }
+
+        function runSimWorking(params, startAge, years, startWealth, config) {
+          let portfolio = startWealth;
+          const remove = config.remove || {};
+          const addErAsWage = !!config.addEmployerPayrollToWages;
+
+          const r = blendedRealReturn(params, {
+            noInvDrag: !!remove.invDrag,
+            noInflErosion: !!remove.inflErosion,
+          });
+
+          for (let y = 0; y < years; y++) {
+            const ageNow = startAge + y;
+            const b = yearBurdenBreakdownAt(params, ageNow, portfolio);
+            const scaled = b.scaled;
+
+            let income = params.income;
+            if (addErAsWage && remove.payrollEr) {
+              income += scaled.payrollEr;
+            }
+
+            const fed = remove.fedIncome ? 0 : scaled.fedIncome;
+            const st = remove.stateIncome ? 0 : scaled.stateIncome;
+            const payEmp = remove.payrollEmp ? 0 : scaled.payrollEmp;
+
+            const sales = remove.salesTax ? 0 : scaled.salesTax;
+            const excise = remove.excise ? 0 : scaled.excise;
+            const prop = remove.propertyTax ? 0 : scaled.propertyTax;
+            const txnFees = remove.txnFeesAnnual ? 0 : scaled.txnFeesAnnual;
+
+            const cashOut = params.spend + sales + excise + prop + txnFees;
+            const afterTaxIncome = income - payEmp - fed - st;
+            const contrib = afterTaxIncome - cashOut;
+
+            portfolio = portfolio + contrib;
+            if (portfolio < 0) portfolio = 0;
+            portfolio = portfolio * (1 + r);
+          }
+          return { endWealth: portfolio };
+        }
+
+        function yearsToFI(params) {
+          const retSpend =
+            params.retSpendMode === "custom" && Number.isFinite(params.retSpend)
+              ? params.retSpend
+              : params.spend;
+          const target = retSpend / 0.04;
+
+          let portfolio = params.netWorth;
+          const yearsMax = Math.max(0, params.lifeExp - params.age);
+          const r = blendedRealReturn(params, null);
+
+          for (let y = 0; y <= yearsMax; y++) {
+            if (portfolio >= target) return { years: y, target };
+            if (y === yearsMax) break;
+
+            const ageNow = params.age + y;
+            const scaled = yearBurdenBreakdownAt(
+              params,
+              ageNow,
+              portfolio
+            ).scaled;
+
+            const fed = scaled.fedIncome;
+            const st = scaled.stateIncome;
+            const payEmp = scaled.payrollEmp;
+
+            const sales = scaled.salesTax;
+            const excise = scaled.excise;
+            const prop = scaled.propertyTax;
+            const txnFees = scaled.txnFeesAnnual;
+
+            const cashOut = params.spend + sales + excise + prop + txnFees;
+            const afterTaxIncome = params.income - payEmp - fed - st;
+            const contrib = afterTaxIncome - cashOut;
+
+            portfolio = portfolio + contrib;
+            if (portfolio < 0) portfolio = 0;
+            portfolio = portfolio * (1 + r);
+          }
+          return { years: Infinity, target };
+        }
+
+        function planWithdrawal(gross, buckets) {
+          let remaining = gross;
+          const out = { taxable: 0, trad: 0, roth: 0 };
+
+          const t = Math.min(remaining, buckets.taxable);
+          out.taxable = t;
+          remaining -= t;
+
+          const tr = Math.min(remaining, buckets.trad);
+          out.trad = tr;
+          remaining -= tr;
+
+          const r = Math.min(remaining, buckets.roth);
+          out.roth = r;
+          remaining -= r;
+
+          return out;
+        }
+
+        function withdrawalTaxes(params, plan, ageNow) {
+          const sFed = params.taxScales.fedIncome ?? 1.0;
+          const sSt = params.taxScales.stateIncome ?? 1.0;
+
+          const gains = plan.taxable * (1 - TAXABLE_BASIS_FRACTION);
+          const fedLtcg = federalLtcgTaxRaw(gains, params.filing) * sFed;
+          const stLtcg = gains * (params.stIncRate / 100) * sSt;
+
+          const rothTaxablePart =
+            ageNow < RETIREMENT_AGE ? plan.roth * (1 - ROTH_BASIS_FRACTION) : 0;
+          const ordinaryIncome = plan.trad + rothTaxablePart;
+
+          const fedOrd =
+            federalIncomeTaxRaw(ordinaryIncome, params.filing) * sFed;
+          const stOrd = ordinaryIncome * (params.stIncRate / 100) * sSt;
+
+          const penaltyBase =
+            ageNow < RETIREMENT_AGE ? plan.trad + rothTaxablePart : 0;
+          const penalty = penaltyBase * EARLY_PENALTY * sFed;
+
+          return fedLtcg + stLtcg + fedOrd + stOrd + penalty;
+        }
+
+        function simulatePostFI(
+          params,
+          startWealth,
+          years,
+          retireAge,
+          overrides
+        ) {
+          const remove = overrides?.remove || {};
+          const r = blendedRealReturn(params, {
+            noInvDrag: !!remove.invDrag,
+            noInflErosion: !!remove.inflErosion,
+          });
+
+          const taxAdv = startWealth * clamp(params.taxAdvPct, 0, 1);
+          const taxable = Math.max(0, startWealth - taxAdv);
+
+          let buckets = {
+            taxable,
+            trad: taxAdv * (1 - TAXADV_ROTH_SHARE),
+            roth: taxAdv * TAXADV_ROTH_SHARE,
+          };
+
+          let taxesPaid = 0;
+
+          for (let y = 0; y < years; y++) {
+            const total = buckets.taxable + buckets.trad + buckets.roth;
+            if (total <= 0) break;
+
+            const ageNow = retireAge + y;
+
+            const spendNeed = total * 0.04;
+
+            if (overrides?.noWithdrawalTaxes) {
+              const plan = planWithdrawal(spendNeed, buckets);
+              buckets.taxable -= plan.taxable;
+              buckets.trad -= plan.trad;
+              buckets.roth -= plan.roth;
+            } else {
+              let gross = spendNeed;
+              for (let i = 0; i < 4; i++) {
+                const plan = planWithdrawal(gross, buckets);
+                const tax = withdrawalTaxes(params, plan, ageNow);
+                gross = spendNeed + tax;
+              }
+
+              const plan = planWithdrawal(gross, buckets);
+              const tax = withdrawalTaxes(params, plan, ageNow);
+              taxesPaid += tax;
+
+              buckets.taxable -= plan.taxable;
+              buckets.trad -= plan.trad;
+              buckets.roth -= plan.roth;
+            }
+
+            buckets.taxable = Math.max(0, buckets.taxable) * (1 + r);
+            buckets.trad = Math.max(0, buckets.trad) * (1 + r);
+            buckets.roth = Math.max(0, buckets.roth) * (1 + r);
+          }
+
+          const endWealth = Math.max(
+            0,
+            buckets.taxable + buckets.trad + buckets.roth
+          );
+          return { endWealth, taxesPaid };
+        }
+
+        // Solve implied net worth at CAREER_START_AGE such that forward sim hits the user's current net worth.
+        function impliedStartWealth(params, startAge, endAge, targetWealth) {
+          const years = Math.max(0, Math.floor(endAge - startAge));
+          if (years <= 0) return Math.max(0, targetWealth);
+
+          const sim0 = runSimWorking(params, startAge, years, 0, {
+            remove: {},
+          }).endWealth;
+          const sim1 = runSimWorking(params, startAge, years, 1, {
+            remove: {},
+          }).endWealth;
+          const M = sim1 - sim0;
+          if (!Number.isFinite(M) || Math.abs(M) < 1e-9)
+            return Math.max(0, targetWealth);
+
+          const w0 = (targetWealth - sim0) / M;
+          return Math.max(0, w0);
+        }
+
+        // ---------- Breakdown table ----------
+        const breakdownRows = [
+          { kind: "group", label: "Direct taxes" },
+          { key: "fedIncome", label: "Federal income tax" },
+          { key: "stateIncome", label: "State income tax" },
+          { key: "payrollEmp", label: "Payroll (employee)" },
+          { key: "salesTax", label: "Sales tax (avg state + local)" },
+          { key: "propertyTax", label: "Property tax" },
+          { key: "excise", label: "Gas, utilities, telecom, fees, etc" },
+          {
+            key: "txnFeesAnnual",
+            label: "Real estate transaction fees (annualized)",
+          },
+          { kind: "group", label: "Indirect taxes" },
+          { key: "payrollEr", label: "Payroll (employer)" },
+          { kind: "group", label: "Inflation + investment drag" },
+          { key: "inflErosion", label: "Inflation erosion on cash" },
+          { key: "invDrag", label: "Investment tax drag (taxable equities)" },
+        ];
+
+        function buildBreakdownTable() {
+          const body = $("breakdownBody");
+          body.innerHTML = "";
+          for (const r of breakdownRows) {
+            if (r.kind === "group") {
+              const tr = document.createElement("tr");
+              tr.className = "groupRow";
+              const td = document.createElement("td");
+              td.colSpan = 3;
+              td.textContent = r.label;
+              tr.appendChild(td);
+              body.appendChild(tr);
+            } else {
+              const tr = document.createElement("tr");
+              tr.innerHTML = `
+          <td>${r.label}</td>
+          <td class="tRight mono" data-flat="${r.key}">$0</td>
+          <td class="tRight mono" data-comp="${r.key}">$0</td>
+        `;
+              body.appendChild(tr);
+            }
+          }
+        }
+        buildBreakdownTable();
+
+        function updateBreakdown(computed) {
+          for (const r of breakdownRows) {
+            if (r.kind) continue;
+            const flatEl = document.querySelector(`[data-flat="${r.key}"]`);
+            const compEl = document.querySelector(`[data-comp="${r.key}"]`);
+            if (flatEl)
+              flatEl.textContent = fmtMoney0(
+                computed.get(`flat_${r.key}`) || 0
+              );
+            if (compEl)
+              compEl.textContent = fmtMoney0(
+                computed.get(`comp_${r.key}`) || 0
+              );
+          }
+          $("totFlat").textContent = fmtMoney0(computed.get("totFlat") || 0);
+          $("totComp").textContent = fmtMoney0(computed.get("totComp") || 0);
+
+          $("kpiLost").textContent = fmtMoney0(computed.get("kpiLost") || 0);
+          $("kpiPotential").textContent = fmtMoney0(
+            computed.get("kpiPotential") || 0
+          );
+          $("kpiWithTaxes").textContent = fmtMoney0(
+            computed.get("kpiWithTaxes") || 0
+          );
+        }
+
+        // ---------- Cascade animation ----------
+        function isVisible(el) {
+          if (!el) return false;
+          const r = el.getBoundingClientRect();
+          if (
+            (r.width === 0 && r.height === 0) ||
+            el.getClientRects().length === 0
+          )
+            return false;
+          const cs = window.getComputedStyle(el);
+          return (
+            cs.display !== "none" &&
+            cs.visibility !== "hidden" &&
+            cs.opacity !== "0"
+          );
+        }
+        function centerPage(el) {
+          const r = el.getBoundingClientRect();
+          if (r.width === 0 && r.height === 0) return null;
+          const x = r.left + r.width / 2 + window.scrollX;
+          const y = r.top + r.height / 2 + window.scrollY;
+          if (!Number.isFinite(x) || !Number.isFinite(y)) return null;
+          return { x, y };
+        }
+        function setOrb(x, y, visible) {
+          if (!Number.isFinite(x) || !Number.isFinite(y)) return;
+          orb.style.left = x + "px";
+          orb.style.top = y + "px";
+          orb.style.opacity = visible ? "1" : "0";
+        }
+        function spawnRing(x, y) {
+          if (!Number.isFinite(x) || !Number.isFinite(y)) return;
+          const d = document.createElement("div");
+          d.className = "ring";
+          d.style.left = x + "px";
+          d.style.top = y + "px";
+          document.body.appendChild(d);
+          setTimeout(() => d.remove(), 600);
+        }
+        function animateOrb(from, to, ms, token) {
+          return new Promise((resolve) => {
+            if (!from || !to) return resolve(false);
+            const t0 = performance.now();
+            function step(t) {
+              if (token !== cascadeToken) return resolve(false);
+              const u = clamp((t - t0) / ms, 0, 1);
+              const e = easeInOutSine(u);
+              const x = from.x + (to.x - from.x) * e;
+              const y = from.y + (to.y - from.y) * e;
+              setOrb(x, y, true);
+              if (u < 1) requestAnimationFrame(step);
+              else resolve(true);
+            }
+            requestAnimationFrame(step);
+          });
+        }
+        function flash(el) {
+          if (!el) return;
+          el.classList.remove("goldFlash", "pulse");
+          void el.offsetWidth;
+          el.classList.add("goldFlash", "pulse");
+          setTimeout(() => el.classList.remove("goldFlash", "pulse"), 600);
+        }
+
+        // ---------- Compute + render ----------
+        function computeAll(params) {
+          const out = new Map();
+          if (!requiredComplete()) return out;
+
+          params.masterScale = Number(rngMasterScale.value) / 100;
+
+          if (params.retSpendMode === "same") {
+            params.retSpend = NaN;
+          } else if (
+            !Number.isFinite(params.retSpend) &&
+            Number.isFinite(params.spend)
+          ) {
+            params.retSpend = params.spend;
+            inpRetSpend.value = fmtInt(params.retSpend);
+          }
+
+          // Current-year breakdown for display
+          const bNow = yearBurdenBreakdownAt(
+            params,
+            params.age,
+            params.netWorth
+          );
+          const rawNow = bNow.raw;
+          const scaledNow = bNow.scaled;
+
+          // FI from *current* age (UI)
+          const fiNow = yearsToFI(params);
+          const target = fiNow.target;
+
+          // Retirement age used for lifetime comparisons (use the same retirement age implied by the UI path)
+          const retireAge =
+            fiNow.years === Infinity
+              ? params.lifeExp
+              : clamp(params.age + fiNow.years, params.age, params.lifeExp);
+          const yearsToRetireFromNow =
+            fiNow.years === Infinity
+              ? Math.max(0, params.lifeExp - params.age)
+              : fiNow.years;
+
+          // Anchor lifetime simulation at CAREER_START_AGE to include past tax drag (path-invariant)
+          const startAge =
+            params.age <= CAREER_START_AGE ? params.age : CAREER_START_AGE;
+          const startWealth =
+            params.age <= CAREER_START_AGE
+              ? params.netWorth
+              : impliedStartWealth(
+                  params,
+                  CAREER_START_AGE,
+                  params.age,
+                  params.netWorth
+                );
+
+          const yearsWorkingFromStart = Math.max(
+            0,
+            Math.floor(retireAge - startAge)
+          );
+          const yearsRetired = Math.max(
+            0,
+            Math.floor(params.lifeExp - retireAge)
+          );
+
+          // Baseline & potential wealth at retirement age
+          const baselineRet = runSimWorking(
+            params,
+            startAge,
+            yearsWorkingFromStart,
+            startWealth,
+            { remove: {} }
+          ).endWealth;
+
+          const allRemoved = {
+            fedIncome: true,
+            stateIncome: true,
+            payrollEmp: true,
+            payrollEr: true,
+            salesTax: true,
+            excise: true,
+            propertyTax: true,
+            txnFeesAnnual: true,
+            invDrag: true,
+            inflErosion: true,
+          };
+          const potentialRet = runSimWorking(
+            params,
+            startAge,
+            yearsWorkingFromStart,
+            startWealth,
+            {
+              remove: allRemoved,
+              addEmployerPayrollToWages: true,
+            }
+          ).endWealth;
+
+          const lostToRetirement = Math.max(0, potentialRet - baselineRet);
+
+          // Post-FI withdrawal taxes (baseline vs baseline-no-withdrawal-taxes)
+          const basePost = simulatePostFI(
+            params,
+            baselineRet,
+            yearsRetired,
+            retireAge,
+            { remove: {} }
+          );
+          const basePostNoWTax = simulatePostFI(
+            params,
+            baselineRet,
+            yearsRetired,
+            retireAge,
+            { remove: {}, noWithdrawalTaxes: true }
+          );
+          const extraLostToWithdrawalTaxes = Math.max(
+            0,
+            basePostNoWTax.endWealth - basePost.endWealth
+          );
+
+          // Potential post-FI: no taxes/drags and no withdrawal taxes
+          const potPost = simulatePostFI(
+            params,
+            potentialRet,
+            yearsRetired,
+            retireAge,
+            {
+              remove: { invDrag: true, inflErosion: true },
+              noWithdrawalTaxes: true,
+            }
+          );
+
+          const baseDeath = basePost.endWealth;
+          const potDeath = potPost.endWealth;
+
+          const lifetimeLost = Math.max(0, potDeath - baseDeath);
+          const lifetimePct =
+            potDeath > 0 ? clamp(lifetimeLost / potDeath, 0, 0.9999) : 0;
+
+          // Yearly burden (today) uses current year amounts (with current portfolio)
+          const yearlyTaxes =
+            scaledNow.fedIncome +
+            scaledNow.stateIncome +
+            scaledNow.payrollEmp +
+            scaledNow.payrollEr +
+            scaledNow.salesTax +
+            scaledNow.excise +
+            scaledNow.propertyTax +
+            scaledNow.txnFeesAnnual +
+            scaledNow.invDrag +
+            scaledNow.inflErosion;
+
+          const denom =
+            params.income +
+            rawNow.payrollEr * (params.taxScales.payrollEr ?? 1.0);
+          const yearlyPct = denom > 0 ? clamp(yearlyTaxes / denom, 0, 2) : 0;
+
+          out.set("kpiYearlyPct", fmtPct(yearlyPct, 1));
+          out.set("kpiLifetimePct", fmtPct(lifetimePct, 1));
+          out.set("kpiPostFiWithdrawalTaxLoss", extraLostToWithdrawalTaxes);
+
+          // Retirement timeline headline (year + age)
+          if (fiNow.years === Infinity) {
+            out.set("kpiRetYear", "—");
+            out.set("kpiRetAge", "—");
+          } else {
+            const now = new Date();
+            out.set("kpiRetYear", String(now.getFullYear() + fiNow.years));
+            out.set("kpiRetAge", String(Math.round(params.age + fiNow.years)));
+          }
+
+          out.set("targetText", `4% rule target today: ${fmtMoney0(target)}`);
+          out.set("targetPortfolio", target);
+
+          out.set("kpiLost", lifetimeLost);
+          out.set("kpiPotential", potDeath);
+          out.set("kpiWithTaxes", baseDeath);
+
+          // Section numbers (today)
+          out.set("fedTax", scaledNow.fedIncome);
+          out.set("stateTax", scaledNow.stateIncome);
+          out.set("payrollEmp", scaledNow.payrollEmp);
+          out.set("payrollEr", scaledNow.payrollEr);
+          out.set("salesTax", scaledNow.salesTax);
+          out.set("exciseTax", scaledNow.excise);
+          out.set("propertyTax", scaledNow.propertyTax);
+          out.set("txnFeesAnnual", scaledNow.txnFeesAnnual);
+          out.set("invDragNow", scaledNow.invDrag);
+          out.set("inflErosionNow", scaledNow.inflErosion);
+
+          // Subtotals (today)
+          out.set(
+            "subIncomePayroll",
+            scaledNow.fedIncome + scaledNow.payrollEmp + scaledNow.payrollEr
+          );
+          out.set(
+            "subStateLocal",
+            scaledNow.stateIncome + scaledNow.salesTax + scaledNow.excise
+          );
+          out.set(
+            "subProperty",
+            scaledNow.propertyTax + scaledNow.txnFeesAnnual
+          );
+          out.set("subInvest", scaledNow.invDrag + scaledNow.inflErosion);
+          out.set("subTimeValue", lostToRetirement);
+
+          // Savings (today)
+          const cashOut =
+            params.spend +
+            scaledNow.salesTax +
+            scaledNow.excise +
+            scaledNow.propertyTax +
+            scaledNow.txnFeesAnnual;
+          const afterTaxIncome =
+            params.income -
+            scaledNow.payrollEmp -
+            scaledNow.fedIncome -
+            scaledNow.stateIncome;
+          const afterTaxSavings = afterTaxIncome - cashOut;
+          out.set("afterTaxSavings", afterTaxSavings);
+          out.set(
+            "savingsRate",
+            params.income > 0 ? fmtPct(afterTaxSavings / params.income, 1) : "—"
+          );
+
+          out.set("yearsModeled", String(yearsToRetireFromNow));
+
+          // Sales display (rate scaled)
+          out.set(
+            "salesTaxRateText",
+            fmtPctPlain(
+              combinedSalesRate(params.st) *
+                (params.taxScales.salesTax ?? 1.0) *
+                100,
+              2
+            )
+          );
+
+          // Tax key line (rates AFTER sliders) computed from today's breakdown
+          const fedEff =
+            params.income > 0 ? scaledNow.fedIncome / params.income : 0;
+          const stEff =
+            params.income > 0 ? scaledNow.stateIncome / params.income : 0;
+
+          const sEmp = params.taxScales.payrollEmp ?? 1.0;
+          const sEr = params.taxScales.payrollEr ?? 1.0;
+
+          const ssCap = fmtMoney0(SS_WAGE_BASE);
+          const salesRateScaled =
+            combinedSalesRate(params.st) * (params.taxScales.salesTax ?? 1.0);
+          const propRateScaled =
+            (params.propTaxRatePct / 100) *
+            (params.taxScales.propertyTax ?? 1.0);
+          const exciseScaled =
+            params.exciseShare * (params.taxScales.excise ?? 1.0);
+          const dragScaled =
+            params.taxDragNom * (params.taxScales.invDrag ?? 1.0);
+          const cashErosionRate =
+            Math.max(0, (params.infl - params.cashYieldNom) / 100) *
+            (params.taxScales.inflErosion ?? 1.0);
+
+          out.set(
+            "taxKeyHTML",
+            [
+              `<b>Federal income (effective)</b>: ${(fedEff * 100).toFixed(
+                2
+              )}%`,
+              `<b>State income (effective)</b>: ${(stEff * 100).toFixed(2)}%`,
+              `<b>SS (emp)</b>: ${(SS_RATE * sEmp * 100).toFixed(
+                2
+              )}% (cap ${ssCap})`,
+              `<b>Medicare (emp)</b>: ${(MED_RATE * sEmp * 100).toFixed(2)}%`,
+              `<b>SS (er)</b>: ${(SS_RATE * sEr * 100).toFixed(
+                2
+              )}% (cap ${ssCap})`,
+              `<b>Medicare (er)</b>: ${(MED_RATE * sEr * 100).toFixed(2)}%`,
+              `<b>Sales (avg state+local)</b>: ${(
+                salesRateScaled * 100
+              ).toFixed(2)}%`,
+              `<b>Property</b>: ${(propRateScaled * 100).toFixed(2)}%`,
+              `<b>Excise bundle</b>: ${(exciseScaled * 100).toFixed(2)}%`,
+              `<b>Tax drag</b>: ${(dragScaled * 100).toFixed(2)}%`,
+              `<b>Cash erosion rate</b>: ${(cashErosionRate * 100).toFixed(
+                2
+              )}%`,
+            ].join("  •  ")
+          );
+
+          // Breakdown: flat annual (today) + compounded deltas to retirement (anchored at startAge)
+          const comp = {};
+          const scenarios = {
+            fedIncome: { remove: { fedIncome: true } },
+            stateIncome: { remove: { stateIncome: true } },
+            payrollEmp: { remove: { payrollEmp: true } },
+            payrollEr: {
+              remove: { payrollEr: true },
+              addEmployerPayrollToWages: true,
+            },
+            salesTax: { remove: { salesTax: true } },
+            excise: { remove: { excise: true } },
+            propertyTax: { remove: { propertyTax: true } },
+            txnFeesAnnual: { remove: { txnFeesAnnual: true } },
+            invDrag: { remove: { invDrag: true } },
+            inflErosion: { remove: { inflErosion: true } },
+          };
+
+          for (const k in scenarios) {
+            const sc = scenarios[k];
+            const alt = runSimWorking(
+              params,
+              startAge,
+              yearsWorkingFromStart,
+              startWealth,
+              {
+                remove: sc.remove,
+                addEmployerPayrollToWages: !!sc.addEmployerPayrollToWages,
+              }
+            ).endWealth;
+            comp[k] = Math.max(0, alt - baselineRet);
+          }
+
+          let totFlat = 0;
+          let totComp = 0;
+          for (const r of breakdownRows) {
+            if (r.kind) continue;
+            const fKey = r.key;
+            const flatVal = scaledNow[fKey] ?? 0;
+            const compVal = comp[fKey] ?? 0;
+            out.set(`flat_${fKey}`, flatVal);
+            out.set(`comp_${fKey}`, compVal);
+            totFlat += flatVal;
+            totComp += compVal;
+          }
+          out.set("totFlat", totFlat);
+          out.set("totComp", totComp);
+          out.set("totalCompLoss", lostToRetirement);
+
+          return out;
+        }
+
+        function applyComputedInstant(computed) {
+          $("kpiYearlyPct").textContent = computed.get("kpiYearlyPct") || "—";
+          $("kpiLifetimePct").textContent =
+            computed.get("kpiLifetimePct") || "—";
+          $("kpiRetYear").textContent = computed.get("kpiRetYear") || "—";
+          $("kpiRetAge").textContent = computed.get("kpiRetAge") || "—";
+
+          const lifetimePct = computed.get("kpiLifetimePct") || "—";
+          const extraW = computed.get("kpiPostFiWithdrawalTaxLoss") || 0;
+          $(
+            "kpiLifetimeSentence"
+          ).textContent = `${lifetimePct} of the lifetime wealth potential at your current income and spend will be lost to tax and inflation effects (includes ~$${fmtInt(
+            extraW
+          )} lost to post-FI withdrawal taxes).`;
+
+          $("targetText").textContent = computed.get("targetText") || "—";
+          $("targetPortfolio").textContent = fmtMoney0(
+            computed.get("targetPortfolio") || 0
+          );
+
+          taxKeyLine.innerHTML = computed.get("taxKeyHTML") || "";
+
+          const keys = [
+            "subIncomePayroll",
+            "subStateLocal",
+            "subProperty",
+            "subInvest",
+            "subTimeValue",
+            "fedTax",
+            "stateTax",
+            "payrollEmp",
+            "payrollEr",
+            "salesTax",
+            "exciseTax",
+            "propertyTax",
+            "txnFeesAnnual",
+            "invDragNow",
+            "inflErosionNow",
+            "afterTaxSavings",
+            "savingsRate",
+            "yearsModeled",
+            "salesTaxRateText",
+            "totalCompLoss",
+          ];
+          for (const k of keys) {
+            const el = document.querySelector(`[data-key="${k}"]`);
+            if (!el) continue;
+            const v = computed.get(k);
+            if (
+              k === "savingsRate" ||
+              k === "yearsModeled" ||
+              k === "salesTaxRateText"
+            ) {
+              el.textContent = v || "—";
+            } else if (typeof v === "number") {
+              el.textContent = fmtMoney0(v);
+            } else {
+              el.textContent = v || "—";
+            }
+          }
+
+          updateBreakdown(computed);
+          $("salesTaxStateName").textContent = state.st;
+        }
+
+        function isChanged(prev, curr) {
+          if (typeof curr === "number") {
+            const pv = typeof prev === "number" ? prev : NaN;
+            return !Number.isFinite(pv) || Math.round(pv) !== Math.round(curr);
+          }
+          return prev !== curr;
+        }
+
+        // group checks (results last; breakdown last within results)
+        const GROUPS = {
+          resultsYearly: (old, neu) =>
+            isChanged(old.get("kpiYearlyPct"), neu.get("kpiYearlyPct")),
+          resultsLifetime: (old, neu) =>
+            isChanged(old.get("kpiLifetimePct"), neu.get("kpiLifetimePct")) ||
+            isChanged(old.get("kpiLost"), neu.get("kpiLost")) ||
+            isChanged(
+              old.get("kpiPostFiWithdrawalTaxLoss"),
+              neu.get("kpiPostFiWithdrawalTaxLoss")
+            ),
+          resultsRetirement: (old, neu) =>
+            isChanged(old.get("kpiRetYear"), neu.get("kpiRetYear")) ||
+            isChanged(old.get("kpiRetAge"), neu.get("kpiRetAge")) ||
+            isChanged(old.get("targetPortfolio"), neu.get("targetPortfolio")),
+          breakdownTop: (old, neu) => {
+            let changed =
+              isChanged(old.get("totFlat"), neu.get("totFlat")) ||
+              isChanged(old.get("totComp"), neu.get("totComp"));
+            if (changed) return true;
+            for (const r of breakdownRows) {
+              if (r.kind) continue;
+              const fk = `flat_${r.key}`,
+                ck = `comp_${r.key}`;
+              if (
+                isChanged(old.get(fk), neu.get(fk)) ||
+                isChanged(old.get(ck), neu.get(ck))
+              )
+                return true;
+            }
+            return false;
+          },
+        };
+
+        function flashImmediateSection(anchorEl) {
+          const sec = anchorEl.closest(".section");
+          if (sec) {
+            const subtotalEl = sec.querySelector(".secSubtotal");
+            if (subtotalEl) flash(subtotalEl);
+          } else {
+            flash(anchorEl);
+          }
+        }
+
+        function createTargets(anchorEl, oldComputed, newComputed) {
+          const targets = [];
+          const seen = new Set();
+
+          // per-key targets (non-results, visible only)
+          for (const [k, v] of newComputed.entries()) {
+            if (
+              k.startsWith("flat_") ||
+              k.startsWith("comp_") ||
+              k === "totFlat" ||
+              k === "totComp" ||
+              k.startsWith("kpi")
+            )
+              continue;
+            if (k === "taxKeyHTML") continue;
+            if (k === "targetText") continue;
+
+            const el = document.querySelector(`[data-key="${k}"]`);
+            if (!el) continue;
+            if (el.closest("#resultsCard")) continue; // results always last (handled via groups)
+            if (!isVisible(el)) continue;
+
+            if (isChanged(oldComputed.get(k), v)) {
+              const c = centerPage(el);
+              if (!c) continue;
+              const id = "k:" + k;
+              if (seen.has(id)) continue;
+              seen.add(id);
+              targets.push({ type: "key", key: k, el, c });
+            }
+          }
+
+          targets.sort((a, b) => a.c.y - b.c.y);
+
+          const resultsOrder = [
+            "resultsYearly",
+            "resultsLifetime",
+            "resultsRetirement",
+            "breakdownTop",
+          ];
+          for (const g of resultsOrder) {
+            if (!GROUPS[g](oldComputed, newComputed)) continue;
+
+            let el = document.querySelector(`[data-key="${g}"]`);
+            if (g === "resultsRetirement")
+              el = document.getElementById("kpiRetYear") || el; // <-- add this
+
+            if (!el || !isVisible(el)) continue;
+            const c = centerPage(el);
+            if (!c) continue;
+            targets.push({ type: "group", key: g, el, c });
+          }
+
+          return targets;
+        }
+
+        function applyHitUpdate(target, computed) {
+          if (target.type === "key") {
+            const k = target.key;
+            const el = target.el;
+            const v = computed.get(k);
+
+            if (
+              k === "savingsRate" ||
+              k === "yearsModeled" ||
+              k === "salesTaxRateText"
+            ) {
+              el.textContent = v || "—";
+            } else if (typeof v === "number") {
+              el.textContent = fmtMoney0(v);
+            } else {
+              el.textContent = v || "—";
+            }
+            flash(el);
+            return;
+          }
+
+          if (target.key === "resultsYearly") {
+            $("kpiYearlyPct").textContent = computed.get("kpiYearlyPct") || "—";
+            taxKeyLine.innerHTML = computed.get("taxKeyHTML") || "";
+            flash(target.el);
+            return;
+          }
+          if (target.key === "resultsLifetime") {
+            const lp = computed.get("kpiLifetimePct") || "—";
+            const extraW = computed.get("kpiPostFiWithdrawalTaxLoss") || 0;
+            $("kpiLifetimePct").textContent = lp;
+            $(
+              "kpiLifetimeSentence"
+            ).textContent = `${lp} of the lifetime wealth potential at your current income and spend is lost under your tax regime (includes ~$${fmtInt(
+              extraW
+            )} lost to post-FI withdrawal taxes).`;
+            $("kpiLost").textContent = fmtMoney0(computed.get("kpiLost") || 0);
+            $("kpiPotential").textContent = fmtMoney0(
+              computed.get("kpiPotential") || 0
+            );
+            $("kpiWithTaxes").textContent = fmtMoney0(
+              computed.get("kpiWithTaxes") || 0
+            );
+            flash(target.el);
+            return;
+          }
+          if (target.key === "resultsRetirement") {
+            $("kpiRetYear").textContent = computed.get("kpiRetYear") || "—";
+            $("kpiRetAge").textContent = computed.get("kpiRetAge") || "—";
+            $("targetText").textContent = computed.get("targetText") || "—";
+            $("targetPortfolio").textContent = fmtMoney0(
+              computed.get("targetPortfolio") || 0
+            );
+            flash(target.el);
+            return;
+          }
+          if (target.key === "breakdownTop") {
+            updateBreakdown(computed);
+            flash(target.el);
+            return;
+          }
+        }
+
+        async function runCascade(anchorEl, targets, computed, token) {
+          if (!targets.length) {
+            setOrb(0, 0, false);
+            applyComputedInstant(computed);
+            return;
+          }
+
+          const start = centerPage(anchorEl) || {
+            x: window.scrollX + 20,
+            y: window.scrollY + 20,
+          };
+          setOrb(start.x, start.y, true);
+
+          let prev = start;
+          for (let i = 0; i < targets.length; i++) {
+            if (token !== cascadeToken) return;
+
+            const t = targets[i];
+            await animateOrb(prev, t.c, 150, token);
+            if (token !== cascadeToken) return;
+
+            spawnRing(t.c.x, t.c.y);
+            applyHitUpdate(t, computed);
+            tick();
+
+            prev = t.c;
+            await new Promise((res) => setTimeout(res, 100));
+          }
+
+          applyComputedInstant(computed);
+
+          setTimeout(() => setOrb(prev.x, prev.y, false), 120);
+          setTimeout(() => autoCollapseAll(), 700);
+        }
+
+        function recalcFromAnchor(anchorEl, anchorKey) {
+          if (!requiredComplete()) return;
+
+          const newComputed = computeAll(state);
+
+          if (prevComputed.size === 0) {
+            applyComputedInstant(newComputed);
+            prevComputed = newComputed;
+            return;
+          }
+
+          flashImmediateSection(anchorEl);
+
+          const oldComputed = prevComputed;
+          prevComputed = newComputed;
+
+          const targets = createTargets(anchorEl, oldComputed, newComputed);
+          const token = ++cascadeToken;
+
+          const startEl =
+            document.querySelector(`[data-anchor="${anchorKey}"]`) || anchorEl;
+
+          runCascade(startEl, targets, newComputed, token);
+        }
+
+        // ---------- Start-up ----------
+        function populateAndInit() {
+          applyStateDefaults("CA");
+
+          setMasterActive(true);
+          setAllTaxScales(1.0);
+          rngMasterScale.value = "100";
+          masterVal.textContent = "100%";
+
+          updateInlineAnchors();
+          updateProgress();
+          for (const el of sectionEls) el.classList.remove("collapsed");
+        }
+        populateAndInit();
+      })();
+    </script>
+  </body>
+</html>
