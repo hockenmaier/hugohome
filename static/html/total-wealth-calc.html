@@ -3389,7 +3389,7 @@
           const extraW = computed.get("kpiPostFiWithdrawalTaxLoss") || 0;
           $(
             "kpiLifetimeSentence"
-          ).textContent = `${lifetimePct} of the lifetime wealth potential at your current income and spend is lost under your tax regime (includes ~$${fmtInt(
+          ).textContent = `${lifetimePct} of the lifetime wealth potential at your current income and spend will be lost to tax and inflation effects (includes ~$${fmtInt(
             extraW
           )} lost to post-FI withdrawal taxes).`;
 
@@ -3537,7 +3537,11 @@
           ];
           for (const g of resultsOrder) {
             if (!GROUPS[g](oldComputed, newComputed)) continue;
-            const el = document.querySelector(`[data-key="${g}"]`);
+
+            let el = document.querySelector(`[data-key="${g}"]`);
+            if (g === "resultsRetirement")
+              el = document.getElementById("kpiRetYear") || el; // <-- add this
+
             if (!el || !isVisible(el)) continue;
             const c = centerPage(el);
             if (!c) continue;
