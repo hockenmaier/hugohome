@@ -36,7 +36,7 @@
             
 
             
-                <link href="http://localhost:1313/categories/" rel="self" type="text/html"/>
+                <link href="https://hockenworks.com/categories/" rel="self" type="text/html"/>
             
         
             
@@ -44,7 +44,7 @@
             
 
             
-                <link href="http://localhost:1313/categories/rss.xml" rel="alternate" type="application/rss+xml"/>
+                <link href="https://hockenworks.com/categories/rss.xml" rel="alternate" type="application/rss+xml"/>
             
         
 
@@ -60,7 +60,7 @@
 
         
 
-        <link>http://localhost:1313/categories/</link>
+        <link>https://hockenworks.com/categories/</link>
 
         
 
