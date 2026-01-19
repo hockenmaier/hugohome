@@ -188,7 +188,12 @@
 <p><strong>First breakdown:</strong> the screen finally died with one of the LED rows failing. It was a trooper. This meant updating to a <a href="https://www.amazon.com/dp/B07P8P3X6M">new version of the screen</a></p>
 <p>And the slight physical difference of the board components meant I had to redesign how I mounted it to the wall, from a complete enclosure that attached via mounting tape to a new slim set of custom brackets I made taking advantage of the standard screw mounts on the screen’s PCB:</p>
 <div class="paige-row-wide">
-  <div style="display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:15px;">
+  <div style="
+    display:grid;
+    grid-template-columns:repeat(2, minmax(0,1fr));
+    gap:15px;
+    align-items:center;
+  ">
       
 
 
@@ -495,7 +500,12 @@ Remember, this will be permanently displayed and always be up to date so account
                     <description><![CDATA[<p>Here&rsquo;s my most patriotic print yet! I have been using our new (hand-me-down) stroller a lot lately, for obvious reasons, and I decided there were a few things I just couldn&rsquo;t go without.</p>
 <p>So, I made a one-print solution that requires zero support and attaches to the handle of any stroller with hose clamps, which are shown here covered by separate printed strap covers to protect the leather of the stroller handle. I&rsquo;ve deemed it the Strollerhock:</p>
 <div class="paige-row-wide">
-  <div style="display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:15px;">
+  <div style="
+    display:grid;
+    grid-template-columns:repeat(2, minmax(0,1fr));
+    gap:15px;
+    align-items:center;
+  ">
       
 
 
@@ -653,7 +663,12 @@ Remember, this will be permanently displayed and always be up to date so account
 </div>
 
 <div class="paige-row-wide">
-  <div style="display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:15px;">
+  <div style="
+    display:grid;
+    grid-template-columns:repeat(2, minmax(0,1fr));
+    gap:15px;
+    align-items:center;
+  ">
       
 
 
@@ -1440,7 +1455,12 @@ And this one might sound funny to someone that is paying attention to AI in part
 <p>This is a risk-taking game where players compete to take over a tree with their specific type of fruit. Trees and bees are becoming a recurring theme in my games!</p>
 <p>All parts of this game are hand-designed by me, mostly in VR with a tool called Gravity Sketch, blender, and one of my favorite programmer&rsquo;s 3D tools called OpenSCAD.</p>
 <div class="paige-row-wide">
-  <div style="display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:15px;">
+  <div style="
+    display:grid;
+    grid-template-columns:repeat(2, minmax(0,1fr));
+    gap:15px;
+    align-items:center;
+  ">
       
 
 
@@ -1598,7 +1618,12 @@ And this one might sound funny to someone that is paying attention to AI in part
 </div>
 
 <div class="paige-row-wide">
-  <div style="display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:15px;">
+  <div style="
+    display:grid;
+    grid-template-columns:repeat(2, minmax(0,1fr));
+    gap:15px;
+    align-items:center;
+  ">
       
 
 
@@ -1758,7 +1783,12 @@ And this one might sound funny to someone that is paying attention to AI in part
 <p>Of all my models, this one takes most advantage of my multicolor BambuLab printer. All parts including the custom box which cleverly incorporates the instructions and game board itself are printed in BambuLab Matte PLA, which in my opinion is the most beautiful way to print.</p>
 <p>Production is batched with 80 to 150 of each fruit or bee on a build plate, with overall production heavily limited by the game board and latching box each requiring a separate print.</p>
 <div class="paige-row-wide">
-  <div style="display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:15px;">
+  <div style="
+    display:grid;
+    grid-template-columns:repeat(2, minmax(0,1fr));
+    gap:15px;
+    align-items:center;
+  ">
       
 
 
@@ -1963,7 +1993,12 @@ And this one might sound funny to someone that is paying attention to AI in part
                     <description><![CDATA[<p>This was a board game I &ldquo;cloned&rdquo; back in 2015, but newly redesigned in 2024 with resized pieces and a self-contained custom game box and instructions printed right into the box.</p>
 <p>I love small games that travel well, and this game is about the same depth and nearly 1/4th the area of the original box - thus &ldquo;pocket&rdquo;. It&rsquo;s a snug fit but nicely sectioned out for all pieces. Have fun!</p>
 <div class="paige-row-wide">
-  <div style="display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:15px;">
+  <div style="
+    display:grid;
+    grid-template-columns:repeat(2, minmax(0,1fr));
+    gap:15px;
+    align-items:center;
+  ">
       
 
 
@@ -2177,7 +2212,12 @@ Print them for your living room! Print them for your friends!
 I hope these characters remind you of some of your favorite series.</p>
 <p>I returned to <a href="/8-bit-coasters">this project</a> after 10 years to make more coasters, including some designs for multi-plastic printers and a reinforced 4-coaster holder!</p>
 <div class="paige-row-wide">
-  <div style="display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:15px;">
+  <div style="
+    display:grid;
+    grid-template-columns:repeat(2, minmax(0,1fr));
+    gap:15px;
+    align-items:center;
+  ">
       
 
 
@@ -2335,7 +2375,12 @@ I hope these characters remind you of some of your favorite series.</p>
 </div>
 
 <div class="paige-row-wide">
-  <div style="display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:15px;">
+  <div style="
+    display:grid;
+    grid-template-columns:repeat(2, minmax(0,1fr));
+    gap:15px;
+    align-items:center;
+  ">
       
 
 
@@ -2690,7 +2735,7 @@ I hope these characters remind you of some of your favorite series.</p>
 <p>I created this panel display in 2016 to control much of the home automation I used in my Studio City apartment. Mainly a hardware project, I designed and 3D-printed a case and frame for the touchscreen and raspberry pi microcomputer in order to mount them to the wall. The software running the control panel is SaaS, but I did write a custom html wrapper to control the orientation and settings of the site, which is available on the github linked above.</p>
 <p>Update in 2025: This panel is still my main view into my home automation in my new house in Sherman Oaks, almost 10 years in with no modification to the software or Pi itself! However, the LED behind the screen died this year and I had to replace it (link below)</p>
 <p>Here&rsquo;s a video to see the panel in action:</p>
-<h2 id="hahahugoshortcode30s0hbhb">
+<h2 id="hahahugoshortcode29s0hbhb">
     <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
       <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/iFGmm-ijJvE?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"></iframe>
     </div>
@@ -2802,7 +2847,12 @@ Original:
                 
                     <description><![CDATA[<p>This game is based off of a similar card game called &ldquo;No Thanks!&rdquo; but expands the number of players to 8.</p>
 <div class="paige-row-wide">
-  <div style="display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:15px;">
+  <div style="
+    display:grid;
+    grid-template-columns:repeat(2, minmax(0,1fr));
+    gap:15px;
+    align-items:center;
+  ">
       
 
 
@@ -2960,7 +3010,12 @@ Original:
 </div>
 
 <div class="paige-row-wide">
-  <div style="display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:15px;">
+  <div style="
+    display:grid;
+    grid-template-columns:repeat(2, minmax(0,1fr));
+    gap:15px;
+    align-items:center;
+  ">
       
 
 
@@ -3297,7 +3352,12 @@ I&rsquo;ve redesigned and re-released these coasters! <a href="/8-bit-coasters-1
 This full set of 8 unique video game coasters comes with themed coaster holders for sets of either 4 or 8! Print them for your living room! Print them for your friends!
 I hope these characters remind you of some of your favorite series.</p>
 <div class="paige-row-wide">
-  <div style="display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:15px;">
+  <div style="
+    display:grid;
+    grid-template-columns:repeat(2, minmax(0,1fr));
+    gap:15px;
+    align-items:center;
+  ">
       
 
 
@@ -3455,7 +3515,12 @@ I hope these characters remind you of some of your favorite series.</p>
 </div>
 
 <div class="paige-row-wide">
-  <div style="display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:15px;">
+  <div style="
+    display:grid;
+    grid-template-columns:repeat(2, minmax(0,1fr));
+    gap:15px;
+    align-items:center;
+  ">
       
 
 

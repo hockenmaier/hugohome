@@ -1,7 +1,12 @@
 {{- $raw := .Inner | plainify -}}
 {{- $items := split $raw "," -}}
 <div class="paige-row-wide">
-  <div style="display:grid; grid-template-columns:repeat({{ len $items }}, minmax(0,1fr)); gap:15px;">
+  <div style="
+    display:grid;
+    grid-template-columns:repeat({{ len $items }}, minmax(0,1fr));
+    gap:15px;
+    align-items:center;
+  ">
     {{- range $items -}}
       {{- $parts := split (trim . " \n\t\r") "|" -}}
       {{- $src := index $parts 0 -}}
