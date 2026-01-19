@@ -70,7 +70,7 @@
             
 
             
-                <link href="https://hockenworks.com/tags/rapid-prototyping/" rel="self" type="text/html"/>
+                <link href="http://localhost:1313/tags/rapid-prototyping/" rel="self" type="text/html"/>
             
         
             
@@ -78,7 +78,7 @@
             
 
             
-                <link href="https://hockenworks.com/tags/rapid-prototyping/rss.xml" rel="alternate" type="application/rss+xml"/>
+                <link href="http://localhost:1313/tags/rapid-prototyping/rss.xml" rel="alternate" type="application/rss+xml"/>
             
         
 
@@ -96,7 +96,7 @@
             <lastBuildDate>2025-08-24 00:00:00 +0000 UTC</lastBuildDate>
         
 
-        <link>https://hockenworks.com/tags/rapid-prototyping/</link>
+        <link>http://localhost:1313/tags/rapid-prototyping/</link>
 
         
 
@@ -335,10 +335,10 @@
 ]]></description>
                 
 
-                <guid isPermaLink="false">tag:hockenworks.com,2025-08-24:/gpt5/</guid>
+                <guid isPermaLink="false">tag:localhost:1313,2025-08-24:/gpt5/</guid>
 
                 
-                    <link>https://hockenworks.com/gpt5/</link>
+                    <link>http://localhost:1313/gpt5/</link>
                 
 
                 
@@ -387,10 +387,10 @@
 <hr>]]></description>
                 
 
-                <guid isPermaLink="false">tag:hockenworks.com,2025-02-13:/context-caddy/</guid>
+                <guid isPermaLink="false">tag:localhost:1313,2025-02-13:/context-caddy/</guid>
 
                 
-                    <link>https://hockenworks.com/context-caddy/</link>
+                    <link>http://localhost:1313/context-caddy/</link>
                 
 
                 
@@ -463,10 +463,10 @@
 <p>For March 2023, this result was revolutionary - I was truly impressed. In 2025, it&rsquo;s not very impressive at all. How quickly we get used to progress!</p>]]></description>
                 
 
-                <guid isPermaLink="false">tag:hockenworks.com,2023-03-18:/gpt-4-solar-system/</guid>
+                <guid isPermaLink="false">tag:localhost:1313,2023-03-18:/gpt-4-solar-system/</guid>
 
                 
-                    <link>https://hockenworks.com/gpt-4-solar-system/</link>
+                    <link>http://localhost:1313/gpt-4-solar-system/</link>
                 
 
                 
@@ -596,7 +596,7 @@
 
 
 
-<img  alt="Answering Machine homepage"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/answering_machine_uploads.png"   style="height: auto; max-width: 720px; width: 100%"   >
+<img  alt="Answering Machine homepage"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/answering_machine_uploads.png"   style="height: auto; max-width: 720px; width: 100%"   >
 
 
     
@@ -688,7 +688,7 @@
 
 
 
-<img  alt="Answering Machine main view"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/answering_machine_hr.png"   style="height: auto; width: 100%"   >
+<img  alt="Answering Machine main view"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/answering_machine_hr.png"   style="height: auto; width: 100%"   >
 
 
     
@@ -778,7 +778,7 @@
 
 
 
-<img  alt="Answering Machine info panel"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/answering_machine_info.png"   style="height: auto; max-width: 720px; width: 100%"   >
+<img  alt="Answering Machine info panel"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/answering_machine_info.png"   style="height: auto; max-width: 720px; width: 100%"   >
 
 
     
@@ -870,7 +870,7 @@
 
 
 
-<img  alt="Answering Machine query bar"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/answering_machine_query.png"   style="height: auto; max-width: 720px; width: 100%"   >
+<img  alt="Answering Machine query bar"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/answering_machine_query.png"   style="height: auto; max-width: 720px; width: 100%"   >
 
 
     
@@ -968,7 +968,7 @@
 
 
 
-<img  alt="Answering Machine response"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/answering_machine_answer.png"   style="height: auto; max-width: 720px; width: 100%"   >
+<img  alt="Answering Machine response"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/answering_machine_answer.png"   style="height: auto; max-width: 720px; width: 100%"   >
 
 
     
@@ -1065,7 +1065,7 @@
 
 
 
-<img  alt="Answering Machine subjects and conditions"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/answering_machine_lexicon.png"   style="height: auto; max-width: 400px; width: 100%"   >
+<img  alt="Answering Machine subjects and conditions"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/answering_machine_lexicon.png"   style="height: auto; max-width: 400px; width: 100%"   >
 
 
     
@@ -1157,7 +1157,7 @@
 
 
 
-<img  alt="Answering Machine concept"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/answering_machine_concept.png"   style="height: auto; max-width: 200px; width: 100%"   >
+<img  alt="Answering Machine concept"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/answering_machine_concept.png"   style="height: auto; max-width: 200px; width: 100%"   >
 
 
     
@@ -1254,7 +1254,7 @@
 
 
 
-<img  alt="Serverless Architecture of the Answering Machine app"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/answering_machine_architecture.png"   style="height: auto; max-width: 720px; width: 100%"   >
+<img  alt="Serverless Architecture of the Answering Machine app"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/answering_machine_architecture.png"   style="height: auto; max-width: 720px; width: 100%"   >
 
 
     
@@ -1264,10 +1264,10 @@
 ]]></description>
                 
 
-                <guid isPermaLink="false">tag:hockenworks.com,2019-07-03:/answering-machine/</guid>
+                <guid isPermaLink="false">tag:localhost:1313,2019-07-03:/answering-machine/</guid>
 
                 
-                    <link>https://hockenworks.com/answering-machine/</link>
+                    <link>http://localhost:1313/answering-machine/</link>
                 
 
                 
@@ -1397,7 +1397,7 @@ Like Alexa skills, Google actions can be accessed through search or by simply as
 
 
 
-<img  alt="Serverless Architecture of the First Ten app"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/first_ten_architecture.png"   style="height: auto; max-width: 720px; width: 100%"   >
+<img  alt="Serverless Architecture of the First Ten app"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/first_ten_architecture.png"   style="height: auto; max-width: 720px; width: 100%"   >
 
 
     
@@ -1407,10 +1407,10 @@ Like Alexa skills, Google actions can be accessed through search or by simply as
 ]]></description>
                 
 
-                <guid isPermaLink="false">tag:hockenworks.com,2018-05-19:/first-ten/</guid>
+                <guid isPermaLink="false">tag:localhost:1313,2018-05-19:/first-ten/</guid>
 
                 
-                    <link>https://hockenworks.com/first-ten/</link>
+                    <link>http://localhost:1313/first-ten/</link>
                 
 
                 
