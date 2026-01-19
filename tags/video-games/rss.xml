@@ -1972,7 +1972,12 @@ Print them for your living room! Print them for your friends!
 I hope these characters remind you of some of your favorite series.</p>
 <p>I returned to <a href="/8-bit-coasters">this project</a> after 10 years to make more coasters, including some designs for multi-plastic printers and a reinforced 4-coaster holder!</p>
 <div class="paige-row-wide">
-  <div style="display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:15px;">
+  <div style="
+    display:grid;
+    grid-template-columns:repeat(2, minmax(0,1fr));
+    gap:15px;
+    align-items:center;
+  ">
       
 
 
@@ -2130,7 +2135,12 @@ I hope these characters remind you of some of your favorite series.</p>
 </div>
 
 <div class="paige-row-wide">
-  <div style="display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:15px;">
+  <div style="
+    display:grid;
+    grid-template-columns:repeat(2, minmax(0,1fr));
+    gap:15px;
+    align-items:center;
+  ">
       
 
 
@@ -3680,7 +3690,12 @@ I&rsquo;ve redesigned and re-released these coasters! <a href="/8-bit-coasters-1
 This full set of 8 unique video game coasters comes with themed coaster holders for sets of either 4 or 8! Print them for your living room! Print them for your friends!
 I hope these characters remind you of some of your favorite series.</p>
 <div class="paige-row-wide">
-  <div style="display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:15px;">
+  <div style="
+    display:grid;
+    grid-template-columns:repeat(2, minmax(0,1fr));
+    gap:15px;
+    align-items:center;
+  ">
       
 
 
@@ -3838,7 +3853,12 @@ I hope these characters remind you of some of your favorite series.</p>
 </div>
 
 <div class="paige-row-wide">
-  <div style="display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:15px;">
+  <div style="
+    display:grid;
+    grid-template-columns:repeat(2, minmax(0,1fr));
+    gap:15px;
+    align-items:center;
+  ">
       
 
 

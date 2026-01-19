@@ -182,7 +182,12 @@
 <p><strong>First breakdown:</strong> the screen finally died with one of the LED rows failing. It was a trooper. This meant updating to a <a href="https://www.amazon.com/dp/B07P8P3X6M">new version of the screen</a></p>
 <p>And the slight physical difference of the board components meant I had to redesign how I mounted it to the wall, from a complete enclosure that attached via mounting tape to a new slim set of custom brackets I made taking advantage of the standard screw mounts on the screen’s PCB:</p>
 <div class="paige-row-wide">
-  <div style="display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:15px;">
+  <div style="
+    display:grid;
+    grid-template-columns:repeat(2, minmax(0,1fr));
+    gap:15px;
+    align-items:center;
+  ">
       
 
 

@@ -2069,7 +2069,12 @@ document.addEventListener('DOMContentLoaded', function(){
 <p>This is a risk-taking game where players compete to take over a tree with their specific type of fruit. Trees and bees are becoming a recurring theme in my games!</p>
 <p>All parts of this game are hand-designed by me, mostly in VR with a tool called Gravity Sketch, blender, and one of my favorite programmer&rsquo;s 3D tools called OpenSCAD.</p>
 <div class="paige-row-wide">
-  <div style="display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:15px;">
+  <div style="
+    display:grid;
+    grid-template-columns:repeat(2, minmax(0,1fr));
+    gap:15px;
+    align-items:center;
+  ">
       
 
 
@@ -2227,7 +2232,12 @@ document.addEventListener('DOMContentLoaded', function(){
 </div>
 
 <div class="paige-row-wide">
-  <div style="display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:15px;">
+  <div style="
+    display:grid;
+    grid-template-columns:repeat(2, minmax(0,1fr));
+    gap:15px;
+    align-items:center;
+  ">
       
 
 
@@ -2387,7 +2397,12 @@ document.addEventListener('DOMContentLoaded', function(){
 <p>Of all my models, this one takes most advantage of my multicolor BambuLab printer. All parts including the custom box which cleverly incorporates the instructions and game board itself are printed in BambuLab Matte PLA, which in my opinion is the most beautiful way to print.</p>
 <p>Production is batched with 80 to 150 of each fruit or bee on a build plate, with overall production heavily limited by the game board and latching box each requiring a separate print.</p>
 <div class="paige-row-wide">
-  <div style="display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:15px;">
+  <div style="
+    display:grid;
+    grid-template-columns:repeat(2, minmax(0,1fr));
+    gap:15px;
+    align-items:center;
+  ">
       
 
 
@@ -2734,7 +2749,12 @@ An experimental “AI generated RPG” where you play as “The Boy” who reali
                     <description><![CDATA[<p>This was a board game I &ldquo;cloned&rdquo; back in 2015, but newly redesigned in 2024 with resized pieces and a self-contained custom game box and instructions printed right into the box.</p>
 <p>I love small games that travel well, and this game is about the same depth and nearly 1/4th the area of the original box - thus &ldquo;pocket&rdquo;. It&rsquo;s a snug fit but nicely sectioned out for all pieces. Have fun!</p>
 <div class="paige-row-wide">
-  <div style="display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:15px;">
+  <div style="
+    display:grid;
+    grid-template-columns:repeat(2, minmax(0,1fr));
+    gap:15px;
+    align-items:center;
+  ">
       
 
 
@@ -4224,7 +4244,12 @@ This is what the project looked like for my first play-test with other people 5 
                 
                     <description><![CDATA[<p>This game is based off of a similar card game called &ldquo;No Thanks!&rdquo; but expands the number of players to 8.</p>
 <div class="paige-row-wide">
-  <div style="display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:15px;">
+  <div style="
+    display:grid;
+    grid-template-columns:repeat(2, minmax(0,1fr));
+    gap:15px;
+    align-items:center;
+  ">
       
 
 
@@ -4382,7 +4407,12 @@ This is what the project looked like for my first play-test with other people 5 
 </div>
 
 <div class="paige-row-wide">
-  <div style="display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:15px;">
+  <div style="
+    display:grid;
+    grid-template-columns:repeat(2, minmax(0,1fr));
+    gap:15px;
+    align-items:center;
+  ">
       
 
 

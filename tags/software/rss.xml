@@ -182,7 +182,12 @@
 <p><strong>First breakdown:</strong> the screen finally died with one of the LED rows failing. It was a trooper. This meant updating to a <a href="https://www.amazon.com/dp/B07P8P3X6M">new version of the screen</a></p>
 <p>And the slight physical difference of the board components meant I had to redesign how I mounted it to the wall, from a complete enclosure that attached via mounting tape to a new slim set of custom brackets I made taking advantage of the standard screw mounts on the screen’s PCB:</p>
 <div class="paige-row-wide">
-  <div style="display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:15px;">
+  <div style="
+    display:grid;
+    grid-template-columns:repeat(2, minmax(0,1fr));
+    gap:15px;
+    align-items:center;
+  ">
       
 
 
@@ -734,7 +739,12 @@ Remember, this will be permanently displayed and always be up to date so account
                     <description><![CDATA[<p>Recently I read the <a href="https://ai-2027.com/scenario.pdf">AI 2027 paper</a>. I was surprised to see Scott Alexander&rsquo;s name on this paper, and I was doubly surprised to see him do his <a href="https://www.dwarkesh.com/p/scott-daniel">first face reveal podcast about it with Dwarkesh</a>.</p>
 <p>On its face, this is one of the most aggressive predictions for when we will have AGI (at least the new definition of AGI, which is something that is comparable to or better than humans at all non-bodily tasks) that I have read. Even as someone who has been a long believer in <a href="https://en.wikipedia.org/wiki/The_Singularity_Is_Near">Ray Kurzweil&rsquo;s Singularity predictions</a>, 2027 strikes me as very early. I realize that Kurzweil&rsquo;s AGI date was also late 2020s, which puts his prediction in line with AI 2027, while 2045 was his singularity prediction. But 2027 still feels early to me.</p>
 <div class="paige-row-wide">
-  <div style="display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:15px;">
+  <div style="
+    display:grid;
+    grid-template-columns:repeat(2, minmax(0,1fr));
+    gap:15px;
+    align-items:center;
+  ">
       
 
 
