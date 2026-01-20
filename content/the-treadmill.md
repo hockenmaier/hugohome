@@ -76,7 +76,7 @@ While writing this essay I came across another recent one from Adam Singer, who 
 
 https://www.hottakes.space/p/250k-per-year-is-plenty-of-income
 
-Of course I agree, but what I found really funny while reading it is that I see two reactions to this 250K threshold: That it's extremely high, and that it's extremely low. These diverse reactions are only possible in a society where, for many, money has become largely about comparison to others vs something needed to live a satisfied life. I think those who see this and think its an extremely low to be "plenty" is living in comparison land.
+Of course I agree, but what I found really funny while reading it is that I see two reactions to this 250K threshold: That it's extremely high, and that it's extremely low. These diverse reactions are only possible in a society where, for many, money has become largely about comparison to others vs something needed to live a satisfied life. I think those who see this and think 250K is extremely low to be "plenty" are living in comparison land.
 
 So, think deeply about what you value. Money itself is a means to an end. It's the way you spend your time, and that includes working too, that has true value. Value your own time as much as your spending habits would suggest you do. This is the right logic for your long-term well-being.
 

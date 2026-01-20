@@ -17,7 +17,9 @@ zcoronado-herobanner.png|Lifestyle|nozoom
 
 {{< /centered-text >}}
 
-Welcome to hockenworks! I'm [Brian Hockenmaier](/about-me) and [this site is full of things I work and write on.](/this-website/#etymology-of-hockenworks) That includes game development, AI, VR, DIY, Home Automation, 3D printing, Money, Happiness, the Singularity, and more. I hope you find something interesting here. I use AI to code, but never to write: there will never be AI written content on this site.
+Welcome to hockenworks! I'm [Brian Hockenmaier](/about-me) and [this site is full of things I work and write on.](/this-website/#etymology-of-hockenworks) That includes game development, AI, VR, DIY, Home Automation, 3D printing, Money, Happiness, the Singularity, and more. I hope you find something interesting here.
+
+I use AI to code, but never to write: there will never be AI written content on this site.
 
 This site is also a video game. Play around and discover it yourself or [learn how to play here](/this-website/#ball-machine---the-game)
 
