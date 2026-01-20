@@ -81,6 +81,14 @@ I've been 3D Modeling since Cal Poly and printing since I got my first printer -
 
 &nbsp;
 
+{{< single-with-image path="/best-prints-2025">}}
+
+> A collection of frugal prints and useful prints from 2024 and 2025.
+
+&nbsp;
+
+&nbsp;
+
 {{< single-with-image path="/bloom-or-bust">}}
 
 > Bloom Or Bust is my latest and best board game. Fully designed from scratch using OpenSCAD and Gravity Sketch (A very fun VR-based 3D Modeling program)
