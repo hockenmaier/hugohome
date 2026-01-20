@@ -136,7 +136,7 @@ My first 3D model as a parent was one of the first models where I let AI do the 
 {{< image-medium
     src="images/alice-mesh.webp">}}
 
-This one is a keepsake! I 3D-scanned Alice's face at 50 days while she was sleeping on me with an iphone lidar app, cleaned it up in Blender, and printed it for my mom and Alice's mom in my life for Mother's day. Printed with my 0.2mm nozzle and a 100 micron resolution to show the detail of the scan - it worked well!
+This one is a keepsake! I 3D-scanned Alice's face at 50 days while she was sleeping on me with an iphone lidar app, cleaned it up in Blender, and printed it for my mom and Alice's mom for Mother's day. Printed with my 0.2mm nozzle and a 100 micron resolution to show the detail of the scan - it worked well!
 
 ### Alice In Wonderland Nursery
 

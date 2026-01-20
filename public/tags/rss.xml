@@ -36,7 +36,7 @@
             
 
             
-                <link href="http://localhost:1313/tags/" rel="self" type="text/html"/>
+                <link href="https://hockenworks.com/tags/" rel="self" type="text/html"/>
             
         
             
@@ -44,7 +44,7 @@
             
 
             
-                <link href="http://localhost:1313/tags/rss.xml" rel="alternate" type="application/rss+xml"/>
+                <link href="https://hockenworks.com/tags/rss.xml" rel="alternate" type="application/rss+xml"/>
             
         
 
@@ -60,7 +60,7 @@
 
         
 
-        <link>http://localhost:1313/tags/</link>
+        <link>https://hockenworks.com/tags/</link>
 
         
 
