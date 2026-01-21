@@ -87,11 +87,16 @@
     {{ $resource = partial "paige/resource.html" (dict "page" $page "url" $src) }}
 {{ end }}
 
-{{ if and $resourceIsPage (not $process) }}
+{{ $isGif := false }}
+{{ if $resource }}
+    {{ $isGif = eq $resource.MediaType.SubType "gif" }}
+{{ end }}
+
+{{ if and $resourceIsPage (not $process) (not $isGif) }}
     {{ $process = "resize q85 webp" }}
 {{ end }}
 
-{{ if and $resourceIsPage (not $breakpoints) (not $densities) (not $sizes) (not $srcset) }}
+{{ if and $resourceIsPage (not $breakpoints) (not $densities) (not $sizes) (not $srcset) (not $isGif) }}
     {{ $breakpoints = "default" }}
 {{ end }}
 
