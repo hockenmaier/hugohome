@@ -1,5 +1,6 @@
 {{- $raw := .Inner | plainify -}}
 {{- $items := split $raw "," -}}
+{{- $page := .Page -}}
 <div class="paige-row-wide">
   <div style="
     display:grid;
@@ -18,7 +19,7 @@
           "src"   (print "/" $src)
           "alt"   $alt
           "class" "rounded-3 w-100"
-          "page" .Page
+          "page" $page
           "nozoom" $nozoom
       ) }}
     {{- end -}}
