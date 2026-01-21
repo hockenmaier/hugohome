@@ -1,7 +1,8 @@
 <div style="display: flex; align-items: center; justify-content: center; gap: 10px; margin-bottom: 1rem;">
     {{ partial "paige/image" (dict 
         "src" (.Get "src") 
-        "alt" (.Get "alt" | default "Image description") 
+        "alt" (.Get "alt" | default "Image description")
+        "page" .Page
         "width" (.Get "width") 
         "maxwidth" (.Get "maxwidth")
         "nozoom" (.Get "nozoom"))

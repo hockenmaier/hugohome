@@ -24,6 +24,7 @@
 
 {{ $intrinsicheight := "" }}
 {{ $intrinsicwidth := "" }}
+{{ $resourceIsPage := false }}
 
 {{ if and (or $height $maxheight) (not (or $maxwidth $width)) }}
     {{ $width = "auto" }}
@@ -69,8 +70,29 @@
 
 {{ $style = delimit ($style | uniq | sort) "; " }}
 
+{{ $isRemote := false }}
+{{ if $src }}
+    {{ $isRemote = or (strings.HasPrefix $src "http://") (strings.HasPrefix $src "https://") }}
+{{ end }}
+
+{{ if and (not $resource) $src $page (not $isRemote) }}
+    {{ $cleanSrc := strings.TrimPrefix "/" $src }}
+    {{ with $page.Resources.GetMatch $cleanSrc }}
+        {{ $resource = . }}
+        {{ $resourceIsPage = true }}
+    {{ end }}
+{{ end }}
+
 {{ if and (not $resource) $src }}
     {{ $resource = partial "paige/resource.html" (dict "page" $page "url" $src) }}
+{{ end }}
+
+{{ if and $resourceIsPage (not $process) }}
+    {{ $process = "resize q85 webp" }}
+{{ end }}
+
+{{ if and $resourceIsPage (not $breakpoints) (not $densities) (not $sizes) (not $srcset) }}
+    {{ $breakpoints = "default" }}
 {{ end }}
 
 {{ if $resource }}
