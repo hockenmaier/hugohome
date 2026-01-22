@@ -68,6 +68,12 @@
     {{ $style = $style | append (print "width: " $width) }}
 {{ end }}
 
+{{ if and (not $height) (not $maxheight) }}
+    {{ if or (eq $width "100%") (and $class (strings.Contains $class "w-100")) }}
+        {{ $style = $style | append "height: auto" }}
+    {{ end }}
+{{ end }}
+
 {{ $style = delimit ($style | uniq | sort) "; " }}
 
 {{ $isRemote := false }}
