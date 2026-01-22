@@ -35,11 +35,8 @@
 
 {{/* Determine social preview image */}}
 {{ $img := $page.Params.featured }}
-{{ if and (not $img) $page.IsPage }}
-    {{ $match := findRE `<img[^>]*src=["']([^"']+)["']` $page.Content 1 }}
-    {{ if gt (len $match) 0 }}
-        {{ $img = replaceRE `<img[^>]*src=["']([^"']+)["'].*` `$1` (index $match 0) }}
-    {{ end }}
+{{ if and (not $img) $page.Params.featured_image }}
+    {{ $img = $page.Params.featured_image }}
 {{ end }}
 {{ if not $img }}
     {{ $img = site.Params.banner }}
