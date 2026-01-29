@@ -99,7 +99,11 @@
 {{ end }}
 
 {{ if and $resourceIsPage (not $process) (not $isGif) }}
-    {{ $process = "resize q85 webp" }}
+    {{ if eq $resource.MediaType.SubType "webp" }}
+        {{ $process = "resize q95" }}
+    {{ else }}
+        {{ $process = "resize q95 webp" }}
+    {{ end }}
 {{ end }}
 
 {{ if and $resourceIsPage (not $breakpoints) (not $densities) (not $sizes) (not $srcset) (not $isGif) }}
