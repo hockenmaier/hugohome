@@ -1,7 +1,5 @@
 {{ define "main" }}
   {{ $page := . }}
-  {{ partial "paige/page.html" $page }}
-
   {{ $ordered := $page.Pages.ByDate.Reverse }}
   {{ $pager := $page.Paginate $ordered }}
 
