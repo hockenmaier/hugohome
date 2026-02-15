@@ -24,29 +24,13 @@
     {{ $src = $feat }}
   {{ end }}
 
-{{ else if findRE `(?s)<(?:img|iframe)[^>]*src="([^"]+)"` $p.Content }}
-  {{ $m   := findRE `(?s)<(?:img|iframe)[^>]*src="([^"]+)"` $p.Content }}
-  {{ $raw = index $m 0 }}
-  {{ $src = replaceRE `(?s).*src="([^"]+)".*` `$1` $raw }}
-
-{{ else if findRE `(?s)<video[^>]*>.*?<source[^>]*src="([^"]+)"` $p.Content }}
-  {{ $m   := findRE `(?s)<video[^>]*>.*?<source[^>]*src="([^"]+)"` $p.Content }}
-  {{ $raw = index $m 0 }}
-  {{ $src = replaceRE `(?s).*<source[^>]*src="([^"]+)".*` `$1` $raw }}
-
 {{ else if $p.Params.featured_image }}
   {{ $raw = printf `<img src="%s">` $p.Params.featured_image }}
   {{ $src = $p.Params.featured_image }}
 {{ end }}
 
 {{/* ---------- CLEAN SUMMARY ---------- */}}
-{{ $sum := $p.Summary |
-    replaceRE `(?s)<iframe[^>]*>.*?</iframe>` `` |
-    replaceRE `(?s)<video[^>]*>.*?</video>` `` |
-    replaceRE `(?s)<img[^>]*>` `` |
-    replaceRE `(?s)<figcaption[^>]*>.*?</figcaption>` `` |
-    replaceRE `(?s)<span[^>]*font-style:[^>]*>.*?</span>` `` |
-    safeHTML }}
+{{ $sum := $p.Params.summary | default $p.Description | default "" }}
 
 {{/* ---------- OUTPUT ---------- */}}
 <div class="post-header" style="margin-bottom:1rem;">
