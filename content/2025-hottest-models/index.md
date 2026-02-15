@@ -4,7 +4,7 @@ date: 2026-01-19
 categories: ["builds"]
 stack: ["Openscad", "Bambulab"]
 tags: ["3D Modeling", "3D Printing", "Hardware", "Bambulab X1"]
-featured: "images/table-stilts-alice.webp"
+featured: "2025-hottest-models/images/table-stilts-alice.webp"
 ---
 
 Today I'm sharing my top 3D Models from 2025! What did you think this post would be about?
