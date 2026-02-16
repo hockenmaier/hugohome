@@ -57,10 +57,13 @@
 {{ end }}
 
 {{/* ── clean summary ────────────────────────────────────────── */}}
-{{ $sum := $p.Params.summary | default $p.Description }}
-{{ if not $sum }}
-  {{ $sum = $p.RawContent | plainify | strings.Truncate 260 }}
-{{ end }}
+{{ $sum := $p.Summary |
+    replaceRE `(?s)<iframe[^>]*>.*?</iframe>` `` |
+    replaceRE `(?s)<video[^>]*>.*?</video>` `` |
+    replaceRE `(?s)<img[^>]*>` `` |
+    replaceRE `(?s)<figcaption[^>]*>.*?</figcaption>` `` |
+    replaceRE `(?s)<span[^>]*font-style:[^>]*>.*?</span>` `` |
+    safeHTML }}
 
 <article class="latest-item mb-4" style="display:flex; align-items:flex-start;">
   <div class="media-column">

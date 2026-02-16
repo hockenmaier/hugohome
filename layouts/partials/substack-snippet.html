@@ -50,7 +50,13 @@
 {{ end }}
 
 {{/* ---------- CLEAN SUMMARY ---------- */}}
-{{ $sum := $p.Params.summary | default $p.Description | default "" }}
+{{ $sum := $p.Summary |
+    replaceRE `(?s)<iframe[^>]*>.*?</iframe>` `` |
+    replaceRE `(?s)<video[^>]*>.*?</video>` `` |
+    replaceRE `(?s)<img[^>]*>` `` |
+    replaceRE `(?s)<figcaption[^>]*>.*?</figcaption>` `` |
+    replaceRE `(?s)<span[^>]*font-style:[^>]*>.*?</span>` `` |
+    safeHTML }}
 
 {{/* ---------- OUTPUT ---------- */}}
 <div class="post-header" style="margin-bottom:1rem;">
