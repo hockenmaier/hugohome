@@ -38,8 +38,23 @@
     {{ if gt (len $mdImage) 0 }}
       {{ $src = replaceRE `!\[[^\]]*\]\(([^)\s]+).*` `$1` (index $mdImage 0) }}
       {{ $raw = printf `<img src="%s">` $src }}
+    {{ else }}
+      {{ $bareImage := findRE `(?m)(^|[\s,|(])(/?images/[^\s,|)]+\.(?:avif|gif|jpe?g|png|webp))` $rawContent 1 }}
+      {{ if gt (len $bareImage) 0 }}
+        {{ $src = replaceRE `(?s).*?(/?images/[^\s,|)]+\.(?:avif|gif|jpe?g|png|webp)).*` `$1` (index $bareImage 0) }}
+        {{ $raw = printf `<img src="%s">` $src }}
+      {{ end }}
     {{ end }}
   {{ end }}
+{{ end }}
+
+{{ if and $src (not (or (hasPrefix $src "http://") (hasPrefix $src "https://") (hasPrefix $src "/"))) }}
+  {{ $src = print "/" $src }}
+{{ end }}
+
+{{ if not $src }}
+  {{ $src = site.Params.banner | default "/images/bubble4.gif" }}
+  {{ $raw = printf `<img src="%s">` $src }}
 {{ end }}
 
 {{/* ---------- CLEAN SUMMARY ---------- */}}
