@@ -29,7 +29,7 @@
   {{ $src = $p.Params.featured_image }}
 {{ else }}
   {{ $rawContent := $p.RawContent }}
-  {{ $tokenMatches := findRE `(?s)src\s*=\s*["'][^"']+["']|!\[[^\]]*\]\([^)]*\)|/?images/[^\s,|)]+\.(?:avif|gif|jpe?g|png|webp)|\{\{<\s*youtube\s+[^>]+>\}\}` $rawContent 1 }}
+  {{ $tokenMatches := findRE `(?s)src\s*=\s*["'][^"']+["']|!\[[^\]]*\]\([^)]*\)|/?images/[^\s,|)]+\.(?:avif|gif|jpe?g|png|webp)` $rawContent 1 }}
   {{ if gt (len $tokenMatches) 0 }}
     {{ $token := index $tokenMatches 0 }}
     {{ if findRE `src\s*=\s*["'][^"']+["']` $token 1 }}
@@ -38,10 +38,6 @@
     {{ else if findRE `!\[[^\]]*\]\([^)]*\)` $token 1 }}
       {{ $src = replaceRE `!\[[^\]]*\]\(([^)\s]+).*` `$1` $token }}
       {{ $raw = printf `<img src="%s">` $src }}
-    {{ else if findRE `\{\{<\s*youtube\s+[^>]+>\}\}` $token 1 }}
-      {{ $id := replaceRE `(?s).*\{\{<\s*youtube\s+([^\s>]+).*` `$1` $token }}
-      {{ $src = printf "https://img.youtube.com/vi/%s/hqdefault.jpg" $id }}
-      {{ $raw = printf `<iframe src="https://www.youtube.com/embed/%s"></iframe>` $id }}
     {{ else }}
       {{ $src = replaceRE `(?s).*?(/?images/[^\s,|)]+\.(?:avif|gif|jpe?g|png|webp)).*` `$1` $token }}
       {{ $raw = printf `<img src="%s">` $src }}
