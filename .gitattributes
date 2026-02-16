@@ -1,3 +1,6 @@
-content/**/images/*.{gif,jpeg,jpg,png,webp} filter=lfs diff=lfs merge=lfs -text
-public/**/*.{gif,jpeg,jpg,png,webp} filter=lfs diff=lfs merge=lfs -text
-static/**/*.{gif,jpeg,jpg,png,webp} filter=lfs diff=lfs merge=lfs -text
+*.avif filter=lfs diff=lfs merge=lfs -text
+*.gif filter=lfs diff=lfs merge=lfs -text
+*.jpg filter=lfs diff=lfs merge=lfs -text
+*.jpeg filter=lfs diff=lfs merge=lfs -text
+*.png filter=lfs diff=lfs merge=lfs -text
+*.webp filter=lfs diff=lfs merge=lfs -text

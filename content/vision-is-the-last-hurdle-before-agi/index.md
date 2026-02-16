@@ -3,7 +3,7 @@ title: "Vision is the last hurdle before AGI"
 date: 2025-06-16
 categories: ["writing"]
 tags: ["singularity", "AI", "Invention", "predictions", "3D Modeling"]
-featured: "/images/vision-feature.png" # could be a .mp4, YouTube URL, whatever
+featured: "vision-is-the-last-hurdle-before-agi/images/vision-feature.png" # could be a .mp4, YouTube URL, whatever
 ---
 
 I have long been of the mind that LLMs and their evolutions are truly thinking, and that they are on their way to solving all of the intellectual tasks that humans can solve today.

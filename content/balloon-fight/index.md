@@ -19,7 +19,7 @@ tags:
     "AI Images",
     "AI Audio",
   ]
-featured: "images/balloon-fighter-3.gif"
+featured: "balloon-fight/images/balloon-fighter-3.gif"
 ---
 
 Today's post is about another video game start that either I or AI will finish one day. I'm building up a bit of a repertoire of those!

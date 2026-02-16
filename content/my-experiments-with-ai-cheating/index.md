@@ -15,7 +15,7 @@ tags:
     "Unity",
     "mobile",
   ]
-featured: "/images/make-us-smarter-feature.webp"
+featured: "my-experiments-with-ai-cheating/images/make-us-smarter-feature.webp"
 ---
 
 The advent of general coding AI assistants almost immediately changed how I think about hiring and interviews.
