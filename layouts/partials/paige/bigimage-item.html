@@ -33,35 +33,31 @@
 {{ else if $p.Params.featured_image }}
   {{ $raw = printf `<img src="%s">` $p.Params.featured_image }}
   {{ $src = $p.Params.featured_image }}
-{{/* 6) fallback to first image/video reference in raw markdown (recursion-safe) */}}
+{{/* 6) fallback to first media token in raw markdown (recursion-safe) */}}
 {{ else }}
   {{ $rawContent := $p.RawContent }}
-  {{ $match := findRE `src\s*=\s*["']([^"']+)["']` $rawContent 1 }}
-  {{ if gt (len $match) 0 }}
-    {{ $src = replaceRE `(?s).*src\s*=\s*["']([^"']+)["'].*` `$1` (index $match 0) }}
-    {{ $raw = printf `<img src="%s">` $src }}
-  {{ else }}
-    {{ $mdImage := findRE `!\[[^\]]*\]\(([^)\s]+)` $rawContent 1 }}
-    {{ if gt (len $mdImage) 0 }}
-      {{ $src = replaceRE `!\[[^\]]*\]\(([^)\s]+).*` `$1` (index $mdImage 0) }}
+  {{ $tokenMatches := findRE `(?s)src\s*=\s*["'][^"']+["']|!\[[^\]]*\]\([^)]*\)|/?images/[^\s,|)]+\.(?:avif|gif|jpe?g|png|webp)|\{\{<\s*youtube\s+[^>]+>\}\}` $rawContent 1 }}
+  {{ if gt (len $tokenMatches) 0 }}
+    {{ $token := index $tokenMatches 0 }}
+    {{ if findRE `src\s*=\s*["'][^"']+["']` $token 1 }}
+      {{ $src = replaceRE `(?s).*src\s*=\s*["']([^"']+)["'].*` `$1` $token }}
       {{ $raw = printf `<img src="%s">` $src }}
+    {{ else if findRE `!\[[^\]]*\]\([^)]*\)` $token 1 }}
+      {{ $src = replaceRE `!\[[^\]]*\]\(([^)\s]+).*` `$1` $token }}
+      {{ $raw = printf `<img src="%s">` $src }}
+    {{ else if findRE `\{\{<\s*youtube\s+[^>]+>\}\}` $token 1 }}
+      {{ $id := replaceRE `(?s).*\{\{<\s*youtube\s+([^\s>]+).*` `$1` $token }}
+      {{ $src = printf "https://img.youtube.com/vi/%s/hqdefault.jpg" $id }}
+      {{ $raw = printf `<iframe src="https://www.youtube.com/embed/%s"></iframe>` $id }}
     {{ else }}
-      {{ $bareImage := findRE `(?m)(^|[\s,|(])(/?images/[^\s,|)]+\.(?:avif|gif|jpe?g|png|webp))` $rawContent 1 }}
-      {{ if gt (len $bareImage) 0 }}
-        {{ $src = replaceRE `(?s).*?(/?images/[^\s,|)]+\.(?:avif|gif|jpe?g|png|webp)).*` `$1` (index $bareImage 0) }}
-        {{ $raw = printf `<img src="%s">` $src }}
-      {{ end }}
+      {{ $src = replaceRE `(?s).*?(/?images/[^\s,|)]+\.(?:avif|gif|jpe?g|png|webp)).*` `$1` $token }}
+      {{ $raw = printf `<img src="%s">` $src }}
     {{ end }}
   {{ end }}
 {{ end }}
 
 {{ if and $src (not (or (hasPrefix $src "http://") (hasPrefix $src "https://") (hasPrefix $src "/"))) }}
   {{ $src = print "/" $src }}
-{{ end }}
-
-{{ if not $src }}
-  {{ $src = site.Params.banner | default "/images/bubble4.gif" }}
-  {{ $raw = printf `<img src="%s">` $src }}
 {{ end }}
 
 {{/* ── clean summary ────────────────────────────────────────── */}}
