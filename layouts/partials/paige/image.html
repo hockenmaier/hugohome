@@ -98,15 +98,11 @@
     {{ $isGif = eq $resource.MediaType.SubType "gif" }}
 {{ end }}
 
-{{ if and $resourceIsPage (not $process) (not $isGif) }}
-    {{ if eq $resource.MediaType.SubType "webp" }}
-        {{ $process = "resize webp lossless" }}
-    {{ else }}
-        {{ $process = "resize q100 webp" }}
-    {{ end }}
+{{ if and $resourceIsPage (not $process) (not $isGif) (ne $resource.MediaType.SubType "webp") }}
+    {{ $process = "resize q100 webp" }}
 {{ end }}
 
-{{ if and $resourceIsPage (not $breakpoints) (not $densities) (not $sizes) (not $srcset) (not $isGif) }}
+{{ if and $resourceIsPage (not $breakpoints) (not $densities) (not $sizes) (not $srcset) (not $isGif) (ne $resource.MediaType.SubType "webp") }}
     {{ $breakpoints = "default" }}
 {{ end }}
 

@@ -33,6 +33,20 @@
 {{ else if $p.Params.featured_image }}
   {{ $raw = printf `<img src="%s">` $p.Params.featured_image }}
   {{ $src = $p.Params.featured_image }}
+{{/* 6) fallback to first image/video reference in raw markdown (recursion-safe) */}}
+{{ else }}
+  {{ $rawContent := $p.RawContent }}
+  {{ $match := findRE `src\s*=\s*["']([^"']+)["']` $rawContent 1 }}
+  {{ if gt (len $match) 0 }}
+    {{ $src = replaceRE `(?s).*src\s*=\s*["']([^"']+)["'].*` `$1` (index $match 0) }}
+    {{ $raw = printf `<img src="%s">` $src }}
+  {{ else }}
+    {{ $mdImage := findRE `!\[[^\]]*\]\(([^)\s]+)` $rawContent 1 }}
+    {{ if gt (len $mdImage) 0 }}
+      {{ $src = replaceRE `!\[[^\]]*\]\(([^)\s]+).*` `$1` (index $mdImage 0) }}
+      {{ $raw = printf `<img src="%s">` $src }}
+    {{ end }}
+  {{ end }}
 {{ end }}
 
 {{/* ── clean summary ────────────────────────────────────────── */}}
