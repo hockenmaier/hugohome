@@ -24,29 +24,19 @@
     {{ $src = $feat }}
   {{ end }}
 
+{{ else if findRE `(?s)<(?:img|iframe)[^>]*src="([^"]+)"` $p.Content }}
+  {{ $m   := findRE `(?s)<(?:img|iframe)[^>]*src="([^"]+)"` $p.Content }}
+  {{ $raw = index $m 0 }}
+  {{ $src = replaceRE `(?s).*src="([^"]+)".*` `$1` $raw }}
+
+{{ else if findRE `(?s)<video[^>]*>.*?<source[^>]*src="([^"]+)"` $p.Content }}
+  {{ $m   := findRE `(?s)<video[^>]*>.*?<source[^>]*src="([^"]+)"` $p.Content }}
+  {{ $raw = index $m 0 }}
+  {{ $src = replaceRE `(?s).*<source[^>]*src="([^"]+)".*` `$1` $raw }}
+
 {{ else if $p.Params.featured_image }}
   {{ $raw = printf `<img src="%s">` $p.Params.featured_image }}
   {{ $src = $p.Params.featured_image }}
-{{ else }}
-  {{ $rawContent := $p.RawContent }}
-  {{ $tokenMatches := findRE `(?s)src\s*=\s*["'][^"']+["']|!\[[^\]]*\]\([^)]*\)|/?images/[^\s,|)]+\.(?:avif|gif|jpe?g|png|webp)` $rawContent 1 }}
-  {{ if gt (len $tokenMatches) 0 }}
-    {{ $token := index $tokenMatches 0 }}
-    {{ if findRE `src\s*=\s*["'][^"']+["']` $token 1 }}
-      {{ $src = replaceRE `(?s).*src\s*=\s*["']([^"']+)["'].*` `$1` $token }}
-      {{ $raw = printf `<img src="%s">` $src }}
-    {{ else if findRE `!\[[^\]]*\]\([^)]*\)` $token 1 }}
-      {{ $src = replaceRE `!\[[^\]]*\]\(([^)\s]+).*` `$1` $token }}
-      {{ $raw = printf `<img src="%s">` $src }}
-    {{ else }}
-      {{ $src = replaceRE `(?s).*?(/?images/[^\s,|)]+\.(?:avif|gif|jpe?g|png|webp)).*` `$1` $token }}
-      {{ $raw = printf `<img src="%s">` $src }}
-    {{ end }}
-  {{ end }}
-{{ end }}
-
-{{ if and $src (not (or (hasPrefix $src "http://") (hasPrefix $src "https://") (hasPrefix $src "/"))) }}
-  {{ $src = print "/" $src }}
 {{ end }}
 
 {{/* ---------- CLEAN SUMMARY ---------- */}}
@@ -111,6 +101,7 @@
     </div>
 
     <p class="read-more text-secondary fst-italic" style="margin:0;">
+      {{ $p.ReadingTime }} {{ i18n "paige_minutes" $p.ReadingTime }} ·
       <a href="{{ $p.RelPermalink }}">This post is a hockenworks build. Play and read more at hockenworks →</a>
     </p>
 
