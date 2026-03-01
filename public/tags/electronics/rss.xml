@@ -180,11 +180,38 @@
 
 
 
+
+
+    
+
+
+
+
+
     
 
 
 
     
+    
+    
+    
+    
+
+    
+
+    
+    
+    
+    
+
+    
+        
+
+        
+
+        
+    
 
 
 
@@ -208,7 +235,7 @@
 
 
 
-<img   class="rounded-3 w-100"  crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/old-enclosure.webp"    >
+<img   class="rounded-3 w-100"  crossorigin="anonymous"   height="3000"   referrerpolicy="no-referrer"  src="https://hockenworks.com/raspberry-pi-panel-2/images/old-enclosure.eca34d9349bdb3c3e762282c1c1569eac4be9c21259f17b162cceacb2a4379ec.webp"   style="height: auto"    width="4000" >
 
 
       
@@ -257,11 +284,38 @@
 
 
 
+
+
+    
+
+
+
+
+
     
 
 
 
     
+    
+    
+    
+    
+
+    
+
+    
+    
+    
+    
+
+    
+        
+
+        
+
+        
+    
 
 
 
@@ -285,7 +339,7 @@
 
 
 
-<img   class="rounded-3 w-100"  crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/new-mount.webp"    >
+<img   class="rounded-3 w-100"  crossorigin="anonymous"   height="3000"   referrerpolicy="no-referrer"  src="https://hockenworks.com/raspberry-pi-panel-2/images/new-mount.e25261aa8e5bd0aec44fe35fdebd5c15bab53bc8e0717b8c21832ec68974a0a0.webp"   style="height: auto"    width="4000" >
 
 </div>
 </div>
@@ -447,7 +501,7 @@ Remember, this will be permanently displayed and always be up to date so account
 <p>I created this panel display in 2016 to control much of the home automation I used in my Studio City apartment. Mainly a hardware project, I designed and 3D-printed a case and frame for the touchscreen and raspberry pi microcomputer in order to mount them to the wall. The software running the control panel is SaaS, but I did write a custom html wrapper to control the orientation and settings of the site, which is available on the github linked above.</p>
 <p>Update in 2025: This panel is still my main view into my home automation in my new house in Sherman Oaks, almost 10 years in with no modification to the software or Pi itself! However, the LED behind the screen died this year and I had to replace it (link below)</p>
 <p>Here&rsquo;s a video to see the panel in action:</p>
-<h2 id="hahahugoshortcode30s0hbhb">
+<h2 id="hahahugoshortcode37s0hbhb">
     <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
       <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/iFGmm-ijJvE?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"></iframe>
     </div>

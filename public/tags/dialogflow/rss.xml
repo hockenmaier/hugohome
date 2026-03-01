@@ -171,11 +171,44 @@ Like Alexa skills, Google actions can be accessed through search or by simply as
 
 
 
+
+    
+        
+    
+
+    
+
+    
+
+
+
+
+
+
     
 
 
 
     
+    
+    
+    
+    
+
+    
+
+    
+    
+    
+    
+
+    
+        
+
+        
+
+        
+    
 
 
 
@@ -199,7 +232,7 @@ Like Alexa skills, Google actions can be accessed through search or by simply as
 
 
 
-<img  alt="Serverless Architecture of the First Ten app"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/first_ten_architecture.png"   style="height: auto; max-width: 720px; width: 100%"   >
+<img  alt="Serverless Architecture of the First Ten app"   crossorigin="anonymous"   height="627"   referrerpolicy="no-referrer"  src="https://hockenworks.com/first-ten/images/first_ten_architecture.ffcc2768a33b53a705a6ab9631039bf3f14d290ca070a34431362f5eaa07b683.png"   style="height: auto; max-width: 720px; width: 100%"    width="641" >
 
 
     
