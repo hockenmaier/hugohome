@@ -67,6 +67,18 @@
     {{ $style = $style | append (print "width: " $width) }}
 {{ end }}
 
+{{ $classtokens := split (printf "%v" $class) " " }}
+{{ $fullwidth := or (eq $width "100%") (in $classtokens "w-100") }}
+{{ $hasheightrule := false }}
+{{ range $style }}
+    {{ if or (hasPrefix . "height:") (hasPrefix . "max-height:") }}
+        {{ $hasheightrule = true }}
+    {{ end }}
+{{ end }}
+{{ if and $fullwidth (not (or $height $maxheight $hasheightrule)) }}
+    {{ $style = $style | append "height: auto" }}
+{{ end }}
+
 {{ $style = delimit ($style | uniq | sort) "; " }}
 
 {{ if and (not $resource) $src }}

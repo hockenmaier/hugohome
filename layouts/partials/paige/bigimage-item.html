@@ -71,7 +71,7 @@
       {{ else if in $src "youtube.com" }}
         {{ $vid := replaceRE `.*(?:embed/|v=)([^?&/]+).*` `$1` $src }}
         <a href="{{ $p.RelPermalink }}">
-          <img src="https://img.youtube.com/vi/{{ $vid }}/hqdefault.jpg" alt="{{ $p.Title }}">
+          <img src="https://img.youtube.com/vi/{{ $vid }}/hqdefault.jpg" alt="{{ $p.Title }}" style="width:100%; height:100%; object-fit:cover;">
         </a>
 
       {{ else if in $raw "<iframe" }}
@@ -81,7 +81,7 @@
 
       {{ else if in $raw "<img" }}
         <a href="{{ $p.RelPermalink }}">
-          <img src="{{ $src }}" alt="{{ $p.Title }}">
+          <img src="{{ $src }}" alt="{{ $p.Title }}" style="width:100%; height:100%; object-fit:cover;">
         </a>
 
       {{ else }}
