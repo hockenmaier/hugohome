@@ -24,7 +24,6 @@
 
 {{ $intrinsicheight := "" }}
 {{ $intrinsicwidth := "" }}
-{{ $resourceIsPage := false }}
 
 {{ if and (or $height $maxheight) (not (or $maxwidth $width)) }}
     {{ $width = "auto" }}
@@ -68,42 +67,10 @@
     {{ $style = $style | append (print "width: " $width) }}
 {{ end }}
 
-{{ if and (not $height) (not $maxheight) }}
-    {{ if or (eq $width "100%") (and $class (strings.Contains $class "w-100")) }}
-        {{ $style = $style | append "height: auto" }}
-    {{ end }}
-{{ end }}
-
 {{ $style = delimit ($style | uniq | sort) "; " }}
-
-{{ $isRemote := false }}
-{{ if $src }}
-    {{ $isRemote = or (strings.HasPrefix $src "http://") (strings.HasPrefix $src "https://") }}
-{{ end }}
-
-{{ if and (not $resource) $src $page (not $isRemote) }}
-    {{ $cleanSrc := strings.TrimPrefix "/" $src }}
-    {{ with $page.Resources.GetMatch $cleanSrc }}
-        {{ $resource = . }}
-        {{ $resourceIsPage = true }}
-    {{ end }}
-{{ end }}
 
 {{ if and (not $resource) $src }}
     {{ $resource = partial "paige/resource.html" (dict "page" $page "url" $src) }}
-{{ end }}
-
-{{ $isGif := false }}
-{{ if $resource }}
-    {{ $isGif = eq $resource.MediaType.SubType "gif" }}
-{{ end }}
-
-{{ if and $resourceIsPage (not $process) (not $isGif) (ne $resource.MediaType.SubType "webp") }}
-    {{ $process = "resize q100 webp" }}
-{{ end }}
-
-{{ if and $resourceIsPage (not $breakpoints) (not $densities) (not $sizes) (not $srcset) (not $isGif) (ne $resource.MediaType.SubType "webp") }}
-    {{ $breakpoints = "default" }}
 {{ end }}
 
 {{ if $resource }}
