@@ -52,7 +52,7 @@
             
 
             
-                <link href="https://hockenworks.com/tags/diy/" rel="self" type="text/html"/>
+                <link href="http://localhost:1313/tags/diy/" rel="self" type="text/html"/>
             
         
             
@@ -60,7 +60,7 @@
             
 
             
-                <link href="https://hockenworks.com/tags/diy/rss.xml" rel="alternate" type="application/rss+xml"/>
+                <link href="http://localhost:1313/tags/diy/rss.xml" rel="alternate" type="application/rss+xml"/>
             
         
 
@@ -78,7 +78,7 @@
             <lastBuildDate>2025-12-14 00:00:00 +0000 UTC</lastBuildDate>
         
 
-        <link>https://hockenworks.com/tags/diy/</link>
+        <link>http://localhost:1313/tags/diy/</link>
 
         
 
@@ -229,7 +229,7 @@
 
 
 
-<img   class="rounded-3 w-100"  crossorigin="anonymous"   height="3000"   referrerpolicy="no-referrer"  src="https://hockenworks.com/raspberry-pi-panel-2/images/old-enclosure.eca34d9349bdb3c3e762282c1c1569eac4be9c21259f17b162cceacb2a4379ec.webp"   style="height: auto"    width="4000" >
+<img   class="rounded-3 w-100"  crossorigin="anonymous"   height="3000"   referrerpolicy="no-referrer"  src="http://localhost:1313/raspberry-pi-panel-2/images/old-enclosure.eca34d9349bdb3c3e762282c1c1569eac4be9c21259f17b162cceacb2a4379ec.webp"   style="height: auto"    width="4000" >
 
 
       
@@ -333,7 +333,7 @@
 
 
 
-<img   class="rounded-3 w-100"  crossorigin="anonymous"   height="3000"   referrerpolicy="no-referrer"  src="https://hockenworks.com/raspberry-pi-panel-2/images/new-mount.e25261aa8e5bd0aec44fe35fdebd5c15bab53bc8e0717b8c21832ec68974a0a0.webp"   style="height: auto"    width="4000" >
+<img   class="rounded-3 w-100"  crossorigin="anonymous"   height="3000"   referrerpolicy="no-referrer"  src="http://localhost:1313/raspberry-pi-panel-2/images/new-mount.e25261aa8e5bd0aec44fe35fdebd5c15bab53bc8e0717b8c21832ec68974a0a0.webp"   style="height: auto"    width="4000" >
 
 </div>
 </div>
@@ -445,10 +445,10 @@ Remember, this will be permanently displayed and always be up to date so account
 ]]></description>
                 
 
-                <guid isPermaLink="false">tag:hockenworks.com,2025-12-14:/raspberry-pi-panel-2/</guid>
+                <guid isPermaLink="false">tag:localhost:1313,2025-12-14:/raspberry-pi-panel-2/</guid>
 
                 
-                    <link>https://hockenworks.com/raspberry-pi-panel-2/</link>
+                    <link>http://localhost:1313/raspberry-pi-panel-2/</link>
                 
 
                 
@@ -565,10 +565,10 @@ Original:
 </span></span></code></pre></div>]]></description>
                 
 
-                <guid isPermaLink="false">tag:hockenworks.com,2016-01-01:/raspberry-pi-panel/</guid>
+                <guid isPermaLink="false">tag:localhost:1313,2016-01-01:/raspberry-pi-panel/</guid>
 
                 
-                    <link>https://hockenworks.com/raspberry-pi-panel/</link>
+                    <link>http://localhost:1313/raspberry-pi-panel/</link>
                 
 
                 

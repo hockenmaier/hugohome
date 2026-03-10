@@ -112,7 +112,7 @@
             
 
             
-                <link href="https://hockenworks.com/tags/software/" rel="self" type="text/html"/>
+                <link href="http://localhost:1313/tags/software/" rel="self" type="text/html"/>
             
         
             
@@ -120,7 +120,7 @@
             
 
             
-                <link href="https://hockenworks.com/tags/software/rss.xml" rel="alternate" type="application/rss+xml"/>
+                <link href="http://localhost:1313/tags/software/rss.xml" rel="alternate" type="application/rss+xml"/>
             
         
 
@@ -138,7 +138,7 @@
             <lastBuildDate>2025-12-14 00:00:00 +0000 UTC</lastBuildDate>
         
 
-        <link>https://hockenworks.com/tags/software/</link>
+        <link>http://localhost:1313/tags/software/</link>
 
         
 
@@ -289,7 +289,7 @@
 
 
 
-<img   class="rounded-3 w-100"  crossorigin="anonymous"   height="3000"   referrerpolicy="no-referrer"  src="https://hockenworks.com/raspberry-pi-panel-2/images/old-enclosure.eca34d9349bdb3c3e762282c1c1569eac4be9c21259f17b162cceacb2a4379ec.webp"   style="height: auto"    width="4000" >
+<img   class="rounded-3 w-100"  crossorigin="anonymous"   height="3000"   referrerpolicy="no-referrer"  src="http://localhost:1313/raspberry-pi-panel-2/images/old-enclosure.eca34d9349bdb3c3e762282c1c1569eac4be9c21259f17b162cceacb2a4379ec.webp"   style="height: auto"    width="4000" >
 
 
       
@@ -393,7 +393,7 @@
 
 
 
-<img   class="rounded-3 w-100"  crossorigin="anonymous"   height="3000"   referrerpolicy="no-referrer"  src="https://hockenworks.com/raspberry-pi-panel-2/images/new-mount.e25261aa8e5bd0aec44fe35fdebd5c15bab53bc8e0717b8c21832ec68974a0a0.webp"   style="height: auto"    width="4000" >
+<img   class="rounded-3 w-100"  crossorigin="anonymous"   height="3000"   referrerpolicy="no-referrer"  src="http://localhost:1313/raspberry-pi-panel-2/images/new-mount.e25261aa8e5bd0aec44fe35fdebd5c15bab53bc8e0717b8c21832ec68974a0a0.webp"   style="height: auto"    width="4000" >
 
 </div>
 </div>
@@ -505,10 +505,10 @@ Remember, this will be permanently displayed and always be up to date so account
 ]]></description>
                 
 
-                <guid isPermaLink="false">tag:hockenworks.com,2025-12-14:/raspberry-pi-panel-2/</guid>
+                <guid isPermaLink="false">tag:localhost:1313,2025-12-14:/raspberry-pi-panel-2/</guid>
 
                 
-                    <link>https://hockenworks.com/raspberry-pi-panel-2/</link>
+                    <link>http://localhost:1313/raspberry-pi-panel-2/</link>
                 
 
                 
@@ -750,10 +750,10 @@ Remember, this will be permanently displayed and always be up to date so account
 ]]></description>
                 
 
-                <guid isPermaLink="false">tag:hockenworks.com,2025-08-24:/gpt5/</guid>
+                <guid isPermaLink="false">tag:localhost:1313,2025-08-24:/gpt5/</guid>
 
                 
-                    <link>https://hockenworks.com/gpt5/</link>
+                    <link>http://localhost:1313/gpt5/</link>
                 
 
                 
@@ -900,7 +900,7 @@ Remember, this will be permanently displayed and always be up to date so account
 
 
 
-<img  alt="AI 2027"   class="rounded-3 w-100"  crossorigin="anonymous"   height="1117"   referrerpolicy="no-referrer"  src="https://hockenworks.com/on-ai-software-development-2/images/ai-2027.5a675db07d75c7ade58eaa608c75db2cba219e4fb635fde9dcb21f1324427ffc.png"   style="height: auto"    width="794" >
+<img  alt="AI 2027"   class="rounded-3 w-100"  crossorigin="anonymous"   height="1117"   referrerpolicy="no-referrer"  src="http://localhost:1313/on-ai-software-development-2/images/ai-2027.5a675db07d75c7ade58eaa608c75db2cba219e4fb635fde9dcb21f1324427ffc.png"   style="height: auto"    width="794" >
 
 
       
@@ -1004,7 +1004,7 @@ Remember, this will be permanently displayed and always be up to date so account
 
 
 
-<img  alt="Singularity Is Near"   class="rounded-3 w-100"  crossorigin="anonymous"   height="1117"   referrerpolicy="no-referrer"  src="https://hockenworks.com/on-ai-software-development-2/images/The-Singularity-Is-Near.edfee9376a7b8f75ebcac0c4fa8ede4be3d1ac31069c3e6ed4ce9e2185587e68.jpg"   style="height: auto"    width="794" >
+<img  alt="Singularity Is Near"   class="rounded-3 w-100"  crossorigin="anonymous"   height="1117"   referrerpolicy="no-referrer"  src="http://localhost:1313/on-ai-software-development-2/images/The-Singularity-Is-Near.edfee9376a7b8f75ebcac0c4fa8ede4be3d1ac31069c3e6ed4ce9e2185587e68.jpg"   style="height: auto"    width="794" >
 
 </div>
 </div>
@@ -1207,7 +1207,7 @@ Remember, this will be permanently displayed and always be up to date so account
 
 
 
-<img  alt="Image description"   crossorigin="anonymous"   height="1169"   referrerpolicy="no-referrer"  src="https://hockenworks.com/on-ai-software-development-2/images/codex-sample.c8c0f240734a87f2cda831c68a5a52780a4ecc1e17eb1df451bf365fa5366b98.webp"   style="height: auto; width: 100%"    width="2504" >
+<img  alt="Image description"   crossorigin="anonymous"   height="1169"   referrerpolicy="no-referrer"  src="http://localhost:1313/on-ai-software-development-2/images/codex-sample.c8c0f240734a87f2cda831c68a5a52780a4ecc1e17eb1df451bf365fa5366b98.webp"   style="height: auto; width: 100%"    width="2504" >
 
 
     
@@ -1236,10 +1236,10 @@ Remember, this will be permanently displayed and always be up to date so account
 ]]></description>
                 
 
-                <guid isPermaLink="false">tag:hockenworks.com,2025-08-01:/on-ai-software-development-2/</guid>
+                <guid isPermaLink="false">tag:localhost:1313,2025-08-01:/on-ai-software-development-2/</guid>
 
                 
-                    <link>https://hockenworks.com/on-ai-software-development-2/</link>
+                    <link>http://localhost:1313/on-ai-software-development-2/</link>
                 
 
                 
@@ -1404,7 +1404,7 @@ Remember, this will be permanently displayed and always be up to date so account
 
 
 
-<img  alt="the UI"   crossorigin="anonymous"   height="2400"   referrerpolicy="no-referrer"  src="https://hockenworks.com/my-experiments-with-ai-cheating/images/make-us-smarter.e8d510d400b82866995b724c5ec7f0d6dae2974cf7d298b5065a50e8588f14fc.jpg"   style="height: auto; max-width: 200px"    width="1080" >
+<img  alt="the UI"   crossorigin="anonymous"   height="2400"   referrerpolicy="no-referrer"  src="http://localhost:1313/my-experiments-with-ai-cheating/images/make-us-smarter.e8d510d400b82866995b724c5ec7f0d6dae2974cf7d298b5065a50e8588f14fc.jpg"   style="height: auto; max-width: 200px"    width="1080" >
 
 
     
@@ -1424,10 +1424,10 @@ Remember, this will be permanently displayed and always be up to date so account
 ]]></description>
                 
 
-                <guid isPermaLink="false">tag:hockenworks.com,2025-06-29:/my-experiments-with-ai-cheating/</guid>
+                <guid isPermaLink="false">tag:localhost:1313,2025-06-29:/my-experiments-with-ai-cheating/</guid>
 
                 
-                    <link>https://hockenworks.com/my-experiments-with-ai-cheating/</link>
+                    <link>http://localhost:1313/my-experiments-with-ai-cheating/</link>
                 
 
                 
@@ -1476,10 +1476,10 @@ Remember, this will be permanently displayed and always be up to date so account
 <hr>]]></description>
                 
 
-                <guid isPermaLink="false">tag:hockenworks.com,2025-02-13:/context-caddy/</guid>
+                <guid isPermaLink="false">tag:localhost:1313,2025-02-13:/context-caddy/</guid>
 
                 
-                    <link>https://hockenworks.com/context-caddy/</link>
+                    <link>http://localhost:1313/context-caddy/</link>
                 
 
                 
@@ -1635,7 +1635,7 @@ This one is super simple. Give it what you’ve written and it will provide no-B
 
 
 
-<img  alt="proofreader GPT"   crossorigin="anonymous"   height="183"   referrerpolicy="no-referrer"  src="https://hockenworks.com/some-custom-gpts/images/proofreader-gpt.b5b217241b2177a1b71d7af0e29b5e8a72968829d46812e00478d27da1f2ad6d.png"   style="height: auto; max-width: 200px; width: 100%"    width="206" >
+<img  alt="proofreader GPT"   crossorigin="anonymous"   height="183"   referrerpolicy="no-referrer"  src="http://localhost:1313/some-custom-gpts/images/proofreader-gpt.b5b217241b2177a1b71d7af0e29b5e8a72968829d46812e00478d27da1f2ad6d.png"   style="height: auto; max-width: 200px; width: 100%"    width="206" >
 
 
     
@@ -1651,10 +1651,10 @@ An experimental “AI generated RPG” where you play as “The Boy” who reali
 ]]></description>
                 
 
-                <guid isPermaLink="false">tag:hockenworks.com,2024-06-01:/some-custom-gpts/</guid>
+                <guid isPermaLink="false">tag:localhost:1313,2024-06-01:/some-custom-gpts/</guid>
 
                 
-                    <link>https://hockenworks.com/some-custom-gpts/</link>
+                    <link>http://localhost:1313/some-custom-gpts/</link>
                 
 
                 
@@ -1807,7 +1807,7 @@ An experimental “AI generated RPG” where you play as “The Boy” who reali
 
 
 
-<img  alt="this is a robot"   crossorigin="anonymous"   height="689"   referrerpolicy="no-referrer"  src="https://hockenworks.com/on-ai-software-development/images/ai-software-dev.51743426945fef2fab4b55c1c933a4232e6059058e71cc497a84f45fa05fb86a.png"   style="height: auto; max-width: 720px; width: 100%"    width="1280" >
+<img  alt="this is a robot"   crossorigin="anonymous"   height="689"   referrerpolicy="no-referrer"  src="http://localhost:1313/on-ai-software-development/images/ai-software-dev.51743426945fef2fab4b55c1c933a4232e6059058e71cc497a84f45fa05fb86a.png"   style="height: auto; max-width: 720px; width: 100%"    width="1280" >
 
 
     
@@ -1827,10 +1827,10 @@ An experimental “AI generated RPG” where you play as “The Boy” who reali
 <p>These are my thoughts at what seems to be the beginning of the next AI revolution in early 2024. I plan to revisit this topic and see if I&rsquo;m right in future posts.</p>]]></description>
                 
 
-                <guid isPermaLink="false">tag:hockenworks.com,2024-01-24:/on-ai-software-development/</guid>
+                <guid isPermaLink="false">tag:localhost:1313,2024-01-24:/on-ai-software-development/</guid>
 
                 
-                    <link>https://hockenworks.com/on-ai-software-development/</link>
+                    <link>http://localhost:1313/on-ai-software-development/</link>
                 
 
                 
@@ -1880,10 +1880,10 @@ An experimental “AI generated RPG” where you play as “The Boy” who reali
 <hr>]]></description>
                 
 
-                <guid isPermaLink="false">tag:hockenworks.com,2024-01-13:/postman-for-pms/</guid>
+                <guid isPermaLink="false">tag:localhost:1313,2024-01-13:/postman-for-pms/</guid>
 
                 
-                    <link>https://hockenworks.com/postman-for-pms/</link>
+                    <link>http://localhost:1313/postman-for-pms/</link>
                 
 
                 
@@ -2038,7 +2038,7 @@ An experimental “AI generated RPG” where you play as “The Boy” who reali
 
 
 
-<img  alt="some weird acorns"   crossorigin="anonymous"   height="431"   referrerpolicy="no-referrer"  src="https://hockenworks.com/3d-modeling-with-ai/images/gpt-acorn.91e2cc06919e99763fe6e75504218c7a3c5a7a911b2c6b12e517d6a420259d89.png"   style="height: auto; max-width: 720px; width: 100%"    width="680" >
+<img  alt="some weird acorns"   crossorigin="anonymous"   height="431"   referrerpolicy="no-referrer"  src="http://localhost:1313/3d-modeling-with-ai/images/gpt-acorn.91e2cc06919e99763fe6e75504218c7a3c5a7a911b2c6b12e517d6a420259d89.png"   style="height: auto; max-width: 720px; width: 100%"    width="680" >
 
 
     
@@ -2048,10 +2048,10 @@ An experimental “AI generated RPG” where you play as “The Boy” who reali
 ]]></description>
                 
 
-                <guid isPermaLink="false">tag:hockenworks.com,2023-03-19:/3d-modeling-with-ai/</guid>
+                <guid isPermaLink="false">tag:localhost:1313,2023-03-19:/3d-modeling-with-ai/</guid>
 
                 
-                    <link>https://hockenworks.com/3d-modeling-with-ai/</link>
+                    <link>http://localhost:1313/3d-modeling-with-ai/</link>
                 
 
                 
@@ -2124,10 +2124,10 @@ An experimental “AI generated RPG” where you play as “The Boy” who reali
 <p>For March 2023, this result was revolutionary - I was truly impressed. In 2025, it&rsquo;s not very impressive at all. How quickly we get used to progress!</p>]]></description>
                 
 
-                <guid isPermaLink="false">tag:hockenworks.com,2023-03-18:/gpt-4-solar-system/</guid>
+                <guid isPermaLink="false">tag:localhost:1313,2023-03-18:/gpt-4-solar-system/</guid>
 
                 
-                    <link>https://hockenworks.com/gpt-4-solar-system/</link>
+                    <link>http://localhost:1313/gpt-4-solar-system/</link>
                 
 
                 
@@ -2176,10 +2176,10 @@ An experimental “AI generated RPG” where you play as “The Boy” who reali
 <p>Neat stuff - big thanks to Luma AI for the free toolset.</p>]]></description>
                 
 
-                <guid isPermaLink="false">tag:hockenworks.com,2023-02-01:/nerfs/</guid>
+                <guid isPermaLink="false">tag:localhost:1313,2023-02-01:/nerfs/</guid>
 
                 
-                    <link>https://hockenworks.com/nerfs/</link>
+                    <link>http://localhost:1313/nerfs/</link>
                 
 
                 
@@ -2296,10 +2296,10 @@ Original:
 </span></span></code></pre></div>]]></description>
                 
 
-                <guid isPermaLink="false">tag:hockenworks.com,2016-01-01:/raspberry-pi-panel/</guid>
+                <guid isPermaLink="false">tag:localhost:1313,2016-01-01:/raspberry-pi-panel/</guid>
 
                 
-                    <link>https://hockenworks.com/raspberry-pi-panel/</link>
+                    <link>http://localhost:1313/raspberry-pi-panel/</link>
                 
 
                 
