@@ -2,6 +2,48 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>http://localhost:1313/tags/ai/</loc>
+    <lastmod>2026-03-01T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/categories/builds/</loc>
+    <lastmod>2026-03-01T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/categories/</loc>
+    <lastmod>2026-03-01T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/codex/</loc>
+    <lastmod>2026-03-01T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/css/</loc>
+    <lastmod>2026-03-01T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/experimental/</loc>
+    <lastmod>2026-03-01T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/html/</loc>
+    <lastmod>2026-03-01T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/javascript/</loc>
+    <lastmod>2026-03-01T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/mobile/</loc>
+    <lastmod>2026-03-01T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/prototyping/</loc>
+    <lastmod>2026-03-01T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/rapid-prototyping/</loc>
+    <lastmod>2026-03-01T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/software/</loc>
+    <lastmod>2026-03-01T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/</loc>
+    <lastmod>2026-03-01T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/user-experience/</loc>
+    <lastmod>2026-03-01T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>http://localhost:1313/tags/3d-modeling/</loc>
     <lastmod>2026-01-19T00:00:00+00:00</lastmod>
   </url><url>
@@ -11,26 +53,11 @@
     <loc>http://localhost:1313/tags/bambulab-x1/</loc>
     <lastmod>2026-01-19T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/categories/builds/</loc>
-    <lastmod>2026-01-19T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/categories/</loc>
-    <lastmod>2026-01-19T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>http://localhost:1313/tags/hardware/</loc>
     <lastmod>2026-01-19T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/2025-hottest-models/</loc>
     <lastmod>2026-01-19T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/tags/</loc>
-    <lastmod>2026-01-19T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/tags/ai/</loc>
-    <lastmod>2025-12-14T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/tags/css/</loc>
-    <lastmod>2025-12-14T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/raspberry-pi-panel-2/</loc>
     <lastmod>2025-12-14T00:00:00+00:00</lastmod>
@@ -41,19 +68,10 @@
     <loc>http://localhost:1313/tags/electronics/</loc>
     <lastmod>2025-12-14T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/experimental/</loc>
-    <lastmod>2025-12-14T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>http://localhost:1313/tags/home-automation/</loc>
     <lastmod>2025-12-14T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/html/</loc>
-    <lastmod>2025-12-14T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>http://localhost:1313/tags/raspberry-pi/</loc>
-    <lastmod>2025-12-14T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/tags/software/</loc>
     <lastmod>2025-12-14T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/tags/system-design/</loc>
@@ -113,16 +131,7 @@
     <loc>http://localhost:1313/categories/writing/</loc>
     <lastmod>2025-09-12T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/javascript/</loc>
-    <lastmod>2025-08-24T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/tags/mobile/</loc>
-    <lastmod>2025-08-24T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>http://localhost:1313/tags/predictions/</loc>
-    <lastmod>2025-08-24T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/tags/rapid-prototyping/</loc>
     <lastmod>2025-08-24T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/gpt5/</loc>
@@ -147,12 +156,6 @@
     <lastmod>2025-07-04T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/my-experiments-with-ai-cheating/</loc>
-    <lastmod>2025-06-29T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/tags/prototyping/</loc>
-    <lastmod>2025-06-29T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/tags/user-experience/</loc>
     <lastmod>2025-06-29T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/tags/co-op/</loc>
