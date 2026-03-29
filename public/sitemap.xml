@@ -3,46 +3,49 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>http://localhost:1313/tags/ai/</loc>
-    <lastmod>2026-03-01T00:00:00+00:00</lastmod>
+    <lastmod>2026-03-29T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/categories/builds/</loc>
-    <lastmod>2026-03-01T00:00:00+00:00</lastmod>
+    <lastmod>2026-03-29T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/categories/</loc>
-    <lastmod>2026-03-01T00:00:00+00:00</lastmod>
+    <lastmod>2026-03-29T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/tags/codex/</loc>
-    <lastmod>2026-03-01T00:00:00+00:00</lastmod>
+    <lastmod>2026-03-29T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/tags/css/</loc>
-    <lastmod>2026-03-01T00:00:00+00:00</lastmod>
+    <lastmod>2026-03-29T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/deadweight-loss/</loc>
+    <lastmod>2026-03-29T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/tags/experimental/</loc>
-    <lastmod>2026-03-01T00:00:00+00:00</lastmod>
+    <lastmod>2026-03-29T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/tags/html/</loc>
-    <lastmod>2026-03-01T00:00:00+00:00</lastmod>
+    <lastmod>2026-03-29T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/tags/javascript/</loc>
-    <lastmod>2026-03-01T00:00:00+00:00</lastmod>
+    <lastmod>2026-03-29T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/tags/mobile/</loc>
-    <lastmod>2026-03-01T00:00:00+00:00</lastmod>
+    <lastmod>2026-03-29T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/tags/prototyping/</loc>
-    <lastmod>2026-03-01T00:00:00+00:00</lastmod>
+    <lastmod>2026-03-29T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/tags/rapid-prototyping/</loc>
-    <lastmod>2026-03-01T00:00:00+00:00</lastmod>
+    <lastmod>2026-03-29T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/tags/software/</loc>
-    <lastmod>2026-03-01T00:00:00+00:00</lastmod>
+    <lastmod>2026-03-29T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/tags/</loc>
-    <lastmod>2026-03-01T00:00:00+00:00</lastmod>
+    <lastmod>2026-03-29T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/tags/user-experience/</loc>
-    <lastmod>2026-03-01T00:00:00+00:00</lastmod>
+    <lastmod>2026-03-29T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/tags/3d-modeling/</loc>
     <lastmod>2026-01-19T00:00:00+00:00</lastmod>
