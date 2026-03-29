@@ -58,7 +58,7 @@
             
 
             
-                <link href="http://localhost:1313/tags/electronics/" rel="self" type="text/html"/>
+                <link href="https://hockenworks.com/tags/electronics/" rel="self" type="text/html"/>
             
         
             
@@ -66,7 +66,7 @@
             
 
             
-                <link href="http://localhost:1313/tags/electronics/rss.xml" rel="alternate" type="application/rss+xml"/>
+                <link href="https://hockenworks.com/tags/electronics/rss.xml" rel="alternate" type="application/rss+xml"/>
             
         
 
@@ -84,7 +84,7 @@
             <lastBuildDate>2025-12-14 00:00:00 +0000 UTC</lastBuildDate>
         
 
-        <link>http://localhost:1313/tags/electronics/</link>
+        <link>https://hockenworks.com/tags/electronics/</link>
 
         
 
@@ -235,7 +235,7 @@
 
 
 
-<img   class="rounded-3 w-100"  crossorigin="anonymous"   height="3000"   referrerpolicy="no-referrer"  src="http://localhost:1313/raspberry-pi-panel-2/images/old-enclosure.eca34d9349bdb3c3e762282c1c1569eac4be9c21259f17b162cceacb2a4379ec.webp"   style="height: auto"    width="4000" >
+<img   class="rounded-3 w-100"  crossorigin="anonymous"   height="3000"   referrerpolicy="no-referrer"  src="https://hockenworks.com/raspberry-pi-panel-2/images/old-enclosure.eca34d9349bdb3c3e762282c1c1569eac4be9c21259f17b162cceacb2a4379ec.webp"   style="height: auto"    width="4000" >
 
 
       
@@ -339,7 +339,7 @@
 
 
 
-<img   class="rounded-3 w-100"  crossorigin="anonymous"   height="3000"   referrerpolicy="no-referrer"  src="http://localhost:1313/raspberry-pi-panel-2/images/new-mount.e25261aa8e5bd0aec44fe35fdebd5c15bab53bc8e0717b8c21832ec68974a0a0.webp"   style="height: auto"    width="4000" >
+<img   class="rounded-3 w-100"  crossorigin="anonymous"   height="3000"   referrerpolicy="no-referrer"  src="https://hockenworks.com/raspberry-pi-panel-2/images/new-mount.e25261aa8e5bd0aec44fe35fdebd5c15bab53bc8e0717b8c21832ec68974a0a0.webp"   style="height: auto"    width="4000" >
 
 </div>
 </div>
@@ -451,10 +451,10 @@ Remember, this will be permanently displayed and always be up to date so account
 ]]></description>
                 
 
-                <guid isPermaLink="false">tag:localhost:1313,2025-12-14:/raspberry-pi-panel-2/</guid>
+                <guid isPermaLink="false">tag:hockenworks.com,2025-12-14:/raspberry-pi-panel-2/</guid>
 
                 
-                    <link>http://localhost:1313/raspberry-pi-panel-2/</link>
+                    <link>https://hockenworks.com/raspberry-pi-panel-2/</link>
                 
 
                 
@@ -571,10 +571,10 @@ Original:
 </span></span></code></pre></div>]]></description>
                 
 
-                <guid isPermaLink="false">tag:localhost:1313,2016-01-01:/raspberry-pi-panel/</guid>
+                <guid isPermaLink="false">tag:hockenworks.com,2016-01-01:/raspberry-pi-panel/</guid>
 
                 
-                    <link>http://localhost:1313/raspberry-pi-panel/</link>
+                    <link>https://hockenworks.com/raspberry-pi-panel/</link>
                 
 
                 
@@ -624,10 +624,10 @@ Print two of the attached STL files (one of the mountable variety if you plan to
 <p>The hot glue lets the metal move slightly, so that one metal piece bends to touch the other when a magnet is near either side of the switch, completing the circuit between the two metal ends still sticking out.</p>]]></description>
                 
 
-                <guid isPermaLink="false">tag:localhost:1313,2013-11-25:/3d-reed-switch/</guid>
+                <guid isPermaLink="false">tag:hockenworks.com,2013-11-25:/3d-reed-switch/</guid>
 
                 
-                    <link>http://localhost:1313/3d-reed-switch/</link>
+                    <link>https://hockenworks.com/3d-reed-switch/</link>
                 
 
                 

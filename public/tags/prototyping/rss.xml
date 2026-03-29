@@ -58,7 +58,7 @@
             
 
             
-                <link href="http://localhost:1313/tags/prototyping/" rel="self" type="text/html"/>
+                <link href="https://hockenworks.com/tags/prototyping/" rel="self" type="text/html"/>
             
         
             
@@ -66,7 +66,7 @@
             
 
             
-                <link href="http://localhost:1313/tags/prototyping/rss.xml" rel="alternate" type="application/rss+xml"/>
+                <link href="https://hockenworks.com/tags/prototyping/rss.xml" rel="alternate" type="application/rss+xml"/>
             
         
 
@@ -84,7 +84,7 @@
             <lastBuildDate>2026-03-29 00:00:00 +0000 UTC</lastBuildDate>
         
 
-        <link>http://localhost:1313/tags/prototyping/</link>
+        <link>https://hockenworks.com/tags/prototyping/</link>
 
         
 
@@ -120,12 +120,12 @@
                 
                     <description><![CDATA[<p>It’s tax season! For the last few months I’ve been thinking a lot about taxes and saving for retirement. Do you know how much of your earnings go to taxes? I didn’t, not really.</p>
 <p>I know my income tax bracket, and I know what I contribute to Social Security, but I don’t know how much I lose to tariffs and other sales/VAT taxes, payroll taxes, inflation, etc. And yes, I do consider inflation a regressive tax. As an econ student I was always more persuaded by <a href="https://en.wikipedia.org/wiki/Saltwater_and_freshwater_economics">fresh-water economics</a>.</p>
-<p>And the biggest loss of all happens through compounding. Just like the important lesson many of us learned about the power of compounded savings, the losses due to all of these effects compound over your life via the same mechanism. You are going to be surprised by how these numbers change under different tax regimes.</p>
+<p>And the biggest loss of all happens through compounding. Just like the important lesson many of us learned about the power of compounded savings, the losses due to all of these effects compound over your life via the same mechanism.</p>
 <p>This mini-app has been on my list of things to build for a long time, but I’ve never had the time to actually gather all the data and make the simulation. Now I was able to build it in just a few days with deep research and Codex. And I named it after one of my <a href="https://en.wikipedia.org/wiki/Deadweight_loss">favorite econ terms</a>. It calculates your yearly loss to direct sources of tax and inflation, adds in the taxes paid before they hit your wallet, like payroll, then simulates wealth growth by various savings rates over your lifetime.</p>
 <p>The app runs <strong>entirely locally on your browser</strong> - there is no logging or data collection of any kind.</p>
-<p>While I was building it, I realized I may as well use the same parameters to build a “Financial Independence&quot; calculator. Using the 4% rule and combining these two focuses, it’s very interesting to see how taxes directly add working years before potential retirement.</p>
-<p>This app will start with a LOT of assumptions, only asking you for five variables at first. This will give you a sense of the situation, but many more variables can be tuned if you want a more accurate number to your specific situation.</p>
-<p>After you put in your numbers and see your initial loss to taxes and “FI” date, you can start pulling the tax levers. See what your numbers look like in a different state, or if all your taxes were halved or doubled.</p>
+<p>While I was building it, I realized I may as well use the same parameters to build a “Financial Independence&quot; calculator. Using <a href="https://en.wikipedia.org/wiki/Trinity_study">the 4% rule</a> and combining these two focuses, it’s very interesting to see how taxes directly add working years before potential retirement.</p>
+<p>This app will start with a LOT of assumptions, only asking you for five variables at first. That will give you a sense your tax loss and “FI” date, but many more variables can be tuned if you want a more accurate number to your specific situation. Not everything you might want is tunable, but this is going to be fairly accurate for you if you have a focus on saving. It will be less accurate, exaggerating your wealth potential, if your tendency is to spend up to your income. If you do find yourself tuning further, start by switching your state from California if you don&rsquo;t live here, and also adjusting your equities allocation if you don&rsquo;t target 90%. Those two items have a big impact.</p>
+<p>Try pulling the tax levers. See what your numbers look like in a different state, or better yet if all your taxes were halved or doubled. You are going to be surprised by how these numbers change under different tax regimes.</p>
 <p>Here you go. Have fun!</p>
 <p><div style="width:100%; max-width:1100px; margin:1em auto;">
   <iframe
@@ -153,10 +153,10 @@
 ]]></description>
                 
 
-                <guid isPermaLink="false">tag:localhost:1313,2026-03-29:/deadweight-loss/</guid>
+                <guid isPermaLink="false">tag:hockenworks.com,2026-03-29:/deadweight-loss/</guid>
 
                 
-                    <link>http://localhost:1313/deadweight-loss/</link>
+                    <link>https://hockenworks.com/deadweight-loss/</link>
                 
 
                 
@@ -321,7 +321,7 @@
 
 
 
-<img  alt="the UI"   crossorigin="anonymous"   height="2400"   referrerpolicy="no-referrer"  src="http://localhost:1313/my-experiments-with-ai-cheating/images/make-us-smarter.e8d510d400b82866995b724c5ec7f0d6dae2974cf7d298b5065a50e8588f14fc.jpg"   style="height: auto; max-width: 200px"    width="1080" >
+<img  alt="the UI"   crossorigin="anonymous"   height="2400"   referrerpolicy="no-referrer"  src="https://hockenworks.com/my-experiments-with-ai-cheating/images/make-us-smarter.e8d510d400b82866995b724c5ec7f0d6dae2974cf7d298b5065a50e8588f14fc.jpg"   style="height: auto; max-width: 200px"    width="1080" >
 
 
     
@@ -341,10 +341,10 @@
 ]]></description>
                 
 
-                <guid isPermaLink="false">tag:localhost:1313,2025-06-29:/my-experiments-with-ai-cheating/</guid>
+                <guid isPermaLink="false">tag:hockenworks.com,2025-06-29:/my-experiments-with-ai-cheating/</guid>
 
                 
-                    <link>http://localhost:1313/my-experiments-with-ai-cheating/</link>
+                    <link>https://hockenworks.com/my-experiments-with-ai-cheating/</link>
                 
 
                 
@@ -554,7 +554,7 @@
 
 
 
-<img   class="img-fluid "  crossorigin="anonymous"   height="1270"   referrerpolicy="no-referrer"  src="http://localhost:1313/human-joystick/images/human_joystick_centered.8112d58d1c68f239362599bdcd572ca755d2fc89b97f2baffb55b4f9bdfb088f.jpg"   style="display:block; height: auto; margin:0 auto; width: 60%"    width="1270" >
+<img   class="img-fluid "  crossorigin="anonymous"   height="1270"   referrerpolicy="no-referrer"  src="https://hockenworks.com/human-joystick/images/human_joystick_centered.8112d58d1c68f239362599bdcd572ca755d2fc89b97f2baffb55b4f9bdfb088f.jpg"   style="display:block; height: auto; margin:0 auto; width: 60%"    width="1270" >
 
 
 </div>
@@ -719,7 +719,7 @@
 
 
 
-<img   class="img-fluid "  crossorigin="anonymous"   height="1270"   referrerpolicy="no-referrer"  src="http://localhost:1313/human-joystick/images/human_joystick_moving.2eab8d66f1e0ad4233cdb94f37d8ffdb92de321de79b9b64bf7bc16cfa36e926.jpg"   style="display:block; height: auto; margin:0 auto; width: 60%"    width="1270" >
+<img   class="img-fluid "  crossorigin="anonymous"   height="1270"   referrerpolicy="no-referrer"  src="https://hockenworks.com/human-joystick/images/human_joystick_moving.2eab8d66f1e0ad4233cdb94f37d8ffdb92de321de79b9b64bf7bc16cfa36e926.jpg"   style="display:block; height: auto; margin:0 auto; width: 60%"    width="1270" >
 
 
 </div>
@@ -733,10 +733,10 @@
 <p>Ultimately I put the project up for others to view but have not expanded it into a full experience or released it on any marketplaces. Feel free to download the Unity project and try it on your own VR setup if you&rsquo;re curious.</p>]]></description>
                 
 
-                <guid isPermaLink="false">tag:localhost:1313,2020-01-01:/human-joystick/</guid>
+                <guid isPermaLink="false">tag:hockenworks.com,2020-01-01:/human-joystick/</guid>
 
                 
-                    <link>http://localhost:1313/human-joystick/</link>
+                    <link>https://hockenworks.com/human-joystick/</link>
                 
 
                 
