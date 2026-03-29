@@ -1,10 +1,6 @@
 ---
 title: "Deadweight Loss: How much do you pay in taxes?"
-date: 2026-03-01
-url: "/preview/tax-calc/" # any path you like
-_build:
-  list: never # don’t show in section/taxonomy/RSS lists
-  render: always # still write the HTML file
+date: 2026-03-29
 categories: ["builds"]
 tags:
   [
@@ -24,17 +20,15 @@ tags:
 
 It’s tax season! For the last few months I’ve been thinking a lot about taxes and saving for retirement. Do you know how much of your earnings go to taxes? I didn’t, not really.
 
-I know my income tax bracket, and I know what I contribute to Social Security, but I don’t know how much I lose to tariffs and other sales/VAT taxes, payroll taxes, inflation, etc. And yes, I do consider inflation a regressive tax - I was an economics student after all.
+I know my income tax bracket, and I know what I contribute to Social Security, but I don’t know how much I lose to tariffs and other sales/VAT taxes, payroll taxes, inflation, etc. And yes, I do consider inflation a regressive tax. As an econ student I was always more persuaded by [fresh-water economics](https://en.wikipedia.org/wiki/Saltwater_and_freshwater_economics).
 
-But the biggest loss of all happens through compounding. Just like the important lesson many of us learned about the power of compounded savings, the losses due to all of these effects compound over your life via the same mechanism. You are going to be surprised by how these numbers change under different tax regimes.
+And the biggest loss of all happens through compounding. Just like the important lesson many of us learned about the power of compounded savings, the losses due to all of these effects compound over your life via the same mechanism. You are going to be surprised by how these numbers change under different tax regimes.
 
-This mini-app has been on my list of things to build for a long time, but I’ve never had the time to actually gather all the data and make the simulation. Now I was able to build it in just a few days with deep research and Codex:
+This mini-app has been on my list of things to build for a long time, but I’ve never had the time to actually gather all the data and make the simulation. Now I was able to build it in just a few days with deep research and Codex. And I named it after one of my [favorite econ terms](https://en.wikipedia.org/wiki/Deadweight_loss). It calculates your yearly loss to direct sources of tax and inflation, adds in the taxes paid before they hit your wallet, like payroll, then simulates wealth growth by various savings rates over your lifetime.
 
-It calculates your yearly loss to direct sources of tax and inflation, adds in the taxes paid before they hit your wallet, like payroll, then simulates wealth growth by various savings rates over your lifetime.
+The app runs **entirely locally on your browser** - there is no logging or data collection of any kind.
 
 While I was building it, I realized I may as well use the same parameters to build a “Financial Independence" calculator. Using the 4% rule and combining these two focuses, it’s very interesting to see how taxes directly add working years before potential retirement.
-
-The app runs entirely local on your browser - there is no logging or data collection of any kind.
 
 This app will start with a LOT of assumptions, only asking you for five variables at first. This will give you a sense of the situation, but many more variables can be tuned if you want a more accurate number to your specific situation.
 
@@ -44,3 +38,7 @@ Here you go. Have fun!
 
 {{< tax-and-fi-calculator-self-contained >}}
 {{< open-html "tax-and-fi-calculator.html" >}}
+
+I love a good critique. If you throw this fully open-source code and math into an LLM, I am sure it will have a lot of comments and concerns about my calculations. I am happy to debate those in the [Substack](https://brianhockenmaier.substack.com/) comments!
+
+Happy tax season and see you next time.

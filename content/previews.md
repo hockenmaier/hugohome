@@ -7,8 +7,6 @@ _build:
   render: always # still write the HTML file
 ---
 
-[/preview/tax-calc/](/preview/tax-calc/)
-
 <!--
 
 Use this format to list a preview on this previews page:
