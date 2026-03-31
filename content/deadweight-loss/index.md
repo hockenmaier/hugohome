@@ -15,6 +15,7 @@ tags:
     javascript,
     css,
     "Rapid Prototyping",
+    wealth,
   ]
 featured: "deadweight-loss/images/deadweight-featured.png"
 ---
