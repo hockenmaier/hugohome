@@ -44,6 +44,12 @@
         
     
 
+    
+
+    
+        
+    
+
 
 
 
@@ -93,7 +99,7 @@
         
 
         
-            <lastBuildDate>2025-08-24 00:00:00 +0000 UTC</lastBuildDate>
+            <lastBuildDate>2026-03-29 00:00:00 +0000 UTC</lastBuildDate>
         
 
         <link>https://hockenworks.com/tags/rapid-prototyping/</link>
@@ -104,6 +110,81 @@
 
         
 
+        
+            <item>
+                
+                
+                
+                
+                
+                
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+                
+
+                
+
+                
+
+                
+                    <description><![CDATA[<p>It’s tax season! For the last few months I’ve been thinking a lot about taxes and saving for retirement. Do you know how much of your earnings go to taxes? I didn’t, not really.</p>
+<p>I know my income tax bracket, and I know what I contribute to Social Security, but I don’t know how much I lose to tariffs and other sales/VAT taxes, payroll taxes, inflation, etc. And yes, I do consider inflation a regressive tax. As an econ student I was always more persuaded by <a href="https://en.wikipedia.org/wiki/Saltwater_and_freshwater_economics">fresh-water economics</a>.</p>
+<p>And the biggest loss of all happens through compounding. Just like the important lesson many of us learned about the power of compounded savings, the losses due to all of these effects compound over your life via the same mechanism.</p>
+<p>This mini-app has been on my list of things to build for a long time, but I’ve never had the time to actually gather all the data and make the simulation. Now I was able to build it in just a few days with deep research and Codex. And I named it after one of my <a href="https://en.wikipedia.org/wiki/Deadweight_loss">favorite econ terms</a>. It calculates your yearly loss to direct sources of tax and inflation, adds in the taxes paid before they hit your wallet, like payroll, then simulates wealth growth by various savings rates over your lifetime.</p>
+<p>The app runs <strong>entirely locally on your browser</strong> - there is no logging or data collection of any kind.</p>
+<p>While I was building it, I realized I may as well use the same parameters to build a “Financial Independence&quot; calculator. Using <a href="https://en.wikipedia.org/wiki/Trinity_study">the 4% rule</a> and combining these two focuses, it’s very interesting to see how taxes directly add working years before potential retirement.</p>
+<p>This app will start with a LOT of assumptions, only asking you for five variables at first. That will give you a sense your tax loss and “FI” date, but many more variables can be tuned if you want a more accurate number to your specific situation. Not everything you might want is tunable, but this is going to be fairly accurate for you if you have a focus on saving. It will be less accurate, exaggerating your wealth potential, if your tendency is to spend up to your income. If you do find yourself tuning further, start by switching your state from California if you don&rsquo;t live here, and also adjusting your equities allocation if you don&rsquo;t target 90%. Those two items have a big impact.</p>
+<p>Try pulling the tax levers. See what your numbers look like in a different state, or better yet if all your taxes were halved or doubled. You are going to be surprised by how these numbers change under different tax regimes.</p>
+<p>Here you go. Have fun!</p>
+<p><div style="width:100%; max-width:1100px; margin:1em auto;">
+  <iframe
+    class="lazy-iframe"
+    data-src="/html/tax-and-fi-calculator.html"
+    src="about:blank"
+    loading="lazy"
+    style="width:100%; height:900px; border:1px solid #ccc; display:block;"
+  ></iframe>
+</div>
+
+<div style="text-align: center; margin-bottom: 1rem;">
+    
+</div>
+
+<div style="text-align:center;">
+  <a href="/html/tax-and-fi-calculator.html" target="_blank" rel="noopener noreferrer"
+     style="display:inline-block;padding:.5rem 1rem;border:1px solid #ccc;border-radius:.5rem;text-decoration:none">
+    Open In Standalone Tab
+  </a>
+</div>
+</p>
+<p>I love a good critique. If you throw this fully open-source code and math into an LLM, I am sure it will have a lot of comments and concerns about my calculations. I am happy to debate those in the <a href="https://brianhockenmaier.substack.com/">Substack</a> comments!</p>
+<p>Happy tax season and see you next time.</p>
+]]></description>
+                
+
+                <guid isPermaLink="false">tag:hockenworks.com,2026-03-29:/deadweight-loss/</guid>
+
+                
+                    <link>https://hockenworks.com/deadweight-loss/</link>
+                
+
+                
+                    <pubDate>Sun, 29 Mar 2026 00:00:00 UTC</pubDate>
+                
+
+                
+                    <title>Deadweight Loss: How much do you pay in taxes?</title>
+                
+            </item>
         
             <item>
                 
@@ -544,7 +625,6 @@
 
 
 
-
     
 
 
@@ -570,22 +650,13 @@
 
 
 
-
+    
+        
+    
 
     
 
-
-
     
-    
-
-
-
-    
-
-
-
-
 
 
 
@@ -596,6 +667,26 @@
 
 
 
+    
+    
+    
+    
+    
+
+    
+
+    
+    
+    
+    
+
+    
+        
+
+        
+
+        
+    
 
 
 
@@ -616,7 +707,10 @@
 
 
 
-<img  alt="Answering Machine homepage"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/answering_machine_uploads.png"   style="height: auto; max-width: 720px; width: 100%"   >
+
+
+
+<img  alt="Answering Machine homepage"   crossorigin="anonymous"   height="609"   referrerpolicy="no-referrer"  src="https://hockenworks.com/answering-machine/images/answering_machine_uploads.53fbc160cd730b7f90f55bbfb8df68ad2a28391431648f5a0f61c7bb2191fe88.png"   style="height: auto; max-width: 720px; width: 100%"    width="915" >
 
 
     
@@ -658,7 +752,6 @@
 
 
 
-
     
 
 
@@ -682,22 +775,11 @@
 
 
 
-
-
+    
+        
     
 
-
-
     
-    
-
-
-
-    
-
-
-
-
 
 
 
@@ -708,6 +790,26 @@
 
 
 
+    
+    
+    
+    
+    
+
+    
+
+    
+    
+    
+    
+
+    
+        
+
+        
+
+        
+    
 
 
 
@@ -728,7 +830,10 @@
 
 
 
-<img  alt="Answering Machine main view"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/answering_machine_hr.png"   style="height: auto; width: 100%"   >
+
+
+
+<img  alt="Answering Machine main view"   crossorigin="anonymous"   height="825"   referrerpolicy="no-referrer"  src="https://hockenworks.com/answering-machine/images/answering_machine_hr.92154eb2446b927f126ba9af2c612fdbcb85343beaed79d273d5c1e5eb9833ab.png"   style="height: auto; width: 100%"    width="1912" >
 
 
     
@@ -766,7 +871,6 @@
 
 
 
-
     
 
 
@@ -792,22 +896,13 @@
 
 
 
-
+    
+        
+    
 
     
 
-
-
     
-    
-
-
-
-    
-
-
-
-
 
 
 
@@ -818,6 +913,26 @@
 
 
 
+    
+    
+    
+    
+    
+
+    
+
+    
+    
+    
+    
+
+    
+        
+
+        
+
+        
+    
 
 
 
@@ -838,7 +953,10 @@
 
 
 
-<img  alt="Answering Machine info panel"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/answering_machine_info.png"   style="height: auto; max-width: 720px; width: 100%"   >
+
+
+
+<img  alt="Answering Machine info panel"   crossorigin="anonymous"   height="345"   referrerpolicy="no-referrer"  src="https://hockenworks.com/answering-machine/images/answering_machine_info.ffc175ff2b9a701b51f5229652dfcdf41ea2b2711ada4d19d27ddee8eb6c61f6.png"   style="height: auto; max-width: 720px; width: 100%"    width="614" >
 
 
     
@@ -878,7 +996,6 @@
 
 
 
-
     
 
 
@@ -904,22 +1021,13 @@
 
 
 
-
+    
+        
+    
 
     
 
-
-
     
-    
-
-
-
-    
-
-
-
-
 
 
 
@@ -930,6 +1038,26 @@
 
 
 
+    
+    
+    
+    
+    
+
+    
+
+    
+    
+    
+    
+
+    
+        
+
+        
+
+        
+    
 
 
 
@@ -950,7 +1078,10 @@
 
 
 
-<img  alt="Answering Machine query bar"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/answering_machine_query.png"   style="height: auto; max-width: 720px; width: 100%"   >
+
+
+
+<img  alt="Answering Machine query bar"   crossorigin="anonymous"   height="34"   referrerpolicy="no-referrer"  src="https://hockenworks.com/answering-machine/images/answering_machine_query.9a1bee69c00310670c40650c5d5e8b4414eb5f0ce11f8d8ffe4c58e8d8c43e34.png"   style="height: auto; max-width: 720px; width: 100%"    width="859" >
 
 
     
@@ -996,7 +1127,6 @@
 
 
 
-
     
 
 
@@ -1022,22 +1152,13 @@
 
 
 
-
+    
+        
+    
 
     
 
-
-
     
-    
-
-
-
-    
-
-
-
-
 
 
 
@@ -1048,6 +1169,26 @@
 
 
 
+    
+    
+    
+    
+    
+
+    
+
+    
+    
+    
+    
+
+    
+        
+
+        
+
+        
+    
 
 
 
@@ -1068,7 +1209,10 @@
 
 
 
-<img  alt="Answering Machine response"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/answering_machine_answer.png"   style="height: auto; max-width: 720px; width: 100%"   >
+
+
+
+<img  alt="Answering Machine response"   crossorigin="anonymous"   height="377"   referrerpolicy="no-referrer"  src="https://hockenworks.com/answering-machine/images/answering_machine_answer.e037695099d0937938506ba5b09e163331f03fa5383c9b09df88dd9264c21ccc.png"   style="height: auto; max-width: 720px; width: 100%"    width="763" >
 
 
     
@@ -1113,7 +1257,6 @@
 
 
 
-
     
 
 
@@ -1139,22 +1282,13 @@
 
 
 
-
+    
+        
+    
 
     
 
-
-
     
-    
-
-
-
-    
-
-
-
-
 
 
 
@@ -1165,6 +1299,26 @@
 
 
 
+    
+    
+    
+    
+    
+
+    
+
+    
+    
+    
+    
+
+    
+        
+
+        
+
+        
+    
 
 
 
@@ -1185,7 +1339,10 @@
 
 
 
-<img  alt="Answering Machine subjects and conditions"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/answering_machine_lexicon.png"   style="height: auto; max-width: 400px; width: 100%"   >
+
+
+
+<img  alt="Answering Machine subjects and conditions"   crossorigin="anonymous"   height="210"   referrerpolicy="no-referrer"  src="https://hockenworks.com/answering-machine/images/answering_machine_lexicon.57809f5e26aac0647845200d9fc742b51a76d86af26537e10b9a7ecd66cd4201.png"   style="height: auto; max-width: 400px; width: 100%"    width="347" >
 
 
     
@@ -1225,7 +1382,6 @@
 
 
 
-
     
 
 
@@ -1251,22 +1407,13 @@
 
 
 
-
+    
+        
+    
 
     
 
-
-
     
-    
-
-
-
-    
-
-
-
-
 
 
 
@@ -1277,6 +1424,26 @@
 
 
 
+    
+    
+    
+    
+    
+
+    
+
+    
+    
+    
+    
+
+    
+        
+
+        
+
+        
+    
 
 
 
@@ -1297,7 +1464,10 @@
 
 
 
-<img  alt="Answering Machine concept"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/answering_machine_concept.png"   style="height: auto; max-width: 200px; width: 100%"   >
+
+
+
+<img  alt="Answering Machine concept"   crossorigin="anonymous"   height="200"   referrerpolicy="no-referrer"  src="https://hockenworks.com/answering-machine/images/answering_machine_concept.2dee911f2b7142c9cad449b733db4f0790766d6ffcdb2d3dae527014f884cec5.png"   style="height: auto; max-width: 200px; width: 100%"    width="204" >
 
 
     
@@ -1342,7 +1512,6 @@
 
 
 
-
     
 
 
@@ -1368,22 +1537,13 @@
 
 
 
-
+    
+        
+    
 
     
 
-
-
     
-    
-
-
-
-    
-
-
-
-
 
 
 
@@ -1394,6 +1554,26 @@
 
 
 
+    
+    
+    
+    
+    
+
+    
+
+    
+    
+    
+    
+
+    
+        
+
+        
+
+        
+    
 
 
 
@@ -1414,7 +1594,10 @@
 
 
 
-<img  alt="Serverless Architecture of the Answering Machine app"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/answering_machine_architecture.png"   style="height: auto; max-width: 720px; width: 100%"   >
+
+
+
+<img  alt="Serverless Architecture of the Answering Machine app"   crossorigin="anonymous"   height="615"   referrerpolicy="no-referrer"  src="https://hockenworks.com/answering-machine/images/answering_machine_architecture.eaf4394434ba6b76a5f3ea46c310329b658d28f730fb386f0de3a5b55656b19d.png"   style="height: auto; max-width: 720px; width: 100%"    width="915" >
 
 
     
@@ -1505,7 +1688,6 @@ Like Alexa skills, Google actions can be accessed through search or by simply as
 
 
 
-
     
 
 
@@ -1531,22 +1713,13 @@ Like Alexa skills, Google actions can be accessed through search or by simply as
 
 
 
-
+    
+        
+    
 
     
 
-
-
     
-    
-
-
-
-    
-
-
-
-
 
 
 
@@ -1557,6 +1730,26 @@ Like Alexa skills, Google actions can be accessed through search or by simply as
 
 
 
+    
+    
+    
+    
+    
+
+    
+
+    
+    
+    
+    
+
+    
+        
+
+        
+
+        
+    
 
 
 
@@ -1577,7 +1770,10 @@ Like Alexa skills, Google actions can be accessed through search or by simply as
 
 
 
-<img  alt="Serverless Architecture of the First Ten app"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/first_ten_architecture.png"   style="height: auto; max-width: 720px; width: 100%"   >
+
+
+
+<img  alt="Serverless Architecture of the First Ten app"   crossorigin="anonymous"   height="627"   referrerpolicy="no-referrer"  src="https://hockenworks.com/first-ten/images/first_ten_architecture.ffcc2768a33b53a705a6ab9631039bf3f14d290ca070a34431362f5eaa07b683.png"   style="height: auto; max-width: 720px; width: 100%"    width="641" >
 
 
     

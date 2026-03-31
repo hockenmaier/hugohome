@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>Lifetime Tax Burden Calculator</title>
+    <title>Deadweight Loss:  How Much Do You Pay In Taxes?</title>
     <style>
       :root {
         --bg: #000;
@@ -635,13 +635,29 @@
         color: var(--text);
         font-weight: 900;
       }
+
+      .spinny {
+        width: 0.95em;
+        height: 0.95em;
+        display: inline-block;
+        border-radius: 999px;
+        border: 2px solid rgba(242, 201, 76, 0.25);
+        border-top-color: rgba(242, 201, 76, 0.95);
+        animation: spinny 640ms linear infinite;
+        vertical-align: -0.08em;
+      }
+      @keyframes spinny {
+        to {
+          transform: rotate(360deg);
+        }
+      }
     </style>
   </head>
   <body>
     <div class="orb" id="orb"></div>
 
     <div class="wrap">
-      <h1 class="h1">Lifetime Tax Burden Calculator</h1>
+      <h1 class="h1">Deadweight Loss:  How Much Do You Pay In Taxes?</h1>
 
       <!-- Initial-only -->
       <div class="card tight" id="startCard">
@@ -756,6 +772,7 @@
             />
             <div class="small muted2">
               <span class="mono" id="v_age" data-anchor="age">0</span>
+              <span class="mono" id="ageWarn"></span>
             </div>
           </div>
         </div>
@@ -1779,7 +1796,7 @@
           if (!audioCtx) {
             audioCtx = new (window.AudioContext || window.webkitAudioContext)();
             masterGain = audioCtx.createGain();
-            masterGain.gain.value = 0.1;
+            masterGain.gain.value = 0.2;
             masterGain.connect(audioCtx.destination);
           }
           if (audioCtx.state === "suspended") audioCtx.resume().catch(() => {});
@@ -2008,6 +2025,7 @@
         const spendWarn = $("spendWarn");
         const v_networth = $("v_networth");
         const v_age = $("v_age");
+        const ageWarn = $("ageWarn");
 
         const selState = $("selState");
         const masterWrap = $("masterWrap");
@@ -2387,7 +2405,9 @@
             Number.isFinite(state.netWorth) &&
             state.netWorth >= 0 &&
             Number.isFinite(state.age) &&
-            state.age > 0
+            Number.isInteger(state.age) &&
+            state.age >= 10 &&
+            state.age <= 99
           );
         }
 
@@ -2397,7 +2417,11 @@
             income: Number.isFinite(state.income) && state.income > 0,
             spend: Number.isFinite(state.spend) && state.spend >= 0,
             networth: Number.isFinite(state.netWorth) && state.netWorth >= 0,
-            age: Number.isFinite(state.age) && state.age > 0,
+            age:
+              Number.isFinite(state.age) &&
+              Number.isInteger(state.age) &&
+              state.age >= 10 &&
+              state.age <= 99,
           };
           for (const b of document.querySelectorAll(".bubble")) {
             const key = b.getAttribute("data-b");
@@ -2761,6 +2785,18 @@
           v_spend.classList.toggle("warnText", warn);
           spendWarn.textContent = warn ? "  Higher than income!" : "";
           spendWarn.classList.toggle("warnText", warn);
+
+          const hasAgeInput = String(inpAge.value || "").trim().length > 0;
+          const ageWarnOn =
+            hasAgeInput &&
+            (!Number.isFinite(state.age) ||
+              !Number.isInteger(state.age) ||
+              state.age < 10 ||
+              state.age > 99);
+          inpAge.classList.toggle("warnInput", ageWarnOn);
+          v_age.classList.toggle("warnText", ageWarnOn);
+          ageWarn.textContent = ageWarnOn ? "  Age must be double digits" : "";
+          ageWarn.classList.toggle("warnText", ageWarnOn);
 
           masterVal.textContent = Math.round(state.masterScale * 100) + "%";
           $("salesTaxStateName").textContent = state.st;
@@ -3803,7 +3839,11 @@
             "breakdownTop",
           ];
           for (const g of resultsOrder) {
-            if (!GROUPS[g](oldComputed, newComputed)) continue;
+            if (
+              g === "breakdownTop" &&
+              !GROUPS.breakdownTop(oldComputed, newComputed)
+            )
+              continue;
 
             let el = document.querySelector(`[data-key="${g}"]`);
             if (g === "resultsRetirement")
@@ -3816,6 +3856,18 @@
           }
 
           return targets;
+        }
+
+        function setLoading(el) {
+          if (!el) return;
+          el.innerHTML = '<span class="spinny" aria-label="loading"></span>';
+        }
+
+        function setTopLevelLoading() {
+          setLoading($("kpiYearlyPct"));
+          setLoading($("kpiLifetimePct"));
+          setLoading($("kpiRetYear"));
+          setLoading($("kpiRetAge"));
         }
 
         function applyHitUpdate(target, computed) {
@@ -3899,7 +3951,7 @@
             if (token !== cascadeToken) return;
 
             const t = targets[i];
-            await animateOrb(prev, t.c, 150, token);
+            await animateOrb(prev, t.c, 50, token);
             if (token !== cascadeToken) return;
 
             spawnRing(t.c.x, t.c.y);
@@ -3907,7 +3959,7 @@
             tick();
 
             prev = t.c;
-            await new Promise((res) => setTimeout(res, 100));
+            await new Promise((res) => setTimeout(res, 33));
           }
 
           applyComputedInstant(computed);
@@ -3928,6 +3980,7 @@
           }
 
           flashImmediateSection(anchorEl);
+          setTopLevelLoading();
 
           const oldComputed = prevComputed;
           prevComputed = newComputed;

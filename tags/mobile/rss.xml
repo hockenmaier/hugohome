@@ -32,6 +32,12 @@
         
     
 
+    
+
+    
+        
+    
+
 
 
 
@@ -81,7 +87,7 @@
         
 
         
-            <lastBuildDate>2025-08-24 00:00:00 +0000 UTC</lastBuildDate>
+            <lastBuildDate>2026-03-29 00:00:00 +0000 UTC</lastBuildDate>
         
 
         <link>https://hockenworks.com/tags/mobile/</link>
@@ -92,6 +98,81 @@
 
         
 
+        
+            <item>
+                
+                
+                
+                
+                
+                
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+                
+
+                
+
+                
+
+                
+                    <description><![CDATA[<p>It’s tax season! For the last few months I’ve been thinking a lot about taxes and saving for retirement. Do you know how much of your earnings go to taxes? I didn’t, not really.</p>
+<p>I know my income tax bracket, and I know what I contribute to Social Security, but I don’t know how much I lose to tariffs and other sales/VAT taxes, payroll taxes, inflation, etc. And yes, I do consider inflation a regressive tax. As an econ student I was always more persuaded by <a href="https://en.wikipedia.org/wiki/Saltwater_and_freshwater_economics">fresh-water economics</a>.</p>
+<p>And the biggest loss of all happens through compounding. Just like the important lesson many of us learned about the power of compounded savings, the losses due to all of these effects compound over your life via the same mechanism.</p>
+<p>This mini-app has been on my list of things to build for a long time, but I’ve never had the time to actually gather all the data and make the simulation. Now I was able to build it in just a few days with deep research and Codex. And I named it after one of my <a href="https://en.wikipedia.org/wiki/Deadweight_loss">favorite econ terms</a>. It calculates your yearly loss to direct sources of tax and inflation, adds in the taxes paid before they hit your wallet, like payroll, then simulates wealth growth by various savings rates over your lifetime.</p>
+<p>The app runs <strong>entirely locally on your browser</strong> - there is no logging or data collection of any kind.</p>
+<p>While I was building it, I realized I may as well use the same parameters to build a “Financial Independence&quot; calculator. Using <a href="https://en.wikipedia.org/wiki/Trinity_study">the 4% rule</a> and combining these two focuses, it’s very interesting to see how taxes directly add working years before potential retirement.</p>
+<p>This app will start with a LOT of assumptions, only asking you for five variables at first. That will give you a sense your tax loss and “FI” date, but many more variables can be tuned if you want a more accurate number to your specific situation. Not everything you might want is tunable, but this is going to be fairly accurate for you if you have a focus on saving. It will be less accurate, exaggerating your wealth potential, if your tendency is to spend up to your income. If you do find yourself tuning further, start by switching your state from California if you don&rsquo;t live here, and also adjusting your equities allocation if you don&rsquo;t target 90%. Those two items have a big impact.</p>
+<p>Try pulling the tax levers. See what your numbers look like in a different state, or better yet if all your taxes were halved or doubled. You are going to be surprised by how these numbers change under different tax regimes.</p>
+<p>Here you go. Have fun!</p>
+<p><div style="width:100%; max-width:1100px; margin:1em auto;">
+  <iframe
+    class="lazy-iframe"
+    data-src="/html/tax-and-fi-calculator.html"
+    src="about:blank"
+    loading="lazy"
+    style="width:100%; height:900px; border:1px solid #ccc; display:block;"
+  ></iframe>
+</div>
+
+<div style="text-align: center; margin-bottom: 1rem;">
+    
+</div>
+
+<div style="text-align:center;">
+  <a href="/html/tax-and-fi-calculator.html" target="_blank" rel="noopener noreferrer"
+     style="display:inline-block;padding:.5rem 1rem;border:1px solid #ccc;border-radius:.5rem;text-decoration:none">
+    Open In Standalone Tab
+  </a>
+</div>
+</p>
+<p>I love a good critique. If you throw this fully open-source code and math into an LLM, I am sure it will have a lot of comments and concerns about my calculations. I am happy to debate those in the <a href="https://brianhockenmaier.substack.com/">Substack</a> comments!</p>
+<p>Happy tax season and see you next time.</p>
+]]></description>
+                
+
+                <guid isPermaLink="false">tag:hockenworks.com,2026-03-29:/deadweight-loss/</guid>
+
+                
+                    <link>https://hockenworks.com/deadweight-loss/</link>
+                
+
+                
+                    <pubDate>Sun, 29 Mar 2026 00:00:00 UTC</pubDate>
+                
+
+                
+                    <title>Deadweight Loss: How much do you pay in taxes?</title>
+                
+            </item>
         
             <item>
                 
@@ -410,7 +491,6 @@
 
 
 
-
     
 
 
@@ -434,22 +514,11 @@
 
 
 
-
-
+    
+        
     
 
-
-
     
-    
-
-
-
-    
-
-
-
-
 
 
 
@@ -460,6 +529,26 @@
 
 
 
+    
+    
+    
+    
+    
+
+    
+
+    
+    
+    
+    
+
+    
+        
+
+        
+
+        
+    
 
 
 
@@ -480,7 +569,10 @@
 
 
 
-<img  alt="the UI"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/make-us-smarter.jpg"   style="height: auto; max-width: 200px"   >
+
+
+
+<img  alt="the UI"   crossorigin="anonymous"   height="2400"   referrerpolicy="no-referrer"  src="https://hockenworks.com/my-experiments-with-ai-cheating/images/make-us-smarter.e8d510d400b82866995b724c5ec7f0d6dae2974cf7d298b5065a50e8588f14fc.jpg"   style="height: auto; max-width: 200px"    width="1080" >
 
 
     
@@ -576,7 +668,6 @@
 
 
 
-
     
 
 
@@ -602,22 +693,13 @@
 
 
 
-
+    
+        
+    
 
     
 
-
-
     
-    
-
-
-
-    
-
-
-
-
 
 
 
@@ -628,6 +710,26 @@
 
 
 
+    
+    
+    
+    
+    
+
+    
+
+    
+    
+    
+    
+
+    
+        
+
+        
+
+        
+    
 
 
 
@@ -648,7 +750,10 @@
 
 
 
-<img  alt="the hockenworks homepage"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/hockenworks.png"   style="height: auto; max-width: 720px; width: 100%"   >
+
+
+
+<img  alt="the hockenworks homepage"   crossorigin="anonymous"   height="463"   referrerpolicy="no-referrer"  src="https://hockenworks.com/this-website/images/hockenworks.c22a2c3d654ab111145cdb3433dba033105d59fe94b0de5a9e5036993674b900.png"   style="height: auto; max-width: 720px; width: 100%"    width="1309" >
 
 
     
@@ -708,7 +813,6 @@
 
 
 
-
     
 
 
@@ -734,22 +838,13 @@
 
 
 
-
+    
+        
+    
 
     
 
-
-
     
-    
-
-
-
-    
-
-
-
-
 
 
 
@@ -760,6 +855,26 @@
 
 
 
+    
+    
+    
+    
+    
+
+    
+
+    
+    
+    
+    
+
+    
+        
+
+        
+
+        
+    
 
 
 
@@ -780,7 +895,10 @@
 
 
 
-<img  alt="A ball machine"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/bubble4.gif"   style="height: auto; max-width: 720px; width: 100%"   >
+
+
+
+<img  alt="A ball machine"   crossorigin="anonymous"   height="509"   referrerpolicy="no-referrer"  src="https://hockenworks.com/this-website/images/bubble4.395b270d4ec1b287f08b199484d986db1476aaf34db66c0f51d131dba6fb05d1.gif"   style="height: auto; max-width: 720px; width: 100%"    width="822" >
 
 
     
@@ -822,7 +940,6 @@
 
 
 
-
     
 
 
@@ -848,22 +965,13 @@
 
 
 
-
+    
+        
+    
 
     
 
-
-
     
-    
-
-
-
-    
-
-
-
-
 
 
 
@@ -874,6 +982,26 @@
 
 
 
+    
+    
+    
+    
+    
+
+    
+
+    
+    
+    
+    
+
+    
+        
+
+        
+
+        
+    
 
 
 
@@ -894,7 +1022,10 @@
 
 
 
-<img  alt="balls everywhere"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/this-website-ball-machine-1.png"   style="height: auto; max-width: 720px; width: 100%"   >
+
+
+
+<img  alt="balls everywhere"   crossorigin="anonymous"   height="1026"   referrerpolicy="no-referrer"  src="https://hockenworks.com/this-website/images/this-website-ball-machine-1.92a249a9d1a06935506612fb367f377d2a7ac18b89ebdcea19632a3bfe897c62.png"   style="height: auto; max-width: 720px; width: 100%"    width="1560" >
 
 
     
@@ -936,7 +1067,6 @@
 
 
 
-
     
 
 
@@ -962,22 +1092,13 @@
 
 
 
-
+    
+        
+    
 
     
 
-
-
     
-    
-
-
-
-    
-
-
-
-
 
 
 
@@ -988,6 +1109,26 @@
 
 
 
+    
+    
+    
+    
+    
+
+    
+
+    
+    
+    
+    
+
+    
+        
+
+        
+
+        
+    
 
 
 
@@ -1008,7 +1149,10 @@
 
 
 
-<img  alt="balls everywhere"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/waves2.gif"   style="height: auto; max-width: 300px; width: 100%"   >
+
+
+
+<img  alt="balls everywhere"   crossorigin="anonymous"   height="843"   referrerpolicy="no-referrer"  src="https://hockenworks.com/this-website/images/waves2.329d6d42fb9f00fd8afa5be7f7cb0c78bffe24f88bed5e07ed5ccbc67b2dbfd6.gif"   style="height: auto; max-width: 300px; width: 100%"    width="390" >
 
 
     
@@ -1060,7 +1204,6 @@
 
 
 
-
     
 
 
@@ -1086,22 +1229,13 @@
 
 
 
-
+    
+        
+    
 
     
 
-
-
     
-    
-
-
-
-    
-
-
-
-
 
 
 
@@ -1112,6 +1246,26 @@
 
 
 
+    
+    
+    
+    
+    
+
+    
+
+    
+    
+    
+    
+
+    
+        
+
+        
+
+        
+    
 
 
 
@@ -1132,7 +1286,10 @@
 
 
 
-<img  alt="ball chute"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/ball-chute-hatch-1.png"   style="height: auto; max-width: 200px; width: 100%"   >
+
+
+
+<img  alt="ball chute"   crossorigin="anonymous"   height="1024"   referrerpolicy="no-referrer"  src="https://hockenworks.com/this-website/images/ball-chute-hatch-1.84cc40a99d622661d22803900b6d209c4448172606fb29b82858e796ab8ed773.png"   style="height: auto; max-width: 200px; width: 100%"    width="608" >
 
  
   <span style="display: block; font-style: italic; margin-top: 0.5rem">
@@ -1181,7 +1338,6 @@
 
 
 
-
     
 
 
@@ -1207,22 +1363,13 @@
 
 
 
-
+    
+        
+    
 
     
 
-
-
     
-    
-
-
-
-    
-
-
-
-
 
 
 
@@ -1233,6 +1380,26 @@
 
 
 
+    
+    
+    
+    
+    
+
+    
+
+    
+    
+    
+    
+
+    
+        
+
+        
+
+        
+    
 
 
 
@@ -1253,7 +1420,10 @@
 
 
 
-<img  alt="the goal"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/goal.png"   style="height: auto; max-width: 40px; width: 100%"   >
+
+
+
+<img  alt="the goal"   crossorigin="anonymous"   height="150"   referrerpolicy="no-referrer"  src="https://hockenworks.com/this-website/images/goal.91b440eaa1763ce05423b12f2b89f09cf2b0d84976ab38f63b97051b5ba85892.png"   style="height: auto; max-width: 40px; width: 100%"    width="150" >
 
  
 </span>
@@ -1305,7 +1475,6 @@
 
 
 
-
     
 
 
@@ -1331,22 +1500,13 @@
 
 
 
-
+    
+        
+    
 
     
 
-
-
     
-    
-
-
-
-    
-
-
-
-
 
 
 
@@ -1357,6 +1517,26 @@
 
 
 
+    
+    
+    
+    
+    
+
+    
+
+    
+    
+    
+    
+
+    
+        
+
+        
+
+        
+    
 
 
 
@@ -1377,7 +1557,10 @@
 
 
 
-<img  alt="line toggle"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/line-mode.png"   style="height: auto; max-width: 200px; width: 100%"   >
+
+
+
+<img  alt="line toggle"   crossorigin="anonymous"   height="69"   referrerpolicy="no-referrer"  src="https://hockenworks.com/this-website/images/line-mode.48bddd5d44260855e542565ff86a8d16f59815f9670075cf6703e7267d6c97a2.png"   style="height: auto; max-width: 200px; width: 100%"    width="69" >
 
  
 </span>
@@ -1421,7 +1604,6 @@
 
 
 
-
     
 
 
@@ -1447,22 +1629,13 @@
 
 
 
-
+    
+        
+    
 
     
 
-
-
     
-    
-
-
-
-    
-
-
-
-
 
 
 
@@ -1473,6 +1646,26 @@
 
 
 
+    
+    
+    
+    
+    
+
+    
+
+    
+    
+    
+    
+
+    
+        
+
+        
+
+        
+    
 
 
 
@@ -1493,7 +1686,10 @@
 
 
 
-<img  alt="curved line toggle"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/curve-mode.png"   style="height: auto; max-width: 200px; width: 100%"   >
+
+
+
+<img  alt="curved line toggle"   crossorigin="anonymous"   height="69"   referrerpolicy="no-referrer"  src="https://hockenworks.com/this-website/images/curve-mode.8930267f39c540cdf8359519637cf22e03aed5553756e50399ca83f713df8184.png"   style="height: auto; max-width: 200px; width: 100%"    width="69" >
 
  
 </span>
@@ -1537,7 +1733,6 @@
 
 
 
-
     
 
 
@@ -1563,22 +1758,13 @@
 
 
 
-
+    
+        
+    
 
     
 
-
-
     
-    
-
-
-
-    
-
-
-
-
 
 
 
@@ -1589,6 +1775,26 @@
 
 
 
+    
+    
+    
+    
+    
+
+    
+
+    
+    
+    
+    
+
+    
+        
+
+        
+
+        
+    
 
 
 
@@ -1609,7 +1815,10 @@
 
 
 
-<img  alt="compactor toggle"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/compactor-mode.png"   style="height: auto; max-width: 200px; width: 100%"   >
+
+
+
+<img  alt="compactor toggle"   crossorigin="anonymous"   height="91"   referrerpolicy="no-referrer"  src="https://hockenworks.com/this-website/images/compactor-mode.d583839647eea3f574a20ba0ca0cb3fa79c064a41254b07e1680c50fe81f1ad6.png"   style="height: auto; max-width: 200px; width: 100%"    width="85" >
 
  
 </span>
@@ -1688,7 +1897,6 @@
 
 
 
-
     
 
 
@@ -1714,22 +1922,13 @@
 
 
 
-
+    
+        
+    
 
     
 
-
-
     
-    
-
-
-
-    
-
-
-
-
 
 
 
@@ -1740,6 +1939,26 @@
 
 
 
+    
+    
+    
+    
+    
+
+    
+
+    
+    
+    
+    
+
+    
+        
+
+        
+
+        
+    
 
 
 
@@ -1760,7 +1979,10 @@
 
 
 
-<img  alt="auto clicker"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/auto-clicker.png"   style="height: auto; max-width: 200px; width: 100%"   >
+
+
+
+<img  alt="auto clicker"   crossorigin="anonymous"   height="1023"   referrerpolicy="no-referrer"  src="https://hockenworks.com/this-website/images/auto-clicker.744d71f0e533fcbfda22affbc33831cdf21654d67a6679c57cb200cce009be60.png"   style="height: auto; max-width: 200px; width: 100%"    width="912" >
 
  
 </span>
@@ -1811,7 +2033,6 @@
 
 
 
-
     
 
 
@@ -1837,22 +2058,13 @@
 
 
 
-
+    
+        
+    
 
     
 
-
-
     
-    
-
-
-
-    
-
-
-
-
 
 
 
@@ -1863,6 +2075,26 @@
 
 
 
+    
+    
+    
+    
+    
+
+    
+
+    
+    
+    
+    
+
+    
+        
+
+        
+
+        
+    
 
 
 
@@ -1883,7 +2115,10 @@
 
 
 
-<img  alt="dotted line toggle"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/everything-has-a-price.png"   style="height: auto; max-width: 200px; width: 100%"   >
+
+
+
+<img  alt="dotted line toggle"   crossorigin="anonymous"   height="52"   referrerpolicy="no-referrer"  src="https://hockenworks.com/this-website/images/everything-has-a-price.399d0976a2879aac1c7d9e4ccbd12005bba29573fc88706f5c3d431dc4aed7b1.png"   style="height: auto; max-width: 200px; width: 100%"    width="107" >
 
  
 </span>
@@ -1928,7 +2163,6 @@
 
 
 
-
     
 
 
@@ -1954,22 +2188,13 @@
 
 
 
-
+    
+        
+    
 
     
 
-
-
     
-    
-
-
-
-    
-
-
-
-
 
 
 
@@ -1980,6 +2205,26 @@
 
 
 
+    
+    
+    
+    
+    
+
+    
+
+    
+    
+    
+    
+
+    
+        
+
+        
+
+        
+    
 
 
 
@@ -2000,7 +2245,10 @@
 
 
 
-<img  alt="dotted line toggle"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/dotted-line-mode.png"   style="height: auto; max-width: 200px; width: 100%"   >
+
+
+
+<img  alt="dotted line toggle"   crossorigin="anonymous"   height="69"   referrerpolicy="no-referrer"  src="https://hockenworks.com/this-website/images/dotted-line-mode.2e769556d09c1b2ce24259cc45e3756d4359bb1f66660d7703aaf860fe6168f6.png"   style="height: auto; max-width: 200px; width: 100%"    width="69" >
 
  
 </span>
@@ -2055,7 +2303,6 @@ So keep your balls moving!</li>
 
 
 
-
     
 
 
@@ -2081,22 +2328,13 @@ So keep your balls moving!</li>
 
 
 
-
+    
+        
+    
 
     
 
-
-
     
-    
-
-
-
-    
-
-
-
-
 
 
 
@@ -2107,6 +2345,26 @@ So keep your balls moving!</li>
 
 
 
+    
+    
+    
+    
+    
+
+    
+
+    
+    
+    
+    
+
+    
+        
+
+        
+
+        
+    
 
 
 
@@ -2127,7 +2385,10 @@ So keep your balls moving!</li>
 
 
 
-<img  alt="dotted line toggle"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/page-revenue.png"   style="height: auto; max-width: 200px; width: 100%"   >
+
+
+
+<img  alt="dotted line toggle"   crossorigin="anonymous"   height="48"   referrerpolicy="no-referrer"  src="https://hockenworks.com/this-website/images/page-revenue.4ef5c8228c05dbe5a408642cf99caa9ac415378db8629d538da84c485401025a.png"   style="height: auto; max-width: 200px; width: 100%"    width="136" >
 
  
 </span>

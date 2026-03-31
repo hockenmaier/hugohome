@@ -150,7 +150,6 @@
 
 
 
-
     
 
 
@@ -176,22 +175,13 @@
 
 
 
-
+    
+        
+    
 
     
 
-
-
     
-    
-
-
-
-    
-
-
-
-
 
 
 
@@ -202,6 +192,26 @@
 
 
 
+    
+    
+    
+    
+    
+
+    
+
+    
+    
+    
+    
+
+    
+        
+
+        
+
+        
+    
 
 
 
@@ -222,7 +232,10 @@
 
 
 
-<img  alt="The cover art for Power Grid"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="https://hockenworks.com/images/power-grid.png"   style="height: auto; max-width: 200px; width: 100%"   >
+
+
+
+<img  alt="The cover art for Power Grid"   crossorigin="anonymous"   height="600"   referrerpolicy="no-referrer"  src="https://hockenworks.com/balloon-fight/images/power-grid.bef23e9ab6fc0f3cae86f82872de2b6fb7410a9695926cf8dde35f4b38f71ca0.png"   style="height: auto; max-width: 200px; width: 100%"    width="438" >
 
 
     
