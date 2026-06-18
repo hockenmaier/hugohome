@@ -118,7 +118,7 @@
             
 
             
-                <link href="https://hockenworks.com/tags/experimental/" rel="self" type="text/html"/>
+                <link href="http://localhost:1313/tags/experimental/" rel="self" type="text/html"/>
             
         
             
@@ -126,7 +126,7 @@
             
 
             
-                <link href="https://hockenworks.com/tags/experimental/rss.xml" rel="alternate" type="application/rss+xml"/>
+                <link href="http://localhost:1313/tags/experimental/rss.xml" rel="alternate" type="application/rss+xml"/>
             
         
 
@@ -144,7 +144,7 @@
             <lastBuildDate>2026-03-29 00:00:00 +0000 UTC</lastBuildDate>
         
 
-        <link>https://hockenworks.com/tags/experimental/</link>
+        <link>http://localhost:1313/tags/experimental/</link>
 
         
 
@@ -213,10 +213,10 @@
 ]]></description>
                 
 
-                <guid isPermaLink="false">tag:hockenworks.com,2026-03-29:/deadweight-loss/</guid>
+                <guid isPermaLink="false">tag:localhost:1313,2026-03-29:/deadweight-loss/</guid>
 
                 
-                    <link>https://hockenworks.com/deadweight-loss/</link>
+                    <link>http://localhost:1313/deadweight-loss/</link>
                 
 
                 
@@ -370,7 +370,7 @@
 
 
 
-<img   class="rounded-3 w-100"  crossorigin="anonymous"   height="3000"   referrerpolicy="no-referrer"  src="https://hockenworks.com/raspberry-pi-panel-2/images/old-enclosure.eca34d9349bdb3c3e762282c1c1569eac4be9c21259f17b162cceacb2a4379ec.webp"   style="height: auto"    width="4000" >
+<img   class="rounded-3 w-100"  crossorigin="anonymous"   height="3000"   referrerpolicy="no-referrer"  src="http://localhost:1313/raspberry-pi-panel-2/images/old-enclosure.eca34d9349bdb3c3e762282c1c1569eac4be9c21259f17b162cceacb2a4379ec.webp"   style="height: auto"    width="4000" >
 
 
       
@@ -474,7 +474,7 @@
 
 
 
-<img   class="rounded-3 w-100"  crossorigin="anonymous"   height="3000"   referrerpolicy="no-referrer"  src="https://hockenworks.com/raspberry-pi-panel-2/images/new-mount.e25261aa8e5bd0aec44fe35fdebd5c15bab53bc8e0717b8c21832ec68974a0a0.webp"   style="height: auto"    width="4000" >
+<img   class="rounded-3 w-100"  crossorigin="anonymous"   height="3000"   referrerpolicy="no-referrer"  src="http://localhost:1313/raspberry-pi-panel-2/images/new-mount.e25261aa8e5bd0aec44fe35fdebd5c15bab53bc8e0717b8c21832ec68974a0a0.webp"   style="height: auto"    width="4000" >
 
 </div>
 </div>
@@ -586,10 +586,10 @@ Remember, this will be permanently displayed and always be up to date so account
 ]]></description>
                 
 
-                <guid isPermaLink="false">tag:hockenworks.com,2025-12-14:/raspberry-pi-panel-2/</guid>
+                <guid isPermaLink="false">tag:localhost:1313,2025-12-14:/raspberry-pi-panel-2/</guid>
 
                 
-                    <link>https://hockenworks.com/raspberry-pi-panel-2/</link>
+                    <link>http://localhost:1313/raspberry-pi-panel-2/</link>
                 
 
                 
@@ -831,10 +831,10 @@ Remember, this will be permanently displayed and always be up to date so account
 ]]></description>
                 
 
-                <guid isPermaLink="false">tag:hockenworks.com,2025-08-24:/gpt5/</guid>
+                <guid isPermaLink="false">tag:localhost:1313,2025-08-24:/gpt5/</guid>
 
                 
-                    <link>https://hockenworks.com/gpt5/</link>
+                    <link>http://localhost:1313/gpt5/</link>
                 
 
                 
@@ -999,7 +999,7 @@ Remember, this will be permanently displayed and always be up to date so account
 
 
 
-<img  alt="the UI"   crossorigin="anonymous"   height="2400"   referrerpolicy="no-referrer"  src="https://hockenworks.com/my-experiments-with-ai-cheating/images/make-us-smarter.e8d510d400b82866995b724c5ec7f0d6dae2974cf7d298b5065a50e8588f14fc.jpg"   style="height: auto; max-width: 200px"    width="1080" >
+<img  alt="the UI"   crossorigin="anonymous"   height="2400"   referrerpolicy="no-referrer"  src="http://localhost:1313/my-experiments-with-ai-cheating/images/make-us-smarter.e8d510d400b82866995b724c5ec7f0d6dae2974cf7d298b5065a50e8588f14fc.jpg"   style="height: auto; max-width: 200px"    width="1080" >
 
 
     
@@ -1019,10 +1019,10 @@ Remember, this will be permanently displayed and always be up to date so account
 ]]></description>
                 
 
-                <guid isPermaLink="false">tag:hockenworks.com,2025-06-29:/my-experiments-with-ai-cheating/</guid>
+                <guid isPermaLink="false">tag:localhost:1313,2025-06-29:/my-experiments-with-ai-cheating/</guid>
 
                 
-                    <link>https://hockenworks.com/my-experiments-with-ai-cheating/</link>
+                    <link>http://localhost:1313/my-experiments-with-ai-cheating/</link>
                 
 
                 
@@ -1080,10 +1080,10 @@ Remember, this will be permanently displayed and always be up to date so account
 ]]></description>
                 
 
-                <guid isPermaLink="false">tag:hockenworks.com,2025-06-23:/the-flapper/</guid>
+                <guid isPermaLink="false">tag:localhost:1313,2025-06-23:/the-flapper/</guid>
 
                 
-                    <link>https://hockenworks.com/the-flapper/</link>
+                    <link>http://localhost:1313/the-flapper/</link>
                 
 
                 
@@ -1238,7 +1238,7 @@ Remember, this will be permanently displayed and always be up to date so account
 
 
 
-<img  alt="some weird acorns"   crossorigin="anonymous"   height="431"   referrerpolicy="no-referrer"  src="https://hockenworks.com/3d-modeling-with-ai/images/gpt-acorn.91e2cc06919e99763fe6e75504218c7a3c5a7a911b2c6b12e517d6a420259d89.png"   style="height: auto; max-width: 720px; width: 100%"    width="680" >
+<img  alt="some weird acorns"   crossorigin="anonymous"   height="431"   referrerpolicy="no-referrer"  src="http://localhost:1313/3d-modeling-with-ai/images/gpt-acorn.91e2cc06919e99763fe6e75504218c7a3c5a7a911b2c6b12e517d6a420259d89.png"   style="height: auto; max-width: 720px; width: 100%"    width="680" >
 
 
     
@@ -1248,10 +1248,10 @@ Remember, this will be permanently displayed and always be up to date so account
 ]]></description>
                 
 
-                <guid isPermaLink="false">tag:hockenworks.com,2023-03-19:/3d-modeling-with-ai/</guid>
+                <guid isPermaLink="false">tag:localhost:1313,2023-03-19:/3d-modeling-with-ai/</guid>
 
                 
-                    <link>https://hockenworks.com/3d-modeling-with-ai/</link>
+                    <link>http://localhost:1313/3d-modeling-with-ai/</link>
                 
 
                 
@@ -1324,10 +1324,10 @@ Remember, this will be permanently displayed and always be up to date so account
 <p>For March 2023, this result was revolutionary - I was truly impressed. In 2025, it&rsquo;s not very impressive at all. How quickly we get used to progress!</p>]]></description>
                 
 
-                <guid isPermaLink="false">tag:hockenworks.com,2023-03-18:/gpt-4-solar-system/</guid>
+                <guid isPermaLink="false">tag:localhost:1313,2023-03-18:/gpt-4-solar-system/</guid>
 
                 
-                    <link>https://hockenworks.com/gpt-4-solar-system/</link>
+                    <link>http://localhost:1313/gpt-4-solar-system/</link>
                 
 
                 
@@ -1376,10 +1376,10 @@ Remember, this will be permanently displayed and always be up to date so account
 <p>Neat stuff - big thanks to Luma AI for the free toolset.</p>]]></description>
                 
 
-                <guid isPermaLink="false">tag:hockenworks.com,2023-02-01:/nerfs/</guid>
+                <guid isPermaLink="false">tag:localhost:1313,2023-02-01:/nerfs/</guid>
 
                 
-                    <link>https://hockenworks.com/nerfs/</link>
+                    <link>http://localhost:1313/nerfs/</link>
                 
 
                 
@@ -1589,7 +1589,7 @@ Remember, this will be permanently displayed and always be up to date so account
 
 
 
-<img   class="img-fluid "  crossorigin="anonymous"   height="1270"   referrerpolicy="no-referrer"  src="https://hockenworks.com/human-joystick/images/human_joystick_centered.8112d58d1c68f239362599bdcd572ca755d2fc89b97f2baffb55b4f9bdfb088f.jpg"   style="display:block; height: auto; margin:0 auto; width: 60%"    width="1270" >
+<img   class="img-fluid "  crossorigin="anonymous"   height="1270"   referrerpolicy="no-referrer"  src="http://localhost:1313/human-joystick/images/human_joystick_centered.8112d58d1c68f239362599bdcd572ca755d2fc89b97f2baffb55b4f9bdfb088f.jpg"   style="display:block; height: auto; margin:0 auto; width: 60%"    width="1270" >
 
 
 </div>
@@ -1754,7 +1754,7 @@ Remember, this will be permanently displayed and always be up to date so account
 
 
 
-<img   class="img-fluid "  crossorigin="anonymous"   height="1270"   referrerpolicy="no-referrer"  src="https://hockenworks.com/human-joystick/images/human_joystick_moving.2eab8d66f1e0ad4233cdb94f37d8ffdb92de321de79b9b64bf7bc16cfa36e926.jpg"   style="display:block; height: auto; margin:0 auto; width: 60%"    width="1270" >
+<img   class="img-fluid "  crossorigin="anonymous"   height="1270"   referrerpolicy="no-referrer"  src="http://localhost:1313/human-joystick/images/human_joystick_moving.2eab8d66f1e0ad4233cdb94f37d8ffdb92de321de79b9b64bf7bc16cfa36e926.jpg"   style="display:block; height: auto; margin:0 auto; width: 60%"    width="1270" >
 
 
 </div>
@@ -1768,10 +1768,10 @@ Remember, this will be permanently displayed and always be up to date so account
 <p>Ultimately I put the project up for others to view but have not expanded it into a full experience or released it on any marketplaces. Feel free to download the Unity project and try it on your own VR setup if you&rsquo;re curious.</p>]]></description>
                 
 
-                <guid isPermaLink="false">tag:hockenworks.com,2020-01-01:/human-joystick/</guid>
+                <guid isPermaLink="false">tag:localhost:1313,2020-01-01:/human-joystick/</guid>
 
                 
-                    <link>https://hockenworks.com/human-joystick/</link>
+                    <link>http://localhost:1313/human-joystick/</link>
                 
 
                 
@@ -1934,7 +1934,7 @@ Remember, this will be permanently displayed and always be up to date so account
 
 
 
-<img  alt="Answering Machine homepage"   crossorigin="anonymous"   height="609"   referrerpolicy="no-referrer"  src="https://hockenworks.com/answering-machine/images/answering_machine_uploads.53fbc160cd730b7f90f55bbfb8df68ad2a28391431648f5a0f61c7bb2191fe88.png"   style="height: auto; max-width: 720px; width: 100%"    width="915" >
+<img  alt="Answering Machine homepage"   crossorigin="anonymous"   height="609"   referrerpolicy="no-referrer"  src="http://localhost:1313/answering-machine/images/answering_machine_uploads.53fbc160cd730b7f90f55bbfb8df68ad2a28391431648f5a0f61c7bb2191fe88.png"   style="height: auto; max-width: 720px; width: 100%"    width="915" >
 
 
     
@@ -2057,7 +2057,7 @@ Remember, this will be permanently displayed and always be up to date so account
 
 
 
-<img  alt="Answering Machine main view"   crossorigin="anonymous"   height="825"   referrerpolicy="no-referrer"  src="https://hockenworks.com/answering-machine/images/answering_machine_hr.92154eb2446b927f126ba9af2c612fdbcb85343beaed79d273d5c1e5eb9833ab.png"   style="height: auto; width: 100%"    width="1912" >
+<img  alt="Answering Machine main view"   crossorigin="anonymous"   height="825"   referrerpolicy="no-referrer"  src="http://localhost:1313/answering-machine/images/answering_machine_hr.92154eb2446b927f126ba9af2c612fdbcb85343beaed79d273d5c1e5eb9833ab.png"   style="height: auto; width: 100%"    width="1912" >
 
 
     
@@ -2180,7 +2180,7 @@ Remember, this will be permanently displayed and always be up to date so account
 
 
 
-<img  alt="Answering Machine info panel"   crossorigin="anonymous"   height="345"   referrerpolicy="no-referrer"  src="https://hockenworks.com/answering-machine/images/answering_machine_info.ffc175ff2b9a701b51f5229652dfcdf41ea2b2711ada4d19d27ddee8eb6c61f6.png"   style="height: auto; max-width: 720px; width: 100%"    width="614" >
+<img  alt="Answering Machine info panel"   crossorigin="anonymous"   height="345"   referrerpolicy="no-referrer"  src="http://localhost:1313/answering-machine/images/answering_machine_info.ffc175ff2b9a701b51f5229652dfcdf41ea2b2711ada4d19d27ddee8eb6c61f6.png"   style="height: auto; max-width: 720px; width: 100%"    width="614" >
 
 
     
@@ -2305,7 +2305,7 @@ Remember, this will be permanently displayed and always be up to date so account
 
 
 
-<img  alt="Answering Machine query bar"   crossorigin="anonymous"   height="34"   referrerpolicy="no-referrer"  src="https://hockenworks.com/answering-machine/images/answering_machine_query.9a1bee69c00310670c40650c5d5e8b4414eb5f0ce11f8d8ffe4c58e8d8c43e34.png"   style="height: auto; max-width: 720px; width: 100%"    width="859" >
+<img  alt="Answering Machine query bar"   crossorigin="anonymous"   height="34"   referrerpolicy="no-referrer"  src="http://localhost:1313/answering-machine/images/answering_machine_query.9a1bee69c00310670c40650c5d5e8b4414eb5f0ce11f8d8ffe4c58e8d8c43e34.png"   style="height: auto; max-width: 720px; width: 100%"    width="859" >
 
 
     
@@ -2436,7 +2436,7 @@ Remember, this will be permanently displayed and always be up to date so account
 
 
 
-<img  alt="Answering Machine response"   crossorigin="anonymous"   height="377"   referrerpolicy="no-referrer"  src="https://hockenworks.com/answering-machine/images/answering_machine_answer.e037695099d0937938506ba5b09e163331f03fa5383c9b09df88dd9264c21ccc.png"   style="height: auto; max-width: 720px; width: 100%"    width="763" >
+<img  alt="Answering Machine response"   crossorigin="anonymous"   height="377"   referrerpolicy="no-referrer"  src="http://localhost:1313/answering-machine/images/answering_machine_answer.e037695099d0937938506ba5b09e163331f03fa5383c9b09df88dd9264c21ccc.png"   style="height: auto; max-width: 720px; width: 100%"    width="763" >
 
 
     
@@ -2566,7 +2566,7 @@ Remember, this will be permanently displayed and always be up to date so account
 
 
 
-<img  alt="Answering Machine subjects and conditions"   crossorigin="anonymous"   height="210"   referrerpolicy="no-referrer"  src="https://hockenworks.com/answering-machine/images/answering_machine_lexicon.57809f5e26aac0647845200d9fc742b51a76d86af26537e10b9a7ecd66cd4201.png"   style="height: auto; max-width: 400px; width: 100%"    width="347" >
+<img  alt="Answering Machine subjects and conditions"   crossorigin="anonymous"   height="210"   referrerpolicy="no-referrer"  src="http://localhost:1313/answering-machine/images/answering_machine_lexicon.57809f5e26aac0647845200d9fc742b51a76d86af26537e10b9a7ecd66cd4201.png"   style="height: auto; max-width: 400px; width: 100%"    width="347" >
 
 
     
@@ -2691,7 +2691,7 @@ Remember, this will be permanently displayed and always be up to date so account
 
 
 
-<img  alt="Answering Machine concept"   crossorigin="anonymous"   height="200"   referrerpolicy="no-referrer"  src="https://hockenworks.com/answering-machine/images/answering_machine_concept.2dee911f2b7142c9cad449b733db4f0790766d6ffcdb2d3dae527014f884cec5.png"   style="height: auto; max-width: 200px; width: 100%"    width="204" >
+<img  alt="Answering Machine concept"   crossorigin="anonymous"   height="200"   referrerpolicy="no-referrer"  src="http://localhost:1313/answering-machine/images/answering_machine_concept.2dee911f2b7142c9cad449b733db4f0790766d6ffcdb2d3dae527014f884cec5.png"   style="height: auto; max-width: 200px; width: 100%"    width="204" >
 
 
     
@@ -2821,7 +2821,7 @@ Remember, this will be permanently displayed and always be up to date so account
 
 
 
-<img  alt="Serverless Architecture of the Answering Machine app"   crossorigin="anonymous"   height="615"   referrerpolicy="no-referrer"  src="https://hockenworks.com/answering-machine/images/answering_machine_architecture.eaf4394434ba6b76a5f3ea46c310329b658d28f730fb386f0de3a5b55656b19d.png"   style="height: auto; max-width: 720px; width: 100%"    width="915" >
+<img  alt="Serverless Architecture of the Answering Machine app"   crossorigin="anonymous"   height="615"   referrerpolicy="no-referrer"  src="http://localhost:1313/answering-machine/images/answering_machine_architecture.eaf4394434ba6b76a5f3ea46c310329b658d28f730fb386f0de3a5b55656b19d.png"   style="height: auto; max-width: 720px; width: 100%"    width="915" >
 
 
     
@@ -2831,10 +2831,10 @@ Remember, this will be permanently displayed and always be up to date so account
 ]]></description>
                 
 
-                <guid isPermaLink="false">tag:hockenworks.com,2019-07-03:/answering-machine/</guid>
+                <guid isPermaLink="false">tag:localhost:1313,2019-07-03:/answering-machine/</guid>
 
                 
-                    <link>https://hockenworks.com/answering-machine/</link>
+                    <link>http://localhost:1313/answering-machine/</link>
                 
 
                 
@@ -2881,7 +2881,7 @@ Remember, this will be permanently displayed and always be up to date so account
 <p>I created this panel display in 2016 to control much of the home automation I used in my Studio City apartment. Mainly a hardware project, I designed and 3D-printed a case and frame for the touchscreen and raspberry pi microcomputer in order to mount them to the wall. The software running the control panel is SaaS, but I did write a custom html wrapper to control the orientation and settings of the site, which is available on the github linked above.</p>
 <p>Update in 2025: This panel is still my main view into my home automation in my new house in Sherman Oaks, almost 10 years in with no modification to the software or Pi itself! However, the LED behind the screen died this year and I had to replace it (link below)</p>
 <p>Here&rsquo;s a video to see the panel in action:</p>
-<h2 id="hahahugoshortcode37s0hbhb">
+<h2 id="hahahugoshortcode38s0hbhb">
     <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
       <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/iFGmm-ijJvE?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"></iframe>
     </div>
@@ -2951,10 +2951,10 @@ Original:
 </span></span></code></pre></div>]]></description>
                 
 
-                <guid isPermaLink="false">tag:hockenworks.com,2016-01-01:/raspberry-pi-panel/</guid>
+                <guid isPermaLink="false">tag:localhost:1313,2016-01-01:/raspberry-pi-panel/</guid>
 
                 
-                    <link>https://hockenworks.com/raspberry-pi-panel/</link>
+                    <link>http://localhost:1313/raspberry-pi-panel/</link>
                 
 
                 
@@ -3004,10 +3004,10 @@ Print two of the attached STL files (one of the mountable variety if you plan to
 <p>The hot glue lets the metal move slightly, so that one metal piece bends to touch the other when a magnet is near either side of the switch, completing the circuit between the two metal ends still sticking out.</p>]]></description>
                 
 
-                <guid isPermaLink="false">tag:hockenworks.com,2013-11-25:/3d-reed-switch/</guid>
+                <guid isPermaLink="false">tag:localhost:1313,2013-11-25:/3d-reed-switch/</guid>
 
                 
-                    <link>https://hockenworks.com/3d-reed-switch/</link>
+                    <link>http://localhost:1313/3d-reed-switch/</link>
                 
 
                 
@@ -3051,10 +3051,10 @@ Print two of the attached STL files (one of the mountable variety if you plan to
     </div>]]></description>
                 
 
-                <guid isPermaLink="false">tag:hockenworks.com,2013-05-13:/3d-key/</guid>
+                <guid isPermaLink="false">tag:localhost:1313,2013-05-13:/3d-key/</guid>
 
                 
-                    <link>https://hockenworks.com/3d-key/</link>
+                    <link>http://localhost:1313/3d-key/</link>
                 
 
                 
