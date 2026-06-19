@@ -99,7 +99,7 @@
         
 
         
-            <lastBuildDate>2025-09-12 00:00:00 +0000 UTC</lastBuildDate>
+            <lastBuildDate>2026-06-19 00:00:00 +0000 UTC</lastBuildDate>
         
 
         <link>http://localhost:1313/tags/singularity/</link>
@@ -110,6 +110,695 @@
 
         
 
+        
+            <item>
+                
+                
+                
+                
+                
+                
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+                
+
+                
+
+                
+
+                
+                    <description><![CDATA[<p>When a new AI model comes out these days, I&rsquo;m not usually holding my breath. They will improve benchmarks but nothing I am doing day-to-day is going to fundamentally change, most likely.</p>
+<p>But I&rsquo;ve been testing these foundation models&rsquo; abilities to create 3D models via <a href="https://openscad.org/index.html">openscad</a> since the <a href="/3d-modeling-with-ai">beginning of 2023</a>, and they were not really able to do anything complicated until 2 months ago with the release of Claude Opus 4.7.</p>
+<p>Last year I designed an openscad MCP server to let the AI &ldquo;check its own work&rdquo; by visually rendering openscad code it writes and returning it images from various angles, and that MCP process is how I&rsquo;m getting the results I&rsquo;m going to show you here.</p>
+<p>To me, prior to this moment, spatial reasoning was one of the very obvious ways these models <a href="/vision-is-the-last-hurdle-before-agi">were not really intelligent</a>.</p>
+<p>So, Opus 4.7 had me rethinking: if I could describe a model completely with dimensions and loose English references to the relationship between parts, etc, I could no longer argue these things could not reason spatially.</p>
+<p>Let me show you some examples.</p>
+<h2 id="opus-47-2x4-stool">Opus 4.7: 2x4 Stool</h2>
+<p>This is my favorite AI-generated 3D object in my house yet. It&rsquo;s a stool I made so that my short wife and my legs can use our too-high rocking chair. Again, fully described by me including dimensions, bevels, and screw placements:</p>
+<div style="text-align: center; margin-bottom: 1rem;">
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+
+    
+        
+    
+
+    
+
+    
+
+
+
+
+
+
+    
+
+
+
+    
+    
+    
+    
+    
+
+    
+
+    
+    
+    
+    
+
+    
+        
+
+        
+
+        
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<img  alt="Image description"   crossorigin="anonymous"   height="3000"   referrerpolicy="no-referrer"  src="http://localhost:1313/ai-can-3d-model/images/stool.68c95e9b61d3dd6b6520c33b3eccd3e22dcc6b1bfafa0844814cd951011e0a2b.jpg"   style="height: auto; max-width: 720px; width: 100%"    width="4000" >
+
+
+    
+</div>
+
+<p>The thing is perfect and we use it every day. I printed it in &ldquo;TPU for AMS&rdquo; straight from the STL file Opus gave me with no modifications - it met my spec exactly. But - I still designed it completely (using my words).</p>
+<h2 id="opus-47-baby-walking-practice-platform">Opus 4.7: Baby Walking Practice Platform</h2>
+<p>Here&rsquo;s a platform I made to hang from the ceiling to hold toys so that Alice would be encouraged to walk over to them. I described the exact shape and dimensions I wanted for this part, and Opus 4.7 gave me the exact STL I described after just a couple edits.</p>
+<div style="text-align: center; margin-bottom: 1rem;">
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+
+    
+        
+    
+
+    
+
+    
+
+
+
+
+
+
+    
+
+
+
+    
+    
+    
+    
+    
+
+    
+
+    
+    
+    
+    
+
+    
+        
+
+        
+
+        
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<img  alt="Image description"   crossorigin="anonymous"   height="3000"   referrerpolicy="no-referrer"  src="http://localhost:1313/ai-can-3d-model/images/walking-platform.0964c5a7364d578ae85b77a4597c8f6e081fb50d35282b239910f0811f6d975c.jpg"   style="height: auto; max-width: 720px; width: 100%"    width="4000" >
+
+
+    
+</div>
+
+<h1 id="fable">Fable</h1>
+<p>Then Fable released. The first thing I tried was 3D modeling with my OpenSCAD MCP server, and then I spent my Fable credits on basically nothing else.</p>
+<p>Though I only had it for 2 days on the $20/month plan, Fable blew me away with its ability to 3D model. For the first time, I saw an AI model creatively reason to create a 3D part rather than simply creating something fully specified.</p>
+<h2 id="fable-first-test-toddler-floor-bed-shelf">Fable First Test: Toddler Floor Bed Shelf</h2>
+<p>I was blown away that this worked first try.</p>
+<p>Here is a table Fable designed to snap onto the railing of Alice&rsquo;s new floor bed, to hold books and a milk bottle at bedtime. The only thing I gave Fable here was the mission of creating a 6x8-in table with a lip, and the dimensions of the toddler bed&rsquo;s rail and crossbars. It came up with the idea to place latching clips at a spacing apart such that two would always latch no matter where vertically it was placed along the bed rail. Very clever! And not just idea, it also translated that idea perfectly to a 3D model that I printed out and snapped onto the bed frame, which I&rsquo;ve been using every night. During its process, it used my openscad server many times, and even went as far as to fully model out the bed rail itself to make sure this part would fit correctly around it, simulation style.</p>
+<p>I didn&rsquo;t really design a single thing about this. All I had was an idea:</p>
+<div style="text-align: center; margin-bottom: 1rem;">
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+
+    
+        
+    
+
+    
+
+    
+
+
+
+
+
+
+    
+
+
+
+    
+    
+    
+    
+    
+
+    
+
+    
+    
+    
+    
+
+    
+        
+
+        
+
+        
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<img  alt="Image description"   crossorigin="anonymous"   height="3000"   referrerpolicy="no-referrer"  src="http://localhost:1313/ai-can-3d-model/images/shelf.896c1871a12e300b0f41878fe7bbda44d7520c3978d3ce68a0e4b30dfffcc16e.jpg"   style="height: auto; max-width: 720px; width: 100%"    width="4000" >
+
+
+    
+</div>
+
+<p>Full prompt for this one:</p>
+<blockquote>
+<p>Today I have an open-ended 3D modeling problem for you. I&rsquo;m not going to give you the exact solution, but I am going to give you the dimensions you need and the target goal, and you&rsquo;re going to need to be creative with the design.</p>
+<p>We will be designing a shelf to hold my baby&rsquo;s milk bottle and a book that will mount on top of one side of her toddler floor bed frame. I&rsquo;ve attached a picture of that. The dimensions that you should be aware of are that the frame at the top is 19 mm thick, and the bars below them that you&rsquo;ll probably use to clip or latch onto or something are 16 mm and 34 mm long. Between them is a distance of a little over 65 mm. The top bar, the one that is 19 mm thick, is 46 mm deep.</p>
+<p>The shelf should sit centered on top of this bar and should be easy to attach such that it is held tight to the bar with no extra equipment if possible. I want it to be about 8 inches by 6 inches along the frame, about 4mm deep with a slight 2mm lip and four 5mm rounded corners.</p>
+<p>Do your research and make this a 3D printable object with as minimal possible support, no support at all if possible</p>
+<p>Use the openscad MCP renderer to check your work each step and then return to me the final design as an STL file.</p>
+</blockquote>
+<p>I gave Opus the exact same prompt and it failed in predictable ways: it got the orientation of the rail wrong even though I gave it a picture with my prompt, and its latching mechanism didn&rsquo;t make much sense. Fable is the real deal when it comes to spatial reasoning.</p>
+<h2 id="fable-a-gift-box-with-vector-graphics">Fable: A Gift Box with Vector Graphics</h2>
+<p>I needed a gift box for some nice chocolate I got my Mom for her birthday. Similar story here. All I gave fable were the interior dimensions of the box, that I needed the top to pressure-fit to the bottom, the text I wanted, and then as a second pass some &ldquo;art&rdquo; - the balloons and stars you see.</p>
+<p><div style="text-align: center; margin-bottom: 1rem;">
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+
+    
+        
+    
+
+    
+
+    
+
+
+
+
+
+
+    
+
+
+
+    
+    
+    
+    
+    
+
+    
+
+    
+    
+    
+    
+
+    
+        
+
+        
+
+        
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<img  alt="Image description"   crossorigin="anonymous"   height="3000"   referrerpolicy="no-referrer"  src="http://localhost:1313/ai-can-3d-model/images/mom-box-edit.1fa6fe50484e5635222423029a3c75cb0ca47c0eab0799b649653fe53efa3a99.jpg"   style="height: auto; max-width: 720px; width: 100%"    width="4000" >
+
+
+    
+</div>
+
+All those stars and balloons were one-shotted vector graphics, by Fable&rsquo;s own decision.</p>
+<p>Because this is a multi-color model, I asked it to see if it could convert the final STL file (which is just the triangles representing the 3D shape of an object) to a .3mf file compatible with my printer that also contains color information. It failed this task twice, upon which I showed it the error message, and then it got it working! I honestly still don&rsquo;t know how it converted the file. I don&rsquo;t know much about .3mf files, actually. All I had to do before printing was pick the plastic filament to represent each color!</p>
+<h2 id="fable-3d-models-for-games">Fable: 3D models for games</h2>
+<p>By this point I was getting confident of Fable&rsquo;s abilities. I decided to test something even more complicated and creative: 3D game assets!</p>
+<p>I was still midway through this effort when the Fable ban hammer came down from the federal government. I got as far as Fable creating a couple of 3D models in a mechanical cel-shaded style that I made a pretty comprehensive skill.md file for. Fable did a surprisingly good job keeping scale and theme consistent. Here&rsquo;s a pic out of the three.js-based art showcase dashboard I had it make for me as well, to try and match the display of how these assets would look in a game engine.</p>
+<div style="text-align: center; margin-bottom: 1rem;">
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+
+    
+        
+    
+
+    
+
+    
+
+
+
+
+
+
+    
+
+
+
+    
+    
+    
+    
+    
+
+    
+
+    
+    
+    
+    
+
+    
+        
+
+        
+
+        
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<img  alt="Image description"   crossorigin="anonymous"   height="458"   referrerpolicy="no-referrer"  src="http://localhost:1313/ai-can-3d-model/images/gaming.8c1b90db8357c5bcbb995d58d18841293ae61514a29d6f6a2b0be4e1b852628d.webp"   style="height: auto; max-width: 720px; width: 100%"    width="1015" >
+
+
+    
+</div>
+
+<p>Not perfect but surprisingly coherent. I wish I had been able to produce a few dozen models and really refine that skill. I&rsquo;ll have to wait until the US decides this model is safe or someone makes a better one.</p>
+<p>So anyway, there goes my backup plan. I am humbled by the models yet again.</p>
+]]></description>
+                
+
+                <guid isPermaLink="false">tag:localhost:1313,2026-06-19:/ai-can-3d-model/</guid>
+
+                
+                    <link>http://localhost:1313/ai-can-3d-model/</link>
+                
+
+                
+                    <pubDate>Fri, 19 Jun 2026 00:00:00 UTC</pubDate>
+                
+
+                
+                    <title>Fable is a huge step up in 3D modeling</title>
+                
+            </item>
         
             <item>
                 
@@ -1550,60 +2239,6 @@ And this one might sound funny to someone that is paying attention to AI in part
 
                 
                     <title>Vision is the last hurdle before AGI</title>
-                
-            </item>
-        
-            <item>
-                
-                
-                
-                
-                
-                
-                
-
-                
-
-                
-
-                
-
-                
-
-                
-                
-
-                
-
-                
-
-                
-                    <description><![CDATA[<p>When a new AI model comes out these days, I&rsquo;m not usually holding my breath. They will improve benchmarks but nothing I am doing day-to-day is going to fundamentally change, most likely.</p>
-<p>But I&rsquo;ve been testing these foundation models&rsquo; abilities to create 3D models via <a href="https://openscad.org/index.html">openscad</a> since the beginning of 2023 (link), and they were not really able to do it until 2 months ago with the release of Claude opus 4.7. last year I also designed an openscad mCP server to automate the process of me sending images of what the ai had modeled back to it until it completed, and that MCP process is how I&rsquo;m getting the results I&rsquo;m going to show you here.</p>
-<p>To me, this was one of the very obvious ways these models were not really intelligent, in spatial reasoning (link).</p>
-<p>So opus 4.7 had me rethinking: if I could describe a model completely with dimensions and loose English references to the relationship between parts, etc, I could no longer argue these things could not reason spacially.</p>
-<p>Let me show you some examples.</p>
-<p>Here is a platform I made to hang from the ceiling to put toys and things on top of so that Alice would be encouraged to walk over to them. I described the exact shape and dimensions I wanted for this part, and opus 4.7 was able to one shot it.</p>
-<p>And check out this stool I made so that my short wife and my legs can use our too-high rocking chair. Again, fully described by me including dimensions, bevels, and screw placements:</p>
-<p>The thing is perfect.</p>
-<h1 id="fable">Fable</h1>
-<p>Then Fable released and of course I had to see what it was capable of. So I only had access to it for about 2 days, Fable blew me away with its ability to 3D model. And for the first time I saw an AI model creatively reason to create a part rather than simply correctly follow my dimensions and features precisely.</p>
-<p>Check this out, here is a bedside table I made to hold the milk I give Alice before bedtime every night. The only thing I gave Fable was the mission of creating a 6x8-in table with a lip, and the dimensions of the toddler beds rail and crossbars. It came up with the clever idea to place latching clips at a spacing apart such that two would always latch no matter where vertically it was placed along the bed rail. Very clever! And not just idea, it also translated that idea perfectly to a 3D model that I printed out and snapped onto the bed frame, which I&rsquo;ve been using every night. I didn&rsquo;t really design a single thing about this. All I had was an idea:</p>
-]]></description>
-                
-
-                <guid isPermaLink="false">tag:localhost:1313,2025-06-16:/ai-can-3d-model/</guid>
-
-                
-                    <link>http://localhost:1313/ai-can-3d-model/</link>
-                
-
-                
-                    <pubDate>Mon, 16 Jun 2025 00:00:00 UTC</pubDate>
-                
-
-                
-                    <title>AI first learned to 3D model 2 months ago, and Fable learned to do it well</title>
                 
             </item>
         

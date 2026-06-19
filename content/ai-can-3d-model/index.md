@@ -1,6 +1,6 @@
 ---
-title: "Fable is a huge step up in 3D modeling"
-date: 2026-06-19
+title: "Fable could really 3D model"
+date: 2026-06-18
 categories: ["writing"]
 tags: ["singularity", "AI", "Invention", "predictions", "3D Modeling"]
 featured: "ai-can-3d-model/images/mom-box-edit.jpg" # could be a .mp4, YouTube URL, whatever
@@ -8,26 +8,30 @@ featured: "ai-can-3d-model/images/mom-box-edit.jpg" # could be a .mp4, YouTube U
 
 When a new AI model comes out these days, I'm not usually holding my breath. They will improve benchmarks but nothing I am doing day-to-day is going to fundamentally change, most likely.
 
-But I've been testing these foundation models' abilities to create 3D models via [openscad](https://openscad.org/index.html) since the [beginning of 2023](/3d-modeling-with-ai), and they were not really able to do anything complicated until 2 months ago with the release of Claude Opus 4.7.
+But I've been testing these foundation models' abilities to create 3D models via [OpenSCAD](https://openscad.org/index.html) since the [beginning of 2023](/3d-modeling-with-ai). Last year I even designed an OpenSCAD MCP server to let the AI "check its own work" by visually rendering OpenSCAD code it writes and returning it images from various angles. That MCP process is how I'm getting the results I'm going to show you here.
 
-Last year I designed an openscad MCP server to let the AI "check its own work" by visually rendering openscad code it writes and returning it images from various angles, and that MCP process is how I'm getting the results I'm going to show you here.
+None of the models impressed me until 2 months ago with the release of Claude Opus 4.7.
 
-To me, prior to this moment, spatial reasoning was one of the very obvious ways these models [were not really intelligent](/vision-is-the-last-hurdle-before-agi).
+# Opus 4.7
 
-So, Opus 4.7 had me rethinking: if I could describe a model completely with dimensions and loose English references to the relationship between parts, etc, I could no longer argue these things could not reason spatially.
+To me, prior to Opus 4.7 in April of 2026, spatial reasoning was one of the very obvious ways these models [were not really intelligent](/vision-is-the-last-hurdle-before-agi).
+
+Opus 4.7 suddenly went from getting only primitives and basic placements right to following complicated, well-described modeling instructions.
 
 Let me show you some examples.
 
-## Opus 4.7: 2x4 Stool
+## Opus 4.7: Rocking Chair Stool
 
-This is my favorite AI-generated 3D object in my house yet. It's a stool I made so that my short wife and my legs can use our too-high rocking chair. Again, fully described by me including dimensions, bevels, and screw placements:
+This is my favorite AI-generated 3D object in my house yet. It's a stool I made so that my short wife and my legs can use our too-high rocking chair. Again, fully described by me including dimensions, bevels, and screw placements. All I did was hit print, then prep the 2x4's and assemble.
 
 {{< image-medium
     src="images/stool.jpg"
     alt=""
     caption="" >}}
 
-The thing is perfect and we use it every day. I printed it in "TPU for AMS" straight from the STL file Opus gave me with no modifications - it met my spec exactly. But - I still designed it completely (using my words).
+The thing is perfect and we use it every day. I printed it in "TPU for AMS" straight from the STL file Opus gave me with no modifications - it met my spec exactly.
+
+But - I still designed it completely (using my words).
 
 ## Opus 4.7: Baby Walking Practice Platform
 
@@ -48,7 +52,7 @@ Though I only had it for 2 days on the $20/month plan, Fable blew me away with i
 
 I was blown away that this worked first try.
 
-Here is a table Fable designed to snap onto the railing of Alice's new floor bed, to hold books and a milk bottle at bedtime. The only thing I gave Fable here was the mission of creating a 6x8-in table with a lip, and the dimensions of the toddler bed's rail and crossbars. It came up with the idea to place latching clips at a spacing apart such that two would always latch no matter where vertically it was placed along the bed rail. Very clever! And not just idea, it also translated that idea perfectly to a 3D model that I printed out and snapped onto the bed frame, which I've been using every night. During its process, it used my openscad server many times, and even went as far as to fully model out the bed rail itself to make sure this part would fit correctly around it, simulation style.
+Here is a table Fable designed to snap onto the railing of Alice's new floor bed, to hold books and a milk bottle at bedtime. The only thing I gave Fable here was the mission of creating a 6x8-in table with a lip, and the dimensions of the toddler bed's rail and crossbars. It came up with the idea to place latching clips at a spacing apart such that two would always latch no matter where vertically it was placed along the bed rail. Very clever! And not just idea, it also translated that idea perfectly to a 3D model that I printed out and snapped onto the bed frame, which I've been using every night. During its process, it used my OpenSCAD server many times, and even went as far as to fully model out the bed rail itself to make sure this part would fit correctly around it, simulation style.
 
 I didn't really design a single thing about this. All I had was an idea:
 
@@ -73,7 +77,7 @@ I gave Opus the exact same prompt and it failed in predictable ways: it got the 
 
 ## Fable: A Gift Box with Vector Graphics
 
-I needed a gift box for some nice chocolate I got my Mom for her birthday. Similar story here. All I gave fable were the interior dimensions of the box, that I needed the top to pressure-fit to the bottom, the text I wanted, and then as a second pass some "art" - the balloons and stars you see.
+I needed a gift box for some nice chocolate I got my Mom for her birthday. Similar story here. All I gave Fable were the interior dimensions of the box, that I needed the top to pressure-fit to the bottom, the text I wanted, and then as a second pass some "art" - the balloons and stars you see.
 
 {{< image-medium
     src="images/mom-box-edit.jpg"
@@ -96,4 +100,10 @@ I was still midway through this effort when the Fable ban hammer came down from 
 
 Not perfect but surprisingly coherent. I wish I had been able to produce a few dozen models and really refine that skill. I'll have to wait until the US decides this model is safe or someone makes a better one.
 
-So anyway, there goes my backup plan. I am humbled by the models yet again.
+# Where are we?
+
+Though several models after Opus 4.7 can reasonably follow precise 3D model instructions, I have never before seen this. I've never seen a model creatively reason about a complicated physical part and then get the model right.
+
+I'm not sure what AGI is anymore. We might have been there before Fable, depending on your definition. But, I am starting to suspect there is no plateau. As far as I can tell, Fable is a leap beyond models that came out just a few months ago. I am testing this in a domain I know well, and it's surprising me - unlike the AI reality of two years ago where AI was only "surprising" when you tested it on something out of your own expertise.
+
+So anyway, there goes my backup plan.
