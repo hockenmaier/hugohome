@@ -82,7 +82,7 @@
             
 
             
-                <link href="http://localhost:1313/tags/predictions/" rel="self" type="text/html"/>
+                <link href="https://hockenworks.com/tags/predictions/" rel="self" type="text/html"/>
             
         
             
@@ -90,7 +90,7 @@
             
 
             
-                <link href="http://localhost:1313/tags/predictions/rss.xml" rel="alternate" type="application/rss+xml"/>
+                <link href="https://hockenworks.com/tags/predictions/rss.xml" rel="alternate" type="application/rss+xml"/>
             
         
 
@@ -105,10 +105,10 @@
         
 
         
-            <lastBuildDate>2026-06-19 00:00:00 +0000 UTC</lastBuildDate>
+            <lastBuildDate>2026-06-18 00:00:00 +0000 UTC</lastBuildDate>
         
 
-        <link>http://localhost:1313/tags/predictions/</link>
+        <link>https://hockenworks.com/tags/predictions/</link>
 
         
 
@@ -143,13 +143,14 @@
 
                 
                     <description><![CDATA[<p>When a new AI model comes out these days, I&rsquo;m not usually holding my breath. They will improve benchmarks but nothing I am doing day-to-day is going to fundamentally change, most likely.</p>
-<p>But I&rsquo;ve been testing these foundation models&rsquo; abilities to create 3D models via <a href="https://openscad.org/index.html">openscad</a> since the <a href="/3d-modeling-with-ai">beginning of 2023</a>, and they were not really able to do anything complicated until 2 months ago with the release of Claude Opus 4.7.</p>
-<p>Last year I designed an openscad MCP server to let the AI &ldquo;check its own work&rdquo; by visually rendering openscad code it writes and returning it images from various angles, and that MCP process is how I&rsquo;m getting the results I&rsquo;m going to show you here.</p>
-<p>To me, prior to this moment, spatial reasoning was one of the very obvious ways these models <a href="/vision-is-the-last-hurdle-before-agi">were not really intelligent</a>.</p>
-<p>So, Opus 4.7 had me rethinking: if I could describe a model completely with dimensions and loose English references to the relationship between parts, etc, I could no longer argue these things could not reason spatially.</p>
+<p>But I&rsquo;ve been testing these foundation models&rsquo; abilities to create 3D models via <a href="https://openscad.org/index.html">OpenSCAD</a> since the <a href="/3d-modeling-with-ai">beginning of 2023</a>. Last year I even designed an OpenSCAD MCP server to let the AI &ldquo;check its own work&rdquo; by visually rendering OpenSCAD code it writes and returning it images from various angles. That MCP process is how I&rsquo;m getting the results I&rsquo;m going to show you here.</p>
+<p>None of the models impressed me until 2 months ago with the release of Claude Opus 4.7.</p>
+<h1 id="opus-47">Opus 4.7</h1>
+<p>To me, prior to Opus 4.7 in April of 2026, spatial reasoning was one of the very obvious ways these models <a href="/vision-is-the-last-hurdle-before-agi">were not really intelligent</a>.</p>
+<p>Opus 4.7 suddenly went from getting only primitives and basic placements right to following complicated, well-described modeling instructions.</p>
 <p>Let me show you some examples.</p>
-<h2 id="opus-47-2x4-stool">Opus 4.7: 2x4 Stool</h2>
-<p>This is my favorite AI-generated 3D object in my house yet. It&rsquo;s a stool I made so that my short wife and my legs can use our too-high rocking chair. Again, fully described by me including dimensions, bevels, and screw placements:</p>
+<h2 id="opus-47-rocking-chair-stool">Opus 4.7: Rocking Chair Stool</h2>
+<p>This is my favorite AI-generated 3D object in my house yet. It&rsquo;s a stool I made so that my short wife and my legs can use our too-high rocking chair. Again, fully described by me including dimensions, bevels, and screw placements. All I did was hit print, then prep the 2x4&rsquo;s and assemble.</p>
 <div style="text-align: center; margin-bottom: 1rem;">
     
 
@@ -266,13 +267,14 @@
 
 
 
-<img  alt="Image description"   crossorigin="anonymous"   height="3000"   referrerpolicy="no-referrer"  src="http://localhost:1313/ai-can-3d-model/images/stool.68c95e9b61d3dd6b6520c33b3eccd3e22dcc6b1bfafa0844814cd951011e0a2b.jpg"   style="height: auto; max-width: 720px; width: 100%"    width="4000" >
+<img  alt="Image description"   crossorigin="anonymous"   height="3000"   referrerpolicy="no-referrer"  src="https://hockenworks.com/ai-can-3d-model/images/stool.68c95e9b61d3dd6b6520c33b3eccd3e22dcc6b1bfafa0844814cd951011e0a2b.jpg"   style="height: auto; max-width: 720px; width: 100%"    width="4000" >
 
 
     
 </div>
 
-<p>The thing is perfect and we use it every day. I printed it in &ldquo;TPU for AMS&rdquo; straight from the STL file Opus gave me with no modifications - it met my spec exactly. But - I still designed it completely (using my words).</p>
+<p>The thing is perfect and we use it every day. I printed it in &ldquo;TPU for AMS&rdquo; straight from the STL file Opus gave me with no modifications - it met my spec exactly.</p>
+<p>But - I still designed it completely (using my words).</p>
 <h2 id="opus-47-baby-walking-practice-platform">Opus 4.7: Baby Walking Practice Platform</h2>
 <p>Here&rsquo;s a platform I made to hang from the ceiling to hold toys so that Alice would be encouraged to walk over to them. I described the exact shape and dimensions I wanted for this part, and Opus 4.7 gave me the exact STL I described after just a couple edits.</p>
 <div style="text-align: center; margin-bottom: 1rem;">
@@ -391,7 +393,7 @@
 
 
 
-<img  alt="Image description"   crossorigin="anonymous"   height="3000"   referrerpolicy="no-referrer"  src="http://localhost:1313/ai-can-3d-model/images/walking-platform.0964c5a7364d578ae85b77a4597c8f6e081fb50d35282b239910f0811f6d975c.jpg"   style="height: auto; max-width: 720px; width: 100%"    width="4000" >
+<img  alt="Image description"   crossorigin="anonymous"   height="3000"   referrerpolicy="no-referrer"  src="https://hockenworks.com/ai-can-3d-model/images/walking-platform.0964c5a7364d578ae85b77a4597c8f6e081fb50d35282b239910f0811f6d975c.jpg"   style="height: auto; max-width: 720px; width: 100%"    width="4000" >
 
 
     
@@ -402,7 +404,7 @@
 <p>Though I only had it for 2 days on the $20/month plan, Fable blew me away with its ability to 3D model. For the first time, I saw an AI model creatively reason to create a 3D part rather than simply creating something fully specified.</p>
 <h2 id="fable-first-test-toddler-floor-bed-shelf">Fable First Test: Toddler Floor Bed Shelf</h2>
 <p>I was blown away that this worked first try.</p>
-<p>Here is a table Fable designed to snap onto the railing of Alice&rsquo;s new floor bed, to hold books and a milk bottle at bedtime. The only thing I gave Fable here was the mission of creating a 6x8-in table with a lip, and the dimensions of the toddler bed&rsquo;s rail and crossbars. It came up with the idea to place latching clips at a spacing apart such that two would always latch no matter where vertically it was placed along the bed rail. Very clever! And not just idea, it also translated that idea perfectly to a 3D model that I printed out and snapped onto the bed frame, which I&rsquo;ve been using every night. During its process, it used my openscad server many times, and even went as far as to fully model out the bed rail itself to make sure this part would fit correctly around it, simulation style.</p>
+<p>Here is a table Fable designed to snap onto the railing of Alice&rsquo;s new floor bed, to hold books and a milk bottle at bedtime. The only thing I gave Fable here was the mission of creating a 6x8-in table with a lip, and the dimensions of the toddler bed&rsquo;s rail and crossbars. It came up with the idea to place latching clips at a spacing apart such that two would always latch no matter where vertically it was placed along the bed rail. Very clever! And not just idea, it also translated that idea perfectly to a 3D model that I printed out and snapped onto the bed frame, which I&rsquo;ve been using every night. During its process, it used my OpenSCAD server many times, and even went as far as to fully model out the bed rail itself to make sure this part would fit correctly around it, simulation style.</p>
 <p>I didn&rsquo;t really design a single thing about this. All I had was an idea:</p>
 <div style="text-align: center; margin-bottom: 1rem;">
     
@@ -520,7 +522,7 @@
 
 
 
-<img  alt="Image description"   crossorigin="anonymous"   height="3000"   referrerpolicy="no-referrer"  src="http://localhost:1313/ai-can-3d-model/images/shelf.896c1871a12e300b0f41878fe7bbda44d7520c3978d3ce68a0e4b30dfffcc16e.jpg"   style="height: auto; max-width: 720px; width: 100%"    width="4000" >
+<img  alt="Image description"   crossorigin="anonymous"   height="3000"   referrerpolicy="no-referrer"  src="https://hockenworks.com/ai-can-3d-model/images/shelf.896c1871a12e300b0f41878fe7bbda44d7520c3978d3ce68a0e4b30dfffcc16e.jpg"   style="height: auto; max-width: 720px; width: 100%"    width="4000" >
 
 
     
@@ -536,7 +538,7 @@
 </blockquote>
 <p>I gave Opus the exact same prompt and it failed in predictable ways: it got the orientation of the rail wrong even though I gave it a picture with my prompt, and its latching mechanism didn&rsquo;t make much sense. Fable is the real deal when it comes to spatial reasoning.</p>
 <h2 id="fable-a-gift-box-with-vector-graphics">Fable: A Gift Box with Vector Graphics</h2>
-<p>I needed a gift box for some nice chocolate I got my Mom for her birthday. Similar story here. All I gave fable were the interior dimensions of the box, that I needed the top to pressure-fit to the bottom, the text I wanted, and then as a second pass some &ldquo;art&rdquo; - the balloons and stars you see.</p>
+<p>I needed a gift box for some nice chocolate I got my Mom for her birthday. Similar story here. All I gave Fable were the interior dimensions of the box, that I needed the top to pressure-fit to the bottom, the text I wanted, and then as a second pass some &ldquo;art&rdquo; - the balloons and stars you see.</p>
 <p><div style="text-align: center; margin-bottom: 1rem;">
     
 
@@ -653,7 +655,7 @@
 
 
 
-<img  alt="Image description"   crossorigin="anonymous"   height="3000"   referrerpolicy="no-referrer"  src="http://localhost:1313/ai-can-3d-model/images/mom-box-edit.1fa6fe50484e5635222423029a3c75cb0ca47c0eab0799b649653fe53efa3a99.jpg"   style="height: auto; max-width: 720px; width: 100%"    width="4000" >
+<img  alt="Image description"   crossorigin="anonymous"   height="3000"   referrerpolicy="no-referrer"  src="https://hockenworks.com/ai-can-3d-model/images/mom-box-edit.1fa6fe50484e5635222423029a3c75cb0ca47c0eab0799b649653fe53efa3a99.jpg"   style="height: auto; max-width: 720px; width: 100%"    width="4000" >
 
 
     
@@ -780,29 +782,32 @@ All those stars and balloons were one-shotted vector graphics, by Fable&rsquo;s 
 
 
 
-<img  alt="Image description"   crossorigin="anonymous"   height="458"   referrerpolicy="no-referrer"  src="http://localhost:1313/ai-can-3d-model/images/gaming.8c1b90db8357c5bcbb995d58d18841293ae61514a29d6f6a2b0be4e1b852628d.webp"   style="height: auto; max-width: 720px; width: 100%"    width="1015" >
+<img  alt="Image description"   crossorigin="anonymous"   height="458"   referrerpolicy="no-referrer"  src="https://hockenworks.com/ai-can-3d-model/images/gaming.8c1b90db8357c5bcbb995d58d18841293ae61514a29d6f6a2b0be4e1b852628d.webp"   style="height: auto; max-width: 720px; width: 100%"    width="1015" >
 
 
     
 </div>
 
 <p>Not perfect but surprisingly coherent. I wish I had been able to produce a few dozen models and really refine that skill. I&rsquo;ll have to wait until the US decides this model is safe or someone makes a better one.</p>
-<p>So anyway, there goes my backup plan. I am humbled by the models yet again.</p>
+<h1 id="where-are-we">Where are we?</h1>
+<p>Though several models after Opus 4.7 can reasonably follow precise 3D model instructions, I have never before seen this. I&rsquo;ve never seen a model creatively reason about a complicated physical part and then get the model right.</p>
+<p>I&rsquo;m not sure what AGI is anymore. We might have been there before Fable, depending on your definition. But, I am starting to suspect there is no plateau. As far as I can tell, Fable is a leap beyond models that came out just a few months ago. I am testing this in a domain I know well, and it&rsquo;s surprising me - unlike the AI reality of two years ago where AI was only &ldquo;surprising&rdquo; when you tested it on something out of your own expertise.</p>
+<p>So anyway, there goes my backup plan.</p>
 ]]></description>
                 
 
-                <guid isPermaLink="false">tag:localhost:1313,2026-06-19:/ai-can-3d-model/</guid>
+                <guid isPermaLink="false">tag:hockenworks.com,2026-06-18:/ai-can-3d-model/</guid>
 
                 
-                    <link>http://localhost:1313/ai-can-3d-model/</link>
-                
-
-                
-                    <pubDate>Fri, 19 Jun 2026 00:00:00 UTC</pubDate>
+                    <link>https://hockenworks.com/ai-can-3d-model/</link>
                 
 
                 
-                    <title>Fable is a huge step up in 3D modeling</title>
+                    <pubDate>Thu, 18 Jun 2026 00:00:00 UTC</pubDate>
+                
+
+                
+                    <title>Fable could really 3D model</title>
                 
             </item>
         
@@ -1036,10 +1041,10 @@ All those stars and balloons were one-shotted vector graphics, by Fable&rsquo;s 
 ]]></description>
                 
 
-                <guid isPermaLink="false">tag:localhost:1313,2025-08-24:/gpt5/</guid>
+                <guid isPermaLink="false">tag:hockenworks.com,2025-08-24:/gpt5/</guid>
 
                 
-                    <link>http://localhost:1313/gpt5/</link>
+                    <link>https://hockenworks.com/gpt5/</link>
                 
 
                 
@@ -1186,7 +1191,7 @@ All those stars and balloons were one-shotted vector graphics, by Fable&rsquo;s 
 
 
 
-<img  alt="AI 2027"   class="rounded-3 w-100"  crossorigin="anonymous"   height="1117"   referrerpolicy="no-referrer"  src="http://localhost:1313/on-ai-software-development-2/images/ai-2027.5a675db07d75c7ade58eaa608c75db2cba219e4fb635fde9dcb21f1324427ffc.png"   style="height: auto"    width="794" >
+<img  alt="AI 2027"   class="rounded-3 w-100"  crossorigin="anonymous"   height="1117"   referrerpolicy="no-referrer"  src="https://hockenworks.com/on-ai-software-development-2/images/ai-2027.5a675db07d75c7ade58eaa608c75db2cba219e4fb635fde9dcb21f1324427ffc.png"   style="height: auto"    width="794" >
 
 
       
@@ -1290,7 +1295,7 @@ All those stars and balloons were one-shotted vector graphics, by Fable&rsquo;s 
 
 
 
-<img  alt="Singularity Is Near"   class="rounded-3 w-100"  crossorigin="anonymous"   height="1117"   referrerpolicy="no-referrer"  src="http://localhost:1313/on-ai-software-development-2/images/The-Singularity-Is-Near.edfee9376a7b8f75ebcac0c4fa8ede4be3d1ac31069c3e6ed4ce9e2185587e68.jpg"   style="height: auto"    width="794" >
+<img  alt="Singularity Is Near"   class="rounded-3 w-100"  crossorigin="anonymous"   height="1117"   referrerpolicy="no-referrer"  src="https://hockenworks.com/on-ai-software-development-2/images/The-Singularity-Is-Near.edfee9376a7b8f75ebcac0c4fa8ede4be3d1ac31069c3e6ed4ce9e2185587e68.jpg"   style="height: auto"    width="794" >
 
 </div>
 </div>
@@ -1493,7 +1498,7 @@ All those stars and balloons were one-shotted vector graphics, by Fable&rsquo;s 
 
 
 
-<img  alt="Image description"   crossorigin="anonymous"   height="1169"   referrerpolicy="no-referrer"  src="http://localhost:1313/on-ai-software-development-2/images/codex-sample.c8c0f240734a87f2cda831c68a5a52780a4ecc1e17eb1df451bf365fa5366b98.webp"   style="height: auto; width: 100%"    width="2504" >
+<img  alt="Image description"   crossorigin="anonymous"   height="1169"   referrerpolicy="no-referrer"  src="https://hockenworks.com/on-ai-software-development-2/images/codex-sample.c8c0f240734a87f2cda831c68a5a52780a4ecc1e17eb1df451bf365fa5366b98.webp"   style="height: auto; width: 100%"    width="2504" >
 
 
     
@@ -1522,10 +1527,10 @@ All those stars and balloons were one-shotted vector graphics, by Fable&rsquo;s 
 ]]></description>
                 
 
-                <guid isPermaLink="false">tag:localhost:1313,2025-08-01:/on-ai-software-development-2/</guid>
+                <guid isPermaLink="false">tag:hockenworks.com,2025-08-01:/on-ai-software-development-2/</guid>
 
                 
-                    <link>http://localhost:1313/on-ai-software-development-2/</link>
+                    <link>https://hockenworks.com/on-ai-software-development-2/</link>
                 
 
                 
@@ -1636,10 +1641,10 @@ All those stars and balloons were one-shotted vector graphics, by Fable&rsquo;s 
 <p>When will these happen? My specific prediction is that the next 3 years will be seen as the end of the period of stagnation we are in right now, a period that will be much more apparent looking backwards than it is from within. The combo of a decline in AAA game spending and AI hype feels like ripe conditions for innovation to return to gameplay - and my hope is that all of the other potential gameplay innovations ride the same AI wave.</p>]]></description>
                 
 
-                <guid isPermaLink="false">tag:localhost:1313,2025-07-07:/the-purgatory-of-aaa-gaming/</guid>
+                <guid isPermaLink="false">tag:hockenworks.com,2025-07-07:/the-purgatory-of-aaa-gaming/</guid>
 
                 
-                    <link>http://localhost:1313/the-purgatory-of-aaa-gaming/</link>
+                    <link>https://hockenworks.com/the-purgatory-of-aaa-gaming/</link>
                 
 
                 
@@ -1824,7 +1829,7 @@ And this one might sound funny to someone that is paying attention to AI in part
 
 
 
-<img  alt="an OpenSCAD render"   crossorigin="anonymous"   height="541"   referrerpolicy="no-referrer"  src="http://localhost:1313/vision-is-the-last-hurdle-before-agi/images/o3-lego.ee074de609af76acff50a4cd909e2a236bb8d0c6432c311c13cb6cd4444d8f92.png"   style="height: auto; max-width: 720px; width: 100%"    width="1942" >
+<img  alt="an OpenSCAD render"   crossorigin="anonymous"   height="541"   referrerpolicy="no-referrer"  src="https://hockenworks.com/vision-is-the-last-hurdle-before-agi/images/o3-lego.ee074de609af76acff50a4cd909e2a236bb8d0c6432c311c13cb6cd4444d8f92.png"   style="height: auto; max-width: 720px; width: 100%"    width="1942" >
 
 
     
@@ -1951,7 +1956,7 @@ And this one might sound funny to someone that is paying attention to AI in part
 
 
 
-<img  alt="an OpenSCAD render"   crossorigin="anonymous"   height="739"   referrerpolicy="no-referrer"  src="http://localhost:1313/vision-is-the-last-hurdle-before-agi/images/o3-pinion.167e8b1f3a591387eb2bae941954432758178ea110da7275e4e21376977a45a9.png"   style="height: auto; max-width: 720px; width: 100%"    width="1804" >
+<img  alt="an OpenSCAD render"   crossorigin="anonymous"   height="739"   referrerpolicy="no-referrer"  src="https://hockenworks.com/vision-is-the-last-hurdle-before-agi/images/o3-pinion.167e8b1f3a591387eb2bae941954432758178ea110da7275e4e21376977a45a9.png"   style="height: auto; max-width: 720px; width: 100%"    width="1804" >
 
 
     
@@ -2086,7 +2091,7 @@ And this one might sound funny to someone that is paying attention to AI in part
 
 
 
-<img  alt="the uploaded map"   crossorigin="anonymous"   height="1079"   referrerpolicy="no-referrer"  src="http://localhost:1313/vision-is-the-last-hurdle-before-agi/images/o3-struggle-map-new.3d58646e1652a16fbea64ea1d13222933ff492268632a1dd71dc5714c60e856c.png"   style="height: auto; max-width: 400px; width: 100%"    width="1080" >
+<img  alt="the uploaded map"   crossorigin="anonymous"   height="1079"   referrerpolicy="no-referrer"  src="https://hockenworks.com/vision-is-the-last-hurdle-before-agi/images/o3-struggle-map-new.3d58646e1652a16fbea64ea1d13222933ff492268632a1dd71dc5714c60e856c.png"   style="height: auto; max-width: 400px; width: 100%"    width="1080" >
 
 
     
@@ -2217,7 +2222,7 @@ And this one might sound funny to someone that is paying attention to AI in part
 
 
 
-<img  alt="My Flipper Zero and 3D Printed Clone"   crossorigin="anonymous"   height="2268"   referrerpolicy="no-referrer"  src="http://localhost:1313/vision-is-the-last-hurdle-before-agi/images/flipper-3d.d249849f8b4d006d3bb9b491ae617da12c1e737c33cf49e6dd7b8eb6e065a4fe.jpg"   style="height: auto; max-width: 720px; width: 100%"    width="4032" >
+<img  alt="My Flipper Zero and 3D Printed Clone"   crossorigin="anonymous"   height="2268"   referrerpolicy="no-referrer"  src="https://hockenworks.com/vision-is-the-last-hurdle-before-agi/images/flipper-3d.d249849f8b4d006d3bb9b491ae617da12c1e737c33cf49e6dd7b8eb6e065a4fe.jpg"   style="height: auto; max-width: 720px; width: 100%"    width="4032" >
 
 
     
@@ -2241,10 +2246,10 @@ And this one might sound funny to someone that is paying attention to AI in part
 ]]></description>
                 
 
-                <guid isPermaLink="false">tag:localhost:1313,2025-06-16:/vision-is-the-last-hurdle-before-agi/</guid>
+                <guid isPermaLink="false">tag:hockenworks.com,2025-06-16:/vision-is-the-last-hurdle-before-agi/</guid>
 
                 
-                    <link>http://localhost:1313/vision-is-the-last-hurdle-before-agi/</link>
+                    <link>https://hockenworks.com/vision-is-the-last-hurdle-before-agi/</link>
                 
 
                 
@@ -2397,7 +2402,7 @@ And this one might sound funny to someone that is paying attention to AI in part
 
 
 
-<img  alt="this is a robot"   crossorigin="anonymous"   height="689"   referrerpolicy="no-referrer"  src="http://localhost:1313/on-ai-software-development/images/ai-software-dev.51743426945fef2fab4b55c1c933a4232e6059058e71cc497a84f45fa05fb86a.png"   style="height: auto; max-width: 720px; width: 100%"    width="1280" >
+<img  alt="this is a robot"   crossorigin="anonymous"   height="689"   referrerpolicy="no-referrer"  src="https://hockenworks.com/on-ai-software-development/images/ai-software-dev.51743426945fef2fab4b55c1c933a4232e6059058e71cc497a84f45fa05fb86a.png"   style="height: auto; max-width: 720px; width: 100%"    width="1280" >
 
 
     
@@ -2417,10 +2422,10 @@ And this one might sound funny to someone that is paying attention to AI in part
 <p>These are my thoughts at what seems to be the beginning of the next AI revolution in early 2024. I plan to revisit this topic and see if I&rsquo;m right in future posts.</p>]]></description>
                 
 
-                <guid isPermaLink="false">tag:localhost:1313,2024-01-24:/on-ai-software-development/</guid>
+                <guid isPermaLink="false">tag:hockenworks.com,2024-01-24:/on-ai-software-development/</guid>
 
                 
-                    <link>http://localhost:1313/on-ai-software-development/</link>
+                    <link>https://hockenworks.com/on-ai-software-development/</link>
                 
 
                 
@@ -2577,7 +2582,7 @@ And this one might sound funny to someone that is paying attention to AI in part
 
 
 
-<img  alt="proofreader GPT"   crossorigin="anonymous"   height="799"   referrerpolicy="no-referrer"  src="http://localhost:1313/social-media-is-antisocial/images/together-again-studios.52abc1edc9ba46c24d1ad7166dbe2727c48cd7c7fdf589f8804fb4aefdc45677.png"   style="height: auto; max-width: 400px; width: 100%"    width="1252" >
+<img  alt="proofreader GPT"   crossorigin="anonymous"   height="799"   referrerpolicy="no-referrer"  src="https://hockenworks.com/social-media-is-antisocial/images/together-again-studios.52abc1edc9ba46c24d1ad7166dbe2727c48cd7c7fdf589f8804fb4aefdc45677.png"   style="height: auto; max-width: 400px; width: 100%"    width="1252" >
 
 
     
@@ -2612,10 +2617,10 @@ And this one might sound funny to someone that is paying attention to AI in part
 ]]></description>
                 
 
-                <guid isPermaLink="false">tag:localhost:1313,2022-08-01:/social-media-is-antisocial/</guid>
+                <guid isPermaLink="false">tag:hockenworks.com,2022-08-01:/social-media-is-antisocial/</guid>
 
                 
-                    <link>http://localhost:1313/social-media-is-antisocial/</link>
+                    <link>https://hockenworks.com/social-media-is-antisocial/</link>
                 
 
                 

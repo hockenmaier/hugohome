@@ -154,7 +154,7 @@
             
 
             
-                <link href="http://localhost:1313/tags/ai/" rel="self" type="text/html"/>
+                <link href="https://hockenworks.com/tags/ai/" rel="self" type="text/html"/>
             
         
             
@@ -162,7 +162,7 @@
             
 
             
-                <link href="http://localhost:1313/tags/ai/rss.xml" rel="alternate" type="application/rss+xml"/>
+                <link href="https://hockenworks.com/tags/ai/rss.xml" rel="alternate" type="application/rss+xml"/>
             
         
 
@@ -177,10 +177,10 @@
         
 
         
-            <lastBuildDate>2026-06-19 00:00:00 +0000 UTC</lastBuildDate>
+            <lastBuildDate>2026-06-18 00:00:00 +0000 UTC</lastBuildDate>
         
 
-        <link>http://localhost:1313/tags/ai/</link>
+        <link>https://hockenworks.com/tags/ai/</link>
 
         
 
@@ -215,13 +215,14 @@
 
                 
                     <description><![CDATA[<p>When a new AI model comes out these days, I&rsquo;m not usually holding my breath. They will improve benchmarks but nothing I am doing day-to-day is going to fundamentally change, most likely.</p>
-<p>But I&rsquo;ve been testing these foundation models&rsquo; abilities to create 3D models via <a href="https://openscad.org/index.html">openscad</a> since the <a href="/3d-modeling-with-ai">beginning of 2023</a>, and they were not really able to do anything complicated until 2 months ago with the release of Claude Opus 4.7.</p>
-<p>Last year I designed an openscad MCP server to let the AI &ldquo;check its own work&rdquo; by visually rendering openscad code it writes and returning it images from various angles, and that MCP process is how I&rsquo;m getting the results I&rsquo;m going to show you here.</p>
-<p>To me, prior to this moment, spatial reasoning was one of the very obvious ways these models <a href="/vision-is-the-last-hurdle-before-agi">were not really intelligent</a>.</p>
-<p>So, Opus 4.7 had me rethinking: if I could describe a model completely with dimensions and loose English references to the relationship between parts, etc, I could no longer argue these things could not reason spatially.</p>
+<p>But I&rsquo;ve been testing these foundation models&rsquo; abilities to create 3D models via <a href="https://openscad.org/index.html">OpenSCAD</a> since the <a href="/3d-modeling-with-ai">beginning of 2023</a>. Last year I even designed an OpenSCAD MCP server to let the AI &ldquo;check its own work&rdquo; by visually rendering OpenSCAD code it writes and returning it images from various angles. That MCP process is how I&rsquo;m getting the results I&rsquo;m going to show you here.</p>
+<p>None of the models impressed me until 2 months ago with the release of Claude Opus 4.7.</p>
+<h1 id="opus-47">Opus 4.7</h1>
+<p>To me, prior to Opus 4.7 in April of 2026, spatial reasoning was one of the very obvious ways these models <a href="/vision-is-the-last-hurdle-before-agi">were not really intelligent</a>.</p>
+<p>Opus 4.7 suddenly went from getting only primitives and basic placements right to following complicated, well-described modeling instructions.</p>
 <p>Let me show you some examples.</p>
-<h2 id="opus-47-2x4-stool">Opus 4.7: 2x4 Stool</h2>
-<p>This is my favorite AI-generated 3D object in my house yet. It&rsquo;s a stool I made so that my short wife and my legs can use our too-high rocking chair. Again, fully described by me including dimensions, bevels, and screw placements:</p>
+<h2 id="opus-47-rocking-chair-stool">Opus 4.7: Rocking Chair Stool</h2>
+<p>This is my favorite AI-generated 3D object in my house yet. It&rsquo;s a stool I made so that my short wife and my legs can use our too-high rocking chair. Again, fully described by me including dimensions, bevels, and screw placements. All I did was hit print, then prep the 2x4&rsquo;s and assemble.</p>
 <div style="text-align: center; margin-bottom: 1rem;">
     
 
@@ -338,13 +339,14 @@
 
 
 
-<img  alt="Image description"   crossorigin="anonymous"   height="3000"   referrerpolicy="no-referrer"  src="http://localhost:1313/ai-can-3d-model/images/stool.68c95e9b61d3dd6b6520c33b3eccd3e22dcc6b1bfafa0844814cd951011e0a2b.jpg"   style="height: auto; max-width: 720px; width: 100%"    width="4000" >
+<img  alt="Image description"   crossorigin="anonymous"   height="3000"   referrerpolicy="no-referrer"  src="https://hockenworks.com/ai-can-3d-model/images/stool.68c95e9b61d3dd6b6520c33b3eccd3e22dcc6b1bfafa0844814cd951011e0a2b.jpg"   style="height: auto; max-width: 720px; width: 100%"    width="4000" >
 
 
     
 </div>
 
-<p>The thing is perfect and we use it every day. I printed it in &ldquo;TPU for AMS&rdquo; straight from the STL file Opus gave me with no modifications - it met my spec exactly. But - I still designed it completely (using my words).</p>
+<p>The thing is perfect and we use it every day. I printed it in &ldquo;TPU for AMS&rdquo; straight from the STL file Opus gave me with no modifications - it met my spec exactly.</p>
+<p>But - I still designed it completely (using my words).</p>
 <h2 id="opus-47-baby-walking-practice-platform">Opus 4.7: Baby Walking Practice Platform</h2>
 <p>Here&rsquo;s a platform I made to hang from the ceiling to hold toys so that Alice would be encouraged to walk over to them. I described the exact shape and dimensions I wanted for this part, and Opus 4.7 gave me the exact STL I described after just a couple edits.</p>
 <div style="text-align: center; margin-bottom: 1rem;">
@@ -463,7 +465,7 @@
 
 
 
-<img  alt="Image description"   crossorigin="anonymous"   height="3000"   referrerpolicy="no-referrer"  src="http://localhost:1313/ai-can-3d-model/images/walking-platform.0964c5a7364d578ae85b77a4597c8f6e081fb50d35282b239910f0811f6d975c.jpg"   style="height: auto; max-width: 720px; width: 100%"    width="4000" >
+<img  alt="Image description"   crossorigin="anonymous"   height="3000"   referrerpolicy="no-referrer"  src="https://hockenworks.com/ai-can-3d-model/images/walking-platform.0964c5a7364d578ae85b77a4597c8f6e081fb50d35282b239910f0811f6d975c.jpg"   style="height: auto; max-width: 720px; width: 100%"    width="4000" >
 
 
     
@@ -474,7 +476,7 @@
 <p>Though I only had it for 2 days on the $20/month plan, Fable blew me away with its ability to 3D model. For the first time, I saw an AI model creatively reason to create a 3D part rather than simply creating something fully specified.</p>
 <h2 id="fable-first-test-toddler-floor-bed-shelf">Fable First Test: Toddler Floor Bed Shelf</h2>
 <p>I was blown away that this worked first try.</p>
-<p>Here is a table Fable designed to snap onto the railing of Alice&rsquo;s new floor bed, to hold books and a milk bottle at bedtime. The only thing I gave Fable here was the mission of creating a 6x8-in table with a lip, and the dimensions of the toddler bed&rsquo;s rail and crossbars. It came up with the idea to place latching clips at a spacing apart such that two would always latch no matter where vertically it was placed along the bed rail. Very clever! And not just idea, it also translated that idea perfectly to a 3D model that I printed out and snapped onto the bed frame, which I&rsquo;ve been using every night. During its process, it used my openscad server many times, and even went as far as to fully model out the bed rail itself to make sure this part would fit correctly around it, simulation style.</p>
+<p>Here is a table Fable designed to snap onto the railing of Alice&rsquo;s new floor bed, to hold books and a milk bottle at bedtime. The only thing I gave Fable here was the mission of creating a 6x8-in table with a lip, and the dimensions of the toddler bed&rsquo;s rail and crossbars. It came up with the idea to place latching clips at a spacing apart such that two would always latch no matter where vertically it was placed along the bed rail. Very clever! And not just idea, it also translated that idea perfectly to a 3D model that I printed out and snapped onto the bed frame, which I&rsquo;ve been using every night. During its process, it used my OpenSCAD server many times, and even went as far as to fully model out the bed rail itself to make sure this part would fit correctly around it, simulation style.</p>
 <p>I didn&rsquo;t really design a single thing about this. All I had was an idea:</p>
 <div style="text-align: center; margin-bottom: 1rem;">
     
@@ -592,7 +594,7 @@
 
 
 
-<img  alt="Image description"   crossorigin="anonymous"   height="3000"   referrerpolicy="no-referrer"  src="http://localhost:1313/ai-can-3d-model/images/shelf.896c1871a12e300b0f41878fe7bbda44d7520c3978d3ce68a0e4b30dfffcc16e.jpg"   style="height: auto; max-width: 720px; width: 100%"    width="4000" >
+<img  alt="Image description"   crossorigin="anonymous"   height="3000"   referrerpolicy="no-referrer"  src="https://hockenworks.com/ai-can-3d-model/images/shelf.896c1871a12e300b0f41878fe7bbda44d7520c3978d3ce68a0e4b30dfffcc16e.jpg"   style="height: auto; max-width: 720px; width: 100%"    width="4000" >
 
 
     
@@ -608,7 +610,7 @@
 </blockquote>
 <p>I gave Opus the exact same prompt and it failed in predictable ways: it got the orientation of the rail wrong even though I gave it a picture with my prompt, and its latching mechanism didn&rsquo;t make much sense. Fable is the real deal when it comes to spatial reasoning.</p>
 <h2 id="fable-a-gift-box-with-vector-graphics">Fable: A Gift Box with Vector Graphics</h2>
-<p>I needed a gift box for some nice chocolate I got my Mom for her birthday. Similar story here. All I gave fable were the interior dimensions of the box, that I needed the top to pressure-fit to the bottom, the text I wanted, and then as a second pass some &ldquo;art&rdquo; - the balloons and stars you see.</p>
+<p>I needed a gift box for some nice chocolate I got my Mom for her birthday. Similar story here. All I gave Fable were the interior dimensions of the box, that I needed the top to pressure-fit to the bottom, the text I wanted, and then as a second pass some &ldquo;art&rdquo; - the balloons and stars you see.</p>
 <p><div style="text-align: center; margin-bottom: 1rem;">
     
 
@@ -725,7 +727,7 @@
 
 
 
-<img  alt="Image description"   crossorigin="anonymous"   height="3000"   referrerpolicy="no-referrer"  src="http://localhost:1313/ai-can-3d-model/images/mom-box-edit.1fa6fe50484e5635222423029a3c75cb0ca47c0eab0799b649653fe53efa3a99.jpg"   style="height: auto; max-width: 720px; width: 100%"    width="4000" >
+<img  alt="Image description"   crossorigin="anonymous"   height="3000"   referrerpolicy="no-referrer"  src="https://hockenworks.com/ai-can-3d-model/images/mom-box-edit.1fa6fe50484e5635222423029a3c75cb0ca47c0eab0799b649653fe53efa3a99.jpg"   style="height: auto; max-width: 720px; width: 100%"    width="4000" >
 
 
     
@@ -852,29 +854,32 @@ All those stars and balloons were one-shotted vector graphics, by Fable&rsquo;s 
 
 
 
-<img  alt="Image description"   crossorigin="anonymous"   height="458"   referrerpolicy="no-referrer"  src="http://localhost:1313/ai-can-3d-model/images/gaming.8c1b90db8357c5bcbb995d58d18841293ae61514a29d6f6a2b0be4e1b852628d.webp"   style="height: auto; max-width: 720px; width: 100%"    width="1015" >
+<img  alt="Image description"   crossorigin="anonymous"   height="458"   referrerpolicy="no-referrer"  src="https://hockenworks.com/ai-can-3d-model/images/gaming.8c1b90db8357c5bcbb995d58d18841293ae61514a29d6f6a2b0be4e1b852628d.webp"   style="height: auto; max-width: 720px; width: 100%"    width="1015" >
 
 
     
 </div>
 
 <p>Not perfect but surprisingly coherent. I wish I had been able to produce a few dozen models and really refine that skill. I&rsquo;ll have to wait until the US decides this model is safe or someone makes a better one.</p>
-<p>So anyway, there goes my backup plan. I am humbled by the models yet again.</p>
+<h1 id="where-are-we">Where are we?</h1>
+<p>Though several models after Opus 4.7 can reasonably follow precise 3D model instructions, I have never before seen this. I&rsquo;ve never seen a model creatively reason about a complicated physical part and then get the model right.</p>
+<p>I&rsquo;m not sure what AGI is anymore. We might have been there before Fable, depending on your definition. But, I am starting to suspect there is no plateau. As far as I can tell, Fable is a leap beyond models that came out just a few months ago. I am testing this in a domain I know well, and it&rsquo;s surprising me - unlike the AI reality of two years ago where AI was only &ldquo;surprising&rdquo; when you tested it on something out of your own expertise.</p>
+<p>So anyway, there goes my backup plan.</p>
 ]]></description>
                 
 
-                <guid isPermaLink="false">tag:localhost:1313,2026-06-19:/ai-can-3d-model/</guid>
+                <guid isPermaLink="false">tag:hockenworks.com,2026-06-18:/ai-can-3d-model/</guid>
 
                 
-                    <link>http://localhost:1313/ai-can-3d-model/</link>
-                
-
-                
-                    <pubDate>Fri, 19 Jun 2026 00:00:00 UTC</pubDate>
+                    <link>https://hockenworks.com/ai-can-3d-model/</link>
                 
 
                 
-                    <title>Fable is a huge step up in 3D modeling</title>
+                    <pubDate>Thu, 18 Jun 2026 00:00:00 UTC</pubDate>
+                
+
+                
+                    <title>Fable could really 3D model</title>
                 
             </item>
         
@@ -938,10 +943,10 @@ All those stars and balloons were one-shotted vector graphics, by Fable&rsquo;s 
 ]]></description>
                 
 
-                <guid isPermaLink="false">tag:localhost:1313,2026-03-29:/deadweight-loss/</guid>
+                <guid isPermaLink="false">tag:hockenworks.com,2026-03-29:/deadweight-loss/</guid>
 
                 
-                    <link>http://localhost:1313/deadweight-loss/</link>
+                    <link>https://hockenworks.com/deadweight-loss/</link>
                 
 
                 
@@ -1095,7 +1100,7 @@ All those stars and balloons were one-shotted vector graphics, by Fable&rsquo;s 
 
 
 
-<img   class="rounded-3 w-100"  crossorigin="anonymous"   height="3000"   referrerpolicy="no-referrer"  src="http://localhost:1313/raspberry-pi-panel-2/images/old-enclosure.eca34d9349bdb3c3e762282c1c1569eac4be9c21259f17b162cceacb2a4379ec.webp"   style="height: auto"    width="4000" >
+<img   class="rounded-3 w-100"  crossorigin="anonymous"   height="3000"   referrerpolicy="no-referrer"  src="https://hockenworks.com/raspberry-pi-panel-2/images/old-enclosure.eca34d9349bdb3c3e762282c1c1569eac4be9c21259f17b162cceacb2a4379ec.webp"   style="height: auto"    width="4000" >
 
 
       
@@ -1199,7 +1204,7 @@ All those stars and balloons were one-shotted vector graphics, by Fable&rsquo;s 
 
 
 
-<img   class="rounded-3 w-100"  crossorigin="anonymous"   height="3000"   referrerpolicy="no-referrer"  src="http://localhost:1313/raspberry-pi-panel-2/images/new-mount.e25261aa8e5bd0aec44fe35fdebd5c15bab53bc8e0717b8c21832ec68974a0a0.webp"   style="height: auto"    width="4000" >
+<img   class="rounded-3 w-100"  crossorigin="anonymous"   height="3000"   referrerpolicy="no-referrer"  src="https://hockenworks.com/raspberry-pi-panel-2/images/new-mount.e25261aa8e5bd0aec44fe35fdebd5c15bab53bc8e0717b8c21832ec68974a0a0.webp"   style="height: auto"    width="4000" >
 
 </div>
 </div>
@@ -1311,10 +1316,10 @@ Remember, this will be permanently displayed and always be up to date so account
 ]]></description>
                 
 
-                <guid isPermaLink="false">tag:localhost:1313,2025-12-14:/raspberry-pi-panel-2/</guid>
+                <guid isPermaLink="false">tag:hockenworks.com,2025-12-14:/raspberry-pi-panel-2/</guid>
 
                 
-                    <link>http://localhost:1313/raspberry-pi-panel-2/</link>
+                    <link>https://hockenworks.com/raspberry-pi-panel-2/</link>
                 
 
                 
@@ -1474,7 +1479,7 @@ Remember, this will be permanently displayed and always be up to date so account
 
 
 
-<img  alt="The cover art for Power Grid"   crossorigin="anonymous"   height="600"   referrerpolicy="no-referrer"  src="http://localhost:1313/balloon-fight/images/power-grid.bef23e9ab6fc0f3cae86f82872de2b6fb7410a9695926cf8dde35f4b38f71ca0.png"   style="height: auto; max-width: 200px; width: 100%"    width="438" >
+<img  alt="The cover art for Power Grid"   crossorigin="anonymous"   height="600"   referrerpolicy="no-referrer"  src="https://hockenworks.com/balloon-fight/images/power-grid.bef23e9ab6fc0f3cae86f82872de2b6fb7410a9695926cf8dde35f4b38f71ca0.png"   style="height: auto; max-width: 200px; width: 100%"    width="438" >
 
 
     
@@ -1519,10 +1524,10 @@ Remember, this will be permanently displayed and always be up to date so account
 ]]></description>
                 
 
-                <guid isPermaLink="false">tag:localhost:1313,2025-09-29:/balloon-fight/</guid>
+                <guid isPermaLink="false">tag:hockenworks.com,2025-09-29:/balloon-fight/</guid>
 
                 
-                    <link>http://localhost:1313/balloon-fight/</link>
+                    <link>https://hockenworks.com/balloon-fight/</link>
                 
 
                 
@@ -1677,7 +1682,7 @@ Remember, this will be permanently displayed and always be up to date so account
 
 
 
-<img  alt="happiness income curve"   crossorigin="anonymous"   height="752"   referrerpolicy="no-referrer"  src="http://localhost:1313/the-treadmill/images/treadmill-tweet.68e18e26bf0445ab536106481bc8c1af112451afa9fa22fe6b8f58a883c16c2a.webp"   style="height: auto; max-width: 720px; width: 100%"    width="730" >
+<img  alt="happiness income curve"   crossorigin="anonymous"   height="752"   referrerpolicy="no-referrer"  src="https://hockenworks.com/the-treadmill/images/treadmill-tweet.68e18e26bf0445ab536106481bc8c1af112451afa9fa22fe6b8f58a883c16c2a.webp"   style="height: auto; max-width: 720px; width: 100%"    width="730" >
 
 
     
@@ -1811,7 +1816,7 @@ Remember, this will be permanently displayed and always be up to date so account
 
 
 
-<img  alt="happiness income curve"   crossorigin="anonymous"   height="781"   referrerpolicy="no-referrer"  src="http://localhost:1313/the-treadmill/images/treadmill-graph.364d5cbfd2a1f49903aba50564a22643121a817027680e8ceba15be32d00bd89.png"   style="height: auto; max-width: 720px; width: 100%"    width="1271" >
+<img  alt="happiness income curve"   crossorigin="anonymous"   height="781"   referrerpolicy="no-referrer"  src="https://hockenworks.com/the-treadmill/images/treadmill-graph.364d5cbfd2a1f49903aba50564a22643121a817027680e8ceba15be32d00bd89.png"   style="height: auto; max-width: 720px; width: 100%"    width="1271" >
 
 
     
@@ -1870,10 +1875,10 @@ Remember, this will be permanently displayed and always be up to date so account
 ]]></description>
                 
 
-                <guid isPermaLink="false">tag:localhost:1313,2025-09-12:/the-treadmill/</guid>
+                <guid isPermaLink="false">tag:hockenworks.com,2025-09-12:/the-treadmill/</guid>
 
                 
-                    <link>http://localhost:1313/the-treadmill/</link>
+                    <link>https://hockenworks.com/the-treadmill/</link>
                 
 
                 
@@ -2115,10 +2120,10 @@ Remember, this will be permanently displayed and always be up to date so account
 ]]></description>
                 
 
-                <guid isPermaLink="false">tag:localhost:1313,2025-08-24:/gpt5/</guid>
+                <guid isPermaLink="false">tag:hockenworks.com,2025-08-24:/gpt5/</guid>
 
                 
-                    <link>http://localhost:1313/gpt5/</link>
+                    <link>https://hockenworks.com/gpt5/</link>
                 
 
                 
@@ -2265,7 +2270,7 @@ Remember, this will be permanently displayed and always be up to date so account
 
 
 
-<img  alt="AI 2027"   class="rounded-3 w-100"  crossorigin="anonymous"   height="1117"   referrerpolicy="no-referrer"  src="http://localhost:1313/on-ai-software-development-2/images/ai-2027.5a675db07d75c7ade58eaa608c75db2cba219e4fb635fde9dcb21f1324427ffc.png"   style="height: auto"    width="794" >
+<img  alt="AI 2027"   class="rounded-3 w-100"  crossorigin="anonymous"   height="1117"   referrerpolicy="no-referrer"  src="https://hockenworks.com/on-ai-software-development-2/images/ai-2027.5a675db07d75c7ade58eaa608c75db2cba219e4fb635fde9dcb21f1324427ffc.png"   style="height: auto"    width="794" >
 
 
       
@@ -2369,7 +2374,7 @@ Remember, this will be permanently displayed and always be up to date so account
 
 
 
-<img  alt="Singularity Is Near"   class="rounded-3 w-100"  crossorigin="anonymous"   height="1117"   referrerpolicy="no-referrer"  src="http://localhost:1313/on-ai-software-development-2/images/The-Singularity-Is-Near.edfee9376a7b8f75ebcac0c4fa8ede4be3d1ac31069c3e6ed4ce9e2185587e68.jpg"   style="height: auto"    width="794" >
+<img  alt="Singularity Is Near"   class="rounded-3 w-100"  crossorigin="anonymous"   height="1117"   referrerpolicy="no-referrer"  src="https://hockenworks.com/on-ai-software-development-2/images/The-Singularity-Is-Near.edfee9376a7b8f75ebcac0c4fa8ede4be3d1ac31069c3e6ed4ce9e2185587e68.jpg"   style="height: auto"    width="794" >
 
 </div>
 </div>
@@ -2572,7 +2577,7 @@ Remember, this will be permanently displayed and always be up to date so account
 
 
 
-<img  alt="Image description"   crossorigin="anonymous"   height="1169"   referrerpolicy="no-referrer"  src="http://localhost:1313/on-ai-software-development-2/images/codex-sample.c8c0f240734a87f2cda831c68a5a52780a4ecc1e17eb1df451bf365fa5366b98.webp"   style="height: auto; width: 100%"    width="2504" >
+<img  alt="Image description"   crossorigin="anonymous"   height="1169"   referrerpolicy="no-referrer"  src="https://hockenworks.com/on-ai-software-development-2/images/codex-sample.c8c0f240734a87f2cda831c68a5a52780a4ecc1e17eb1df451bf365fa5366b98.webp"   style="height: auto; width: 100%"    width="2504" >
 
 
     
@@ -2601,10 +2606,10 @@ Remember, this will be permanently displayed and always be up to date so account
 ]]></description>
                 
 
-                <guid isPermaLink="false">tag:localhost:1313,2025-08-01:/on-ai-software-development-2/</guid>
+                <guid isPermaLink="false">tag:hockenworks.com,2025-08-01:/on-ai-software-development-2/</guid>
 
                 
-                    <link>http://localhost:1313/on-ai-software-development-2/</link>
+                    <link>https://hockenworks.com/on-ai-software-development-2/</link>
                 
 
                 
@@ -2715,10 +2720,10 @@ Remember, this will be permanently displayed and always be up to date so account
 <p>When will these happen? My specific prediction is that the next 3 years will be seen as the end of the period of stagnation we are in right now, a period that will be much more apparent looking backwards than it is from within. The combo of a decline in AAA game spending and AI hype feels like ripe conditions for innovation to return to gameplay - and my hope is that all of the other potential gameplay innovations ride the same AI wave.</p>]]></description>
                 
 
-                <guid isPermaLink="false">tag:localhost:1313,2025-07-07:/the-purgatory-of-aaa-gaming/</guid>
+                <guid isPermaLink="false">tag:hockenworks.com,2025-07-07:/the-purgatory-of-aaa-gaming/</guid>
 
                 
-                    <link>http://localhost:1313/the-purgatory-of-aaa-gaming/</link>
+                    <link>https://hockenworks.com/the-purgatory-of-aaa-gaming/</link>
                 
 
                 
@@ -2883,7 +2888,7 @@ Remember, this will be permanently displayed and always be up to date so account
 
 
 
-<img  alt="the UI"   crossorigin="anonymous"   height="2400"   referrerpolicy="no-referrer"  src="http://localhost:1313/my-experiments-with-ai-cheating/images/make-us-smarter.e8d510d400b82866995b724c5ec7f0d6dae2974cf7d298b5065a50e8588f14fc.jpg"   style="height: auto; max-width: 200px"    width="1080" >
+<img  alt="the UI"   crossorigin="anonymous"   height="2400"   referrerpolicy="no-referrer"  src="https://hockenworks.com/my-experiments-with-ai-cheating/images/make-us-smarter.e8d510d400b82866995b724c5ec7f0d6dae2974cf7d298b5065a50e8588f14fc.jpg"   style="height: auto; max-width: 200px"    width="1080" >
 
 
     
@@ -2903,10 +2908,10 @@ Remember, this will be permanently displayed and always be up to date so account
 ]]></description>
                 
 
-                <guid isPermaLink="false">tag:localhost:1313,2025-06-29:/my-experiments-with-ai-cheating/</guid>
+                <guid isPermaLink="false">tag:hockenworks.com,2025-06-29:/my-experiments-with-ai-cheating/</guid>
 
                 
-                    <link>http://localhost:1313/my-experiments-with-ai-cheating/</link>
+                    <link>https://hockenworks.com/my-experiments-with-ai-cheating/</link>
                 
 
                 
@@ -3091,7 +3096,7 @@ And this one might sound funny to someone that is paying attention to AI in part
 
 
 
-<img  alt="an OpenSCAD render"   crossorigin="anonymous"   height="541"   referrerpolicy="no-referrer"  src="http://localhost:1313/vision-is-the-last-hurdle-before-agi/images/o3-lego.ee074de609af76acff50a4cd909e2a236bb8d0c6432c311c13cb6cd4444d8f92.png"   style="height: auto; max-width: 720px; width: 100%"    width="1942" >
+<img  alt="an OpenSCAD render"   crossorigin="anonymous"   height="541"   referrerpolicy="no-referrer"  src="https://hockenworks.com/vision-is-the-last-hurdle-before-agi/images/o3-lego.ee074de609af76acff50a4cd909e2a236bb8d0c6432c311c13cb6cd4444d8f92.png"   style="height: auto; max-width: 720px; width: 100%"    width="1942" >
 
 
     
@@ -3218,7 +3223,7 @@ And this one might sound funny to someone that is paying attention to AI in part
 
 
 
-<img  alt="an OpenSCAD render"   crossorigin="anonymous"   height="739"   referrerpolicy="no-referrer"  src="http://localhost:1313/vision-is-the-last-hurdle-before-agi/images/o3-pinion.167e8b1f3a591387eb2bae941954432758178ea110da7275e4e21376977a45a9.png"   style="height: auto; max-width: 720px; width: 100%"    width="1804" >
+<img  alt="an OpenSCAD render"   crossorigin="anonymous"   height="739"   referrerpolicy="no-referrer"  src="https://hockenworks.com/vision-is-the-last-hurdle-before-agi/images/o3-pinion.167e8b1f3a591387eb2bae941954432758178ea110da7275e4e21376977a45a9.png"   style="height: auto; max-width: 720px; width: 100%"    width="1804" >
 
 
     
@@ -3353,7 +3358,7 @@ And this one might sound funny to someone that is paying attention to AI in part
 
 
 
-<img  alt="the uploaded map"   crossorigin="anonymous"   height="1079"   referrerpolicy="no-referrer"  src="http://localhost:1313/vision-is-the-last-hurdle-before-agi/images/o3-struggle-map-new.3d58646e1652a16fbea64ea1d13222933ff492268632a1dd71dc5714c60e856c.png"   style="height: auto; max-width: 400px; width: 100%"    width="1080" >
+<img  alt="the uploaded map"   crossorigin="anonymous"   height="1079"   referrerpolicy="no-referrer"  src="https://hockenworks.com/vision-is-the-last-hurdle-before-agi/images/o3-struggle-map-new.3d58646e1652a16fbea64ea1d13222933ff492268632a1dd71dc5714c60e856c.png"   style="height: auto; max-width: 400px; width: 100%"    width="1080" >
 
 
     
@@ -3484,7 +3489,7 @@ And this one might sound funny to someone that is paying attention to AI in part
 
 
 
-<img  alt="My Flipper Zero and 3D Printed Clone"   crossorigin="anonymous"   height="2268"   referrerpolicy="no-referrer"  src="http://localhost:1313/vision-is-the-last-hurdle-before-agi/images/flipper-3d.d249849f8b4d006d3bb9b491ae617da12c1e737c33cf49e6dd7b8eb6e065a4fe.jpg"   style="height: auto; max-width: 720px; width: 100%"    width="4032" >
+<img  alt="My Flipper Zero and 3D Printed Clone"   crossorigin="anonymous"   height="2268"   referrerpolicy="no-referrer"  src="https://hockenworks.com/vision-is-the-last-hurdle-before-agi/images/flipper-3d.d249849f8b4d006d3bb9b491ae617da12c1e737c33cf49e6dd7b8eb6e065a4fe.jpg"   style="height: auto; max-width: 720px; width: 100%"    width="4032" >
 
 
     
@@ -3508,10 +3513,10 @@ And this one might sound funny to someone that is paying attention to AI in part
 ]]></description>
                 
 
-                <guid isPermaLink="false">tag:localhost:1313,2025-06-16:/vision-is-the-last-hurdle-before-agi/</guid>
+                <guid isPermaLink="false">tag:hockenworks.com,2025-06-16:/vision-is-the-last-hurdle-before-agi/</guid>
 
                 
-                    <link>http://localhost:1313/vision-is-the-last-hurdle-before-agi/</link>
+                    <link>https://hockenworks.com/vision-is-the-last-hurdle-before-agi/</link>
                 
 
                 
@@ -3560,10 +3565,10 @@ And this one might sound funny to someone that is paying attention to AI in part
 <hr>]]></description>
                 
 
-                <guid isPermaLink="false">tag:localhost:1313,2025-02-13:/context-caddy/</guid>
+                <guid isPermaLink="false">tag:hockenworks.com,2025-02-13:/context-caddy/</guid>
 
                 
-                    <link>http://localhost:1313/context-caddy/</link>
+                    <link>https://hockenworks.com/context-caddy/</link>
                 
 
                 
@@ -3719,7 +3724,7 @@ This one is super simple. Give it what you’ve written and it will provide no-B
 
 
 
-<img  alt="proofreader GPT"   crossorigin="anonymous"   height="183"   referrerpolicy="no-referrer"  src="http://localhost:1313/some-custom-gpts/images/proofreader-gpt.b5b217241b2177a1b71d7af0e29b5e8a72968829d46812e00478d27da1f2ad6d.png"   style="height: auto; max-width: 200px; width: 100%"    width="206" >
+<img  alt="proofreader GPT"   crossorigin="anonymous"   height="183"   referrerpolicy="no-referrer"  src="https://hockenworks.com/some-custom-gpts/images/proofreader-gpt.b5b217241b2177a1b71d7af0e29b5e8a72968829d46812e00478d27da1f2ad6d.png"   style="height: auto; max-width: 200px; width: 100%"    width="206" >
 
 
     
@@ -3735,10 +3740,10 @@ An experimental “AI generated RPG” where you play as “The Boy” who reali
 ]]></description>
                 
 
-                <guid isPermaLink="false">tag:localhost:1313,2024-06-01:/some-custom-gpts/</guid>
+                <guid isPermaLink="false">tag:hockenworks.com,2024-06-01:/some-custom-gpts/</guid>
 
                 
-                    <link>http://localhost:1313/some-custom-gpts/</link>
+                    <link>https://hockenworks.com/some-custom-gpts/</link>
                 
 
                 
@@ -3891,7 +3896,7 @@ An experimental “AI generated RPG” where you play as “The Boy” who reali
 
 
 
-<img  alt="this is a robot"   crossorigin="anonymous"   height="689"   referrerpolicy="no-referrer"  src="http://localhost:1313/on-ai-software-development/images/ai-software-dev.51743426945fef2fab4b55c1c933a4232e6059058e71cc497a84f45fa05fb86a.png"   style="height: auto; max-width: 720px; width: 100%"    width="1280" >
+<img  alt="this is a robot"   crossorigin="anonymous"   height="689"   referrerpolicy="no-referrer"  src="https://hockenworks.com/on-ai-software-development/images/ai-software-dev.51743426945fef2fab4b55c1c933a4232e6059058e71cc497a84f45fa05fb86a.png"   style="height: auto; max-width: 720px; width: 100%"    width="1280" >
 
 
     
@@ -3911,10 +3916,10 @@ An experimental “AI generated RPG” where you play as “The Boy” who reali
 <p>These are my thoughts at what seems to be the beginning of the next AI revolution in early 2024. I plan to revisit this topic and see if I&rsquo;m right in future posts.</p>]]></description>
                 
 
-                <guid isPermaLink="false">tag:localhost:1313,2024-01-24:/on-ai-software-development/</guid>
+                <guid isPermaLink="false">tag:hockenworks.com,2024-01-24:/on-ai-software-development/</guid>
 
                 
-                    <link>http://localhost:1313/on-ai-software-development/</link>
+                    <link>https://hockenworks.com/on-ai-software-development/</link>
                 
 
                 
@@ -3964,10 +3969,10 @@ An experimental “AI generated RPG” where you play as “The Boy” who reali
 <hr>]]></description>
                 
 
-                <guid isPermaLink="false">tag:localhost:1313,2024-01-13:/postman-for-pms/</guid>
+                <guid isPermaLink="false">tag:hockenworks.com,2024-01-13:/postman-for-pms/</guid>
 
                 
-                    <link>http://localhost:1313/postman-for-pms/</link>
+                    <link>https://hockenworks.com/postman-for-pms/</link>
                 
 
                 
@@ -4122,7 +4127,7 @@ An experimental “AI generated RPG” where you play as “The Boy” who reali
 
 
 
-<img  alt="some weird acorns"   crossorigin="anonymous"   height="431"   referrerpolicy="no-referrer"  src="http://localhost:1313/3d-modeling-with-ai/images/gpt-acorn.91e2cc06919e99763fe6e75504218c7a3c5a7a911b2c6b12e517d6a420259d89.png"   style="height: auto; max-width: 720px; width: 100%"    width="680" >
+<img  alt="some weird acorns"   crossorigin="anonymous"   height="431"   referrerpolicy="no-referrer"  src="https://hockenworks.com/3d-modeling-with-ai/images/gpt-acorn.91e2cc06919e99763fe6e75504218c7a3c5a7a911b2c6b12e517d6a420259d89.png"   style="height: auto; max-width: 720px; width: 100%"    width="680" >
 
 
     
@@ -4132,10 +4137,10 @@ An experimental “AI generated RPG” where you play as “The Boy” who reali
 ]]></description>
                 
 
-                <guid isPermaLink="false">tag:localhost:1313,2023-03-19:/3d-modeling-with-ai/</guid>
+                <guid isPermaLink="false">tag:hockenworks.com,2023-03-19:/3d-modeling-with-ai/</guid>
 
                 
-                    <link>http://localhost:1313/3d-modeling-with-ai/</link>
+                    <link>https://hockenworks.com/3d-modeling-with-ai/</link>
                 
 
                 
@@ -4208,10 +4213,10 @@ An experimental “AI generated RPG” where you play as “The Boy” who reali
 <p>For March 2023, this result was revolutionary - I was truly impressed. In 2025, it&rsquo;s not very impressive at all. How quickly we get used to progress!</p>]]></description>
                 
 
-                <guid isPermaLink="false">tag:localhost:1313,2023-03-18:/gpt-4-solar-system/</guid>
+                <guid isPermaLink="false">tag:hockenworks.com,2023-03-18:/gpt-4-solar-system/</guid>
 
                 
-                    <link>http://localhost:1313/gpt-4-solar-system/</link>
+                    <link>https://hockenworks.com/gpt-4-solar-system/</link>
                 
 
                 
@@ -4260,10 +4265,10 @@ An experimental “AI generated RPG” where you play as “The Boy” who reali
 <p>Neat stuff - big thanks to Luma AI for the free toolset.</p>]]></description>
                 
 
-                <guid isPermaLink="false">tag:localhost:1313,2023-02-01:/nerfs/</guid>
+                <guid isPermaLink="false">tag:hockenworks.com,2023-02-01:/nerfs/</guid>
 
                 
-                    <link>http://localhost:1313/nerfs/</link>
+                    <link>https://hockenworks.com/nerfs/</link>
                 
 
                 
@@ -4426,7 +4431,7 @@ An experimental “AI generated RPG” where you play as “The Boy” who reali
 
 
 
-<img  alt="Answering Machine homepage"   crossorigin="anonymous"   height="609"   referrerpolicy="no-referrer"  src="http://localhost:1313/answering-machine/images/answering_machine_uploads.53fbc160cd730b7f90f55bbfb8df68ad2a28391431648f5a0f61c7bb2191fe88.png"   style="height: auto; max-width: 720px; width: 100%"    width="915" >
+<img  alt="Answering Machine homepage"   crossorigin="anonymous"   height="609"   referrerpolicy="no-referrer"  src="https://hockenworks.com/answering-machine/images/answering_machine_uploads.53fbc160cd730b7f90f55bbfb8df68ad2a28391431648f5a0f61c7bb2191fe88.png"   style="height: auto; max-width: 720px; width: 100%"    width="915" >
 
 
     
@@ -4549,7 +4554,7 @@ An experimental “AI generated RPG” where you play as “The Boy” who reali
 
 
 
-<img  alt="Answering Machine main view"   crossorigin="anonymous"   height="825"   referrerpolicy="no-referrer"  src="http://localhost:1313/answering-machine/images/answering_machine_hr.92154eb2446b927f126ba9af2c612fdbcb85343beaed79d273d5c1e5eb9833ab.png"   style="height: auto; width: 100%"    width="1912" >
+<img  alt="Answering Machine main view"   crossorigin="anonymous"   height="825"   referrerpolicy="no-referrer"  src="https://hockenworks.com/answering-machine/images/answering_machine_hr.92154eb2446b927f126ba9af2c612fdbcb85343beaed79d273d5c1e5eb9833ab.png"   style="height: auto; width: 100%"    width="1912" >
 
 
     
@@ -4672,7 +4677,7 @@ An experimental “AI generated RPG” where you play as “The Boy” who reali
 
 
 
-<img  alt="Answering Machine info panel"   crossorigin="anonymous"   height="345"   referrerpolicy="no-referrer"  src="http://localhost:1313/answering-machine/images/answering_machine_info.ffc175ff2b9a701b51f5229652dfcdf41ea2b2711ada4d19d27ddee8eb6c61f6.png"   style="height: auto; max-width: 720px; width: 100%"    width="614" >
+<img  alt="Answering Machine info panel"   crossorigin="anonymous"   height="345"   referrerpolicy="no-referrer"  src="https://hockenworks.com/answering-machine/images/answering_machine_info.ffc175ff2b9a701b51f5229652dfcdf41ea2b2711ada4d19d27ddee8eb6c61f6.png"   style="height: auto; max-width: 720px; width: 100%"    width="614" >
 
 
     
@@ -4797,7 +4802,7 @@ An experimental “AI generated RPG” where you play as “The Boy” who reali
 
 
 
-<img  alt="Answering Machine query bar"   crossorigin="anonymous"   height="34"   referrerpolicy="no-referrer"  src="http://localhost:1313/answering-machine/images/answering_machine_query.9a1bee69c00310670c40650c5d5e8b4414eb5f0ce11f8d8ffe4c58e8d8c43e34.png"   style="height: auto; max-width: 720px; width: 100%"    width="859" >
+<img  alt="Answering Machine query bar"   crossorigin="anonymous"   height="34"   referrerpolicy="no-referrer"  src="https://hockenworks.com/answering-machine/images/answering_machine_query.9a1bee69c00310670c40650c5d5e8b4414eb5f0ce11f8d8ffe4c58e8d8c43e34.png"   style="height: auto; max-width: 720px; width: 100%"    width="859" >
 
 
     
@@ -4928,7 +4933,7 @@ An experimental “AI generated RPG” where you play as “The Boy” who reali
 
 
 
-<img  alt="Answering Machine response"   crossorigin="anonymous"   height="377"   referrerpolicy="no-referrer"  src="http://localhost:1313/answering-machine/images/answering_machine_answer.e037695099d0937938506ba5b09e163331f03fa5383c9b09df88dd9264c21ccc.png"   style="height: auto; max-width: 720px; width: 100%"    width="763" >
+<img  alt="Answering Machine response"   crossorigin="anonymous"   height="377"   referrerpolicy="no-referrer"  src="https://hockenworks.com/answering-machine/images/answering_machine_answer.e037695099d0937938506ba5b09e163331f03fa5383c9b09df88dd9264c21ccc.png"   style="height: auto; max-width: 720px; width: 100%"    width="763" >
 
 
     
@@ -5058,7 +5063,7 @@ An experimental “AI generated RPG” where you play as “The Boy” who reali
 
 
 
-<img  alt="Answering Machine subjects and conditions"   crossorigin="anonymous"   height="210"   referrerpolicy="no-referrer"  src="http://localhost:1313/answering-machine/images/answering_machine_lexicon.57809f5e26aac0647845200d9fc742b51a76d86af26537e10b9a7ecd66cd4201.png"   style="height: auto; max-width: 400px; width: 100%"    width="347" >
+<img  alt="Answering Machine subjects and conditions"   crossorigin="anonymous"   height="210"   referrerpolicy="no-referrer"  src="https://hockenworks.com/answering-machine/images/answering_machine_lexicon.57809f5e26aac0647845200d9fc742b51a76d86af26537e10b9a7ecd66cd4201.png"   style="height: auto; max-width: 400px; width: 100%"    width="347" >
 
 
     
@@ -5183,7 +5188,7 @@ An experimental “AI generated RPG” where you play as “The Boy” who reali
 
 
 
-<img  alt="Answering Machine concept"   crossorigin="anonymous"   height="200"   referrerpolicy="no-referrer"  src="http://localhost:1313/answering-machine/images/answering_machine_concept.2dee911f2b7142c9cad449b733db4f0790766d6ffcdb2d3dae527014f884cec5.png"   style="height: auto; max-width: 200px; width: 100%"    width="204" >
+<img  alt="Answering Machine concept"   crossorigin="anonymous"   height="200"   referrerpolicy="no-referrer"  src="https://hockenworks.com/answering-machine/images/answering_machine_concept.2dee911f2b7142c9cad449b733db4f0790766d6ffcdb2d3dae527014f884cec5.png"   style="height: auto; max-width: 200px; width: 100%"    width="204" >
 
 
     
@@ -5313,7 +5318,7 @@ An experimental “AI generated RPG” where you play as “The Boy” who reali
 
 
 
-<img  alt="Serverless Architecture of the Answering Machine app"   crossorigin="anonymous"   height="615"   referrerpolicy="no-referrer"  src="http://localhost:1313/answering-machine/images/answering_machine_architecture.eaf4394434ba6b76a5f3ea46c310329b658d28f730fb386f0de3a5b55656b19d.png"   style="height: auto; max-width: 720px; width: 100%"    width="915" >
+<img  alt="Serverless Architecture of the Answering Machine app"   crossorigin="anonymous"   height="615"   referrerpolicy="no-referrer"  src="https://hockenworks.com/answering-machine/images/answering_machine_architecture.eaf4394434ba6b76a5f3ea46c310329b658d28f730fb386f0de3a5b55656b19d.png"   style="height: auto; max-width: 720px; width: 100%"    width="915" >
 
 
     
@@ -5323,10 +5328,10 @@ An experimental “AI generated RPG” where you play as “The Boy” who reali
 ]]></description>
                 
 
-                <guid isPermaLink="false">tag:localhost:1313,2019-07-03:/answering-machine/</guid>
+                <guid isPermaLink="false">tag:hockenworks.com,2019-07-03:/answering-machine/</guid>
 
                 
-                    <link>http://localhost:1313/answering-machine/</link>
+                    <link>https://hockenworks.com/answering-machine/</link>
                 
 
                 
@@ -5489,7 +5494,7 @@ Like Alexa skills, Google actions can be accessed through search or by simply as
 
 
 
-<img  alt="Serverless Architecture of the First Ten app"   crossorigin="anonymous"   height="627"   referrerpolicy="no-referrer"  src="http://localhost:1313/first-ten/images/first_ten_architecture.ffcc2768a33b53a705a6ab9631039bf3f14d290ca070a34431362f5eaa07b683.png"   style="height: auto; max-width: 720px; width: 100%"    width="641" >
+<img  alt="Serverless Architecture of the First Ten app"   crossorigin="anonymous"   height="627"   referrerpolicy="no-referrer"  src="https://hockenworks.com/first-ten/images/first_ten_architecture.ffcc2768a33b53a705a6ab9631039bf3f14d290ca070a34431362f5eaa07b683.png"   style="height: auto; max-width: 720px; width: 100%"    width="641" >
 
 
     
@@ -5499,10 +5504,10 @@ Like Alexa skills, Google actions can be accessed through search or by simply as
 ]]></description>
                 
 
-                <guid isPermaLink="false">tag:localhost:1313,2018-05-19:/first-ten/</guid>
+                <guid isPermaLink="false">tag:hockenworks.com,2018-05-19:/first-ten/</guid>
 
                 
-                    <link>http://localhost:1313/first-ten/</link>
+                    <link>https://hockenworks.com/first-ten/</link>
                 
 
                 

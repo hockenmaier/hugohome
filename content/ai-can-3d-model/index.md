@@ -1,8 +1,18 @@
 ---
 title: "Fable could really 3D model"
 date: 2026-06-18
-categories: ["writing"]
-tags: ["singularity", "AI", "Invention", "predictions", "3D Modeling"]
+categories: ["builds"]
+tags:
+  [
+    "singularity",
+    "AI",
+    "Invention",
+    "predictions",
+    "3D Modeling",
+    "Hardware",
+    "Bambulab X1",
+    "openscad",
+  ]
 featured: "ai-can-3d-model/images/mom-box-edit.jpg" # could be a .mp4, YouTube URL, whatever
 ---
 
