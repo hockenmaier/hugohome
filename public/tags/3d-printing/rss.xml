@@ -92,6 +92,12 @@
         
     
 
+    
+
+    
+        
+    
+
 
 
 
@@ -141,7 +147,7 @@
         
 
         
-            <lastBuildDate>2026-01-19 00:00:00 +0000 UTC</lastBuildDate>
+            <lastBuildDate>2026-09-01 00:00:00 +0000 UTC</lastBuildDate>
         
 
         <link>http://localhost:1313/tags/3d-printing/</link>
@@ -152,6 +158,261 @@
 
         
 
+        
+            <item>
+                
+                
+                
+                
+                
+                
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+                
+
+                
+
+                
+
+                
+                    <description><![CDATA[<p>This is a quick post on how I&rsquo;ve been using skills within Claude Code in a pretty unique, non-software domain.</p>
+<p>Skills were a very hot topic in AI a few months ago. The engineers I know use them all the time, but it seems like there is a perception that long-running, dynamic AI work of the kind that skills enable are &ldquo;for software engineering&rdquo; and not other kinds of work. So I wanted to provide an example of some very useful skills I&rsquo;m using for a physical project.</p>
+<p>Let&rsquo;s jump to the punchline. Here is what these skills are producing:</p>
+<div style="text-align: center; margin-bottom: 1rem;">
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+
+    
+        
+    
+
+    
+
+    
+
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<img  alt="Image description"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/tracks-1.jpg"   style="height: auto; max-width: 720px; width: 100%"   >
+
+
+    
+</div>
+
+<div style="text-align: center; margin-bottom: 1rem;">
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+
+    
+        
+    
+
+    
+
+    
+
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<img  alt="Image description"   crossorigin="anonymous"    referrerpolicy="no-referrer"  src="http://localhost:1313/images/tracks-2.jpg"   style="height: auto; max-width: 720px; width: 100%"   >
+
+
+    
+</div>
+
+<p>The above pictures are marble run tracks, printed on my home printer, that fit perfectly into my daughter&rsquo;s magnetic tile-based marble run toy. Admittedly, at her age, these are more for me than her, but I am also sending some of these sets to friends with kids that love magnetic tiles.</p>
+<p>I didn&rsquo;t actually design any of these parts. I used skills to pay some upfront labor in defining exactly how these parts should be constructed, and that enabled me to make incredibly simple text-based prompts, such as &ldquo;design a wide 90 degree turn that happens across a 2x2 grid instead of the typical 1x1 grid.&rdquo; From these prompts, I&rsquo;m getting perfectly snapping parts after Claude Opus 5 took 20 minutes or so to plan and execute the actual CAD modeling, which I have some prior tooling enabling that lets Claude Code render and take screenshots of models itself without any feedback from me. Sometimes Opus asks for clarification along the way, or commentary like &ldquo;Sounds like what you need is a groin vault&rdquo;, but after this &ldquo;skill building&rdquo; I&rsquo;ve done, the work is almost entirely on the AI to figure out and execute right up until the point I hit &ldquo;print&rdquo;.</p>
+<p>Because I put an hour or two into making these skills up front, as well as doing some test prints to make sure the connector parts would snap fit nicely, this became a 95% AI work task. I could spend my time just being creative and specifying what kind of tracks I wanted.</p>
+]]></description>
+                
+
+                <guid isPermaLink="false">tag:localhost:1313,2026-09-01:/modeling-skills/</guid>
+
+                
+                    <link>http://localhost:1313/modeling-skills/</link>
+                
+
+                
+                    <pubDate>Tue, 01 Sep 2026 00:00:00 UTC</pubDate>
+                
+
+                
+                    <title>Building Skills that Pay the Bills</title>
+                
+            </item>
         
             <item>
                 

@@ -13,7 +13,7 @@ tags:
     "Invention",
     "parenting",
   ]
-featured: "modeling-skills/images/featured.jpg" # could be a .mp4, YouTube URL, whatever
+featured: "modeling-skills/images/big-run-1.webp" # could be a .mp4, YouTube URL, whatever
 ---
 
 This is a quick post on how I've been using skills within Claude Code in a pretty unique, non-software domain.
@@ -22,15 +22,10 @@ Skills were a very hot topic in AI a few months ago. The engineers I know use th
 
 Let's jump to the punchline. Here is what these skills are producing:
 
-{{< image-medium
-    src="images/tracks-1.jpg"
-    alt=""
-    caption="" >}}
-
-{{< image-medium
-    src="images/tracks-2.jpg"
-    alt=""
-    caption="" >}}
+{{< round-gallery >}}
+images/just-printed-1.webp|,
+images/big-run-1.webp|
+{{< /round-gallery >}}
 
 The above pictures are marble run tracks, printed on my home printer, that fit perfectly into my daughter's magnetic tile-based marble run toy. Admittedly, at her age, these are more for me than her, but I am also sending some of these sets to friends with kids that love magnetic tiles.
 
