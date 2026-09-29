@@ -1,1 +1,4 @@
 /public/
+
+# Claude Code local junctions into .agents/skills (machine-specific, not committed)
+/.claude/skills/

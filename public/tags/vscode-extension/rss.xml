@@ -46,7 +46,7 @@
             
 
             
-                <link href="https://hockenworks.com/tags/vscode-extension/" rel="self" type="text/html"/>
+                <link href="http://localhost:1313/tags/vscode-extension/" rel="self" type="text/html"/>
             
         
             
@@ -54,7 +54,7 @@
             
 
             
-                <link href="https://hockenworks.com/tags/vscode-extension/rss.xml" rel="alternate" type="application/rss+xml"/>
+                <link href="http://localhost:1313/tags/vscode-extension/rss.xml" rel="alternate" type="application/rss+xml"/>
             
         
 
@@ -72,7 +72,7 @@
             <lastBuildDate>2025-02-13 00:00:00 +0000 UTC</lastBuildDate>
         
 
-        <link>https://hockenworks.com/tags/vscode-extension/</link>
+        <link>http://localhost:1313/tags/vscode-extension/</link>
 
         
 
@@ -118,10 +118,10 @@
 <hr>]]></description>
                 
 
-                <guid isPermaLink="false">tag:hockenworks.com,2025-02-13:/context-caddy/</guid>
+                <guid isPermaLink="false">tag:localhost:1313,2025-02-13:/context-caddy/</guid>
 
                 
-                    <link>https://hockenworks.com/context-caddy/</link>
+                    <link>http://localhost:1313/context-caddy/</link>
                 
 
                 
