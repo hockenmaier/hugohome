@@ -1,0 +1,43 @@
+{{- $src := .Get "src" -}}
+{{- $title := .Get "title" | default "Website" -}}
+{{- if not (hasPrefix $src "https://") -}}
+  {{- errorf "website-embed requires an HTTPS src: %s" .Position -}}
+{{- end -}}
+
+{{- if not (.Page.Scratch.Get "website-embed-styles") -}}
+  {{- .Page.Scratch.Set "website-embed-styles" true -}}
+  <style>
+    .website-embed { margin: 1.5rem 0; }
+    .website-embed-toolbar {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: .75rem;
+      padding: .75rem 1rem;
+      border: 1px solid #526064;
+      border-radius: .75rem .75rem 0 0;
+      background: #172126;
+    }
+    .website-embed-frame {
+      display: block;
+      width: 100%;
+      height: clamp(420px, 70vh, 780px);
+      border: 1px solid #526064;
+      border-top: 0;
+      border-radius: 0 0 .75rem .75rem;
+      background: #080d16;
+    }
+    .website-embed figcaption { margin-top: .75rem; text-align: center; font-style: italic; }
+  </style>
+{{- end -}}
+
+<figure class="website-embed">
+  <div class="website-embed-toolbar">
+    <strong>{{ $title }}</strong>
+    <a class="btn btn-outline-light btn-sm" href="{{ $src }}" target="_blank" rel="noopener noreferrer">Open {{ $title }} in a new tab ↗</a>
+  </div>
+  {{/* Keep the session alive while reading; the existing lazy-iframe manager unloads offscreen games. */}}
+  <iframe class="website-embed-frame" src="{{ $src }}" title="{{ $title }} — interactive game" loading="lazy" allow="fullscreen" allowfullscreen></iframe>
+  {{ with .Get "caption" }}<figcaption>{{ . }}</figcaption>{{ end }}
+</figure>

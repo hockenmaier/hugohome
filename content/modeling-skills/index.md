@@ -1,6 +1,10 @@
 ---
 title: "Building Skills that Pay the Bills"
 date: 2026-09-01
+url: "/preview/modeling-skills/"
+_build:
+  list: never
+  render: always
 categories: ["builds"]
 tags:
   [

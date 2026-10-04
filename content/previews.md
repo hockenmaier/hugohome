@@ -20,3 +20,6 @@ _build:
   render: always # still write the HTML file
 
 -->
+
+- [Two Big Technology Updates for Game Dev](/preview/two-big-technology-updates-for-game-dev/)
+- [Building Skills that Pay the Bills](/preview/modeling-skills/)

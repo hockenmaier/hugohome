@@ -18,6 +18,21 @@ Hugo site in `G:\projects\hugohome`, theme `paige`, deployed to
 
 ## Writing content
 
+### Feature branches for new articles
+
+Before adding a new article, inspect the current branch and working-tree changes.
+Create and switch to a feature branch from `master`, using a name such as
+`codex/article-<slug>`. Reuse the current feature branch when it already contains
+the same article work. If the article work has already begun on `master`, create
+the feature branch in place so those edits carry over. Preserve unrelated edits
+and do not reset or stash them automatically.
+
+Keep the article, its assets, and related template or skill changes together on
+that branch. Stage specific source paths; `public/` is the deployment worktree
+and must not be swept into a source commit, even if files there are tracked by
+the parent repository. Keep review builds out of `public/`. Merge to `master`
+when the user requests publication or explicitly requests the merge.
+
 Put a new content tree with an `index.md` file plus the article's images into
 `/content`. Copy the front matter from a similar article, then give it a unique
 title, tags, date (and `publishDate` if it differs), and a category of
