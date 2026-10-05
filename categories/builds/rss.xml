@@ -423,7 +423,6 @@
 
 </div>
 
-<p><em>Balloon Fighter with Jev-powered computer players</em></p>
 <p>What you&rsquo;re seeing here is me fighting some computer players that I very quickly wired up to understand the current state of any given game screen, as well as some basic facts like what&rsquo;s in front and behind them, where other players are in relation to them, that kind of thing. Keep in mind that Jev is still a text-input-only model, so we&rsquo;re trying to give it 2D data as text. Not only are we giving it all that general data, but every call gets every detail for every computer player, and this happens:</p>
 <ul>
 <li>every time a player goes above another player</li>
