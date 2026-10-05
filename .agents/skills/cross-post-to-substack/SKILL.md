@@ -1,204 +1,145 @@
 ---
 name: cross-post-to-substack
 description: >-
-  Cross-post the latest deployed hockenworks.com article to Substack as a draft.
-  Use when the user says things like "cross-post to substack", "post my latest
-  article to substack", "put the new article on substack", or right after running
-  ./deploy.sh. Copies the live article's full body (text + images) into a new
-  Substack Article draft, sets the title, and stops at the draft for the user to
-  review and publish.
+  Prepare a Substack email draft from a verified live Hockenworks article.
+  Copy full rendered narrative articles or the rendered build stub from
+  substack-snippets, preserve formatting and linked Hockenworks banners,
+  use the same featured image, and leave the saved composer for manual submission.
+  Use for Hockenworks cross-post requests or the post-deployment publishing workflow.
 ---
 
-# Cross-post the latest article to Substack
+# Prepare a Hockenworks Substack draft
 
-This automates the manual cross-post the user used to do by hand:
-deploy → wait for the new article on the homepage → open it → copy the full
-content → paste into a new Substack post.
+Publication: `https://brianhockenmaier.substack.com/`.
+Source snippet builder: `https://hockenworks.com/substack-snippets/`.
+Link-back banner asset: `https://hockenworks.com/images/hockenworks-linkback.png`.
 
-It drives the browser via the **Claude-in-Chrome** extension (`mcp__Claude_in_Chrome__*`).
-The technique below was recorded live from the user's actual workflow and verified
-end-to-end (title + full body with all images came across cleanly).
+The article must already be live and verified by the
+[hockenworks-site publishing workflow](../hockenworks-site/references/publishing-workflow.md).
+Use the exact public article URL passed by that workflow. A request specifically
+to cross-post an already-live article can start here after checking that article.
+Do not cross-post hidden previews or guess from today's date/newest homepage item.
 
-## Preconditions
+## Decide between the full article and a build stub
 
-- The article is already **deployed and live** (the user runs `./deploy.sh` first).
-  This skill does NOT deploy — it assumes the new post is already on hockenworks.com.
-- The Chrome extension is connected (`list_connected_browsers` returns a browser).
-- The user is already **logged into Substack** (publication: `brianhockenmaier.substack.com`).
+Read the actual article; its taxonomy is a useful hint, not the only criterion.
 
-## Key facts (recorded from the live site)
+- **Stub:** articles whose value includes live-hosted code, playable content,
+  iframe embeds, or other substantial interactions that cannot carry over to
+  Substack. Also use a stub for mostly images and discussion of an actual build
+  with little narrative. The game-dev article with Little Voyager is a stub.
+- **Full article:** long-form writing or substantial narrative whose content can
+  display meaningfully on Substack. A narrative-heavy build may qualify even if
+  its Hockenworks category is `builds`. Ordinary pictures or a YouTube video do
+  not automatically force a stub; evaluate the reader's experience.
 
-- The article body on hockenworks.com lives in `#paige-content` (a `<main>`).
-  The page also has `#paige-page-header` (title/tags/date/TOC) and
-  `#paige-page-footer` (prev-next nav + subscribe box) — **do NOT copy those**.
-- **Start at the text after the table of contents.** The TOC is `#paige-toc`
-  (a.k.a. `#TableOfContents`) and lives *inside the header*, NOT in
-  `#paige-content`. So selecting `#paige-content` already begins at the first real
-  paragraph (e.g. "When a new AI model comes out…") and excludes the TOC. Verified:
-  `#paige-content` contains no TOC list. Never widen the selection past
-  `#paige-content` or the TOC will leak in.
-- The article title is the page's `<h1>`.
-- Substack: **Create ▸ Article** opens a fresh, auto-saving draft at
-  `https://brianhockenmaier.substack.com/publish/post/{id}` with a separate
-  **Title** field, **Subtitle** field, author tag, and body ("Start writing…").
+Make this judgment without asking Brian to classify routine posts. Follow an
+explicit per-article instruction when he provides one. Record the chosen mode.
+Do not change the article's Hugo category merely to select a Substack mode.
 
-## Procedure
+## Browser and formatted transfer
 
-Run these as `mcp__Claude_in_Chrome__*` calls. Batch where possible with `browser_batch`.
+Use the current Browser/Chrome skill and its supported computer-use APIs, with
+Brian's signed-in browser. Read those instructions before browser actions. Reuse
+one browser session for source and editor so the clipboard transfer is consistent.
+Use Windows Computer Use for native UI only as permitted by the browser skills.
+Historical `mcp__Claude_in_Chrome__*` calls are not the current procedure.
 
-### 1. Find the article to cross-post
+Copy the live rendered HTML, text, links, and images, then paste as rich content.
+Do not rebuild the body from raw Markdown or type a plain-text replacement.
+Use the source page's copy controls or actual rich copy/paste through the chosen
+browser. For a full body without a copy control, use supported rendered-content
+selection. When the browser allows read-only DOM extraction and a rich-HTML
+clipboard write, that is also acceptable: read the rendered body, normalize
+relative image/link URLs in the clipboard payload outside the page, write both
+`text/html` and `text/plain`, and paste through the editor UI. Do not mutate the
+source DOM using a browser API that only allows read-only evaluation.
 
-Unless the user gives a specific URL/slug:
+The system clipboard and a browser's virtual clipboard may be different. A
+"Copied!" indicator alone does not establish that the target clipboard contains
+HTML/images. Verify the target browser's supported clipboard payload or the
+actual paste. Do not mix native Ctrl+C with a virtual paste without confirming
+that bridge works. Use the supported rich transfer instead of flattening it.
 
-1. Create a tab and `navigate` to `https://hockenworks.com`.
-2. The newest post is the first entry under the **"Latest"** heading. It is normally
-   dated **today**. Read it with `get_page_text` or a screenshot and confirm the date
-   looks current. Click its title to open the article.
-3. Confirm you landed on a single article page (URL like
-   `https://hockenworks.com/<slug>/`). Capture the slug and the `<h1>` title — you'll
-   reuse the title in Substack.
+## Stub source
 
-If the user named a specific article, navigate straight to
-`https://hockenworks.com/<slug>/` instead.
+1. Open the live snippet builder through computer use. Locate the block whose
+   title/link matches the exact public article; do not blindly take the first.
+   Current blocks use `.substack-snippet`, `.post-summary`, and `.linkback-image`.
+2. Copy its opening summary text followed by the Hockenworks logo/banner block.
+   This short stub is the entire Substack body. Keep its links and formatting;
+   do not append the rest of the article or its interactive iframe.
+3. The current "Copy All" button copies a larger `.copy-content` block including
+   the media column and reading-time text. Select/extract `.post-summary` and
+   `.linkback-image` together when that larger payload differs from Brian's
+   requested text-then-banner stub. "Copy LinkBack" copies only the banner.
+4. Set the separate draft title to the article title. Use the article's exact
+   featured image for the Substack preview/cover, even though the stub body ends
+   in the distinct Hockenworks link-back banner.
 
-### 2. Select and copy the clean body
+## Full-article source
 
-On the article tab, set a DOM selection over `#paige-content`, then copy with a **real
-Ctrl+C keystroke** (programmatic `execCommand('copy')` is blocked without a user
-gesture, but the keystroke counts as one and copies rich HTML + images to the OS
-clipboard):
+1. Open the verified public Hockenworks article. Copy the complete rendered
+   article body, including images, captions, headings, lists, and links. The
+   body is `#paige-content`; the title is the page's `<h1>`.
+2. Keep the title for Substack's separate title field. Exclude site navigation,
+   tags/date/TOC, prev-next navigation, subscribe widgets, and Ball Machine UI.
+   Copying the whole article does not mean copying those surrounding controls.
+3. Paste the rich body and wait for Substack's image imports to complete.
+4. Preserve existing Hockenworks-labelled banners. If absent, get the exact
+   article's linked banner from the snippet builder and add it at the bottom.
+   For a long article, place occasional additional banners between major
+   sections, without duplicating ones already present. Use judgment about spacing.
+5. Resolve internal article links and asset URLs to absolute Hockenworks URLs.
+   Every Hockenworks-labelled image/banner, wherever it appears, must link to
+   this exact public article, including in the resulting email. Ordinary
+   illustrations retain their intended links.
 
-```js
-// javascript_tool on the hockenworks tab
-const content = document.querySelector('#paige-content');
-const range = document.createRange();
-range.selectNodeContents(content);
-const sel = window.getSelection();
-sel.removeAllRanges();
-sel.addRange(range);
-JSON.stringify({
-  chars: sel.toString().length,
-  imgs: content.querySelectorAll('img').length,
-  title: document.querySelector('h1').innerText
-});
-```
+## Draft, featured image, and email settings
 
-Then, **on the same tab** (it must be the focused tab):
+Reuse a previously-created draft for this article when resuming; check the
+publication's drafts/current handoff before creating a duplicate. In the
+signed-in publication UI, create an Article draft and paste into its body. Use
+observed controls; the historical entry point is Create > Article and editor
+URLs resemble `https://brianhockenmaier.substack.com/publish/post/{id}`.
 
-```
-computer { action: "key", text: "ctrl+c" }
-```
+- Match the Hockenworks title exactly. Leave the subtitle blank unless supplied.
+- Use the identical featured image from the verified Hockenworks article for
+  Substack's cover/social preview. If Substack picks the logo/banner instead,
+  correct the preview image. A correct visible card is sufficient evidence when
+  it automatically selects the intended image. Do not invent replacement art.
+- All posts are intended to send email. Prepare the draft/send options for email
+  delivery; never silently choose web-only publication. Preserve established
+  audience/section defaults, and ask only if a required choice has no clear
+  existing default. Keep existing free-access settings; do not introduce paywalls.
+- Do not set a canonical URL or generate extra copy unless Brian requests it.
+- If email options only appear later in a publishing flow, advance only through
+  clearly non-submitting steps. Leave the final Publish/Send click to Brian and
+  explicitly identify any email checkbox still requiring his action.
 
-Sanity check the returned `chars`/`imgs` are non-zero before moving on.
+## Verify the actual draft
 
-### 3. Open a new Substack Article draft
+Compare source and pasted draft visually, taking screenshots as required by the
+browser skill. Check meaningful content rather than requiring pixel-identical CSS.
 
-1. In a **separate tab**, `navigate` to `https://substack.com/home`.
-2. Click the orange **Create** button (left sidebar) → **Article** in the dropdown.
-   This opens the editor at `…/publish/post/{id}` with an empty Title and body.
-   - Faster alternative: `navigate` directly to
-     `https://brianhockenmaier.substack.com/publish?type=newsletter` (opens a new draft),
-     but the Create ▸ Article path is the verified one.
+- Title, opening, ending, paragraph order, headings, lists, emphasis, and captions
+  survived. A full article contains all intended sections; a stub contains only
+  the selected opening text and linked banner.
+- All intended images finish importing and render without broken placeholders;
+  compare their count/order with the selected source, including added banners.
+- No source-page navigation, TOC, tags, subscription form, or game UI leaked in.
+- Every Hockenworks-labelled banner links to the exact absolute public article
+  URL. Inspect the image's link in the editor; repair wrappers lost during paste.
+  Check the email preview when available to verify links survive there too.
+- The preview/featured image matches Hockenworks and email delivery is prepared.
+- The editor indicates the draft is saved. Reopen/refresh the saved draft if
+  needed to confirm persistence; do not refresh an unsaved composer.
 
-### 4. Paste the body
+Repair missing images or broken links before reporting success. For images that
+fail to import, retry that image using the editor's image UI and the original
+Hockenworks asset. Report any platform limitation accurately.
 
-1. Click into the body ("Start writing…", roughly center-left under the author tag).
-2. Press **Ctrl+V**.
-3. Wait ~4s — Substack re-uploads the pasted images to its own CDN; this takes a moment.
-4. Screenshot and confirm the body filled in and images rendered (not broken).
-
-### 5. Set the title
-
-1. Scroll to the top of the editor (the **Title** field sits above the body).
-2. Click the Title field and `type` the article's `<h1>` text (from step 2).
-3. Leave the **Subtitle** blank unless the user wants one. (The site doesn't carry a
-   subtitle into this flow; ask the user if they'd like one generated from the article's
-   intro.)
-
-### 6. Add the hockenworks link-back image at the bottom
-
-Every cross-post ends with the **"read and play this post on hockenworks"** banner
-image, linked back to the original hockenworks article. The source is the
-**Substack Snippet Builder** page, which renders one snippet per post, newest-first:
-`https://hockenworks.com/substack-snippets/`.
-
-Each post's link-back block looks like this (note the URLs are **relative**):
-
-```html
-<div class="linkback-image" id="linkback-content">
-  <a href="/<slug>/"><img src="/images/hockenworks-linkback.png" alt="Link back to post"></a>
-</div>
-```
-
-The banner image asset is `https://hockenworks.com/images/hockenworks-linkback.png`.
-
-Steps:
-
-1. In a tab, `navigate` to `https://hockenworks.com/substack-snippets/`. The post being
-   cross-posted is normally the **top** block (newest-first). The page has a
-   **"Copy LinkBack"** button per post, but only the topmost one is actually wired up
-   (the buttons share a duplicate `id`), which conveniently is the newest post.
-2. Copy the link-back block **with absolute URLs** so the link survives being pasted onto
-   substack.com. Do NOT rely on the page's relative `/…` URLs (they'd resolve against
-   substack.com and break). Rewrite them to absolute first, then select + real Ctrl+C:
-
-   ```js
-   // javascript_tool on the substack-snippets tab. Set slug to the article being posted.
-   const slug = '/ai-can-3d-model/';
-   const blocks = [...document.querySelectorAll('#linkback-content, .linkback-image')];
-   const block = blocks.find(b => b.querySelector(`a[href*="${slug}"]`)) || blocks[0];
-   block.querySelectorAll('a[href]').forEach(a => a.href = new URL(a.getAttribute('href'), 'https://hockenworks.com').href);
-   block.querySelectorAll('img[src]').forEach(i => i.src = new URL(i.getAttribute('src'), 'https://hockenworks.com').href);
-   const range = document.createRange(); range.selectNodeContents(block);
-   const sel = window.getSelection(); sel.removeAllRanges(); sel.addRange(range);
-   JSON.stringify({ href: block.querySelector('a')?.href, img: block.querySelector('img')?.src });
-   ```
-   Confirm the returned `href` is `https://hockenworks.com/<slug>/` and `img` is the
-   absolute `…/images/hockenworks-linkback.png`. Then, on that focused tab:
-   `computer { action: "key", text: "ctrl+c" }`.
-3. Back in the Substack draft, click at the **very end of the body** (below the last
-   paragraph), press Enter for a fresh line, then Ctrl+V to paste the banner.
-4. **Verify the link.** Click the pasted image and confirm it links to
-   `https://hockenworks.com/<slug>/`. If Substack dropped the link or kept it relative,
-   add it manually: select the image, open the editor's link control, and set the URL to
-   the full `https://hockenworks.com/<slug>/`.
-
-### 7. Stop at the draft — do NOT publish
-
-Publishing is public, outward-facing content. **Always stop here.** Substack auto-saves
-("Saved" indicator, top-left). Report the draft URL
-(`https://brianhockenmaier.substack.com/publish/post/{id}`) and let the user review,
-choose section/audience, and click **Publish** themselves — or only publish if they
-explicitly tell you to in chat.
-
-## Verification checklist
-
-- [ ] Title matches the article's `<h1>`.
-- [ ] Body starts at the real first paragraph (no title/TOC/tags duplicated at top).
-- [ ] All images rendered in the Substack body (compare image count to step 2's `imgs`).
-- [ ] No homepage nav / "Subscribe" footer / prev-next links pasted at the end.
-- [ ] The "read and play this post on hockenworks" link-back banner is at the **very
-      bottom** of the post.
-- [ ] That banner image links to the absolute `https://hockenworks.com/<slug>/` of this
-      exact article (not relative, not a different/older post).
-
-## Troubleshooting
-
-- **Paste landed but images are broken / missing.** Substack occasionally fails to
-  import a hot-linked image. Re-copy (step 2) and re-paste, or insert the missing
-  image manually via the editor's image button using the `https://hockenworks.com/...`
-  source URL.
-- **Ctrl+C copied nothing.** The article tab must be the *focused* tab when you send
-  the keystroke, and the selection must be set first (step 2). Re-run the JS selection
-  immediately before the Ctrl+C.
-- **Wrong/old article.** The "Latest" list is newest-first; if the top item isn't dated
-  today the deploy may not have propagated yet — reload hockenworks.com after a minute,
-  or ask the user for the slug.
-- **Link-back banner pasted but not clickable / links to the wrong place.** Substack
-  sometimes strips the `<a>` wrapper from a pasted image. Fix it manually: click the
-  banner image, open the link control, and set it to `https://hockenworks.com/<slug>/`.
-  This is why step 6 absolutizes the URL before copying — relative `/<slug>/` hrefs
-  resolve against substack.com and 404.
-- **Optional (SEO):** to avoid duplicate-content penalties you can set the Substack
-  post's canonical URL to the hockenworks original under post Settings. Not part of the
-  user's manual flow — only do this if asked.
+Leave the saved draft open, preserving its tab through the browser's supported
+handoff/deliverable mechanism. Return its direct URL and remaining manual submit
+step. Never click final Publish/Send as part of this workflow. Only a later,
+explicit instruction changing this submission scope can authorize that action.

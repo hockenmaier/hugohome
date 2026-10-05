@@ -115,50 +115,58 @@ _build:
 List the preview link on the previews page (`content/previews.md`) as
 `[/preview/<slug>/](/preview/<slug>/)`.
 
-## Publishing to hockenworks.com
+## Publishing an article
 
-Run `./deploy.sh`, or run its commands individually for more control: `hugo`,
-then in `public/`: `git add --all`, `git commit`, `git push origin gh-pages
---force`.
+"Publish this article" means publish the specified article immediately on
+Hockenworks, verify it live, then prepare Substack, Twitter/X, and LinkedIn
+composers for Brian to submit manually. It does not submit those external posts
+or send the Substack email. Merely preparing an article or discussing this
+workflow does not start publication.
 
-### Fresh content isn't showing up
+Read [the publishing workflow](references/publishing-workflow.md) when the user
+requests article publication. Ask early for Brian's one- or two-sentence social
+announcement if he has not supplied it; continue independent site publication
+while awaiting that text. Use the same supplied text for Twitter/X and LinkedIn
+unless Brian provides separate versions.
 
-If new content isn't on hockenworks.com, or you `cd public` and see it isn't on
-the `gh-pages` branch:
+## Deploying previews or other site changes
 
-1. Remove the `/public` folder, or run `hugo --cleanDestinationDir` (same effect
-   as deleting `public` and rebuilding).
-2. `git worktree list` — you'll see something like
-   `…/projects/hugohome/public  1234abcd [gh-pages]`.
-3. `git worktree prune` to remove the stale worktree record.
-4. `git worktree add public gh-pages` to re-add it fresh.
-5. `hugo` in the root directory to recreate `/public`.
+An explicit request to deploy an unlisted preview keeps its preview URL and
+`_build` settings. Preview deployment does not start cross-posting.
+
+Before running `./deploy.sh`, check that `public/` resolves to its own Git
+worktree on `gh-pages`, and that the build uses `https://hockenworks.com/` as its
+base URL. The script builds, stages, commits, and pushes generated files. When
+running its commands individually, check each result; only "nothing to commit"
+is an acceptable no-op. Do not ignore other commit failures.
+
+### Fresh content is not showing up
+
+Check the intended live URL, GitHub Pages deployment state, and the `public/`
+worktree before rebuilding. Use `git worktree list` and inspect the worktree's
+branch and local changes. Preserve changes before repairing a stale checkout;
+do not delete a dirty deployment worktree or its `.git` metadata as a first
+step. Keep review builds in a temporary destination so they do not alter the
+deployment worktree.
 
 ### Cloudflare SSL/DNS error after publishing
 
-Check GitHub Pages. If DNS clears but there's a TLS error saying something like
-"1 out of 3, attempting again in 15 minutes": go to Cloudflare → hockenworks →
-DNS settings, **turn off the proxy for ~15 minutes**, and check whether the TLS
-clears on GitHub Pages. Then turn the proxies back on.
+Inspect GitHub Pages and Cloudflare DNS/TLS status. The recorded recovery is to
+temporarily disable Cloudflare's proxy while GitHub Pages provisions TLS, then
+restore it. Diagnose first and apply this only when the current user-authorized
+repair scope covers the DNS change.
 
-## Publishing to Substack
+## Cross-post drafts
 
-Use the **`cross-post-to-substack`** skill for the mechanics (it copies the live
-article body into a fresh Substack draft and stops there for review).
+After the specified public article and homepage featured image pass live
+verification, use [cross-post-to-substack](../cross-post-to-substack/SKILL.md)
+for the full-article versus stub decision and formatted email draft, and
+[cross-post-to-social](../cross-post-to-social/SKILL.md) for Twitter/X and
+LinkedIn. These skills own their platform-specific rules; do not substitute a
+blanket full-article copy procedure.
 
-What goes across:
-
-- **Build post** — copy the whole snippet including images, and link the
-  hockenworks logo back to the post URL.
-- **Writing post** (or a particularly wordy build post that suits Substack —
-  use judgement) — copy just the linkback logo, a few places around the article.
-  Change any links to other articles back to hockenworks.com links.
-
-Snippets for both live at `https://hockenworks.com/substack-snippets/`.
-
-**Rationale:** builds are full of things that might not work on a blog-only
-platform like Substack. This is already true of "This website", "Raspberry Pi
-Control Panel" (which hilariously rotates Substack), and "GPT4 solar system",
-and it already misses more intricate image layouts, which are more common in
-build posts. Since Substack is a blogging platform, blog content lives there in
-full and everything else is hockenworks-only.
+Leave all prepared external composers open with the remaining Publish/Post/Send
+action for Brian. Substack drafts should be prepared for email delivery. Every
+platform uses the article's featured image; Twitter/X and LinkedIn normally
+obtain it from the article link card. Record draft URLs and handoff tabs so the
+workflow can resume without creating duplicates.
