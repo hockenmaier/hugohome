@@ -3,6 +3,7 @@ title: "GPT-6, ChatGPT Sites, and Jev for Gamedev"
 date: 2026-10-04
 aliases: ["/preview/two-big-technology-updates-for-game-dev/"]
 featured: "/gpt-6-chatgpt-sites-and-jev-for-gamedev/images/little-voyager.png"
+featured_position: "left top"
 categories: ["builds"]
 tags:
   [
@@ -50,8 +51,6 @@ I am very excited for this new Jev model and its immediate clones. As someone wh
 So I signed up for this thing the day it was announced and got access that weekend and did a few experiments... but the coolest experiment was using LLM-level general intelligence to implement an actually quite smart NPC AI for my [balloon battle game that I posted about previously](/balloon-fight/).
 
 {{< paige/youtube video="YFoZiwIbjEM" description="Balloon Fighter with Jev-powered computer players" >}}
-
-_Balloon Fighter with Jev-powered computer players_
 
 What you're seeing here is me fighting some computer players that I very quickly wired up to understand the current state of any given game screen, as well as some basic facts like what's in front and behind them, where other players are in relation to them, that kind of thing. Keep in mind that Jev is still a text-input-only model, so we're trying to give it 2D data as text. Not only are we giving it all that general data, but every call gets every detail for every computer player, and this happens:
 

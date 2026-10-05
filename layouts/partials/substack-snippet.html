@@ -89,7 +89,7 @@
         <a href="{{ $canonical }}"><div class="media-placeholder"></div></a>
 
       {{ else if in $raw "<img" }}
-        <a href="{{ $canonical }}"><img src="{{ $src }}" alt="{{ $p.Title }}" style="width:100%; height:100%; object-fit:cover;"></a>
+        <a href="{{ $canonical }}"><img src="{{ $src }}" alt="{{ $p.Title }}" style="width:100%; height:100%; object-fit:cover; object-position:{{ $p.Params.featured_position | default `top center` }};"></a>
 
       {{ else }}
         <a href="{{ $canonical }}"><div class="media-placeholder"></div></a>
