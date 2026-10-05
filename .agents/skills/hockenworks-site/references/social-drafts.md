@@ -1,17 +1,7 @@
----
-name: cross-post-to-social
-description: >-
-  Prepare Twitter/X and LinkedIn post composers for a verified live Hockenworks
-  article using Brian's supplied one- or two-sentence announcement plus the
-  article link. Verify the featured-image link card and leave each composer open
-  for Brian to submit manually. Use after article publication or when explicitly
-  asked to prepare Hockenworks social drafts.
----
-
 # Prepare Hockenworks Twitter/X and LinkedIn drafts
 
 Start after the exact public article and its homepage featured image pass the
-[hockenworks-site live check](../hockenworks-site/references/publishing-workflow.md).
+[hockenworks-site live check](publishing-workflow.md).
 Use the public article URL, never its unlisted preview or the homepage.
 
 ## Copy and identity
@@ -37,11 +27,9 @@ switch to a company page or another account.
 
 ## Prepare each composer through computer use
 
-Use the current Browser/Chrome skill and the signed-in browser that serves the
-task. Read and follow its supported APIs, clipboard, permissions, screenshot,
-and handoff guidance. Use Windows Computer Use for native UI only as permitted
-by those skills. Inspect current controls instead of depending on fixed screen
-coordinates or obsolete browser tools.
+Follow [the shared browser workflow](browser-workflow.md). Use available browser
+or computer-use capabilities and the signed-in session for the intended account.
+Inspect current controls instead of depending on fixed screen coordinates.
 
 Reuse an existing draft/composer from this publication run before creating a new
 one. Open the platform's observed compose/start-post control, enter the supplied
@@ -60,7 +48,7 @@ platform limitation instead of claiming that an unseen card was verified.
 
 Check that the composer contains Brian's exact text and correct article link,
 with no duplicate text, extra hashtags, or unintended audience/account changes.
-Capture the finished composer as required by the browser skill.
+Capture the finished composer using the available visual-verification tools.
 
 Leave the final Post/Publish action for Brian. Preserve each filled composer tab
 using the selected browser's supported handoff/deliverable mechanism. Save as a

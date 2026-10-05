@@ -5,7 +5,9 @@ description: >-
   Copy full rendered narrative articles or the rendered build stub from
   substack-snippets, preserve formatting and linked Hockenworks banners,
   use the same featured image, and leave the saved composer for manual submission.
-  Use for Hockenworks cross-post requests or the post-deployment publishing workflow.
+  Use for explicit Hockenworks-to-Substack requests or the Substack drafting step
+  of the hockenworks-site workflow. This skill does not deploy the site or prepare
+  Twitter/X or LinkedIn posts.
 ---
 
 # Prepare a Hockenworks Substack draft
@@ -14,11 +16,11 @@ Publication: `https://brianhockenmaier.substack.com/`.
 Source snippet builder: `https://hockenworks.com/substack-snippets/`.
 Link-back banner asset: `https://hockenworks.com/images/hockenworks-linkback.png`.
 
-The article must already be live and verified by the
-[hockenworks-site publishing workflow](../hockenworks-site/references/publishing-workflow.md).
-Use the exact public article URL passed by that workflow. A request specifically
-to cross-post an already-live article can start here after checking that article.
-Do not cross-post hidden previews or guess from today's date/newest homepage item.
+When invoked by the site publishing workflow, use its verified public article
+URL and completed live check. For a standalone Substack request, verify the
+specified already-live article directly; do not invoke the publishing workflow
+or redeploy the site. If the article is still an unlisted preview, report that
+it needs publication first. Do not guess from today's date/newest homepage item.
 
 ## Decide between the full article and a build stub
 
@@ -39,27 +41,11 @@ Do not change the article's Hugo category merely to select a Substack mode.
 
 ## Browser and formatted transfer
 
-Use the current Browser/Chrome skill and its supported computer-use APIs, with
-Brian's signed-in browser. Read those instructions before browser actions. Reuse
-one browser session for source and editor so the clipboard transfer is consistent.
-Use Windows Computer Use for native UI only as permitted by the browser skills.
-Historical `mcp__Claude_in_Chrome__*` calls are not the current procedure.
-
-Copy the live rendered HTML, text, links, and images, then paste as rich content.
-Do not rebuild the body from raw Markdown or type a plain-text replacement.
-Use the source page's copy controls or actual rich copy/paste through the chosen
-browser. For a full body without a copy control, use supported rendered-content
-selection. When the browser allows read-only DOM extraction and a rich-HTML
-clipboard write, that is also acceptable: read the rendered body, normalize
-relative image/link URLs in the clipboard payload outside the page, write both
-`text/html` and `text/plain`, and paste through the editor UI. Do not mutate the
-source DOM using a browser API that only allows read-only evaluation.
-
-The system clipboard and a browser's virtual clipboard may be different. A
-"Copied!" indicator alone does not establish that the target clipboard contains
-HTML/images. Verify the target browser's supported clipboard payload or the
-actual paste. Do not mix native Ctrl+C with a virtual paste without confirming
-that bridge works. Use the supported rich transfer instead of flattening it.
+Follow [the shared browser workflow](../hockenworks-site/references/browser-workflow.md)
+using the tools available to the current agent. Copy live rendered HTML, text,
+links, and images and paste as rich content. Do not rebuild the body from raw
+Markdown or replace the formatted body with plain text. Verify the actual paste,
+including imported images, before continuing.
 
 ## Stub source
 
@@ -119,8 +105,8 @@ URLs resemble `https://brianhockenmaier.substack.com/publish/post/{id}`.
 
 ## Verify the actual draft
 
-Compare source and pasted draft visually, taking screenshots as required by the
-browser skill. Check meaningful content rather than requiring pixel-identical CSS.
+Compare source and pasted draft visually with the available screenshot/preview
+tools. Check meaningful content rather than requiring pixel-identical CSS.
 
 - Title, opening, ending, paragraph order, headings, lists, emphasis, and captions
   survived. A full article contains all intended sections; a stub contains only

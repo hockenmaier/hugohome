@@ -72,16 +72,14 @@ failure, and resume from live verification after repair.
 
 ## Prepare drafts and hand off
 
-Use the Browser/Chrome skills for website computer use and the signed-in browser
-that serves this task. Follow their current supported APIs, clipboard, screenshot,
-login, and tab-handoff guidance. Use Windows Computer Use when native UI work is
-required and permitted by those skills. Do not reuse obsolete Claude-in-Chrome
-commands from historical instructions.
+Follow [the shared browser workflow](browser-workflow.md) using the browser and
+computer-use capabilities available to the current agent. Keep the same article
+identity and verified live URL throughout the remaining steps.
 
 - Follow [cross-post-to-substack](../../cross-post-to-substack/SKILL.md): choose
   a build stub or full narrative, copy the live rendered content with formatting,
   check images and Hockenworks link-back banners, and prepare email delivery.
-- Follow [cross-post-to-social](../../cross-post-to-social/SKILL.md): prepare
+- Follow [the social drafting reference](social-drafts.md): prepare
   Twitter/X and LinkedIn with Brian's supplied text and the public article link.
 - Leave each composer saved/open as close to manual submission as that platform
   supports. Do not claim an unsaved composer is a durable draft. Preserve the

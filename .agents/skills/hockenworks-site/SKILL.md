@@ -12,17 +12,33 @@ description: >-
 
 # Hockenworks site — writing, running, publishing
 
-Hugo site in `G:\projects\hugohome`, theme `paige`, deployed to
-`hockenworks.com` via the `gh-pages` branch checked out as a git worktree at
-`public/`.
+This repository is the Hugo site for `hockenworks.com`, using the `paige` theme.
+Commands run from the repository root. Generated output is deployed via the
+`gh-pages` branch checked out as a Git worktree at `public/`.
+
+## Workflow ownership
+
+This is the entry point for article authoring, previews, site deployment, and
+"publish this article". It owns the order of the publishing workflow and the
+live-site checks. Twitter/X and LinkedIn drafting is part of this skill; read
+[the social drafting reference](references/social-drafts.md) at that step, or
+for a direct request to prepare those drafts for an already-live article.
+
+The existing [cross-post-to-substack skill](../cross-post-to-substack/SKILL.md)
+owns Substack content selection, rich transfer, email preparation, and draft
+verification. Invoke it when the site workflow reaches that step, or for a
+specific Substack-only request. A direct cross-post request for an already-live
+article does not invoke a merge or redeployment. Preview-only deployment does
+not start either cross-posting path. Brian's explicit per-article directions
+override routine defaults in these repository skills.
 
 ## Writing content
 
 ### Feature branches for new articles
 
 Before adding a new article, inspect the current branch and working-tree changes.
-Create and switch to a feature branch from `master`, using a name such as
-`codex/article-<slug>`. Reuse the current feature branch when it already contains
+Create and switch to a feature branch from `master`, with a descriptive name
+based on the article slug. Reuse the current feature branch when it already contains
 the same article work. If the article work has already begun on `master`, create
 the feature branch in place so those edits carry over. Preserve unrelated edits
 and do not reset or stash them automatically.
@@ -161,9 +177,9 @@ repair scope covers the DNS change.
 After the specified public article and homepage featured image pass live
 verification, use [cross-post-to-substack](../cross-post-to-substack/SKILL.md)
 for the full-article versus stub decision and formatted email draft, and
-[cross-post-to-social](../cross-post-to-social/SKILL.md) for Twitter/X and
-LinkedIn. These skills own their platform-specific rules; do not substitute a
-blanket full-article copy procedure.
+[the social drafting reference](references/social-drafts.md) for Twitter/X and
+LinkedIn. Keep platform-specific rules in those documents; do not duplicate
+Substack rules here or substitute a blanket full-article copy procedure.
 
 Leave all prepared external composers open with the remaining Publish/Post/Send
 action for Brian. Substack drafts should be prepared for email delivery. Every
