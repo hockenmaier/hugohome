@@ -1,0 +1,1856 @@
+
+
+<!doctype html>
+
+
+
+
+
+
+<html  data-bs-theme="dark"  data-paige="Paige theme from https://github.com/willfaught/paige"   lang="en-us" >
+
+    <link rel="stylesheet" href="https://hockenworks.com/css/custom.css">
+    <base href="https://hockenworks.com/" />
+<script>
+  window.assetBase = "https:\/\/hockenworks.com\/";
+</script>
+          
+
+<head>
+   
+
+<meta charset="utf-8">
+
+
+
+
+
+
+    <meta content="AI, AI Images, builds, Experimental, Game Development, html, javascript, Multiplayer, Rapid Prototyping, software, Unity, Video Games" name="keywords">
+
+
+<meta content="#0d1213" name="msapplication-TileColor">
+
+
+    <meta content="/browserconfig.xml" name="msapplication-config">
+
+
+<meta content="https://github.com/willfaught/paige" name="theme">
+<meta content="#0d1213" name="theme-color">
+<meta content="width=device-width, initial-scale=1" name="viewport">
+
+<meta property="og:url" content="https://hockenworks.com/gpt-6-chatgpt-sites-and-jev-for-gamedev/">
+  <meta property="og:site_name" content="hockenworks">
+  <meta property="og:title" content="GPT-6, ChatGPT Sites, and Jev for Gamedev">
+  <meta property="og:description" content="I’m going to show you two experiments in game dev I’ve been working on for the past few weeks:
+One through a new service called ChatGPT Sites, which uses ChatGPT Work to actually launch a website and host it publicly for you. A very cool implementation of Jev, the new decision making model from TypeSafe, where I replace my algorithmic computer AI with actual AI.">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:published_time" content="2026-10-04T00:00:00+00:00">
+    <meta property="article:modified_time" content="2026-10-04T00:00:00+00:00">
+    <meta property="article:tag" content="Game Development">
+    <meta property="article:tag" content="AI">
+    <meta property="article:tag" content="Unity">
+    <meta property="article:tag" content="Multiplayer">
+    <meta property="article:tag" content="Video Games">
+    <meta property="article:tag" content="AI Images">
+
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="GPT-6, ChatGPT Sites, and Jev for Gamedev">
+  <meta name="twitter:description" content="I’m going to show you two experiments in game dev I’ve been working on for the past few weeks:
+One through a new service called ChatGPT Sites, which uses ChatGPT Work to actually launch a website and host it publicly for you. A very cool implementation of Jev, the new decision making model from TypeSafe, where I replace my algorithmic computer AI with actual AI.">
+
+
+
+
+
+
+
+    <meta property="og:image" content="https://hockenworks.com/gpt-6-chatgpt-sites-and-jev-for-gamedev/images/little-voyager.png">
+    <meta name="twitter:image" content="https://hockenworks.com/gpt-6-chatgpt-sites-and-jev-for-gamedev/images/little-voyager.png">
+
+ 
+  <title>GPT-6, ChatGPT Sites, and Jev for Gamedev · hockenworks</title>
+   
+
+
+    <link href="https://hockenworks.com/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180">
+
+
+
+    <link href="https://hockenworks.com/favicon.ico" rel="shortcut icon">
+
+
+
+    <link href="https://hockenworks.com/favicon.png" rel="icon" type="image/png">
+
+
+
+    <link href="https://hockenworks.com/favicon.svg" rel="icon" type="image/svg+xml">
+
+
+
+    <link href="https://hockenworks.com/favicon-16x16.png" rel="icon" sizes="16x16" type="image/png">
+
+
+
+    <link href="https://hockenworks.com/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png">
+
+
+
+    <link color="#0d1213" href="https://hockenworks.com/safari-pinned-tab.svg" rel="mask-icon">
+
+
+
+    <link href="https://hockenworks.com/site.webmanifest" rel="manifest">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+    
+        
+        
+        
+    
+
+    
+        
+    
+
+    
+    
+    
+
+
+<link  crossorigin="anonymous"  href="https://hockenworks.com/css/paige/bootstrap/14cce8f10c43f734971f8d33cd5a57c329fab6fd-paige.min.ba752813461039a2da7687b2d396a2e0accb36226a66e88bc2e3a08fdaa08b95.css"  integrity="sha256-unUoE0YQOaLadoey05ai4KzLNiJqZuiLwuOgj9qgi5U="   referrerpolicy="no-referrer"  rel="stylesheet">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+    
+
+    
+
+    
+    
+    
+
+
+<link  crossorigin="anonymous"  href="https://hockenworks.com/css/paige/bootstrap-icons/bootstrap-icons.min.540116b7267d4b2410c74086ae6497566928c6d5715900be7ce7279ad45addcd.css"  integrity="sha256-VAEWtyZ9SyQQx0CGrmSXVmkoxtVxWQC&#43;fOcnmtRa3c0="   referrerpolicy="no-referrer"  rel="stylesheet">
+
+
+
+
+
+ 
+
+<style>
+
+
+.paige-figure-numbered {
+    counter-increment: paige-figure-numbered;
+}
+
+.paige-figure-numbered > div > figure > figcaption::before {
+    content: "Figure " counter(paige-figure-numbered) ": ";
+}
+
+.paige-figure-numbered > div > figure > figcaption:empty::before {
+    content: "Figure " counter(paige-figure-numbered);
+}
+
+.paige-header-link {
+    opacity: 0;
+    margin-left: 0.5rem;
+    position: absolute;
+    transition: color 0.15s ease-in-out, opacity 0.15s ease-in-out;
+}
+
+.paige-header-link::after {
+    content: "#";
+}
+
+.paige-quote .blockquote-footer {
+    margin-top: 0;
+}
+
+.paige-quote blockquote {
+    border-left: 0;
+    border-right: 0;
+    margin-bottom: 0;
+    padding: 0;
+}
+
+blockquote {
+    padding: 0.5rem 1rem;
+    border-left: 0.25rem solid var(--bs-border-color);
+    border-right: 0.25rem solid var(--bs-body-bg);
+}
+
+td,
+th {
+    padding: 0.25rem;
+}
+
+.highlight .chroma .hl,
+.highlight .chroma .lnt {
+    display: flex;
+}
+
+.paige-row-narrow:not(:last-child),
+.paige-figure .paige-quote,
+.paige-figure .paige-video,
+.paige-figure .highlight pre.chroma,
+.paige-figure .highlight .chroma pre,
+.paige-figure .paige-quote blockquote,
+.paige-figure figure > div > :last-child,
+.paige-gallery .paige-figure,
+.paige-gallery .paige-image,
+blockquote > p:last-of-type {
+    margin-bottom: 0;
+}
+
+.paige-figure,
+.paige-gallery,
+.paige-image,
+.paige-quote,
+.paige-row-narrow:last-child,
+.paige-row-wide,
+.paige-video,
+#paige-content > *,
+table {
+    margin-bottom: 1rem;
+}
+
+.paige-header-link:focus,
+.paige-header-link:hover,
+:hover > .paige-header-link,
+:target > .paige-header-link {
+    opacity: 1;
+}
+
+
+
+
+    /* Background */ .bg { color: #c9d1d9; background-color: var(--bs-body-bg); }
+/* PreWrapper */ .chroma { color: #c9d1d9; background-color: var(--bs-body-bg); }
+/* Other */ .chroma .x {  }
+/* Error */ .chroma .err { color: #f85149 }
+/* CodeLine */ .chroma .cl {  }
+/* LineLink */ .chroma .lnlinks { outline: none; text-decoration: none; color: inherit }
+/* LineTableTD */ .chroma .lntd { vertical-align: top; padding: 0; margin: 0; border: 0; }
+/* LineTable */ .chroma .lntable { border-spacing: 0; padding: 0; margin: 0; border: 0; }
+/* LineHighlight */ .chroma .hl { background-color: #4f4f4d }
+/* LineNumbersTable */ .chroma .lnt { white-space: pre; user-select: none; margin-right: 0.4em; padding: 0 0.4em 0 0.4em;color: #64686c }
+/* LineNumbers */ .chroma .ln { white-space: pre; user-select: none; margin-right: 0.4em; padding: 0 0.4em 0 0.4em;color: #6e7681 }
+/* Line */ .chroma .line { display: flex; }
+/* Keyword */ .chroma .k { color: #ff7b72 }
+/* KeywordConstant */ .chroma .kc { color: #79c0ff }
+/* KeywordDeclaration */ .chroma .kd { color: #ff7b72 }
+/* KeywordNamespace */ .chroma .kn { color: #ff7b72 }
+/* KeywordPseudo */ .chroma .kp { color: #79c0ff }
+/* KeywordReserved */ .chroma .kr { color: #ff7b72 }
+/* KeywordType */ .chroma .kt { color: #ff7b72 }
+/* Name */ .chroma .n {  }
+/* NameAttribute */ .chroma .na {  }
+/* NameBuiltin */ .chroma .nb {  }
+/* NameBuiltinPseudo */ .chroma .bp {  }
+/* NameClass */ .chroma .nc { color: #f0883e; font-weight: bold }
+/* NameConstant */ .chroma .no { color: #79c0ff; font-weight: bold }
+/* NameDecorator */ .chroma .nd { color: #d2a8ff; font-weight: bold }
+/* NameEntity */ .chroma .ni { color: #ffa657 }
+/* NameException */ .chroma .ne { color: #f0883e; font-weight: bold }
+/* NameFunction */ .chroma .nf { color: #d2a8ff; font-weight: bold }
+/* NameFunctionMagic */ .chroma .fm {  }
+/* NameLabel */ .chroma .nl { color: #79c0ff; font-weight: bold }
+/* NameNamespace */ .chroma .nn { color: #ff7b72 }
+/* NameOther */ .chroma .nx {  }
+/* NameProperty */ .chroma .py { color: #79c0ff }
+/* NameTag */ .chroma .nt { color: #7ee787 }
+/* NameVariable */ .chroma .nv { color: #79c0ff }
+/* NameVariableClass */ .chroma .vc {  }
+/* NameVariableGlobal */ .chroma .vg {  }
+/* NameVariableInstance */ .chroma .vi {  }
+/* NameVariableMagic */ .chroma .vm {  }
+/* Literal */ .chroma .l { color: #a5d6ff }
+/* LiteralDate */ .chroma .ld { color: #79c0ff }
+/* LiteralString */ .chroma .s { color: #a5d6ff }
+/* LiteralStringAffix */ .chroma .sa { color: #79c0ff }
+/* LiteralStringBacktick */ .chroma .sb { color: #a5d6ff }
+/* LiteralStringChar */ .chroma .sc { color: #a5d6ff }
+/* LiteralStringDelimiter */ .chroma .dl { color: #79c0ff }
+/* LiteralStringDoc */ .chroma .sd { color: #a5d6ff }
+/* LiteralStringDouble */ .chroma .s2 { color: #a5d6ff }
+/* LiteralStringEscape */ .chroma .se { color: #79c0ff }
+/* LiteralStringHeredoc */ .chroma .sh { color: #79c0ff }
+/* LiteralStringInterpol */ .chroma .si { color: #a5d6ff }
+/* LiteralStringOther */ .chroma .sx { color: #a5d6ff }
+/* LiteralStringRegex */ .chroma .sr { color: #79c0ff }
+/* LiteralStringSingle */ .chroma .s1 { color: #a5d6ff }
+/* LiteralStringSymbol */ .chroma .ss { color: #a5d6ff }
+/* LiteralNumber */ .chroma .m { color: #a5d6ff }
+/* LiteralNumberBin */ .chroma .mb { color: #a5d6ff }
+/* LiteralNumberFloat */ .chroma .mf { color: #a5d6ff }
+/* LiteralNumberHex */ .chroma .mh { color: #a5d6ff }
+/* LiteralNumberInteger */ .chroma .mi { color: #a5d6ff }
+/* LiteralNumberIntegerLong */ .chroma .il { color: #a5d6ff }
+/* LiteralNumberOct */ .chroma .mo { color: #a5d6ff }
+/* Operator */ .chroma .o { color: #ff7b72; font-weight: bold }
+/* OperatorWord */ .chroma .ow { color: #ff7b72; font-weight: bold }
+/* Punctuation */ .chroma .p {  }
+/* Comment */ .chroma .c { color: #8b949e; font-style: italic }
+/* CommentHashbang */ .chroma .ch { color: #8b949e; font-style: italic }
+/* CommentMultiline */ .chroma .cm { color: #8b949e; font-style: italic }
+/* CommentSingle */ .chroma .c1 { color: #8b949e; font-style: italic }
+/* CommentSpecial */ .chroma .cs { color: #8b949e; font-weight: bold; font-style: italic }
+/* CommentPreproc */ .chroma .cp { color: #8b949e; font-weight: bold; font-style: italic }
+/* CommentPreprocFile */ .chroma .cpf { color: #8b949e; font-weight: bold; font-style: italic }
+/* Generic */ .chroma .g {  }
+/* GenericDeleted */ .chroma .gd { color: #ffa198; background-color: #490202 }
+/* GenericEmph */ .chroma .ge { font-style: italic }
+/* GenericError */ .chroma .gr { color: #ffa198 }
+/* GenericHeading */ .chroma .gh { color: #79c0ff; font-weight: bold }
+/* GenericInserted */ .chroma .gi { color: #56d364; background-color: #0f5323 }
+/* GenericOutput */ .chroma .go { color: #8b949e }
+/* GenericPrompt */ .chroma .gp { color: #8b949e }
+/* GenericStrong */ .chroma .gs { font-weight: bold }
+/* GenericSubheading */ .chroma .gu { color: #79c0ff }
+/* GenericTraceback */ .chroma .gt { color: #ff7b72 }
+/* GenericUnderline */ .chroma .gl { text-decoration: underline }
+/* TextWhitespace */ .chroma .w { color: #6e7681 }
+
+
+
+@media (prefers-reduced-motion: reduce) {
+    .paige-header-link {
+        transition: none;
+    }
+}
+
+
+
+
+</style>
+  
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-MERHV2TNYE"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-MERHV2TNYE');
+</script>
+ 
+</head>
+
+    <body>
+
+        
+
+        <div class="container">
+            <div class="row">
+                <div class="col mt-3" id="paige-site">
+                    
+
+                    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+    
+  
+
+
+
+  <header id="paige-site-header">
+    
+
+    
+      <div class="display-1 fw-bold  paige-row-wide text-center" id="paige-site-title">hockenworks</div>
+    
+
+    
+
+    
+      <nav aria-label="Menu" class="paige-row-wide" id="paige-menu">
+        <ul class="align-items-center justify-content-center nav  nav-pills ">
+          
+
+          
+          <li class="nav-item">
+            <a class="nav-link " href="https://hockenworks.com/">home</a>
+          </li>
+
+          
+            
+            <li class="nav-item">
+              <a class="nav-link " href="https://hockenworks.com/categories/builds/">builds</a>
+            </li>
+            
+            
+            <li class="nav-item">
+              <a class="nav-link " href="https://hockenworks.com/categories/writing/">writing</a>
+            </li>
+            
+
+            
+          <li class="nav-item">
+            <a class="nav-link " href="https://hockenworks.com/tags/">tags</a>
+          </li>
+
+          
+          <li class="nav-item">
+            <a class="nav-link " href="https://hockenworks.com/this-website/">this site</a>
+          </li>
+
+          
+          <li class="nav-item">
+            <a class="nav-link " href="https://hockenworks.com/about-me/">about me / top posts</a>
+          </li>
+          
+        </ul>
+      </nav>
+    
+
+
+    
+
+    
+  </header>
+
+
+                    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+    
+        
+    
+
+
+
+
+<article class="paige-kind-page paige-published" id="paige-page">
+    <div class="align-items-center d-flex flex-column">
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <header class="mw-100" id="paige-page-header">
+        <div class="align-items-center d-flex flex-column">
+            
+
+            
+                
+                    <h1 class="fw-bold" id="paige-page-title">GPT-6, ChatGPT Sites, and Jev for Gamedev</h1>
+                
+            
+
+            
+
+            
+                <div id="paige-metadata">
+                    
+                        <p class=" paige-row-narrow  text-center  text-secondary " id="paige-keywords">
+                            <a class="link-secondary paige-keyword paige-keyword-tag" href="https://hockenworks.com/tags/ai/">AI</a> · <a class="link-secondary paige-keyword paige-keyword-tag" href="https://hockenworks.com/tags/ai-images/">AI Images</a> · <a class="link-secondary paige-keyword paige-keyword-category" href="https://hockenworks.com/categories/builds/">Builds</a> · <a class="link-secondary paige-keyword paige-keyword-tag" href="https://hockenworks.com/tags/experimental/">Experimental</a> · <a class="link-secondary paige-keyword paige-keyword-tag" href="https://hockenworks.com/tags/game-development/">Game Development</a> · <a class="link-secondary paige-keyword paige-keyword-tag" href="https://hockenworks.com/tags/html/">HTML</a> · <a class="link-secondary paige-keyword paige-keyword-tag" href="https://hockenworks.com/tags/javascript/">Javascript</a> · <a class="link-secondary paige-keyword paige-keyword-tag" href="https://hockenworks.com/tags/multiplayer/">Multiplayer</a> · <a class="link-secondary paige-keyword paige-keyword-tag" href="https://hockenworks.com/tags/rapid-prototyping/">Rapid Prototyping</a> · <a class="link-secondary paige-keyword paige-keyword-tag" href="https://hockenworks.com/tags/software/">Software</a> · <a class="link-secondary paige-keyword paige-keyword-tag" href="https://hockenworks.com/tags/unity/">Unity</a> · <a class="link-secondary paige-keyword paige-keyword-tag" href="https://hockenworks.com/tags/video-games/">Video Games</a>
+                        </p>
+                    
+
+                    
+
+                    
+
+                    
+                        <p class="paige-row-narrow text-center text-secondary" id="paige-date">
+                            <time datetime="2026-10-04">October 4, 2026</time>
+                        </p>
+                    
+
+                    
+
+
+                    
+                </div>
+            
+
+            
+
+            
+            
+        </div>
+    </header>
+
+
+
+        
+        <main class="mw-100" id="paige-content">
+            
+            <p>I&rsquo;m going to show you two experiments in game dev I&rsquo;ve been working on for the past few weeks:</p>
+<ol>
+<li>One through a new service called ChatGPT Sites, which uses ChatGPT Work to actually launch a website and host it publicly for you.</li>
+<li>A very cool implementation of Jev, the <a href="https://typesafe.ai/blog/introducing-system-one-models-and-jev">new decision making model from TypeSafe</a>, where I replace my algorithmic computer AI with actual AI.</li>
+</ol>
+<h2 id="gpt-6-and-chatgpt-sites">GPT-6 and ChatGPT Sites<a aria-label="Link to this section" class="paige-header-link" href="https://hockenworks.com/gpt-6-chatgpt-sites-and-jev-for-gamedev/#gpt-6-and-chatgpt-sites"></a></h2>
+<p>I need to talk about this new feature of ChatGPT called &ldquo;Sites&rdquo;. The premise is that you can just talk to ChatGPT and it will make a full website for you and deploy it on the internet for others to see.</p>
+<p>But they&rsquo;re not just websites with CSS, HTML, and JavaScript: they can actually have a full backend, and ChatGPT will set up a SQLite database for you to track user data. There are services out there like this, but none so easy that you can literally chat and make a website, including database features, and have it just work out of the box. It&rsquo;s really quite incredible to work with.</p>
+<p>For my first experiment with it, since GPT-6 Astra had just released, I decided to honor my tradition of testing the major GPT versions by building a dynamic solar system simulation like I did for <a href="https://hockenworks.com/gpt-4-solar-system/">GPT-4</a> and <a href="https://hockenworks.com/gpt5/#exhibit-a-a-new-solar-system">GPT-5</a>. So I built a solar system simulation, better than ever, but this time it&rsquo;s not just a moving-to-scale simulation with some pretty graphics. It&rsquo;s also a full game where you can fly around and truly experience the scale of the solar system via a life-size astronaut and spaceship with highly unrealistic engine power and navigation mechanisms.</p>
+<p><em>And it&rsquo;s multiplayer!</em> It was weirdly easy to implement multiplayer, and I know it&rsquo;s not great multiplayer, not super optimized, and other characters are jittery when they appear on your screen. But I cannot believe I just built and deployed a multiplayer game just by using my voice and didn&rsquo;t have to debug any netcode myself at all.</p>
+<p>Check it out for yourself. If you&rsquo;re curious about space or have a child who is curious about the scale of the solar system and what it would be like to actually fly around it, I encourage you to try it with them.</p>
+<style>
+    .website-embed { margin: 1.5rem 0; }
+    .website-embed-toolbar {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: .75rem;
+      padding: .75rem 1rem;
+      border: 1px solid #526064;
+      border-radius: .75rem .75rem 0 0;
+      background: #172126;
+    }
+    .website-embed-frame {
+      display: block;
+      width: 100%;
+      height: clamp(420px, 70vh, 780px);
+      border: 1px solid #526064;
+      border-top: 0;
+      border-radius: 0 0 .75rem .75rem;
+      background: #080d16;
+    }
+    .website-embed figcaption { margin-top: .75rem; text-align: center; font-style: italic; }
+  </style><figure class="website-embed">
+  <div class="website-embed-toolbar">
+    <strong>Little Voyager</strong>
+    <a class="btn btn-outline-light btn-sm" href="https://little-voyager.hockenmaier.chatgpt.site/" target="_blank" rel="noopener noreferrer">Open Little Voyager in a new tab ↗</a>
+  </div>
+  
+  <iframe class="website-embed-frame" src="https://little-voyager.hockenmaier.chatgpt.site/" title="Little Voyager — interactive game" loading="lazy" allow="fullscreen" allowfullscreen></iframe>
+  <figcaption>Try it out here though it&#39;s better fullscreen.  Zoom in and out to see the full scale of the solar system, and then actually fly through it and land on other planets!</figcaption>
+</figure>
+
+<h2 id="jev-decision-making-ai-and-the-rise-of-promptable-game-bots">Jev, decision-making AI and the rise of promptable game bots.<a aria-label="Link to this section" class="paige-header-link" href="https://hockenworks.com/gpt-6-chatgpt-sites-and-jev-for-gamedev/#jev-decision-making-ai-and-the-rise-of-promptable-game-bots"></a></h2>
+<p>Experiment number two was with something I just had to try immediately.</p>
+<p>I am very excited for this new Jev model and its immediate clones. As someone who has been building with LLMs basically since the ChatGPT moment, I have seen the evolution from &ldquo;write some code&rdquo; or &ldquo;write an essay&rdquo; to &ldquo;make these tool calls and give me these structured responses&rdquo;, as we progress from fun gimmicky chatbots to true automation. It just turns out most of the time what we actually want from LLMs is their smarts and not their verbiage. If we now get models with near frontier level intelligence but 100 times faster and cheaper structured responses, it could be a revelation for our AI apps.</p>
+<p>So I signed up for this thing the day it was announced and got access that weekend and did a few experiments&hellip; but the coolest experiment was using LLM-level general intelligence to implement an actually quite smart NPC AI for my <a href="https://hockenworks.com/balloon-fight/">balloon battle game that I posted about previously</a>.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+<div class="paige-youtube">
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="paige-video ratio ratio-16x9" >
+    
+
+
+
+
+
+
+<iframe  allowfullscreen   referrerpolicy="no-referrer-when-downgrade"   src="https://www.youtube.com/embed/YFoZiwIbjEM?hl=en-us&amp;modestbranding=1"   title="Balloon Fighter with Jev-powered computer players" ></iframe>
+
+</div>
+
+</div>
+
+<p><em>Balloon Fighter with Jev-powered computer players</em></p>
+<p>What you&rsquo;re seeing here is me fighting some computer players that I very quickly wired up to understand the current state of any given game screen, as well as some basic facts like what&rsquo;s in front and behind them, where other players are in relation to them, that kind of thing. Keep in mind that Jev is still a text-input-only model, so we&rsquo;re trying to give it 2D data as text. Not only are we giving it all that general data, but every call gets every detail for every computer player, and this happens:</p>
+<ul>
+<li>every time a player goes above another player</li>
+<li>every time a player gets a power-up</li>
+<li>every time a player gets their balloon popped</li>
+<li>if none of this has happened for 2 seconds, every 2 seconds</li>
+</ul>
+<p>Then Jev decides what each of the up to seven computer players will do, within about 200 ms of me asking.</p>
+<p>The coolest part is difficulty is set by prompt! These range from player-by-player instructions to be extremely cautious, to aggressive to downright reckless - and those prompts totally change the behaviour of the bots as I play against them!</p>
+<p>With not too much tuning, this is how they are performing. In some cases they are beating me at my own game!</p>
+<p>I should say I have also experimented with some of the unofficial clones that run locally off Jev, and they are nowhere near as good or as fast. We&rsquo;ll see if we get Jev-like model competition, but for now this thing is in a class of its own.</p>
+<p>Just a very cool experiment. Hard to believe we are here, getting frontier-level decisions in just a few hundred milliseconds, fast enough to give real-time inputs in a video game.</p>
+            </main>
+            
+
+        
+
+
+
+
+
+
+
+
+
+    
+
+    
+
+
+
+    <footer class="mw-100" id="paige-page-footer">
+        
+
+        
+
+        
+            <div id="paige-siblings">
+                
+                    <div class="paige-row-narrow text-center text-secondary" id="paige-next"><a class="link-secondary" href="https://hockenworks.com/ai-can-3d-model/">Fable could really 3D model</a> &rsaquo;</div>
+                
+
+                
+            </div>
+        
+
+       
+       
+<div style="
+    width: 360px;
+    margin: 2em auto;
+    text-align: center;
+">
+  <p style="color: #6c757d; margin: 0 0 0.5em;">Subscribe for Email Updates via Substack</p>
+  <div style="
+      height: 50px;
+      overflow: hidden;
+      border-radius: 0.5rem;
+  ">
+    <iframe
+      src="https://brianhockenmaier.substack.com/embed"
+      width="500"
+      height="110"
+      style="border:0; width: calc(100% + 140px); margin-left: -70px; display: block;"
+      frameborder="0"
+      scrolling="no"
+    ></iframe>
+  </div>
+</div>
+
+
+
+        
+    </footer>
+
+
+    </div>
+</article>
+  
+
+
+
+
+
+
+
+
+
+
+    
+    
+
+
+
+    
+
+
+
+    
+
+
+
+    
+
+
+
+    
+
+
+
+    
+
+
+
+    
+
+
+
+    
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+
+                    
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+
+
+    <footer id="paige-site-footer">
+        
+
+        
+
+        
+
+        
+            <p class="paige-row-narrow text-center text-secondary" id="paige-credit">© 2026 Brian Hockenmaier. All rights reserved.</p>
+        
+
+        
+    </footer>
+
+
+
+                    
+                </div>
+            </div>
+        </div>
+
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+    
+
+
+<script  crossorigin="anonymous"   defer  integrity="sha256-lX&#43;ULWAvPVhH6ZIQfjfpD61jOifETLc9RAMCMqtgfeQ="   referrerpolicy="no-referrer"  src="https://hockenworks.com/js/paige/bootstrap/bootstrap.bundle.min.957f942d602f3d5847e992107e37e90fad633a27c44cb73d44030232ab607de4.js" ></script>
+
+
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+    
+
+
+
+    
+
+
+
+    
+
+
+
+    
+
+
+
+    
+
+
+
+    
+
+
+
+    
+
+
+
+    
+
+
+
+    
+
+
+
+    
+
+
+
+    
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+<noscript>JavaScript is required</noscript>
+
+
+        <script src="https://hockenworks.com/js/image-popup.js"></script>
+        <script src="https://hockenworks.com/js/embed-manager.js"></script>
+
+        
+
+        
+            <script>
+                var goalTexture = 'https:\/\/hockenworks.com\/images\/goal.png';
+            </script>        
+            <script>
+                var coinCostURL = 'https:\/\/hockenworks.com\/images\/coin-cost.png';
+            </script>                 
+            <script src="https://hockenworks.com/js/matter.min.js"></script>
+            <script src="https://hockenworks.com/js/gsap.min.js"></script>
+            <script src="https://hockenworks.com/js/matter-wrap.min.js"></script>
+            <script src="https://hockenworks.com/js/ball-machine-app.js"></script>
+            <script src="https://hockenworks.com/js/base-simulation.js"></script>            
+            <script src="https://hockenworks.com/js/gear-config.js"></script>
+            <script src="https://hockenworks.com/js/persistent.js"></script>
+            <script src="https://hockenworks.com/js/text.js"></script>
+            <script src="https://hockenworks.com/js/base-drawing-tool.js"></script>
+            <script src="https://hockenworks.com/js/line-interaction.js"></script>
+            <script src="https://hockenworks.com/js/input-manager.js"></script>
+            <script src="https://hockenworks.com/js/notifications.js"></script>
+            <script src="https://hockenworks.com/js/extra-effects.js"></script>
+            <script src="https://hockenworks.com/js/lines.js"></script>
+            <script src="https://hockenworks.com/js/dotted-line.js"></script>
+            <script src="https://hockenworks.com/js/curved-line.js"></script>
+            <script src="https://hockenworks.com/js/launcher.js"></script>
+            <script src="https://hockenworks.com/js/compactor-config.js"></script>
+            <script src="https://hockenworks.com/js/launcher-create.js"></script>
+            <script src="https://hockenworks.com/js/compactor-create.js"></script>
+            <script src="https://hockenworks.com/js/compactor.js"></script>
+            <script src="https://hockenworks.com/js/bubblewand-config.js"></script>
+            <script src="https://hockenworks.com/js/bubblewand-create.js"></script>
+            <script src="https://hockenworks.com/js/bubblewand.js"></script>
+            <script src="https://hockenworks.com/js/gear-create.js"></script>
+            <script src="https://hockenworks.com/js/gear.js"></script>
+            <script src="https://hockenworks.com/js/game.js"></script>
+            <script src="https://hockenworks.com/js/goal.js"></script>
+            <script src="https://hockenworks.com/js/spawner.js"></script>
+            <script src="https://hockenworks.com/js/ui-updater.js"></script>
+            <script src="https://hockenworks.com/js/powerup-progression.js"></script>
+            <script src="https://hockenworks.com/js/achievements.js"></script>
+            
+<style>
+   
+  #spawner-container {
+    position: absolute;
+    top: 20px;
+     
+    z-index: 10000;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  #spawner-container img {
+    cursor: pointer;
+  }
+   
+  #coin-info {
+    position: absolute;
+    right: 100%;  
+    top: 50%;  
+    transform: translate(-10px, -50%);  
+    text-align: right;
+    font-size: 12px;
+    color: gold;
+    width: 150px;  
+    white-space: nowrap;  
+  }
+  #coin-info div {
+    margin: 2px 0;
+  }
+
+  .cost-label img,
+  #coin-info img {
+    width: 12px;
+    height: 12px;
+    margin-right: 0px;
+    margin-left: 0px;
+  }
+   
+  .spawner-arrow {
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+  }
+  .upgrade-icon {
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+  }
+   
+  #ballfall-ui {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    display: none;
+    flex-direction: column;
+    gap: 5px;  
+    z-index: 10000;
+    font-family: sans-serif;
+    font-size: 7px;
+    max-width: 200px;
+  }
+  #clearBallsBtn {
+    margin: 0 auto;  
+  }
+   
+  #spawner-container {
+    position: absolute;
+    top: 0px;
+    z-index: 10000;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  #spawner-container img {
+    cursor: pointer;
+  }
+   
+  .spawner-arrow {
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    display: none;
+  }
+  .upgrade-icon {
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+  }
+  #ball-spawner {
+    width: 60px;
+    height: 90px;
+  }
+   
+   
+  .bfui-button {
+    background: rgba(0, 0, 0, 0.4);
+    border: 1px solid #555;
+    color: #ddd;
+    padding: 4px 6px;
+    font-size: 12px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;  
+    text-decoration: none;  
+    transition: transform 0.1s ease;
+    width: 100%;  
+    box-sizing: border-box;  
+  }
+  .bfui-button:active {
+    transform: scale(0.95);
+  }
+  .bfui-icon {
+    margin-right: 4px;
+  }
+  #bfui-drop-rate-label {
+    font-size: 10px;
+    color: #aaa;
+  }
+  #bfui-drop-rate-value {
+    font-size: 10px;
+    color: #fff;
+    font-weight: bold;
+  }
+  #bfui-drop-rate-wrapper {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    width: 100%;
+    gap: 5px;
+    margin-bottom: 2px;
+  }
+
+  .bfui-clear-wrapper {
+    display: flex;
+    gap: 3px;
+    width: 100%;
+  }
+  .bfui-half {
+    flex: 1;
+    font-size: 10px;
+  }
+  #bfui-image {
+    display: block;
+    width: 80%;
+    max-width: 60px;
+    margin: 0 auto 5px auto;  
+  }
+  #line-mode-toggle {
+    display: flex;
+    flex-wrap: wrap;      
+    gap: 10px;
+    margin-top: 10px;
+    justify-content: center;
+  }
+
+  .line-toggle {
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    border: 2px solid transparent;
+    border-radius: 4px;
+  }
+  .line-toggle.selected {
+    border-color: #59ffa7;
+  }
+   
+  #coins-display,
+  #revenue-display {
+    display: none;
+  }
+   
+  .cost-label {
+      font-size: 10px;
+      color: #aaa;
+      text-align: center;
+      margin-top: 2px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 2px;  
+  }
+  .cost-label img {
+      width: 10px;  
+      height: 10px;
+  }
+   
+  .toggle-wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+  }
+   
+  #bfui-help-link {
+       
+      margin-top: 0;  
+  }
+
+  #ball-spawner {
+    opacity: 0.7;
+  }
+
+  #coin-info div {
+    text-shadow: 1.5px 1.5px 2px rgba(5, 10, 54, 0.9),
+      -1px -1px 3px rgba(34, 30, 92, 0.9);
+  }
+
+
+  @media (max-width: 720px) {
+    
+    #bfui-drop-rate-wrapper {
+      flex-direction: column;
+      align-items: flex-start;
+      margin-top: -2px;
+    }
+    #bfui-drop-rate-label {
+      display: none;
+    }
+  }
+</style>
+
+
+<div id="spawner-container">
+  
+  <div id="coin-info" style="display: none">
+    <div id="achievement-link" style="cursor:pointer;">
+      <img src="https://hockenworks.com/images/achievement-yes.png" style="width:12px;height:12px;margin-right:2px;" alt="Achievements" />
+      <span id="achievement-counter">0/27</span>
+    </div>
+    <div id="global-coins-display">
+      
+      0 coins
+    </div>
+    <div id="thispage-revenue-display">
+      
+      This page: 0 /s
+    </div>
+    <div id="otherpages-revenue-display">
+      
+      Other pages: 0 /s
+    </div>
+  </div>
+  <img src="https://hockenworks.com/images/ball-chute-hatch-1.png" id="ball-spawner"
+  alt="Ball Spawner" />
+  
+  <div
+    id="autoClicker-wrapper"
+    style="display: inline-block; text-align: center"
+  >
+    <img src="https://hockenworks.com/images/auto-clicker.png" id="autoClicker"
+    class="upgrade-icon" alt="Auto Clicker" style="display:none;" />
+    
+    <div id="autoClickerCost" class="cost-label" style="display: none">
+      <img src="https://hockenworks.com/images/coin-cost.png" alt="Coin" /> 200
+    </div>
+  </div>
+</div>
+
+
+<div id="ballfall-ui">
+  <img src="https://hockenworks.com/images/ball-machine.png" id="bfui-image" alt="Ball
+  Machine" />
+  
+  <button class="bfui-button" id="clearBallsBtn">
+    <span class="bfui-label">Erase Balls</span>
+  </button>
+  
+  <a href="https://hockenworks.com/this-website/#how-to-play" class="bfui-button" id="bfui-help-link" target="_blank" rel="noopener noreferrer">
+      <span class="bfui-label">Help & Reset</span>
+  </a>
+  
+  <div id="bfui-drop-rate-wrapper">
+    <span id="bfui-drop-rate-label">Drop Rate:</span>
+    <span id="bfui-drop-rate-value">N/A</span>
+  </div>
+  
+  
+  <div
+    id="toggle-container"
+    style="display: block; padding: 5px 0; border: 2px solid transparent" /* Adjusted padding */
+  >
+    <div id="line-mode-toggle">
+      
+      <div class="toggle-wrapper">
+        <img src="https://hockenworks.com/images/dotted-line-mode.png"
+        id="toggleDotted" class="line-toggle" alt="Dotted Line" />
+        <div class="cost-label">Free</div>
+      </div>
+      
+      <div class="toggle-wrapper">
+        <img src="https://hockenworks.com/images/line-mode.png" id="toggleStraight"
+        class="line-toggle" alt="Straight Line" />
+        <div class="cost-label">
+          <img src="https://hockenworks.com/images/coin-cost.png" alt="Coin" /> 5
+        </div>
+      </div>
+      
+      <div class="toggle-wrapper">
+        <img src="https://hockenworks.com/images/curve-mode.png" id="toggleCurved"
+        class="line-toggle" alt="Curved Line" />
+        <div class="cost-label">
+          <img src="https://hockenworks.com/images/coin-cost.png" alt="Coin" /> 50
+        </div>
+      </div>
+      
+      <div class="toggle-wrapper">
+        <img src="https://hockenworks.com/images/gear-clockwise-mode.png"
+             id="toggleGearCW" class="line-toggle" alt="Gear CW">
+        <div class="cost-label">
+          <img src="https://hockenworks.com/images/coin-cost.png" alt="Coin"> 300
+        </div>
+      </div>
+      
+      <div class="toggle-wrapper">
+        <img src="https://hockenworks.com/images/gear-counterclockwise-mode.png"
+             id="toggleGearCCW" class="line-toggle" alt="Gear CCW">
+        <div class="cost-label">
+          <img src="https://hockenworks.com/images/coin-cost.png" alt="Coin"> 300
+        </div>
+      </div>
+      
+      <div class="toggle-wrapper">
+        <img src="https://hockenworks.com/images/DKannon250-mode.png"
+        id="toggleLauncher" class="line-toggle" alt="Launcher" />
+        <div class="cost-label">
+          <img src="https://hockenworks.com/images/coin-cost.png" alt="Coin" /> 2K
+        </div>
+      </div>
+      <div class="toggle-wrapper">
+        <img src="https://hockenworks.com/images/DKannon250-fast-mode.png"
+        id="toggleFastLauncher" class="line-toggle" alt="Fast Launcher" />
+        <div class="cost-label">
+          <img src="https://hockenworks.com/images/coin-cost.png" alt="Coin" /> 10K
+        </div>
+      </div>
+      <div class="toggle-wrapper">
+        <img src="https://hockenworks.com/images/DKannon250-insta-mode.png"
+        id="toggleInstaLauncher" class="line-toggle" alt="Insta Launcher" />
+        <div class="cost-label">
+          <img src="https://hockenworks.com/images/coin-cost.png" alt="Coin" /> 50K
+        </div>
+      </div>
+      
+      <div class="toggle-wrapper">
+        <img src="https://hockenworks.com/images/compactor-mode.png"
+        id="toggleCompactor" class="line-toggle" alt="Compactor" />
+        <div class="cost-label">
+          <img src="https://hockenworks.com/images/coin-cost.png" alt="Coin" /> 1M
+        </div>
+      </div>
+      
+      <div class="toggle-wrapper">
+        <img src="https://hockenworks.com/images/bubblewand-mode.png"
+             id="toggleBubbleWand" class="line-toggle" alt="Bubble Wand">
+        <div class="cost-label">
+          <img src="https://hockenworks.com/images/coin-cost.png" alt="Coin"> 5M
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <script>
+    
+    (function () {
+      if (window.App && window.App.modules && window.App.modules.lines) {
+        window.App.modules.lines.setMode("none");
+      }
+    })();
+
+    (function () {
+      const clearBallsBtn = document.getElementById("clearBallsBtn"),
+        achievementLink = document.getElementById("achievement-link"),
+        dropRateValue = document.getElementById("bfui-drop-rate-value"),
+        dottedBtn = document.getElementById("toggleDotted"),
+        straightBtn = document.getElementById("toggleStraight"),
+        curvedBtn = document.getElementById("toggleCurved"),
+        launcherBtn = document.getElementById("toggleLauncher"),
+        fastLauncherBtn = document.getElementById("toggleFastLauncher"),
+        instaLauncherBtn = document.getElementById("toggleInstaLauncher"),
+        compactorBtn = document.getElementById("toggleCompactor"),
+        gearCWBtn     = document.getElementById("toggleGearCW"),
+        gearCCWBtn    = document.getElementById("toggleGearCCW"),
+        bubbleWandBtn = document.getElementById("toggleBubbleWand");
+      const FLASH_DURATION = 100,
+        FLASH_TIMES = 6;
+
+      function updateDropRateDisplay() {
+        if (
+          !window.BallFall ||
+          typeof window.BallFall.spawnInterval === "undefined"
+        ) {
+          dropRateValue.textContent = "N/A";
+          return;
+        }
+        const interval = window.BallFall.spawnInterval,
+          bps = 1000 / interval;
+        dropRateValue.textContent =
+          bps < 1 ? `every ${(1 / bps).toFixed(1)}s` : `${bps.toFixed(1)}/s`;
+      }
+      clearBallsBtn.addEventListener("click", (e) => {
+        e.stopPropagation(); 
+        window.BallFall.clearBalls();
+      });
+
+      if (achievementLink) {
+        achievementLink.addEventListener("click", (e) => {
+          const tool = window.getActiveTool ? window.getActiveTool() : null;
+          if (tool && tool.state && tool.state !== 0) {
+            e.preventDefault();
+            e.stopPropagation();
+            if (typeof tool.cancel === "function") tool.cancel();
+            return;
+          }
+          window.open('/this-website/#achievements', '_blank');
+        });
+      }
+
+      
+
+      function setActive(newMode, launcherType) {
+        const prevMode = window.App.modules.lines.getMode();
+        document
+          .querySelectorAll(".line-toggle")
+          .forEach((btn) => btn.classList.remove("selected"));
+
+        
+        window.notifyToggleChange(
+          prevMode,
+          newMode,
+          FLASH_DURATION,
+          FLASH_TIMES
+        );
+
+        
+        if (newMode !== 'launcher') window.LauncherCreateTool.selectedType = null;
+        if (newMode !== 'gear')      window.GearCreateTool.selectedType     = null;
+        
+
+
+        if (
+          newMode === "dotted" ||
+          newMode === "straight" ||
+          newMode === "curved"
+        ) {
+          if (newMode === "dotted") dottedBtn.classList.add("selected");
+          else if (newMode === "straight")
+            straightBtn.classList.add("selected");
+          else if (newMode === "curved") curvedBtn.classList.add("selected");
+          window.App.modules.lines.setMode(newMode);
+        } else if (newMode === "launcher") {
+          if (!launcherType) launcherType = "launcher"; 
+          window.LauncherCreateTool.selectedType = launcherType;
+          if (launcherType === "launcher")
+            launcherBtn.classList.add("selected");
+          else if (launcherType === "fast-launcher")
+            fastLauncherBtn.classList.add("selected");
+          else if (launcherType === "insta-launcher")
+            instaLauncherBtn.classList.add("selected");
+          window.App.modules.lines.setMode("launcher");
+        } else if (newMode === "compactor") {
+            compactorBtn.classList.add("selected");
+            window.App.modules.lines.setMode("compactor");
+        } else if (newMode === "gear") {
+            if (!launcherType) launcherType = "gear-cw";        
+            window.GearCreateTool.selectedType = launcherType;
+            if (launcherType === "gear-cw") gearCWBtn.classList.add("selected");
+            else gearCCWBtn.classList.add("selected");
+            window.App.modules.lines.setMode("gear");
+        } else if (newMode === "bubble-wand") {
+          bubbleWandBtn.classList.add("selected");
+          window.App.modules.lines.setMode("bubble-wand");
+        } else {
+          
+          window.App.modules.lines.setMode("none");
+        }
+      }
+
+      dottedBtn.addEventListener("click", (e) => {
+        e.stopPropagation();
+        setActive(
+          window.App.modules.lines.getMode() === "dotted" ? "none" : "dotted"
+        );
+      });
+      straightBtn.addEventListener("click", (e) => {
+        e.stopPropagation();
+        setActive(
+          window.App.modules.lines.getMode() === "straight"
+            ? "none"
+            : "straight"
+        );
+      });
+      curvedBtn.addEventListener("click", (e) => {
+        e.stopPropagation();
+        setActive(
+          window.App.modules.lines.getMode() === "curved" ? "none" : "curved"
+        );
+      });
+      launcherBtn.addEventListener("click", (e) => {
+        e.stopPropagation();
+        const currentMode = window.App.modules.lines.getMode();
+        const currentType = window.LauncherCreateTool.selectedType;
+        setActive(
+          currentMode === "launcher" && currentType === "launcher"
+            ? "none"
+            : "launcher",
+          "launcher"
+        );
+      });
+      fastLauncherBtn.addEventListener("click", (e) => {
+        e.stopPropagation();
+         const currentMode = window.App.modules.lines.getMode();
+        const currentType = window.LauncherCreateTool.selectedType;
+        setActive(
+          currentMode === "launcher" && currentType === "fast-launcher"
+            ? "none"
+            : "launcher",
+          "fast-launcher"
+        );
+      });
+      instaLauncherBtn.addEventListener("click", (e) => {
+        e.stopPropagation();
+        const currentMode = window.App.modules.lines.getMode();
+        const currentType = window.LauncherCreateTool.selectedType;
+        setActive(
+          currentMode === "launcher" && currentType === "insta-launcher"
+            ? "none"
+            : "launcher",
+          "insta-launcher"
+        );
+      });
+      compactorBtn.addEventListener("click", (e) => { 
+        e.stopPropagation();
+        setActive(
+            window.App.modules.lines.getMode() === "compactor" ? "none" : "compactor"
+        );
+      });
+      gearCWBtn.addEventListener("click", e=>{
+        e.stopPropagation();
+        const m = App.modules.lines.getMode(), t = GearCreateTool.selectedType;
+        setActive( (m==="gear" && t==="gear-cw") ? "none" : "gear", "gear-cw");
+      });
+      gearCCWBtn.addEventListener("click", e=>{
+        e.stopPropagation();
+        const m = App.modules.lines.getMode(), t = GearCreateTool.selectedType;
+        setActive( (m==="gear" && t==="gear-ccw") ? "none" : "gear", "gear-ccw");
+      });
+      bubbleWandBtn.addEventListener("click", e => {
+        e.stopPropagation();
+        setActive(
+          App.modules.lines.getMode() === "bubble-wand"
+            ? "none"
+            : "bubble-wand"
+        );
+      });
+
+      setInterval(updateDropRateDisplay, 1000);
+      updateDropRateDisplay(); 
+    })();
+  </script>
+
+ <script>
+
+
+
+
+
+
+(function () {
+   
+  function updateAutoClickerCostDisplay () {
+    if (!App.simulationLoaded) return;
+
+    let cost;
+    if (!App.config.autoClicker) {
+      cost = App.config.autoClickerCost;
+    } else {
+      const next = App.config.maxUnlockedSpeedLevel + 1;
+      cost = App.config.speedUpgradeCosts[next];
+    }
+
+    const costEl = document.getElementById("autoClickerCost");
+    if (costEl) {
+      if (cost !== undefined) {
+        costEl.innerHTML =
+          '<img src="' +
+          coinCostURL +
+          '" alt="Coin" /> ' +
+          App.formatNumber(cost);
+        costEl.style.display = 'flex';
+      } else {
+        costEl.innerHTML = 'Max';
+        costEl.style.display = 'flex';
+      }
+    }
+
+    const btn = document.getElementById("autoClicker");
+    if (btn) {
+      if (cost === undefined && App.config.autoClicker) {
+        btn.style.cursor = 'default';
+        btn.style.opacity = '0.5';
+      } else {
+        btn.style.cursor  = 'pointer';
+        btn.style.opacity = '1';
+      }
+    }
+  }
+  App.updateAutoClickerCostDisplay = updateAutoClickerCostDisplay;
+
+   
+  function refundValue () {
+     
+    if (!App.config.autoClicker) return 0;
+
+    const lvl = App.config.maxUnlockedSpeedLevel;
+
+     
+    if (lvl === 0) {
+      return Math.ceil(App.config.autoClickerCost * App.config.refundRate);
+    }
+
+     
+    const cost = App.config.speedUpgradeCosts[lvl];
+    return Math.ceil(cost * App.config.refundRate);
+  }
+
+
+   
+  let acPreview = null;
+  function showACPreview (x, y) {
+    const amt = refundValue();
+    if (!amt) return;
+    if (!acPreview) {
+      acPreview = document.createElement('div');
+      Object.assign(acPreview.style, {
+        position: 'absolute',
+        fontWeight: 'bold',
+        fontSize: '16px',
+        color: 'gold',
+        textShadow: '1px 1px 2px black',
+        zIndex: 10000,
+        pointerEvents: 'none',
+        opacity: '0.4',
+      });
+      document.body.appendChild(acPreview);
+    }
+    acPreview.textContent = `+ ${App.formatNumber(amt)} coins`;
+    acPreview.style.left = x + 'px';
+    acPreview.style.top  = y + 'px';
+    acPreview.style.transform = 'translate(-50%,-50%)';
+  }
+  function hideACPreview () {
+    if (acPreview && acPreview.parentNode) {
+      acPreview.parentNode.removeChild(acPreview);
+      acPreview = null;
+    }
+  }
+
+   
+  const btn = document.getElementById("autoClicker");
+  if (!btn) return;
+
+   
+  btn.addEventListener("click", () => {
+    hideACPreview(); 
+    if (!App.config.autoClicker) {
+      const c = App.config.autoClickerCost;
+      if (App.config.coins < c) return window.notifyUnaffordable(100,12);
+      App.config.coins -= c;
+      App.config.autoClicker = true;
+      App.Persistence.saveAutoClicker({ purchased:true, maxSpeedLevel:0 });
+      window.BallFall.startAutoSpawner();
+    } else {
+      const next = App.config.maxUnlockedSpeedLevel + 1;
+      const c = App.config.speedUpgradeCosts[next];
+      if (c === undefined || App.config.coins < c)
+        return window.notifyUnaffordable(100,12);
+      App.config.coins -= c;
+      App.config.maxUnlockedSpeedLevel = next;
+      const ni = App.config.originalSpawnInterval / Math.pow(2, next);
+      App.config.spawnInterval = ni;
+      window.BallFall.updateSpawnInterval(ni);
+      App.Persistence.saveAutoClicker({ purchased:true, maxSpeedLevel:next });
+    }
+    App.updateCoinsDisplay();
+    updateAutoClickerCostDisplay();
+  });
+
+   
+  btn.addEventListener("contextmenu", e => {
+    e.preventDefault();
+    doRefund(e.pageX, e.pageY);
+  });
+
+   
+  ["mouseenter","mousemove"].forEach(ev =>
+    btn.addEventListener(ev, e => showACPreview(e.pageX, e.pageY)));
+  btn.addEventListener("mouseleave", hideACPreview);
+
+   
+  (function () {
+    const HOLD = App.config.lineDeleteMobileHold;
+    let tId = null;
+
+    function clear () { clearTimeout(tId); tId = null; hideACPreview(); }
+
+    btn.addEventListener("touchstart", e => {
+      if (e.touches.length !== 1) return;
+      const t = e.touches[0];
+      showACPreview(t.pageX, t.pageY);
+      tId = setTimeout(() => {
+        doRefund(t.pageX, t.pageY);
+        clear();
+      }, HOLD);
+    });
+    btn.addEventListener("touchmove",  clear);
+    btn.addEventListener("touchend",   clear);
+    btn.addEventListener("touchcancel",clear);
+
+  })();
+
+   
+  function doRefund (x, y) {
+    if (!App.config.autoClicker) return;   
+
+    let refund;
+
+     
+    if (App.config.maxUnlockedSpeedLevel === 0) {
+      refund = Math.ceil(App.config.autoClickerCost * App.config.refundRate);
+
+      App.config.autoClicker = false;                      
+      window.BallFall.stopAutoSpawner();                        
+      App.config.spawnInterval = App.config.originalSpawnInterval;
+      App.Persistence.saveAutoClicker({ purchased:false, maxSpeedLevel:0 });
+    }
+     
+    else {
+      const lvl   = App.config.maxUnlockedSpeedLevel;
+      const cost  = App.config.speedUpgradeCosts[lvl];
+      refund      = Math.ceil(cost * App.config.refundRate);
+
+      App.config.maxUnlockedSpeedLevel = lvl - 1;
+      const newInt = App.config.originalSpawnInterval / Math.pow(2, lvl - 1);
+      App.config.spawnInterval = newInt;
+      window.BallFall.updateSpawnInterval(newInt);              
+      App.Persistence.saveAutoClicker({ purchased:true, maxSpeedLevel:lvl-1 });
+    }
+
+     
+    App.config.coins += refund;
+    App.updateCoinsDisplay();
+    App.updateAutoClickerCostDisplay();
+    if (window.showRefundNotification)
+      window.showRefundNotification(refund, x, y);
+  }
+
+
+   
+  document.addEventListener("BallFallBaseReady", updateAutoClickerCostDisplay);
+})();
+</script>
+
+  
+
+</div>
+
+</div>  
+
+
+<div id="rotate-popover"
+     style="display:none;
+            position:fixed;
+            top:50%;
+            left:30%;
+            transform:translate(-20%,-50%);
+            padding:0.75rem 1rem;
+            background:rgba(0,0,0,0.8);
+            color:#fff;
+            border-radius:0.5rem;
+            font-size:16px;
+            z-index:10001;">
+  This game is best on a desktop computer with a nice big screen, but most mechanics work on mobile in a pinch.<br><br>
+  
+  For the most fun possible on mobile, disable any gestures your phone uses for your browser, rotate your phone to landscape and then reload ↩️<br><br>
+
+  Click anywhere or select a drawing tool above to dismiss this message.
+</div>
+<script>
+(function(){
+  const pop     = document.getElementById('rotate-popover');
+  const toggles = document.querySelectorAll('.line-toggle');
+
+  function hideHint(){
+    pop.style.display = 'none';
+    document.removeEventListener('click', hideHint);
+    toggles.forEach(btn => btn.removeEventListener('click', hideHint));
+  }
+
+  function showHint(){
+    if (window.innerWidth < window.innerHeight) {
+      pop.style.display = 'block';
+      document.addEventListener('click', hideHint, { once: true });
+      toggles.forEach(btn => btn.addEventListener('click', hideHint, { once: true }));
+    }
+  }
+
+  if (window.App?.simulationLoaded) {
+    showHint();
+  } else {
+    const iv = setInterval(()=>{
+      if (window.App?.simulationLoaded) {
+        clearInterval(iv);
+        showHint();
+      }
+    }, 100);
+  }
+})();
+</script>
+        
+    </body>
+</html>
